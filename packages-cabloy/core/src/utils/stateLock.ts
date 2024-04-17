@@ -1,0 +1,39 @@
+import { reactive, watch } from 'vue';
+
+export class StateLock {
+  private _state: boolean;
+
+  static create() {
+    return reactive(new StateLock()) as StateLock;
+  }
+
+  protected constructor() {
+    this._state = false;
+  }
+
+  get state() {
+    return this._state;
+  }
+
+  set state(value) {
+    this._state = value;
+  }
+
+  touch() {
+    this.state = true;
+  }
+
+  async wait() {
+    return new Promise(resolve => {
+      // condition check should place in the promise inner
+      if (this.state) return resolve(null);
+      watch(
+        () => this.state,
+        () => {
+          resolve(null);
+        },
+        { once: true },
+      );
+    });
+  }
+}

@@ -1,0 +1,1 @@
+# @cabloy/front-core

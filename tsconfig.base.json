@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "incremental": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "noEmit": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": true,
     "strict": true,
     "isolatedModules": true,
     "useDefineForClassFields": true,

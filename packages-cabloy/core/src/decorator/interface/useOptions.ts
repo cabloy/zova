@@ -1,0 +1,22 @@
+import { IBeanRecord } from '../../bean/type.js';
+import { MetadataKey } from '../../core/metadata.js';
+import { Constructable } from '../type/constructable.js';
+import { ContainerScope } from '../type/containerScope.js';
+
+export interface IDecoratorUseOptionsBase<T = unknown> {
+  prop: MetadataKey;
+  beanFullName?: string;
+  name?: string;
+  beanClass: Constructable<T>;
+  /** such as: moduleScope */
+  selector?: string;
+  containerScope?: ContainerScope;
+  markReactive?: boolean;
+}
+
+export interface IDecoratorUseOptions {
+  beanFullName?: keyof IBeanRecord;
+  name?: string;
+  selector?: string;
+  containerScope?: ContainerScope;
+}
