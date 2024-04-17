@@ -1,4 +1,4 @@
-import is from 'is-type-of';
+import isClass from 'is-class-hotfix';
 import { CabloyApplication, CabloyContext } from '../core/index.js';
 import { Constructable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
@@ -173,7 +173,7 @@ export class BeanContainer {
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
     if (!beanOptions) {
       // class
-      if (typeof beanFullName === 'function' && is.class(beanFullName)) {
+      if (typeof beanFullName === 'function' && isClass(beanFullName)) {
         return await this._createBeanInstance<T>(
           record,
           recordProp,
@@ -203,7 +203,7 @@ export class BeanContainer {
 
   private async _getBeanOptionsForce(beanFullName: any) {
     // class
-    if (typeof beanFullName === 'function' && is.class(beanFullName)) {
+    if (typeof beanFullName === 'function' && isClass(beanFullName)) {
       return appResource.getBean(beanFullName);
     }
     // check if uuid
