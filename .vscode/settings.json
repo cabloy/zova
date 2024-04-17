@@ -1,0 +1,49 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  // typescript
+  "typescript.disableAutomaticTypeAcquisition": false,
+  "typescript.format.enable": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.tsserver.useSyntaxServer": "auto",
+  "typescript.validate.enable": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.includeCompletionsForImportStatements": true,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  // eslint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  // prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // associations
+  "files.associations": {
+    "*.js.ejs": "javascript",
+    "*.css.ejs": "css",
+    "*.less.ejs": "less",
+    "*.code-snippets": "text",
+    "docker-compose-dockerfile-app": "dockerfile"
+  },
+  // search
+  "search.exclude": {
+    "/.vscode/**": true,
+    "/coverage/**": true,
+    "/docs/**": true,
+    "**/dist/**": true,
+    "/src/backend/app/**": true,
+    "/src/backend/logs/**": true,
+    "/src/backend/run/**": true,
+    "src/front/__dist,": true,
+    "src/front/__runtime,": true,
+    "**/node_modules": true
+  },
+  "search.useIgnoreFiles": false,
+  "hide-my-secrets.hideSecrets": false
+}
