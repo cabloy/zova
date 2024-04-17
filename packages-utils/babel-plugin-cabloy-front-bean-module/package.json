@@ -1,0 +1,39 @@
+{
+  "name": "babel-plugin-cabloy-front-bean-module",
+  "version": "1.0.0",
+  "description": "babel-plugin-cabloy-front-bean-module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "egg",
+    "egg-born",
+    "framework",
+    "cabloy"
+  ],
+  "author": "zhennann",
+  "devDependencies": {
+    "@cabloy/module-info": "^1.0.10",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__traverse": "^7.20.5"
+  }
+}
