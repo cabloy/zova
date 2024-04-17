@@ -36,6 +36,7 @@
     "@cabloy/localeutil": "^1.0.3",
     "@cabloy/module-info": "^1.0.10",
     "@cabloy/vue-runtime-core": "^3.4.23",
+    "@vue/reactivity":"^3.4.23",
     "is-type-of": "^1.2.0",
     "reflect-metadata": "^0.2.1",
     "uuid-random": "^1.3.2"
