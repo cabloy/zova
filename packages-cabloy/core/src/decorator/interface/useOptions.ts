@@ -21,6 +21,7 @@ export interface IDecoratorUseOptions {
   name?: string;
   selector?: string;
   containerScope?: ContainerScope;
+  markReactive?: boolean;
 }
 
 export interface IDecoratorUseHookOptions {
@@ -28,4 +29,5 @@ export interface IDecoratorUseHookOptions {
   name?: string;
   selector?: string;
   containerScope?: ContainerScope;
+  markReactive?: boolean;
 }
