@@ -96,7 +96,7 @@ export class BeanContainer {
     markReactive?: boolean,
     selector?: string,
   ): Promise<T> {
-    return await this._getBeanSelectorInner(null, beanFullName, markReactive, selector);
+    return await this._getBeanSelectorInner(null, undefined, beanFullName, markReactive, selector);
   }
 
   async _getBeanSelectorInner<T>(
@@ -123,7 +123,7 @@ export class BeanContainer {
 
   _newBeanSimple<T>(A: Constructable<T>, markReactive: boolean, ...args): T {
     // prepare
-    const beanInstance = this._prepareBeanInstance(A, A, args, false, markReactive);
+    const beanInstance = this._prepareBeanInstance(undefined, A, A, args, false, markReactive);
     // init
     if (beanInstance.__init__) {
       beanInstance.__init__(...args);
@@ -140,7 +140,7 @@ export class BeanContainer {
   ): Promise<IBeanRecord[K]>;
   async _newBean<T>(beanFullName: string, markReactive?: boolean, ...args): Promise<T>;
   async _newBean<T>(beanFullName: Constructable<T> | string, markReactive?: boolean, ...args): Promise<T> {
-    return await this._newBeanInner(false, null, null, beanFullName, markReactive, ...args);
+    return await this._newBeanInner(false, null, null, undefined, beanFullName, markReactive, ...args);
   }
 
   async _newBeanSelector<T>(A: Constructable<T>, markReactive?: boolean, selector?: string, ...args): Promise<T>;
@@ -165,11 +165,25 @@ export class BeanContainer {
     record: boolean,
     recordProp: MetadataKey | null,
     motherParams: any,
-    beanHook: Functionable,
-    beanFullName: Constructable<T> | string,
+    beanHook: Functionable | undefined,
+    beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
     ...args
   ): Promise<T> {
+    // bean hook
+    if (beanHook) {
+      return await this._createBeanInstance<T>(
+        record,
+        recordProp,
+        motherParams,
+        beanHook,
+        undefined,
+        undefined,
+        args,
+        false,
+        markReactive,
+      );
+    }
     // bean options
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
     if (!beanOptions) {
@@ -179,7 +193,8 @@ export class BeanContainer {
           record,
           recordProp,
           motherParams,
-          null,
+          undefined,
+          undefined,
           beanFullName,
           args,
           false,
@@ -194,6 +209,7 @@ export class BeanContainer {
       record,
       recordProp,
       motherParams,
+      undefined,
       beanOptions.beanFullName,
       beanOptions.beanClass as Constructable<T>,
       args,
@@ -211,7 +227,7 @@ export class BeanContainer {
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
     if (!beanOptions) {
       // not found
-      return null;
+      return undefined;
     }
     return beanOptions.beanFullName;
   }
@@ -236,40 +252,46 @@ export class BeanContainer {
     record: boolean,
     recordProp: MetadataKey | null,
     motherParams: IMotherParams,
-    beanFullName: string | null,
-    beanClass: Constructable<T>,
+    beanHook: Functionable | undefined,
+    beanFullName: string | undefined,
+    beanClass: Constructable<T> | undefined,
     args: any[],
     aop: boolean | undefined,
     markReactive: boolean | undefined,
   ): Promise<T> {
     // prepare
-    const beanInstance = this._prepareBeanInstance(beanFullName, beanClass, args, aop, markReactive);
+    const beanInstance = this._prepareBeanInstance(beanHook, beanFullName, beanClass, args, aop, markReactive);
     // special for mother
     if (motherParams) {
       beanInstance.__initMotherParams(motherParams);
     }
     // record
     if (record) {
-      // beanFullName
-      if (beanFullName) {
-        this[BeanContainerInstances][beanFullName] = beanInstance;
+      // fullName
+      const fullName = await this._getBeanFullNameByHookOrClass(beanHook, beanFullName);
+      if (fullName) {
+        this[BeanContainerInstances][fullName] = beanInstance;
       }
       // always record for app/ctx bean
       if (recordProp) {
-        this.__recordProp(recordProp, beanFullName, beanInstance, true);
+        this.__recordProp(recordProp, fullName, beanInstance, true);
       }
     }
     // init
     return await this._initBeanInstance(beanFullName, beanInstance, args);
   }
 
-  private _prepareBeanInstance(beanFullName, beanClass, args, aop, markReactive) {
+  private _prepareBeanInstance(beanHook: Functionable | undefined, beanFullName, beanClass, args, aop, markReactive) {
     // create
     let beanInstance;
-    if (beanClass.prototype.__init__) {
-      beanInstance = new beanClass();
+    if (beanHook) {
+      beanInstance = beanHook(...args);
     } else {
-      beanInstance = new beanClass(...args);
+      if (beanClass.prototype.__init__) {
+        beanInstance = new beanClass();
+      } else {
+        beanInstance = new beanClass(...args);
+      }
     }
     // app/ctx
     if (beanInstance instanceof BeanSimple) {
@@ -627,9 +649,9 @@ export class BeanContainer {
     return composeAsync(chains, this.__composeForPropAdapter);
   }
 
-  private __recordProp(recordProp, beanFullName, beanInstance, throwError: boolean) {
+  private __recordProp(recordProp, fullName: string | undefined, beanInstance, throwError: boolean) {
     if (this[BeanContainerInstances][recordProp] && throwError) {
-      throw new Error(`prop exsits: ${recordProp.toString()}, ${beanFullName}`);
+      throw new Error(`prop exsits: ${recordProp.toString()}, ${fullName}`);
     }
     if (!this[BeanContainerInstances][recordProp]) {
       this[BeanContainerInstances][recordProp] = beanInstance;
