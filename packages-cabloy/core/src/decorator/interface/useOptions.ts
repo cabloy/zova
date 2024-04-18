@@ -24,7 +24,7 @@ export interface IDecoratorUseOptions {
 }
 
 export interface IDecoratorUseHookOptions {
-  beanHook: Functionable;
+  beanHook?: Functionable;
   name?: string;
   selector?: string;
   containerScope?: ContainerScope;
