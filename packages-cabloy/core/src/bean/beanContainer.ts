@@ -278,7 +278,11 @@ export class BeanContainer {
       }
     }
     // init
-    return await this._initBeanInstance(beanFullName, beanInstance, args);
+    if (!beanHook) {
+      await this._initBeanInstance(beanFullName, beanInstance, args);
+    }
+    // ok
+    return beanInstance;
   }
 
   private _prepareBeanInstance(beanHook: Functionable | undefined, beanFullName, beanClass, args, aop, markReactive) {
