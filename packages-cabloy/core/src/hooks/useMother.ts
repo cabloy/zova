@@ -16,7 +16,14 @@ export function useMother<T>(beanFullName: Constructable<T> | string, props?, em
   const slots = useSlots();
   // mother
   onMounted(async () => {
-    await ctx.bean._newBeanInner(true, '$$mother', { props, context: { attrs, slots, emit } }, beanFullName, true);
+    await ctx.bean._newBeanInner(
+      true,
+      '$$mother',
+      { props, context: { attrs, slots, emit } },
+      undefined,
+      beanFullName,
+      true,
+    );
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {
