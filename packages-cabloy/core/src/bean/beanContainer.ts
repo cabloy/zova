@@ -343,7 +343,8 @@ export class BeanContainer {
     // options: selector: maybe empty string
     const selector = useOptions.selector;
     // recordProp
-    const recordProp = useOptions.name || useOptions.prop;
+    //const recordProp = useOptions.name || useOptions.prop;
+    const recordProp = useOptions.prop;
     // targetInstance
     let targetInstance;
     if (containerScope === 'app') {
