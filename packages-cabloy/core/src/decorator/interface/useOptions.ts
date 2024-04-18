@@ -2,6 +2,7 @@ import { IBeanRecord } from '../../bean/type.js';
 import { MetadataKey } from '../../core/metadata.js';
 import { Constructable } from '../type/constructable.js';
 import { ContainerScope } from '../type/containerScope.js';
+import { Functionable } from '../type/functionable.js';
 
 export interface IDecoratorUseOptionsBase<T = unknown> {
   prop: MetadataKey;
@@ -16,6 +17,13 @@ export interface IDecoratorUseOptionsBase<T = unknown> {
 
 export interface IDecoratorUseOptions {
   beanFullName?: keyof IBeanRecord;
+  name?: string;
+  selector?: string;
+  containerScope?: ContainerScope;
+}
+
+export interface IDecoratorUseHookOptions {
+  beanHook: Functionable;
   name?: string;
   selector?: string;
   containerScope?: ContainerScope;
