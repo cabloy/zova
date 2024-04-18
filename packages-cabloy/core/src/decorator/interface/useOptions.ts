@@ -8,7 +8,8 @@ export interface IDecoratorUseOptionsBase<T = unknown> {
   prop: MetadataKey;
   beanFullName?: string;
   name?: string;
-  beanClass: Constructable<T>;
+  beanClass?: Constructable<T>;
+  beanHook?: Functionable;
   /** such as: moduleScope */
   selector?: string;
   containerScope?: ContainerScope;

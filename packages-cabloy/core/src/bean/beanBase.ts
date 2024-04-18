@@ -7,6 +7,7 @@ import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __beanFullName__: string;
   private __moduleBelong__?: string;
+  // @ts-ignore: ignore
   private __inited__: StateLock;
 
   constructor(moduleBelong?: string) {

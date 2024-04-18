@@ -4,6 +4,7 @@ import { BeanSimple } from '../../beanSimple.js';
 const BeanModuleScope = Symbol('BeanScopeLocale#ModuleScope');
 
 export class BeanScopeLocale extends BeanSimple {
+  // @ts-ignore: ignore
   private [BeanModuleScope]: string;
   private __instances: Record<string, IModuleLocale> = {};
 

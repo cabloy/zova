@@ -23,6 +23,7 @@ export class BeanMotherBase<
     return this.app.$text;
   }
 
+  // @ts-ignore: ignore
   private __initMotherParams(motherParams) {
     this.$props = motherParams.props;
     this.$attrs = markRaw(motherParams.context?.attrs);
