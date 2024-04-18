@@ -377,7 +377,7 @@ export class BeanContainer {
     if (targetBeanHook) {
       targetOptions = {
         containerScope: undefined,
-        markReactive: false,
+        markReactive: true,
       };
     } else if (targetBeanFullName) {
       targetOptions = await this._getBeanOptionsForce(targetBeanFullName);
