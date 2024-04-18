@@ -101,22 +101,22 @@ export class BeanContainer {
 
   async _getBeanSelectorInner<T>(
     recordProp: MetadataKey | null,
-    beanFullName: Constructable<T> | string,
+    beanHook: Functionable | undefined,
+    beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
     selector?: string,
   ): Promise<T> {
-    // bean options
-    const beanOptions = await this._getBeanOptionsForce(beanFullName);
-    if (!beanOptions) {
+    // fullName
+    const fullName = await this._getBeanFullNameByHookOrClass(beanHook, beanFullName);
+    if (!fullName) {
       // not found
       return null!;
     }
-    const fullName = beanOptions.beanFullName;
     // same as _getBean if selector is undefined/null/'', as as to get the same bean instance
     //   not use !selector which maybe is 0
     const key = this.app.meta.util.isNullOrEmptyString(selector) ? fullName : `${fullName}#${selector}`;
     if (this[BeanContainerInstances][key] === undefined) {
-      await this._newBeanInner(true, recordProp, null, fullName, markReactive, selector);
+      await this._newBeanInner(true, recordProp, null, beanHook, fullName, markReactive, selector);
     }
     return this[BeanContainerInstances][key] as T;
   }
@@ -165,6 +165,7 @@ export class BeanContainer {
     record: boolean,
     recordProp: MetadataKey | null,
     motherParams: any,
+    beanHook: Functionable,
     beanFullName: Constructable<T> | string,
     markReactive?: boolean,
     ...args
@@ -199,6 +200,20 @@ export class BeanContainer {
       beanOptions.aop,
       markReactive === undefined ? beanOptions.markReactive : markReactive,
     );
+  }
+
+  private async _getBeanFullNameByHookOrClass(beanHook: Functionable | undefined, beanFullName: any) {
+    // bean hook
+    if (beanHook) {
+      return `useHook.${beanHook.name}`;
+    }
+    // bean options
+    const beanOptions = await this._getBeanOptionsForce(beanFullName);
+    if (!beanOptions) {
+      // not found
+      return null;
+    }
+    return beanOptions.beanFullName;
   }
 
   private async _getBeanOptionsForce(beanFullName: any) {
@@ -328,13 +343,21 @@ export class BeanContainer {
       return this[BeanContainerInstances][useOptions.name];
     }
     // 2. use prop
-    if (!targetBeanFullName) {
+    if (!targetBeanHook && !targetBeanFullName) {
       return this[BeanContainerInstances][useOptions.prop];
     }
     // 3. targetBeanFullName
-    const targetOptions = await this._getBeanOptionsForce(targetBeanFullName);
-    if (!targetOptions) {
-      throw new Error(`not found bean class: ${targetBeanFullName}`);
+    let targetOptions;
+    if (targetBeanHook) {
+      targetOptions = {
+        containerScope: undefined,
+        markReactive: false,
+      };
+    } else if (targetBeanFullName) {
+      targetOptions = await this._getBeanOptionsForce(targetBeanFullName);
+      if (!targetOptions) {
+        throw new Error(`not found bean class: ${targetBeanFullName}`);
+      }
     }
     // options: containerScope
     const containerScope = useOptions.containerScope ?? targetOptions.containerScope ?? 'ctx';
@@ -348,7 +371,13 @@ export class BeanContainer {
     // targetInstance
     let targetInstance;
     if (containerScope === 'app') {
-      targetInstance = await this.app.bean._getBeanSelectorInner(null, targetBeanFullName, markReactive, selector);
+      targetInstance = await this.app.bean._getBeanSelectorInner(
+        null,
+        targetBeanHook,
+        targetBeanFullName,
+        markReactive,
+        selector,
+      );
       await this._injectBeanInstanceProp_appBean(recordProp, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
       targetInstance = await this._getBeanSelectorInner(recordProp, targetBeanFullName, markReactive, selector);
