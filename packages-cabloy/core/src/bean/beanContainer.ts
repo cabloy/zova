@@ -400,7 +400,7 @@ export class BeanContainer {
         markReactive,
         selector,
       );
-      await this._injectBeanInstanceProp_appBean(recordProp, targetBeanFullName, targetInstance);
+      await this._injectBeanInstanceProp_appBean(recordProp, targetBeanHook, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
       targetInstance = await this._getBeanSelectorInner(recordProp, targetBeanFullName, markReactive, selector);
     } else if (containerScope === 'new') {
@@ -410,14 +410,16 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private async _injectBeanInstanceProp_appBean(recordProp, targetBeanFullName, targetInstance) {
+  private async _injectBeanInstanceProp_appBean(recordProp, targetBeanHook, _targetBeanFullName, targetInstance) {
     if (!targetInstance) return;
     // only when ctx bean
     if (!this.ctx) return;
     // record prop
-    this.__recordProp(recordProp, targetBeanFullName, targetInstance, false);
+    this.__recordProp(recordProp, undefined, targetInstance, false);
     // force init
-    await targetInstance.__inited__.wait();
+    if (!targetBeanHook) {
+      await targetInstance.__inited__.wait();
+    }
   }
 
   private _patchBeanInstance(beanFullNameOrBeanClass, beanInstance, aop) {
