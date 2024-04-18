@@ -1,6 +1,6 @@
 import isClass from 'is-class-hotfix';
 import { CabloyApplication, CabloyContext } from '../core/index.js';
-import { Constructable, IDecoratorUseOptionsBase } from '../decorator/index.js';
+import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
 import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanRecord, TypeBeanScopeRecordKeys } from './type.js';
@@ -307,21 +307,22 @@ export class BeanContainer {
     if (!uses) return;
     for (const key in uses) {
       const useOptions = uses[key];
+      // beanHook
       const targetBeanHook = useOptions.beanHook;
-      if (targetBeanHook) {
-        // beanHook
-      } else {
-        // beanClass
-        let targetBeanFullName = useOptions.beanFullName;
-        if (!targetBeanFullName) {
-          targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
-        }
-        beanInstance[key] = await this._injectBeanInstanceProp(targetBeanFullName, useOptions);
+      // beanClass
+      let targetBeanFullName = useOptions.beanFullName;
+      if (!targetBeanFullName && useOptions.beanClass) {
+        targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
       }
+      beanInstance[key] = await this._injectBeanInstanceProp(targetBeanHook, targetBeanFullName, useOptions);
     }
   }
 
-  private async _injectBeanInstanceProp(targetBeanFullName: string | undefined, useOptions: IDecoratorUseOptionsBase) {
+  private async _injectBeanInstanceProp(
+    targetBeanHook: Functionable | undefined,
+    targetBeanFullName: string | undefined,
+    useOptions: IDecoratorUseOptionsBase,
+  ) {
     // 1. use name
     if (useOptions.name) {
       return this[BeanContainerInstances][useOptions.name];
