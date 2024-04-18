@@ -307,11 +307,17 @@ export class BeanContainer {
     if (!uses) return;
     for (const key in uses) {
       const useOptions = uses[key];
-      let targetBeanFullName = useOptions.beanFullName;
-      if (!targetBeanFullName) {
-        targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
+      const targetBeanHook = useOptions.beanHook;
+      if (targetBeanHook) {
+        // beanHook
+      } else {
+        // beanClass
+        let targetBeanFullName = useOptions.beanFullName;
+        if (!targetBeanFullName) {
+          targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
+        }
+        beanInstance[key] = await this._injectBeanInstanceProp(targetBeanFullName, useOptions);
       }
-      beanInstance[key] = await this._injectBeanInstanceProp(targetBeanFullName, useOptions);
     }
   }
 
