@@ -341,15 +341,15 @@ export class BeanContainer {
     const markReactive = useOptions.markReactive ?? targetOptions.markReactive ?? true;
     // options: selector: maybe empty string
     const selector = useOptions.selector;
-    // options: prop
-    const prop = useOptions.prop;
+    // recordProp
+    const recordProp = useOptions.name || useOptions.prop;
     // targetInstance
     let targetInstance;
     if (containerScope === 'app') {
       targetInstance = await this.app.bean._getBeanSelectorInner(null, targetBeanFullName, markReactive, selector);
-      await this._injectBeanInstanceProp_appBean(prop, targetBeanFullName, targetInstance);
+      await this._injectBeanInstanceProp_appBean(recordProp, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
-      targetInstance = await this._getBeanSelectorInner(prop, targetBeanFullName, markReactive, selector);
+      targetInstance = await this._getBeanSelectorInner(recordProp, targetBeanFullName, markReactive, selector);
     } else if (containerScope === 'new') {
       // not record prop
       targetInstance = await this._newBeanInner(false, null, null, targetBeanFullName, markReactive, selector);
@@ -357,12 +357,12 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private async _injectBeanInstanceProp_appBean(prop, targetBeanFullName, targetInstance) {
+  private async _injectBeanInstanceProp_appBean(recordProp, targetBeanFullName, targetInstance) {
     if (!targetInstance) return;
     // only when ctx bean
     if (!this.ctx) return;
     // record prop
-    this.__recordProp(prop, targetBeanFullName, targetInstance, false);
+    this.__recordProp(recordProp, targetBeanFullName, targetInstance, false);
     // force init
     await targetInstance.__inited__.wait();
   }
@@ -596,12 +596,12 @@ export class BeanContainer {
     return composeAsync(chains, this.__composeForPropAdapter);
   }
 
-  private __recordProp(prop, beanFullName, beanInstance, throwError: boolean) {
-    if (this[BeanContainerInstances][prop] && throwError) {
-      throw new Error(`prop exsits: ${prop.toString()}, ${beanFullName}`);
+  private __recordProp(recordProp, beanFullName, beanInstance, throwError: boolean) {
+    if (this[BeanContainerInstances][recordProp] && throwError) {
+      throw new Error(`prop exsits: ${recordProp.toString()}, ${beanFullName}`);
     }
-    if (!this[BeanContainerInstances][prop]) {
-      this[BeanContainerInstances][prop] = beanInstance;
+    if (!this[BeanContainerInstances][recordProp]) {
+      this[BeanContainerInstances][recordProp] = beanInstance;
     }
   }
 }
