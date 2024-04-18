@@ -402,10 +402,24 @@ export class BeanContainer {
       );
       await this._injectBeanInstanceProp_appBean(recordProp, targetBeanHook, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
-      targetInstance = await this._getBeanSelectorInner(recordProp, targetBeanFullName, markReactive, selector);
+      targetInstance = await this._getBeanSelectorInner(
+        recordProp,
+        targetBeanHook,
+        targetBeanFullName,
+        markReactive,
+        selector,
+      );
     } else if (containerScope === 'new') {
       // not record prop
-      targetInstance = await this._newBeanInner(false, null, null, targetBeanFullName, markReactive, selector);
+      targetInstance = await this._newBeanInner(
+        false,
+        null,
+        null,
+        targetBeanHook,
+        targetBeanFullName,
+        markReactive,
+        selector,
+      );
     }
     return targetInstance;
   }
