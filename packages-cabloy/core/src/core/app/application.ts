@@ -45,6 +45,8 @@ export class CabloyApplication {
     await this.handlePlugins();
     // module
     await this.meta.module.initialize(modulesMeta);
+    // monkey: appInitialize
+    await this.meta.module._monkeyModule('appInitialize');
   }
 
   private async handlePlugins() {

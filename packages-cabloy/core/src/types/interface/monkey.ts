@@ -1,7 +1,8 @@
 import { IModule } from '@cabloy/module-info';
 import { CabloyContext } from '../../core/context/context.js';
 
-export type TypeMonkeyName = 'moduleLoading' | 'moduleLoaded' | 'configLoaded';
+export type TypeMonkeyName = keyof IMonkeyModule;
+
 export interface IMonkeyApp {
   moduleLoading(module: IModule): Promise<void>;
   moduleLoaded(module: IModule): Promise<void>;
@@ -19,6 +20,7 @@ export interface IModuleMainContext {
 }
 
 export interface IMonkeyModule {
+  appInitialize(moduleSelf: IModule): Promise<void>;
   moduleLoading(moduleSelf: IModule, module: IModule): Promise<void>;
   moduleLoaded(moduleSelf: IModule, module: IModule): Promise<void>;
   configLoaded(moduleSelf: IModule, module: IModule, config: any): Promise<void>;

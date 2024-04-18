@@ -185,9 +185,10 @@ export class AppModule extends BeanSimple {
     this.app.view.router.addRoute({ path, component });
   }
 
-  private async _monkeyModule(monkeyName: TypeMonkeyName, moduleTarget: IModule, ...monkeyData: any[]) {
+  /** @internal */
+  public async _monkeyModule(monkeyName: TypeMonkeyName, moduleTarget?: IModule, ...monkeyData: any[]) {
     // self: main
-    if (moduleTarget.mainInstance && moduleTarget.mainInstance[monkeyName]) {
+    if (moduleTarget && moduleTarget.mainInstance && moduleTarget.mainInstance[monkeyName]) {
       // @ts-ignore ignore
       await moduleTarget.mainInstance[monkeyName](moduleTarget, ...monkeyData);
     }
