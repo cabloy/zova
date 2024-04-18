@@ -289,7 +289,7 @@ export class BeanContainer {
     // create
     let beanInstance;
     if (beanHook) {
-      beanInstance = beanHook(...args);
+      beanInstance = this._createBeanHookInstance(beanHook, args);
     } else {
       if (beanClass.prototype.__init__) {
         beanInstance = new beanClass();
@@ -318,6 +318,16 @@ export class BeanContainer {
     const beanInstanceProxy = this._patchBeanInstance(beanFullName || beanClass, beanInstance, aop);
     // ok
     return beanInstanceProxy;
+  }
+
+  private _createBeanHookInstance(beanHook, args) {
+    if (this.ctx) {
+      return this.ctx.meta.util.instanceScope(function () {
+        return beanHook(...args);
+      });
+    } else {
+      return beanHook(...args);
+    }
   }
 
   private async _initBeanInstance(beanFullName, beanInstance, args) {
