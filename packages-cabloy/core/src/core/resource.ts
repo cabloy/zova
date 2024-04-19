@@ -1,5 +1,10 @@
 import isClass from 'is-class-hotfix';
-import { Constructable, IDecoratorBeanOptionsBase, IDecoratorUseOptionsBase } from '../decorator/index.js';
+import {
+  Constructable,
+  Functionable,
+  IDecoratorBeanOptionsBase,
+  IDecoratorUseOptionsBase,
+} from '../decorator/index.js';
 import { MetadataKey, appMetadata } from './metadata.js';
 import { IBeanRecord } from '../bean/type.js';
 import { BeanSimple } from '../bean/beanSimple.js';
@@ -8,6 +13,7 @@ import uuid from 'uuid-random';
 
 export const DecoratorBeanFullName = Symbol.for('Decorator#BeanFullName');
 export const DecoratorUse = Symbol.for('Decorator#Use');
+export const DecoratorBeanFullNameOfHook = Symbol.for('Decorator#BeanFullNameOfHook');
 
 export class AppResource extends BeanSimple {
   beans: Record<string, IDecoratorBeanOptionsBase> = {};
@@ -67,6 +73,14 @@ export class AppResource extends BeanSimple {
 
   getBeanFullName<T>(A: Constructable<T>): string | undefined {
     return appMetadata.getOwnMetadata(DecoratorBeanFullName, A);
+  }
+
+  getBeanFullNameOfHook(beanHook: Functionable | undefined): string | undefined {
+    if (!beanHook) return;
+    if (!beanHook[DecoratorBeanFullNameOfHook]) {
+      beanHook[DecoratorBeanFullNameOfHook] = `useHook.${uuid()}`;
+    }
+    return beanHook[DecoratorBeanFullNameOfHook];
   }
 
   getBean<T>(A: Constructable<T>): IDecoratorBeanOptionsBase<T> | undefined;

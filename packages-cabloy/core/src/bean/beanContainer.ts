@@ -226,7 +226,7 @@ export class BeanContainer {
   private async _getBeanFullNameByHookOrClass(beanHook: Functionable | undefined, beanFullName: any) {
     // bean hook
     if (beanHook) {
-      return `useHook.${beanHook.name}`;
+      return appResource.getBeanFullNameOfHook(beanHook);
     }
     // bean options
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
