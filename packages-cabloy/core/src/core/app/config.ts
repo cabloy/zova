@@ -1,4 +1,4 @@
-import { PowerPartial, TypeBeanScopeConfig } from '../../index.js';
+import { IBeanScopeConfig, PowerPartial } from '../../index.js';
 
 export const configDefault = {
   meta: {},
@@ -69,7 +69,7 @@ export type CabloyConfig = {
     baseURL: string;
   };
   layout: {};
-  modules: TypeBeanScopeConfig;
+  modules: IBeanScopeConfig;
 } & typeof configDefault;
 
 export type CabloyConfigOptional = PowerPartial<CabloyConfig>;
