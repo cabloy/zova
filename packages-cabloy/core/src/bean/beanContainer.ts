@@ -3,7 +3,7 @@ import { CabloyApplication, CabloyContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
-import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanRecord, TypeBeanScopeRecordKeys } from './type.js';
+import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanScopeRecordKeys } from './type.js';
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
@@ -13,7 +13,7 @@ import { Cast } from '../types/utils/cast.js';
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
 
-export type BeanContainerLike = TypeBeanRecord & BeanContainer;
+export type BeanContainerLike = IBeanRecord & BeanContainer;
 
 export class BeanContainer {
   private app: CabloyApplication;
