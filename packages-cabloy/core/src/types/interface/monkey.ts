@@ -21,6 +21,7 @@ export interface IModuleMainContext {
 
 export interface IMonkeyModule {
   appInitialize(moduleSelf: IModule): Promise<void>;
+  appInitialized(moduleSelf: IModule): Promise<void>;
   moduleLoading(moduleSelf: IModule, module: IModule): Promise<void>;
   moduleLoaded(moduleSelf: IModule, module: IModule): Promise<void>;
   configLoaded(moduleSelf: IModule, module: IModule, config: any): Promise<void>;
