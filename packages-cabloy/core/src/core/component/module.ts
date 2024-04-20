@@ -28,6 +28,23 @@ export class AppModule extends BeanSimple {
     const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
     if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
     // get
+    const module = this.modules[moduleInfo.relativeName];
+    if (!module) {
+      // module not loaded, so async use to raise the next call
+      this.use(moduleInfo.relativeName);
+    }
+    return module;
+  }
+
+  getOnly<K extends TypeBeanScopeRecordKeys>(moduleName: K): IModule;
+  getOnly(moduleName: string): IModule;
+  getOnly(moduleName: IModuleInfo): IModule;
+  getOnly(moduleName: string | IModuleInfo): IModule {
+    // module info
+    if (!moduleName) return undefined as unknown as IModule;
+    const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
+    if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
+    // get
     return this.modules[moduleInfo.relativeName];
   }
 
