@@ -7,6 +7,7 @@ import { StateLock } from '../../utils/stateLock.js';
 
 export type TypeModuleResourceErrors = Record<number, string>;
 export type TypeModuleResourceLocales = Record<string, object>;
+export type TypeModuleResourceIcons = Record<string, string>;
 
 // todo:
 export interface IModuleResource {
@@ -18,6 +19,7 @@ export interface IModuleResource {
   constants: unknown;
   routes: IModuleRoute[];
   components: Record<string, Component>;
+  icons: TypeModuleResourceIcons;
 }
 
 declare module '@cabloy/module-info' {
