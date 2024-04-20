@@ -19,33 +19,27 @@ export class AppModule extends BeanSimple {
     await this._requireAllSyncs();
   }
 
-  get<K extends TypeBeanScopeRecordKeys>(moduleName: K): IModule;
-  get(moduleName: string): IModule;
-  get(moduleName: IModuleInfo): IModule;
-  get(moduleName: string | IModuleInfo): IModule {
+  get<K extends TypeBeanScopeRecordKeys>(moduleName: K, forceLoad?: boolean): IModule | undefined;
+  get(moduleName: string, forceLoad?: boolean): IModule | undefined;
+  get(moduleName: IModuleInfo, forceLoad?: boolean): IModule | undefined;
+  get(moduleName: string | IModuleInfo, forceLoad?: boolean): IModule | undefined {
     // module info
-    if (!moduleName) return undefined as unknown as IModule;
+    if (!moduleName) return undefined;
     const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
     if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
     // get
     const module = this.modules[moduleInfo.relativeName];
     if (!module) {
       // module not loaded, so async use to raise the next call
-      this.use(moduleInfo.relativeName);
+      if (forceLoad !== false) {
+        this.use(moduleInfo.relativeName);
+      }
+      return undefined;
+    }
+    if (!module.__installed__ || !module.__installed__.state) {
+      return undefined;
     }
     return module;
-  }
-
-  getOnly<K extends TypeBeanScopeRecordKeys>(moduleName: K): IModule;
-  getOnly(moduleName: string): IModule;
-  getOnly(moduleName: IModuleInfo): IModule;
-  getOnly(moduleName: string | IModuleInfo): IModule {
-    // module info
-    if (!moduleName) return undefined as unknown as IModule;
-    const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
-    if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
-    // get
-    return this.modules[moduleInfo.relativeName];
   }
 
   async use<K extends TypeBeanScopeRecordKeys>(moduleName: K): Promise<IModule>;
@@ -56,16 +50,13 @@ export class AppModule extends BeanSimple {
     if (!moduleName) throw new Error('should specify the module name');
     const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
     if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
-    // try get
     const relativeName = moduleInfo.relativeName;
-    const module = this.getOnly(relativeName);
-    if (module) return module;
+    // should not try check get directly
+    // const module = this.getOnly(relativeName);
+    // if (module) return module;
     // promise
-    const moduleRepo = this.modulesMeta.async[relativeName];
+    const moduleRepo = this.modulesMeta.modules[relativeName];
     if (!moduleRepo) throw new Error(`module not exists: ${relativeName}`);
-    const moduleResource = moduleRepo.resource as any;
-    // load
-    moduleRepo.resource = await moduleResource();
     // install
     await this._install(relativeName, moduleRepo);
     // ok
@@ -102,6 +93,11 @@ export class AppModule extends BeanSimple {
   }
 
   private async _installInner(moduleName: string, module: IModule) {
+    // load
+    if (typeof module.resource === 'function') {
+      const moduleResource = module.resource as any;
+      module.resource = await moduleResource();
+    }
     // main / monkey
     if (module.resource.Main) {
       module.mainInstance = await this.app.bean._newBean(module.resource.Main);
