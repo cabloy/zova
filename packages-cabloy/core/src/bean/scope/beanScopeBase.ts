@@ -17,7 +17,7 @@ export class BeanScopeBase extends BeanBase {
   private [BeanModuleConstant]: unknown;
 
   get module(): IModule {
-    return this.app.meta.module.get(this.moduleBelong);
+    return this.app.meta.module.get(this.moduleBelong) as unknown as IModule;
   }
 
   protected __get__(prop) {
