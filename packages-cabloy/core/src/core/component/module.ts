@@ -54,7 +54,7 @@ export class AppModule extends BeanSimple {
     // should not try check get directly
     // const module = this.getOnly(relativeName);
     // if (module) return module;
-    // promise
+    // module
     const moduleRepo = this.modulesMeta.modules[relativeName];
     if (!moduleRepo) throw new Error(`module not exists: ${relativeName}`);
     // install
