@@ -15,7 +15,7 @@ export const PluginBean = {
           if (!ctx.meta.state.inited.state) {
             return self.__bean_render_original.call(self._);
           }
-          const render: BeanRenderBase = ctx.bean._getBeanSync('$$render');
+          const render: BeanRenderBase = ctx.bean._getBeanSyncOnly('$$render');
           if (!render) {
             throw new Error('render bean not found');
           }

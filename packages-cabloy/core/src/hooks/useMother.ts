@@ -28,7 +28,7 @@ export function useMother<T>(beanFullName: Constructable<T> | string, props?, em
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {
         ctx.meta.state.mounted.touch();
-        const mother = ctx.bean._getBeanSync('$$mother');
+        const mother = ctx.bean._getBeanSyncOnly('$$mother');
         // instanceScope useless for emit, because emiter and receiver not the same instance
         ctx.instance.emit('motherRef', mother);
       });
