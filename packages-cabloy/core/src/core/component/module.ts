@@ -90,9 +90,11 @@ export class AppModule extends BeanSimple {
     await this._installInner(moduleName, module);
     // installed
     module.__installed__.touch();
+    // scope: should after __installed__.touch
+    await this.app.bean._getBean(`${moduleName}.scope.module`, false);
   }
 
-  private async _installInner(moduleName: string, module: IModule) {
+  private async _installInner(_moduleName: string, module: IModule) {
     // load
     if (typeof module.resource === 'function') {
       const moduleResource = module.resource as any;
@@ -111,8 +113,6 @@ export class AppModule extends BeanSimple {
     this._registerRoutes(module);
     // register resources
     await this._registerResources(module);
-    // scope
-    await this.app.bean._getBean(`${moduleName}.scope.module`, false);
     // monkey: moduleLoaded
     await this._monkeyModule('moduleLoaded', module);
   }
