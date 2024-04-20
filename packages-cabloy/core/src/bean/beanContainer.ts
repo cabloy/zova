@@ -7,7 +7,7 @@ import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanScopeRecordKeys }
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
-import { markRaw, reactive } from 'vue';
+import { markRaw, reactive, shallowReactive } from 'vue';
 import { Cast } from '../types/utils/cast.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
@@ -20,7 +20,7 @@ export class BeanContainer {
   private ctx: CabloyContext;
 
   // fullName / uuid / propName
-  private [BeanContainerInstances]: Record<MetadataKey, unknown> = {};
+  private [BeanContainerInstances]: Record<MetadataKey, unknown> = shallowReactive({});
 
   static create(app: CabloyApplication, ctx: CabloyContext | null) {
     const beanContainer = new BeanContainer(app, ctx);
@@ -49,7 +49,7 @@ export class BeanContainer {
         beanInstance.__dispose__();
       }
     }
-    this[BeanContainerInstances] = {};
+    this[BeanContainerInstances] = shallowReactive({});
   }
 
   /** get specific module's scope */
@@ -73,8 +73,25 @@ export class BeanContainer {
     return this.scope(moduleScope);
   }
 
-  _getBeanSync<T>(key: MetadataKey): T {
-    return this[BeanContainerInstances][key] as T;
+  _getBeanSync<K extends keyof IBeanRecord>(
+    beanFullName: K,
+    markReactive?: boolean,
+    forceLoad?: boolean,
+  ): IBeanRecord[K] | undefined;
+  _getBeanSync<T>(key: string, markReactive?: boolean, forceLoad?: boolean): T | undefined;
+  _getBeanSync<T>(key: string, markReactive?: boolean, forceLoad?: boolean): T | undefined {
+    const beanInstance: any = this[BeanContainerInstances][key];
+    if (!beanInstance) {
+      // bean not loaded, so async load to raise the next call
+      if (forceLoad !== false) {
+        this._getBean(key, markReactive);
+      }
+      return undefined;
+    }
+    if (beanInstance.__inited__ && !beanInstance.__inited__.state) {
+      return undefined;
+    }
+    return beanInstance as T;
   }
 
   async _getBean<T>(A: Constructable<T>, markReactive?: boolean): Promise<T>;
@@ -219,7 +236,8 @@ export class BeanContainer {
       beanOptions.beanClass as Constructable<T>,
       args,
       beanOptions.aop,
-      markReactive === undefined ? beanOptions.markReactive : markReactive,
+      // default is true: same as inject prop
+      markReactive ?? beanOptions.markReactive ?? true,
     );
   }
 
