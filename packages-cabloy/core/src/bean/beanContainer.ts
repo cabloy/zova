@@ -28,7 +28,7 @@ export class BeanContainer {
       get(obj, prop) {
         if (typeof prop === 'symbol') return obj[prop];
         if (obj[prop]) return obj[prop];
-        return obj._getBeanSync(prop);
+        return obj._getBeanSyncOnly(prop);
       },
     });
     return markRaw(proxy) as BeanContainerLike;
@@ -59,7 +59,7 @@ export class BeanContainer {
     if (this.ctx) {
       return this.app.bean.scope(moduleScope);
     }
-    return this._getBeanSync(`${moduleScope}.scope.module`);
+    return this._getBeanSyncOnly(`${moduleScope}.scope.module`);
   }
 
   async getScope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): Promise<IBeanScopeRecord[K]>;
@@ -92,6 +92,10 @@ export class BeanContainer {
       return undefined;
     }
     return beanInstance as T;
+  }
+
+  _getBeanSyncOnly<T>(key: MetadataKey): T {
+    return this[BeanContainerInstances][key] as T;
   }
 
   async _getBean<T>(A: Constructable<T>, markReactive?: boolean): Promise<T>;
@@ -668,7 +672,7 @@ export class BeanContainer {
       if (aopKey === ProxyMagic) {
         chains.push([aopKey, methodName]);
       } else {
-        const aop: any = this._getBeanSync(aopKey as string);
+        const aop: any = this._getBeanSyncOnly(aopKey as string);
         if (aop[methodName]) {
           chains.push([aopKey, methodName]);
         } else if (methodNameMagic && aop[methodNameMagic]) {
@@ -685,7 +689,7 @@ export class BeanContainer {
     // ProxyMagic
     if (aopKey === ProxyMagic) return null;
     // chain
-    const aop = this._getBeanSync(aopKey);
+    const aop = this._getBeanSyncOnly(aopKey);
     if (!aop) throw new Error(`aop not found: ${chain}`);
     if (!aop[methodName]) return null;
     return {
