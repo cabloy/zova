@@ -58,7 +58,7 @@ export class AppModule extends BeanSimple {
     if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
     // try get
     const relativeName = moduleInfo.relativeName;
-    const module = this.get(relativeName);
+    const module = this.getOnly(relativeName);
     if (module) return module;
     // promise
     const moduleRepo = this.modulesMeta.async[relativeName];
