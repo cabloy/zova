@@ -34,7 +34,7 @@
     "@cabloy/extend": "^3.0.5",
     "@cabloy/last-word": "workspace:^",
     "@cabloy/localeutil": "^1.0.3",
-    "@cabloy/module-info": "^1.0.10",
+    "@cabloy/module-info": "^1.0.12",
     "@cabloy/vue-runtime-core": "^3.4.25",
     "@vue/reactivity": "^3.4.23",
     "is-class-hotfix": "^0.0.6",
