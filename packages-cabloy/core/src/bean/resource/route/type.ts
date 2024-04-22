@@ -9,6 +9,6 @@ export interface IModuleRoute {
   component: IModuleRouteComponent;
   meta?: {
     absolute?: boolean;
-    layout?: 'none' | 'default' | string | IModuleRouteComponent;
+    layout?: 'empty' | 'default' | false | string | IModuleRouteComponent;
   };
 }

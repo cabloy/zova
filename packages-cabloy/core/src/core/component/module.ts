@@ -207,15 +207,17 @@ export class AppModule extends BeanSimple {
     // layout / routeData
     let layout = meta?.layout;
     let routeData;
-    if (layout === 'none') {
+    if (layout === false) {
       routeData = { path, component, meta };
     } else {
       if (layout === undefined || layout === 'default') {
         layout = this.app.config.layout.component.default;
+      } else if (layout === 'empty') {
+        layout = this.app.config.layout.component.empty;
       }
       routeData = {
         path,
-        component: this.app.meta.util.createAsyncComponent(layout),
+        component: this.app.meta.util.createAsyncComponent(layout as any),
         children: [{ path: '', component, meta }],
       };
     }

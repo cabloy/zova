@@ -19,6 +19,7 @@ export const configDefault = {
   layout: {
     component: {
       default: 'a-homelayout:layoutDefault',
+      empty: 'a-homelayout:layoutEmpty',
     },
     breakpoint: 600,
     items: {
