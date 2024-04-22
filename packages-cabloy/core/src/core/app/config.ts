@@ -17,6 +17,9 @@ export const configDefault = {
     delay: 1000,
   },
   layout: {
+    component: {
+      default: 'a-homelayout:layoutDefault',
+    },
     breakpoint: 600,
     items: {
       mobile: {

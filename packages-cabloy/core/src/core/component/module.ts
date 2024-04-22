@@ -204,8 +204,23 @@ export class AppModule extends BeanSimple {
     }
     // component
     const component = route.component;
+    // layout / routeData
+    let layout = meta?.layout;
+    let routeData;
+    if (layout === 'none') {
+      routeData = { path, component, meta };
+    } else {
+      if (layout === undefined || layout === 'default') {
+        layout = this.app.config.layout.component.default;
+      }
+      routeData = {
+        path,
+        component: this.app.meta.util.createAsyncComponent(layout),
+        children: [{ path: '', component, meta }],
+      };
+    }
     // add
-    this.app.view.router.addRoute({ path, component, meta });
+    this.app.view.router.addRoute(routeData);
   }
 
   /** @internal */
