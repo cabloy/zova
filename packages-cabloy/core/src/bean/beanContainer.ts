@@ -338,7 +338,9 @@ export class BeanContainer {
       __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
     }
     // monkey: beanCreated
-    this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
+    if (beanInstance instanceof BeanBase) {
+      this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
+    }
     // reactive
     if (markReactive) {
       beanInstance = reactive(beanInstance);
