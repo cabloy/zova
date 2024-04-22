@@ -237,14 +237,23 @@ export class AppModule extends BeanSimple {
       const moduleMonkey: IModule = this.modulesMeta.monkey[key];
       if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
         // @ts-ignore ignore
-        await moduleMonkey.monkeyInstance[monkeyName](moduleMonkey, moduleTarget, ...monkeyData);
+        if (moduleTarget === undefined) {
+          // @ts-ignore ignore
+          await moduleMonkey.monkeyInstance[monkeyName](moduleMonkey, ...monkeyData);
+        } else {
+          // @ts-ignore ignore
+          await moduleMonkey.monkeyInstance[monkeyName](moduleMonkey, moduleTarget, ...monkeyData);
+        }
       }
     }
     // app monkey
     const appMonkey = this.app.meta.appMonkey;
     if (appMonkey && appMonkey[monkeyName]) {
-      // @ts-ignore ignore
-      await appMonkey[monkeyName](moduleTarget, ...monkeyData);
+      if (moduleTarget === undefined) {
+        await appMonkey[monkeyName](...monkeyData);
+      } else {
+        await appMonkey[monkeyName](moduleTarget, ...monkeyData);
+      }
     }
   }
 }

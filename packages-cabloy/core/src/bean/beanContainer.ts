@@ -46,7 +46,9 @@ export class BeanContainer {
       if (prop.startsWith('$$')) continue;
       const beanInstance = Cast(beanInstances[prop]);
       if (beanInstance.__dispose__) {
+        this.app.meta.module._monkeyModule('beanDispose', undefined, beanInstance);
         beanInstance.__dispose__();
+        this.app.meta.module._monkeyModule('beanDisposed', undefined, beanInstance);
       }
     }
     this[BeanContainerInstances] = shallowReactive({});
@@ -335,6 +337,8 @@ export class BeanContainer {
     if (typeof beanFullName === 'string') {
       __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
     }
+    // monkey: beanCreated
+    this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
     // reactive
     if (markReactive) {
       beanInstance = reactive(beanInstance);
@@ -363,12 +367,14 @@ export class BeanContainer {
     // init
     if (beanInstance.__init__) {
       if (this.ctx) {
-        await this.ctx.meta.util.instanceScope(async function () {
+        await this.ctx.meta.util.instanceScope(async () => {
           await beanInstance.__init__(...args);
+          await this.app.meta.module._monkeyModule('beanInited', undefined, beanInstance);
           beanInstance.__inited__.touch();
         });
       } else {
         await beanInstance.__init__(...args);
+        await this.app.meta.module._monkeyModule('beanInited', undefined, beanInstance);
         beanInstance.__inited__.touch();
       }
     } else {
