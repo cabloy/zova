@@ -1,7 +1,7 @@
 import { IModuleInfo } from '@cabloy/module-info';
 import { IModuleRoute } from '../../bean/resource/route/type.js';
 import { CabloyApplication } from '../../core/app/application.js';
-import { IModuleMain, IModuleMainContext, IMonkeyModule } from './monkey.js';
+import { IModuleMain, IMonkeyModule, IMonkeySystem } from './monkey.js';
 import { Component } from 'vue';
 import { StateLock } from '../../utils/stateLock.js';
 
@@ -11,8 +11,8 @@ export type TypeModuleResourceIcons = Record<string, string>;
 
 // todo:
 export interface IModuleResource {
-  Main: new () => IModuleMain & IModuleMainContext;
-  Monkey: new () => IMonkeyModule;
+  Main: new () => IModuleMain;
+  Monkey: new () => IMonkeyModule & IMonkeySystem;
   locales: TypeModuleResourceLocales;
   Errors: TypeModuleResourceErrors;
   config: (app: CabloyApplication) => object | Promise<object>;
@@ -28,7 +28,7 @@ declare module '@cabloy/module-info' {
     __installed__: StateLock;
     resource: IModuleResource; // IModuleResource | Promise<IModuleResource>;
     info: IModuleInfo;
-    mainInstance: IModuleMain & IModuleMainContext;
-    monkeyInstance: IMonkeyModule;
+    mainInstance: IModuleMain;
+    monkeyInstance: IMonkeyModule & IMonkeySystem;
   }
 }
