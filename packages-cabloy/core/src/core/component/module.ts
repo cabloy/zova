@@ -102,10 +102,10 @@ export class AppModule extends BeanSimple {
     }
     // main / monkey
     if (module.resource.Main) {
-      module.mainInstance = await this.app.bean._newBean(module.resource.Main);
+      module.mainInstance = this.app.bean._newBeanSimple(module.resource.Main, false);
     }
     if (module.resource.Monkey) {
-      module.monkeyInstance = await this.app.bean._newBean(module.resource.Monkey);
+      module.monkeyInstance = this.app.bean._newBeanSimple(module.resource.Monkey, false);
     }
     // monkey: moduleLoading
     await this._monkeyModule('moduleLoading', module);
