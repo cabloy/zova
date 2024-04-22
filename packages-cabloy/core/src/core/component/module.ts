@@ -236,7 +236,6 @@ export class AppModule extends BeanSimple {
     for (const key in this.modulesMeta.monkey) {
       const moduleMonkey: IModule = this.modulesMeta.monkey[key];
       if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
-        // @ts-ignore ignore
         if (moduleTarget === undefined) {
           // @ts-ignore ignore
           await moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
@@ -250,8 +249,10 @@ export class AppModule extends BeanSimple {
     const appMonkey = this.app.meta.appMonkey;
     if (appMonkey && appMonkey[monkeyName]) {
       if (moduleTarget === undefined) {
+        // @ts-ignore ignore
         await appMonkey[monkeyName](...monkeyData);
       } else {
+        // @ts-ignore ignore
         await appMonkey[monkeyName](moduleTarget, ...monkeyData);
       }
     }
