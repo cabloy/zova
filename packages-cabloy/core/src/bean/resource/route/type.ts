@@ -5,4 +5,7 @@ export type IModuleRouteComponent = Component | DefineComponent;
 export interface IModuleRoute {
   path: string;
   component: IModuleRouteComponent;
+  meta?: {
+    absolute?: boolean;
+  };
 }

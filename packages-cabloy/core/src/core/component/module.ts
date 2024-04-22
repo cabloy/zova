@@ -193,9 +193,19 @@ export class AppModule extends BeanSimple {
   }
 
   private _registerRoute(module: IModule, route: IModuleRoute) {
-    const path = `/${module.info.pid}/${module.info.name}/${route.path}`;
+    // meta
+    const meta = route.meta;
+    // path
+    let path: string;
+    if (meta?.absolute === true) {
+      path = route.path;
+    } else {
+      path = `/${module.info.pid}/${module.info.name}/${route.path}`;
+    }
+    // component
     const component = route.component;
-    this.app.view.router.addRoute({ path, component });
+    // add
+    this.app.view.router.addRoute({ path, component, meta });
   }
 
   /** @internal */
