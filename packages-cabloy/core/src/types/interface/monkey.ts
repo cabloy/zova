@@ -11,9 +11,9 @@ export interface IMonkeyApp {
 }
 
 export interface IModuleMain {
-  moduleLoading(module: IModule): Promise<void>;
-  moduleLoaded(module: IModule): Promise<void>;
-  configLoaded(module: IModule, config: any): Promise<void>;
+  moduleLoading(): Promise<void>;
+  moduleLoaded(): Promise<void>;
+  configLoaded(config: any): Promise<void>;
 }
 
 export interface IModuleMainContext {
@@ -21,13 +21,13 @@ export interface IModuleMainContext {
 }
 
 export interface IMonkeyModule {
-  appInitialize(moduleSelf: IModule): Promise<void>;
-  appInitialized(moduleSelf: IModule): Promise<void>;
-  beanCreated(moduleSelf: IModule, beanInstance: BeanBase): void;
-  beanInited(moduleSelf: IModule, beanInstance: BeanBase): void;
-  beanDispose(moduleSelf: IModule, beanInstance: BeanBase): void;
-  beanDisposed(moduleSelf: IModule, beanInstance: BeanBase): void;
-  moduleLoading(moduleSelf: IModule, module: IModule): Promise<void>;
-  moduleLoaded(moduleSelf: IModule, module: IModule): Promise<void>;
-  configLoaded(moduleSelf: IModule, module: IModule, config: any): Promise<void>;
+  appInitialize(): Promise<void>;
+  appInitialized(): Promise<void>;
+  beanCreated(beanInstance: BeanBase): void;
+  beanInited(beanInstance: BeanBase): void;
+  beanDispose(beanInstance: BeanBase): void;
+  beanDisposed(beanInstance: BeanBase): void;
+  moduleLoading(module: IModule): Promise<void>;
+  moduleLoaded(module: IModule): Promise<void>;
+  configLoaded(module: IModule, config: any): Promise<void>;
 }

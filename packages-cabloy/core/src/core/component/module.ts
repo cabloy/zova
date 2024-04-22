@@ -102,10 +102,10 @@ export class AppModule extends BeanSimple {
     }
     // main / monkey
     if (module.resource.Main) {
-      module.mainInstance = this.app.bean._newBeanSimple(module.resource.Main, false);
+      module.mainInstance = this.app.bean._newBeanSimple(module.resource.Main, false, module);
     }
     if (module.resource.Monkey) {
-      module.monkeyInstance = this.app.bean._newBeanSimple(module.resource.Monkey, false);
+      module.monkeyInstance = this.app.bean._newBeanSimple(module.resource.Monkey, false, module);
     }
     // monkey: moduleLoading
     await this._monkeyModule('moduleLoading', module);
@@ -230,7 +230,7 @@ export class AppModule extends BeanSimple {
     // self: main
     if (moduleTarget && moduleTarget.mainInstance && moduleTarget.mainInstance[monkeyName]) {
       // @ts-ignore ignore
-      await moduleTarget.mainInstance[monkeyName](moduleTarget, ...monkeyData);
+      await moduleTarget.mainInstance[monkeyName](...monkeyData);
     }
     // module monkey
     for (const key in this.modulesMeta.monkey) {
@@ -239,10 +239,10 @@ export class AppModule extends BeanSimple {
         // @ts-ignore ignore
         if (moduleTarget === undefined) {
           // @ts-ignore ignore
-          await moduleMonkey.monkeyInstance[monkeyName](moduleMonkey, ...monkeyData);
+          await moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
         } else {
           // @ts-ignore ignore
-          await moduleMonkey.monkeyInstance[monkeyName](moduleMonkey, moduleTarget, ...monkeyData);
+          await moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
         }
       }
     }
