@@ -383,13 +383,9 @@ export class BeanContainer {
   }
 
   private _createBeanHookInstance(beanHook, args) {
-    if (this.ctx) {
-      return this.ctx.meta.util.instanceScope(function () {
-        return beanHook(...args);
-      });
-    } else {
+    return this.runWithInstanceScopeOrAppContext(function () {
       return beanHook(...args);
-    }
+    });
   }
 
   private async _initBeanInstance(beanFullName, beanInstance, args) {
@@ -397,17 +393,11 @@ export class BeanContainer {
     await this._injectBeanInstance(beanInstance, beanFullName);
     // init
     if (beanInstance.__init__) {
-      if (this.ctx) {
-        await this.ctx.meta.util.instanceScope(async () => {
-          await beanInstance.__init__(...args);
-          await this.app.meta.module._monkeyModule('beanInited', undefined, beanInstance);
-          beanInstance.__inited__.touch();
-        });
-      } else {
+      await this.runWithInstanceScopeOrAppContext(async () => {
         await beanInstance.__init__(...args);
         await this.app.meta.module._monkeyModule('beanInited', undefined, beanInstance);
         beanInstance.__inited__.touch();
-      }
+      });
     } else {
       beanInstance.__inited__.touch();
     }
