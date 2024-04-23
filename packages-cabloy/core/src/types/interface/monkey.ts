@@ -1,6 +1,7 @@
 import { IModule } from '@cabloy/module-info';
 import { BeanBase } from '../../bean/beanBase.js';
 import { BeanContainerLike } from '../../bean/beanContainer.js';
+import { ViewRouterLike } from '../../core/component/router.js';
 
 export type TypeMonkeyName = keyof IMonkeyModule | keyof IMonkeySystem;
 
@@ -25,6 +26,7 @@ export interface IMonkeyModule {
 export interface IMonkeySystem {
   appInitialize(): Promise<void>;
   appInitialized(): Promise<void>;
+  routerGuards(router: ViewRouterLike): Promise<void>;
   beanCreated(bean: BeanContainerLike, beanInstance: BeanBase): void;
   beanInited(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
   beanDispose(bean: BeanContainerLike, beanInstance: BeanBase): void;
