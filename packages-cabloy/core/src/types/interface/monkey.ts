@@ -1,5 +1,6 @@
 import { IModule } from '@cabloy/module-info';
 import { BeanBase } from '../../bean/beanBase.js';
+import { BeanContainerLike } from '../../bean/beanContainer.js';
 
 export type TypeMonkeyName = keyof IMonkeyModule | keyof IMonkeySystem;
 
@@ -24,8 +25,8 @@ export interface IMonkeyModule {
 export interface IMonkeySystem {
   appInitialize(): Promise<void>;
   appInitialized(): Promise<void>;
-  beanCreated(beanInstance: BeanBase): void;
-  beanInited(beanInstance: BeanBase): Promise<void>;
-  beanDispose(beanInstance: BeanBase): void;
-  beanDisposed(beanInstance: BeanBase): void;
+  beanCreated(bean: BeanContainerLike, beanInstance: BeanBase): void;
+  beanInited(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
+  beanDispose(bean: BeanContainerLike, beanInstance: BeanBase): void;
+  beanDisposed(bean: BeanContainerLike, beanInstance: BeanBase): void;
 }
