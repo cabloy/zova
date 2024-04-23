@@ -40,12 +40,15 @@ export class AppUtil extends BeanSimple {
   }
 
   defineProperty<T>(obj: T, prop: string, attributes: PropertyDescriptor & ThisType<any>): T {
+    const self = this;
     const attrs = { ...attributes };
     if (attributes.get) {
       attrs.get = function () {
         const innerKey = `__innerKey_${prop}`;
         if (!obj[innerKey]) {
-          obj[innerKey] = attributes.get!();
+          self.app.vue.runWithContext(() => {
+            obj[innerKey] = attributes.get!();
+          });
         }
         return obj[innerKey];
       };
