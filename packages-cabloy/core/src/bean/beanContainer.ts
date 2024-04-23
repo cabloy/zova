@@ -47,9 +47,9 @@ export class BeanContainer {
       const beanInstance = Cast(beanInstances[prop]);
       if (beanInstance.__dispose__) {
         this.runWithInstanceScopeOrAppContext(() => {
-          this.app.meta.module._monkeyModule('beanDispose', undefined, beanInstance);
+          this.app.meta.module._monkeyModule('beanDispose', undefined, this, beanInstance);
           beanInstance.__dispose__();
-          this.app.meta.module._monkeyModule('beanDisposed', undefined, beanInstance);
+          this.app.meta.module._monkeyModule('beanDisposed', undefined, this, beanInstance);
         });
       }
     }
@@ -367,7 +367,7 @@ export class BeanContainer {
     // monkey: beanCreated
     if (beanInstance instanceof BeanBase) {
       this.runWithInstanceScopeOrAppContext(() => {
-        this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
+        this.app.meta.module._monkeyModule('beanCreated', undefined, this, beanInstance);
       });
     }
     // reactive
@@ -395,7 +395,7 @@ export class BeanContainer {
     if (beanInstance.__init__) {
       await this.runWithInstanceScopeOrAppContext(async () => {
         await beanInstance.__init__(...args);
-        await this.app.meta.module._monkeyModule('beanInited', undefined, beanInstance);
+        await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
         beanInstance.__inited__.touch();
       });
     } else {
