@@ -62,6 +62,14 @@ export class BeanContainer {
     this[BeanContainerInstances] = shallowReactive({});
   }
 
+  runWithInstanceScopeOrAppContext(fn, tracking?: boolean) {
+    if (this.ctx) {
+      return this.ctx.meta.util.instanceScope(fn, tracking);
+    } else {
+      return this.app.vue.runWithContext(fn);
+    }
+  }
+
   /** get specific module's scope */
   scope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): IBeanScopeRecord[K];
   scope<T>(moduleScope: string): T;
