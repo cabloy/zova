@@ -46,17 +46,11 @@ export class BeanContainer {
       if (prop.startsWith('$$')) continue;
       const beanInstance = Cast(beanInstances[prop]);
       if (beanInstance.__dispose__) {
-        if (this.ctx) {
-          this.ctx.meta.util.instanceScope(() => {
-            this.app.meta.module._monkeyModule('beanDispose', undefined, beanInstance);
-            beanInstance.__dispose__();
-            this.app.meta.module._monkeyModule('beanDisposed', undefined, beanInstance);
-          });
-        } else {
+        this.runWithInstanceScopeOrAppContext(() => {
           this.app.meta.module._monkeyModule('beanDispose', undefined, beanInstance);
           beanInstance.__dispose__();
           this.app.meta.module._monkeyModule('beanDisposed', undefined, beanInstance);
-        }
+        });
       }
     }
     this[BeanContainerInstances] = shallowReactive({});
@@ -372,13 +366,9 @@ export class BeanContainer {
     }
     // monkey: beanCreated
     if (beanInstance instanceof BeanBase) {
-      if (this.ctx) {
-        this.ctx.meta.util.instanceScope(() => {
-          this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
-        });
-      } else {
+      this.runWithInstanceScopeOrAppContext(() => {
         this.app.meta.module._monkeyModule('beanCreated', undefined, beanInstance);
-      }
+      });
     }
     // reactive
     if (markReactive) {
