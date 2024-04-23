@@ -26,8 +26,6 @@ export class ViewRouter extends BeanSimple {
   public async initialize(router: Router) {
     this[SymbolRouter] = router;
     this._routerGuards();
-    // monkey: routerGuards
-    await this.app.meta.module._monkeyModule('routerGuards', undefined, this);
   }
 
   private _routerGuards() {
