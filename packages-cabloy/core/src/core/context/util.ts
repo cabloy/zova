@@ -8,12 +8,14 @@ export class CtxUtil extends BeanSimple {
     if (!tracking) {
       pauseTracking();
     }
-    const result = fn();
-    if (!tracking) {
-      resetTracking();
+    try {
+      return fn();
+    } finally {
+      if (!tracking) {
+        resetTracking();
+      }
+      reset();
     }
-    reset();
-    return result;
   }
 
   defineProperty<T>(obj: T, prop: string, attributes: PropertyDescriptor & ThisType<any>): T {
