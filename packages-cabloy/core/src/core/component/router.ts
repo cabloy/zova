@@ -28,10 +28,10 @@ export class ViewRouter extends BeanSimple {
     this[SymbolRouter].beforeEach(async to => {
       // fullPath
       const fullPath = to.fullPath;
-      // home
-      if (fullPath === '/') {
-        return { path: '/a/home/home' };
-      }
+      // // home
+      // if (fullPath === '/') {
+      //   return { path: '/a/home/home' };
+      // }
       // module info
       const moduleInfo = ModuleInfo.parseInfo(fullPath);
       if (!moduleInfo) {

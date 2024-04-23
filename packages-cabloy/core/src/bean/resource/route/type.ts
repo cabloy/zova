@@ -1,14 +1,14 @@
-import { RouteComponent } from 'vue-router';
+import 'vue-router';
+import { RouteComponent, RouteRecordRaw } from 'vue-router';
 
-declare type Lazy<T> = () => Promise<T>;
-//export type IModuleRouteComponent = Component | DefineComponent;
-export type IModuleRouteComponent = RouteComponent | Lazy<RouteComponent>;
+export type Lazy<T> = () => Promise<T>;
+export type RawRouteComponent = RouteComponent | Lazy<RouteComponent>;
+export type IModuleRoute = RouteRecordRaw;
 
-export interface IModuleRoute {
-  path: string;
-  component: IModuleRouteComponent;
-  meta?: {
+declare module 'vue-router' {
+  interface RouteMeta {
     absolute?: boolean;
-    layout?: 'empty' | 'default' | false | string | IModuleRouteComponent;
-  };
+    layout?: 'empty' | 'default' | false | string | RawRouteComponent;
+    requiresAuth?: boolean;
+  }
 }
