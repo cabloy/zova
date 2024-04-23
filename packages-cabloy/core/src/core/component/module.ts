@@ -208,7 +208,7 @@ export class AppModule extends BeanSimple {
     let layout = meta?.layout;
     let routeData;
     if (layout === false) {
-      routeData = { path, component, meta };
+      routeData = { ...route, path, component, meta };
     } else {
       if (layout === undefined || layout === 'default') {
         layout = this.app.config.layout.component.default;
@@ -218,7 +218,7 @@ export class AppModule extends BeanSimple {
       routeData = {
         path,
         component: this.app.meta.util.createAsyncComponent(layout as any),
-        children: [{ path: '', component, meta }],
+        children: [{ ...route, path: '', component, meta }],
       };
     }
     // add
