@@ -1,7 +1,13 @@
 import { IBeanScopeConfig, PowerPartial } from '../../index.js';
 
+export interface ConfigMeta {
+  flavor: 'web' | 'app' | string;
+  mode: 'development' | 'production' | string;
+  appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string;
+}
+
 export const configDefault = {
-  meta: {},
+  meta: {} as ConfigMeta,
   base: {
     locale: 'en-us',
     jwt: false,
