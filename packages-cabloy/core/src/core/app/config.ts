@@ -1,13 +1,13 @@
 import { IBeanScopeConfig, PowerPartial } from '../../index.js';
 
-export interface ConfigMeta {
+export interface CabloyConfigMeta {
   flavor: 'web' | 'app' | string;
   mode: 'development' | 'production' | string;
   appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string;
 }
 
 export const configDefault = {
-  meta: {} as ConfigMeta,
+  meta: {},
   base: {
     locale: 'en-us',
     jwt: false,
@@ -65,13 +65,7 @@ export const configDefault = {
 };
 
 export type CabloyConfig = {
-  meta: {
-    flavor: string;
-    mode: object;
-    modeName: string;
-    dev: boolean;
-    prod: boolean;
-  };
+  meta: CabloyConfigMeta;
   base: {
     jwt: boolean;
   };
