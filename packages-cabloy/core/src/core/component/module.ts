@@ -255,33 +255,39 @@ export class AppModule extends BeanSimple {
     // self: main
     if (moduleTarget && moduleTarget.mainInstance && moduleTarget.mainInstance[monkeyName]) {
       // @ts-ignore ignore
-      await moduleTarget.mainInstance[monkeyName](...monkeyData);
+      await this.app.vue.runWithContext(async () => {
+        await moduleTarget.mainInstance[monkeyName](...monkeyData);
+      });
     }
     // module monkey
     for (const key in this.modulesMeta) {
       const moduleMonkey: IModule = this.modulesMeta[key];
       if (moduleMonkey.info.monkey) {
         if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
-          if (moduleTarget === undefined) {
-            // @ts-ignore ignore
-            await moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
-          } else {
-            // @ts-ignore ignore
-            await moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
-          }
+          await this.app.vue.runWithContext(async () => {
+            if (moduleTarget === undefined) {
+              // @ts-ignore ignore
+              await moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
+            } else {
+              // @ts-ignore ignore
+              await moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
+            }
+          });
         }
       }
     }
     // app monkey
     const appMonkey = this.app.meta.appMonkey;
     if (appMonkey && appMonkey[monkeyName]) {
-      if (moduleTarget === undefined) {
-        // @ts-ignore ignore
-        await appMonkey[monkeyName](...monkeyData);
-      } else {
-        // @ts-ignore ignore
-        await appMonkey[monkeyName](moduleTarget, ...monkeyData);
-      }
+      await this.app.vue.runWithContext(async () => {
+        if (moduleTarget === undefined) {
+          // @ts-ignore ignore
+          await appMonkey[monkeyName](...monkeyData);
+        } else {
+          // @ts-ignore ignore
+          await appMonkey[monkeyName](moduleTarget, ...monkeyData);
+        }
+      });
     }
   }
 }
