@@ -5,15 +5,8 @@ import { IMonkeyApp, IMonkeySystem } from './monkey.js';
 import { Constructable } from '../../decorator/index.js';
 import { TypeModuleResourceLocales } from './module.js';
 
-export interface PluginCabloyModulesMeta {
-  modules: Record<string, IModule>;
-  monkey: Record<string, IModule>;
-  sync: Record<string, IModule>;
-  async: Record<string, IModule>;
-}
-
 export interface PluginCabloyOptions {
-  modulesMeta: PluginCabloyModulesMeta;
+  modulesMeta: Record<string, IModule>;
   Monkey: Constructable<IMonkeyApp & IMonkeySystem>;
   locales: TypeModuleResourceLocales;
   config: CabloyConfig;
