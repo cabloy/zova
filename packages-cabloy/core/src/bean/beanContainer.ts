@@ -386,14 +386,14 @@ export class BeanContainer {
     // inject
     await this._injectBeanInstance(beanInstance, beanFullName);
     // init
-    await this.runWithInstanceScopeOrAppContext(async () => {
-      await this.app.meta.module._monkeyModule('beanInit', undefined, this, beanInstance);
-      if (beanInstance.__init__) {
+    await this.app.meta.module._monkeyModule('beanInit', undefined, this, beanInstance);
+    if (beanInstance.__init__) {
+      await this.runWithInstanceScopeOrAppContext(async () => {
         await beanInstance.__init__(...args);
-      }
-      await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
-      beanInstance.__inited__.touch();
-    });
+      });
+    }
+    await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
+    beanInstance.__inited__.touch();
     // ok
     return beanInstance;
   }
