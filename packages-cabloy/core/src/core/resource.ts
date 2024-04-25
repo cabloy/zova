@@ -9,7 +9,7 @@ import { MetadataKey, appMetadata } from './metadata.js';
 import { IBeanRecord } from '../bean/type.js';
 import { BeanSimple } from '../bean/beanSimple.js';
 import { parseLastWord, skipLastWord, skipPrefix, splitWords } from '@cabloy/last-word';
-import uuid from 'uuid-random';
+import { uuid } from '../utils/uuid.js';
 
 export const DecoratorBeanFullName = Symbol.for('Decorator#BeanFullName');
 export const DecoratorUse = Symbol.for('Decorator#Use');

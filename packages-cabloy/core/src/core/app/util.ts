@@ -1,6 +1,6 @@
 import { extend } from '@cabloy/extend';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import uuid from 'uuid-random';
+import { uuid } from '../../utils/uuid.js';
 import { IModuleRouteComponent } from '../../bean/index.js';
 
 export class AppUtil extends BeanSimple {
