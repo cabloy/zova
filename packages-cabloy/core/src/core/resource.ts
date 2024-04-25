@@ -1,4 +1,4 @@
-import isClass from 'is-class-hotfix';
+import { isClass } from '../utils/isClass.js';
 import {
   Constructable,
   Functionable,

@@ -1,4 +1,4 @@
-import isClass from 'is-class-hotfix';
+import { isClass } from '../utils/isClass.js';
 import { CabloyApplication, CabloyContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
