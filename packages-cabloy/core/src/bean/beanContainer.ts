@@ -364,12 +364,6 @@ export class BeanContainer {
     if (typeof beanFullName === 'string') {
       __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
     }
-    // monkey: beanCreated
-    if (beanInstance instanceof BeanBase) {
-      this.runWithInstanceScopeOrAppContext(() => {
-        this.app.meta.module._monkeyModule('beanCreated', undefined, this, beanInstance);
-      });
-    }
     // reactive
     if (markReactive) {
       beanInstance = reactive(beanInstance);
