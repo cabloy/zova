@@ -27,7 +27,7 @@ export interface IMonkeySystem {
   appInitialize(): Promise<void>;
   appInitialized(): Promise<void>;
   routerGuards(router: ViewRouterLike): Promise<void>;
-  beanCreated(bean: BeanContainerLike, beanInstance: BeanBase): void;
+  beanInit(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
   beanInited(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
   beanDispose(bean: BeanContainerLike, beanInstance: BeanBase): void;
   beanDisposed(bean: BeanContainerLike, beanInstance: BeanBase): void;

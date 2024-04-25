@@ -387,6 +387,7 @@ export class BeanContainer {
     await this._injectBeanInstance(beanInstance, beanFullName);
     // init
     await this.runWithInstanceScopeOrAppContext(async () => {
+      await this.app.meta.module._monkeyModule('beanInit', undefined, this, beanInstance);
       if (beanInstance.__init__) {
         await beanInstance.__init__(...args);
       }
