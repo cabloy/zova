@@ -4,7 +4,7 @@ export interface CabloyConfigMeta {
   appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
 }
 
-export interface CabloyConfigMetaEnv {
+export interface CabloyConfigEnv {
   appServer: boolean;
   appRouterMode: 'hash' | 'history' | 'abstract' | undefined;
   appRouterBase: string | undefined;
