@@ -12,6 +12,7 @@ export const configDefault = {
   },
   api: {
     baseURL: '',
+    prefix: '',
     debounce: 200,
   },
   preload: {
@@ -39,6 +40,7 @@ export type CabloyConfig = {
   };
   api: {
     baseURL: string;
+    prefix: string;
   };
   layout: {};
   modules: IBeanScopeConfig;

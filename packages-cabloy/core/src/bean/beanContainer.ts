@@ -784,9 +784,14 @@ function __isInnerMethod(prop) {
     '__init__',
     '__dispose__',
     'then',
-    '__v_isShallow',
+    '__v_skip',
+    '__v_isReactive',
     '__v_isReadonly',
+    '__v_isShallow',
     '__v_raw',
+    '__v_isRef',
+    '__v_isVNode',
+    '__v_cache',
   ].includes(prop);
 }
 
