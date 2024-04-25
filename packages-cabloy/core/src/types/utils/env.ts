@@ -1,3 +1,19 @@
+export interface CabloyConfigMeta {
+  flavor: 'web' | 'app' | string;
+  mode: 'development' | 'production' | string;
+  appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
+}
+
+export interface CabloyConfigMetaEnv {
+  appServer: boolean;
+  appRouterMode: 'hash' | 'history' | 'abstract' | undefined;
+  appRouterBase: string | undefined;
+  appPublicPath: string | undefined;
+  appName: string | undefined;
+  appTitle: string | undefined;
+  appVersion: string | undefined;
+}
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {

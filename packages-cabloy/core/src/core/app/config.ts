@@ -1,13 +1,16 @@
-import { IBeanScopeConfig, PowerPartial } from '../../index.js';
-
-export interface CabloyConfigMeta {
-  flavor: 'web' | 'app' | string;
-  mode: 'development' | 'production' | string;
-  appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string;
-}
+import { CabloyConfigEnv, CabloyConfigMeta, IBeanScopeConfig, PowerPartial } from '../../index.js';
 
 export const configDefault = {
   meta: {},
+  env: {
+    appServer: Boolean(process.env.APP_SERVER),
+    appRouterMode: process.env.APP_ROUTER_MODE,
+    appRouterBase: process.env.APP_ROUTER_BASE,
+    appPublicPath: process.env.APP_PUBLIC_PATH,
+    appName: process.env.APP_NAME,
+    appTitle: process.env.APP_TITLE,
+    appVersion: process.env.APP_VERSION,
+  },
   base: {
     locale: 'en-us',
     jwt: false,
@@ -27,35 +30,6 @@ export const configDefault = {
       default: 'a-homelayout:layoutDefault',
       empty: 'a-homelayout:layoutEmpty',
     },
-    breakpoint: 600,
-    items: {
-      mobile: {
-        module: 'a-layoutmobile',
-        component: 'layout',
-      },
-      pc: {
-        module: 'a-layoutpc',
-        component: 'layout',
-      },
-    },
-    notification: {
-      closeTimeout: -1,
-    },
-  },
-  markdown: {
-    style: {
-      module: 'a-markdownstyle',
-    },
-  },
-  theme: {
-    type: 'builtIn',
-    builtIn: {
-      layout: 'light',
-      bars: 'empty',
-      color: 'blue',
-      customColor: null,
-    },
-    thirdParty: null,
   },
   locales: {
     'en-us': 'English',
@@ -66,7 +40,9 @@ export const configDefault = {
 
 export type CabloyConfig = {
   meta: CabloyConfigMeta;
+  env: CabloyConfigEnv;
   base: {
+    locale: string;
     jwt: boolean;
   };
   api: {
