@@ -46,11 +46,11 @@ export class BeanContainer {
       if (prop.startsWith('$$')) continue;
       const beanInstance = Cast(beanInstances[prop]);
       if (beanInstance.__dispose__) {
+        this.app.meta.module._monkeyModule('beanDispose', undefined, this, beanInstance);
         this.runWithInstanceScopeOrAppContext(() => {
-          this.app.meta.module._monkeyModule('beanDispose', undefined, this, beanInstance);
           beanInstance.__dispose__();
-          this.app.meta.module._monkeyModule('beanDisposed', undefined, this, beanInstance);
         });
+        this.app.meta.module._monkeyModule('beanDisposed', undefined, this, beanInstance);
       }
     }
     this[BeanContainerInstances] = shallowReactive({});
