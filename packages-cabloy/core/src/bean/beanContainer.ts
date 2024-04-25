@@ -364,16 +364,16 @@ export class BeanContainer {
     if (typeof beanFullName === 'string') {
       __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
     }
+    // aop: proxy
+    beanInstance = this._patchBeanInstance(beanFullName || beanClass, beanInstance, aop);
     // reactive
     if (markReactive) {
       beanInstance = reactive(beanInstance);
     } else {
       beanInstance = markRaw(beanInstance);
     }
-    // aop: proxy
-    const beanInstanceProxy = this._patchBeanInstance(beanFullName || beanClass, beanInstance, aop);
     // ok
-    return beanInstanceProxy;
+    return beanInstance;
   }
 
   private _createBeanHookInstance(beanHook, args) {
@@ -591,7 +591,7 @@ export class BeanContainer {
         return true;
       },
     });
-    return markRaw(proxy);
+    return proxy;
   }
 
   private _getInstanceMethodProxy(beanFullName, beanInstance, prop, methodType) {
