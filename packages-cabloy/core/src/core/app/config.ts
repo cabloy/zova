@@ -2,15 +2,7 @@ import { CabloyConfigEnv, CabloyConfigMeta, IBeanScopeConfig, PowerPartial } fro
 
 export const configDefault = {
   meta: {},
-  env: {
-    appServer: Boolean(process.env.APP_SERVER),
-    appRouterMode: process.env.APP_ROUTER_MODE,
-    appRouterBase: process.env.APP_ROUTER_BASE,
-    appPublicPath: process.env.APP_PUBLIC_PATH,
-    appName: process.env.APP_NAME,
-    appTitle: process.env.APP_TITLE,
-    appVersion: process.env.APP_VERSION,
-  },
+  env: {},
   base: {
     locale: 'en-us',
     jwt: false,
