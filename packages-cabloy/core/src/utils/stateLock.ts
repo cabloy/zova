@@ -1,4 +1,4 @@
-import { reactive, watch } from 'vue';
+import { reactive, watch } from '@cabloy/vue-runtime-core';
 
 export class StateLock {
   private _state: boolean;

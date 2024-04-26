@@ -1,4 +1,4 @@
-import { ComponentInternalInstance, markRaw, RendererNode } from 'vue';
+import { ComponentInternalInstance, markRaw, RendererNode } from '@cabloy/vue-runtime-core';
 import { CabloyApplication } from '../app/application.js';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { CtxMeta } from './meta.js';
@@ -34,7 +34,7 @@ export class CabloyContext {
   }
 }
 
-declare module 'vue' {
+declare module '@cabloy/vue-runtime-core' {
   export interface ComponentInternalInstance {
     cabloy: CabloyContext;
   }
