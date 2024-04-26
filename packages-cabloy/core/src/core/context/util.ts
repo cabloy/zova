@@ -4,7 +4,7 @@ import { BeanSimple } from '../../bean/beanSimple.js';
 
 export class CtxUtil extends BeanSimple {
   instanceScope(fn, tracking?: boolean) {
-    const reset = setCurrentInstance(this.ctx.instance);
+    const reset = setCurrentInstance(this.ctx.instance as any);
     if (!tracking) {
       pauseTracking();
     }
