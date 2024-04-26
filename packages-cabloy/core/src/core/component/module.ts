@@ -210,46 +210,6 @@ export class AppModule extends BeanSimple {
     return component;
   }
 
-  private _registerRoutes(module: IModule) {
-    if (!module.resource.routes) return null;
-    for (const route of module.resource.routes) {
-      this._registerRoute(module, route);
-    }
-  }
-
-  private _registerRoute(module: IModule, route: IModuleRoute) {
-    // meta
-    const meta = route.meta;
-    // path
-    let path: string;
-    if (meta?.absolute === true) {
-      path = route.path;
-    } else {
-      path = `/${module.info.pid}/${module.info.name}/${route.path}`;
-    }
-    // component
-    const component = route.component;
-    // layout / routeData
-    let layout = meta?.layout;
-    let routeData;
-    if (layout === false) {
-      routeData = { ...route, path, component, meta };
-    } else {
-      if (layout === undefined || layout === 'default') {
-        layout = this.app.config.layout.component.default;
-      } else if (layout === 'empty') {
-        layout = this.app.config.layout.component.empty;
-      }
-      routeData = {
-        path,
-        component: this.app.meta.util.createAsyncComponent(layout as any),
-        children: [{ ...route, path: '', component, meta }],
-      };
-    }
-    // add
-    this.app.view.router.addRoute(routeData);
-  }
-
   /** @internal */
   public async _monkeyModule(monkeyName: TypeMonkeyName, moduleTarget?: IModule, ...monkeyData: any[]) {
     // self: main

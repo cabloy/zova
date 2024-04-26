@@ -44,8 +44,6 @@ export class CabloyApplication {
     await this.meta.module._monkeyModule('appInitialize');
     // monkey: appInitialized
     await this.meta.module._monkeyModule('appInitialized');
-    // monkey: routerGuards
-    await this.meta.module._monkeyModule('routerGuards', undefined);
   }
 
   private async handlePlugins() {
