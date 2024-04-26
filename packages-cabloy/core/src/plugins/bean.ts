@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { App } from '@cabloy/vue-runtime-core';
 import { CabloyContext } from '../core/index.js';
 import { BeanRenderBase } from '../bean/beanRenderBase.js';
 

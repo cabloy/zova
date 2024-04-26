@@ -1,4 +1,4 @@
-import { App, markRaw } from 'vue';
+import { App, markRaw } from '@cabloy/vue-runtime-core';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginCabloyOptions } from '../../types/interface/pluginCabloy.js';
@@ -52,7 +52,7 @@ export class CabloyApplication {
   }
 }
 
-declare module 'vue' {
+declare module '@cabloy/vue-runtime-core' {
   export interface App {
     /** @internal */
     cabloy: CabloyApplication;

@@ -7,7 +7,7 @@ import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanScopeRecordKeys }
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
-import { markRaw, reactive, shallowReactive } from 'vue';
+import { markRaw, reactive, shallowReactive } from '@cabloy/vue-runtime-core';
 import { Cast } from '../types/utils/cast.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
