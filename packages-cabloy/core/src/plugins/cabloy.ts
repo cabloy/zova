@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { App } from '@cabloy/vue-runtime-core';
 import { CabloyApplication } from '../core/index.js';
 import { PluginCabloyOptions } from '../types/interface/pluginCabloy.js';
 

@@ -1,4 +1,5 @@
-import { markRaw, RendererNode } from 'vue';
+import { markRaw } from '@vue/reactivity';
+import { RendererNode } from '@cabloy/vue-runtime-core';
 import { BeanBase } from './beanBase.js';
 import { IModuleLocaleText } from './resource/locale/type.js';
 
