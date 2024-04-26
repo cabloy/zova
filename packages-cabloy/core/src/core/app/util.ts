@@ -1,7 +1,6 @@
 import { extend } from '@cabloy/extend';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { uuid } from '../../utils/uuid.js';
-import { IModuleRouteComponent } from '../../bean/index.js';
 
 export class AppUtil extends BeanSimple {
   uuid(): string {
@@ -28,14 +27,5 @@ export class AppUtil extends BeanSimple {
 
   extend(...args) {
     return extend(true, ...args);
-  }
-
-  createAsyncComponent(component: string | IModuleRouteComponent) {
-    if (typeof component !== 'string') return component;
-    return async () => {
-      const [moduleName, componentName] = component.split(':');
-      const module = await this.app.meta.module.use(moduleName);
-      return module.resource.components[componentName];
-    };
   }
 }

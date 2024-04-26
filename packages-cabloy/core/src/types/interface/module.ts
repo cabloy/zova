@@ -1,5 +1,4 @@
 import { IModuleInfo } from '@cabloy/module-info';
-import { IModuleRoute } from '../../bean/resource/route/type.js';
 import { CabloyApplication } from '../../core/app/application.js';
 import { IModuleMain, IMonkeyModule, IMonkeySystem } from './monkey.js';
 import { Component } from 'vue';
@@ -9,7 +8,6 @@ export type TypeModuleResourceErrors = Record<number, string>;
 export type TypeModuleResourceLocales = Record<string, object>;
 export type TypeModuleResourceIcons = Record<string, string>;
 
-// todo:
 export interface IModuleResource {
   Main: new () => IModuleMain;
   Monkey: new () => IMonkeyModule & IMonkeySystem;
@@ -17,7 +15,6 @@ export interface IModuleResource {
   Errors: TypeModuleResourceErrors;
   config: (app: CabloyApplication) => object | Promise<object>;
   constants: unknown;
-  routes: IModuleRoute[];
   components: Record<string, Component>;
   icons: TypeModuleResourceIcons;
 }
