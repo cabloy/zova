@@ -1,5 +1,8 @@
 import { reactive, watch } from '@cabloy/vue-runtime-core';
 
+// eslint-disable-next-line
+let __counter = 0;
+
 export class StateLock {
   private _state: boolean;
 
@@ -9,6 +12,7 @@ export class StateLock {
 
   protected constructor() {
     this._state = false;
+    __counter++;
   }
 
   get state() {
@@ -16,7 +20,11 @@ export class StateLock {
   }
 
   set state(value) {
-    this._state = value;
+    if (this._state !== value) {
+      this._state = value;
+      __counter--;
+      // console.log('-----lock counter: ', __counter);
+    }
   }
 
   touch() {
