@@ -1,4 +1,3 @@
-import { Router } from 'vue-router';
 import { IModule } from '@cabloy/module-info';
 import { CabloyConfig } from '../../core/app/config.js';
 import { IMonkeyApp, IMonkeySystem } from './monkey.js';
@@ -15,5 +14,4 @@ export interface PluginCabloyOptions {
   Monkey: Constructable<IMonkeyApp & IMonkeySystem>;
   locales: TypeModuleResourceLocales;
   config: CabloyConfig;
-  router: Router;
 }
