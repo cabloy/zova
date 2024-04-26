@@ -55,7 +55,7 @@ export class AppModule extends BeanSimple {
     // const module = this.getOnly(relativeName);
     // if (module) return module;
     // module
-    const moduleRepo = this.modulesMeta[relativeName];
+    const moduleRepo = this.modulesMeta.modules[relativeName];
     if (!moduleRepo) throw new Error(`module not exists: ${relativeName}`);
     // install
     await this._install(relativeName, moduleRepo);
@@ -66,8 +66,8 @@ export class AppModule extends BeanSimple {
   private async _loadAllMonkeysAndSyncs() {
     const promises: Promise<IModuleResource>[] = [];
     const moduleNames: string[] = [];
-    for (const moduleName in this.modulesMeta) {
-      const module = this.modulesMeta[moduleName];
+    for (const moduleName of this.modulesMeta.moduleNames) {
+      const module = this.modulesMeta.modules[moduleName];
       const info = module.info;
       if (info.monkey || info.sync) {
         const moduleResource = module.resource as any;
@@ -78,13 +78,13 @@ export class AppModule extends BeanSimple {
     const modulesResource = await Promise.all(promises);
     for (let i = 0; i < modulesResource.length; i++) {
       const moduleName = moduleNames[i];
-      this.modulesMeta[moduleName].resource = modulesResource[i];
+      this.modulesMeta.modules[moduleName].resource = modulesResource[i];
     }
   }
 
   private async _requireAllMonkeys() {
-    for (const moduleName in this.modulesMeta) {
-      const module = this.modulesMeta[moduleName];
+    for (const moduleName of this.modulesMeta.moduleNames) {
+      const module = this.modulesMeta.modules[moduleName];
       if (module.info.monkey) {
         await this._install(moduleName, module);
       }
@@ -92,8 +92,8 @@ export class AppModule extends BeanSimple {
   }
 
   private async _requireAllSyncs() {
-    for (const moduleName in this.modulesMeta) {
-      const module = this.modulesMeta[moduleName];
+    for (const moduleName of this.modulesMeta.moduleNames) {
+      const module = this.modulesMeta.modules[moduleName];
       if (module.info.sync) {
         await this._install(moduleName, module);
       }
@@ -260,8 +260,8 @@ export class AppModule extends BeanSimple {
       });
     }
     // module monkey
-    for (const key in this.modulesMeta) {
-      const moduleMonkey: IModule = this.modulesMeta[key];
+    for (const key of this.modulesMeta.moduleNames) {
+      const moduleMonkey: IModule = this.modulesMeta.modules[key];
       if (moduleMonkey.info.monkey) {
         if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
           await this.app.vue.runWithContext(async () => {
