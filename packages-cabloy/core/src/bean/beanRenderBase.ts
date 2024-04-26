@@ -6,7 +6,9 @@ export class BeanRenderBase<TScopeModule = unknown> extends BeanBase<TScopeModul
   @Use()
   $$mother: unknown;
 
-  render() {}
+  render() {
+    return null; // vnode: comment
+  }
 
   protected __get__(prop) {
     return Cast(this).$$mother[prop];
