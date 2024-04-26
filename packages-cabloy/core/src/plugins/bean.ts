@@ -11,9 +11,9 @@ export const PluginBean = {
         const ctx: CabloyContext = self._.cabloy;
         if (!ctx) return;
         self.__bean_render_original = self._.render;
-        self._.render = function () {
+        self._.render = function (this, ...args) {
           if (!ctx.meta.state.inited.state) {
-            return self.__bean_render_original.call(self._);
+            return self.__bean_render_original.call(this, ...args);
           }
           const render: BeanRenderBase = ctx.bean._getBeanSyncOnly('$$render');
           if (!render) {
