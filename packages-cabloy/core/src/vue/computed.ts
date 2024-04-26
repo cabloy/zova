@@ -1,4 +1,4 @@
-import { computed, ComputedGetter, DebuggerOptions, WritableComputedOptions } from '@vue/reactivity';
+import { computed, ComputedGetter, DebuggerOptions, WritableComputedOptions } from 'vue';
 
 export function useComputed<T>(getter: ComputedGetter<T>, debugOptions?: DebuggerOptions): T;
 export function useComputed<T>(options: WritableComputedOptions<T>, debugOptions?: DebuggerOptions): T;

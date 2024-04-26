@@ -1,4 +1,4 @@
-declare module '@cabloy/vue-runtime-core' {
+declare module 'vue' {
   interface ComponentCustomOptions {
     meta?: {
       global?: boolean;

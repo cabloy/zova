@@ -1,4 +1,4 @@
-import { ComputedRef, Ref } from '@vue/reactivity';
+import { ComputedRef, Ref } from 'vue';
 import { Functionable } from '../decorator/type/functionable.js';
 
 export type ExtractHook<Hook> = {

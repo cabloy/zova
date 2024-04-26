@@ -1,4 +1,4 @@
-import { reactive, watch } from '@cabloy/vue-runtime-core';
+import { reactive, watch } from 'vue';
 
 // eslint-disable-next-line
 let __counter = 0;

@@ -1,11 +1,4 @@
-import {
-  getCurrentInstance,
-  onBeforeUnmount,
-  onMounted,
-  onUnmounted,
-  useAttrs,
-  useSlots,
-} from '@cabloy/vue-runtime-core';
+import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, useSlots } from 'vue';
 import { queuePostFlushCb } from '@cabloy/vue-runtime-core';
 import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';

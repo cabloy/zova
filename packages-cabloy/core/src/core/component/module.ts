@@ -1,7 +1,7 @@
 import { IModule, IModuleInfo } from '@cabloy/module-info';
 import * as ModuleInfo from '@cabloy/module-info';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import { shallowReactive } from '@cabloy/vue-runtime-core';
+import { shallowReactive } from 'vue';
 import { IModuleResource, PluginCabloyModulesMeta, TypeMonkeyName } from '../../types/index.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { TypeBeanScopeRecordKeys } from '../../bean/type.js';

@@ -37,6 +37,7 @@
     "@cabloy/module-info": "^1.0.12",
     "@cabloy/vue-runtime-core": "^3.4.27",
     "@vue/reactivity": "^3.4.25",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "vue": "^3.4.25"
   }
 }
