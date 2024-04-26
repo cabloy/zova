@@ -3,16 +3,16 @@ import * as ModuleInfo from '@cabloy/module-info';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { IModuleRoute } from '../../bean/resource/route/type.js';
 import { Component, ComponentCustomOptions, shallowReactive } from 'vue';
-import { IModuleResource, TypeMonkeyName } from '../../types/index.js';
+import { IModuleResource, PluginCabloyModulesMeta, TypeMonkeyName } from '../../types/index.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { TypeBeanScopeRecordKeys } from '../../bean/type.js';
 
 export class AppModule extends BeanSimple {
-  private modulesMeta: Record<string, IModule>;
+  private modulesMeta: PluginCabloyModulesMeta;
   private modules: Record<string, IModule> = shallowReactive({});
 
   /** @internal */
-  public async initialize(modulesMeta: Record<string, IModule>) {
+  public async initialize(modulesMeta: PluginCabloyModulesMeta) {
     this.modulesMeta = modulesMeta;
     await this._loadAllMonkeysAndSyncs();
     await this._requireAllMonkeys();
