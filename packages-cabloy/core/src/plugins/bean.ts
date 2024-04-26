@@ -1,6 +1,6 @@
 import { App } from 'vue';
 import { CabloyContext } from '../core/index.js';
-import { BeanRenderBase } from '../bean/beanRenderBase.jsx';
+import { BeanRenderBase } from '../bean/beanRenderBase.js';
 
 export const PluginBean = {
   install(app: App) {

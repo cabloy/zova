@@ -4,6 +4,6 @@ export * from './beanBase.js';
 export * from './beanContainer.js';
 export * from './beanMotherBase.js';
 export * from './beanMotherPageBase.js';
-export * from './beanRenderBase.jsx';
+export * from './beanRenderBase.js';
 export * from './beanSimple.js';
 export * from './type.js';
