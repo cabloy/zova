@@ -22,7 +22,7 @@ export class AppMeta extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(Monkey: Constructable<IMonkeyApp & IMonkeySystem>) {
-    this.appMonkey = this.bean._newBeanSimple(Monkey, false);
+  public async initialize(AppMonkey: Constructable<IMonkeyApp & IMonkeySystem>) {
+    this.appMonkey = this.bean._newBeanSimple(AppMonkey, false);
   }
 }

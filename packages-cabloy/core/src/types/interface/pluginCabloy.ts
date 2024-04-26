@@ -11,7 +11,7 @@ export interface PluginCabloyModulesMeta {
 
 export interface PluginCabloyOptions {
   modulesMeta: PluginCabloyModulesMeta;
-  Monkey: Constructable<IMonkeyApp & IMonkeySystem>;
+  AppMonkey: Constructable<IMonkeyApp & IMonkeySystem>;
   locales: TypeModuleResourceLocales;
   config: CabloyConfig;
 }
