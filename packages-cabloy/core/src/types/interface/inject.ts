@@ -1,2 +1,2 @@
 export interface IInjectRecord {}
-export type TypeIInjectRecordKeys = keyof IInjectRecord;
+export type TypeInjectRecordKeys = keyof IInjectRecord;
