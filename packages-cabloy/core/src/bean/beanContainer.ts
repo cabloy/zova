@@ -9,7 +9,7 @@ import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
 import { markRaw, reactive, shallowReactive, provide as hookProvide, inject as hookInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
-import { IInjectRecord } from '../types/utils/inject.js';
+import { IInjectRecord } from '../types/interface/inject.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
