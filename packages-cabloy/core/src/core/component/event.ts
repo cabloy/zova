@@ -4,9 +4,10 @@ import {
   IEventRecord,
   IEventResultRecord,
   TypeEventContext,
+  TypeEventHandler,
   TypeEventHandlers,
   TypeEventHandlersMap,
-  TypeEventNext,
+  TypeEventOnResult,
 } from '../../types/interface/event.js';
 
 const __adapter = (_context, chain) => {
@@ -37,7 +38,7 @@ export class AppEvent extends BeanSimple {
     eventName: K,
     data: IEventRecord[K],
     result?: IEventResultRecord[K],
-    next?: TypeEventNext<IEventRecord[K], IEventResultRecord[K]>,
+    fallback?: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
   ): Promise<IEventResultRecord[K]> {
     const eventHandlers = this.getEventHandlers(eventName);
     // context
@@ -46,11 +47,11 @@ export class AppEvent extends BeanSimple {
       result,
     } as TypeEventContext<IEventRecord[K], IEventResultRecord[K]>;
     // invoke
-    await composeAsync(eventHandlers, __adapter)(context, async (context, _next) => {
-      if (next) {
-        await next(context, _next);
+    await composeAsync(eventHandlers, __adapter)(context, async (context, next) => {
+      if (fallback) {
+        await fallback(context, next);
       } else {
-        await _next();
+        await next();
       }
     });
     // ok
@@ -59,8 +60,8 @@ export class AppEvent extends BeanSimple {
 
   on<K extends keyof IEventRecord>(
     eventName: K,
-    fn: TypeEventNext<IEventRecord[K], IEventResultRecord[K]>,
-  ): () => void {
+    fn: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
+  ): TypeEventOnResult {
     const eventHandlers = this.getEventHandlers(eventName);
     eventHandlers.push(fn);
     return () => {
