@@ -9,7 +9,7 @@ import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
 import { markRaw, reactive, shallowReactive, provide as hookProvide, inject as hookInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
-import { InjectKeyRecord } from '../types/utils/inject.js';
+import { IInjectRecord } from '../types/utils/inject.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
@@ -65,7 +65,7 @@ export class BeanContainer {
     }
   }
 
-  provide<K extends keyof InjectKeyRecord>(injectKey: K, value: InjectKeyRecord[K]) {
+  provide<K extends keyof IInjectRecord>(injectKey: K, value: IInjectRecord[K]) {
     if (this.ctx) {
       return this.ctx.meta.util.instanceScope(() => {
         return hookProvide(injectKey, value as any);
@@ -75,17 +75,17 @@ export class BeanContainer {
     }
   }
 
-  inject<K extends keyof InjectKeyRecord>(injectKey: K): InjectKeyRecord[K];
-  inject<K extends keyof InjectKeyRecord>(
+  inject<K extends keyof IInjectRecord>(injectKey: K): IInjectRecord[K];
+  inject<K extends keyof IInjectRecord>(
     injectKey: K,
-    defaultValue: InjectKeyRecord[K],
+    defaultValue: IInjectRecord[K],
     treatDefaultAsFactory?: false,
-  ): InjectKeyRecord[K];
-  inject<K extends keyof InjectKeyRecord>(
+  ): IInjectRecord[K];
+  inject<K extends keyof IInjectRecord>(
     injectKey: K,
-    defaultValue: InjectKeyRecord[K] | (() => InjectKeyRecord[K]),
+    defaultValue: IInjectRecord[K] | (() => IInjectRecord[K]),
     treatDefaultAsFactory?: true,
-  ): InjectKeyRecord[K];
+  ): IInjectRecord[K];
   inject(injectKey, defaultValue?, treatDefaultAsFactory?) {
     return this.runWithInstanceScopeOrAppContext(() => {
       return hookInject(injectKey, defaultValue, treatDefaultAsFactory);
