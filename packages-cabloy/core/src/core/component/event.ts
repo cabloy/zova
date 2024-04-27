@@ -7,7 +7,7 @@ import {
   TypeEventHandler,
   TypeEventHandlers,
   TypeEventHandlersMap,
-  TypeEventOnResult,
+  TypeEventOff,
 } from '../../types/interface/event.js';
 
 const __adapter = (_context, chain) => {
@@ -61,7 +61,7 @@ export class AppEvent extends BeanSimple {
   on<K extends keyof IEventRecord>(
     eventName: K,
     fn: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
-  ): TypeEventOnResult {
+  ): TypeEventOff {
     const eventHandlers = this.getEventHandlers(eventName);
     eventHandlers.push(fn);
     return () => {

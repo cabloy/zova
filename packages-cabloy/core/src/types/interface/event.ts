@@ -1,4 +1,4 @@
-export type TypeEventOnResult = () => void;
+export type TypeEventOff = () => void;
 
 export type TypeEventHandlersMap<KS extends keyof IEventRecord> = {
   [K in KS]: TypeEventHandlers<IEventRecord[K], IEventResultRecord[K]>;
