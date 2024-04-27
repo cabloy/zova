@@ -1,7 +1,5 @@
 import { markRaw } from 'vue';
-import { RendererNode } from 'vue';
 import { BeanBase } from './beanBase.js';
-import { IModuleLocaleText } from './resource/locale/type.js';
 
 type Data = Record<string, unknown>;
 
@@ -15,14 +13,6 @@ export class BeanMotherBase<
   public $attrs: Data;
   public $slots: Slots;
   public $emit: Emits;
-
-  public get $el(): RendererNode {
-    return this.ctx.$el;
-  }
-
-  public get $text(): IModuleLocaleText {
-    return this.app.$text;
-  }
 
   // @ts-ignore: ignore
   private __initMotherParams(motherParams) {

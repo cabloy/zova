@@ -1,14 +1,24 @@
+import { RendererNode } from 'vue';
 import { appResource } from '../core/resource.js';
 import { Cast } from '../types/utils/cast.js';
 import { StateLock } from '../utils/stateLock.js';
 import { BeanSimple } from './beanSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
+import { IModuleLocaleText } from './resource/locale/type.js';
 
 export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __beanFullName__: string;
   private __moduleBelong__?: string;
   // @ts-ignore: ignore
   private __inited__: StateLock;
+
+  public get $el(): RendererNode {
+    return this.ctx.$el;
+  }
+
+  public get $text(): IModuleLocaleText {
+    return this.app.meta.text;
+  }
 
   constructor(moduleBelong?: string) {
     super();

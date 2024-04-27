@@ -5,7 +5,6 @@ import { PluginCabloyOptions } from '../../types/interface/pluginCabloy.js';
 import { CabloyConfig, configDefault } from './config.js';
 import { CabloyConstant, constantDefault } from './constant.js';
 import { PluginBean } from '../../plugins/bean.js';
-import { IModuleLocaleText } from '../../bean/resource/locale/type.js';
 
 export class CabloyApplication {
   vue: App;
@@ -13,7 +12,6 @@ export class CabloyApplication {
   meta: AppMeta;
   config: CabloyConfig;
   constant: CabloyConstant;
-  $text: IModuleLocaleText;
 
   constructor(vue: App) {
     markRaw(this);
@@ -21,7 +19,6 @@ export class CabloyApplication {
     this.vue = vue;
     this.bean = BeanContainer.create(this, null);
     this.meta = this.bean._newBeanSimple(AppMeta, false);
-    this.$text = this.meta.locale.createLocaleText();
   }
 
   /** @internal */
