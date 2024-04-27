@@ -67,7 +67,7 @@ export class BeanContainer {
 
   provide<K extends keyof InjectKeyRecord>(injectKey: K, value: InjectKeyRecord[K]) {
     this.runWithInstanceScopeOrAppContext(() => {
-      hookProvide(injectKey, value);
+      hookProvide(injectKey, value as any);
     });
   }
 
