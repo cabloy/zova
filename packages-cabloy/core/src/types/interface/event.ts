@@ -1,3 +1,7 @@
+export type TypeEventHandlersMap<KS extends keyof IEventRecord> = {
+  [K in KS]: TypeEventHandlers<IEventRecord[K], IEventResultRecord[K]>;
+};
+
 export type TypeEventHandlers<D = unknown, R = unknown> = TypeEventNext<D, R>[];
 
 export type TypeEventContext<D, R> = {
