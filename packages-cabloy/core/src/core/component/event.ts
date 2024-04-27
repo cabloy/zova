@@ -18,7 +18,7 @@ const __adapter = (_context, chain) => {
 };
 
 export class AppEvent extends BeanSimple {
-  private eventHandlersMap: TypeEventHandlersMap<keyof IEventRecord> = {};
+  private eventHandlersMap = {} as TypeEventHandlersMap<keyof IEventRecord>;
 
   /** @internal */
   public async initialize() {}
@@ -28,7 +28,7 @@ export class AppEvent extends BeanSimple {
   ): TypeEventHandlers<IEventRecord[K], IEventResultRecord[K]> {
     let eventHandlers = this.eventHandlersMap[eventName];
     if (!eventHandlers) {
-      eventHandlers = this.eventHandlersMap[eventName] = {} as any;
+      eventHandlers = this.eventHandlersMap[eventName] = [] as any;
     }
     return eventHandlers;
   }
