@@ -7,8 +7,9 @@ import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanScopeRecordKeys }
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
-import { markRaw, reactive, shallowReactive } from 'vue';
+import { markRaw, reactive, shallowReactive, provide as hookProvide, inject as hookInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
+import { InjectKeyRecord } from '../types/utils/inject.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
@@ -62,6 +63,29 @@ export class BeanContainer {
     } else {
       return this.app.vue.runWithContext(fn);
     }
+  }
+
+  provide<K extends keyof InjectKeyRecord>(injectKey: K, value: InjectKeyRecord[K]) {
+    this.runWithInstanceScopeOrAppContext(() => {
+      hookProvide(injectKey, value);
+    });
+  }
+
+  inject<K extends keyof InjectKeyRecord>(injectKey: K): InjectKeyRecord[K];
+  inject<K extends keyof InjectKeyRecord>(
+    injectKey: K,
+    defaultValue: InjectKeyRecord[K],
+    treatDefaultAsFactory?: false,
+  ): InjectKeyRecord[K];
+  inject<K extends keyof InjectKeyRecord>(
+    injectKey: K,
+    defaultValue: InjectKeyRecord[K] | (() => InjectKeyRecord[K]),
+    treatDefaultAsFactory?: true,
+  ): InjectKeyRecord[K];
+  inject(injectKey, defaultValue?, treatDefaultAsFactory?) {
+    return this.runWithInstanceScopeOrAppContext(() => {
+      return hookInject(injectKey, defaultValue, treatDefaultAsFactory);
+    });
   }
 
   defineProperty<T>(obj: T, prop: string, attributes: PropertyDescriptor & ThisType<any>): T {
