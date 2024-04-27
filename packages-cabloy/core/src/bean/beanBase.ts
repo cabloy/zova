@@ -5,6 +5,7 @@ import { StateLock } from '../utils/stateLock.js';
 import { BeanSimple } from './beanSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { IModuleLocaleText } from './resource/locale/type.js';
+import { AppEvent } from '../core/component/event.js';
 
 export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __beanFullName__: string;
@@ -18,6 +19,10 @@ export class BeanBase<TScopeModule = unknown> extends BeanSimple {
 
   public get $text(): IModuleLocaleText {
     return this.app.meta.text;
+  }
+
+  public get $event(): AppEvent {
+    return this.app.meta.event;
   }
 
   constructor(moduleBelong?: string) {
