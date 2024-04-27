@@ -66,9 +66,13 @@ export class BeanContainer {
   }
 
   provide<K extends keyof InjectKeyRecord>(injectKey: K, value: InjectKeyRecord[K]) {
-    this.runWithInstanceScopeOrAppContext(() => {
-      hookProvide(injectKey, value as any);
-    });
+    if (this.ctx) {
+      return this.ctx.meta.util.instanceScope(() => {
+        return hookProvide(injectKey, value as any);
+      });
+    } else {
+      return this.app.vue.provide(injectKey, value as any);
+    }
   }
 
   inject<K extends keyof InjectKeyRecord>(injectKey: K): InjectKeyRecord[K];
