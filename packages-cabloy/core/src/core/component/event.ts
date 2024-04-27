@@ -36,7 +36,7 @@ export class AppEvent extends BeanSimple {
 
   async emit<K extends keyof IEventRecord>(
     eventName: K,
-    data: IEventRecord[K],
+    data?: IEventRecord[K],
     result?: IEventResultRecord[K],
     fallback?: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
   ): Promise<IEventResultRecord[K]> {
