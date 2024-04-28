@@ -30,6 +30,12 @@ importers:
         specifier: ~5.3.3
         version: 5.3.3
 
+  packages-cabloy/cabloy-front:
+    dependencies:
+      '@cabloy/front-core':
+        specifier: workspace:^
+        version: link:../core
+
   packages-cabloy/core:
     dependencies:
       '@cabloy/compose':
