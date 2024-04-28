@@ -1,3 +1,6 @@
 [submodule "cabloy-cli"]
 	path = cabloy-cli
 	url = git@github.com:cabloy/cabloy-cli
+[submodule "cabloy-front"]
+	path = cabloy-front
+	url = git@github.com:cabloy/cabloy-front
