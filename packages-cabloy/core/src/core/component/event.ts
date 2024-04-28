@@ -11,10 +11,11 @@ import {
 } from '../../types/interface/event.js';
 
 const __adapter = (_context, chain) => {
-  const eventHandler = chain;
+  const eventHandlerWrapper = chain;
+  if (eventHandlerWrapper.fn === null) return;
   return {
     receiver: undefined,
-    fn: eventHandler,
+    fn: eventHandlerWrapper.fn,
   };
 };
 
@@ -47,7 +48,7 @@ export class AppEvent extends BeanSimple {
       result: initialValue,
     } as TypeEventContext<IEventRecord[K], IEventResultRecord[K]>;
     // invoke
-    await composeAsync(eventHandlers, __adapter)(context, async (context, next) => {
+    await composeAsync(eventHandlers.concat(), __adapter)(context, async (context, next) => {
       if (fallback) {
         await fallback(context, next);
       } else {
@@ -67,6 +68,7 @@ export class AppEvent extends BeanSimple {
     return () => {
       const index = eventHandlers.findIndex(item => item.fn === fn);
       if (index > -1) {
+        eventHandlers[index].fn = null;
         eventHandlers.splice(index, 1);
       }
     };

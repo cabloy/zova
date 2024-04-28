@@ -12,7 +12,7 @@ export type TypeEventContext<D, R> = {
 };
 
 export type TypeEventHandlerWrapper<D, R> = {
-  fn: TypeEventHandler<D, R>;
+  fn: TypeEventHandler<D, R> | null;
 };
 
 export type TypeEventHandler<D, R> = {
