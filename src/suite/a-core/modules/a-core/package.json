@@ -1,0 +1,33 @@
+{
+  "name": "cabloy-module-front-a-core",
+  "version": "5.0.0",
+  "title": "a-core",
+  "cabloyModule": {
+    "dependencies": {
+      "a-component": "5.0.0",
+      "a-router": "5.0.0"
+    }
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "core",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}

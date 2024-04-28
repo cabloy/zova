@@ -1,0 +1,14 @@
+{
+  "name": "cabloy-suite-front-a-core",
+  "version": "5.0.0",
+  "title": "a-core",
+  "type": "module",
+  "description": "core",
+  "author": "zhennann",
+  "dependencies": {
+    "cabloy-module-front-a-icon": "workspace:^",
+    "cabloy-module-front-a-router": "workspace:^",
+    "cabloy-module-front-a-component": "workspace:^",
+    "cabloy-module-front-a-core": "workspace:^"
+  }
+}
