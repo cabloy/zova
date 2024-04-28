@@ -18,8 +18,7 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts"
+    "dist"
   ],
   "scripts": {
     "lint": "eslint ."
