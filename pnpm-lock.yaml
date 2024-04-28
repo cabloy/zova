@@ -80,6 +80,29 @@ importers:
 
   packages-utils/last-word: {}
 
+  src/suite/a-core:
+    dependencies:
+      cabloy-module-front-a-component:
+        specifier: workspace:^
+        version: link:modules/a-component
+      cabloy-module-front-a-core:
+        specifier: workspace:^
+        version: link:modules/a-core
+      cabloy-module-front-a-icon:
+        specifier: workspace:^
+        version: link:modules/a-icon
+      cabloy-module-front-a-router:
+        specifier: workspace:^
+        version: link:modules/a-router
+
+  src/suite/a-core/modules/a-component: {}
+
+  src/suite/a-core/modules/a-core: {}
+
+  src/suite/a-core/modules/a-icon: {}
+
+  src/suite/a-core/modules/a-router: {}
+
 packages:
 
   '@babel/code-frame@7.24.2':
