@@ -1,0 +1,3 @@
+[submodule "cabloy-cli"]
+	path = cabloy-cli
+	url = git@github.com:cabloy/cabloy-cli
