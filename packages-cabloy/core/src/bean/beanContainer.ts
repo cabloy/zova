@@ -392,13 +392,21 @@ export class BeanContainer {
     if (typeof beanFullName === 'string') {
       __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
     }
-    // aop: proxy
-    beanInstance = this._patchBeanInstance(beanFullName || beanClass, beanInstance, aop);
     // reactive
     if (markReactive) {
       beanInstance = reactive(beanInstance);
     } else {
       beanInstance = markRaw(beanInstance);
+    }
+    // aop: proxy
+    const beanInstanceProxy = this._patchBeanInstance(beanFullName || beanClass, beanInstance, aop);
+    if (beanInstanceProxy) {
+      // reactive
+      if (markReactive) {
+        beanInstance = reactive(beanInstanceProxy);
+      } else {
+        beanInstance = markRaw(beanInstanceProxy);
+      }
     }
     // ok
     return beanInstance;
@@ -526,13 +534,13 @@ export class BeanContainer {
   }
 
   private _patchBeanInstance(beanFullNameOrBeanClass, beanInstance, aop) {
-    if (!beanFullNameOrBeanClass) return beanInstance;
+    if (!beanFullNameOrBeanClass) return undefined;
     // not aop on aop
-    if (aop) return beanInstance;
+    if (aop) return undefined;
     // aop chains
     const _aopChains = this._prepareAopChains(beanFullNameOrBeanClass, beanInstance);
     // no aop
-    if (_aopChains.length === 0) return beanInstance;
+    if (_aopChains.length === 0) return undefined;
     // aop
     return this._newBeanProxy(beanFullNameOrBeanClass, beanInstance);
   }
