@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-cabloy-front-bean-module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "babel-plugin-cabloy-front-bean-module",
   "publishConfig": {
     "access": "public"
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./package.json": "./package.json"
+    "./*": "./*"
   },
   "files": [
     "dist"

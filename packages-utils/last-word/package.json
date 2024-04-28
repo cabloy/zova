@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/last-word",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "get the last word",
   "publishConfig": {
     "access": "public"
@@ -11,7 +11,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./package.json": "./package.json"
+    "./*": "./*"
   },
   "files": [
     "dist/**/*.js",
