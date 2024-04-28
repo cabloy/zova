@@ -27,5 +27,6 @@
     "framework",
     "cabloy"
   ],
-  "author": "zhennann"
+  "author": "zhennann",
+  "license": "MIT"
 }

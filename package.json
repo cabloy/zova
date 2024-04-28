@@ -8,6 +8,7 @@
     "url": "git+https://github.com/cabloy/cabloy-front.git"
   },
   "author": "zhennann",
+  "license": "MIT",
   "keywords": [
     "vue3",
     "ioc",

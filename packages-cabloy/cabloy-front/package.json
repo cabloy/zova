@@ -14,6 +14,7 @@
   },
   "description": "A vue3 framework with ioc",
   "author": "zhennann",
+  "license": "MIT",
   "keywords": [
     "vue3",
     "ioc",

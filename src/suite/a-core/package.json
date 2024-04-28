@@ -5,6 +5,7 @@
   "type": "module",
   "description": "core",
   "author": "zhennann",
+  "license": "MIT",
   "dependencies": {
     "cabloy-module-front-a-component": "^5.0.3",
     "cabloy-module-front-a-core": "^5.0.3",

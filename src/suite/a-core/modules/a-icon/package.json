@@ -19,6 +19,7 @@
     "Cabloy Module"
   ],
   "author": "zhennann",
+  "license": "MIT",
   "files": [
     "dist",
     "src"

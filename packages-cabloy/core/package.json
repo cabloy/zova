@@ -27,6 +27,7 @@
     "cabloy"
   ],
   "author": "zhennann",
+  "license": "MIT",
   "dependencies": {
     "@cabloy/compose": "^1.0.2",
     "@cabloy/extend": "^3.0.5",

@@ -28,6 +28,7 @@
     "cabloy"
   ],
   "author": "zhennann",
+  "license": "MIT",
   "devDependencies": {
     "@cabloy/module-info": "^1.0.12",
     "@types/babel__core": "^7.20.5",
