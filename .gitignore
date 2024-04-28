@@ -1,0 +1,33 @@
+pnpm-lock.yaml
+package-lock.json
+node_modules
+miniprogram_npm
+/typings/core
+/coverage
+**/dist/
+/dist-release
+/docs-api
+/run
+
+.idea
+.DS_Store
+
+*.tsbuildinfo
+
+*.log
+*.logs
+*.swp
+*.tmp
+*.rdb
+
+# package-lock.json
+
+# auto created
+
+# should pre-compiled
+
+.vscode/sftp.json
+.sync-config.cson
+sftp-config.json
+sftp-config-.json
+/.assets
