@@ -37,14 +37,14 @@ export class AppEvent extends BeanSimple {
   async emit<K extends keyof IEventRecord>(
     eventName: K,
     data?: IEventRecord[K],
-    result?: IEventResultRecord[K],
+    initialValue?: IEventResultRecord[K],
     fallback?: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
   ): Promise<IEventResultRecord[K]> {
     const eventHandlers = this.getEventHandlers(eventName);
     // context
     const context = {
       data,
-      result,
+      result: initialValue,
     } as TypeEventContext<IEventRecord[K], IEventResultRecord[K]>;
     // invoke
     await composeAsync(eventHandlers, __adapter)(context, async (context, next) => {
