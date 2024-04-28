@@ -1,5 +1,3 @@
-pnpm-lock.yaml
-package-lock.json
 node_modules
 miniprogram_npm
 /typings/core
@@ -9,6 +7,7 @@ miniprogram_npm
 /docs-api
 /run
 
+.nx
 .idea
 .DS_Store
 
