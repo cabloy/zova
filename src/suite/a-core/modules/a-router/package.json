@@ -25,7 +25,8 @@
   ],
   "author": "zhennann",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "clean": "tsc -b --clean",
