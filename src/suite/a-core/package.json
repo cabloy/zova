@@ -6,9 +6,10 @@
   "description": "core",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-component": "workspace:^",
-    "cabloy-module-front-a-core": "workspace:^",
-    "cabloy-module-front-a-icon": "workspace:^",
-    "cabloy-module-front-a-router": "workspace:^"
-  }
+    "cabloy-module-front-a-component": "^5.0.1",
+    "cabloy-module-front-a-core": "^5.0.1",
+    "cabloy-module-front-a-icon": "^5.0.1",
+    "cabloy-module-front-a-router": "^5.0.1"
+  },
+  "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
 }
