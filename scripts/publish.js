@@ -2,11 +2,7 @@
 
 import { ProcessHelper } from '@cabloy/process-helper';
 import parseArgs from 'minimist';
-
-const __AllProjects = [
-  //
-  'cabloy-cli',
-];
+import { config } from './config.js';
 
 (async function () {
   await main();
@@ -16,8 +12,8 @@ async function main() {
   // argv
   const argv = parseArgs(process.argv.slice(2));
   // project
-  const project = argv.args[0];
-  const projects = project ? [project] : __AllProjects;
+  const project = argv._[0];
+  const projects = project ? [project] : config.projects;
   // loop
   const processHelper = new ProcessHelper(process.cwd());
   for (const project of projects) {
