@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/last-word",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get the last word",
   "publishConfig": {
     "access": "public"
@@ -8,11 +8,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": [
-        "./src/index.ts",
-        "./dist/index.d.ts"
-      ],
-      "import": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"

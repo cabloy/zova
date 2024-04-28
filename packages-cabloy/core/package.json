@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-core",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "cabloy front core",
   "publishConfig": {
     "access": "public"
@@ -8,11 +8,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": [
-        "./src/index.ts",
-        "./dist/index.d.ts"
-      ],
-      "import": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
