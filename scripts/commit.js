@@ -24,5 +24,6 @@ async function main() {
     await processHelper.gitCommit(message, { cwd });
   }
   // main
+  console.log('----------: main');
   await processHelper.gitCommit(message);
 }
