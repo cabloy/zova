@@ -76,7 +76,10 @@ export class AppEvent extends BeanSimple {
     eventName: K,
     fn: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
   ): TypeEventOff {
-    const off = this.on(eventName, async () => {});
+    const off = this.on(eventName, async (context, next) => {
+      await fn(context, next);
+      off();
+    });
     return off;
   }
 }
