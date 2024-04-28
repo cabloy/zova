@@ -1,31 +1,26 @@
 {
-  "name": "cabloy-front-core",
-  "title": "Cabloy",
-  "private": true,
+  "name": "cabloy-front",
+  "title": "Cabloy Front",
   "type": "module",
-  "description": "A Node.js full-stack framework with workflow engine, based on koa + egg + vue + framework7",
+  "description": "A vue3 framework with ioc",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhennann/cabloy.git"
+    "url": "git+https://github.com/cabloy/cabloy-front.git"
   },
   "author": "zhennann",
   "keywords": [
-    "nodejs",
-    "full-stack",
-    "workflow-engine",
-    "egg-framework",
-    "framework7",
+    "vue3",
+    "ioc",
     "cabloy"
   ],
   "bugs": {
-    "url": "https://github.com/zhennann/cabloy/issues"
+    "url": "https://github.com/cabloy/cabloy-front/issues"
   },
-  "homepage": "https://github.com/zhennann/cabloy#readme",
+  "homepage": "https://github.com/cabloy/cabloy-front#readme",
   "engines": {
     "node": ">=16.0.0"
   },
   "scripts": {
-    "cabloy": "cabloy",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,sass,html,md,json}\" --ignore-path .gitignore"
   },

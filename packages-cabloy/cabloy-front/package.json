@@ -1,0 +1,25 @@
+{
+  "name": "@cabloy/front",
+  "version": "5.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "A vue3 framework with ioc",
+  "author": "zhennann",
+  "keywords": [
+    "vue3",
+    "ioc",
+    "cabloy"
+  ],
+  "dependencies": {
+    "@cabloy/front-core": "workspace:^"
+  }
+}
