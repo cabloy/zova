@@ -63,9 +63,9 @@ export class AppEvent extends BeanSimple {
     fn: TypeEventHandler<IEventRecord[K], IEventResultRecord[K]>,
   ): TypeEventOff {
     const eventHandlers = this.getEventHandlers(eventName);
-    eventHandlers.push(fn);
+    eventHandlers.push({ fn });
     return () => {
-      const index = eventHandlers.findIndex(item => item === fn);
+      const index = eventHandlers.findIndex(item => item.fn === fn);
       if (index > -1) {
         eventHandlers.splice(index, 1);
       }
