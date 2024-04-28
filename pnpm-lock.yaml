@@ -33,10 +33,10 @@ importers:
   packages-cabloy/cabloy-front:
     dependencies:
       '@cabloy/front-core':
-        specifier: ^5.0.5
+        specifier: ^5.0.6
         version: link:../core
       cabloy-suite-front-a-core:
-        specifier: ^5.0.2
+        specifier: ^5.0.3
         version: link:../../src/suite/a-core
 
   packages-cabloy/core:
@@ -86,16 +86,16 @@ importers:
   src/suite/a-core:
     dependencies:
       cabloy-module-front-a-component:
-        specifier: ^5.0.2
+        specifier: ^5.0.3
         version: link:modules/a-component
       cabloy-module-front-a-core:
-        specifier: ^5.0.2
+        specifier: ^5.0.3
         version: link:modules/a-core
       cabloy-module-front-a-icon:
-        specifier: ^5.0.2
+        specifier: ^5.0.3
         version: link:modules/a-icon
       cabloy-module-front-a-router:
-        specifier: ^5.0.2
+        specifier: ^5.0.3
         version: link:modules/a-router
 
   src/suite/a-core/modules/a-component: {}

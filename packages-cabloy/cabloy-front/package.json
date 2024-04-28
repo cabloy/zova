@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "publishConfig": {
     "access": "public"
   },
@@ -20,8 +20,8 @@
     "cabloy"
   ],
   "dependencies": {
-    "@cabloy/front-core": "^5.0.5",
-    "cabloy-suite-front-a-core": "^5.0.2"
+    "@cabloy/front-core": "^5.0.6",
+    "cabloy-suite-front-a-core": "^5.0.3"
   },
   "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
 }
