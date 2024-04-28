@@ -11,7 +11,6 @@ import { config } from './config.js';
 async function main() {
   // argv
   const argv = parseArgs(process.argv.slice(2));
-  console.log(argv);
   // message
   const message = argv._[0];
   // project
