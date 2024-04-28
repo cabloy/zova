@@ -20,6 +20,7 @@
     "cabloy"
   ],
   "dependencies": {
-    "@cabloy/front-core": "workspace:^"
+    "@cabloy/front-core": "workspace:^",
+    "cabloy-suite-front-a-core": "workspace:^"
   }
 }
