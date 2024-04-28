@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-icon",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "title": "a-icon",
   "type": "module",
   "exports": {
@@ -27,6 +27,5 @@
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
-  },
-  "dependencies": {}
+  }
 }

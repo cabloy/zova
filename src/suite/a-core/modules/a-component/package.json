@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-component",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "title": "a-component",
   "cabloyModule": {
     "capabilities": {
@@ -32,6 +32,5 @@
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
-  },
-  "dependencies": {}
+  }
 }

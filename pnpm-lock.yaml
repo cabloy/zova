@@ -35,6 +35,9 @@ importers:
       '@cabloy/front-core':
         specifier: workspace:^
         version: link:../core
+      cabloy-suite-front-a-core:
+        specifier: workspace:^
+        version: link:../../src/suite/a-core
 
   packages-cabloy/core:
     dependencies:
