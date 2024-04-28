@@ -1,4 +1,5 @@
 import { Component } from 'vue';
+import 'vue/jsx-runtime';
 
 declare module 'vue' {
   export interface ComponentCustomOptions {
