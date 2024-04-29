@@ -7,3 +7,6 @@
 [submodule "cabloy-front-quasar"]
 	path = cabloy-front-quasar
 	url = git@github.com:cabloy/cabloy-front-quasar
+[submodule "cabloy-front-vuetify"]
+	path = cabloy-front-vuetify
+	url = git@github.com:cabloy/cabloy-front-vuetify
