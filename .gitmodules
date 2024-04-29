@@ -4,6 +4,6 @@
 [submodule "cabloy-front"]
 	path = cabloy-front
 	url = git@github.com:cabloy/cabloy-front
-  [submodule "cabloy-front-quasar"]
-	path = cabloy-front
+[submodule "cabloy-front-quasar"]
+	path = cabloy-front-quasar
 	url = git@github.com:cabloy/cabloy-front-quasar
