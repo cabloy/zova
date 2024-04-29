@@ -52,5 +52,6 @@
     "tmp": "^0.2.3",
     "vite": "^5.2.10",
     "vite-plugin-checker": "^0.6.4"
-  }
+  },
+  "gitHead": "f231f03ec5e83423362af6eab0ab8366518b52fe"
 }
