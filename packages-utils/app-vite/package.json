@@ -14,8 +14,8 @@
     "./*": "./*"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts"
+    "dist",
+    "templates"
   ],
   "scripts": {
     "lint": "eslint .",
