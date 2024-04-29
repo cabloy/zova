@@ -3,5 +3,6 @@ export const config = {
     //
     'cabloy-cli',
     'cabloy-front',
+    'cabloy-front-quasar',
   ],
 };
