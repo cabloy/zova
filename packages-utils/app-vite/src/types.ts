@@ -15,14 +15,14 @@ export interface CabloyViteConfigOptions {
 export interface CabloyViteConfigResult {
   env: { [name: string]: string };
   alias: { [name: string]: string };
-  proxy: object;
+  proxy: any;
   vitePlugins: any[];
-  viteConfig: object;
+  viteConfig: any;
 }
 
 export type CabloyVitePlugin = [
   string,
   (...args: any[]) => any,
-  object,
+  any,
   { client?: boolean; server?: boolean } | undefined,
 ];
