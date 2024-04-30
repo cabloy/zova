@@ -1,56 +1,60 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { VApp, VAppBar, VAppBarNavIcon, VBtn, VDivider, VList, VListSubheader, VMain, VNavigationDrawer, VSpacer, VToolbarTitle } from 'vuetify/components';
+import { ElConfigProvider, ElMenu, ElMenuItem } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
-import EssentialLink from '../essentialLink/index.vue';
+//import EssentialLink from '../essentialLink/index.vue';
 
 export interface RenderLayoutDefault extends MotherLayoutDefault { }
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
-  _renderMenuItem(item: TypeMenuItem) {
-    if (item.separator) {
-      return <VDivider></VDivider>;
-    }
-    if (item.folder) {
-      return <VListSubheader>{item.title}</VListSubheader>;
-    }
-    return (
-      <EssentialLink
-        key={item.title}
-        title={item.title}
-        caption={item.caption}
-        icon={item.icon}
-        href={item.href}
-        to={item.to}
-      />
-    );
+  _renderMenuItem(_item: TypeMenuItem) {
+    return <ElMenuItem index="1">Navigator One</ElMenuItem>
+    // if (item.separator) {
+    //   return <VDivider></VDivider>;
+    // }
+    // if (item.folder) {
+    //   return <VListSubheader>{item.title}</VListSubheader>;
+    // }
+    // return (
+    //   <EssentialLink
+    //     key={item.title}
+    //     title={item.title}
+    //     caption={item.caption}
+    //     icon={item.icon}
+    //     href={item.href}
+    //     to={item.to}
+    //   />
+    // );
   }
   _renderMenu() {
     const domItems: JSX.Element[] = [];
     for (const item of this.menu) {
       domItems.push(this._renderMenuItem(item));
     }
-    return <VList>{domItems}</VList>;
+    return <ElMenu class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>{domItems}</ElMenu>;
+  }
+
+  _renderHeader() {
+    return (
+      <ElMenu class="el-menu-demo" mode="horizontal">
+        <ElMenuItem index="1">Element Plus</ElMenuItem>
+      </ElMenu >
+    )
+  }
+
+  _renderSidebar() {
+    return
   }
 
   render() {
-    return (
-      <VApp>
-        <VNavigationDrawer v-model={this.leftDrawerOpen} width="360">
-          {this._renderMenu()}
-        </VNavigationDrawer>
-        <VAppBar>
-          <VAppBarNavIcon icon='::menu' variant='text' onClick={() => this.toggleLeftDrawer()}></VAppBarNavIcon>
-          <VToolbarTitle>CabloyJS</VToolbarTitle>
-          <VSpacer></VSpacer>
-          <VBtn icon="::search" variant='text'></VBtn>
-          <VBtn icon="::more-horiz" variant='text'></VBtn>
-        </VAppBar>
-        <VMain>
-          <router-view />
-        </VMain>
-      </VApp >
-    )
+    return <ElConfigProvider>
+      {this._renderHeader()}
+      <div class="flex main-container">
+        {this._renderMenu()}
+        <router-view />
+      </div>
+
+    </ElConfigProvider>
   }
 }
