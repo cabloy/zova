@@ -29,19 +29,16 @@
   "dependencies": {
     "@cabloy/front": "^5.0.7",
     "@cabloy/front-core": "^5.0.8",
-    "core-js": "^3.37.0",
     "roboto-fontface": "^0.10.0",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2",
     "vuetify": "^3.5.17"
   },
   "devDependencies": {
-    "@babel/types": "^7.24.5",
     "@cabloy/app-vite": "^1.0.6",
     "@cabloy/lint": "^4.0.8",
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vue/eslint-config-typescript": "^13.0.0",
     "sass": "^1.75.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.10",

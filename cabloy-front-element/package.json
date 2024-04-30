@@ -29,8 +29,6 @@
   "dependencies": {
     "@cabloy/front": "^5.0.7",
     "@cabloy/front-core": "^5.0.8",
-    "core-js": "^3.37.0",
-    "roboto-fontface": "^0.10.0",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2",
     "vuetify": "^3.5.17"
