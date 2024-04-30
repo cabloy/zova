@@ -1,0 +1,61 @@
+.DS_Store
+.thumbs.db
+pnpm-lock.yaml
+package-lock.json
+node_modules
+miniprogram_npm
+
+**/dist
+distMockServer
+
+# cabloy core related directories
+.cabloy
+
+# Cordova related directories and files
+/src-cordova/node_modules
+/src-cordova/platforms
+/src-cordova/plugins
+/src-cordova/www
+
+# Capacitor related directories and files
+/src-capacitor/www
+/src-capacitor/node_modules
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# mine .env files
+env/.env*.mine
+
+**/*.tsbuildinfo
+
+/src/front/config
+
+/src/suite/*
+!/src/suite/.gitkeep
+!/src/suite/a-base
+!/src/suite/a-cms
+!/src/suite/a-core
+!/src/suite/a-demo
+!/src/suite/a-flow
+!/src/suite/a-home
+!/src/suite/test-party
+
+/src/suite-vendor/*
+!/src/suite-vendor/.gitkeep
+!/src/suite-vendor/a-vuetify
+
+/src/module/*
+!/src/module/.gitkeep
+
+/src/module-vendor/*
+!/src/module-vendor/.gitkeep

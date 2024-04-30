@@ -1,0 +1,7 @@
+**/dist
+/distMockServer
+/src-capacitor
+/src-cordova
+/.cabloy
+/node_modules
+.eslintrc.cjs

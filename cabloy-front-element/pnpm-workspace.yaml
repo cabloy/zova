@@ -1,0 +1,7 @@
+packages:
+  - 'src/module/*'
+  - 'src/module-vendor/*'
+  - 'src/suite/*'
+  - 'src/suite/*/modules/*'
+  - 'src/suite-vendor/*'
+  - 'src/suite-vendor/*/modules/*'
