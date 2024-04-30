@@ -33,7 +33,7 @@ importers:
   packages-cabloy/cabloy-front:
     dependencies:
       '@cabloy/front-core':
-        specifier: ^5.0.7
+        specifier: ^5.0.8
         version: link:../core
       cabloy-suite-front-a-core:
         specifier: ^5.0.5
@@ -84,7 +84,7 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5
       '@cabloy/front-core':
-        specifier: ^5.0.7
+        specifier: ^5.0.8
         version: link:../../packages-cabloy/core
       '@cabloy/module-glob':
         specifier: ^5.0.9
