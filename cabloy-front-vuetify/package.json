@@ -10,6 +10,22 @@
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
+  "keywords": [
+    "nodejs",
+    "full-stack",
+    "workflow-engine",
+    "vue3",
+    "ioc",
+    "cabloy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/cabloy-front.git"
+  },
+  "homepage": "https://github.com/cabloy/cabloy-front#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/cabloy-front/issues"
+  },
   "dependencies": {
     "@cabloy/front": "^5.0.7",
     "@cabloy/front-core": "^5.0.8",
