@@ -1,0 +1,19 @@
+{
+  "name": "cabloy-suite-api-<%=argv.name%>",
+  "version": "5.0.0",
+  "title": "<%=argv.suiteInfo.relativeName%>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": ["./src/index.ts", "./dist/index.d.ts"],
+      "development": "./src/index.ts",
+      "import": "./dist/index.js",
+      "default": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "description": "<%=argv.description%>",
+  "author": "<%=argv.author%>",
+  "dependencies": {}
+}

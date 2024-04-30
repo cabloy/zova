@@ -1,0 +1,12 @@
+import { BeanBase, Controller } from '@cabloy/core';
+import { ScopeModule } from '../resource/this.js';
+
+@Controller()
+export class Controller<%=argv.controllerNameCapitalize%> extends BeanBase<ScopeModule> {
+  async action() {
+    const res = await this.scope.local.<%=argv.controllerName%>.action({
+      user: this.ctx.state.user.op,
+    });
+    this.ctx.success(res);
+  }
+}

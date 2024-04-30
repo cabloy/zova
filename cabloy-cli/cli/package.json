@@ -1,0 +1,58 @@
+{
+  "name": "@cabloy/cli",
+  "version": "1.1.2",
+  "description": "cabloy cli",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "cabloy": "dist/bin/cabloy.js"
+  },
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "keywords": [
+    "framework",
+    "cabloy"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "dependencies": {
+    "@cabloy/cli-set-api": "workspace:^",
+    "@cabloy/cli-set-core": "workspace:^",
+    "@cabloy/cli-set-front": "workspace:^",
+    "@cabloy/module-glob": "^5.0.4",
+    "@cabloy/module-info": "^1.0.12",
+    "@cabloy/process-helper": "^1.0.1",
+    "@zhennann/common-bin": "^4.0.0",
+    "@zhennann/ejs": "^3.0.1",
+    "boxen": "^4.2.0",
+    "chalk": "^3.0.0",
+    "cli-table3": "^0.6.2",
+    "egg-born-utils": "^1.2.0",
+    "enquirer": "^2.3.6",
+    "fs-extra": "^11.2.0",
+    "gogocode": "^1.0.53",
+    "is-type-of": "^2.1.0",
+    "istextorbinary": "^3.3.0"
+  }
+}

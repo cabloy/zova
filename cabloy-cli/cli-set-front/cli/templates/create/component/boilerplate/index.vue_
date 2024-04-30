@@ -1,0 +1,11 @@
+<template>
+  <template></template>
+</template>
+
+<script setup lang="ts">
+import { useMother } from '@cabloy/front-core';
+import { Mother<%=argv.componentNameShortCapitalize%>, Props, Emits } from './mother.js';
+const props = withDefaults(defineProps<Props>(), Mother<%=argv.componentNameShortCapitalize%>.$propsDefault);
+const emit = defineEmits<Emits>();
+useMother(Mother<%=argv.componentNameShortCapitalize%>, props, emit);
+</script>

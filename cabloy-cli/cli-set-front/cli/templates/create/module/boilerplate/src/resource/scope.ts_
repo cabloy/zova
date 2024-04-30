@@ -1,0 +1,18 @@
+import { BeanScopeBase, Scope, TypeModuleResource } from '@cabloy/front-core';
+import { config, Errors, locales, constants } from '../config/index.js';
+
+@Scope()
+export class ScopeModule<%=argv.relativeNameCapitalize%> extends BeanScopeBase {}
+
+export interface ScopeModule<%=argv.relativeNameCapitalize%>
+  extends TypeModuleResource<typeof config, typeof Errors, typeof locales, typeof constants> {}
+
+declare module '@cabloy/front-core' {
+  export interface IBeanScopeRecord {
+    '<%=argv.moduleInfo.relativeName%>': ScopeModule<%=argv.relativeNameCapitalize%>;
+  }
+
+  export interface IBeanScopeConfig {
+    '<%=argv.moduleInfo.relativeName%>': ReturnType<typeof config>;
+  }
+}

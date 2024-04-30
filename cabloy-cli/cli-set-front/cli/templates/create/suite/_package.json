@@ -1,0 +1,9 @@
+{
+  "name": "cabloy-suite-front-<%=argv.name%>",
+  "version": "5.0.0",
+  "title": "<%=argv.suiteInfo.relativeName%>",
+  "type": "module",
+  "description": "<%=argv.description%>",
+  "author": "<%=argv.author%>",
+  "dependencies": {}
+}

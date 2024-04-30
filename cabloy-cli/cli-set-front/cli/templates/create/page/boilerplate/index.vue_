@@ -1,0 +1,9 @@
+<template>
+  <template></template>
+</template>
+
+<script setup lang="ts">
+import { useMother } from '@cabloy/front-core';
+import { MotherPage<%=argv.pageNameShortCapitalize%> } from './mother.js';
+useMother(MotherPage<%=argv.pageNameShortCapitalize%>);
+</script>

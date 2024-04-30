@@ -1,0 +1,3 @@
+{
+  "extends": "@cabloy/lint/api/tsconfig.base.esm"
+}
