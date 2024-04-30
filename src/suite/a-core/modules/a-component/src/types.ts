@@ -15,6 +15,7 @@ declare module 'vue/jsx-runtime' {
       onMotherRef?(mother: any): void;
       // see also: @vue/runtime-dom: HTMLAttributes
       class?: any;
+      onClick?: (evt: Event) => void;
     }
   }
 }
