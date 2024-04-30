@@ -6,9 +6,11 @@ export type ExtractHook<Hook> = {
     ? RawType
     : Hook[Prop] extends ComputedRef<infer RawType>
       ? RawType
-      : Hook[Prop] extends object
-        ? ExtractHook<Hook[Prop]>
-        : Hook[Prop];
+      : Hook[Prop] extends Functionable
+        ? Hook[Prop]
+        : Hook[Prop] extends object
+          ? ExtractHook<Hook[Prop]>
+          : Hook[Prop];
 };
 
 export type ReturnTypeHook<Hook extends Functionable> = Hook extends (...args: any[]) => infer R ? ExtractHook<R> : any;
