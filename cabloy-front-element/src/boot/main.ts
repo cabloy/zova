@@ -4,7 +4,7 @@ import App from './app.vue';
 import { cabloy } from './cabloy.js';
 
 import '../css/index.scss';
-import 'unocss';
+import 'uno.css';
 
 async function start({ app, router }) {
   await cabloy({ app, router });
