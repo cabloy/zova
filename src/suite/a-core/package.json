@@ -1,13 +1,13 @@
 {
   "name": "cabloy-suite-front-a-core",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "title": "a-core",
   "type": "module",
   "description": "core",
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "cabloy-module-front-a-component": "^5.0.4",
+    "cabloy-module-front-a-component": "^5.0.5",
     "cabloy-module-front-a-core": "^5.0.4",
     "cabloy-module-front-a-icon": "^5.0.4",
     "cabloy-module-front-a-router": "^5.0.4"
