@@ -16,7 +16,9 @@ export class RenderPageErrorNotFound extends BeanRenderBase {
             Oops. Nothing here...
           </div>
 
-          <ElButton type="primary" link>Go Home</ElButton>
+          <ElButton color="white" onClick={() => {
+            this.$router.push('/');
+          }}>Go Home</ElButton>
         </div>
       </div>
     );
