@@ -1,7 +1,7 @@
 {
   "name": "@cabloy/front-vuetify",
   "version": "5.0.0",
-  "description": "A vue3 vuetify framework with ioc",
+  "description": "A vue3 element-plus framework with ioc",
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {
