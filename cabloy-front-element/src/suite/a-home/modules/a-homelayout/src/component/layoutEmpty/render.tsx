@@ -7,7 +7,10 @@ export interface RenderLayoutEmpty extends MotherLayoutEmpty { }
 @Local()
 export class RenderLayoutEmpty extends BeanRenderBase {
   render() {
-    return <ElConfigProvider>
-    </ElConfigProvider>
+    return (
+      <ElConfigProvider>
+        <router-view />
+      </ElConfigProvider>
+    );
   }
 }

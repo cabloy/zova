@@ -1,6 +1,6 @@
 // Plugins
 import Vue from '@vitejs/plugin-vue';
-import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import ElementPlus from 'unplugin-element-plus/vite';
 
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
@@ -21,24 +21,13 @@ export default defineConfig(async ({ mode }) => {
     runtimeDir: '.cabloy',
     cabloyManualChunk: {
       debug: false,
-      vendors: [{ match: ['vuetify'], output: 'vuetify' }],
+      vendors: [{ match: ['element-plus'], output: 'element-plus' }],
     },
   };
   // cabloyViteMeta
   const cabloyViteMeta = await generateCabloyViteMeta(configMeta, configOptions);
   // plugins
-  const plugins = [
-    Vue({
-      template: { transformAssetUrls },
-    }),
-    // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
-    Vuetify({
-      autoImport: false,
-      styles: {
-        configFile: 'src/css/settings.scss',
-      },
-    }),
-  ];
+  const plugins = [Vue(), ElementPlus({})];
   for (const plugin of cabloyViteMeta.vitePlugins) {
     const pluginFn = plugin[1];
     const pluginOptions = plugin[2];
