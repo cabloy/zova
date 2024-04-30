@@ -1,0 +1,11 @@
+{
+  "name": "cabloy-suite-front-a-quasar",
+  "version": "5.0.0",
+  "title": "a-quasar",
+  "type": "module",
+  "description": "quasar",
+  "author": "zhennann",
+  "dependencies": {
+    "cabloy-module-front-a-quasar": "workspace:^"
+  }
+}

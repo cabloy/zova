@@ -1,0 +1,4 @@
+{
+  "extends": "@cabloy/lint/front/tsconfig.base.esm",
+  "compilerOptions": {}
+}

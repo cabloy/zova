@@ -1,0 +1,30 @@
+{
+  "name": "cabloy-module-front-a-homemock",
+  "version": "5.0.0",
+  "title": "a-homemock",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "mock",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@zhennann/vite-plugin-fake-server": "^2.1.1"
+  }
+}

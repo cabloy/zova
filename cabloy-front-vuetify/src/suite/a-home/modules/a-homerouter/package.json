@@ -1,0 +1,35 @@
+{
+  "name": "cabloy-module-front-a-homerouter",
+  "version": "5.0.0",
+  "title": "a-homerouter",
+  "cabloyModule": {
+    "capabilities": {
+      "monkey": true
+    },
+    "dependencies": {
+      "a-core": "5.0.0"
+    }
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "router",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}

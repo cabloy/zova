@@ -1,0 +1,33 @@
+{
+  "name": "cabloy-module-front-a-icon",
+  "version": "5.0.4",
+  "title": "a-icon",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "icon",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
+}

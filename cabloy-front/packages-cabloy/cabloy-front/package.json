@@ -1,0 +1,28 @@
+{
+  "name": "@cabloy/front",
+  "version": "5.0.7",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "A vue3 framework with ioc",
+  "author": "zhennann",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "ioc",
+    "cabloy"
+  ],
+  "dependencies": {
+    "@cabloy/front-core": "^5.0.8",
+    "cabloy-suite-front-a-core": "^5.0.5"
+  },
+  "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
+}

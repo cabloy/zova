@@ -1,0 +1,41 @@
+{
+  "name": "cabloy-front",
+  "title": "Cabloy Front",
+  "type": "module",
+  "description": "A vue3 framework with ioc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/cabloy-front.git"
+  },
+  "author": "zhennann",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "ioc",
+    "cabloy"
+  ],
+  "bugs": {
+    "url": "https://github.com/cabloy/cabloy-front/issues"
+  },
+  "homepage": "https://github.com/cabloy/cabloy-front#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "format": "prettier --write \"**/*.{js,ts,vue,sass,html,md,json}\" --ignore-path .gitignore"
+  },
+  "pnpm": {
+    "overrides": {}
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cabloy/lint": "^4.0.7",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "autoprefixer": "^10.4.19",
+    "lerna": "^8.1.2",
+    "typescript": "^5.4.5"
+  }
+}

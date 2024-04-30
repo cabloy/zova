@@ -1,0 +1,42 @@
+{
+  "name": "@cabloy/front-core",
+  "version": "5.0.8",
+  "description": "cabloy front core",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "keywords": [
+    "framework",
+    "cabloy"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "dependencies": {
+    "@cabloy/compose": "^1.0.2",
+    "@cabloy/extend": "^3.0.5",
+    "@cabloy/last-word": "workspace:^",
+    "@cabloy/localeutil": "^1.0.3",
+    "@cabloy/module-info": "^1.0.12",
+    "@cabloy/vue-runtime-core": "^3.4.27",
+    "@vue/reactivity": "^3.4.25",
+    "reflect-metadata": "^0.2.2",
+    "vue": "^3.4.25"
+  }
+}

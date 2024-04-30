@@ -1,0 +1,41 @@
+{
+  "name": "cabloy-module-front-a-router",
+  "version": "5.0.4",
+  "title": "a-router",
+  "cabloyModule": {
+    "capabilities": {
+      "monkey": true
+    }
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "router",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "dependencies": {
+    "vue-router": "^4.3.2"
+  },
+  "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
+}

@@ -1,0 +1,4 @@
+{
+  "recommendations": ["vscodevim.vim", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "unwantedRecommendations": []
+}

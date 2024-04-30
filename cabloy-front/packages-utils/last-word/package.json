@@ -1,0 +1,32 @@
+{
+  "name": "@cabloy/last-word",
+  "version": "1.0.6",
+  "description": "get the last word",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "keywords": [
+    "framework",
+    "cabloy"
+  ],
+  "author": "zhennann",
+  "license": "MIT"
+}
