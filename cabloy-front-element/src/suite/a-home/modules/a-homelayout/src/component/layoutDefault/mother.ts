@@ -8,7 +8,11 @@ export type Emits = {};
 
 export type Slots = {};
 
-export type TypeMenuItem = MotherEssentialLink.Props & { folder?: boolean; separator?: boolean };
+export type TypeMenuItem = MotherEssentialLink.Props & {
+  folder?: boolean;
+  separator?: boolean;
+  children?: TypeMenuItem[];
+};
 
 @Local()
 export class MotherLayoutDefault extends BeanMotherBase<Props, Emits, Slots> {

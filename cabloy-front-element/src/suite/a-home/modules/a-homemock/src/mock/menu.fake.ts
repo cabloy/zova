@@ -8,45 +8,46 @@ const __MenuData = [
     to: '/a/home/home',
   },
   {
-    separator: true,
-  },
-  {
     folder: true,
     title: 'Basic',
-  },
-  {
-    title: 'State',
-    caption: 'ref, computed',
-    icon: '',
-    to: '/a/demobasic/state',
-  },
-  {
-    title: 'Component',
-    caption: 'props, emits, slots',
-    icon: '',
-    to: '/a/demobasic/component',
+    children: [
+      {
+        title: 'State',
+        caption: 'ref, computed',
+        icon: '',
+        to: '/a/demobasic/state',
+      },
+      {
+        title: 'Component',
+        caption: 'props, emits, slots',
+        icon: '',
+        to: '/a/demobasic/component',
+      },
+    ],
   },
   {
     folder: true,
     title: 'Vuetify',
-  },
-  {
-    title: 'Docs',
-    caption: 'vuetifyjs.com',
-    icon: ':social:school',
-    href: 'https://vuetifyjs.com',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/vuetifyjs',
-    icon: ':editor:code',
-    href: 'https://github.com/vuetifyjs',
-  },
-  {
-    title: 'Vuetify Awesome',
-    caption: 'Community Vuetify projects',
-    icon: '::heart',
-    href: 'https://github.com/vuetifyjs/awesome',
+    children: [
+      {
+        title: 'Docs',
+        caption: 'vuetifyjs.com',
+        icon: ':social:school',
+        href: 'https://vuetifyjs.com',
+      },
+      {
+        title: 'Github',
+        caption: 'github.com/vuetifyjs',
+        icon: ':editor:code',
+        href: 'https://github.com/vuetifyjs',
+      },
+      {
+        title: 'Vuetify Awesome',
+        caption: 'Community Vuetify projects',
+        icon: '::heart',
+        href: 'https://github.com/vuetifyjs/awesome',
+      },
+    ],
   },
 ];
 

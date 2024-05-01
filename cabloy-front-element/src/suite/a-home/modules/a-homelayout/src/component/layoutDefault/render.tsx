@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { ElConfigProvider, ElMenu, ElMenuItem } from 'element-plus';
+import { ElConfigProvider, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
@@ -8,31 +8,39 @@ export interface RenderLayoutDefault extends MotherLayoutDefault { }
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
-  _renderMenuItem(_item: TypeMenuItem) {
-    return <ElMenuItem index="1">Navigator One</ElMenuItem>
-    // if (item.separator) {
-    //   return <VDivider></VDivider>;
-    // }
-    // if (item.folder) {
-    //   return <VListSubheader>{item.title}</VListSubheader>;
-    // }
-    // return (
-    //   <EssentialLink
-    //     key={item.title}
-    //     title={item.title}
-    //     caption={item.caption}
-    //     icon={item.icon}
-    //     href={item.href}
-    //     to={item.to}
-    //   />
-    // );
+  _renderMenuItem(item: TypeMenuItem, levels: number[]) {
+    // index
+    const index = levels.join('-');
+    // folder
+    if (item.folder) {
+      const slots = {
+        title: () => {
+          return (
+            <span>{item.title}</span>
+          )
+        }
+      }
+      const domItems = this._renderMenuItems(item.children, levels);
+      return <ElSubMenu key={index} index={index} v-slots={slots}>
+        {domItems}
+      </ElSubMenu>
+    }
+    // item
+    const route = { path: item.to };
+    return <ElMenuItem key={index} index={index} route={route}>{item.title}</ElMenuItem>
+  }
+  _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
+    if (!items) return [];
+    const domItems: JSX.Element[] = [];
+    for (let index = 0; index < items.length; index++) {
+      const item = items[index];
+      domItems.push(this._renderMenuItem(item, levels.concat(index + 1)));
+    }
+    return domItems;
   }
   _renderMenu() {
-    const domItems: JSX.Element[] = [];
-    for (const item of this.menu) {
-      domItems.push(this._renderMenuItem(item));
-    }
-    return <ElMenu class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>{domItems}</ElMenu>;
+    const domItems = this._renderMenuItems(this.menu, []);
+    return <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>{domItems}</ElMenu>;
   }
 
   _renderHeader() {
