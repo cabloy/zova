@@ -2,17 +2,17 @@ import { BeanScopeBase, Scope, TypeModuleResource } from '@cabloy/front-core';
 import { config, Errors, locales, constants } from '../config/index.js';
 
 @Scope()
-export class ScopeModuleAVuetify extends BeanScopeBase {}
+export class ScopeModuleAElement extends BeanScopeBase {}
 
-export interface ScopeModuleAVuetify
+export interface ScopeModuleAElement
   extends TypeModuleResource<typeof config, typeof Errors, typeof locales, typeof constants> {}
 
 declare module '@cabloy/front-core' {
   export interface IBeanScopeRecord {
-    'a-vuetify': ScopeModuleAVuetify;
+    'a-element': ScopeModuleAElement;
   }
 
   export interface IBeanScopeConfig {
-    'a-vuetify': ReturnType<typeof config>;
+    'a-element': ReturnType<typeof config>;
   }
 }

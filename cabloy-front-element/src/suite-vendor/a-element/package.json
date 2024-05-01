@@ -1,11 +1,11 @@
 {
-  "name": "cabloy-suite-front-a-vuetify",
+  "name": "cabloy-suite-front-a-element",
   "version": "5.0.0",
-  "title": "a-vuetify",
+  "title": "a-element",
   "type": "module",
-  "description": "vuetify",
+  "description": "element",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-vuetify": "workspace:^"
+    "cabloy-module-front-a-element": "workspace:^"
   }
 }

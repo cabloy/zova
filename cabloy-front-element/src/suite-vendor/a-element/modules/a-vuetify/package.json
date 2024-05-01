@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-vuetify",
+  "name": "cabloy-module-front-a-element",
   "version": "5.0.0",
-  "title": "a-vuetify",
+  "title": "a-element",
   "cabloyModule": {
     "capabilities": {
       "monkey": true
@@ -19,7 +19,7 @@
     },
     "./*": "./*"
   },
-  "description": "vuetify",
+  "description": "element",
   "keywords": [
     "Cabloy Module"
   ],
@@ -29,6 +29,6 @@
   ],
   "scripts": {},
   "dependencies": {
-    "vuetify": "^3.5.8"
+    "element-plus": "^2.7.2"
   }
 }
