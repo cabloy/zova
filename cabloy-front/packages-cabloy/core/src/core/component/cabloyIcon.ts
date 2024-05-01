@@ -1,16 +1,16 @@
 import { defineComponent } from 'vue';
 import { mergeProps, createVNode } from 'vue';
-import { useCabloyIcon } from './useCabloyIcon.js';
+import { useCabloyIcon } from '../../hooks/useCabloyIcon.js';
 
-export const CabloyIconSvgUse = defineComponent({
-  name: 'CabloyIconSvgUse',
-  inheritAttrs: false,
+export const CabloyIcon = defineComponent({
+  name: 'CabloyIcon',
+  inheritAttrs: true,
   props: {
     name: String,
     href: String,
     width: [String, Number],
     height: [String, Number],
-    fill: String,
+    color: String,
   },
   setup(props, _ref2) {
     const { iconData } = useCabloyIcon(() => props.name);
@@ -26,20 +26,23 @@ export const CabloyIconSvgUse = defineComponent({
           class: 'cabloy-icon__svg',
           xmlns: 'http://www.w3.org/2000/svg',
           viewBox: '0 0 24 24',
+          fill: 'currentColor',
           role: 'img',
           'aria-hidden': 'true',
         },
         {
           width: props.width,
           height: props.height,
-          fill: props.fill,
+          style: {
+            color: props.color,
+          },
         },
       );
       return createVNode('svg', svgProps, [
         createVNode(
           'use',
           {
-            'xlink:href': props.href,
+            'xlink:href': href,
           },
           null,
         ),

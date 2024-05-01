@@ -1,5 +1,6 @@
-import { useApp } from '@cabloy/front-core';
 import { ref, watchEffect } from 'vue';
+import { useApp } from './useApp.js';
+import { Cast } from '../types/utils/cast.js';
 
 export interface CabloyIconData {
   icon?: string;
@@ -22,7 +23,7 @@ export function useCabloyIcon(iconGetter: () => string | undefined) {
     const beanIcon = app.bean._getBeanSync('a-icon.store.icon');
     if (!beanIcon) return iconEmpty;
     // icon info
-    const iconInfo = beanIcon.parseIconInfoSync(iconName);
+    const iconInfo = Cast(beanIcon).parseIconInfoSync(iconName);
     if (iconInfo === undefined) return undefined; // system handle
     // symbolId
     const symbolId = iconInfo.symbolId;
