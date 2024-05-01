@@ -27,7 +27,11 @@ export class RenderLayoutDefault extends BeanRenderBase {
     }
     // item
     const route = { path: item.to };
-    return <ElMenuItem key={index} index={index} route={route}>{item.title}</ElMenuItem>
+    return <ElMenuItem key={index} index={index} route={route} onClick={() => {
+      if (item.href) {
+        window.open(item.href);
+      }
+    }}>{item.title}</ElMenuItem>
   }
   _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
     if (!items) return [];
