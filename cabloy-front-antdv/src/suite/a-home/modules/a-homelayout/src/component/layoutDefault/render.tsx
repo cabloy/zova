@@ -39,15 +39,15 @@ export class RenderLayoutDefault extends BeanRenderBase {
   }
   _renderMenu() {
     const domItems = this._renderMenuItems(this.menu, []);
-    return <Menu mode="inline">{domItems}</Menu>;
+    return <Menu mode="inline" style={{ height: '100%' }}>{domItems}</Menu>;
   }
 
   render() {
     return <ConfigProvider>
-      <Layout>
+      <Layout class="fill-height">
         <LayoutHeader></LayoutHeader>
         <Layout>
-          <LayoutSider>
+          <LayoutSider >
             {this._renderMenu()}
           </LayoutSider>
           <Layout>
