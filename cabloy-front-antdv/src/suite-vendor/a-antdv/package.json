@@ -1,0 +1,11 @@
+{
+  "name": "cabloy-suite-front-a-antdv",
+  "version": "5.0.0",
+  "title": "a-antdv",
+  "type": "module",
+  "description": "antdv",
+  "author": "zhennann",
+  "dependencies": {
+    "cabloy-module-front-a-antdv": "workspace:^"
+  }
+}
