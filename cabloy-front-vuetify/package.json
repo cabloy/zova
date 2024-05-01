@@ -27,8 +27,8 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.7",
-    "@cabloy/front-core": "^5.0.8",
+    "@cabloy/front": "^5.0.10",
+    "@cabloy/front-core": "^5.0.11",
     "roboto-fontface": "^0.10.0",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2",
