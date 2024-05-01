@@ -1,6 +1,6 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front-core';
 import { App } from 'ant-design-vue';
-import { renderIcon } from './patch/icon.js';
+import { renderIcon } from './patch/renderIcon.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {}
