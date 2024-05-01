@@ -7,8 +7,10 @@ export interface RenderLayoutEmpty extends MotherLayoutEmpty { }
 @Local()
 export class RenderLayoutEmpty extends BeanRenderBase {
   render() {
-    return <ConfigProvider>
-      <router-view />
-    </ConfigProvider>
+    return (
+      <ConfigProvider>
+        <router-view />
+      </ConfigProvider>
+    )
   }
 }
