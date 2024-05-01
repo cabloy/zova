@@ -21,6 +21,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     }
     // item
     return <MenuItem key={key} onClick={() => {
+      this.$antdv.message.success('okokok');
       if (item.href) {
         window.open(item.href);
       } else {

@@ -1,17 +1,8 @@
 import { ExtractHook } from '@cabloy/front-core';
-import { DateInstance, DefaultsInstance, DisplayInstance, LocaleInstance, ThemeInstance } from 'vuetify';
-
-export interface VuetifyGlobal {
-  defaults: ExtractHook<DefaultsInstance>;
-  display: ExtractHook<DisplayInstance>;
-  theme: ExtractHook<ThemeInstance>;
-  icons: Record<string, any>;
-  locale: ExtractHook<LocaleInstance>;
-  date: ExtractHook<DateInstance>;
-}
+import { useAppProps } from 'ant-design-vue/es/app/context.js';
 
 declare module '@cabloy/front-core' {
   export interface BeanBase {
-    $vuetify: VuetifyGlobal;
+    $antdv: ExtractHook<useAppProps>;
   }
 }
