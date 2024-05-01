@@ -27,19 +27,19 @@ const __MenuData = [
   },
   {
     folder: true,
-    title: 'Element',
+    title: 'Antdv',
     children: [
       {
         title: 'Docs',
-        caption: 'element-plus.org',
+        caption: 'antdv.com',
         icon: ':social:school',
-        href: 'https://element-plus.org',
+        href: 'https://www.antdv.com',
       },
       {
         title: 'Github',
-        caption: 'github.com/element-plus',
+        caption: 'github.com/vueComponent',
         icon: ':editor:code',
-        href: 'https://github.com/element-plus',
+        href: 'https://github.com/vueComponent/ant-design-vue',
       },
     ],
   },
