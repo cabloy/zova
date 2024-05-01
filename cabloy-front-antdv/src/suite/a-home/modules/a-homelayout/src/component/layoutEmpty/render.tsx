@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutEmpty } from './mother.js';
-import { ConfigProvider } from 'ant-design-vue';
+import { App, ConfigProvider } from 'ant-design-vue';
 
 export interface RenderLayoutEmpty extends MotherLayoutEmpty { }
 
@@ -9,7 +9,9 @@ export class RenderLayoutEmpty extends BeanRenderBase {
   render() {
     return (
       <ConfigProvider>
-        <router-view />
+        <App>
+          <router-view />
+        </App>
       </ConfigProvider>
     )
   }

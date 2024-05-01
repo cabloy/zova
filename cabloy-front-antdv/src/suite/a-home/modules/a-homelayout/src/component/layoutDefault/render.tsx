@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
+import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
 
 export interface RenderLayoutDefault extends MotherLayoutDefault { }
@@ -44,17 +44,19 @@ export class RenderLayoutDefault extends BeanRenderBase {
 
   render() {
     return <ConfigProvider>
-      <Layout class="fill-height">
-        <LayoutHeader></LayoutHeader>
-        <Layout>
-          <LayoutSider >
-            {this._renderMenu()}
-          </LayoutSider>
+      <App>
+        <Layout class="fill-height">
+          <LayoutHeader></LayoutHeader>
           <Layout>
-            <router-view />
+            <LayoutSider >
+              {this._renderMenu()}
+            </LayoutSider>
+            <Layout>
+              <router-view />
+            </Layout>
           </Layout>
         </Layout>
-      </Layout>
+      </App>
     </ConfigProvider>
   }
 }
