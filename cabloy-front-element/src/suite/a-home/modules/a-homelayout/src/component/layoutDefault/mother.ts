@@ -1,6 +1,5 @@
 import { BeanMotherBase, Local, Use } from '@cabloy/front-core';
 import { RenderLayoutDefault } from './render.jsx';
-import * as MotherEssentialLink from '../../component/essentialLink/mother.js';
 
 export interface Props {}
 
@@ -8,7 +7,12 @@ export type Emits = {};
 
 export type Slots = {};
 
-export type TypeMenuItem = MotherEssentialLink.Props & {
+export type TypeMenuItem = {
+  title: string;
+  caption?: string;
+  icon?: string;
+  href?: string;
+  to?: string;
   folder?: boolean;
   separator?: boolean;
   children?: TypeMenuItem[];
