@@ -32,7 +32,8 @@
     "roboto-fontface": "^0.10.0",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2",
-    "vuetify": "^3.5.17"
+    "vuetify": "^3.5.17",
+    "ant-design-vue": "^4.2.1"
   },
   "devDependencies": {
     "@cabloy/app-vite": "^1.0.6",
