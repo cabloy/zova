@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { mergeProps, createVNode } from 'vue';
+import { useCabloyIcon } from './useCabloyIcon.js';
 
 export const CabloyIconSvgUse = defineComponent({
   name: 'CabloyIconSvgUse',
@@ -12,12 +13,13 @@ export const CabloyIconSvgUse = defineComponent({
     fill: String,
   },
   setup(props, _ref2) {
-
+    const { iconData } = useCabloyIcon(() => props.name);
     return () => {
       // href
-    let href=props.href;
-    if()
-
+      let href = props.href;
+      if (!href) {
+        href = `#${iconData.value?.icon || ''}`;
+      }
       // svgProps
       const svgProps = mergeProps(
         {
