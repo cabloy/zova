@@ -8,6 +8,14 @@ import { useSize } from 'vuetify/lib/composables/size.mjs'
 import { useTextColor } from 'vuetify/lib/composables/color.mjs'
 import { convertToUnit, flattenFragments } from 'vuetify/lib/util/index.mjs'
 import { VSvgIconCabloy } from './svg.js';
+import { Button } from 'ant-design-vue';
+import {
+  HomeOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+  LoadingOutlined,
+} from '@ant-design/icons-vue';
 
 @Local()
 export class PatchIcon extends BeanBase<ScopeModule> {
