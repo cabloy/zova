@@ -6,6 +6,7 @@ import { BeanSimple } from './beanSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { IModuleLocaleText } from './resource/locale/type.js';
 import { AppEvent } from '../core/component/event.js';
+import { getIcon } from './resource/index.js';
 
 export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __beanFullName__: string;
@@ -23,6 +24,10 @@ export class BeanBase<TScopeModule = unknown> extends BeanSimple {
 
   public get $event(): AppEvent {
     return this.app.meta.event;
+  }
+
+  public get $icon(): typeof getIcon {
+    return getIcon;
   }
 
   constructor(moduleBelong?: string) {
