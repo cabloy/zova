@@ -1,12 +1,6 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front-core';
 import { PatchIcon } from './patch/icon.jsx';
-import { inject, reactive } from 'vue';
-import { DateAdapterSymbol } from 'vuetify/lib/composables/date/date.mjs';
-import { DefaultsSymbol } from 'vuetify/lib/composables/defaults.mjs';
-import { DisplaySymbol } from 'vuetify/lib/composables/display.mjs';
-import { IconSymbol } from 'vuetify/lib/composables/icons.mjs';
-import { LocaleSymbol } from 'vuetify/lib/composables/locale.mjs';
-import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
+import { App } from 'ant-design-vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {
@@ -16,18 +10,11 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   }
   async appInitialized() {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
-    bean.defineProperty(beanInstance, '$vuetify', {
+    bean.defineProperty(beanInstance, '$antdv', {
       enumerable: false,
       configurable: true,
       get() {
-        return reactive({
-          defaults: inject(DefaultsSymbol),
-          display: inject(DisplaySymbol),
-          theme: inject(ThemeSymbol),
-          icons: inject(IconSymbol),
-          locale: inject(LocaleSymbol),
-          date: inject(DateAdapterSymbol),
-        });
+        return App.useApp();
       },
     });
   }
