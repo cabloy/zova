@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { ElConfigProvider, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import { ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
@@ -27,11 +27,21 @@ export class RenderLayoutDefault extends BeanRenderBase {
     }
     // item
     const route = { path: item.to };
-    return <ElMenuItem key={index} index={index} route={route} onClick={() => {
+    const slots = {
+      title: () => {
+        return (
+          <div>
+            <ElIcon>{item.icon}</ElIcon>
+            <span>{item.title}</span>
+          </div>
+        )
+      }
+    }
+    return <ElMenuItem key={index} index={index} route={route} v-slots={slots} onClick={() => {
       if (item.href) {
         window.open(item.href);
       }
-    }}>{item.title}</ElMenuItem>
+    }}></ElMenuItem>
   }
   _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
     if (!items) return [];
