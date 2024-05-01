@@ -1,7 +1,7 @@
 {
-  "name": "@cabloy/front-vuetify",
+  "name": "@cabloy/front-antdv",
   "version": "5.0.0",
-  "description": "A vue3 vuetify framework with ioc",
+  "description": "A vue3 antdv framework with ioc",
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {

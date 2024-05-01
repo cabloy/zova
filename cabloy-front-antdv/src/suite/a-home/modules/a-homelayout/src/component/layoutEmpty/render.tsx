@@ -1,18 +1,14 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutEmpty } from './mother.js';
-import { VApp, VMain } from 'vuetify/components';
+import { ConfigProvider } from 'ant-design-vue';
 
 export interface RenderLayoutEmpty extends MotherLayoutEmpty { }
 
 @Local()
 export class RenderLayoutEmpty extends BeanRenderBase {
   render() {
-    return (
-      <VApp>
-        <VMain>
-          <router-view />
-        </VMain>
-      </VApp>
-    );
+    return <ConfigProvider>
+      <router-view />
+    </ConfigProvider>
   }
 }
