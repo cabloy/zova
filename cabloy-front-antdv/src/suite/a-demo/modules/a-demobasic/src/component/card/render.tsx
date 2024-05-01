@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherCard } from './mother.js';
-import { VBtn } from 'vuetify/components';
+import { Button } from 'ant-design-vue';
 
 export interface RenderCard extends MotherCard { }
 
@@ -9,13 +9,13 @@ export class RenderCard extends BeanRenderBase {
   render() {
     return (
       <div>
-        <VBtn color='secondary'
+        <Button
           onClick={() => {
             this.$emit('reset', new Date());
           }}
         >
           Reset Time
-        </VBtn>
+        </Button>
         <div>
           <div style={{ backgroundColor: 'teal' }}>
             <div>Slot: {this.$slots.header?.()}</div>

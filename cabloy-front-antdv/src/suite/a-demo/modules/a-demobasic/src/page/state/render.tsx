@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherPageState } from './mother.js';
-import { VBtn } from 'vuetify/components';
+import { Button } from 'ant-design-vue';
 
 export interface RenderPageState extends MotherPageState { }
 
@@ -11,8 +11,8 @@ export class RenderPageState extends BeanRenderBase {
       <div>
         <div>counter(ref): {this.counter}</div>
         <div>counter(computed): {this.counter2}</div>
-        <VBtn color='secondary' onClick={() => this.inrement()}>Inrement</VBtn>
-        <VBtn color='secondary' onClick={() => this.decrement()}>Decrement</VBtn>
+        <Button onClick={() => this.inrement()}>Inrement</Button>
+        <Button onClick={() => this.decrement()}>Decrement</Button>
       </div>
     );
   }
