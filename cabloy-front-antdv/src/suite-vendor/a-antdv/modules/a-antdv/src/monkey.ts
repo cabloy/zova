@@ -1,5 +1,6 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front-core';
 import { App } from 'ant-design-vue';
+import { renderIcon } from './patch/icon.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {}
@@ -10,6 +11,13 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       configurable: true,
       get() {
         return App.useApp();
+      },
+    });
+    bean.defineProperty(beanInstance, '$icon', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return renderIcon;
       },
     });
   }

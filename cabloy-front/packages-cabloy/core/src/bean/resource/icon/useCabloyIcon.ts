@@ -1,6 +1,6 @@
 import { ref, watchEffect } from 'vue';
-import { useApp } from './useApp.js';
-import { Cast } from '../types/utils/cast.js';
+import { useApp } from '../../../hooks/useApp.js';
+import { Cast } from '../../../types/utils/cast.js';
 
 export interface CabloyIconData {
   icon?: string;

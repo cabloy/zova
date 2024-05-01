@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { mergeProps, createVNode } from 'vue';
-import { useCabloyIcon } from '../../hooks/useCabloyIcon.js';
+import { useCabloyIcon } from './useCabloyIcon.js';
 
 export const CabloyIcon = defineComponent({
   name: 'CabloyIcon',
