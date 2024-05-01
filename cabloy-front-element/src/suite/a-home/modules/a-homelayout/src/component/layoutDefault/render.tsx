@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { ElButton, ElConfigProvider, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import { ElButton, ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
@@ -57,7 +57,8 @@ export class RenderLayoutDefault extends BeanRenderBase {
 
   render() {
     return <ElConfigProvider>
-      <ElButton icon="edit"></ElButton>
+      <ElButton icon="::done"></ElButton>
+      <ElIcon>::done</ElIcon>
       {this._renderHeader()}
       <div class="flex main-container">
         {this._renderMenu()}
