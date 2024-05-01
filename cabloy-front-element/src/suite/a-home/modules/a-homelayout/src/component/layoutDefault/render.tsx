@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { ElConfigProvider, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import { ElButton, ElConfigProvider, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
@@ -55,18 +55,14 @@ export class RenderLayoutDefault extends BeanRenderBase {
     )
   }
 
-  _renderSidebar() {
-    return
-  }
-
   render() {
     return <ElConfigProvider>
+      <ElButton icon="edit"></ElButton>
       {this._renderHeader()}
       <div class="flex main-container">
         {this._renderMenu()}
         <router-view />
       </div>
-
     </ElConfigProvider>
   }
 }
