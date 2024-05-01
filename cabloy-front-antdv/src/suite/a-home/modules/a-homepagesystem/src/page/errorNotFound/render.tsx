@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherPageErrorNotFound } from './mother.js';
-import { VBtn } from 'vuetify/components';
+import { Button } from 'ant-design-vue';
 
 export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
 
@@ -16,7 +16,9 @@ export class RenderPageErrorNotFound extends BeanRenderBase {
             Oops. Nothing here...
           </div>
 
-          <VBtn rounded elevation={12} ripple color="white" text='Go Home' text-color="blue" to="/" />
+          <Button onClick={() => {
+            this.$router.push('/');
+          }}>Go Home</Button>
         </div>
       </div>
     );
