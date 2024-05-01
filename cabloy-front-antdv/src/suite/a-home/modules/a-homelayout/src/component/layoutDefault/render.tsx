@@ -1,4 +1,4 @@
-import { BeanRenderBase, Cast, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
 import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
@@ -20,7 +20,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
       )
     }
     // item
-    return <MenuItem key={key} icon={Cast(this).$icon('::done')} onClick={() => {
+    return <MenuItem key={key} icon={this.$iconh(item.icon)} onClick={() => {
       if (item.href) {
         window.open(item.href);
       } else {
