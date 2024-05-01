@@ -1,0 +1,32 @@
+{
+  "name": "cabloy-module-front-a-homepagesystem",
+  "version": "5.0.0",
+  "title": "a-homepagesystem",
+  "cabloyModule": {
+    "capabilities": {
+      "sync": true
+    }
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "page system",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}

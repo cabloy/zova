@@ -1,0 +1,11 @@
+{
+  "name": "cabloy-suite-front-a-demo",
+  "version": "5.0.0",
+  "title": "a-demo",
+  "type": "module",
+  "description": "demo",
+  "author": "zhennann",
+  "dependencies": {
+    "cabloy-module-front-a-demobasic": "workspace:^"
+  }
+}
