@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/cli-set-core",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "cabloy cli-set-core",
   "publishConfig": {
     "access": "public"

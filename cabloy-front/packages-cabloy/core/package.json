@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-core",
-  "version": "5.0.15",
+  "version": "5.0.16",
   "description": "cabloy front core",
   "publishConfig": {
     "access": "public"
