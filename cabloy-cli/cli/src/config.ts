@@ -22,6 +22,7 @@ export const commandsConfig = {
         '_.eslintrc': '.eslintrc',
         '_.eslintignore': '.eslintignore',
         '_.npmignore': '.npmignore',
+        '_.npmrc': '.npmrc',
         '_.eslintrc.js': '.eslintrc.js',
         '_jsconfig.json': 'jsconfig.json',
         '_tsconfig.json': 'tsconfig.json',
