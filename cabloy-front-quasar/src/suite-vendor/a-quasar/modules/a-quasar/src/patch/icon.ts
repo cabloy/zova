@@ -220,21 +220,9 @@ export class PatchIcon extends BeanBase<ScopeModule> {
 
   private _patchIconMap() {
     Quasar.iconSet.iconMapFn = iconName => {
-      const iconData = getCabloyIcon(iconName, this.app);
-      if (iconData === undefined) return undefined; // system handle
-      return { icon: `svguse:#${iconData.icon}` };
-      // empty
-      const iconEmpty = { icon: '' };
-      // icon store
-      const beanIcon = this.app.bean._getBeanSync('a-icon.store.icon');
-      if (!beanIcon) return iconEmpty;
-      // icon info
-      const iconInfo = beanIcon.parseIconInfoSync(iconName);
+      const iconInfo = getCabloyIcon(iconName, this.app);
       if (iconInfo === undefined) return undefined; // system handle
-      // symbolId
-      const symbolId = iconInfo.symbolId;
-      if (symbolId === '') return iconEmpty;
-      return { icon: `svguse:#${symbolId}` };
+      return { icon: `svguse:#${iconInfo.symbolId}` };
     };
   }
 }
