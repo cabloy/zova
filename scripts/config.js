@@ -3,6 +3,9 @@ export const config = {
     //
     'cabloy-cli',
     'cabloy-front',
+    'cabloy-front-antdv',
+    'cabloy-front-element',
     'cabloy-front-quasar',
+    'cabloy-front-vuetify',
   ],
 };

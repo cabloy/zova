@@ -42,7 +42,7 @@
     "@cabloy/cli-set-front": "workspace:^",
     "@cabloy/module-glob": "^5.0.4",
     "@cabloy/module-info": "^1.0.12",
-    "@cabloy/process-helper": "^1.0.1",
+    "@cabloy/process-helper": "^1.0.2",
     "@zhennann/common-bin": "^4.0.0",
     "@zhennann/ejs": "^3.0.1",
     "boxen": "^4.2.0",
