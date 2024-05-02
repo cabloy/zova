@@ -42,8 +42,8 @@ export class PatchIcon extends BeanBase<ScopeModule> {
     const type = slotDefault.type;
     if (typeof type !== 'string' && type !== Text) return slotDefault;
     const iconName = typeof type === 'string' ? type : slotDefault.children;
-    const res = getCabloyIcon(iconName, this.app);
-    if (res === undefined) return slotDefault;
-    return <CabloyIcon href={`#${res.icon || ''}`}></CabloyIcon>
+    const iconInfo = getCabloyIcon(iconName, this.app);
+    if (iconInfo === undefined) return slotDefault;
+    return <CabloyIcon href={`#${iconInfo.symbolId}`}></CabloyIcon>
   }
 }
