@@ -46,7 +46,9 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return <ConfigProvider>
       <App>
         <Layout class="fill-height">
-          <LayoutHeader></LayoutHeader>
+          <LayoutHeader style={{ color: 'white' }}>
+            <div>Ant Design Vue</div>
+          </LayoutHeader>
           <Layout>
             <LayoutSider >
               {this._renderMenu()}
