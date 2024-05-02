@@ -13,10 +13,6 @@ export const shared = defineConfig({
       provider: 'local',
     },
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/markdown-examples' },
-    ],
 
     sidebar: [
       {
