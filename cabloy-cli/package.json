@@ -29,9 +29,8 @@
   "pnpm": {
     "overrides": {}
   },
-  "dependencies": {},
   "devDependencies": {
-    "@cabloy/lint": "^4.0.7",
+    "@cabloy/lint": "^4.0.8",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.19.3",
     "lerna": "^8.1.2",

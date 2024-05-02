@@ -1,3 +1,4 @@
+import createProject from './command/create.project.js';
 import createComponent from './command/create.component.js';
 import createStore from './command/create.store.js';
 import createModule from './command/create.module.js';
@@ -7,6 +8,7 @@ import toolsIcons from './command/tools.icons.js';
 
 export const commands = {
   create: {
+    project: createProject,
     suite: createSuite,
     module: createModule,
     page: createPage,
