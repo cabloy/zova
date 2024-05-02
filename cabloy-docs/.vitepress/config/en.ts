@@ -2,11 +2,15 @@ import { defineConfig } from 'vitepress';
 
 export const en = defineConfig({
   lang: 'en-US',
-  description: '',
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2016-present zhennann',
     },
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/cabloy/cabloy-front' },
+      { icon: 'x', link: 'https://twitter.com/zhennann2024' },
+      { icon: 'youtube', link: 'https://www.youtube.com/@cabloyjs' },
+    ],
   },
 });

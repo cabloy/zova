@@ -27,7 +27,5 @@ export const shared = defineConfig({
         ],
       },
     ],
-
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
 });
