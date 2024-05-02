@@ -1,7 +1,8 @@
 import { BeanCliBase, CmdOptions } from '@cabloy/cli';
 import os from 'node:os';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import fse from 'fs-extra';
+import path from 'node:path';
 import urllib from 'urllib';
 import { rimraf } from 'rimraf';
 import compressing from 'compressing';
@@ -39,7 +40,7 @@ export class CliCreateProject extends BeanCliBase {
     const packageName = `@cabloy/front-${template}`;
     // download boilerplate
     const templateDir = await this.downloadBoilerplate(packageName);
-    fs.copyFileSync(templateDir, targetDir);
+    fse.copySync(templateDir, targetDir);
     // done
     await this.printUsage(targetDir);
   }
