@@ -30,8 +30,7 @@ export class CliCreateModule extends BeanCliBase {
     // project name
     const projectName = argv.name;
     // target dir
-    let targetDir;
-    targetDir = path.join(argv.projectPath, projectName);
+    const targetDir = path.join(argv.projectPath, projectName);
     if (!argv.force && fs.existsSync(targetDir)) {
       throw new Error(`project exists: ${projectName}`);
     }
