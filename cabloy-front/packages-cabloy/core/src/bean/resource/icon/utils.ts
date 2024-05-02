@@ -14,7 +14,6 @@ export function renderIcon(name?, color?, size?) {
   });
 }
 
-export function getIcon(name?: string): string | undefined;
 export function getIcon<K extends keyof IIconRecord>(name: K): K {
   return name;
 }
