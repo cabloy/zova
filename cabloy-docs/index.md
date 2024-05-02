@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "cabloy front"
-  text: "A vue3 framework with ioc"
-  tagline: My great project tagline
+  name: 'Cabloy-Front'
+  text: 'A vue3 framework with ioc'
+  tagline: No ref/reactive, No ref.value, No pinia
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
