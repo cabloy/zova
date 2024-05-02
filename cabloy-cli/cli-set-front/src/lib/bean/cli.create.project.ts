@@ -13,7 +13,7 @@ declare module '@cabloy/cli' {
   }
 }
 
-export class CliCreateModule extends BeanCliBase {
+export class CliCreateProject extends BeanCliBase {
   httpClient: typeof urllib;
   registryUrl: string;
 
