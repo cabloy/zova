@@ -61,6 +61,8 @@ export class CliCreateProject extends BeanCliBase {
     await this.console.log(`usage:
       - cd ${targetDir}
       - pnpm install
+      - npm run dev
+      - npm run build
     `);
   }
 
