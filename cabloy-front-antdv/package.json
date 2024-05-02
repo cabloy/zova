@@ -2,6 +2,9 @@
   "name": "@cabloy/front-antdv",
   "version": "5.0.0",
   "description": "A vue3 antdv framework with ioc",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {
