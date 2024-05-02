@@ -2,5 +2,18 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "independent",
   "npmClient": "pnpm",
-  "packages": ["cabloy-front-antdv", "cabloy-front-element", "cabloy-front-quasar", "cabloy-front-vuetify"]
+  "packages": [
+    "cabloy-cli/cli",
+    "cabloy-cli/cli-set-api",
+    "cabloy-cli/cli-set-core",
+    "cabloy-cli/cli-set-front",
+    "cabloy-front/packages-cabloy/*",
+    "cabloy-front/packages-utils/*",
+    "cabloy-front/src/suite/*",
+    "cabloy-front/src/suite/*/modules/*",
+    "cabloy-front-antdv",
+    "cabloy-front-element",
+    "cabloy-front-quasar",
+    "cabloy-front-vuetify"
+  ]
 }
