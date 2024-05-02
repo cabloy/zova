@@ -33,7 +33,6 @@
     "@cabloy/lint": "^4.0.8",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.19.3",
-    "lerna": "^8.1.2",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
     "typescript": "^5.4.5"

@@ -24,8 +24,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "commit": "node ./scripts/commit.js",
-    "publish": "node ./scripts/publish.js && lerna publish"
+    "commit": "node ./scripts/commit.js"
   },
   "pnpm": {
     "overrides": {}
