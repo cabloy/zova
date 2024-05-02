@@ -25,7 +25,7 @@
   },
   "scripts": {
     "commit": "node ./scripts/commit.js",
-    "publish": "node ./scripts/publish.js"
+    "publish": "node ./scripts/publish.js && lerna publish"
   },
   "pnpm": {
     "overrides": {}
