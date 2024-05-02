@@ -53,6 +53,10 @@ export async function generateCabloyViteMeta(
           return 0;
         }
       },
+      minify: 'terser',
+      terserOptions: {
+        keep_classnames: true,
+      },
     },
     server: {
       proxy,
