@@ -1,4 +1,4 @@
-import { StateLock } from '@cabloy/front-core';
+import { StateLock } from '../../../utils/stateLock.js';
 
 export class IconGroup {
   public svg: string | undefined;

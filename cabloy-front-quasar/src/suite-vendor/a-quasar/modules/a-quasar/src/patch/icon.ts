@@ -1,4 +1,4 @@
-import { BeanBase, Cast, Local } from '@cabloy/front-core';
+import { BeanBase, Cast, getCabloyIcon, Local } from '@cabloy/front-core';
 import { Platform, QIcon, Quasar } from 'quasar';
 import { ScopeModule } from '../resource/this.js';
 
@@ -220,6 +220,9 @@ export class PatchIcon extends BeanBase<ScopeModule> {
 
   private _patchIconMap() {
     Quasar.iconSet.iconMapFn = iconName => {
+      const iconData = getCabloyIcon(iconName, this.app);
+      if (iconData === undefined) return undefined; // system handle
+      return { icon: `svguse:#${iconData.icon}` };
       // empty
       const iconEmpty = { icon: '' };
       // icon store

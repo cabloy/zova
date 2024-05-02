@@ -1,14 +1,10 @@
-import { BeanBase, Store } from '@cabloy/front-core';
-import { ScopeModule } from '../resource/this.js';
 import { reactive } from 'vue';
-import { IIconInfo, IIconMeta, TypeIconModules, TypeIconSymbols } from '../types.js';
-import { IconGroup } from '../common/iconGroup.js';
+import { BeanSimple } from '../../beanSimple.js';
 
 const XMLNS = 'http://www.w3.org/2000/svg';
 const XMLNS_LINK = 'http://www.w3.org/1999/xlink';
 
-@Store()
-export class StoreIcon extends BeanBase<ScopeModule> {
+export class AppIcon extends BeanSimple {
   private _iconSymbols: TypeIconSymbols = reactive({});
   private _iconMoudles: TypeIconModules = {};
 
