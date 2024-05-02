@@ -6,10 +6,16 @@ export default defineConfig({
   description: 'A vue3 framework with ioc',
   base: '/cabloy-front/',
   themeConfig: {
+    editLink: {
+      pattern: 'https://github.com/cabloy/cabloy-front/edit/main/cabloy-docs/:path',
+    },
+    search: {
+      provider: 'local',
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Docs', link: '/markdown-examples' },
     ],
 
     sidebar: [
