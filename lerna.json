@@ -1,0 +1,6 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "npmClient": "pnpm",
+  "packages": ["cabloy-front-antdv", "cabloy-front-element", "cabloy-front-quasar", "cabloy-front-vuetify"]
+}
