@@ -24,7 +24,10 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "commit": "node ./scripts/commit.js"
+    "commit": "node ./scripts/commit.js",
+    "docs:dev": "vitepress dev cabloy-docs",
+    "docs:build": "vitepress build cabloy-docs",
+    "docs:preview": "vitepress preview cabloy-docs"
   },
   "pnpm": {
     "overrides": {}
@@ -44,7 +47,8 @@
     "minimist": "^1.2.8",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitepress": "^1.1.4"
   },
   "license": "MIT"
 }
