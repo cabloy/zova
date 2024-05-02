@@ -12,8 +12,8 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8(typescript@5.4.5)
       '@cabloy/process-helper':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
       '@types/mocha':
         specifier: ^10.0.6
         version: 10.0.6
@@ -56,8 +56,8 @@ packages:
   '@cabloy/lint@4.0.8':
     resolution: {integrity: sha512-yD6+17ncq381ngLViB6UPhQ4eaHtnXwIt9S5TacbDN1eGF4BgED/1gu0KChwKr3AKR0sDp4szOqLFy8GzRfs7g==}
 
-  '@cabloy/process-helper@1.0.2':
-    resolution: {integrity: sha512-3x5kectRIwUwiLj90imfE6EL8eytexhDm3Efd5GPBGgH6RMMajcuQ7P4wKUzUMv4rLAV7ydOqDmTfMupukegzw==}
+  '@cabloy/process-helper@1.0.3':
+    resolution: {integrity: sha512-yZyenlfSw+T0gxaouU27dI1okkSkTddUawevmp9j7HcAUWQOyPcpXp5LNb886YW3KlEn/0qwA31barlF5v5LFw==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -874,7 +874,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@cabloy/process-helper@1.0.2': {}
+  '@cabloy/process-helper@1.0.3': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
