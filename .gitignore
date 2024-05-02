@@ -30,3 +30,4 @@ miniprogram_npm
 sftp-config.json
 sftp-config-.json
 /.assets
+cabloy-docs/.vitepress/cache
