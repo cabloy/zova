@@ -1,4 +1,4 @@
-import { BeanBase, Local } from '@cabloy/front-core';
+import { BeanBase, getCabloyIcon, Local } from '@cabloy/front-core';
 import { ScopeModule } from '../resource/this.js';
 import { VIcon } from 'vuetify/components';
 import { computed, ref, toRef } from 'vue';
@@ -74,30 +74,15 @@ export class PatchIcon extends BeanBase<ScopeModule> {
   }
 
   private _getIconData(iconName) {
-    const res = this._getCabloyIcon(iconName);
-    if (res === undefined) return useIcon(computed(() => iconName));
+    const iconInfo = getCabloyIcon(iconName);
+    if (iconInfo === undefined) return useIcon(computed(() => iconName));
     return {
       iconData: {
         value: {
           component: VSvgIconCabloy,
-          icon: `#${res.icon || ''}`,
+          icon: `#${iconInfo.symbolId}`,
         }
       }
     }
-  }
-
-  private _getCabloyIcon(iconName) {
-    // empty
-    const iconEmpty = { icon: '' };
-    // icon store
-    const beanIcon = this.app.bean._getBeanSync('a-icon.store.icon');
-    if (!beanIcon) return iconEmpty;
-    // icon info
-    const iconInfo = beanIcon.parseIconInfoSync(iconName);
-    if (iconInfo === undefined) return undefined; // system handle
-    // symbolId
-    const symbolId = iconInfo.symbolId;
-    if (symbolId === '') return iconEmpty;
-    return { icon: symbolId };
   }
 }
