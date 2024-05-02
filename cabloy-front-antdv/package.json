@@ -34,9 +34,9 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cabloy/app-vite": "^1.0.10",
+    "@cabloy/app-vite": "^1.0.11",
     "@cabloy/lint": "^4.0.8",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.8",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
