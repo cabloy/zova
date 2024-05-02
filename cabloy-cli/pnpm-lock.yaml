@@ -48,8 +48,8 @@ importers:
         specifier: ^1.0.12
         version: 1.0.12
       '@cabloy/process-helper':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.3
+        version: 1.0.3
       '@zhennann/common-bin':
         specifier: ^4.0.0
         version: 4.0.0
@@ -143,8 +143,8 @@ packages:
   '@cabloy/module-info@1.0.12':
     resolution: {integrity: sha512-pFO9fxFR993sqGg75pssDz8ENe03fE/UO/Ny3Jjkf8rKuV4ldY6SmWetAN+XNDyejmJvamwyxiPl/3VMztfWaQ==}
 
-  '@cabloy/process-helper@1.0.1':
-    resolution: {integrity: sha512-xS1Ixjh2KwZEmWr85GyI8hbGR3noHph4/ICBWUvWvvB2x6MT2XqlSbPLEVzfuPID2jc02EGwEaZYXpWTDMRMlQ==}
+  '@cabloy/process-helper@1.0.3':
+    resolution: {integrity: sha512-yZyenlfSw+T0gxaouU27dI1okkSkTddUawevmp9j7HcAUWQOyPcpXp5LNb886YW3KlEn/0qwA31barlF5v5LFw==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -4064,7 +4064,7 @@ snapshots:
     dependencies:
       stack-utils: 2.0.6
 
-  '@cabloy/process-helper@1.0.1': {}
+  '@cabloy/process-helper@1.0.3': {}
 
   '@colors/colors@1.5.0':
     optional: true
