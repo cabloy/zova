@@ -3,7 +3,8 @@ import os from 'node:os';
 import fs from 'fs';
 import path from 'path';
 import urllib from 'urllib';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
+import compressing from 'compressing';
 
 declare module '@cabloy/cli' {
   interface ICommandArgv {
@@ -39,6 +40,16 @@ export class CliCreateModule extends BeanCliBase {
     const packageName = `@cabloy/front-${template}`;
     // download boilerplate
     const templateDir = await this.downloadBoilerplate(packageName);
+    fs.copyFileSync(templateDir, targetDir);
+    // done
+    await this.printUsage(targetDir);
+  }
+
+  async printUsage(targetDir: string) {
+    await this.console.log(`usage:
+      - cd ${targetDir}
+      - pnpm install
+    `);
   }
 
   async downloadBoilerplate(packageName: string) {
@@ -51,7 +62,7 @@ export class CliCreateModule extends BeanCliBase {
     await rimraf(saveDir);
 
     const response = await this.curl(tgzUrl, { streaming: true, followRedirect: true });
-    await compressing.tgz.uncompress(response.res, saveDir);
+    await compressing.tgz.uncompress(response.res as any, saveDir);
 
     await this.console.log(`extract to ${saveDir}`);
     return path.join(saveDir, '/package');
