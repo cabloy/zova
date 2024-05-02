@@ -42,7 +42,9 @@ export class CliCreateProject extends BeanCliBase {
     const templateDir = await this.downloadBoilerplate(packageName);
     fse.copySync(templateDir, targetDir);
     // _config -> config
-    fse.moveSync(path.join(targetDir, 'src/front/_config'), path.join(targetDir, 'src/front/config'));
+    fse.moveSync(path.join(targetDir, 'src/front/_config'), path.join(targetDir, 'src/front/config'), {
+      overwrite: true,
+    });
     // done
     await this.printUsage(targetDir);
   }
