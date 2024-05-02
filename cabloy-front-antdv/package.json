@@ -27,8 +27,8 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.11",
-    "@cabloy/front-core": "^5.0.12",
+    "@cabloy/front": "^5.0.12",
+    "@cabloy/front-core": "^5.0.13",
     "ant-design-vue": "^4.2.1",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
