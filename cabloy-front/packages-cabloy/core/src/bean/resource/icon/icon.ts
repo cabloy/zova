@@ -12,7 +12,7 @@ export class AppIcon extends BeanSimple {
 
   // undefined: ignore
   // '': empty icon
-  parseIconInfoSync(iconName: string): IIconInfo | undefined {
+  parseIconInfoSync(iconName?: string): IIconInfo | undefined {
     // parts
     const meta = this.parseIconMeta(iconName);
     if (!meta) return undefined;
@@ -26,7 +26,7 @@ export class AppIcon extends BeanSimple {
     return { meta, symbolId: meta.symbolId };
   }
 
-  async parseIconInfo(iconName: string): Promise<IIconInfo | undefined> {
+  async parseIconInfo(iconName?: string): Promise<IIconInfo | undefined> {
     // parts
     const meta = this.parseIconMeta(iconName);
     if (!meta) return undefined;
@@ -128,7 +128,7 @@ export class AppIcon extends BeanSimple {
     return this._iconMoudles[moduleName];
   }
 
-  parseIconMeta(iconName: string): IIconMeta | undefined {
+  parseIconMeta(iconName?: string): IIconMeta | undefined {
     if (!iconName) return;
     // split module:group:name
     const parts = iconName.split(':');

@@ -13,12 +13,12 @@ export const CabloyIcon = defineComponent({
     color: String,
   },
   setup(props, _ref2) {
-    const { iconData } = useCabloyIcon(() => props.name);
+    const { iconInfo } = useCabloyIcon(() => props.name);
     return () => {
       // href
       let href = props.href;
       if (!href) {
-        href = `#${iconData.value?.icon || ''}`;
+        href = `#${iconInfo.value?.symbolId || ''}`;
       }
       // svgProps
       const svgProps = mergeProps(
