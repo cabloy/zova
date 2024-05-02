@@ -13,10 +13,6 @@
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "files": [
-    ".npmrc",
-    ".gitignore"
-  ],
   "keywords": [
     "nodejs",
     "full-stack",
