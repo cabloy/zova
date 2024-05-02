@@ -1,5 +1,7 @@
 import { reactive } from 'vue';
 import { BeanSimple } from '../../beanSimple.js';
+import { IIconInfo, IIconMeta, TypeIconModules, TypeIconSymbols } from './types.js';
+import { IconGroup } from './iconGroup.js';
 
 const XMLNS = 'http://www.w3.org/2000/svg';
 const XMLNS_LINK = 'http://www.w3.org/1999/xlink';
@@ -133,7 +135,7 @@ export class AppIcon extends BeanSimple {
     if (parts.length !== 3) {
       return;
     }
-    const module = parts[0] || this.scope.config.defaultIconModule;
+    const module = parts[0] || this.app.config.icon.defaultModule;
     const group = parts[1] || 'default';
     const name = parts[2] || '';
     if (module.indexOf('-') === -1 || !name) {

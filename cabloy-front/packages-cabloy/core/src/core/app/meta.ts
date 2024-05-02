@@ -1,4 +1,5 @@
 import { BeanSimple } from '../../bean/beanSimple.js';
+import { AppIcon } from '../../bean/resource/icon/icon.js';
 import { IModuleLocaleText } from '../../bean/resource/locale/type.js';
 import { Constructable } from '../../decorator/type/constructable.js';
 import { IMonkeyApp, IMonkeySystem } from '../../types/interface/monkey.js';
@@ -14,6 +15,7 @@ export class AppMeta extends BeanSimple {
   locale: AppLocale;
   error: AppError;
   event: AppEvent;
+  icon: AppIcon;
   text: IModuleLocaleText;
   /** @internal */
   public appMonkey?: IMonkeyApp & IMonkeySystem;
@@ -24,6 +26,7 @@ export class AppMeta extends BeanSimple {
     this.locale = this.app.bean._newBeanSimple(AppLocale, false);
     this.error = this.app.bean._newBeanSimple(AppError, false);
     this.event = this.app.bean._newBeanSimple(AppEvent, false);
+    this.icon = this.app.bean._newBeanSimple(AppIcon, false);
     this.text = this.locale.createLocaleText();
   }
 

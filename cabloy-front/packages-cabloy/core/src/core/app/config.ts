@@ -7,13 +7,16 @@ export const configDefault = {
     locale: 'en-us',
     jwt: false,
   },
-  nprogress: {
-    debounce: 500,
-  },
   api: {
     baseURL: '',
     prefix: '',
     debounce: 200,
+  },
+  icon: {
+    defaultModule: 'a-homeicon',
+  },
+  nprogress: {
+    debounce: 500,
   },
   preload: {
     delay: 1000,
@@ -41,6 +44,9 @@ export type CabloyConfig = {
   api: {
     baseURL: string;
     prefix: string;
+  };
+  icon: {
+    defaultModule: string;
   };
   layout: {};
   modules: IBeanScopeConfig;
