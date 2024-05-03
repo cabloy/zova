@@ -5,7 +5,7 @@ export const zh = defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '文档', link: '/zh/guide/introduce', activeMatch: '/zh/guide/' },
+      { text: '文档', link: '/zh/guide/start/introduction', activeMatch: '/zh/guide/' },
     ],
     footer: {
       message: '基于 MIT 许可发布',
