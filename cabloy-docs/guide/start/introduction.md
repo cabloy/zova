@@ -4,26 +4,26 @@
 
 Cabloy-Front is a vue3 framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
 
-## 与UI库的配合
+## With UI libraries
 
-Cabloy-Front可以搭配任何UI库使用，并且内置了几款UI库的项目模版，便于开箱即用，包括：
+Cabloy-Front can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box, including:
 
 - antdv
 - element-plus
 - quasar
 - vuetify
 
-## 特性
+## Features
 
-Cabloy-Front为Vue3引入了以下鲜明特征：
+Cabloy-Front has introduced the following distinct features for Vue3:
 
-- `不再纠结使用ref还是reactive`：因为在大多数场景下，不需要使用ref和reactive
-- `不再书写大量ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
-- `不再使用pinia状态管理`：因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
+- `Stop worrying about using ref or reactive`: Because in most scenarios, there is no need to use ref and reactive
+- `No longer write a large number of ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
+- `No longer using pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
-## 代码风格演示
+## Code style demonstration
 
-为了演示Cabloy-Front的代码风格，下面开发一个简单的页面组件：
+To demonstrate the coding style of Cabloy-Front, we will develop a simple page component as follows:
 
 ### 1. 文件结构
 
