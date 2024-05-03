@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-element",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -30,7 +30,7 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.14",
+    "@cabloy/front": "^5.0.16",
     "@cabloy/front-core": "^5.0.15",
     "element-plus": "^2.7.2",
     "vue": "^3.4.26",

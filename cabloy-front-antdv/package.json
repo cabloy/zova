@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-antdv",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -30,7 +30,7 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.14",
+    "@cabloy/front": "^5.0.16",
     "@cabloy/front-core": "^5.0.15",
     "ant-design-vue": "^4.2.1",
     "vue": "^3.4.26",
