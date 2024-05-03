@@ -20,6 +20,14 @@
     "ioc",
     "cabloy"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/cabloy-front.git"
+  },
+  "homepage": "https://github.com/cabloy/cabloy-front#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/cabloy-front/issues"
+  },
   "dependencies": {
     "@cabloy/front-core": "^5.0.16",
     "cabloy-suite-front-a-core": "^5.0.7"
