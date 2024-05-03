@@ -15,6 +15,10 @@ export const en = defineConfig({
           { text: 'Quick Start', link: '/guide/start/quick-start' },
         ],
       },
+      {
+        text: 'Resources',
+        items: [{ text: 'Videos', link: '/guide/resources/videos' }],
+      },
     ],
     footer: {
       message: 'Released under the MIT License.',
