@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-empty",
-  "version": "5.0.9",
+  "version": "5.0.10",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -30,13 +30,13 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.16",
-    "@cabloy/front-core": "^5.0.15",
+    "@cabloy/front": "^5.0.17",
+    "@cabloy/front-core": "^5.0.17",
     "vue": "^3.4.26",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cabloy/app-vite": "^1.0.15",
+    "@cabloy/app-vite": "^1.0.16",
     "@cabloy/lint": "^4.0.8",
     "@types/node": "^20.12.8",
     "@vitejs/plugin-vue": "^5.0.4",
