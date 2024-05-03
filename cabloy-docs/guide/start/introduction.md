@@ -30,8 +30,8 @@ To demonstrate the coding style of Cabloy-Front, we will develop a simple page c
 Due to the need to demonstrate reactive codes, we named this page component `state`. Create a new directory `state` in the project and create three files in it:
 
 - `index.vue`: define component
-- `mother.ts`：logic codes
-- `render.tsx`: render codes
+- `mother.ts`：local bean for logic codes
+- `render.tsx`: local bean for render codes
 
 ### 2. index.vue
 
