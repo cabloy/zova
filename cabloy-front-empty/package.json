@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-empty",
-  "version": "5.0.6",
+  "version": "5.0.7",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
