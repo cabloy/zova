@@ -1,5 +1,4 @@
 import { createApp } from 'vue';
-import 'roboto-fontface/css/roboto/sass/roboto-fontface.scss';
 import router from './router.js';
 import App from './app.vue';
 import { cabloy } from './cabloy.js';
