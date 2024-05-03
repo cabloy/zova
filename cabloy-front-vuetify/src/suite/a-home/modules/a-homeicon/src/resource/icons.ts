@@ -223,6 +223,7 @@ declare module '@cabloy/front-core' {
     ':role:template': true;
     ':social:chat': true;
     ':social:facebook': true;
+    ':social:github': true;
     ':social:public': true;
     ':social:record-voice-over': true;
     ':social:school': true;
