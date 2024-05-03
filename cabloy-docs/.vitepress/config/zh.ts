@@ -15,6 +15,10 @@ export const zh = defineConfig({
           { text: '快速上手', link: '/zh/guide/start/quick-start' },
         ],
       },
+      {
+        text: '资源',
+        items: [{ text: '视频', link: '/zh/guide/resources/videos' }],
+      },
     ],
     footer: {
       message: '基于 MIT 许可发布',
