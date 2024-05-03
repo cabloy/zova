@@ -1,8 +1,8 @@
-# 介绍
+# Introduction
 
-## 什么是Cabloy-Front？
+## What is Cabloy-Front?
 
-Cabloy-Front是一款支持IOC容器的Vue3框架，让响应式开发更加简洁高效，胜任大型业务系统的开发。
+Cabloy-Front is a vue3 framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
 
 ## 与UI库的配合
 
