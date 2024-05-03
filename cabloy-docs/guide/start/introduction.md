@@ -81,10 +81,10 @@ export class MotherPageState extends BeanMotherPageBase {
 
 1. Define `mother` as a local bean using `@Local` to register it in the ioc container
 2. Inject the `render` bean using `@Use`
-3. 定义一个响应式属性：`counter`，类型为`number`
-4. 定义一个计算属性：`counter2`，类型为`string`
-5. 使用`useComputed`建立`counter2`和`counter`的联系
-6. 直接用原生js代码来修改`counter`的值
+3. Define a reactive state: `counter` of type `number`
+4. Define a computed state: `counter2` of type `string`
+5. Use `useComputed` to establish a connection between `counter2` and `counter`
+6. Directly modify the value of `counter` by vanilla javaScript
 
 ### 4. render.tsx
 
@@ -109,6 +109,6 @@ export class RenderPageState extends BeanRenderBase {
 }
 ```
 
-1. 使用`@Local`将`render`定义为本地组件，从而注册在IOC容器中
-2. 在`render`方法中使用`tsx`语法书写渲染逻辑
-3. 直接用原生js代码来获取`counter`和`counter2`的值
+1. Define `render` as a local bean using `@Local` to register it in the ioc container
+2. Write rendering logic using the `tsx` syntax in the `render` method
+3. Directly obtain the values of `counter` and `counter2` by vanilla javaScript
