@@ -2,14 +2,14 @@
 
 ## 什么是Cabloy-Front？
 
-Cabloy-Front是一款支持IOC容器的Vue3框架，让响应式开发更加高效，胜任大型业务系统的开发。
+Cabloy-Front是一款支持IOC容器的Vue3框架，让响应式开发更加简洁高效，胜任大型业务系统的开发。
 
 ## 特性
 
 Cabloy-Front为Vue3引入了以下鲜明特征：
 
 - `不再纠结使用ref还是reactive`：因为在大多数场景下，不需要使用ref和reactive
-- `不再纠结大量书写ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
+- `不再大量书写ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
 - `不再使用pinia状态管理`：因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
 
 ## 效果演示
@@ -20,7 +20,7 @@ Cabloy-Front为Vue3引入了以下鲜明特征：
 
 由于要演示响应式写法，我们给这个页面组件起名叫`state`。在项目中新建一个目录`state`，在目录中创建三个文件：
 
-- `index.vue`：用于生成组件
+- `index.vue`：用于定义组件
 - `mother.ts`：用于代码逻辑
 - `render.tsx`：用于渲染逻辑
 
