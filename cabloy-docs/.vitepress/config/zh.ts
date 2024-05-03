@@ -7,6 +7,15 @@ export const zh = defineConfig({
       { text: '首页', link: '/' },
       { text: '文档', link: '/zh/guide/start/introduction', activeMatch: '/zh/guide/' },
     ],
+    sidebar: [
+      {
+        text: '开始',
+        items: [
+          { text: '简介', link: '/zh/guide/start/introduction' },
+          { text: '快速上手', link: '/zh/guide/start/quick-start' },
+        ],
+      },
+    ],
     footer: {
       message: '基于 MIT 许可发布',
       copyright: `版权所有 © 2016-present 濮水大叔`,

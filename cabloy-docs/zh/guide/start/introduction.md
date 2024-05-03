@@ -4,6 +4,15 @@
 
 Cabloy-Front是一款支持IOC容器的Vue3框架，让响应式开发更加简洁高效，胜任大型业务系统的开发。
 
+## 与UI库的配合
+
+Cabloy-Front可以搭配任何UI库使用，并且内置了几款UI库的项目模版，便于开箱即用，包括：
+
+- antdv
+- element-plus
+- quasar
+- vuetify
+
 ## 特性
 
 Cabloy-Front为Vue3引入了以下鲜明特征：
@@ -12,7 +21,7 @@ Cabloy-Front为Vue3引入了以下鲜明特征：
 - `不再大量书写ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
 - `不再使用pinia状态管理`：因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
 
-## 效果演示
+## 代码风格演示
 
 为了演示Cabloy-Front的代码风格，下面开发一个简单的页面组件：
 
