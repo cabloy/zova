@@ -132,6 +132,7 @@ export class RenderPageState extends BeanRenderBase {
 ## Stay In Touch
 
 - [Twitter](https://twitter.com/zhennann2024)
+- [Wechat](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
 
 ## License
 
