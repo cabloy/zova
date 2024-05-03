@@ -18,7 +18,7 @@ Cabloy-Front可以搭配任何UI库使用，并且内置了几款UI库的项目�
 Cabloy-Front为Vue3引入了以下鲜明特征：
 
 - `不再纠结使用ref还是reactive`：因为在大多数场景下，不需要使用ref和reactive
-- `不再大量书写ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
+- `不再书写大量ref.value`：因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
 - `不再使用pinia状态管理`：因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
 
 ## 代码风格演示
