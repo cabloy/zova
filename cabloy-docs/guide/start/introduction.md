@@ -25,13 +25,13 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 To demonstrate the coding style of Cabloy-Front, we will develop a simple page component as follows:
 
-### 1. 文件结构
+### 1. file structure
 
-由于要演示响应式写法，我们给这个页面组件起名叫`state`。在项目中新建一个目录`state`，在目录中创建三个文件：
+Due to the need to demonstrate reactive codes, we named this page component `state`. Create a new directory `state` in the project and create three files in it:
 
-- `index.vue`：用于定义组件
-- `mother.ts`：用于代码逻辑
-- `render.tsx`：用于渲染逻辑
+- `index.vue`: define component
+- `mother.ts`：logic codes
+- `render.tsx`: render codes
 
 ### 2. index.vue
 
@@ -47,7 +47,7 @@ useMother(MotherPageState);
 </script>
 ```
 
-1. 只需在`index.vue`中引入`mother`组件即可
+1. Just import and use the `mother` bean in `index.vue` as well
 
 ### 3. mother.ts
 
@@ -79,8 +79,8 @@ export class MotherPageState extends BeanMotherPageBase {
 }
 ```
 
-1. 使用`@Local`将`mother`定义为本地组件，从而注册在IOC容器中
-2. 使用`@Use`注入`render`组件
+1. Define `mother` as a local bean using `@Local` to register it in the ioc container
+2. Inject the `render` bean using `@Use`
 3. 定义一个响应式属性：`counter`，类型为`number`
 4. 定义一个计算属性：`counter2`，类型为`string`
 5. 使用`useComputed`建立`counter2`和`counter`的联系
