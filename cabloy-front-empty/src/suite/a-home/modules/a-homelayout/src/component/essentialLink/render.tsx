@@ -7,12 +7,10 @@ export interface RenderEssentialLink extends MotherEssentialLink { }
 @Local()
 export class RenderEssentialLink extends BeanRenderBase {
   _renderLink() {
-    const domContent = (
-      <div>
-        <CabloyIcon name={this.$props.icon}></CabloyIcon>
-        <span>{this.$props.title}</span>
-      </div>
-    )
+    const domContent = [
+      <CabloyIcon name={this.$props.icon} height={24} width={24}></CabloyIcon>,
+      <span>{this.$props.title}</span>
+    ]
     if (this.$props.href) {
       return (
         <a href={this.$props.href} target='_blank'>{domContent}</a>

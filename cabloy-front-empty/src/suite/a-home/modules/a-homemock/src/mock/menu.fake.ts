@@ -8,13 +8,6 @@ const __MenuData = [
     to: '/a/home/home',
   },
   {
-    separator: true,
-  },
-  {
-    folder: true,
-    title: 'Basic',
-  },
-  {
     title: 'State',
     caption: 'ref, computed',
     icon: '',
@@ -29,7 +22,7 @@ const __MenuData = [
   {
     title: 'Github',
     caption: 'github.com/cabloy',
-    icon: ':editor:code',
+    icon: ':social:github',
     href: 'https://github.com/cabloy',
   },
 ];
