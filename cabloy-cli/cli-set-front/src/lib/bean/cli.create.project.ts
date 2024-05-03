@@ -6,7 +6,7 @@ import path from 'node:path';
 import urllib from 'urllib';
 import { rimraf } from 'rimraf';
 import compressing from 'compressing';
-import { __ThisSetName__ } from '../this.js';
+//import { __ThisSetName__ } from '../this.js';
 
 declare module '@cabloy/cli' {
   interface ICommandArgv {
@@ -46,13 +46,13 @@ export class CliCreateProject extends BeanCliBase {
     fse.moveSync(path.join(targetDir, 'src/front/_config'), path.join(targetDir, 'src/front/config'), {
       overwrite: true,
     });
-    // render project boilerplate
-    await this.template.renderBoilerplateAndSnippets({
-      targetDir,
-      setName: __ThisSetName__,
-      snippetsPath: null,
-      boilerplatePath: `create/project/${template}/boilerplate`,
-    });
+    // // render project boilerplate
+    // await this.template.renderBoilerplateAndSnippets({
+    //   targetDir,
+    //   setName: __ThisSetName__,
+    //   snippetsPath: null,
+    //   boilerplatePath: `create/project/${template}/boilerplate`,
+    // });
     // done
     await this.printUsage(targetDir);
   }
