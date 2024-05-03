@@ -1,0 +1,3 @@
+{
+  "extends": "@cabloy/lint/front/tsconfig.base.cjs"
+}

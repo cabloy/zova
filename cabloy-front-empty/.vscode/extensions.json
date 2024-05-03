@@ -1,0 +1,9 @@
+{
+  "recommendations": ["vscodevim.vim", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vue.volar"],
+  "unwantedRecommendations": [
+    "octref.vetur",
+    "hookyqr.beautify",
+    "dbaeumer.jshint",
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ]
+}
