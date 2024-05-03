@@ -13,6 +13,7 @@
     "cabloy-front/src/suite/*/modules/*",
     "cabloy-front-antdv",
     "cabloy-front-element",
+    "cabloy-front-empty",
     "cabloy-front-quasar",
     "cabloy-front-vuetify"
   ]
