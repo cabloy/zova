@@ -26,6 +26,7 @@ export default {
             { name: 'element', message: 'cabloy-front + element-plus' },
             { name: 'quasar', message: 'cabloy-front + quasar' },
             { name: 'vuetify', message: 'cabloy-front + vuetify' },
+            { name: 'empty', message: 'cabloy-front only' },
           ],
         },
       },
