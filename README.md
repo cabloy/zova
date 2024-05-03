@@ -9,7 +9,7 @@ Cabloy-Front is a vue3 framework with ioc container, making reactive development
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://github.com/cabloy/cabloy-front/blob/master/LICENSE
-[npm-image]: https://img.shields.io/npm/v/cabloy.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/@cabloy/front.svg?style=flat-square
 [npm-url]: https://npmjs.com/package/@cabloy/front
 [lerna-image]: https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg
 [lerna-url]: https://lernajs.io
