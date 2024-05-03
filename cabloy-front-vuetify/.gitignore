@@ -33,8 +33,8 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-.gitignore
-.npmrc
+!.gitignore
+!.npmrc
 
 # mine .env files
 env/.env*.mine
