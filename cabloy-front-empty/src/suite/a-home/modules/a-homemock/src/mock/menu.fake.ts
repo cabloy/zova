@@ -27,26 +27,10 @@ const __MenuData = [
     to: '/a/demobasic/component',
   },
   {
-    folder: true,
-    title: 'Vuetify',
-  },
-  {
-    title: 'Docs',
-    caption: 'vuetifyjs.com',
-    icon: ':social:school',
-    href: 'https://vuetifyjs.com',
-  },
-  {
     title: 'Github',
-    caption: 'github.com/vuetifyjs',
+    caption: 'github.com/cabloy',
     icon: ':editor:code',
-    href: 'https://github.com/vuetifyjs',
-  },
-  {
-    title: 'Vuetify Awesome',
-    caption: 'Community Vuetify projects',
-    icon: '::heart',
-    href: 'https://github.com/vuetifyjs/awesome',
+    href: 'https://github.com/cabloy',
   },
 ];
 

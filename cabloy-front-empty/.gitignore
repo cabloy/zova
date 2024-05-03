@@ -56,7 +56,6 @@ env/.env*.mine
 
 /src/suite-vendor/*
 !/src/suite-vendor/.gitkeep
-!/src/suite-vendor/a-vuetify
 
 /src/module/*
 !/src/module/.gitkeep

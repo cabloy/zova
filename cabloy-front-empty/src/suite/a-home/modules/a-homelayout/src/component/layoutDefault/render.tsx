@@ -1,6 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front-core';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { VApp, VAppBar, VAppBarNavIcon, VBtn, VDivider, VList, VListSubheader, VMain, VNavigationDrawer, VSpacer, VToolbarTitle } from 'vuetify/components';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 
@@ -10,10 +9,10 @@ export interface RenderLayoutDefault extends MotherLayoutDefault { }
 export class RenderLayoutDefault extends BeanRenderBase {
   _renderMenuItem(item: TypeMenuItem) {
     if (item.separator) {
-      return <VDivider></VDivider>;
+      return <div class="menu-separator"> - - - </div>;
     }
     if (item.folder) {
-      return <VListSubheader>{item.title}</VListSubheader>;
+      return <div class="menu-folder">{item.title}</div>;
     }
     return (
       <EssentialLink
@@ -31,26 +30,19 @@ export class RenderLayoutDefault extends BeanRenderBase {
     for (const item of this.menu) {
       domItems.push(this._renderMenuItem(item));
     }
-    return <VList>{domItems}</VList>;
+    return <div class="menu-list">{domItems}</div>;
   }
 
   render() {
     return (
-      <VApp>
-        <VNavigationDrawer v-model={this.leftDrawerOpen} width="360">
+      <div>
+        <div>
           {this._renderMenu()}
-        </VNavigationDrawer>
-        <VAppBar>
-          <VAppBarNavIcon icon='::menu' variant='text' onClick={() => this.toggleLeftDrawer()}></VAppBarNavIcon>
-          <VToolbarTitle>CabloyJS</VToolbarTitle>
-          <VSpacer></VSpacer>
-          <VBtn icon="::search" variant='text'></VBtn>
-          <VBtn icon="::more-horiz" variant='text'></VBtn>
-        </VAppBar>
-        <VMain>
+        </div>
+        <div>
           <router-view />
-        </VMain>
-      </VApp >
+        </div>
+      </div>
     )
   }
 }

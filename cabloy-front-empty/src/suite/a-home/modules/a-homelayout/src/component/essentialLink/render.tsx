@@ -1,27 +1,29 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, CabloyIcon, Local } from '@cabloy/front-core';
 import type { MotherEssentialLink } from './mother.js';
-import { VIcon, VListItem, VListItemTitle } from 'vuetify/components';
+import { RouterLink } from 'vue-router';
 
 export interface RenderEssentialLink extends MotherEssentialLink { }
 
 @Local()
 export class RenderEssentialLink extends BeanRenderBase {
-  render() {
-    const slots = {
-      prepend: () => {
-        return <VIcon icon={this.$props.icon}></VIcon>
-      }
+  _renderLink() {
+    const domContent = (
+      <div>
+        <CabloyIcon name={this.$props.icon}></CabloyIcon>
+        <span>{this.$props.title}</span>
+      </div>
+    )
+    if (this.$props.href) {
+      return (
+        <a href={this.$props.href} target='_blank'>{domContent}</a>
+      )
     }
     return (
-      <VListItem
-        tag="a"
-        href={this.$props.href}
-        to={this.$props.to}
-        subtitle={this.$props.caption}
-        v-slots={slots}
-      >
-        <VListItemTitle>{this.$props.title}</VListItemTitle>
-      </VListItem>
-    );
+      <RouterLink to={this.$props.to!}>{domContent}</RouterLink>
+    )
+  }
+
+  render() {
+    return this._renderLink();
   }
 }
