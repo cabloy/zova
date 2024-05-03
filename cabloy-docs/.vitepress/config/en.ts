@@ -5,7 +5,16 @@ export const en = defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/guide/introduce', activeMatch: '/guide/' },
+      { text: 'Docs', link: '/guide/start/introduction', activeMatch: '/guide/' },
+    ],
+    sidebar: [
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Introduction', link: '/guide/start/introduction' },
+          { text: 'Quick Start', link: '/guide/start/quick-start' },
+        ],
+      },
     ],
     footer: {
       message: 'Released under the MIT License.',
