@@ -3,6 +3,8 @@ import router from './router.js';
 import App from './app.vue';
 import { cabloy } from './cabloy.js';
 
+import '../css/settings.scss';
+
 async function start({ app, router }) {
   await cabloy({ app, router });
   app.use(router);
