@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Cabloy-Front'
   text: 'A vue3 framework with ioc中文'
-  tagline: No ref/reactive, No ref.value, No pinia
+  tagline: Less is more, while more is less
   actions:
     - theme: brand
       text: Markdown Examples
