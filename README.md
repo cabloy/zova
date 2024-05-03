@@ -128,3 +128,13 @@ export class RenderPageState extends BeanRenderBase {
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
 3. Directly obtain the values of `counter` and `counter2` by vanilla javaScript
+
+## Stay In Touch
+
+- [Twitter](https://twitter.com/zhennann2024)
+
+## License
+
+[MIT](./LICENSE)
+
+Copyright (c) 2016-present, zhennann
