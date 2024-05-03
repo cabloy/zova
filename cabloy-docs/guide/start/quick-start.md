@@ -1,24 +1,24 @@
-# 快速上手
+# Quick Start
 
-## 创建一个Cabloy-Front应用
+## Creating a Cabloy-Front Application
 
-### 1. 前置条件
+### 1. Prerequisites
 
 ```bash
-# 安装pnpm
+# install pnpm
 $ npm install -g pnpm
-# 安装@cabloy/cli
+# install @cabloy/cli
 $ pnpm add -g @cabloy/cli
 ```
 
-### 2. 创建项目
+### 2. Create Project
 
 ```bash
 $ cabloy front:create:project projectName
 ```
 
-1. 直接在命令行执行`cabloy`创建一个项目，名称为`projectName`
-2. 命令行会列出模版列表，当前提供的模版如下：
+1. Directly execute `cabloy` on the command line to create a project named `projectName`
+2. The command line will output a list of templates, and the currently provided templates are as follows:
 
    - cabloy-front + antdv
    - cabloy-front + element-plus
@@ -26,21 +26,21 @@ $ cabloy front:create:project projectName
    - cabloy-front + vuetify
    - cabloy-front only
 
-3. 在这里，我们选择`cabloy-front only`
+3. Here, we choose `cabloy-front only`
 
-### 3. 安装依赖
+### 3. Install Dependencies
 
 ```bash
 $ pnpm install
 ```
 
-### 4. 启动开发服务
+### 4. Start Dev Server
 
 ```bash
 $ npm run dev
 ```
 
-### 5. 构建项目
+### 5. Build
 
 ```bash
 $ npm run build
