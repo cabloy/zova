@@ -34,7 +34,7 @@
     "@babel/plugin-transform-class-properties": "^7.24.1",
     "@cabloy/dotenv": "^1.0.1",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/front-core": "workspace:^",
+    "@cabloy/front-core": "^5.0.18",
     "@cabloy/module-glob": "^5.0.9",
     "@cabloy/vite-plugin-babel": "^1.1.3",
     "@cabloy/vue-runtime-core": "^3.4.28",
@@ -54,5 +54,5 @@
     "vite": "^5.2.10",
     "vite-plugin-checker": "^0.6.4"
   },
-  "gitHead": "f231f03ec5e83423362af6eab0ab8366518b52fe"
+  "gitHead": "c7c84273b93f7500ecaba3015bf788332a872710"
 }

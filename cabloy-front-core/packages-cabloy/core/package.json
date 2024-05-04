@@ -31,12 +31,13 @@
   "dependencies": {
     "@cabloy/compose": "^1.0.2",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/last-word": "workspace:^",
+    "@cabloy/last-word": "^1.0.8",
     "@cabloy/localeutil": "^1.0.3",
     "@cabloy/module-info": "^1.0.12",
     "@cabloy/vue-runtime-core": "^3.4.28",
     "@vue/reactivity": "^3.4.26",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.4.26"
-  }
+  },
+  "gitHead": "c7c84273b93f7500ecaba3015bf788332a872710"
 }

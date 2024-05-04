@@ -52,5 +52,6 @@
     "vite": "^5.2.10",
     "vue-tsc": "^1.8.27"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "c7c84273b93f7500ecaba3015bf788332a872710"
 }

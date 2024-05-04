@@ -29,8 +29,9 @@
     "@cabloy/lint": "^4.0.6"
   },
   "dependencies": {
-    "@cabloy/app-vite": "workspace:^",
-    "@cabloy/front-core": "workspace:^",
+    "@cabloy/app-vite": "^1.0.17",
+    "@cabloy/front-core": "^5.0.18",
     "vite": "^5.2.10"
-  }
+  },
+  "gitHead": "c7c84273b93f7500ecaba3015bf788332a872710"
 }
