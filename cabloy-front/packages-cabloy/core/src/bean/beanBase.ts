@@ -15,6 +15,9 @@ export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __inited__: StateLock;
 
   public get $el(): RendererNode {
+    if (!this.ctx) {
+      throw new Error('$el can not be used inside global bean.');
+    }
     return this.ctx.meta.el;
   }
 
