@@ -1,15 +1,15 @@
 {
   "name": "cabloy-suite-front-a-core",
-  "version": "5.0.10",
+  "version": "5.0.11",
   "title": "a-core",
   "type": "module",
   "description": "core",
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "cabloy-module-front-a-component": "^5.0.9",
-    "cabloy-module-front-a-core": "^5.0.9",
-    "cabloy-module-front-a-router": "^5.0.8"
+    "cabloy-module-front-a-component": "^5.0.10",
+    "cabloy-module-front-a-core": "^5.0.10",
+    "cabloy-module-front-a-router": "^5.0.9"
   },
   "gitHead": "e5cbe2690083683069a82c4a7fdb95ee07c3cc44"
 }

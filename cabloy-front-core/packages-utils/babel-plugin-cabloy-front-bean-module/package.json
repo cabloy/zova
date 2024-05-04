@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-cabloy-front-bean-module",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "babel-plugin-cabloy-front-bean-module",
   "publishConfig": {
     "access": "public"
