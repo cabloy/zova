@@ -29,7 +29,7 @@ export async function generateCabloyViteMeta(
     };
   }
   // vitePlugins
-  const vitePlugins = generateVitePlugins();
+  const vitePlugins = generateVitePlugins(configOptions);
   // viteConfig
   const viteConfig = {
     root: configOptions.appDir,

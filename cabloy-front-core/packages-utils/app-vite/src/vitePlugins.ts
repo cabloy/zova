@@ -2,16 +2,17 @@ import babel from '@cabloy/vite-plugin-babel';
 import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
-import { CabloyVitePlugin } from './types.js';
+import { CabloyViteConfigOptions, CabloyVitePlugin } from './types.js';
+import path from 'node:path';
 
-export function generateVitePlugins() {
+export function generateVitePlugins(configOptions: CabloyViteConfigOptions) {
   const vitePlugins: CabloyVitePlugin[] = [];
   vitePlugins.push(__getVitePluginTs());
   vitePlugins.push(__getVitePluginTsx());
   if (process.env.MOCK_ENABLED === 'true') {
     vitePlugins.push(__getVitePluginMock());
   }
-  vitePlugins.push(__getVitePluginChecker());
+  vitePlugins.push(__getVitePluginChecker(configOptions));
   return vitePlugins;
 
   //////////////////////////////
@@ -86,13 +87,14 @@ export function generateVitePlugins() {
     ] as CabloyVitePlugin;
   }
 
-  function __getVitePluginChecker() {
+  function __getVitePluginChecker(configOptions: CabloyViteConfigOptions) {
+    const tsconfigPath = path.join(configOptions.appDir, 'tsconfig.vue-tsc.json');
     return [
       'vite-plugin-checker',
       vitePluginChecker,
       {
         vueTsc: {
-          tsconfigPath: 'tsconfig.vue-tsc.json',
+          tsconfigPath,
         },
         eslint: {
           lintCommand: 'eslint "./**/*.{js,ts,mjs,cjs,vue}"',
