@@ -29,8 +29,8 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front-core": "^5.0.17",
-    "cabloy-suite-front-a-core": "^5.0.7"
+    "@cabloy/front-core": "workspace:^",
+    "cabloy-suite-front-a-core": "workspace:^"
   },
   "gitHead": "b40e51513516c1cf6363dbd28e2d3a779b8ae340"
 }
