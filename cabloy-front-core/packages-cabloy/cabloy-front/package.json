@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front",
-  "version": "5.0.21",
+  "version": "5.0.22",
   "publishConfig": {
     "access": "public"
   },
@@ -29,8 +29,8 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front-core": "^5.0.21",
-    "cabloy-suite-front-a-core": "^5.0.11"
+    "@cabloy/front-core": "^5.0.22",
+    "cabloy-suite-front-a-core": "^5.0.12"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
