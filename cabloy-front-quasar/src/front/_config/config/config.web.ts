@@ -1,5 +1,5 @@
 // quasar build
-// quasar build -- --flavor=web
+// quasar build --flavor=web
 import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front-core';
 
 export default function (_meta: CabloyConfigMeta) {

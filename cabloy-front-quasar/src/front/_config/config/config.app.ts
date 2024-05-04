@@ -1,4 +1,4 @@
-// quasar build -- --flavor=app
+// quasar build --flavor=app
 import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front-core';
 
 export default function (_meta: CabloyConfigMeta) {
