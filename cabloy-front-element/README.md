@@ -1,6 +1,6 @@
 # @cabloy/front-element
 
-@cabloy/front-element is a vue3 element framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
+@cabloy/front-element is a vue3 element-plus framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
