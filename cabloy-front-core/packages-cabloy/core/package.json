@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-core",
-  "version": "5.0.18",
+  "version": "5.0.19",
   "description": "cabloy front core",
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
   "dependencies": {
     "@cabloy/compose": "^1.0.2",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/last-word": "^1.0.8",
+    "@cabloy/last-word": "^1.0.9",
     "@cabloy/localeutil": "^1.0.3",
     "@cabloy/module-info": "^1.0.12",
     "@cabloy/vue-runtime-core": "^3.4.28",
