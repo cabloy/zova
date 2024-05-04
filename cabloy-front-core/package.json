@@ -1,6 +1,6 @@
 {
-  "name": "cabloy-front",
-  "title": "Cabloy Front",
+  "name": "cabloy-front-core",
+  "title": "Cabloy Front Core",
   "type": "module",
   "description": "A vue3 framework with ioc",
   "repository": {
