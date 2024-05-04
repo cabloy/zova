@@ -1,5 +1,5 @@
 // npm run build
-// npm run build -- --flavor=web
+// FLAVOR=web npm run build
 import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front-core';
 
 export default function (_meta: CabloyConfigMeta) {

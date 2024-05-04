@@ -2,8 +2,12 @@ import { CabloyConfigMeta } from '@cabloy/front-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2) {
-  const argv = parseArgs(process.argv.slice(offset));
-  return argv.flavor || 'web';
+  let flavor = process.env.FLAVOR;
+  if (!flavor) {
+    const argv = parseArgs(process.argv.slice(offset));
+    flavor = argv.flavor || 'web';
+  }
+  return flavor;
 }
 
 export function getEnvMeta(configMeta: CabloyConfigMeta) {
