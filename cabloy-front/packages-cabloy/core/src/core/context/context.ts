@@ -1,4 +1,4 @@
-import { ComponentInternalInstance, markRaw, RendererNode } from 'vue';
+import { ComponentInternalInstance, markRaw } from 'vue';
 import { CabloyApplication } from '../app/application.js';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { CtxMeta } from './meta.js';
@@ -10,10 +10,6 @@ export class CabloyContext {
   bean: BeanContainerLike;
   meta: CtxMeta;
   //config: ContextConfig;
-
-  get $el(): RendererNode {
-    return this.instance.vnode.el!;
-  }
 
   constructor(instance: ComponentInternalInstance) {
     markRaw(this);

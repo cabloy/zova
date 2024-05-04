@@ -3,7 +3,7 @@ import type { MotherPageComponent } from './mother.js';
 import Card from '../../component/card/index.vue';
 import * as MotherCard from '../../component/card/mother.js';
 
-export interface RenderPageComponent extends MotherPageComponent {}
+export interface RenderPageComponent extends MotherPageComponent { }
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase {

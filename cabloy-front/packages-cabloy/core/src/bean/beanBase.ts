@@ -15,7 +15,7 @@ export class BeanBase<TScopeModule = unknown> extends BeanSimple {
   private __inited__: StateLock;
 
   public get $el(): RendererNode {
-    return this.ctx.$el;
+    return this.ctx.meta.el;
   }
 
   public get $text(): IModuleLocaleText {
