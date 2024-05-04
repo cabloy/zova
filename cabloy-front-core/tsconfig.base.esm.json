@@ -3,6 +3,7 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "node"]
   }
 }

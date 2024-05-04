@@ -1,0 +1,14 @@
+.menu-list {
+  background-color: whitesmoke;
+  display: flex;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+  }
+}
+
+.router-link-active {
+  color: orange;
+}

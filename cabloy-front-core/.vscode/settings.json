@@ -1,8 +1,26 @@
 {
-  "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "files.eol": "\n",
-  // typescript
+  "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.disableAutomaticTypeAcquisition": false,
   "typescript.format.enable": true,
   "typescript.implementationsCodeLens.enabled": true,
@@ -13,37 +31,10 @@
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.includePackageJsonAutoImports": "on",
-  // eslint
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
-  // prettier
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   // associations
   "files.associations": {
-    "*.js.ejs": "javascript",
-    "*.css.ejs": "css",
-    "*.less.ejs": "less",
+    "*.ejs": "html",
     "*.code-snippets": "text",
     "docker-compose-dockerfile-app": "dockerfile"
-  },
-  // search
-  "search.exclude": {
-    "/.vscode/**": true,
-    "/coverage/**": true,
-    "/docs/**": true,
-    "**/dist/**": true,
-    "/src/backend/app/**": true,
-    "/src/backend/logs/**": true,
-    "/src/backend/run/**": true,
-    "src/front/__dist,": true,
-    "src/front/__runtime,": true,
-    "**/node_modules": true
-  },
-  "search.useIgnoreFiles": false,
-  "hide-my-secrets.hideSecrets": false
+  }
 }

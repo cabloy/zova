@@ -1,32 +1,64 @@
+!.gitignore
+!.npmrc
+
+.DS_Store
+.thumbs.db
+pnpm-lock.yaml
+package-lock.json
 node_modules
 miniprogram_npm
-/typings/core
-/coverage
-**/dist/
-/dist-release
-/docs-api
-/run
 
+**/dist
+distMockServer
+
+# cabloy core related directories
+.cabloy
+
+# Cordova related directories and files
+/src-cordova/node_modules
+/src-cordova/platforms
+/src-cordova/plugins
+/src-cordova/www
+
+# Capacitor related directories and files
+/src-capacitor/www
+/src-capacitor/node_modules
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
 .nx
 .idea
-.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-*.tsbuildinfo
+# mine .env files
+env/.env*.mine
 
-*.log
-*.logs
-*.swp
-*.tmp
-*.rdb
+**/*.tsbuildinfo
 
-# package-lock.json
+/src/front/config
 
-# auto created
+/src/suite/*
+!/src/suite/.gitkeep
+!/src/suite/a-base
+!/src/suite/a-cms
+!/src/suite/a-core
+!/src/suite/a-demo
+!/src/suite/a-flow
+!/src/suite/a-home
+!/src/suite/test-party
 
-# should pre-compiled
+/src/suite-vendor/*
+!/src/suite-vendor/.gitkeep
 
-.vscode/sftp.json
-.sync-config.cson
-sftp-config.json
-sftp-config-.json
-/.assets
+/src/module/*
+!/src/module/.gitkeep
+
+/src/module-vendor/*
+!/src/module-vendor/.gitkeep
