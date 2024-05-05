@@ -1,9 +1,10 @@
-# 视频
+# Videos
 
-## Bilibili
+## YouTube Channel
 
-- [比nestjs更优雅的ioc: Service本地服务](https://www.bilibili.com/video/BV1Pq421w76R/)
-- [比nestjs更优雅的ioc: Config配置](https://www.bilibili.com/video/BV1Xt421J75z/)
-- [比nestjs更优雅的ioc: 多语言国际化](https://www.bilibili.com/video/BV1TZ421q7Lv/)
-- [比nestjs更优雅的ioc: Error错误异常](https://www.bilibili.com/video/BV1yx421U7F4/)
-- [比nestjs更优雅的ioc: 跨模块访问资源](https://www.bilibili.com/video/BV1kq421F7vw/)
+- [A more elegant ioc than nestjs: Local Service](https://www.youtube.com/watch?v=ZqkehqDHq68)
+- [A more elegant ioc than nestjs: Config](https://www.youtube.com/watch?v=dqE34enuRzo)
+- [A more elegant ioc than nestjs: I18n
+  ](https://www.youtube.com/watch?v=JlTy5rXeiGY)
+- [A more elegant ioc than nestjs: Error Exception](https://www.youtube.com/watch?v=9m98QZ-ow4g)
+- [A more elegant ioc than nestjs: Cross Module Access](https://www.youtube.com/watch?v=8YvGhbbcBe0&t=2s)
