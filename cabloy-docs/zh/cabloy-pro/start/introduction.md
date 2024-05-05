@@ -12,7 +12,7 @@ Cabloy-Pro 内置的每一项特性都做到精心调校，均体现了从`开�
 
 Cabloy-Pro4 采用 Javascript 开发，具备完善的功能和文档，请参见：[快速开始](https://cabloy.com/zh-cn/articles/guide-quick-start.html)
 
-## Cabloy-Pro5内测预告 🚀🚀🚀
+## Cabloy-Pro5内测版 🚀🚀🚀
 
 Cabloy-Pro5 采用 Typescript 对整个全栈框架进行了脱胎换骨般的大重构：
 
