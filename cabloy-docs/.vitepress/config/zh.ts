@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress';
+import { DefaultTheme, defineConfig } from 'vitepress';
 
 export const zh = defineConfig({
   lang: 'zh-CN',
@@ -6,20 +6,12 @@ export const zh = defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '文档', link: '/zh/guide/start/introduction', activeMatch: '/zh/guide/' },
+      { text: 'Cabloy-Pro', link: '/zh/cabloy-pro/start/introduction', activeMatch: '/zh/cabloy-pro/' },
     ],
-    sidebar: [
-      {
-        text: '开始',
-        items: [
-          { text: '简介', link: '/zh/guide/start/introduction' },
-          { text: '快速上手', link: '/zh/guide/start/quick-start' },
-        ],
-      },
-      {
-        text: '资源',
-        items: [{ text: '视频', link: '/zh/guide/resources/videos' }],
-      },
-    ],
+    sidebar: {
+      '/zh/guide/': { base: '/zh/guide/', items: sidebarGuide() },
+      '/zh/cabloy-pro/': { base: '/zh/cabloy-pro/', items: sidebarCabloyPro() },
+    },
     footer: {
       message: '基于 MIT 许可发布',
       copyright: `版权所有 © 2016-present 濮水大叔`,
@@ -31,3 +23,35 @@ export const zh = defineConfig({
     ],
   },
 });
+
+function sidebarGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '开始',
+      items: [
+        { text: '简介', link: 'start/introduction' },
+        { text: '快速上手', link: 'start/quick-start' },
+      ],
+    },
+    {
+      text: '资源',
+      items: [{ text: '视频', link: 'resources/videos' }],
+    },
+  ];
+}
+
+function sidebarCabloyPro(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '开始',
+      items: [
+        { text: '简介', link: 'start/introduction' },
+        { text: '快速上手', link: 'start/quick-start' },
+      ],
+    },
+    {
+      text: '资源',
+      items: [{ text: '视频', link: 'resources/videos' }],
+    },
+  ];
+}
