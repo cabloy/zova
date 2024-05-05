@@ -43,7 +43,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 function sidebarCabloyPro(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '开始',
+      text: 'Cabloy-Pro',
       items: [{ text: '简介', link: 'start/introduction' }],
     },
     {
