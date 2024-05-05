@@ -1,26 +1,26 @@
 # A more elegant ioc than nestjs: Cross Module Access
 
-## 引言
+## Preface
 
-在上一篇文章中，我们创建了一个业务模块 test-home，并且采用依赖查找的机制演示了如何优雅的定义和使用资源，包括：Service 服务、Config 配置、国际化语言资源、Error 错误异常
+In the previous article, we created a business module `test-home`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
 
-在实际的项目当中，经常会遇到跨模块访问资源的场景，那么 Cabloy-Pro5 的依赖查找机制是否仍然可以优雅的实现跨模块访问呢？让我们一睹为快
+In actual projects, we often encounter cross-module resource access scenarios. So, can dependency lookup mechanism of Cabloy-Pro5 still achieve cross-module access elegantly? Let's take a look
 
-## 模块化体系与任务说明
+## Modular system and task description
 
-Cabloy-Pro5 全栈框架的前后端均采用模块化体系。一个 Cabloy-Pro5 项目由多个业务模块组成，每个业务模块都可以包含与自身业务相关的资源，比如：Service 服务、Config 配置、国际化语言资源、Error 错误异常、中间件、定时任务、消息队列、系统启动项，等等
+The front and back ends of the Cabloy-Pro5 full-stack framework adopt a modular system. A Cabloy-Pro5 project consists of multiple business modules. Each business module can contain resources related to its own business, such as: Service service, Config configuration, international language resources, Error exception, middleware, scheduled tasks, message queue, System startup items, etc.
 
-在这里，我们创建一个新的业务模块 test-work，在 test-work 中访问 test-home 提供的资源
+Here, we create a new business module `test-work` and access the resources provided by `test-home` in `test-work`
 
-## 1. 新建业务模块
+## 1. Create a Business Module
 
 ```bash
 cabloy api:create:module test-work
 ```
 
-## 2. 新建API
+## 2. Create a API Endpoint
 
-通过一个命令同时创建一组文件
+Create a set of files at the same time through one command
 
 ```bash
 cabloy api:create:controller work
@@ -30,9 +30,9 @@ cabloy api:create:controller work
 - Controller: `src/module/test-work/src/controller/work.ts`
 - Service: `src/module/test-work/src/local/work.ts`
 
-## 3. 跨模块访问Service服务
+## 3. Access Services across modules
 
-接下来，我们在刚才新建的 Service 当中，访问模块 test-home 的 Service 服务
+Next, we access the Service of the module `test-home` in the newly created Service
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -48,16 +48,16 @@ export class LocalWork extends BeanBase<ScopeModule> {
 }
 ```
 
-1. 通过 getScope 方法获取模块 test-home 的 scope 对象
-2. 通过 scope 对象直接访问 Service 服务: `home`
+1. Obtain the scope object of the module `test-home` through the `getScope` method
+2. Directly access the Service `home` through the scope object
 
-看一下动画演示，提供了完整的类型智能提示：
+Take a look at the animation demo, which provides complete type intelligent prompts:
 
-![跨模块访问资源：Service服务](./images/cross-module-localbean.gif)
+![cross-module: Service](./images/cross-module-localbean.gif)
 
-## 4. 跨模块访问Config配置
+## 4. Access Config across modules
 
-访问模块 test-home 的 Config 配置
+Access the Config configuration of the module `test-home`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -74,15 +74,15 @@ export class LocalWork extends BeanBase<ScopeModule> {
 }
 ```
 
-1. 直接通过 scopeHome 取得 config 中的 prompt 属性值
+1. Obtain the `prompt` value of config directly through `scopeHome`
 
-看一下动画演示，提供了完整的类型智能提示：
+Take a look at the animation demo, which provides complete type intelligent prompts:
 
-![跨模块访问资源：config配置](./images/cross-module-config.gif)
+![cross-module: config](./images/cross-module-config.gif)
 
-## 5. 跨模块访问国际化语言资源
+## 5. Access I18n across modules
 
-访问模块 test-home 的国际化语言资源
+Access the I18n resources of the module `test-home`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -101,13 +101,13 @@ export class LocalWork extends BeanBase<ScopeModule> {
 }
 ```
 
-看一下动画演示，提供了完整的类型智能提示：
+Take a look at the animation demo, which provides complete type intelligent prompts:
 
-![跨模块访问资源：国际化语言资源](./images/cross-module-locale.gif)
+![cross-module: i18n](./images/cross-module-locale.gif)
 
-## 6. 跨模块访问Error错误异常
+## 6. Access Error Exception across modules
 
-抛出模块 test-home 提供的 Error 错误异常
+Access and throw the Error exception of the module `test-home`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -124,12 +124,12 @@ export class LocalWork extends BeanBase<ScopeModule> {
 }
 ```
 
-1. 直接通过 scopeHome 抛出错误异常 Error001
+1. Throw error exception `Error001` directly through `scopeHome`
 
-看一下动画演示，提供了完整的类型智能提示：
+Take a look at the animation demo, which provides complete type intelligent prompts:
 
-![跨模块访问资源：Error错误异常](./images/cross-module-error.gif)
+![cross-module: error exception](./images/cross-module-error.gif)
 
-## 后记
+## Postscript
 
-Cabloy-Pro5 采用 ioc 和依赖查找的机制，让 ts 的使用达到了`化类型于无形`的最佳境界，从而让我们的代码保持优雅和简洁，进而也能显著提升开发效率，保证代码质量
+Cabloy-Pro5 uses `ioc` and `dependency lookup` mechanisms to reduce type annotations and achieve the effect of `making types invisible`, thus keeping our code elegant and concise, which in turn can significantly improve development efficiency and ensure code quality
