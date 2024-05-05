@@ -234,6 +234,6 @@ export class LocalHome extends BeanBase<ScopeModule> {
 
 ![依赖查找-错误异常](./images/lookup-error.gif)
 
-## 五、后记
+## 后记
 
 Cabloy-Pro4 中就已经提供了大量业务能力，比如：工作流引擎、表单引擎、权限引擎、字段权限、多级缓存、模块化体系、分布式架构、多租户引擎，等等。随着 Cabloy-Pro5 Typescript 的赋能，这些业务能力也随之有了全新的表现
