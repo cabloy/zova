@@ -44,14 +44,14 @@ function sidebarCabloyPro(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: '开始',
-      items: [
-        { text: '简介', link: 'start/introduction' },
-        { text: '快速上手', link: 'start/quick-start' },
-      ],
+      items: [{ text: '简介', link: 'start/introduction' }],
     },
     {
       text: '资源',
-      items: [{ text: '视频', link: 'resources/videos' }],
+      items: [
+        { text: '视频', link: 'resources/videos' },
+        { text: '文章', items: [{ text: '比nestjs更优雅的ioc', link: 'resources/articles/ioc' }] },
+      ],
     },
   ];
 }
