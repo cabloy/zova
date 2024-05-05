@@ -45,5 +45,6 @@
     "**/node_modules": true
   },
   "search.useIgnoreFiles": false,
-  "hide-my-secrets.hideSecrets": false
+  "hide-my-secrets.hideSecrets": false,
+  "textlint.autoFixOnSave": true
 }
