@@ -50,7 +50,13 @@ function sidebarCabloyPro(): DefaultTheme.SidebarItem[] {
       text: '资源',
       items: [
         { text: '视频', link: 'resources/videos' },
-        { text: '文章', items: [{ text: '比nestjs更优雅的ioc', link: 'resources/articles/ioc' }] },
+        {
+          text: '文章',
+          items: [
+            { text: '比nestjs更优雅的ioc: 基础篇', link: 'resources/articles/ioc-basic' },
+            { text: '比nestjs更优雅的ioc: 跨模块访问资源', link: 'resources/articles/ioc-cross-module' },
+          ],
+        },
       ],
     },
   ];

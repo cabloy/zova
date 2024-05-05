@@ -1,4 +1,8 @@
-# 比nestjs更优雅的ioc
+# 比nestjs更优雅的ioc: 基础篇
+
+## 使用ts的最佳境界: 化类型于无形
+
+我们都知道，在项目中使用 ts 可以带来类型智能提示与校验的诸多好处。同时，为了减少类型标注，达到`化类型于无形`的效果，Cabloy-Pro5 引入了 ioc 和依赖查找的机制，从而让我们的代码保持优雅和简洁，进而显著提升开发效率，保证代码质量
 
 ## ioc的两种策略
 
@@ -13,7 +17,7 @@
 
 ### 1\. 创建一个Service
 
-在 CabloyJS 中，local bean 相当于 nestjs 中 service 的概念，下面创建一个 local bean
+在 Cabloy-Pro5 中，local bean 相当于 nestjs 中 service 的概念，下面创建一个 local bean
 
 ```javascript
 import { BeanBase, Local } from '@cabloy/core';
@@ -229,3 +233,7 @@ export class LocalHome extends BeanBase<ScopeModule> {
 看一下动画演示，提供了完整的类型智能提示：
 
 ![依赖查找-错误异常](./images/lookup-error.gif)
+
+## 五、后记
+
+Cabloy-Pro4 中就已经提供了大量业务能力，比如：工作流引擎、表单引擎、权限引擎、字段权限、多级缓存、模块化体系、分布式架构、多租户引擎，等等。随着 Cabloy-Pro5 Typescript 的赋能，这些业务能力也随之有了全新的表现
