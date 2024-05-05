@@ -1,4 +1,4 @@
-# 比nestjs更优雅的ioc: 跨模块访问资源
+# A more elegant ioc than nestjs: Cross Module Access
 
 ## 引言
 
