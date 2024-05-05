@@ -27,11 +27,26 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ### 1. 文件结构
 
-由于要演示响应式写法，我们给这个页面组件起名叫`state`。在项目中新建一个目录`state`，在目录中创建三个文件：
+由于要演示响应式写法，我们给这个页面组件起名为`state`。你可以通过一个 Cli 命令来创建文件结构:
 
-- `index.vue`：用于定义组件
-- `mother.ts`：用于代码逻辑的 local bean
-- `render.tsx`：用于渲染逻辑的 local bean
+```bash
+$ cabloy front:create:page state
+```
+
+```
+src
+└─ page
+   └─ state
+      ├─ index.vue
+      ├─ mother.ts
+      └─ render.tsx
+```
+
+| 名称       | 描述                      |
+| ---------- | ------------------------- |
+| index.vue  | 用于定义vue组件           |
+| mother.ts  | 用于代码逻辑的 local bean |
+| render.tsx | 用于渲染逻辑的 local bean |
 
 ### 2. index.vue
 

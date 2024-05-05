@@ -27,11 +27,26 @@ To demonstrate the coding style of Cabloy-Front, we will develop a simple page c
 
 ### 1. file structure
 
-Due to the need to demonstrate reactive codes, we named this page component `state`. Create a new directory `state` in the project and create three files in it:
+Due to the need to demonstrate reactive codes, we named this page component as `state`. You can create file structure through a cli command:
 
-- `index.vue`: define component
-- `mother.ts`：local bean for logic codes
-- `render.tsx`: local bean for render codes
+```bash
+$ cabloy front:create:page state
+```
+
+```
+src
+└─ page
+   └─ state
+      ├─ index.vue
+      ├─ mother.ts
+      └─ render.tsx
+```
+
+| Name       | Description                 |
+| ---------- | --------------------------- |
+| index.vue  | define vue component        |
+| mother.ts  | local bean for logic codes  |
+| render.tsx | local bean for render codes |
 
 ### 2. index.vue
 
