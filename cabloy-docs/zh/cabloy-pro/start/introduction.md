@@ -17,10 +17,19 @@ Cabloy-Pro5 采用 Typescript 对整个全栈框架进行了脱胎换骨般的�
 | 前端 | TS、Vue3、TSX、IOC、Quasar                      |
 | 后端 | TS、Egg3、多数据库兼容（支持Mysql、Postgresql） |
 
-详细信息请参见：
+- 获取内测资格，请访问：[Cabloy-Pro5内测资格](https://store.cabloy.com/zh-cn/articles/Cabloy5-Internal-Testing-Access.html)
 
-- [Cabloy5.0内测预告，暨比nestjs更优雅的ts控制反转策略](./docs/5.0/readme-ioc.md)
-- [比nestjs更优雅的ioc：跨模块访问资源](./docs/5.0/ioc-cross-module.md)
+## 资源
 
-- 了解更多，请关注每晚 8 点 B 站直播：[濮水代码](https://space.bilibili.com/454737998)
-- 获取内测资格，请访问：[Cabloy5.0全新框架内测资格](https://store.cabloy.com/zh-cn/articles/Cabloy5-Internal-Testing-Access.html)
+### 视频
+
+- [视频](../resources/videos.md)
+
+### 文章
+
+- [比nestjs更优雅的ioc: 基础篇](../resources/articles/ioc-basic.md)
+- [比nestjs更优雅的ioc: 跨模块访问资源](../resources/articles/ioc-cross-module.md)
+
+### 直播
+
+了解更多，请关注每晚 8 点 B 站直播：[濮水代码](https://space.bilibili.com/454737998)
