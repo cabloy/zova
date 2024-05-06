@@ -5,7 +5,7 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
 import { getFlavor } from '@cabloy/app-vite';
-import { CabloyConfigMeta } from '@cabloy/front-core';
+import { CabloyConfigMeta } from '@cabloy/front';
 import { generateCabloyViteMeta } from '@cabloy/app-vite';
 
 // https://vitejs.dev/config/
