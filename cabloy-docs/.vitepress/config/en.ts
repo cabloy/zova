@@ -38,10 +38,30 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'Modularization',
-          base: '/guide/essentials/',
+          base: '/guide/essentials/modularization/',
           items: [
-            { text: 'Module', link: 'modularization/module' },
-            { text: 'Suite', link: 'modularization/suite' },
+            { text: 'Module', link: 'module' },
+            { text: 'Suite', link: 'suite' },
+          ],
+        },
+        {
+          text: 'IOC',
+          base: '/guide/essentials/ioc/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: 'Local Bean', link: 'local-bean' },
+            { text: 'Store Bean', link: 'store-bean' },
+            { text: 'BeanBase', link: 'bean-base' },
+            { text: 'Life Cycle', link: 'life-cycle' },
+          ],
+        },
+        {
+          text: 'Reactivity Fundamentals',
+          base: '/guide/essentials/reactivity/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: 'useComputed', link: 'use-computed' },
+            { text: 'useHook', link: 'use-hook' },
           ],
         },
       ],

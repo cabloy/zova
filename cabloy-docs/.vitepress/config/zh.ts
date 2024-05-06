@@ -52,11 +52,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Local Bean', link: 'local-bean' },
             { text: 'Store Bean', link: 'store-bean' },
             { text: 'BeanBase基类', link: 'bean-base' },
-            { text: '生命周期', link: 'life-style' },
+            { text: '生命周期', link: 'life-cycle' },
           ],
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: '响应式基础',
           base: '/zh/guide/essentials/reactivity/',
           items: [
             { text: '简介', link: 'introduction' },
