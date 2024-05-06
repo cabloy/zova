@@ -55,6 +55,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '生命周期', link: 'life-style' },
           ],
         },
+        {
+          text: 'Reactivity Fundamentals',
+          base: '/zh/guide/essentials/reactivity/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: 'useComputed', link: 'use-computed' },
+            { text: 'useHook', link: 'use-hook' },
+          ],
+        },
       ],
     },
     {
