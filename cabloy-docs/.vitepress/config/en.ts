@@ -34,10 +34,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: 'Modularization',
+      text: 'Essentials',
       items: [
-        { text: 'Module', link: 'modularization/module' },
-        { text: 'Suite', link: 'modularization/suite' },
+        {
+          text: 'Modularization',
+          base: '/guide/essentials/',
+          items: [
+            { text: 'Module', link: 'modularization/module' },
+            { text: 'Suite', link: 'modularization/suite' },
+          ],
+        },
       ],
     },
     {

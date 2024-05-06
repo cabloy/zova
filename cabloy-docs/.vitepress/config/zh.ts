@@ -34,10 +34,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: '模块化体系',
+      text: '基础',
       items: [
-        { text: '模块', link: 'modularization/module' },
-        { text: '套件', link: 'modularization/suite' },
+        {
+          text: '模块化体系',
+          base: '/zh/guide/essentials/',
+          items: [
+            { text: '模块', link: 'modularization/module' },
+            { text: '套件', link: 'modularization/suite' },
+          ],
+        },
       ],
     },
     {
