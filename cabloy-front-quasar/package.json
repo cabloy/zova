@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@cabloy/front": "^5.0.23",
-    "@cabloy/front-core": "^5.0.23",
     "@quasar/extras": "^1.16.11",
     "quasar": "^2.15.4",
     "vue": "^3.4.26",
