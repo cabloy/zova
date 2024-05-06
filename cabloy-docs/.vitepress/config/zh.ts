@@ -38,10 +38,21 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: '模块化体系',
-          base: '/zh/guide/essentials/',
+          base: '/zh/guide/essentials/modularization/',
           items: [
-            { text: '模块', link: 'modularization/module' },
-            { text: '套件', link: 'modularization/suite' },
+            { text: '模块', link: 'module' },
+            { text: '套件', link: 'suite' },
+          ],
+        },
+        {
+          text: 'IOC控制反转',
+          base: '/zh/guide/essentials/ioc/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: 'Local Bean', link: 'local-bean' },
+            { text: 'Store Bean', link: 'store-bean' },
+            { text: 'BeanBase基类', link: 'bean-base' },
+            { text: '生命周期', link: 'life-style' },
           ],
         },
       ],
