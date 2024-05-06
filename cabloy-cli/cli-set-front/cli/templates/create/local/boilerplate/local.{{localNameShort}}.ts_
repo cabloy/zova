@@ -1,0 +1,8 @@
+import { BeanBase, Local } from '@cabloy/front';
+
+@Local()
+export class Local<%=argv.localNameShortCapitalize%> extends BeanBase {
+  protected async __init__() {}
+
+  protected __dispose__() {}
+}
