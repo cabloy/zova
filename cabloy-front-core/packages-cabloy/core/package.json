@@ -1,7 +1,7 @@
 {
   "name": "@cabloy/front-core",
   "version": "5.0.22",
-  "description": "cabloy front core",
+  "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
   },
@@ -16,18 +16,27 @@
   "files": [
     "dist"
   ],
+  "author": "zhennann",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "ioc",
+    "cabloy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/cabloy-front.git"
+  },
+  "homepage": "https://github.com/cabloy/cabloy-front#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/cabloy-front/issues"
+  },
   "scripts": {
     "lint": "eslint .",
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
   },
-  "keywords": [
-    "framework",
-    "cabloy"
-  ],
-  "author": "zhennann",
-  "license": "MIT",
   "dependencies": {
     "@cabloy/compose": "^1.0.2",
     "@cabloy/extend": "^3.0.5",
