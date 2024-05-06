@@ -31,16 +31,18 @@ To demonstrate the coding style of Cabloy-Front, we will develop a simple page c
 
 ### 1. file structure
 
-Due to the need to demonstrate reactive codes, we named this page component as `state`. You can create file structure through a cli command:
+In Cabloy-Front, a page component will be splited to three files. Now we create a page component named as `counter` through a cli command:
 
 ```bash
-$ cabloy front:create:page state
+$ cabloy front:create:page counter
 ```
+
+The created file structure as follows:
 
 ```
 src
 └─ page
-   └─ state
+   └─ counter
       ├─ index.vue
       ├─ mother.ts
       └─ render.tsx
@@ -71,7 +73,7 @@ useMother(MotherPageState);
 ### 3. mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front';
+import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPageState } from './render.jsx';
 
 @Local()
@@ -80,13 +82,6 @@ export class MotherPageState extends BeanMotherPageBase {
   $$render: RenderPageState;
 
   counter: number = 0;
-  counter2: string;
-
-  protected async __init__() {
-    this.counter2 = useComputed(() => {
-      return `=== ${this.counter} ===`;
-    });
-  }
 
   inrement() {
     this.counter++;
@@ -101,9 +96,7 @@ export class MotherPageState extends BeanMotherPageBase {
 1. Define `mother` as a local bean using `@Local` to register it in the ioc container
 2. Inject the `render` bean using `@Use`
 3. Define a reactive state: `counter` of type `number`
-4. Define a computed state: `counter2` of type `string`
-5. Use `useComputed` to establish a connection between `counter2` and `counter`
-6. Directly modify the value of `counter` by vanilla javaScript
+4. Directly modify the value of `counter` by vanilla javascript
 
 ### 4. render.tsx
 
@@ -119,7 +112,6 @@ export class RenderPageState extends BeanRenderBase {
     return (
       <div>
         <div>counter(ref): {this.counter}</div>
-        <div>counter(computed): {this.counter2}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
@@ -130,7 +122,7 @@ export class RenderPageState extends BeanRenderBase {
 
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
-3. Directly obtain the values of `counter` and `counter2` by vanilla javaScript
+3. Directly obtain the value of `counter` by vanilla javascript
 
 ## Stay In Touch
 
