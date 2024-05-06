@@ -1,4 +1,4 @@
-import { ReturnTypeHook } from '@cabloy/front-core';
+import { ReturnTypeHook } from '@cabloy/front';
 import { useQuasar } from 'quasar';
 
 declare module '@cabloy/front-core' {

@@ -1,4 +1,4 @@
-import { BeanBase, getCabloyIcon, Local } from '@cabloy/front-core';
+import { BeanBase, getCabloyIcon, Local } from '@cabloy/front';
 import { ScopeModule } from '../resource/this.js';
 import { VIcon } from 'vuetify/components';
 import { computed, ref, toRef } from 'vue';

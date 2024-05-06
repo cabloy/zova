@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
 import EssentialLink from '../../component/essentialLink/index.vue';
 import {

@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
 import { ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';

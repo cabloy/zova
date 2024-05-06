@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front-core';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
 import { PatchIcon } from './patch/icon.jsx';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {

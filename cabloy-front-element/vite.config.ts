@@ -9,7 +9,7 @@ import { presetAttributify, presetIcons, presetUno, transformerDirectives, trans
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
 import { getFlavor } from '@cabloy/app-vite';
-import { CabloyConfigMeta } from '@cabloy/front-core';
+import { CabloyConfigMeta } from '@cabloy/front';
 import { generateCabloyViteMeta } from '@cabloy/app-vite';
 
 // https://vitejs.dev/config/

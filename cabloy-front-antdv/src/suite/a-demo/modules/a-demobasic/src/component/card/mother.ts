@@ -1,4 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front-core';
+import { BeanMotherBase, Local, Use } from '@cabloy/front';
 import { RenderCard } from './render.jsx';
 import { JSX } from 'vue/jsx-runtime';
 

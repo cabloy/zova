@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
 import { VApp, VAppBar, VAppBarNavIcon, VBtn, VDivider, VList, VListSubheader, VMain, VNavigationDrawer, VSpacer, VToolbarTitle } from 'vuetify/components';
 import { JSX } from 'vue/jsx-runtime';

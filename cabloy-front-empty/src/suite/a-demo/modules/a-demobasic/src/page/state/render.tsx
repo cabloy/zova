@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageState } from './mother.js';
 
 export interface RenderPageState extends MotherPageState { }

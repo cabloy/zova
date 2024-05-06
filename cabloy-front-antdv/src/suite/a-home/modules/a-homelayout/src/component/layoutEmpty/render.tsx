@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutEmpty } from './mother.js';
 import { App, ConfigProvider } from 'ant-design-vue';
 

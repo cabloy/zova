@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyApp, IMonkeySystem } from '@cabloy/front-core';
+import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyApp, IMonkeySystem } from '@cabloy/front';
 
 export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem {
   async moduleLoading(_module: IModule) {}

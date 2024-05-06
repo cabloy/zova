@@ -1,4 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front-core';
+import { BeanMotherBase, Local, Use } from '@cabloy/front';
 import { RenderLayoutDefault } from './render.jsx';
 
 export interface Props {}

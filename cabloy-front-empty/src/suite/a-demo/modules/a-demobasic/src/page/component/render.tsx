@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageComponent } from './mother.js';
 import Card from '../../component/card/index.vue';
 import * as MotherCard from '../../component/card/mother.js';

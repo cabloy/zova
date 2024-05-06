@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherEssentialLink } from './mother.js';
 import { VIcon, VListItem, VListItemTitle } from 'vuetify/components';
 

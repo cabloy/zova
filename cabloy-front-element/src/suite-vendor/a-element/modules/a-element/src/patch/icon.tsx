@@ -1,4 +1,4 @@
-import { BeanBase, CabloyIcon, getCabloyIcon, Local } from '@cabloy/front-core';
+import { BeanBase, CabloyIcon, getCabloyIcon, Local } from '@cabloy/front';
 import { ElIcon } from 'element-plus';
 import { useNamespace } from 'element-plus/es/hooks/use-namespace/index.mjs';
 import { addUnit } from 'element-plus/es/utils/dom/style.mjs';

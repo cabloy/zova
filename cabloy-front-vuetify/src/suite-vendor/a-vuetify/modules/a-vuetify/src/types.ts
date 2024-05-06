@@ -1,4 +1,4 @@
-import { ExtractHook } from '@cabloy/front-core';
+import { ExtractHook } from '@cabloy/front';
 import { DateInstance, DefaultsInstance, DisplayInstance, LocaleInstance, ThemeInstance } from 'vuetify';
 
 export interface VuetifyGlobal {

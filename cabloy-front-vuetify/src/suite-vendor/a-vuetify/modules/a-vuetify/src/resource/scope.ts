@@ -1,4 +1,4 @@
-import { BeanScopeBase, Scope, TypeModuleResource } from '@cabloy/front-core';
+import { BeanScopeBase, Scope, TypeModuleResource } from '@cabloy/front';
 import { config, Errors, locales, constants } from '../config/index.js';
 
 @Scope()

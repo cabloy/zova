@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutEmpty } from './mother.js';
 import { VApp, VMain } from 'vuetify/components';
 

@@ -1,4 +1,4 @@
-import { BeanBase, Local, TypeEventOff } from '@cabloy/front-core';
+import { BeanBase, Local, TypeEventOff } from '@cabloy/front';
 import { ScopeModule } from '../resource/this.js';
 import { StoreRouterLike } from 'cabloy-module-front-a-router';
 

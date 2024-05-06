@@ -1,4 +1,4 @@
-import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front-core';
+import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front';
 import { RenderPageState } from './render.jsx';
 
 @Local()

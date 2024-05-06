@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front-core';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
 import axios from 'axios';
 import { StoreApiLike } from './bean/store.api.js';
 

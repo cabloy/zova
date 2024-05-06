@@ -1,4 +1,4 @@
-import { CabloyIcon } from '@cabloy/front-core';
+import { CabloyIcon } from '@cabloy/front';
 import { defineComponent } from 'vue';
 import { mergeProps as _mergeProps, createVNode as _createVNode } from 'vue';
 import { makeIconProps } from 'vuetify/lib/composables/icons.mjs';
