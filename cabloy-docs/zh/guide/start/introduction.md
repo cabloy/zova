@@ -27,16 +27,16 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ### 1. 文件结构
 
-由于要演示响应式写法，我们给这个页面组件起名为`state`。你可以通过一个 Cli 命令来创建文件结构:
+在 Cabloy-Front 中，一个页面组件被切分为三个文件。现在我们通过一个 Cli 命令来创建一个页面组件`counter`:
 
 ```bash
-$ cabloy front:create:page state
+$ cabloy front:create:page counter
 ```
 
 ```
 src
 └─ page
-   └─ state
+   └─ counter
       ├─ index.vue
       ├─ mother.ts
       └─ render.tsx
@@ -67,7 +67,7 @@ useMother(MotherPageState);
 ### 3. mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front';
+import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPageState } from './render.jsx';
 
 @Local()
@@ -76,13 +76,6 @@ export class MotherPageState extends BeanMotherPageBase {
   $$render: RenderPageState;
 
   counter: number = 0;
-  counter2: string;
-
-  protected async __init__() {
-    this.counter2 = useComputed(() => {
-      return `=== ${this.counter} ===`;
-    });
-  }
 
   inrement() {
     this.counter++;
@@ -97,9 +90,7 @@ export class MotherPageState extends BeanMotherPageBase {
 1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
 2. 使用`@Use`注入`render`bean
 3. 定义一个响应式属性：`counter`，类型为`number`
-4. 定义一个计算属性：`counter2`，类型为`string`
-5. 使用`useComputed`建立`counter2`和`counter`的联系
-6. 直接用原生 js 代码来修改`counter`的值
+4. 直接用原生 js 代码来修改`counter`的值
 
 ### 4. render.tsx
 
@@ -115,7 +106,6 @@ export class RenderPageState extends BeanRenderBase {
     return (
       <div>
         <div>counter(ref): {this.counter}</div>
-        <div>counter(computed): {this.counter2}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
@@ -126,4 +116,4 @@ export class RenderPageState extends BeanRenderBase {
 
 1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
-3. 直接用原生 js 代码来获取`counter`和`counter2`的值
+3. 直接用原生 js 代码来获取`counter`的值
