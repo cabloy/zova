@@ -1,4 +1,4 @@
-// FLAVOR=app npm run build
+// npm run build -- --flavor=app
 import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front-core';
 
 export default function (_meta: CabloyConfigMeta) {
