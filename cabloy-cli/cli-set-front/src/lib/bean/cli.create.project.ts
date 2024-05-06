@@ -63,6 +63,7 @@ export class CliCreateProject extends BeanCliBase {
       - pnpm install
       - npm run dev
       - npm run build
+      - npm run preview
     `);
   }
 
