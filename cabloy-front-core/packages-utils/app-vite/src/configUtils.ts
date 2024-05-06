@@ -1,4 +1,4 @@
-import { CabloyConfigMeta } from '@cabloy/front';
+import { CabloyConfigMeta } from '@cabloy/front-core';
 import { CabloyViteConfigChunkVendor, CabloyViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';

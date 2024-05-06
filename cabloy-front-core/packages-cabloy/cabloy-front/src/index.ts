@@ -1,1 +1,1 @@
-export * from '@cabloy/front';
+export * from '@cabloy/front-core';

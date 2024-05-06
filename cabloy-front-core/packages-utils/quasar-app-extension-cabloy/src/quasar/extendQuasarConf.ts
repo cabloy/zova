@@ -1,5 +1,5 @@
 import { generateCabloyViteMeta, getFlavor } from '@cabloy/app-vite';
-import { CabloyConfigMeta } from '@cabloy/front';
+import { CabloyConfigMeta } from '@cabloy/front-core';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';
 

@@ -1,4 +1,4 @@
-import { CabloyConfigMeta } from '@cabloy/front';
+import { CabloyConfigMeta } from '@cabloy/front-core';
 import { CabloyViteConfigOptions, CabloyViteConfigResult } from './types.js';
 import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';

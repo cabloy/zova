@@ -1,4 +1,4 @@
-import { CabloyConfigMeta } from '@cabloy/front';
+import { CabloyConfigMeta } from '@cabloy/front-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2): string {
