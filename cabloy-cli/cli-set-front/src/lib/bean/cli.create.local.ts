@@ -32,12 +32,15 @@ export class CliCreateLocal extends BeanCliBase {
     const localName = argv.localName;
     // localName2
     const parts = localName.split('/');
+    const localPath = parts.slice(0, parts.length - 1).join('/');
     const localNameShort = parts[parts.length - 1];
     argv.localNameShort = localNameShort;
     argv.localNameShortCapitalize = this.helper.firstCharToCapitalize(localNameShort);
     // directory
     let localDir = path.join(targetDir, 'src');
-    localDir = path.join(localDir, localName);
+    if (localPath) {
+      localDir = path.join(localDir, localPath);
+    }
     await this.helper.ensureDir(localDir);
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
