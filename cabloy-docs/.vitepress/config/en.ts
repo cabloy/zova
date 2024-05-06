@@ -34,6 +34,13 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      text: 'Modularization',
+      items: [
+        { text: 'Module', link: 'modularization/module' },
+        { text: 'Suite', link: 'modularization/suite' },
+      ],
+    },
+    {
       text: 'Resources',
       items: [{ text: 'Videos', link: 'resources/videos' }],
     },
