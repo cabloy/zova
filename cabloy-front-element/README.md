@@ -15,7 +15,7 @@
 
 ## Documentation
 
-Documentation can be found at **[https://cabloy.github.io/cabloy-front/](https://cabloy.github.io/cabloy-front/)**.
+Documentation can be found at **[https://front.cabloy.com/](https://front.cabloy.com/)**.
 
 ## Features
 
