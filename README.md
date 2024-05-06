@@ -105,7 +105,7 @@ export class MotherPageState extends BeanMotherPageBase {
 1. Define `mother` as a local bean using `@Local` to register it in the ioc container
 2. Inject the `render` bean using `@Use`
 3. Define a reactive state: `counter` of type `number`
-4. Directly modify the value of `counter` by vanilla javaScript
+4. Directly modify the value of `counter` by vanilla javascript
 
 ### 4. render.tsx
 
@@ -131,7 +131,7 @@ export class RenderPageState extends BeanRenderBase {
 
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
-3. Directly obtain the value of `counter` by vanilla javaScript
+3. Directly obtain the value of `counter` by vanilla javascript
 
 ## Stay In Touch
 
