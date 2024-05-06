@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front",
-  "version": "5.0.23",
+  "version": "5.0.24",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@cabloy/front-core": "^5.0.23",
-    "cabloy-suite-front-a-core": "^5.0.12"
+    "cabloy-suite-front-a-core": "^5.0.13"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
