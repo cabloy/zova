@@ -34,6 +34,13 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      text: '模块化体系',
+      items: [
+        { text: '模块', link: 'modularization/module' },
+        { text: '套件', link: 'modularization/suite' },
+      ],
+    },
+    {
       text: '资源',
       items: [{ text: '视频', link: 'resources/videos' }],
     },
