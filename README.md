@@ -69,7 +69,7 @@ src
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front-core';
+import { useMother } from '@cabloy/front';
 import { MotherPageState } from './mother.js';
 useMother(MotherPageState);
 </script>
@@ -80,7 +80,7 @@ useMother(MotherPageState);
 ### 3. mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front-core';
+import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front';
 import { RenderPageState } from './render.jsx';
 
 @Local()
@@ -117,7 +117,7 @@ export class MotherPageState extends BeanMotherPageBase {
 ### 4. render.tsx
 
 ```typescript
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageState } from './mother.js';
 
 export interface RenderPageState extends MotherPageState { }

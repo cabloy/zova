@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyModule, IMonkeySystem } from '@cabloy/front-core';
+import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyModule, IMonkeySystem } from '@cabloy/front';
 import { useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 

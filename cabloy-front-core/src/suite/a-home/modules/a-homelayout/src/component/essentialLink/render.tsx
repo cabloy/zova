@@ -1,4 +1,4 @@
-import { BeanRenderBase, CabloyIcon, Local } from '@cabloy/front-core';
+import { BeanRenderBase, CabloyIcon, Local } from '@cabloy/front';
 import type { MotherEssentialLink } from './mother.js';
 import { RouterLink } from 'vue-router';
 

@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyModule, IMonkeySystem } from '@cabloy/front-core';
+import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyModule, IMonkeySystem } from '@cabloy/front';
 import { StoreComponent } from './bean/store.component.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule {

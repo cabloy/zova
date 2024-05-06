@@ -1,4 +1,4 @@
-import { BeanBase, Cast, IModule, Store, TypeEventOff } from '@cabloy/front-core';
+import { BeanBase, Cast, IModule, Store, TypeEventOff } from '@cabloy/front';
 import { Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';

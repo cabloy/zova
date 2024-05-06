@@ -1,4 +1,4 @@
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front-core';
+import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPage<%=argv.pageNameShortCapitalize%> } from './render.jsx';
 
 @Local()

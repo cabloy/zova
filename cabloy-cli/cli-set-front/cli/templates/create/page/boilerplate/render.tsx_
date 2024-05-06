@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front-core';
+import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPage<%=argv.pageNameShortCapitalize%> } from './mother.js';
 
 export interface RenderPage<%=argv.pageNameShortCapitalize%> extends MotherPage<%=argv.pageNameShortCapitalize%> {}

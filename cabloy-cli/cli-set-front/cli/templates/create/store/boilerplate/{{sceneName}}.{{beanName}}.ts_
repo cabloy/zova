@@ -1,4 +1,4 @@
-import { BeanBase, Store } from '@cabloy/front-core';
+import { BeanBase, Store } from '@cabloy/front';
 
 @Store()
 export class <%=argv.sceneNameCapitalize%><%=argv.beanNameCapitalize%> extends BeanBase {}

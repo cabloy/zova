@@ -1,4 +1,4 @@
-import { BeanBase, IModule, Store } from '@cabloy/front-core';
+import { BeanBase, IModule, Store } from '@cabloy/front';
 import { Component, ComponentCustomOptions } from 'vue';
 
 @Store()

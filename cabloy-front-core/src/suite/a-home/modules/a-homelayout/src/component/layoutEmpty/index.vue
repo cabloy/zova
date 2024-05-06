@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front-core';
+import { useMother } from '@cabloy/front';
 import { MotherLayoutEmpty, Props, Emits } from './mother.js';
 const props = withDefaults(defineProps<Props>(), MotherLayoutEmpty.$propsDefault);
 const emit = defineEmits<Emits>();

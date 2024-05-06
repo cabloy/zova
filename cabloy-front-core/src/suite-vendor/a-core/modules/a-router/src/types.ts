@@ -1,4 +1,4 @@
-import { ReturnTypeHook } from '@cabloy/front-core';
+import { ReturnTypeHook } from '@cabloy/front';
 import { RouteComponent, RouteRecordRaw, useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
