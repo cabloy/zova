@@ -57,8 +57,8 @@ src
 
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
-import { MotherPageState } from './mother.js';
-useMother(MotherPageState);
+import { MotherPageCounter } from './mother.js';
+useMother(MotherPageCounter);
 </script>
 ```
 
@@ -68,12 +68,12 @@ useMother(MotherPageState);
 
 ```typescript
 import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageState } from './render.jsx';
+import { RenderPageCounter } from './render.jsx';
 
 @Local()
-export class MotherPageState extends BeanMotherPageBase {
+export class MotherPageCounter extends BeanMotherPageBase {
   @Use()
-  $$render: RenderPageState;
+  $$render: RenderPageCounter;
 
   counter: number = 0;
 
@@ -96,12 +96,12 @@ export class MotherPageState extends BeanMotherPageBase {
 
 ```typescript
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageState } from './mother.js';
+import type { MotherPageCounter } from './mother.js';
 
-export interface RenderPageState extends MotherPageState { }
+export interface RenderPageCounter extends MotherPageCounter { }
 
 @Local()
-export class RenderPageState extends BeanRenderBase {
+export class RenderPageCounter extends BeanRenderBase {
   render() {
     return (
       <div>
