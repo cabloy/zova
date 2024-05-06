@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/app-vite",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "cabloy app vite",
   "publishConfig": {
     "access": "public"
@@ -34,7 +34,7 @@
     "@babel/plugin-transform-class-properties": "^7.24.1",
     "@cabloy/dotenv": "^1.0.1",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/front-core": "^5.0.22",
+    "@cabloy/front-core": "^5.0.23",
     "@cabloy/module-glob": "^5.0.9",
     "@cabloy/vite-plugin-babel": "^1.1.3",
     "@cabloy/vue-runtime-core": "^3.4.28",
