@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.store',
+  bean: 'create.local',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Store Bean',
-    usage: 'cabloy front:create:store storeName -- [--module=]',
+    title: 'Cli: Create Local Bean',
+    usage: 'cabloy front:create:local localName -- [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        storeName: {
+        localName: {
           type: 'input',
-          message: 'storeName',
+          message: 'localName',
           initial: {
             expression: 'context.argv._[0]',
           },
