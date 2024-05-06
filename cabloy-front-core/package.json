@@ -4,6 +4,7 @@
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {
+    "cabloy": "node ../cabloy-cli/cli/dist/bin/cabloy.js",
     "dev": "vite",
     "build": "vue-tsc --noEmit --project tsconfig.vue-tsc.json && vite build",
     "preview": "vite preview",
