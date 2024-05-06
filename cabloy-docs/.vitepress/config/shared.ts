@@ -14,4 +14,19 @@ export const shared = defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
   },
+  head: [
+    [
+      'script',
+      {},
+      `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1b6d37d42d29984a56d7a7eadc604e5a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+        `,
+    ],
+  ],
 });
