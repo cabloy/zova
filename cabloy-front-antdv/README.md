@@ -15,7 +15,7 @@
 
 ## Documentation
 
-Documentation can be found at **[https://front.cabloy.com/](https://front.cabloy.com/)**.
+Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.com)**.
 
 ## Features
 
