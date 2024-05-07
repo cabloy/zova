@@ -24,6 +24,91 @@ export const routes: IModuleRoute[] = [
 
 - path: `counter`是相对路径，由于该页面组件属于模块`test-home`，因此其绝对路径是`/test/home/counter`
 
-### 文件结构
+### 目录
 
-在 Cabloy-Front 中，一个页面组件被切分为三个文件，位于刚才创建的目录`src/page/counter`
+在 Cabloy-Front 中，一个页面组件被切分为三个文件，位于刚才创建的目录`src/page/counter`中：
+
+```
+src
+└─ page
+   └─ counter
+      ├─ index.vue
+      ├─ mother.ts
+      └─ render.tsx
+```
+
+| 名称       | 说明                      |
+| ---------- | ------------------------- |
+| index.vue  | 用于定义vue组件           |
+| mother.ts  | 用于代码逻辑的 local bean |
+| render.tsx | 用于渲染逻辑的 local bean |
+
+## index.vue
+
+```vue
+<template>
+  <template></template>
+</template>
+
+<script setup lang="ts">
+import { useMother } from '@cabloy/front';
+import { MotherPageCounter } from './mother.js';
+useMother(MotherPageCounter);
+</script>
+```
+
+1. 只需在`index.vue`中引入`mother`bean 即可
+
+## mother.ts
+
+```typescript
+import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
+import { RenderPageCounter } from './render.jsx';
+
+@Local()
+export class MotherPageCounter extends BeanMotherPageBase {
+  @Use()
+  $$render: RenderPageCounter;
+
+  counter: number = 0;
+
+  inrement() {
+    this.counter++;
+  }
+
+  decrement() {
+    this.counter--;
+  }
+}
+```
+
+1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
+2. 使用`@Use`注入`render`bean
+3. 定义一个响应式属性：`counter`，类型为`number`
+4. 直接用原生 js 代码来修改`counter`的值
+
+## render.tsx
+
+```typescript
+import { BeanRenderBase, Local } from '@cabloy/front';
+import type { MotherPageCounter } from './mother.js';
+
+export interface RenderPageCounter extends MotherPageCounter { }
+
+@Local()
+export class RenderPageCounter extends BeanRenderBase {
+  render() {
+    return (
+      <div>
+        <div>counter(ref): {this.counter}</div>
+        <button onClick={() => this.inrement()}>Inrement</button>
+        <button onClick={() => this.decrement()}>Decrement</button>
+      </div>
+    );
+  }
+}
+```
+
+1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
+2. 在`render`方法中使用`tsx`语法书写渲染逻辑
+3. 直接用原生 js 代码来获取`counter`的值
