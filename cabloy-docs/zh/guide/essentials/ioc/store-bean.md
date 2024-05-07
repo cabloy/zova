@@ -114,6 +114,7 @@ export class LocalTestC extends BeanBase {
 
 ```bash
 $ cabloy front:create:module test-home2
+$ pnpm install --force
 $ cabloy front:create:local testD
 ```
 
@@ -121,13 +122,13 @@ $ cabloy front:create:local testD
 
 `local.testD.ts`
 
-```typescript{6-12}
+```typescript{2,6-7}
 import { BeanBase, Local, Use } from '@cabloy/front';
-import { StoreUserInfo } from './bean/store.userInfo.js';
+import type { StoreUserInfo } from 'cabloy-module-front-test-home';
 
 @Local()
-export class LocalTestC extends BeanBase {
-  @Use()
+export class LocalTestD extends BeanBase {
+  @Use({ beanFullName: 'test-home.store.userInfo' })
   $$userInfo: StoreUserInfo;
 
   protected async __init__() {
@@ -137,5 +138,5 @@ export class LocalTestC extends BeanBase {
 }
 ```
 
-- 通过`Use`装饰器函数会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到`testC`中
-- 将`$$userInfo`的类型设置为`StoreUserInfo`，app bean 容器将根据此类型找到 class 并创建一个实例
+- 从`cabloy-module-front-test-home`模块导入 class `StoreUserInfo`的类型
+- 向`Use`装饰器函数传入 store bean 的标识，在这里就是`test-home.store.userInfo`。系统会自动在 app bean 容器中通过 bean 标识来查找或者创建一个 store 实例，然后注入到`testD`中
