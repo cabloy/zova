@@ -46,6 +46,10 @@ export class LocalTestA extends BeanBase {
 }
 ```
 
+::: info
+这里定义的属性`counter`是响应式的，从此告别`ref.value`的书写方式
+:::
+
 ## 创建Local Bean: testB
 
 接下来通过 cli 命令创建 `testB` 的代码骨架：

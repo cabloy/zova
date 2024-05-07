@@ -13,5 +13,5 @@
 
 在 Cabloy-Front 中有两类 Bean：
 
-1. store bean：在 app bean 容器中创建 Bean 实例，因此也是全局唯一，从而替代 pinia 的功能
+1. global bean：在 app bean 容器中创建 Bean 实例，因此也是全局唯一，从而替代 pinia 的功能
 2. local bean：在 ctx bean 容器中创建 Bean 实例，因此只在所属 Vue 组件实例中有效
