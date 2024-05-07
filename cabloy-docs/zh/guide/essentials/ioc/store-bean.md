@@ -1,6 +1,6 @@
 # Store Bean
 
-通过 store bean 我们可以定义一个全局的状态对象，然后在任何一个模块中使用。因此，不再需要使用 pinia
+通过 store bean 我们可以定义一个全局的状态对象，然后在任何一个模块中使用。因此，不再需要使用`pinia`
 
 ## 创建Store Bean: userInfo
 
@@ -90,15 +90,15 @@ export class LocalTestC extends BeanBase {
 - 通过`Use`装饰器函数会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到`testC`中
 - 将`$$userInfo`的类型设置为`StoreUserInfo`，app bean 容器将根据此类型找到 class 并创建一个实例
 
-## 跨模块访问
+## 跨模块使用
 
-刚才演示的是在当前模块中访问 store bean，现在我们看看如何跨模块访问
+刚才演示的是在当前模块中使用 store bean，现在我们看看如何跨模块使用
 
 ### Bean标识
 
 在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Bundle
 
-因此，在跨模块访问 store bean 时，我们不建议直接`基于类型`注入，而是`基于标识`注入
+因此，在跨模块使用 store bean 时，我们不建议直接`基于类型`注入，而是`基于标识`注入
 
 系统会为每一个 store bean 自动分配一个标识，格式如下：
 
