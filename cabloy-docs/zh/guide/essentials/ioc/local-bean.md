@@ -10,7 +10,7 @@
 $ cabloy front:create:local testA
 ```
 
-生成的文件名：`local.testA.ts`，内容如下：
+生成的文件：`local.testA.ts`，内容如下：
 
 ```typescript
 import { BeanBase, Local } from '@cabloy/front';

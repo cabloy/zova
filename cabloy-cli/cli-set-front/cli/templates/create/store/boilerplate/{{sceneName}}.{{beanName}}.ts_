@@ -1,4 +1,8 @@
 import { BeanBase, Store } from '@cabloy/front';
 
 @Store()
-export class <%=argv.sceneNameCapitalize%><%=argv.beanNameCapitalize%> extends BeanBase {}
+export class <%=argv.sceneNameCapitalize%><%=argv.beanNameCapitalize%> extends BeanBase {
+  protected async __init__() {}
+
+  protected __dispose__() {}
+}
