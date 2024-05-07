@@ -52,7 +52,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Local Bean', link: 'local-bean' },
             { text: 'Store Bean', link: 'store-bean' },
             { text: 'BeanBase基类', link: 'bean-base' },
-            { text: '生命周期', link: 'life-cycle' },
+            { text: '生命周期', link: 'lifecycle' },
           ],
         },
         {
