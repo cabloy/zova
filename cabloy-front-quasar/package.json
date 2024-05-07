@@ -33,7 +33,7 @@
     "@cabloy/front": "^5.0.24",
     "@quasar/extras": "^1.16.11",
     "quasar": "^2.15.4",
-    "vue": "^3.4.26",
+    "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
