@@ -90,29 +90,27 @@ export class LocalTestC extends BeanBase {
 - By the property decorated with `Use`, the system will automatically look up or create an instance in the app bean container, and then inject it into `testC`
 - Set the type of `$$userInfo` to `StoreUserInfo`, the app bean container will find the class and create an instance based on this type
 
-## Cross module access
+## Use Store Bean Cross-Module
 
-What we just demonstrated was using store beans within the current module. Now let's take a look at how to access them across modules
+What we just demonstrated was using store beans within the current module. Now let's take a look at how to use them cross-module
 
-刚才演示的是在当前模块中访问 store bean，现在我们看看如何跨模块访问
+### Bean Identifier
 
-### Bean标识
+In Cabloy-Front, a module is a natural bundle boundary, and automatically packaged into an independent asynchronous bundle When building
 
-在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Bundle
+Therefore, when using store beans cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
 
-因此，在跨模块访问 store bean 时，我们不建议直接`基于类型`注入，而是`基于标识`注入
-
-系统会为每一个 store bean 自动分配一个标识，格式如下：
+The system will automatically assign an identifier to each store bean as the following format:
 
 ```bash
 {moduleName}.store.{beanName}
 ```
 
-比如，前面创建的 `userInfo`，对应的标识为：`test-home.store.userInfo`，其中`test-home`是`userInfo`所归属的模块名称
+For example, the previously created `userInfo` corresponds to the identifier `test-home.store.userInfo`, where `test-home` is the module name which `userInfo` belongs to
 
-### 跨模块使用Store Bean
+### Use Store Bean
 
-接下来通过 cli 命令创建一个模块`test-home2`，同时创建一个 local bean `testD`：
+Next, create a module `test-home2` using the cli command, and create a local bean `testD` at the same time:
 
 ```bash
 $ cabloy front:create:module test-home2
@@ -120,7 +118,7 @@ $ pnpm install --force
 $ cabloy front:create:local testD
 ```
 
-然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法
+Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`
 
 `local.testD.ts`
 
@@ -140,5 +138,5 @@ export class LocalTestD extends BeanBase {
 }
 ```
 
-- 从`cabloy-module-front-test-home`模块导入 class `StoreUserInfo`的类型
-- 向`Use`装饰器函数传入 store bean 的标识，在这里就是`test-home.store.userInfo`。系统会自动在 app bean 容器中通过 bean 标识来查找或者创建一个 store 实例，然后注入到`testD`中
+- Import the type of class `StoreUserInfo` from the module of `cabloy-module-front-test-home`
+- Pass the identifier of the store bean to the `Use` decorator function, which in this case is `test-home.store.userInfo`. The system will automatically look up or create an instance in the app bean container using the bean identifier, and then inject it into `testD`
