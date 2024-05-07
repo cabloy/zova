@@ -16,7 +16,43 @@ $ cabloy front:create:store userInfo
 import { BeanBase, Store } from '@cabloy/front';
 
 @Store()
-export class StoreUserInfo extends BeanBase {}
+export class StoreUserInfo extends BeanBase {
+  protected async __init__() {}
+
+  protected __dispose__() {}
+}
 ```
 
-- `Local` 是装饰器函数。通过 Local 装饰的 class 会自动注册到 bean 容器中
+- `Store` 是装饰器函数。通过 Store 装饰的 class 会自动注册到 bean 容器中
+
+## 添加响应式代码
+
+我们在`userInfo`中添加一个响应式属性`user`，并且进行异步初始化
+
+```typescript{3-6,10-22}
+import { BeanBase, Store } from '@cabloy/front';
+
+interface User {
+  name: string;
+  age: number;
+}
+
+@Store()
+export class StoreUserInfo extends BeanBase {
+  user: User;
+
+  protected async __init__() {
+    this.user = await this.loadUser();
+  }
+
+  private async loadUser(): Promise<User> {
+    return new Promise(resolve => {
+      window.setTimeout(() => {
+        resolve({ name: 'tom', age: 18 });
+      }, 500);
+    });
+  }
+
+  protected __dispose__() {}
+}
+```
