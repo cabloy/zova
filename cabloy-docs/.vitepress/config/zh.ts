@@ -56,12 +56,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
-          text: '响应式基础',
-          base: '/zh/guide/essentials/reactivity/',
+          text: 'Vue组件',
+          base: '/zh/guide/essentials/component/',
           items: [
-            { text: '简介', link: 'introduction' },
-            { text: 'useComputed', link: 'use-computed' },
-            { text: 'useHook', link: 'use-hook' },
+            { text: '页面组件', link: 'page' },
+            { text: '子组件', link: 'child' },
           ],
         },
       ],

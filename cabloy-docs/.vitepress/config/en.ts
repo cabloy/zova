@@ -56,12 +56,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
-          text: 'Reactivity Fundamentals',
-          base: '/guide/essentials/reactivity/',
+          text: 'Vue Component',
+          base: '/guide/essentials/component/',
           items: [
-            { text: 'Introduction', link: 'introduction' },
-            { text: 'useComputed', link: 'use-computed' },
-            { text: 'useHook', link: 'use-hook' },
+            { text: 'Page Component', link: 'page' },
+            { text: 'Child Component', link: 'child' },
           ],
         },
       ],
