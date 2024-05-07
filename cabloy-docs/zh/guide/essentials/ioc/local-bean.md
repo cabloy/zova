@@ -62,7 +62,7 @@ $ cabloy front:create:local testB
 
 `local.testB.ts`
 
-```typescript{6-7,10-12}
+```typescript{6-13}
 import { BeanBase, Local, Use } from '@cabloy/front';
 import { LocalTestA } from './local.testA.js';
 
@@ -76,8 +76,6 @@ export class LocalTestB extends BeanBase {
     this.$$testA.inrement();
     this.$$testA.decrement();
   }
-
-  protected __dispose__() {}
 }
 ```
 
