@@ -2,7 +2,7 @@
 
 ## Why need Modularization?
 
-May you agree with an architectural concept: if you want to avoid `shit mountains`, then put `shit` into boxes.
+May you agree with such an architectural concept: if you want to avoid `shit mountains`, then put `shit` into boxes.
 
 In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Cabloy-Front introduces modularization.
 
