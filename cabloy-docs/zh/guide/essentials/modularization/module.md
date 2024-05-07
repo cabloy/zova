@@ -38,3 +38,9 @@
 ```bash
 $ cabloy front:create:module test-home
 ```
+
+在创建完模块之后，别忘了重新安装依赖，以便让模块生效:
+
+```bash
+$ pnpm install --force
+```

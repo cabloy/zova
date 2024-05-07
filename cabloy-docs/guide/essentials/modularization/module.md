@@ -35,3 +35,9 @@ You can use the cli command to create a module file skeleton, such as creating a
 ```bash
 $ cabloy front:create:module test-home
 ```
+
+After creating the module, don't forget to reinstall the dependencies for the module to take effect:
+
+```bash
+$ pnpm install --force
+```
