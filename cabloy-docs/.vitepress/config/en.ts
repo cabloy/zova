@@ -52,7 +52,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Local Bean', link: 'local-bean' },
             { text: 'Store Bean', link: 'store-bean' },
             { text: 'BeanBase', link: 'bean-base' },
-            { text: 'Life Cycle', link: 'lifecycle' },
+            { text: 'Lifecycle', link: 'lifecycle' },
           ],
         },
         {

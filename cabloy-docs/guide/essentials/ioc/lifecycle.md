@@ -2,12 +2,12 @@
 
 All beans can provide two lifecycle methods
 
-| 名称          | 说明                                           |
-| ------------- | ---------------------------------------------- |
-| `__init__`    | 在创建bean实例时执行的初始化方法，并且支持异步 |
-| `__dispose__` | 在bean实例销毁时执行的销毁方法                 |
+| Name          | Description                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| `__init__`    | The initialization method executed when creating a bean instance, and supports asynchrony |
+| `__dispose__` | The dispose method executed during bean instance destruction                              |
 
-## 举例：computed计算属性
+## For Example: computed
 
 ```typescript
 import { useComputed } from '@cabloy/front';
@@ -23,10 +23,10 @@ import { useComputed } from '@cabloy/front';
 ...
 ```
 
-- `counter`是响应式属性
-- `counter2`是计算属性，使用`useComputed`函数进行初始化
+- `counter` is a reactive property
+- `counter2` is a computed property, initialized by the `useComputed` function
 
-## 举例：watch
+## For Example: watch
 
 ```typescript
 import { watch } from 'vue';
