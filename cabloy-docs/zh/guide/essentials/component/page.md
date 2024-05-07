@@ -112,3 +112,10 @@ export class RenderPageCounter extends BeanRenderBase {
 1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
 3. 直接用原生 js 代码来获取`counter`的值
+
+## mother名称的来历
+
+`index.vue`仅仅是用于声明 Vue 组件的壳，调用`useMother`函数之后，就把工作让渡给`mother.ts`了。
+如果需要的话，`props`、`emits`和`slots`的定义都在`mother.ts`中，而且大多数业务逻辑也会放入`mother.ts`中
+
+这就好比狮子的行为：雄狮子是门面，干活的都是母狮子。因此，如果把`index.vue`看作是`father`的话，那么具体干活的就是`mother.ts`了
