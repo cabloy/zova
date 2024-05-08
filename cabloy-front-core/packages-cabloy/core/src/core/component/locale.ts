@@ -25,18 +25,25 @@ export class AppLocale extends BeanSimple {
     for (const locale in locales) {
       const moduleMap = locales[locale].modules;
       for (const moduleName in moduleMap) {
-        const moduleLocals = moduleMap[moduleName];
-        // locales
-        this.locales[locale] = Object.assign({}, moduleLocals, this.locales[locale]);
-        // localeModules
-        if (!this.localeModules[moduleName]) this.localeModules[moduleName] = {};
-        this.localeModules[moduleName][locale] = Object.assign(
-          {},
-          moduleLocals,
-          this.localeModules[moduleName][locale],
-        );
+        this._registerLocale(moduleName, locale, moduleMap[moduleName]);
       }
     }
+  }
+
+  /** @internal */
+  public _registerLocales(moduleName: string, locales: TypeModuleResourceLocales) {
+    if (!locales) return;
+    for (const locale in locales) {
+      this._registerLocale(moduleName, locale, locales[locale]);
+    }
+  }
+
+  private _registerLocale(moduleName: string, locale: string, moduleLocales: object) {
+    // locales
+    this.locales[locale] = Object.assign({}, moduleLocales, this.locales[locale]);
+    // localeModules
+    if (!this.localeModules[moduleName]) this.localeModules[moduleName] = {};
+    this.localeModules[moduleName][locale] = Object.assign({}, moduleLocales, this.localeModules[moduleName][locale]);
   }
 
   /** @internal */
@@ -71,18 +78,5 @@ export class AppLocale extends BeanSimple {
       key,
       ...args,
     );
-  }
-
-  /** @internal */
-  public _registerLocales(moduleName: string, locales: TypeModuleResourceLocales) {
-    if (!locales) return;
-    for (const locale in locales) {
-      const moduleLocales = locales[locale];
-      // locales
-      this.locales[locale] = Object.assign({}, moduleLocales, this.locales[locale]);
-      // localeModules
-      if (!this.localeModules[moduleName]) this.localeModules[moduleName] = {};
-      this.localeModules[moduleName][locale] = Object.assign({}, moduleLocales, this.localeModules[moduleName][locale]);
-    }
   }
 }
