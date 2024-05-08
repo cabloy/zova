@@ -36,7 +36,7 @@ a-home
 
 ## 新建套件
 
-可以使用 Cli 命令创建套件文件骨架，比如新建一个套件`test-home`
+可以使用 cli 命令创建套件文件骨架，比如新建一个套件`test-home`
 
 ```bash
 $ cabloy front:create:suite test-home

@@ -4,7 +4,7 @@ The difference from `Page Component` is that `Child Component` has three parts: 
 
 ## Create Child Component
 
-Let's first create a child component `card` using a Cli command:
+Let's first create a child component `card` using a cli command:
 
 ```bash
 $ cabloy front:create:component card

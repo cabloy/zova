@@ -4,7 +4,7 @@
 
 ## 创建子组件
 
-我们先通过一个 Cli 命令来创建一个子组件`card`:
+我们先通过一个 cli 命令来创建一个子组件`card`:
 
 ```bash
 $ cabloy front:create:component card

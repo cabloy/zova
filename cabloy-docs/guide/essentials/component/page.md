@@ -2,7 +2,7 @@
 
 ## Create Page Component
 
-Let's first create a page component `counter` using a Cli command, which will create a route and a directory:
+Let's first create a page component `counter` using a cli command, which will create a route and a directory:
 
 ```bash
 $ cabloy front:create:page counter

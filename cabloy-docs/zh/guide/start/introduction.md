@@ -27,7 +27,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ### 1. 文件结构
 
-在 Cabloy-Front 中，一个页面组件被切分为三个文件。现在我们通过一个 Cli 命令来创建一个页面组件`counter`:
+在 Cabloy-Front 中，一个页面组件被切分为三个文件。现在我们通过一个 cli 命令来创建一个页面组件`counter`:
 
 ```bash
 $ cabloy front:create:page counter
