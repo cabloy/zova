@@ -9,3 +9,4 @@ export type CabloyLocale = {
 } & typeof localeDefault;
 
 export type CabloyLocaleOptional = PowerPartial<CabloyLocale>;
+export type CabloyLocaleOptionalMap = Record<string, CabloyLocaleOptional>;

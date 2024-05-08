@@ -2,14 +2,15 @@ import * as localeutil from '@cabloy/localeutil';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { TypeModuleResourceLocaleModules, TypeModuleResourceLocales } from '../../types/interface/module.js';
 import { IModuleLocale, IModuleLocaleText } from '../../bean/resource/locale/type.js';
+import { CabloyLocaleOptionalMap } from '../app/locale.js';
 
 const SymbolLocale = Symbol('SymbolLocale');
 
 export class AppLocale extends BeanSimple {
   private [SymbolLocale]: string;
   /** @internal */
-  public locales: TypeModuleResourceLocales;
-  public localeModules: TypeModuleResourceLocaleModules;
+  public locales: TypeModuleResourceLocales = {};
+  public localeModules: TypeModuleResourceLocaleModules = {};
 
   get locale() {
     return this[SymbolLocale];
@@ -20,8 +21,22 @@ export class AppLocale extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(locales: TypeModuleResourceLocales) {
-    this.locales = locales;
+  public async initialize(locales: CabloyLocaleOptionalMap) {
+    for (const locale in locales) {
+      const moduleMap = locales[locale].modules;
+      for (const moduleName in moduleMap) {
+        const moduleLocals = moduleMap[moduleName];
+        // locales
+        this.locales[locale] = Object.assign({}, moduleLocals, this.locales[locale]);
+        // localeModules
+        if (!this.localeModules[moduleName]) this.localeModules[moduleName] = {};
+        this.localeModules[moduleName][locale] = Object.assign(
+          {},
+          moduleLocals,
+          this.localeModules[moduleName][locale],
+        );
+      }
+    }
   }
 
   /** @internal */
@@ -56,5 +71,18 @@ export class AppLocale extends BeanSimple {
       key,
       ...args,
     );
+  }
+
+  /** @internal */
+  public _registerLocales(moduleName: string, locales: TypeModuleResourceLocales) {
+    if (!locales) return;
+    for (const locale in locales) {
+      const moduleLocales = locales[locale];
+      // locales
+      this.locales[locale] = Object.assign({}, moduleLocales, this.locales[locale]);
+      // localeModules
+      if (!this.localeModules[moduleName]) this.localeModules[moduleName] = {};
+      this.localeModules[moduleName][locale] = Object.assign({}, moduleLocales, this.localeModules[moduleName][locale]);
+    }
   }
 }

@@ -152,14 +152,7 @@ export class AppModule extends BeanSimple {
   }
 
   private _registerLocales(module: IModule) {
-    if (!module.resource.locales) return;
-    for (const key in module.resource.locales) {
-      this.app.meta.locale.locales[key] = this.app.meta.util.extend(
-        {},
-        module.resource.locales[key],
-        this.app.meta.locale.locales[key],
-      );
-    }
+    this.app.meta.locale._registerLocales(module.info.relativeName, module.resource.locales);
   }
 
   private _registerConstants(module: IModule) {
