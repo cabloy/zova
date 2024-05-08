@@ -94,7 +94,7 @@ export class RenderCard extends BeanRenderBase {
 
 ### 使用Props
 
-接下来，在页面组件中使用子组件：
+接下来，在父组件中使用子组件：
 
 ```typescript{9-11}
 import Card from '../../component/card/index.vue';
@@ -167,7 +167,7 @@ export class RenderCard extends BeanRenderBase {
 
 ### 使用Emits
 
-接下来，在页面组件中使用子组件：
+接下来，在父组件中使用子组件：
 
 ```typescript{9-11}
 import Card from '../../component/card/index.vue';
@@ -235,7 +235,7 @@ export class RenderCard extends BeanRenderBase {
 
 ### 使用Slots
 
-接下来，在页面组件中使用子组件：
+接下来，在父组件中使用子组件：
 
 ```typescript{2,7-17,21}
 import Card from '../../component/card/index.vue';
@@ -270,3 +270,39 @@ export class RenderPageComponent extends BeanRenderBase {
 - 从`mother.ts`导入类型命名空间`MotherCard`
 - 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `MotherCard.Slots`来约束类型，并且提供智能提示
 - 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
+
+## 如何引用子组件实例
+
+在 Cabloy-Front 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`mother`bean
+
+### 定义属性
+
+先在父组件的`mother.ts`中定义属性：
+
+```typescript{1,5}
+import { MotherCard } from '../../component/card/mother.js';
+
+@Local()
+export class MotherPageComponent extends BeanMotherPageBase {
+  cardRef: MotherCard;
+}
+```
+
+然后响应子组件的`onMotherRef`事件获取到 mother bean 的引用值：
+
+```typescript{7-9}
+@Local()
+export class RenderPageComponent extends BeanRenderBase {
+  render() {
+    return (
+      <div>
+        <Card
+          onMotherRef={ref => {
+            this.cardRef = ref;
+          }}
+        ></Card>
+      </div>
+    );
+  }
+}
+```
