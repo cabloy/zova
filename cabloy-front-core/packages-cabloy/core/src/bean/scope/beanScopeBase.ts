@@ -1,4 +1,4 @@
-import { BeanBase } from '../beanBase.js';
+import { BeanBaseSimple } from '../beanBaseSimple.js';
 import { BeanScopeError } from '../resource/error/beanScopeError.js';
 import { BeanScopeLocale } from '../resource/locale/beanScopeLocale.js';
 import { IModule } from '@cabloy/module-info';
@@ -10,7 +10,7 @@ const BeanModuleLocale = Symbol('BeanScopeBase#BeanModuleLocale');
 const BeanModuleConfig = Symbol('BeanScopeBase#BeanModuleConfig');
 const BeanModuleConstant = Symbol('BeanScopeBase#BeanModuleConstant');
 
-export class BeanScopeBase extends BeanBase {
+export class BeanScopeBase extends BeanBaseSimple {
   private [BeanModuleError]: BeanScopeError;
   private [BeanModuleLocale]: BeanScopeLocale;
   private [BeanModuleConfig]: unknown;

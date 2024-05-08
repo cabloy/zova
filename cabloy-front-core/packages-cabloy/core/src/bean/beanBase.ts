@@ -1,19 +1,12 @@
 import { RendererNode } from 'vue';
-import { appResource } from '../core/resource.js';
 import { Cast } from '../types/utils/cast.js';
-import { StateLock } from '../utils/stateLock.js';
-import { BeanSimple } from './beanSimple.js';
+import { BeanBaseSimple } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { IModuleLocaleText } from './resource/locale/type.js';
 import { AppEvent } from '../core/component/event.js';
 import { getIcon } from './resource/index.js';
 
-export class BeanBase<TScopeModule = unknown> extends BeanSimple {
-  private __beanFullName__: string;
-  private __moduleBelong__?: string;
-  // @ts-ignore: ignore
-  private __inited__: StateLock;
-
+export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   public get $el(): RendererNode {
     if (!this.ctx) {
       throw new Error('$el can not be used inside global bean.');
@@ -33,22 +26,9 @@ export class BeanBase<TScopeModule = unknown> extends BeanSimple {
     return getIcon;
   }
 
-  constructor(moduleBelong?: string) {
-    super();
-    if (moduleBelong && typeof moduleBelong !== 'string') {
-      throw new Error(`moduleBelong not valid: ${moduleBelong}`);
-    }
-    this.__moduleBelong__ = moduleBelong;
-    this.__inited__ = StateLock.create();
-  }
-
   // need not
   // protected async __init__() {}
   // protected __dispose__() {}
-
-  protected get moduleBelong() {
-    return this.__moduleBelong__ || appResource._getModuleBelong(this.__beanFullName__);
-  }
 
   protected get scope() {
     return this.getScope() as TScopeModule;
