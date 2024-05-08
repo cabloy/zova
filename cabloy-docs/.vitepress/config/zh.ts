@@ -63,6 +63,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '子组件', link: 'child' },
           ],
         },
+        {
+          text: '模块Scope',
+          base: '/zh/guide/essentials/scope/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: 'Config配置', link: 'config' },
+            { text: 'Constant常量', link: 'constant' },
+            { text: 'I18n国际化', link: 'locale' },
+            { text: 'Error错误异常', link: 'error' },
+          ],
+        },
       ],
     },
     {
