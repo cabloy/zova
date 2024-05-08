@@ -1,6 +1,6 @@
 import * as localeutil from '@cabloy/localeutil';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import { TypeModuleResourceLocales } from '../../types/interface/module.js';
+import { TypeModuleResourceLocaleModules, TypeModuleResourceLocales } from '../../types/interface/module.js';
 import { IModuleLocale, IModuleLocaleText } from '../../bean/resource/locale/type.js';
 
 const SymbolLocale = Symbol('SymbolLocale');
@@ -9,6 +9,7 @@ export class AppLocale extends BeanSimple {
   private [SymbolLocale]: string;
   /** @internal */
   public locales: TypeModuleResourceLocales;
+  public localeModules: TypeModuleResourceLocaleModules;
 
   get locale() {
     return this[SymbolLocale];
@@ -48,6 +49,12 @@ export class AppLocale extends BeanSimple {
   }
 
   private _getText(moduleScope: string | undefined, locale: string, key: string, ...args: any[]): string {
-    return localeutil.getLocaleText(this.locales, locale, key, ...args);
+    return localeutil.getLocaleText(
+      moduleScope ? this.localeModules[moduleScope] : undefined,
+      this.locales,
+      locale,
+      key,
+      ...args,
+    );
   }
 }
