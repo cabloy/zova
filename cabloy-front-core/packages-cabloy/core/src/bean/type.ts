@@ -8,6 +8,9 @@ export type TypeBeanScopeRecordKeys = keyof IBeanScopeRecord;
 export interface IBeanScopeConfig {}
 export type TypeBeanScopeConfigKeys = keyof IBeanScopeConfig;
 
+export interface IBeanScopeLocale {}
+export type TypeBeanScopeLocaleKeys = keyof IBeanScopeLocale;
+
 export interface IMotherParams {
   props?: object;
   context?: { emit?: any };
