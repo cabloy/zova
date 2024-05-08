@@ -288,6 +288,8 @@ export class MotherPageComponent extends BeanMotherPageBase {
 }
 ```
 
+### onMotherRef
+
 Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `mother bean`:
 
 ```typescript{7-9}

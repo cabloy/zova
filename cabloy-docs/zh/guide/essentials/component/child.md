@@ -288,6 +288,8 @@ export class MotherPageComponent extends BeanMotherPageBase {
 }
 ```
 
+### onMotherRef
+
 然后监听子组件的`onMotherRef`事件获取到`mother bean`的引用值：
 
 ```typescript{7-9}
