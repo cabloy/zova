@@ -63,6 +63,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Child Component', link: 'child' },
           ],
         },
+        {
+          text: 'Module Scope',
+          base: '/guide/essentials/scope/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: 'Config', link: 'config' },
+            { text: 'Constant', link: 'constant' },
+            { text: 'I18n', link: 'locale' },
+            { text: 'Error Exception', link: 'error' },
+          ],
+        },
       ],
     },
     {
