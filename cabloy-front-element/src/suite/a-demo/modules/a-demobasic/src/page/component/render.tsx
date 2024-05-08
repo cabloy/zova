@@ -22,6 +22,9 @@ export class RenderPageComponent extends BeanRenderBase {
     return (
       <div>
         <Card
+          onMotherRef={ref => {
+            this.cardRef = ref;
+          }}
           header="header"
           content={this.resetTime.toString()}
           footer="footer"
