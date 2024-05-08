@@ -1,10 +1,10 @@
-import { TypeModuleResourceErrors } from '../../../types/interface/module.js';
+import { TypeModuleResourceErrorModules } from '../../../types/interface/module.js';
 import { BeanSimple } from '../../beanSimple.js';
 import { errorsInternal } from './errorInternal.js';
 
 export class ErrorClass extends BeanSimple {
   /** @internal */
-  public errors: Record<string, TypeModuleResourceErrors>;
+  public errors: TypeModuleResourceErrorModules;
 
   /** @internal */
   public async initialize() {
