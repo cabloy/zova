@@ -121,9 +121,9 @@ export class RenderPageComponent extends BeanRenderBase {
 
 Next, in the `card` child component, define an Emit: `reset`
 
-### 定义Emits接口
+### Define Emits Interface
 
-首先，在`mother.ts`中定义 Emits 接口：
+First, define the Emits interface in `mother.ts`:
 
 ```typescript
 export type Emits = {
@@ -131,9 +131,9 @@ export type Emits = {
 };
 ```
 
-### 定义组件Emits
+### Define Component Emits
 
-然后，在`index.vue`中定义组件 Emits:
+Then, define the component Emits in `index.vue`:
 
 ```typescript{2-3}
 <script setup lang="ts">
@@ -142,9 +142,9 @@ const emit = defineEmits<Emits>();
 </script>
 ```
 
-### 触发Emit
+### Raise Emit
 
-在`render.tsx`中触发 Emit：
+Raise Emit in `render.tsx`:
 
 ```typescript{7-9}
 @Local()
@@ -165,9 +165,9 @@ export class RenderCard extends BeanRenderBase {
 }
 ```
 
-### 使用Emits
+### Use Emits
 
-接下来，在父组件中使用子组件：
+Next, use the child component inside the parent component:
 
 ```typescript{9-11}
 import Card from '../../component/card/index.vue';
@@ -188,15 +188,15 @@ export class RenderPageComponent extends BeanRenderBase {
 }
 ```
 
-- 从`index.vue`导入子组件`Card`，然后向`onReset`传入事件回调函数即可
+- Import the child component `Card` from `index.vue`, and then directly pass the event callback function to `onReset`
 
 ## Slots
 
 Next, in the `card` child component, define three Slots: `header`, `default` and `footer`
 
-### 定义Slots接口
+### Define Slots Interface
 
-首先，在`mother.ts`中定义 Slots 接口：
+First, define the Slots interface in `mother.ts`:
 
 ```typescript
 export type Slots = {
@@ -206,9 +206,9 @@ export type Slots = {
 };
 ```
 
-### 渲染Slots
+### Render Slots
 
-在`render.tsx`中渲染 Slots：
+Render Slots in `render.tsx`:
 
 ```typescript{8,11,14}
 @Local()
@@ -233,9 +233,9 @@ export class RenderCard extends BeanRenderBase {
 }
 ```
 
-### 使用Slots
+### Use Slots
 
-接下来，在父组件中使用子组件：
+Next, use the child component inside the parent component:
 
 ```typescript{2,7-17,21}
 import Card from '../../component/card/index.vue';
@@ -266,18 +266,18 @@ export class RenderPageComponent extends BeanRenderBase {
 }
 ```
 
-- 从`index.vue`导入子组件`Card`
-- 从`mother.ts`导入类型命名空间`MotherCard`
-- 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `MotherCard.Slots`来约束类型，并且提供智能提示
-- 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
+- Import the child component `Card` from `index.vue`
+- Import the type namespace `MotherCard` from `mother.ts`
+- Define the object `slots` and provide corresponding rendering functions for slots. You can use `MotherCard.Slots` to constrain types of slots
+- Pass the defined object `slots` to the child component `Card` through `v-slots`
 
-## 如何引用子组件实例
+## How to refer to child component instance?
 
-在 Cabloy-Front 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`mother bean`
+In Cabloy-Front, `Template Refs` is not used to refer to child component instances, but directly refers to the `mother bean` corresponding to the child component
 
-### 定义属性
+### Define Property
 
-先在父组件的`mother.ts`中定义属性：
+First define a property in `mother.ts` of the parent component:
 
 ```typescript{1,5}
 import { MotherCard } from '../../component/card/mother.js';
@@ -288,7 +288,7 @@ export class MotherPageComponent extends BeanMotherPageBase {
 }
 ```
 
-然后响应子组件的`onMotherRef`事件获取到`mother bean`的引用值：
+Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `mother bean`:
 
 ```typescript{7-9}
 @Local()

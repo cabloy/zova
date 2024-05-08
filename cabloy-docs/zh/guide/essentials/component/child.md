@@ -273,7 +273,7 @@ export class RenderPageComponent extends BeanRenderBase {
 
 ## 如何引用子组件实例
 
-在 Cabloy-Front 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`mother bean`
+在 Cabloy-Front 中，不使用`Template Refs`引用子组件实例，而是直接引用子组件对应的`mother bean`
 
 ### 定义属性
 
@@ -288,7 +288,7 @@ export class MotherPageComponent extends BeanMotherPageBase {
 }
 ```
 
-然后响应子组件的`onMotherRef`事件获取到`mother bean`的引用值：
+然后监听子组件的`onMotherRef`事件获取到`mother bean`的引用值：
 
 ```typescript{7-9}
 @Local()
