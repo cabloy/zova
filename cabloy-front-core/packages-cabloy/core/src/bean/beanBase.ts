@@ -1,7 +1,6 @@
 import { RendererNode } from 'vue';
 import { BeanBaseSimple } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
-import { IModuleLocaleText } from './resource/locale/type.js';
 import { AppEvent } from '../core/component/event.js';
 import { getIcon } from './resource/index.js';
 
@@ -13,9 +12,10 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
     return this.ctx.meta.el;
   }
 
-  protected get $text(): IModuleLocaleText {
-    return this.app.meta.text;
-  }
+  // need not
+  // protected get $text(): IModuleLocaleText {
+  //   return this.app.meta.text;
+  // }
 
   protected get $event(): AppEvent {
     return this.app.meta.event;

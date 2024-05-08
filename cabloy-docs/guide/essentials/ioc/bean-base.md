@@ -13,7 +13,6 @@
 | bean   | The bean container which the current bean instance belongs to                   |
 | scope  | The Scope object of the module which the current bean instance belongs to       |
 | $el    | The dom element of the Vue component which the current bean instance belongs to |
-| $text  | I18n translation function                                                       |
 | $event | Global event object                                                             |
 | $icon  | Icon function to obtain typed icon name                                         |
 
