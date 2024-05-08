@@ -1,11 +1,11 @@
-import { BeanScopeBase, Scope, TypeModuleResource } from '@cabloy/front';
+import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from '@cabloy/front';
 import { config, Errors, locales, constants } from '../config/index.js';
 
 @Scope()
 export class ScopeModuleAElement extends BeanScopeBase {}
 
 export interface ScopeModuleAElement
-  extends TypeModuleResource<typeof config, typeof Errors, typeof locales, typeof constants> {}
+  extends TypeModuleResource<typeof config, typeof Errors, (typeof locales)[TypeLocaleBase], typeof constants> {}
 
 declare module '@cabloy/front-core' {
   export interface IBeanScopeRecord {
@@ -14,5 +14,9 @@ declare module '@cabloy/front-core' {
 
   export interface IBeanScopeConfig {
     'a-element': ReturnType<typeof config>;
+  }
+
+  export interface IBeanScopeLocale {
+    'a-element': (typeof locales)[TypeLocaleBase];
   }
 }
