@@ -7,7 +7,7 @@ import { CabloyApplication } from '../../core/app/application.js';
 export type TypeModuleResource<
   CONFIG extends (app: CabloyApplication) => object,
   ERRORS,
-  LOCALES extends { 'zh-cn': object },
+  LOCALES,
   CONSTANTS = object,
 > = {
   config: TypeModuleConfig<CONFIG>;
