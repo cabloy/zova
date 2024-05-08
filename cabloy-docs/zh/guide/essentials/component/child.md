@@ -194,9 +194,9 @@ export class RenderPageComponent extends BeanRenderBase {
 
 接下来，在`card`子组件中，定义三个 Slots：`header`、`default`和`footer`
 
-### 定义Emits接口
+### 定义Slots接口
 
-首先，在`mother.ts`中定义 Emits 接口：
+首先，在`mother.ts`中定义 Slots 接口：
 
 ```typescript
 export type Slots = {
@@ -206,33 +206,59 @@ export type Slots = {
 };
 ```
 
-### 定义组件Emits
+### 渲染Slots
 
-然后，在`index.vue`中定义组件 Emits:
+在`render.tsx`中渲染 Slots：
 
-```typescript{2-3}
-<script setup lang="ts">
-import { Emits } from './mother.js';
-const emit = defineEmits<Emits>();
-</script>
+```typescript{8,11,14}
+@Local()
+export class RenderCard extends BeanRenderBase {
+  render() {
+    return (
+      <div>
+        <div>
+          <div style={{ backgroundColor: 'teal' }}>
+            <div>Slot: {this.$slots.header?.()}</div>
+          </div>
+          <div style={{ backgroundColor: 'orange' }}>
+            <div>Slot: {this.$slots.default?.()}</div>
+          </div>
+          <div style={{ backgroundColor: 'green' }}>
+            <div>Slot: {this.$slots.footer?.()}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 ```
 
-### 使用Emits
+### 使用Slots
 
 接下来，在页面组件中使用子组件：
 
-```typescript
+```typescript{2,7-17,21}
 import Card from '../../component/card/index.vue';
+import * as MotherCard from '../../component/card/mother.js';
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase {
   render() {
+    const slots = {
+      header: () => {
+        return <div>this is a header slot from parent</div>;
+      },
+      default: () => {
+        return <div>this is a default slot from parent</div>;
+      },
+      footer: () => {
+        return <div>this is a footer slot from parent</div>;
+      },
+    } as MotherCard.Slots;
     return (
       <div>
         <Card
-          onReset={time => {
-            console.log(time);
-          }}
+          v-slots={slots}
         ></Card>
       </div>
     );
@@ -240,4 +266,7 @@ export class RenderPageComponent extends BeanRenderBase {
 }
 ```
 
-- 从`index.vue`导入子组件`Card`，然后向`onReset`传入事件回调函数即可
+- 从`index.vue`导入子组件`Card`
+- 从`mother.ts`导入类型命名空间`MotherCard`
+- 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `MotherCard.Slots`来约束类型，并且提供智能提示
+- 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
