@@ -45,11 +45,7 @@ export class StoreRouter extends BeanBase {
 
   public createAsyncComponent(component: string | IModuleRouteComponent) {
     if (typeof component !== 'string') return component;
-    return async () => {
-      const [moduleName, componentName] = component.split(':');
-      const module = await this.app.meta.module.use(moduleName);
-      return module.resource.components[componentName];
-    };
+    return this.app.meta.component.createAsyncComponent(component);
   }
 
   private _routerGuards(router: StoreRouterLike) {
