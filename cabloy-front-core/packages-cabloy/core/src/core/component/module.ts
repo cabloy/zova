@@ -140,10 +140,15 @@ export class AppModule extends BeanSimple {
   }
 
   private async _registerResources(module: IModule) {
+    this._registerComponents(module);
     this._registerLocales(module);
     this._registerErrors(module);
     this._registerConstants(module);
     await this._registerConfig(module);
+  }
+
+  private _registerComponents(module: IModule) {
+    this.app.meta.component._registerComponents(module.info.relativeName, module.resource.components);
   }
 
   private _registerErrors(module: IModule) {

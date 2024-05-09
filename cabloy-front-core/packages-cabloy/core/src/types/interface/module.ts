@@ -9,6 +9,7 @@ export type TypeModuleResourceLocales = Record<string, object>;
 export type TypeModuleResourceLocaleModules = Record<string, TypeModuleResourceLocales>;
 export type TypeModuleResourceErrors = Record<number, string>;
 export type TypeModuleResourceErrorModules = Record<string, TypeModuleResourceErrors>;
+export type TypeModuleResourceComponents = Record<string, Component>;
 
 export interface IModuleResource {
   Main: new () => IModuleMain;
@@ -18,7 +19,7 @@ export interface IModuleResource {
   config: (app: CabloyApplication) => object | Promise<object>;
   constants: unknown;
   icons: TypeModuleResourceIcons;
-  components: Record<string, Component>;
+  components: TypeModuleResourceComponents;
 }
 
 declare module '@cabloy/module-info' {
