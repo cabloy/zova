@@ -1,4 +1,4 @@
-import { BeanSimple } from '@cabloy/front';
+import { BeanSimple } from '../../bean/beanSimple.js';
 import { TypeModuleResourceComponents } from '../../types/interface/module.js';
 import { Component, ComponentCustomOptions } from 'vue';
 
