@@ -50,10 +50,10 @@ export class AppLocale extends BeanSimple {
   public createLocaleText(): IModuleLocaleText {
     const self = this;
     const getText = function (text: string, ...args: any[]): string {
-      return self.getText(undefined, self.locale, text, ...args);
+      return self.getText(undefined, undefined, text, ...args);
     };
-    getText.locale = function (locale: string | undefined | null, text: string, ...args: any[]): string {
-      return self.getText(undefined, locale || self.locale, text, ...args);
+    getText.locale = function (locale: string | undefined, text: string, ...args: any[]): string {
+      return self.getText(undefined, locale, text, ...args);
     };
     return getText;
   }
@@ -62,10 +62,10 @@ export class AppLocale extends BeanSimple {
   public createScopeLocaleText(moduleScope: string, text: string): IModuleLocale {
     const self = this;
     const getText = function (...args: any[]): string {
-      return self.getText(moduleScope, self.locale, text, ...args);
+      return self.getText(moduleScope, undefined, text, ...args);
     };
-    getText.locale = function (locale: string | undefined | null, ...args: any[]): string {
-      return self.getText(moduleScope, locale || self.locale, text, ...args);
+    getText.locale = function (locale: string | undefined, ...args: any[]): string {
+      return self.getText(moduleScope, locale, text, ...args);
     };
     return getText;
   }
@@ -74,7 +74,7 @@ export class AppLocale extends BeanSimple {
     return localeutil.getLocaleText(
       moduleScope ? this.localeModules[moduleScope] : undefined,
       this.locales,
-      locale ?? this.locale,
+      locale || this.locale,
       key,
       ...args,
     );
