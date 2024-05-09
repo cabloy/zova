@@ -13,6 +13,7 @@
 | bean   | 当前 bean 实例所归属的 bean 容器            |
 | scope  | 当前 bean 实例所归属模块的 Scope 对象       |
 | $el    | 当前 bean 实例所归属 Vue 组件的 dom element |
+| $text  | I18n 语言资源翻译函数                       |
 | $event | 全局事件对象                                |
 | $icon  | 图标函数，获取类型化的图标名称              |
 
