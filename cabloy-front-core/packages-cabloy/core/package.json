@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-core",
-  "version": "5.0.24",
+  "version": "5.0.25",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
