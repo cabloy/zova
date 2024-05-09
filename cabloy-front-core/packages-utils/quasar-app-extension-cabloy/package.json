@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-cabloy",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "Quasar ext of cabloy",
   "author": "zhennann",
   "type": "module",
@@ -29,8 +29,8 @@
     "@cabloy/lint": "^4.0.6"
   },
   "dependencies": {
-    "@cabloy/app-vite": "^1.0.29",
-    "@cabloy/front-core": "^5.0.28",
+    "@cabloy/app-vite": "^1.0.30",
+    "@cabloy/front-core": "^5.0.29",
     "vite": "^5.2.10"
   },
   "gitHead": "70b04ac29acedea4218715b1b76211b359104a6d"
