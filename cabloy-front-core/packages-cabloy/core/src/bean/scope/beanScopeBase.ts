@@ -9,12 +9,14 @@ const BeanModuleError = Symbol('BeanScopeBase#BeanModuleError');
 const BeanModuleLocale = Symbol('BeanScopeBase#BeanModuleLocale');
 const BeanModuleConfig = Symbol('BeanScopeBase#BeanModuleConfig');
 const BeanModuleConstant = Symbol('BeanScopeBase#BeanModuleConstant');
+const BeanModuleComponent = Symbol('BeanScopeBase#BeanModuleComponent');
 
 export class BeanScopeBase extends BeanBaseSimple {
   private [BeanModuleError]: BeanScopeError;
   private [BeanModuleLocale]: BeanScopeLocale;
   private [BeanModuleConfig]: unknown;
   private [BeanModuleConstant]: unknown;
+  private [BeanModuleComponent]: unknown;
 
   get module(): IModule {
     return this.app.meta.module.get(this.moduleBelong) as unknown as IModule;
@@ -49,6 +51,14 @@ export class BeanScopeBase extends BeanBaseSimple {
         this[BeanModuleConstant] = this.app.constant.modules[moduleBelong];
       }
       return this[BeanModuleConstant];
+    }
+    // component
+    if (prop === 'component') {
+      if (!this[BeanModuleComponent]) {
+        const module = this.app.meta.module.get(moduleBelong);
+        this[BeanModuleComponent] = module!.resource.components;
+      }
+      return this[BeanModuleComponent];
     }
   }
 }

@@ -2,6 +2,7 @@ import { IModuleInfo } from '@cabloy/module-info';
 import { CabloyApplication } from '../../core/app/application.js';
 import { IModuleMain, IMonkeyModule, IMonkeySystem } from './monkey.js';
 import { StateLock } from '../../utils/stateLock.js';
+import { Component } from 'vue';
 
 export type TypeModuleResourceIcons = Record<string, string>;
 export type TypeModuleResourceLocales = Record<string, object>;
@@ -17,6 +18,7 @@ export interface IModuleResource {
   config: (app: CabloyApplication) => object | Promise<object>;
   constants: unknown;
   icons: TypeModuleResourceIcons;
+  components: Record<string, Component>;
 }
 
 declare module '@cabloy/module-info' {
