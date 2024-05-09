@@ -41,9 +41,9 @@ export class ErrorClass extends BeanSimple {
     let message: string;
     if (code <= 1000) {
       // todo:
-      message = this.app.meta.text(errorsInternal[code], ...args);
+      message = this.app.meta.locale.getText(undefined, undefined, errorsInternal[code], ...args);
     } else {
-      message = this.app.meta.text(ebError[code], ...args);
+      message = this.app.meta.locale.getText(module, undefined, ebError[code], ...args);
     }
 
     code = __combineErrorCode(module, code);
