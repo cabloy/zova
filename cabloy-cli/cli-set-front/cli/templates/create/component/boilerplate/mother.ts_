@@ -1,5 +1,6 @@
 import { BeanMotherBase, Local, Use } from '@cabloy/front';
 import { Render<%=argv.componentNameShortCapitalize%> } from './render.jsx';
+import { ScopeModule } from '../../resource/this.js';
 
 export interface Props {
   name?: string;
@@ -10,7 +11,7 @@ export type Emits = {};
 export type Slots = {};
 
 @Local()
-export class Mother<%=argv.componentNameShortCapitalize%> extends BeanMotherBase<Props, Emits, Slots> {
+export class Mother<%=argv.componentNameShortCapitalize%> extends BeanMotherBase<Props, Emits, Slots, ScopeModule> {
   static $propsDefault = {
     name: '',
   };

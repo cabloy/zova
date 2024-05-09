@@ -1,10 +1,11 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { Mother<%=argv.componentNameShortCapitalize%> } from './mother.js';
+import { ScopeModule } from '../../resource/this.js';
 
 export interface Render<%=argv.componentNameShortCapitalize%> extends Mother<%=argv.componentNameShortCapitalize%> {}
 
 @Local()
-export class Render<%=argv.componentNameShortCapitalize%> extends BeanRenderBase {
+export class Render<%=argv.componentNameShortCapitalize%> extends BeanRenderBase<ScopeModule> {
   render() {
     return <div></div>;
   }
