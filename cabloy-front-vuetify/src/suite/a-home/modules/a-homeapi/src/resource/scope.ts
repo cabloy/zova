@@ -1,5 +1,6 @@
 import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from '@cabloy/front';
 import { config, Errors, locales, constants } from '../config/index.js';
+import { components } from './components.js';
 
 @Scope()
 export class ScopeModuleAHomeapi extends BeanScopeBase {}
