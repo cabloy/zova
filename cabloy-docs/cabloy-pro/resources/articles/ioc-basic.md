@@ -2,6 +2,8 @@
 
 ## The best practice of ts: make types invisible
 
+What is `make types invisible`? In short, you don’t need type annotations, but you can enjoy the benefits of type constraints and autocompletion
+
 Using ts in a project can bring many benefits of intelligent type prompts and type checks. At the same time, in order to reduce type annotations and achieve the effect of `making types invisible`, Cabloy-Pro5 introduces the `ioc` and `dependency lookup` mechanisms
 
 ## Two strategies for ioc
