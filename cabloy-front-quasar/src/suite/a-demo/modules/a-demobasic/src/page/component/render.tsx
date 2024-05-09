@@ -3,7 +3,6 @@ import type { MotherPageComponent } from './mother.js';
 import { ScopeModule } from '../../resource/this.js';
 import { MotherCard } from '../../resource/components.js';
 
-
 export interface RenderPageComponent extends MotherPageComponent { }
 
 @Local()
