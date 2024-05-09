@@ -1,8 +1,9 @@
 import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPage<%=argv.pageNameShortCapitalize%> } from './render.jsx';
+import { ScopeModule } from '../../resource/this.js';
 
 @Local()
-export class MotherPage<%=argv.pageNameShortCapitalize%> extends BeanMotherPageBase {
+export class MotherPage<%=argv.pageNameShortCapitalize%> extends BeanMotherPageBase<ScopeModule> {
   @Use()
   $$render: RenderPage<%=argv.pageNameShortCapitalize%>;
 }
