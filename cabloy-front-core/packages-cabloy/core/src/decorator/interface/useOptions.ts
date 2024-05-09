@@ -1,4 +1,4 @@
-import { IBeanRecord } from '../../bean/type.js';
+import { IBeanRecord, IBeanScopeRecord } from '../../bean/type.js';
 import { MetadataKey } from '../../core/metadata.js';
 import { Constructable } from '../type/constructable.js';
 import { ContainerScope } from '../type/containerScope.js';
@@ -30,4 +30,8 @@ export interface IDecoratorUseHookOptions {
   selector?: string;
   containerScope?: ContainerScope;
   markReactive?: boolean;
+}
+
+export interface IDecoratorUseScopeOptions {
+  module: keyof IBeanScopeRecord;
 }

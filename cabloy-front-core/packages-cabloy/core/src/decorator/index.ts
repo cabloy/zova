@@ -4,6 +4,7 @@ export * from './class/scope.js';
 export * from './class/store.js';
 export * from './class/use.js';
 export * from './class/useHook.js';
+export * from './class/useScope.js';
 export * from './interface/beanOptions.js';
 export * from './interface/useOptions.js';
 export * from './type/constructable.js';
