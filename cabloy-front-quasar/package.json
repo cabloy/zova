@@ -32,14 +32,14 @@
   "dependencies": {
     "@cabloy/front": "^5.0.27",
     "@quasar/extras": "^1.16.11",
-    "quasar": "^2.15.4",
+    "quasar": "^2.16.2",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.8",
     "@quasar/app-vite": "2.0.0-beta.11",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.11",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
