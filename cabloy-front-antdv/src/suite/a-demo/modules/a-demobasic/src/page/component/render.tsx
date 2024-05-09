@@ -1,12 +1,11 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageComponent } from './mother.js';
-import Card from '../../component/card/index.vue';
-import * as MotherCard from '../../component/card/mother.js';
-
+import { MotherCard } from '../../resource/components.js';
+import { ScopeModule } from '../../resource/this.js';
 export interface RenderPageComponent extends MotherPageComponent { }
 
 @Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
   render() {
     const slots = {
       header: () => {
@@ -21,7 +20,7 @@ export class RenderPageComponent extends BeanRenderBase {
     } as MotherCard.Slots;
     return (
       <div>
-        <Card
+        <this.scope.component.card
           onMotherRef={ref => {
             this.cardRef = ref;
           }}
@@ -32,7 +31,7 @@ export class RenderPageComponent extends BeanRenderBase {
             this.resetTime = time;
           }}
           v-slots={slots}
-        ></Card>
+        ></this.scope.component.card>
       </div>
     );
   }
