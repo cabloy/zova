@@ -5,6 +5,7 @@ import { Constructable } from '../../decorator/type/constructable.js';
 import { IMonkeyApp, IMonkeySystem } from '../../types/interface/monkey.js';
 import { AppError } from '../component/error.js';
 import { AppEvent } from '../component/event.js';
+import { AppComponent } from '../component/component.js';
 import { AppLocale } from '../component/locale.js';
 import { AppModule } from '../component/module.js';
 import { AppUtil } from './util.js';
@@ -12,6 +13,7 @@ import { AppUtil } from './util.js';
 export class AppMeta extends BeanSimple {
   module: AppModule;
   util: AppUtil;
+  component: AppComponent;
   locale: AppLocale;
   error: AppError;
   event: AppEvent;
@@ -23,6 +25,7 @@ export class AppMeta extends BeanSimple {
   protected __init__() {
     this.module = this.app.bean._newBeanSimple(AppModule, false);
     this.util = this.app.bean._newBeanSimple(AppUtil, false);
+    this.component = this.app.bean._newBeanSimple(AppComponent, false);
     this.locale = this.app.bean._newBeanSimple(AppLocale, false);
     this.error = this.app.bean._newBeanSimple(AppError, false);
     this.event = this.app.bean._newBeanSimple(AppEvent, false);
