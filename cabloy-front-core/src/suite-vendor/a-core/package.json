@@ -7,7 +7,6 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "cabloy-module-front-a-component": "^5.0.14",
     "cabloy-module-front-a-core": "^5.0.14",
     "cabloy-module-front-a-router": "^5.0.13"
   },

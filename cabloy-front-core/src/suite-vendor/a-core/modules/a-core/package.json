@@ -4,7 +4,6 @@
   "title": "a-core",
   "cabloyModule": {
     "dependencies": {
-      "a-component": "5.0.0",
       "a-router": "5.0.0"
     }
   },
