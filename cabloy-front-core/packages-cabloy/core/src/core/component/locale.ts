@@ -47,13 +47,13 @@ export class AppLocale extends BeanSimple {
   }
 
   /** @internal */
-  public createLocaleText(): IModuleLocaleText {
+  public createLocaleText(moduleScope?: string): IModuleLocaleText {
     const self = this;
     const getText = function (text: string, ...args: any[]): string {
-      return self.getText(undefined, undefined, text, ...args);
+      return self.getText(moduleScope, undefined, text, ...args);
     };
     getText.locale = function (locale: string | undefined, text: string, ...args: any[]): string {
-      return self.getText(undefined, locale, text, ...args);
+      return self.getText(moduleScope, locale, text, ...args);
     };
     return getText;
   }

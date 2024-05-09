@@ -2,7 +2,9 @@ import { RendererNode } from 'vue';
 import { BeanBaseSimple } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { AppEvent } from '../core/component/event.js';
-import { getIcon } from './resource/index.js';
+import { getIcon, IModuleLocaleText } from './resource/index.js';
+
+const SymbolText = Symbol('SymbolText');
 
 export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   protected get $el(): RendererNode {
@@ -12,10 +14,12 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
     return this.ctx.meta.el;
   }
 
-  // need not
-  // protected get $text(): IModuleLocaleText {
-  //   return this.app.meta.text;
-  // }
+  protected get $text(): IModuleLocaleText {
+    if (!this[SymbolText]) {
+      this[SymbolText] = this.app.meta.locale.createLocaleText(this.moduleBelong);
+    }
+    return this[SymbolText];
+  }
 
   protected get $event(): AppEvent {
     return this.app.meta.event;
