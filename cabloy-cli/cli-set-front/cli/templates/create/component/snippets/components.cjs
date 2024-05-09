@@ -12,10 +12,10 @@ module.exports = {
     ast.before(code);
     // import
     code = await cli.template.renderContent({ content: __snippet_import });
-    ast.find('export const components').before(code);
+    ast.find('export const components = {$$$0}').before(code);
     // interface
     code = await cli.template.renderContent({ content: __snippet_interface });
-    ast.replace('export const components = {$$$0}', `export const components = {$$$0 ${code}}`);
+    ast.replace('export const components = {$$$0}', `export const components = {$$$0, ${code}}`);
     // ok
     return ast;
   },
