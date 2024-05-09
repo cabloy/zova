@@ -7,7 +7,12 @@ export class ScopeModuleAHomerouter extends BeanScopeBase {}
 
 export interface ScopeModuleAHomerouter
   extends TypeModuleResource<
-    typeof components,typeof config, typeof Errors, (typeof locales)[TypeLocaleBase], typeof constants> {}
+    typeof components,
+    typeof config,
+    typeof Errors,
+    (typeof locales)[TypeLocaleBase],
+    typeof constants
+  > {}
 
 declare module '@cabloy/front-core' {
   export interface IBeanScopeRecord {
