@@ -1,4 +1,4 @@
-import { ReturnTypeHook } from '@cabloy/front';
+import { IPagePathRecord, ReturnTypeHook } from '@cabloy/front';
 import { RouteComponent, RouteRecordRaw, useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
@@ -14,10 +14,15 @@ declare module 'vue-router' {
   }
 }
 
+export interface PageResolvePath {
+  <K extends keyof IPagePathRecord>(path: K): K;
+}
+
 declare module '@cabloy/front' {
   export interface BeanBase {
     $router: StoreRouterLike;
     $route: ReturnTypeHook<typeof useRoute>;
+    $path: PageResolvePath;
   }
 
   export interface IModuleResource {

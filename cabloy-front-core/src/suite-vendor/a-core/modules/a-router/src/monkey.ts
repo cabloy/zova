@@ -25,6 +25,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule {
     await this.app.meta.event.emit('a-router:routerGuards', router);
   }
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+    const self = this;
     bean.defineProperty(beanInstance, '$router', {
       enumerable: false,
       configurable: true,
@@ -37,6 +38,16 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule {
       configurable: true,
       get() {
         return useRoute();
+      },
+    });
+    bean.defineProperty(beanInstance, '$path', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return (...args: any[]) => {
+          // @ts-ignore ignore
+          return self._storeRouter.resolvePath(...args);
+        };
       },
     });
   }
