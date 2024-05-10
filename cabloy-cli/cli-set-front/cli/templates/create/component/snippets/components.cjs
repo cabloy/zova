@@ -1,5 +1,5 @@
 const __snippet_export =
-  "export * as Mother<%=argv.componentNameFullCapitalize%> from '../component/<%=argv.componentName%>/mother.js';\n";
+  "export * as NamespaceMother<%=argv.componentNameFullCapitalize%> from '../component/<%=argv.componentName%>/mother.js';\n";
 const __snippet_import = "import <%=argv.componentNameFull%> from '../component/<%=argv.componentName%>/index.vue';\n";
 const __snippet_interface = '<%=argv.componentNameFull%>,\n';
 
