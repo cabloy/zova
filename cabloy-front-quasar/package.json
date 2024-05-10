@@ -41,6 +41,7 @@
     "@quasar/app-vite": "2.0.0-beta.14",
     "@types/node": "^20.12.11",
     "autoprefixer": "^10.4.19",
+    "prettier": "^3.2.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsdoc": "^48.2.4",
