@@ -5,7 +5,7 @@ export interface Props {}
 
 export type Emits = {};
 
-export type Slots = {};
+export interface Slots {}
 
 export type TypeMenuItem = {
   title: string;

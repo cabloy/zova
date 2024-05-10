@@ -12,11 +12,11 @@ export type Emits = {
   (e: 'reset', time: Date): void;
 };
 
-export type Slots = {
+export interface Slots {
   header?(): JSX.Element;
   default?(): JSX.Element;
   footer?(): JSX.Element;
-};
+}
 
 @Local()
 export class MotherCard extends BeanMotherBase<Props, Emits, Slots> {

@@ -199,11 +199,11 @@ Next, in the `card` child component, define three Slots: `header`, `default` and
 First, define the Slots interface in `mother.ts`:
 
 ```typescript
-export type Slots = {
+export interface Slots {
   header?(): JSX.Element;
   default?(): JSX.Element;
   footer?(): JSX.Element;
-};
+}
 ```
 
 ### Render Slots

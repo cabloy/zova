@@ -199,11 +199,11 @@ export class RenderPageComponent extends BeanRenderBase {
 首先，在`mother.ts`中定义 Slots 接口：
 
 ```typescript
-export type Slots = {
+export interface Slots {
   header?(): JSX.Element;
   default?(): JSX.Element;
   footer?(): JSX.Element;
-};
+}
 ```
 
 ### 渲染Slots

@@ -11,7 +11,7 @@ export interface Props {
 
 export type Emits = {};
 
-export type Slots = {};
+export interface Slots {}
 
 @Local()
 export class MotherEssentialLink extends BeanMotherBase<Props, Emits, Slots> {

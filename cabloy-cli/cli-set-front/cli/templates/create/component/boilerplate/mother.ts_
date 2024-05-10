@@ -8,7 +8,7 @@ export interface Props {
 
 export type Emits = {};
 
-export type Slots = {};
+export interface Slots {}
 
 @Local()
 export class Mother<%=argv.componentNameFullCapitalize%> extends BeanMotherBase<Props, Emits, Slots, ScopeModule> {
