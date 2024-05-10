@@ -14,7 +14,7 @@ declare module 'vue-router' {
   }
 }
 
-declare module '@cabloy/front-core' {
+declare module '@cabloy/front' {
   export interface BeanBase {
     $router: StoreRouterLike;
     $route: ReturnTypeHook<typeof useRoute>;
