@@ -60,14 +60,25 @@ export class LocalHelper {
     }
     return Boxen(text, options);
   }
-  firstCharToCapitalize(name: string) {
+  firstCharToLowerCase(name: string) {
+    return name.charAt(0).toLowerCase() + name.substring(1);
+  }
+  firstCharToUpperCase(name: string) {
     return name.charAt(0).toUpperCase() + name.substring(1);
+  }
+  pathToCapitalize(path: string): string {
+    return path
+      .split('/')
+      .map(name => {
+        return this.firstCharToUpperCase(name);
+      })
+      .join('');
   }
   relativeNameToCapitalize(moduleName: string): string {
     return moduleName
       .split('-')
       .map(name => {
-        return this.firstCharToCapitalize(name);
+        return this.firstCharToUpperCase(name);
       })
       .join('');
   }
@@ -97,7 +108,7 @@ export class LocalHelper {
     // args
     const args = ['install', '--force'];
     // log
-    await this.console.log(`===> pnpm install --force`);
+    await this.console.log('===> pnpm install --force');
     // spawn
     await this.spawnCmd({
       cmd: 'pnpm',

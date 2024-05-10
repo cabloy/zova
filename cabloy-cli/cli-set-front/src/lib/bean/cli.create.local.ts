@@ -35,7 +35,7 @@ export class CliCreateLocal extends BeanCliBase {
     const localPath = parts.slice(0, parts.length - 1).join('/');
     const localNameShort = parts[parts.length - 1];
     argv.localNameShort = localNameShort;
-    argv.localNameShortCapitalize = this.helper.firstCharToCapitalize(localNameShort);
+    argv.localNameShortCapitalize = this.helper.firstCharToUpperCase(localNameShort);
     // directory
     let localDir = path.join(targetDir, 'src');
     if (localPath) {

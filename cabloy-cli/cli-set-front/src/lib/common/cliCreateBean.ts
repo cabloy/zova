@@ -42,12 +42,12 @@ export class CliCreateBeanBase extends BeanCliBase {
     if (!argv.sceneName) {
       argv.sceneName = this.sceneName;
     }
-    argv.sceneNameCapitalize = this.helper.firstCharToCapitalize(argv.sceneName);
+    argv.sceneNameCapitalize = this.helper.firstCharToUpperCase(argv.sceneName);
     // bean name
     if (!argv.beanName) {
       argv.beanName = argv.storeName;
     }
-    argv.beanNameCapitalize = this.helper.firstCharToCapitalize(argv.beanName);
+    argv.beanNameCapitalize = this.helper.firstCharToUpperCase(argv.beanName);
     // directory
     const beanDir = path.join(targetDir, 'src/bean');
     await this.helper.ensureDir(beanDir);
