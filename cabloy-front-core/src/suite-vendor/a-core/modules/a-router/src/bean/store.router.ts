@@ -78,12 +78,23 @@ export class StoreRouter extends BeanBase {
   private _registerRoute(module: IModule, route: IModuleRoute) {
     // meta
     const meta = route.meta;
+    // name
+    let name: string | undefined;
+    if (route.name) {
+      if (meta?.absolute === true) {
+        name = String(route.name);
+      } else {
+        name = `${module.info.relativeName}:${String(route.name)}`;
+      }
+    }
     // path
-    let path: string;
-    if (meta?.absolute === true) {
-      path = route.path;
-    } else {
-      path = `/${module.info.pid}/${module.info.name}/${route.path}`;
+    let path: string | undefined;
+    if (route.path) {
+      if (meta?.absolute === true) {
+        path = route.path;
+      } else {
+        path = `/${module.info.pid}/${module.info.name}/${route.path}`;
+      }
     }
     // component
     const component = route.component;
@@ -91,7 +102,7 @@ export class StoreRouter extends BeanBase {
     let layout = meta?.layout;
     let routeData;
     if (layout === false) {
-      routeData = { ...route, path, component, meta };
+      routeData = { ...route, name, path, component, meta };
     } else {
       if (layout === undefined || layout === 'default') {
         layout = this.app.config.layout.component.default;
@@ -101,7 +112,7 @@ export class StoreRouter extends BeanBase {
       routeData = {
         path,
         component: this.createAsyncComponent(layout as any),
-        children: [{ ...route, path: '', component, meta }],
+        children: [{ ...route, name, path: '', component, meta }],
       };
     }
     // add
