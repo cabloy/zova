@@ -2,7 +2,7 @@
 
 ## What is Cabloy-Front?
 
-Cabloy-Front is a vue3 framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
+Cabloy-Front is a vue3 framework with ioc container. No `ref/reactive`, no `ref.value`, no `pinia`
 
 ## With UI libraries
 
@@ -17,9 +17,9 @@ Cabloy-Front can be used with any UI library and comes with built-in project tem
 
 Cabloy-Front has introduced the following distinct features for Vue3:
 
-- `Stop worrying about using ref or reactive`: Because in most scenarios, there is no need to use ref and reactive
-- `No longer write a large number of ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
-- `No longer using pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
+- `No ref/reactive`: Because in most scenarios, there is no need to use ref and reactive
+- `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
+- `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
 ## Code style demonstration
 
