@@ -1,15 +1,18 @@
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { TypeModuleResourceComponents } from '../../types/interface/module.js';
-import { Component, ComponentCustomOptions, defineAsyncComponent } from 'vue';
+import { Component, ComponentCustomOptions } from 'vue';
 
 export class AppComponent extends BeanSimple {
   /** @internal */
   public async initialize() {}
 
   public createAsyncComponent(componentName: string) {
-    return defineAsyncComponent(() => {
+    return () => {
       return this.use(componentName);
-    });
+    };
+    // return defineAsyncComponent(() => {
+    //   return this.use(componentName);
+    // });
   }
 
   public async use(componentName: string): Promise<Component> {
