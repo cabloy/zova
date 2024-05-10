@@ -12,7 +12,7 @@ declare module '@cabloy/cli' {
     pageNameShortCapitalize: string;
     pageNameFull: string;
     pageNameFullCapitalize: string;
-    pageParts: string[];
+    pageNameParts: string[];
   }
 }
 
@@ -41,10 +41,11 @@ export class CliCreatePageBase extends BeanCliBase {
     // pageName
     const pageName = argv.pageName;
     // pageName2
-    const parts = pageName.split('/');
-    const pageNameShort = parts[parts.length - 1];
-    argv.pageNameShort = pageNameShort;
-    argv.pageNameShortCapitalize = this.helper.firstCharToUpperCase(pageNameShort);
+    argv.pageNameParts = pageName.split('/');
+    argv.pageNameShort = argv.pageNameParts[argv.pageNameParts.length - 1];
+    argv.pageNameShortCapitalize = this.helper.firstCharToUpperCase(argv.pageNameShort);
+    argv.pageNameFullCapitalize = this.helper.stringToCapitalize(pageName, '/');
+    argv.pageNameFull = this.helper.firstCharToLowerCase(argv.pageNameFullCapitalize);
     // directory
     let pageDir = path.join(targetDir, 'src/page');
     pageDir = path.join(pageDir, pageName);
