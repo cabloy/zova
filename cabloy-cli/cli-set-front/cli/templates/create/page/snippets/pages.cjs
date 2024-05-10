@@ -1,9 +1,9 @@
 const __snippet_export =
-  "export * as NSMotherPage<%=argv.componentNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "export * as NSMotherPage<%=argv.pageNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
 const __snippet_import =
-  "import * as NSMotherPage<%=argv.componentNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "import * as NSMotherPage<%=argv.pageNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
 const __snippet_interface =
-  '/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>: TypePageParamsQuery<NSMotherPage<%=argv.componentNameFullCapitalize%>.Params, NSMotherPage<%=argv.componentNameFullCapitalize%>.Query>;\n';
+  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': TypePageParamsQuery<NSMotherPage<%=argv.pageNameFullCapitalize%>.Params, NSMotherPage<%=argv.pageNameFullCapitalize%>.Query>;\n";
 
 module.exports = {
   file: 'src/resource/pages.ts',
