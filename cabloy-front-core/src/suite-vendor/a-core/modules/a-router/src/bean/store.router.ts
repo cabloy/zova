@@ -1,4 +1,4 @@
-import { BeanBase, Cast, IModule, Store, TypeEventOff } from '@cabloy/front';
+import { BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, Store, TypeEventOff } from '@cabloy/front';
 import { Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
@@ -46,6 +46,31 @@ export class StoreRouter extends BeanBase {
   public createAsyncComponent(component: string | IModuleRouteComponent) {
     if (typeof component !== 'string') return component;
     return this.app.meta.component.createAsyncComponent(component);
+  }
+
+  // this line will stop the ts autocompletion
+  //public resolvePath<K extends keyof IPagePathRecord>(path: K): K;
+  public resolvePath<K extends keyof IPageNameRecord>({
+    name,
+    params,
+    query,
+  }: {
+    name: K;
+    params?: IPageNameRecord[K] extends { Params: object } ? IPageNameRecord[K]['Params'] : never;
+    query?: IPageNameRecord[K] extends { Query: object } ? IPageNameRecord[K]['Query'] : never;
+  }): string;
+  public resolvePath<K extends keyof IPagePathRecord>({
+    path,
+    params,
+    query,
+  }: {
+    path: K;
+    params?: IPagePathRecord[K] extends { Params: object } ? IPagePathRecord[K]['Params'] : never;
+    query?: IPagePathRecord[K] extends { Query: object } ? IPagePathRecord[K]['Query'] : never;
+  }): string;
+  public resolvePath(to) {
+    const route = this[SymbolRouter].resolve(to);
+    return route.fullPath;
   }
 
   private _routerGuards(router: StoreRouterLike) {
