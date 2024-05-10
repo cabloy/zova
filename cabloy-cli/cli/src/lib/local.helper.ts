@@ -66,9 +66,9 @@ export class LocalHelper {
   firstCharToUpperCase(name: string) {
     return name.charAt(0).toUpperCase() + name.substring(1);
   }
-  pathToCapitalize(path: string): string {
-    return path
-      .split('/')
+  stringToCapitalize(str: string, separator: string): string {
+    return str
+      .split(separator)
       .map(name => {
         return this.firstCharToUpperCase(name);
       })

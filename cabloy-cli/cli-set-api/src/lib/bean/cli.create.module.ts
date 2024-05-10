@@ -34,7 +34,7 @@ export class CliCreateModule extends BeanCliBase {
     // module name/info
     const moduleName = argv.name;
     argv.moduleInfo = this.helper.parseModuleInfo(moduleName);
-    argv.relativeNameCapitalize = this.helper.relativeNameToCapitalize(argv.moduleInfo.relativeName);
+    argv.relativeNameCapitalize = this.helper.stringToCapitalize(argv.moduleInfo.relativeName, '-');
     // check if exists
     const _module = this.helper.findModule(moduleName);
     if (!argv.force && _module) {
