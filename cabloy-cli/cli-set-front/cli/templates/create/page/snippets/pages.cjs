@@ -18,7 +18,7 @@ declare module "@cabloy/front" {
   async transform({ cli, ast }) {
     // export
     let code = await cli.template.renderContent({ content: __snippet_export });
-    ast.find("import { TypePageParamsQuery } from '@cabloy/front';").after(code);
+    ast.before(code);
     // import
     code = await cli.template.renderContent({ content: __snippet_import });
     ast.find("declare module '@cabloy/front'").before(code);
