@@ -264,10 +264,12 @@ export class LocalTemplate {
       const outAst = await snippet.transform(this.getAstData(ast, snippet));
       outputCode = outAst.root().generate();
     }
-    // save
-    fs.writeFileSync(targetFile, outputCode);
-    // format
-    await this.helper.formatFile({ fileName: targetFile, logPrefix: 'format: ' });
+    if (outputCode !== undefined) {
+      // save
+      fs.writeFileSync(targetFile, outputCode);
+      // format
+      await this.helper.formatFile({ fileName: targetFile, logPrefix: 'format: ' });
+    }
   }
 
   _parseSnippetFilePrefix(fileName) {
