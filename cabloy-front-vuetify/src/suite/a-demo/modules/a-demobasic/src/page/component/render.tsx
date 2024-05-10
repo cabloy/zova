@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageComponent } from './mother.js';
 import { ScopeModule } from '../../resource/this.js';
-import { MotherCard } from '../../resource/components.js';
+import { NSMotherCard } from '../../resource/components.js';
 
 export interface RenderPageComponent extends MotherPageComponent { }
 
@@ -18,7 +18,7 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
       footer: () => {
         return <div>this is a footer slot from parent</div>;
       },
-    } as MotherCard.Slots;
+    } as NSMotherCard.Slots;
     return (
       <div>
         <this.scope.component.card
