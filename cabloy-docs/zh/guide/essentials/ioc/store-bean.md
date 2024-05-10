@@ -96,7 +96,7 @@ export class LocalTestC extends BeanBase {
 
 ### Bean标识
 
-在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Bundle
+在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk
 
 因此，在跨模块使用 store bean 时，我们不建议直接`基于类型`注入，而是`基于标识`注入
 

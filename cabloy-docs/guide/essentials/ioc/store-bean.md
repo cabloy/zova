@@ -96,7 +96,7 @@ What we just demonstrated was using store beans within the current module. Now l
 
 ### Bean Identifier
 
-In Cabloy-Front, a module is a natural bundle boundary, and automatically packaged into an independent asynchronous bundle When building
+In Cabloy-Front, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk When building
 
 Therefore, when using store beans cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
 
