@@ -10,6 +10,9 @@ declare module '@cabloy/cli' {
     pageName: string;
     pageNameShort: string;
     pageNameShortCapitalize: string;
+    pageNameFull: string;
+    pageNameFullCapitalize: string;
+    pageParts: string[];
   }
 }
 
