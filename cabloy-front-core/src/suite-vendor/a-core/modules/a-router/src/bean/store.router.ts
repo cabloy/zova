@@ -48,28 +48,13 @@ export class StoreRouter extends BeanBase {
     return this.app.meta.component.createAsyncComponent(component);
   }
 
-  // this line will stop the ts autocompletion
-  //public resolvePath<K extends keyof IPagePathRecord>(path: K): K;
-  public resolvePath<K extends keyof IPageNameRecord>({
-    name,
-    params,
-    query,
-  }: {
-    name: K;
-    params?: IPageNameRecord[K] extends { Params: object } ? IPageNameRecord[K]['Params'] : never;
-    query?: IPageNameRecord[K] extends { Query: object } ? IPageNameRecord[K]['Query'] : never;
-  }): string;
-  public resolvePath<K extends keyof IPagePathRecord>({
-    path,
-    params,
-    query,
-  }: {
-    path: K;
-    params?: IPagePathRecord[K] extends { Params: object } ? IPagePathRecord[K]['Params'] : never;
-    query?: IPagePathRecord[K] extends { Query: object } ? IPagePathRecord[K]['Query'] : never;
-  }): string;
-  public resolvePath(to) {
-    const route = this[SymbolRouter].resolve(to);
+  public resolveName<K extends keyof IPageNameRecord>(name: K, options?: IPageNameRecord[K]): string {
+    const route = this[SymbolRouter].resolve({ name, params: Cast(options)?.params, query: Cast(options)?.query });
+    return route.fullPath;
+  }
+
+  public resolvePath<K extends keyof IPagePathRecord>(path: K, query?: IPagePathRecord[K]): string {
+    const route = this[SymbolRouter].resolve({ path, query: Cast(query) });
     return route.fullPath;
   }
 
