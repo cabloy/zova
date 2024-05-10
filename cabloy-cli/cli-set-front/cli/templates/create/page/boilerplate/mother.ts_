@@ -2,6 +2,10 @@ import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPage<%=argv.pageNameFullCapitalize%> } from './render.jsx';
 import { ScopeModule } from '<%='../'.repeat(argv.pageNameParts.length+1)%>resource/this.js';
 
+export interface Params {}
+
+export interface Query {}
+
 @Local()
 export class MotherPage<%=argv.pageNameFullCapitalize%> extends BeanMotherPageBase<ScopeModule> {
   @Use()
