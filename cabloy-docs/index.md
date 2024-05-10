@@ -15,10 +15,10 @@ hero:
       link: https://github.com/cabloy/cabloy-front
 
 features:
-  - title: Stop worrying about using ref or reactive
+  - title: No ref/reactive
     details: Because in most scenarios, there is no need to use ref and reactive
-  - title: No longer write a large number of ref.value
+  - title: No ref.value
     details: Because defining reactive  variables in Cabloy-Front is more intuitive and no longer requires ref semantics
-  - title: No longer using pinia
+  - title: No pinia
     details: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 ---

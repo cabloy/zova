@@ -15,10 +15,10 @@ hero:
       link: https://github.com/cabloy/cabloy-front
 
 features:
-  - title: 不再纠结使用ref还是reactive
+  - title: 不用ref/reactive
     details: 因为在大多数场景下，不需要使用ref和reactive
-  - title: 不再书写大量ref.value
+  - title: 不用ref.value
     details: 因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
-  - title: 不再使用pinia状态管理
+  - title: 不用pinia
     details: 因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
 ---
