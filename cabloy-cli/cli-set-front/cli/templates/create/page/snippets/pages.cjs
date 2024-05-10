@@ -11,7 +11,7 @@ module.exports = {
 declare module "@cabloy/front" {
   export interface IPagePathRecord {}
   export interface IPageNameRecord {
-    // 'test-home2:page-name': TypePageParamsQuery<NSMotherPagePageName.Params, NSMotherPagePageName.Query>;
+    // '<%=argv.moduleInfo.relativeName%>:page-name': TypePageParamsQuery<NSMotherPagePageName.Params, NSMotherPagePageName.Query>;
   }
 }
 `,
@@ -24,7 +24,7 @@ declare module "@cabloy/front" {
     ast.find("declare module '@cabloy/front'").before(code);
     // interface
     code = await cli.template.renderContent({ content: __snippet_interface });
-    ast.replace('export interface IPagePathRecord {$$$0}', `export interface IPagePathRecord {$$$0 ${code}}`);
+    ast.replace('export interface IPagePathRecord {$$$0}', `export interface IPagePathRecord {$$$0 \n ${code}}`);
     // ok
     return ast;
   },
