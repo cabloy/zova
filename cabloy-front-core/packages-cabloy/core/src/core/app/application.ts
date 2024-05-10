@@ -25,6 +25,8 @@ export class CabloyApplication {
   public async initialize({ modulesMeta, AppMonkey, locales, config }: PluginCabloyOptions) {
     // monkey
     await this.meta.initialize(AppMonkey);
+    // page
+    await this.meta.page.initialize();
     // component
     await this.meta.component.initialize();
     // locales

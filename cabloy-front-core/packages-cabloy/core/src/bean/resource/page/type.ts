@@ -1,7 +1,7 @@
-export interface IRoutePathRecord {}
-export interface IRouteNameRecord {}
+export interface IPagePathRecord {}
+export interface IPageNameRecord {}
 
-export type TypeRoutePath<P, Q> = {
+export type TypePageParamsQuery<P, Q> = {
   Params: P;
   Query: Q;
 };
