@@ -18,4 +18,8 @@ export class Mother<%=argv.componentNameFullCapitalize%> extends BeanMotherBase<
 
   @Use()
   $$render: Render<%=argv.componentNameFullCapitalize%>;
+
+  protected async __init__() {}
+
+  protected __dispose__() {}
 }

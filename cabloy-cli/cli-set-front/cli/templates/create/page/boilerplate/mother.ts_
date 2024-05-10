@@ -10,4 +10,8 @@ export interface Query {}
 export class MotherPage<%=argv.pageNameFullCapitalize%> extends BeanMotherPageBase<ScopeModule> {
   @Use()
   $$render: RenderPage<%=argv.pageNameFullCapitalize%>;
+
+  protected async __init__() {}
+
+  protected __dispose__() {}
 }
