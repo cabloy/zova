@@ -10,6 +10,8 @@ declare module '@cabloy/cli' {
     componentName: string;
     componentNameShort: string;
     componentNameShortCapitalize: string;
+    componentNameFull: string;
+    componentNameFullCapitalize: string;
   }
 }
 
@@ -41,7 +43,9 @@ export class CliCreateComponentBase extends BeanCliBase {
     const parts = componentName.split('/');
     const componentNameShort = parts[parts.length - 1];
     argv.componentNameShort = componentNameShort;
-    argv.componentNameShortCapitalize = this.helper.firstCharToCapitalize(componentNameShort);
+    argv.componentNameShortCapitalize = this.helper.firstCharToUpperCase(componentNameShort);
+    argv.componentNameFullCapitalize = this.helper.stringToCapitalize(componentName, '/');
+    argv.componentNameFull = this.helper.firstCharToLowerCase(argv.componentNameFullCapitalize);
     // directory
     let componentDir = path.join(targetDir, 'src/component');
     componentDir = path.join(componentDir, componentName);
