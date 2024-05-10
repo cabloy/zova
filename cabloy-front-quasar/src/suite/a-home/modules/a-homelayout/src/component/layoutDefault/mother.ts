@@ -6,7 +6,7 @@ export interface Props {}
 
 export type Emits = {};
 
-export type Slots = {};
+export interface Slots {}
 
 export type TypeMenuItem = MotherEssentialLink.Props & { folder?: boolean; separator?: boolean };
 
