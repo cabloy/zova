@@ -14,7 +14,7 @@ export interface ScopeModuleAQuasar
     typeof constants
   > {}
 
-declare module '@cabloy/front-core' {
+declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
     'a-quasar': ScopeModuleAQuasar;
   }

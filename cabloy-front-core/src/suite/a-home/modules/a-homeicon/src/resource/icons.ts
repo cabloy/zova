@@ -1,4 +1,4 @@
-declare module '@cabloy/front-core' {
+declare module '@cabloy/front' {
   export interface IIconRecord {
     ':auth:dingtalk-square': true;
     ':auth:github': true;

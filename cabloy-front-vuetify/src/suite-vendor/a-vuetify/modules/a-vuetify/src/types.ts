@@ -10,7 +10,7 @@ export interface VuetifyGlobal {
   date: ExtractHook<DateInstance>;
 }
 
-declare module '@cabloy/front-core' {
+declare module '@cabloy/front' {
   export interface BeanBase {
     $vuetify: VuetifyGlobal;
   }
