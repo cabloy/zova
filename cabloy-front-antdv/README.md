@@ -1,6 +1,6 @@
 # @cabloy/front-antdv
 
-@cabloy/front-antdv is a vue3 antdv framework with ioc container, making reactive development more concise and efficient, and capable of developing large-scale business systems.
+@cabloy/front-antdv is a vue3 framework with ioc container. No `ref/reactive`, no `ref.value`, no `pinia`
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
@@ -21,9 +21,9 @@ Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.
 
 @cabloy/front-antdv has introduced the following distinct features for Vue3:
 
-- `Stop worrying about using ref or reactive`: Because in most scenarios, there is no need to use ref and reactive
-- `No longer write a large number of ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
-- `No longer using pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
+- `No ref/reactive`: Because in most scenarios, there is no need to use ref and reactive
+- `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
+- `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
 ## Code style demonstration
 
