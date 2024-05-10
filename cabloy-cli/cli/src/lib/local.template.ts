@@ -258,11 +258,11 @@ export class LocalTemplate {
     } else if (language === 'json') {
       const ast = JSON.parse(sourceCode);
       const outAst = await snippet.transform(this.getAstData(ast, snippet));
-      outputCode = JSON.stringify(outAst, null, 2);
+      outputCode = outAst === undefined ? outAst : JSON.stringify(outAst, null, 2);
     } else {
       const ast = gogocode(sourceCode, { parseOptions: snippet.parseOptions });
       const outAst = await snippet.transform(this.getAstData(ast, snippet));
-      outputCode = outAst.root().generate();
+      outputCode = outAst === undefined ? outAst : outAst.root().generate();
     }
     if (outputCode !== undefined) {
       // save
