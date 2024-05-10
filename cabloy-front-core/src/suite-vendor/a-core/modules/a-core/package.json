@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-core",
-  "version": "5.0.15",
+  "version": "5.0.16",
   "title": "a-core",
   "cabloyModule": {
     "dependencies": {

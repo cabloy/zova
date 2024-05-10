@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-vuetify",
-  "version": "5.0.29",
+  "version": "5.0.30",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -30,7 +30,7 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.30",
+    "@cabloy/front": "^5.0.31",
     "roboto-fontface": "^0.10.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
