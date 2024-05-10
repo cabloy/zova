@@ -15,7 +15,7 @@ Cabloy-Front is a vue3 framework with ioc container, making reactive development
 
 ## Documentation
 
-Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.com)**.
+Documentation can be found at [https://front.cabloy.com](https://front.cabloy.com)
 
 ## With UI libraries
 
