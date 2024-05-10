@@ -12,7 +12,7 @@ module.exports = {
     ast.before(code);
     // import
     code = await cli.template.renderContent({ content: __snippet_import });
-    ast.find("declare module '@cabloy/front-core'").before(code);
+    ast.find("declare module '@cabloy/front'").before(code);
     // interface
     code = await cli.template.renderContent({ content: __snippet_interface });
     ast.replace('export interface IBeanRecord {$$$0}', `export interface IBeanRecord {$$$0 ${code}}`);

@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@cabloy/front": "workspace:^",
-    "@cabloy/front-core": "workspace:^",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
