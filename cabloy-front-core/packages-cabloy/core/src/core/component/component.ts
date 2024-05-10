@@ -10,6 +10,7 @@ export class AppComponent extends BeanSimple {
     return () => {
       return this.use(componentName);
     };
+    // should not use defineAsyncComponent
     // return defineAsyncComponent(() => {
     //   return this.use(componentName);
     // });
