@@ -74,14 +74,6 @@ export class LocalHelper {
       })
       .join('');
   }
-  relativeNameToCapitalize(moduleName: string): string {
-    return moduleName
-      .split('-')
-      .map(name => {
-        return this.firstCharToUpperCase(name);
-      })
-      .join('');
-  }
   parseModuleInfo(moduleName) {
     const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'api', 'module');
     if (!moduleInfo) throw new Error(`module name is not valid: ${moduleName}`);
