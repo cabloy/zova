@@ -31,7 +31,25 @@ import { ScopeModule } from './resource/this.js';
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
   protected async __init__() {
-    console.log(this.scope.config);
+    console.log(this.scope.config.prompt);
+  }
+}
+```
+
+## 跨模块使用Config
+
+```typescript{3,7-8,11}
+import { BeanBase, Local, UseScope } from '@cabloy/front';
+import { ScopeModule } from './resource/this.js';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+
+@Local()
+export class LocalTestA extends BeanBase<ScopeModule> {
+  @UseScope({ module: 'test-demo' })
+  scopeModuleTestDemo: ScopeModuleTestDemo;
+
+  protected async __init__() {
+    console.log(this.scopeModuleTestDemo.config.prompt);
   }
 }
 ```
