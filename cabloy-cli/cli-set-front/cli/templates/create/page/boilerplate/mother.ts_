@@ -1,6 +1,6 @@
 import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
 import { RenderPage<%=argv.pageNameFullCapitalize%> } from './render.jsx';
-import { ScopeModule } from '<%='../'.repeat(argv.pageNameParts.length+1)%>resource/this.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.pageNameParts.length+1)%>resource/this.js';
 
 export interface Params {}
 
