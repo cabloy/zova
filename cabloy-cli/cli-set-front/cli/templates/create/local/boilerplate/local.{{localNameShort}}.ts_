@@ -1,9 +1,0 @@
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(0)%>resource/this.js';
-
-@Local()
-export class Local<%=argv.localNameShortCapitalize%> extends BeanBase<ScopeModule> {
-  protected async __init__() {}
-
-  protected __dispose__() {}
-}
