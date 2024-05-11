@@ -1,4 +1,4 @@
-import { BeanCliBase, CmdOptions } from '@cabloy/cli';
+import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
 import { __ThisSetName__ } from '../this.js';
@@ -10,7 +10,7 @@ declare module '@cabloy/cli' {
     sceneName: string;
     sceneNameCapitalize: string;
     beanName: string;
-    beanNameCapitalize: string;
+    nameMeta: NameMeta;
     //
     storeName: string;
   }
@@ -47,9 +47,13 @@ export class CliCreateBeanBase extends BeanCliBase {
     if (!argv.beanName) {
       argv.beanName = argv.storeName;
     }
-    argv.beanNameCapitalize = this.helper.firstCharToUpperCase(argv.beanName);
+    // nameMeta
+    argv.nameMeta = this.helper.parseNameMeta(argv.beanName);
     // directory
-    const beanDir = path.join(targetDir, 'src/bean');
+    let beanDir = path.join(targetDir, 'src/bean');
+    if (argv.nameMeta.path) {
+      beanDir = path.join(beanDir, argv.nameMeta.path);
+    }
     await this.helper.ensureDir(beanDir);
     // render snippets
     await this.template.renderBoilerplateAndSnippets({

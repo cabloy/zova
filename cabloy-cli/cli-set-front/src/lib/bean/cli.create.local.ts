@@ -31,7 +31,6 @@ export class CliCreateLocal extends BeanCliBase {
     const localName = argv.localName;
     // nameMeta
     argv.nameMeta = this.helper.parseNameMeta(localName);
-    // localName2
     // directory
     let localDir = path.join(targetDir, 'src');
     if (argv.nameMeta.path) {
