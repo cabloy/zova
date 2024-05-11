@@ -23,7 +23,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ## 演示
 
-![No ref/reactive](../../../assets/img/state-no-ref-reactive.gif)
+![No ref/reactive](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/state-no-ref-reactive.gif)
 
 ## 代码风格演示
 

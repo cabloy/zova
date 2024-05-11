@@ -23,7 +23,7 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 ## Demonstration
 
-![No ref/reactive](../../assets/img/state-no-ref-reactive.gif)
+![No ref/reactive](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/state-no-ref-reactive.gif)
 
 ## Code style demonstration
 
