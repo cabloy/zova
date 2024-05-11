@@ -1,4 +1,4 @@
-import { BeanCliBase } from '@cabloy/cli';
+import { BeanCliBase, NameMeta } from '@cabloy/cli';
 import path from 'path';
 import { IModuleInfo } from '@cabloy/module-info';
 import { __ThisSetName__ } from '../this.js';
@@ -8,8 +8,7 @@ declare module '@cabloy/cli' {
     module: string;
     moduleInfo: IModuleInfo;
     localName: string;
-    localNameShort: string;
-    localNameShortCapitalize: string;
+    nameMeta: NameMeta;
   }
 }
 
@@ -30,16 +29,13 @@ export class CliCreateLocal extends BeanCliBase {
     const targetDir = await this.helper.ensureDir(_module.root);
     // localName
     const localName = argv.localName;
+    // nameMeta
+    argv.nameMeta = this.helper.parseNameMeta(localName);
     // localName2
-    const parts = localName.split('/');
-    const localPath = parts.slice(0, parts.length - 1).join('/');
-    const localNameShort = parts[parts.length - 1];
-    argv.localNameShort = localNameShort;
-    argv.localNameShortCapitalize = this.helper.firstCharToUpperCase(localNameShort);
     // directory
     let localDir = path.join(targetDir, 'src');
-    if (localPath) {
-      localDir = path.join(localDir, localPath);
+    if (argv.nameMeta.path) {
+      localDir = path.join(localDir, argv.nameMeta.path);
     }
     await this.helper.ensureDir(localDir);
     // render boilerplate
