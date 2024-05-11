@@ -21,6 +21,10 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 - `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
 - `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
+## Demonstration
+
+![No ref/reactive](../../assets/img/state-no-ref-reactive.gif)
+
 ## Code style demonstration
 
 To demonstrate the coding style of Cabloy-Front, we will develop a simple page component as follows:

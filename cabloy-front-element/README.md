@@ -25,6 +25,10 @@ Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.
 - `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
 - `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
+## Demonstration
+
+![No ref/reactive](../cabloy-docs/assets/img/state-no-ref-reactive.gif)
+
 ## Code style demonstration
 
 To demonstrate the coding style of Cabloy-Front, we will develop a simple page component as follows:
