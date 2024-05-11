@@ -21,6 +21,10 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 - `不用ref.value`：因为在 Cabloy-Front 中定义响应式变量更加直观，不再需要 ref 语义
 - `不用pinia`：因为 Cabloy-Front 提供了 IOC 容器，可以更加灵活的定义和使用全局对象
 
+## 演示
+
+![No ref/reactive](../../../assets/img/state-no-ref-reactive.gif)
+
 ## 代码风格演示
 
 为了演示 Cabloy-Front 的代码风格，下面开发一个简单的页面组件：
