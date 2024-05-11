@@ -189,6 +189,7 @@ export class LocalTemplate {
 
   getEjsData() {
     return {
+      cli: this.cli,
       ...this.context,
     };
   }
