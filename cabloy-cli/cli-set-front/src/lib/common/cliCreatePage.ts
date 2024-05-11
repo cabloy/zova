@@ -1,4 +1,4 @@
-import { BeanCliBase, CmdOptions } from '@cabloy/cli';
+import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
 import { __ThisSetName__ } from '../this.js';
@@ -8,11 +8,7 @@ declare module '@cabloy/cli' {
     module: string;
     moduleInfo: IModuleInfo;
     pageName: string;
-    pageNameShort: string;
-    pageNameShortCapitalize: string;
-    pageNameFull: string;
-    pageNameFullCapitalize: string;
-    pageNameParts: string[];
+    nameMeta: NameMeta;
   }
 }
 
@@ -40,12 +36,8 @@ export class CliCreatePageBase extends BeanCliBase {
     const targetDir = await this.helper.ensureDir(_module.root);
     // pageName
     const pageName = argv.pageName;
-    // pageName2
-    argv.pageNameParts = pageName.split('/');
-    argv.pageNameShort = argv.pageNameParts[argv.pageNameParts.length - 1];
-    argv.pageNameShortCapitalize = this.helper.firstCharToUpperCase(argv.pageNameShort);
-    argv.pageNameFullCapitalize = this.helper.stringToCapitalize(pageName, '/');
-    argv.pageNameFull = this.helper.firstCharToLowerCase(argv.pageNameFullCapitalize);
+    // nameMeta
+    argv.nameMeta=this.helper.parseNameMeta(pageName);
     // directory
     let pageDir = path.join(targetDir, 'src/page');
     pageDir = path.join(pageDir, pageName);
