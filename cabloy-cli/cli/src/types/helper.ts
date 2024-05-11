@@ -1,7 +1,7 @@
 export interface NameMeta {
   original: string;
   parts: string[];
-  path: string;
+  directory: string;
   short: string;
   shortCapitalize: string;
   full: string;

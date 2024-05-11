@@ -51,8 +51,8 @@ export class CliCreateBeanBase extends BeanCliBase {
     argv.nameMeta = this.helper.parseNameMeta(argv.beanName);
     // directory
     let beanDir = path.join(targetDir, 'src/bean');
-    if (argv.nameMeta.path) {
-      beanDir = path.join(beanDir, argv.nameMeta.path);
+    if (argv.nameMeta.directory) {
+      beanDir = path.join(beanDir, argv.nameMeta.directory);
     }
     await this.helper.ensureDir(beanDir);
     // render snippets

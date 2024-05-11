@@ -82,7 +82,7 @@ export class LocalHelper {
   parseNameMeta(name: string): NameMeta {
     const original = name;
     const parts = original.split('/');
-    const path = parts.slice(0, parts.length - 1).join('/');
+    const directory = parts.slice(0, parts.length - 1).join('/');
     const short = parts[parts.length - 1];
     const shortCapitalize = this.firstCharToUpperCase(short);
     const fullCapitalize = this.stringToCapitalize(original, '/');
@@ -90,7 +90,7 @@ export class LocalHelper {
     return {
       original,
       parts,
-      path,
+      directory,
       short,
       shortCapitalize,
       full,
