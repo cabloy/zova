@@ -6,6 +6,7 @@ import * as ModuleInfo from '@cabloy/module-info';
 import { ProcessHelper } from '@cabloy/process-helper';
 import { commandsConfig } from '../config.js';
 import { BeanCliBase } from './bean.cli.base.js';
+import { NameMeta } from '../types/helper.js';
 
 export class LocalHelper {
   cli: BeanCliBase;
@@ -77,6 +78,22 @@ export class LocalHelper {
   slashPrefixForPath(count: number) {
     if (count === 0) return './';
     return '../'.repeat(count);
+  }
+  parseNameMeta(name: string): NameMeta {
+    const original = name;
+    const parts = original.split('/');
+    const short = parts[parts.length - 1];
+    const shortCapitalize = this.firstCharToUpperCase(short);
+    const fullCapitalize = this.stringToCapitalize(original, '/');
+    const full = this.firstCharToLowerCase(fullCapitalize);
+    return {
+      original,
+      parts,
+      short,
+      shortCapitalize,
+      full,
+      fullCapitalize,
+    };
   }
   parseModuleInfo(moduleName) {
     const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'api', 'module');
