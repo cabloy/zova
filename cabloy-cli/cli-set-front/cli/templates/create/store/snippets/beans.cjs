@@ -1,6 +1,6 @@
-const __snippet_export = "export * from '../bean/<%=argv.nameMeta.path?argv.nameMeta.path+'/'?''%><%=argv.sceneName%>.<%=argv.nameMeta.short%>.js';\n";
+const __snippet_export = "export * from '../bean/<%=argv.nameMeta.path?argv.nameMeta.path+'/':''%><%=argv.sceneName%>.<%=argv.nameMeta.full%>.js';\n";
 const __snippet_import =
-  "import { <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> } from '../bean/<%=argv.nameMeta.path?argv.nameMeta.path+'/'?''%><%=argv.sceneName%>.<%=argv.nameMeta.short%>.js';\n";
+  "import { <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> } from '../bean/<%=argv.nameMeta.path?argv.nameMeta.path+'/':''%><%=argv.sceneName%>.<%=argv.nameMeta.full%>.js';\n";
 const __snippet_interface =
   "'<%=argv.moduleInfo.relativeName%>.<%=argv.sceneName%>.<%=argv.nameMeta.full%>': <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%>;\n";
 
