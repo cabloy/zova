@@ -74,6 +74,10 @@ export class LocalHelper {
       })
       .join('');
   }
+  slashPrefixForPath(count: number) {
+    if (count === 0) return './';
+    return '../'.repeat(count);
+  }
   parseModuleInfo(moduleName) {
     const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'api', 'module');
     if (!moduleInfo) throw new Error(`module name is not valid: ${moduleName}`);
