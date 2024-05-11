@@ -36,6 +36,8 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 }
 ```
 
+![scope-config](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-config.gif)
+
 ## 跨模块使用Config
 
 ```typescript{3,7-8,11}
