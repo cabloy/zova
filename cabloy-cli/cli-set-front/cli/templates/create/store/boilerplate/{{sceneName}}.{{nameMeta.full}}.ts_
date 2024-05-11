@@ -1,0 +1,9 @@
+import { BeanBase, Store } from '@cabloy/front';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length)%>resource/this.js';
+
+@Store()
+export class <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> extends BeanBase<ScopeModule> {
+  protected async __init__() {}
+
+  protected __dispose__() {}
+}
