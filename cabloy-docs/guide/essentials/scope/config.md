@@ -36,7 +36,8 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 }
 ```
 
-![scope-config](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-config.gif)
+- Gif Demonstration
+  ![scope-config](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-config.gif)
 
 ## Use Config cross-module
 
