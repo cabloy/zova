@@ -24,14 +24,15 @@ export const config = (_app: CabloyApplication) => {
 
 The `Config` configuration of the module can be obtained through the `Scope` instance
 
-```typescript{7}
+```typescript{7-8}
 import { BeanBase, Local } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
   protected async __init__() {
-    console.log(this.scope.config.prompt);
+    const message = this.scope.config.prompt;
+    console.log(message);
   }
 }
 ```
@@ -41,7 +42,7 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## Use Config cross-module
 
-```typescript{3,7-8,11}
+```typescript{3,7-8,11-12}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
 import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
@@ -52,7 +53,8 @@ export class LocalTestA extends BeanBase<ScopeModule> {
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
-    console.log(this.scopeModuleTestDemo.config.prompt);
+    const message = this.scopeModuleTestDemo.config.prompt;
+    console.log(message);
   }
 }
 ```
