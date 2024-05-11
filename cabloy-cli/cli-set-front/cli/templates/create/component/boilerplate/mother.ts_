@@ -1,6 +1,6 @@
 import { BeanMotherBase, Local, Use } from '@cabloy/front';
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.componentNameParts.length+1)%>resource/this.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
 export interface Props {
   name?: string;
