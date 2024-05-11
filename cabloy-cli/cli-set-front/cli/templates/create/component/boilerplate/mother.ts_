@@ -1,5 +1,5 @@
 import { BeanMotherBase, Local, Use } from '@cabloy/front';
-import { Render<%=argv.componentNameFullCapitalize%> } from './render.jsx';
+import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.componentNameParts.length+1)%>resource/this.js';
 
 export interface Props {
@@ -11,13 +11,13 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class Mother<%=argv.componentNameFullCapitalize%> extends BeanMotherBase<Props, Emits, Slots, ScopeModule> {
+export class Mother<%=argv.nameMeta.fullCapitalize%> extends BeanMotherBase<Props, Emits, Slots, ScopeModule> {
   static $propsDefault = {
     name: '',
   };
 
   @Use()
-  $$render: Render<%=argv.componentNameFullCapitalize%>;
+  $$render: Render<%=argv.nameMeta.fullCapitalize%>;
 
   protected async __init__() {}
 
