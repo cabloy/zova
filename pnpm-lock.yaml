@@ -12,8 +12,8 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8(@types/eslint@8.56.10)(typescript@5.4.5)
       '@cabloy/process-helper':
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.0.4
+        version: 1.0.4
       '@types/mocha':
         specifier: ^10.0.6
         version: 10.0.6
@@ -134,8 +134,8 @@ packages:
   '@cabloy/lint@4.0.8':
     resolution: {integrity: sha512-yD6+17ncq381ngLViB6UPhQ4eaHtnXwIt9S5TacbDN1eGF4BgED/1gu0KChwKr3AKR0sDp4szOqLFy8GzRfs7g==}
 
-  '@cabloy/process-helper@1.0.3':
-    resolution: {integrity: sha512-yZyenlfSw+T0gxaouU27dI1okkSkTddUawevmp9j7HcAUWQOyPcpXp5LNb886YW3KlEn/0qwA31barlF5v5LFw==}
+  '@cabloy/process-helper@1.0.4':
+    resolution: {integrity: sha512-w3HBtxHWTisyfdlkfz77CacBkfrypuInLd/qSwu34QWTSlvKBxFouVUARlmvjOFn5nWVNdr37BnP2BwnWeo7YA==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -648,8 +648,8 @@ packages:
     resolution: {integrity: sha512-XTWVxnWJu+c1oCshMLwnKvz8ZQJJDVOlciMfgpJBQbThVjKTCG8dwyhgLngBD2KN0ap9F/gOV8rFDEx8uh7R2A==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  '@sigstore/protobuf-specs@0.3.1':
-    resolution: {integrity: sha512-aIL8Z9NsMr3C64jyQzE0XlkEyBLpgEJJFDHLVVStkFV5Q3Il/r/YtY6NJWKQ4cy4AE7spP1IX5Jq7VCAxHHMfQ==}
+  '@sigstore/protobuf-specs@0.3.2':
+    resolution: {integrity: sha512-c6B0ehIWxMI8wiS/bj6rHMPqeFvngFV7cDU/MY+B16P9Z3Mp9k8L93eYZ7BYzSickzuqAQqAq0V956b3Ju6mLw==}
     engines: {node: ^16.14.0 || >=18.0.0}
 
   '@sigstore/sign@1.0.0':
@@ -3447,7 +3447,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@cabloy/process-helper@1.0.3': {}
+  '@cabloy/process-helper@1.0.4': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -3956,13 +3956,13 @@ snapshots:
 
   '@sigstore/bundle@2.3.1':
     dependencies:
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
 
   '@sigstore/core@1.1.0': {}
 
   '@sigstore/protobuf-specs@0.2.1': {}
 
-  '@sigstore/protobuf-specs@0.3.1': {}
+  '@sigstore/protobuf-specs@0.3.2': {}
 
   '@sigstore/sign@1.0.0':
     dependencies:
@@ -3976,7 +3976,7 @@ snapshots:
     dependencies:
       '@sigstore/bundle': 2.3.1
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
       make-fetch-happen: 13.0.1
       proc-log: 4.2.0
       promise-retry: 2.0.1
@@ -3992,7 +3992,7 @@ snapshots:
 
   '@sigstore/tuf@2.3.3':
     dependencies:
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
       tuf-js: 2.2.1
     transitivePeerDependencies:
       - supports-color
@@ -4001,7 +4001,7 @@ snapshots:
     dependencies:
       '@sigstore/bundle': 2.3.1
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -6442,7 +6442,7 @@ snapshots:
     dependencies:
       '@sigstore/bundle': 2.3.1
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
       '@sigstore/sign': 2.3.1
       '@sigstore/tuf': 2.3.3
       '@sigstore/verify': 1.2.0
