@@ -1,4 +1,4 @@
-import { BeanCliBase, CmdOptions } from '@cabloy/cli';
+import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
 import { __ThisSetName__ } from '../this.js';
@@ -8,11 +8,7 @@ declare module '@cabloy/cli' {
     module: string;
     moduleInfo: IModuleInfo;
     componentName: string;
-    componentNameShort: string;
-    componentNameShortCapitalize: string;
-    componentNameFull: string;
-    componentNameFullCapitalize: string;
-    componentNameParts: string[];
+    nameMeta: NameMeta;
   }
 }
 
@@ -40,12 +36,8 @@ export class CliCreateComponentBase extends BeanCliBase {
     const targetDir = await this.helper.ensureDir(_module.root);
     // componentName
     const componentName = argv.componentName;
-    // componentName2
-    argv.componentNameParts = componentName.split('/');
-    argv.componentNameShort = argv.componentNameParts[argv.componentNameParts.length - 1];
-    argv.componentNameShortCapitalize = this.helper.firstCharToUpperCase(argv.componentNameShort);
-    argv.componentNameFullCapitalize = this.helper.stringToCapitalize(componentName, '/');
-    argv.componentNameFull = this.helper.firstCharToLowerCase(argv.componentNameFullCapitalize);
+    // nameMeta
+    argv.nameMeta = this.helper.parseNameMeta(componentName);
     // directory
     let componentDir = path.join(targetDir, 'src/component');
     componentDir = path.join(componentDir, componentName);
