@@ -1,5 +1,5 @@
 import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPage<%=argv.pageNameFullCapitalize%> } from './render.jsx';
+import { RenderPage<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.pageNameParts.length+1)%>resource/this.js';
 
 export interface Params {}
@@ -7,9 +7,9 @@ export interface Params {}
 export interface Query {}
 
 @Local()
-export class MotherPage<%=argv.pageNameFullCapitalize%> extends BeanMotherPageBase<ScopeModule> {
+export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule> {
   @Use()
-  $$render: RenderPage<%=argv.pageNameFullCapitalize%>;
+  $$render: RenderPage<%=argv.nameMeta.fullCapitalize%>;
 
   protected async __init__() {}
 

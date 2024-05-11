@@ -1,9 +1,9 @@
 const __snippet_export =
-  "export * as NSMotherPage<%=argv.pageNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "export * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
 const __snippet_import =
-  "import * as NSMotherPage<%=argv.pageNameFullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "import * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
 const __snippet_interface =
-  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSMotherPage<%=argv.pageNameFullCapitalize%>.Query;\n";
+  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSMotherPage<%=argv.nameMeta.fullCapitalize%>.Query;\n";
 
 module.exports = {
   file: 'src/resource/pages.ts',

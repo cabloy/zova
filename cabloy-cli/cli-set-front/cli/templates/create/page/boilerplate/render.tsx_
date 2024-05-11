@@ -1,11 +1,11 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPage<%=argv.pageNameFullCapitalize%> } from './mother.js';
+import type { MotherPage<%=argv.nameMeta.fullCapitalize%> } from './mother.js';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.pageNameParts.length+1)%>resource/this.js';
 
-export interface RenderPage<%=argv.pageNameFullCapitalize%> extends MotherPage<%=argv.pageNameFullCapitalize%> {}
+export interface RenderPage<%=argv.nameMeta.fullCapitalize%> extends MotherPage<%=argv.nameMeta.fullCapitalize%> {}
 
 @Local()
-export class RenderPage<%=argv.pageNameFullCapitalize%> extends BeanRenderBase<ScopeModule> {
+export class RenderPage<%=argv.nameMeta.fullCapitalize%> extends BeanRenderBase<ScopeModule> {
   render() {
     return <div></div>;
   }

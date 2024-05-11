@@ -4,6 +4,6 @@
 
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
-import { MotherPage<%=argv.pageNameFullCapitalize%> } from './mother.js';
-useMother(MotherPage<%=argv.pageNameFullCapitalize%>);
+import { MotherPage<%=argv.nameMeta.fullCapitalize%> } from './mother.js';
+useMother(MotherPage<%=argv.nameMeta.fullCapitalize%>);
 </script>
