@@ -21,64 +21,17 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 - `不用ref.value`：因为在 Cabloy-Front 中定义响应式变量更加直观，不再需要 ref 语义
 - `不用pinia`：因为 Cabloy-Front 提供了 IOC 容器，可以更加灵活的定义和使用全局对象
 
-## 演示
+## 动图演示
 
 ![No ref/reactive](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/state-no-ref-reactive.gif)
 
 ## 代码风格演示
 
-为了演示 Cabloy-Front 的代码风格，下面开发一个简单的页面组件：
-
-### 1. 文件结构
-
-在 Cabloy-Front 中，一个页面组件被切分为三个文件。现在我们通过一个 cli 命令来创建一个页面组件`counter`:
-
-```bash
-$ cabloy front:create:page counter
-```
-
-```
-src
-└─ page
-   └─ counter
-      ├─ index.vue
-      ├─ mother.ts
-      └─ render.tsx
-```
-
-| 名称       | 说明                      |
-| ---------- | ------------------------- |
-| index.vue  | 用于定义vue组件           |
-| mother.ts  | 用于代码逻辑的 local bean |
-| render.tsx | 用于渲染逻辑的 local bean |
-
-### 2. index.vue
-
-```vue
-<template>
-  <template></template>
-</template>
-
-<script setup lang="ts">
-import { useMother } from '@cabloy/front';
-import { MotherPageCounter } from './mother.js';
-useMother(MotherPageCounter);
-</script>
-```
-
-1. 只需在`index.vue`中引入`mother`bean 即可
-
-### 3. mother.ts
+### 1. 定义响应式变量
 
 ```typescript
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageCounter } from './render.jsx';
-
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageCounter;
-
   counter: number = 0;
 
   inrement() {
@@ -91,19 +44,9 @@ export class MotherPageCounter extends BeanMotherPageBase {
 }
 ```
 
-1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
-2. 使用`@Use`注入`render`bean
-3. 定义一个响应式属性：`counter`，类型为`number`
-4. 直接用原生 js 代码来修改`counter`的值
-
-### 4. render.tsx
+### 2. 使用响应式变量
 
 ```typescript
-import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageCounter } from './mother.js';
-
-export interface RenderPageCounter extends MotherPageCounter { }
-
 @Local()
 export class RenderPageCounter extends BeanRenderBase {
   render() {
@@ -117,7 +60,3 @@ export class RenderPageCounter extends BeanRenderBase {
   }
 }
 ```
-
-1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
-2. 在`render`方法中使用`tsx`语法书写渲染逻辑
-3. 直接用原生 js 代码来获取`counter`的值

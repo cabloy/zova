@@ -25,66 +25,17 @@ Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.
 - `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
 - `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
 
-## Demonstration
+## Gif demonstration
 
 ![No ref/reactive](../cabloy-docs/assets/img/state-no-ref-reactive.gif)
 
 ## Code style demonstration
 
-To demonstrate the coding style of Cabloy-Front, we will develop a simple page component as follows:
-
-### 1. file structure
-
-In Cabloy-Front, a page component will be splited to three files. Now we create a page component named as `counter` through a cli command:
-
-```bash
-$ cabloy front:create:page counter
-```
-
-The created file structure as follows:
-
-```
-src
-└─ page
-   └─ counter
-      ├─ index.vue
-      ├─ mother.ts
-      └─ render.tsx
-```
-
-| Name       | Description                 |
-| ---------- | --------------------------- |
-| index.vue  | define vue component        |
-| mother.ts  | local bean for logic codes  |
-| render.tsx | local bean for render codes |
-
-### 2. index.vue
-
-```vue
-<template>
-  <template></template>
-</template>
-
-<script setup lang="ts">
-import { useMother } from '@cabloy/front';
-import { MotherPageCounter } from './mother.js';
-useMother(MotherPageCounter);
-</script>
-```
-
-1. Just import and use the `mother` bean in `index.vue` as well
-
-### 3. mother.ts
+### 1. Define reactive variable
 
 ```typescript
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageCounter } from './render.jsx';
-
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageCounter;
-
   counter: number = 0;
 
   inrement() {
@@ -97,19 +48,9 @@ export class MotherPageCounter extends BeanMotherPageBase {
 }
 ```
 
-1. Define `mother` as a local bean using `@Local` to register it in the ioc container
-2. Inject the `render` bean using `@Use`
-3. Define a reactive state: `counter` of type `number`
-4. Directly modify the value of `counter` by vanilla javascript
-
-### 4. render.tsx
+### 2. Use reactive variable
 
 ```typescript
-import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageCounter } from './mother.js';
-
-export interface RenderPageCounter extends MotherPageCounter { }
-
 @Local()
 export class RenderPageCounter extends BeanRenderBase {
   render() {
@@ -123,10 +64,6 @@ export class RenderPageCounter extends BeanRenderBase {
   }
 }
 ```
-
-1. Define `render` as a local bean using `@Local` to register it in the ioc container
-2. Write rendering logic using the `tsx` syntax in the `render` method
-3. Directly obtain the value of `counter` by vanilla javascript
 
 ## Stay In Touch
 
