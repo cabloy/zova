@@ -46,7 +46,8 @@
     "@cabloy/vue-runtime-core": "^3.4.29",
     "@vue/reactivity": "^3.4.27",
     "reflect-metadata": "^0.2.2",
-    "vue": "^3.4.27"
+    "vue": "^3.4.27",
+    "zod":"^3.23.8"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
