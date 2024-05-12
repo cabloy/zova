@@ -1,5 +1,5 @@
-import { ReturnTypeHook, TypePageSchemas } from '@cabloy/front';
-import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw, useRoute } from 'vue-router';
+import { TypePageSchemas } from '@cabloy/front';
+import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
 export type Lazy<T> = () => Promise<T>;
@@ -17,7 +17,6 @@ declare module 'vue-router' {
 declare module '@cabloy/front' {
   export interface BeanBase {
     $router: StoreRouterLike;
-    $route: ReturnTypeHook<typeof useRoute>;
   }
 
   export interface IModuleResource {
