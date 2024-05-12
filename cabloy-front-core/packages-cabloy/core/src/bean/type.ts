@@ -19,5 +19,5 @@ export interface IMotherDataContext {
 
 export interface IMotherData {
   props?: unknown;
-  context?: IMotherDataContext;
+  context: IMotherDataContext;
 }

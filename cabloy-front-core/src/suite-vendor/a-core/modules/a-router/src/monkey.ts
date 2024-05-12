@@ -1,8 +1,20 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IModule, IMonkeyModule, IMonkeySystem } from '@cabloy/front';
+import {
+  BeanBase,
+  BeanContainerLike,
+  BeanMotherBase,
+  BeanMotherPageBase,
+  BeanSimple,
+  IModule,
+  IMonkeyModule,
+  IMonkeyMother,
+  IMonkeySystem,
+  IMotherData,
+  useComputed,
+} from '@cabloy/front';
 import { useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
-export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule {
+export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyMother {
   private _storeRouter: StoreRouterLike;
   private _moduleSelf: IModule;
 
@@ -50,4 +62,19 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule {
   }
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}
+  motherDataPrepare(motherData: IMotherData) {
+    motherData.context.route = useRoute();
+  }
+  motherDataInit(motherData: IMotherData, mother: BeanMotherBase) {
+    // only for mother page
+    if (mother instanceof BeanMotherPageBase) {
+      const route = motherData.context.route;
+      mother.$params = useComputed(() => {
+        return route?.params;
+      });
+      mother.$query = useComputed(() => {
+        return route?.query;
+      });
+    }
+  }
 }

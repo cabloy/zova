@@ -1,5 +1,5 @@
 import { ReturnTypeHook } from '@cabloy/front';
-import { RouteComponent, RouteRecordRaw, useRoute } from 'vue-router';
+import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw, useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
 export type Lazy<T> = () => Promise<T>;
@@ -22,5 +22,9 @@ declare module '@cabloy/front' {
 
   export interface IModuleResource {
     routes: IModuleRoute[];
+  }
+
+  export interface IMotherDataContext {
+    route: RouteLocationNormalizedLoaded;
   }
 }
