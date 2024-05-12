@@ -49,8 +49,31 @@ export class StoreRouter extends BeanBase {
   }
 
   public resolveName<K extends keyof IPageNameRecord>(name: K, options?: IPageNameRecord[K]): string {
-    const route = this[SymbolRouter].resolve({ name, params: Cast(options)?.params, query: Cast(options)?.query });
-    return route.fullPath;
+    const params = Cast(options)?.params;
+    const query = Cast(options)?.query;
+    const query1 = {};
+    const query2: any = [];
+    if (query) {
+      for (const key in query) {
+        const value = query[key];
+        if (value && typeof value === 'object') {
+          query2.push([key, value]);
+        } else {
+          query1[key] = value;
+        }
+      }
+    }
+    // resolve
+    const route = this[SymbolRouter].resolve({ name, params, query: query1 });
+    // query2
+    const query2str = query2
+      .map(([key, value]) => {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
+      })
+      .join('&');
+    // join
+    const join = Object.keys(query1).length > 0 ? '&' : '?';
+    return `${route.fullPath}${join}${query2str}`;
   }
 
   public resolvePath<K extends keyof IPagePathRecord>(path: K, query?: IPagePathRecord[K]): string {
