@@ -10,7 +10,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class MotherLayoutEmpty extends BeanMotherBase<Props, Emits, Slots> {
+export class MotherLayoutEmpty extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {
     name: '',
   };

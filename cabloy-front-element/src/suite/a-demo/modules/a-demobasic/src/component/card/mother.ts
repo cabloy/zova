@@ -19,7 +19,7 @@ export interface Slots {
 }
 
 @Local()
-export class MotherCard extends BeanMotherBase<Props, Emits, Slots> {
+export class MotherCard extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {
     header: 'default header',
   };

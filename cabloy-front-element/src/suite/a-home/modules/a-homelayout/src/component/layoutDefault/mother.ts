@@ -19,7 +19,7 @@ export type TypeMenuItem = {
 };
 
 @Local()
-export class MotherLayoutDefault extends BeanMotherBase<Props, Emits, Slots> {
+export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
 
   @Use()

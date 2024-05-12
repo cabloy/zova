@@ -14,7 +14,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class MotherEssentialLink extends BeanMotherBase<Props, Emits, Slots> {
+export class MotherEssentialLink extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {
     caption: '',
     icon: '',
