@@ -64,20 +64,20 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     if (mother instanceof BeanMotherPageBase) {
       const route = motherData.context.route;
       const schemaKey = String(route.name || route.path);
-      let schemas: TypePageSchema;
+      let schemas: TypePageSchema | undefined;
       const moduleName = ModuleInfo.parseName(schemaKey)!;
       const module = this.app.meta.module.get(moduleName)!;
       if (route.name) {
-        schemas = module.resource.pageNameSchemas[schemaKey];
+        schemas = module.resource.pageNameSchemas?.[schemaKey];
       } else {
-        schemas = module.resource.pagePathSchemas[schemaKey];
+        schemas = module.resource.pagePathSchemas?.[schemaKey];
       }
       mother.$params = useComputed(() => {
-        if (!schemas.params) throw new Error(`page params schema not found: ${schemaKey}`);
+        if (!schemas?.params) throw new Error(`page params schema not found: ${schemaKey}`);
         return schemas.params.parse(route.params);
       });
       mother.$query = useComputed(() => {
-        if (!schemas.query) throw new Error(`page query schema not found: ${schemaKey}`);
+        if (!schemas?.query) throw new Error(`page query schema not found: ${schemaKey}`);
         return schemas.query.parse(route.query);
       });
     }

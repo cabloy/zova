@@ -28,7 +28,7 @@ declare module '@cabloy/front' {
   }
 
   export interface IModuleResource {
-    pagePathSchemas: TypePageSchemas;
-    pageNameSchemas: TypePageSchemas;
+    pagePathSchemas?: TypePageSchemas;
+    pageNameSchemas?: TypePageSchemas;
   }
 }
