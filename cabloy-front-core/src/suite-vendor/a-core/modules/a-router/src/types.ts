@@ -1,4 +1,4 @@
-import { ReturnTypeHook } from '@cabloy/front';
+import { ReturnTypeHook, TypePageSchemas } from '@cabloy/front';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw, useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
@@ -26,5 +26,10 @@ declare module '@cabloy/front' {
 
   export interface IMotherDataContext {
     route: RouteLocationNormalizedLoaded;
+  }
+
+  export interface IModuleResource {
+    pagePathSchemas: TypePageSchemas;
+    pageNameSchemas: TypePageSchemas;
   }
 }

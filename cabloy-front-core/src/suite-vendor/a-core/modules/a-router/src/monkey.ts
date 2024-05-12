@@ -9,8 +9,10 @@ import {
   IMonkeyMother,
   IMonkeySystem,
   IMotherData,
+  TypePageSchema,
   useComputed,
 } from '@cabloy/front';
+import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
@@ -69,11 +71,22 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     // only for mother page
     if (mother instanceof BeanMotherPageBase) {
       const route = motherData.context.route;
+      const schemaKey = String(route.name || route.path);
+      let schemas: TypePageSchema;
+      const moduleName = ModuleInfo.parseName(schemaKey)!;
+      const module = this.app.meta.module.get(moduleName)!;
+      if (route.name) {
+        schemas = module.resource.pageNameSchemas[schemaKey];
+      } else {
+        schemas = module.resource.pagePathSchemas[schemaKey];
+      }
       mother.$params = useComputed(() => {
-        return route?.params;
+        if (!schemas.params) throw new Error(`page params schema not found: ${schemaKey}`);
+        return schemas.params.parse(route.params);
       });
       mother.$query = useComputed(() => {
-        return route?.query;
+        if (!schemas.query) throw new Error(`page query schema not found: ${schemaKey}`);
+        return schemas.query.parse(route.query);
       });
     }
   }
