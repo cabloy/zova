@@ -1,8 +1,8 @@
 import { IModule } from '@cabloy/module-info';
 import { BeanBase } from '../../bean/beanBase.js';
 import { BeanContainerLike } from '../../bean/beanContainer.js';
-import { IMotherData } from '@cabloy/front';
 import { BeanMotherBase } from '../../bean/beanMotherBase.js';
+import { IMotherData } from '../../bean/type.js';
 
 export type TypeMonkeyName = keyof IMonkeyModule | keyof IMonkeySystem | keyof IMonkeyMother;
 
