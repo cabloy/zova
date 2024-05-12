@@ -3,7 +3,7 @@ const __snippet_export =
 const __snippet_import =
   "import * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
 const __snippet_iPagePathRecord =
-  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': TypePageParamsQuery<NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QueryInput>;\n";
+  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QueryInput;\n";
 const __snippet_pagePathSchemas = `'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': {
     query: NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QuerySchema,
   },
@@ -11,7 +11,7 @@ const __snippet_pagePathSchemas = `'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo
 
 module.exports = {
   file: 'src/resource/pages.ts',
-  init: `import { TypePageParamsQuery } from "@cabloy/front";
+  init: `// import { TypePageParamsQuery } from "@cabloy/front";
 declare module "@cabloy/front" {
   export interface IPagePathRecord {}
   export interface IPageNameRecord {
