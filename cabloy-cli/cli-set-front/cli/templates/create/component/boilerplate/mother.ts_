@@ -11,7 +11,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class Mother<%=argv.nameMeta.fullCapitalize%> extends BeanMotherBase<Props, Emits, Slots, ScopeModule> {
+export class Mother<%=argv.nameMeta.fullCapitalize%> extends BeanMotherBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {
     name: '',
   };
