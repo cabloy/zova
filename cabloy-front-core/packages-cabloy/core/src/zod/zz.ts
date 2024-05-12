@@ -28,7 +28,7 @@ export function date(...args: Parameters<typeof z.coerce.date>) {
 // bool
 export function bool(defaultValue?: boolean) {
   return z.preprocess(val => {
-    if (val === undefined) return Boolean(defaultValue);
+    if (val === undefined) return defaultValue;
     if (val === 'false') return false;
     return Boolean(val);
   }, z.boolean().optional());
