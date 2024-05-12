@@ -11,7 +11,13 @@ export type TypeBeanScopeConfigKeys = keyof IBeanScopeConfig;
 export interface IBeanScopeLocale {}
 export type TypeBeanScopeLocaleKeys = keyof IBeanScopeLocale;
 
-export interface IMotherParams {
-  props?: object;
-  context?: { emit?: any };
+export interface IMotherDataContext {
+  attrs?: unknown;
+  emit?: unknown;
+  slots?: object;
+}
+
+export interface IMotherData {
+  props?: unknown;
+  context?: IMotherDataContext;
 }

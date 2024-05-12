@@ -1,12 +1,13 @@
 import { markRaw } from 'vue';
 import { BeanBase } from './beanBase.js';
+import { IMotherData } from './type.js';
 
 type Data = Record<string, unknown>;
 
 export class BeanMotherBase<
   Props = unknown,
   Emits = unknown,
-  Slots = {},
+  Slots = unknown,
   TScopeModule = unknown,
 > extends BeanBase<TScopeModule> {
   public $props: Props;
@@ -14,11 +15,11 @@ export class BeanMotherBase<
   public $slots: Slots;
   public $emit: Emits;
 
-  // @ts-ignore: ignore
-  private __initMotherParams(motherParams) {
-    this.$props = motherParams.props;
-    this.$attrs = markRaw(motherParams.context?.attrs);
-    this.$slots = markRaw(motherParams.context?.slots);
-    this.$emit = motherParams.context?.emit;
+  /** @internal */
+  public __initMotherParams(motherParams: IMotherData) {
+    this.$props = motherParams.props as Props;
+    this.$attrs = markRaw(motherParams.context?.attrs || {}) as Data;
+    this.$slots = markRaw(motherParams.context?.slots || {}) as Slots;
+    this.$emit = motherParams.context?.emit as Emits;
   }
 }
