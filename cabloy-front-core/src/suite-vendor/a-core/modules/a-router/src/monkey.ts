@@ -46,13 +46,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
         return bean.inject('a-router:router');
       },
     });
-    bean.defineProperty(beanInstance, '$route', {
-      enumerable: false,
-      configurable: true,
-      get() {
-        return useRoute();
-      },
-    });
   }
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
