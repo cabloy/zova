@@ -225,4 +225,45 @@ export class AppModule extends BeanSimple {
       });
     }
   }
+
+  /** @internal */
+  public _monkeyModuleSync(monkeyName: TypeMonkeyName, moduleTarget?: IModule, ...monkeyData: any[]) {
+    // self: main
+    if (moduleTarget && moduleTarget.mainInstance && moduleTarget.mainInstance[monkeyName]) {
+      // @ts-ignore ignore
+      this.app.vue.runWithContext(() => {
+        moduleTarget.mainInstance[monkeyName](...monkeyData);
+      });
+    }
+    // module monkey
+    for (const key of this.modulesMeta.moduleNames) {
+      const moduleMonkey: IModule = this.modulesMeta.modules[key];
+      if (moduleMonkey.info.monkey) {
+        if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
+          this.app.vue.runWithContext(() => {
+            if (moduleTarget === undefined) {
+              // @ts-ignore ignore
+              moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
+            } else {
+              // @ts-ignore ignore
+              moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
+            }
+          });
+        }
+      }
+    }
+    // app monkey
+    const appMonkey = this.app.meta.appMonkey;
+    if (appMonkey && appMonkey[monkeyName]) {
+      this.app.vue.runWithContext( () => {
+        if (moduleTarget === undefined) {
+          // @ts-ignore ignore
+          appMonkey[monkeyName](...monkeyData);
+        } else {
+          // @ts-ignore ignore
+          appMonkey[monkeyName](moduleTarget, ...monkeyData);
+        }
+      });
+    }
+  }
 }
