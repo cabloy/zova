@@ -1,13 +1,17 @@
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
+import { BeanMotherPageBase, Local, Use, zz } from '@cabloy/front';
 import { RenderPage<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
-export interface Params {}
+export const ParamsSchema = zz.object({});
+export type ParamsInput = zz.input<typeof ParamsSchema>;
+export type ParamsOutput = zz.output<typeof ParamsSchema>;
 
-export interface Query {}
+export const QuerySchema = zz.object({});
+export type QueryInput = zz.input<typeof QuerySchema>;
+export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
-export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule> {
+export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule, ParamsOutput, QueryOutput> {
   @Use()
   $$render: RenderPage<%=argv.nameMeta.fullCapitalize%>;
 
