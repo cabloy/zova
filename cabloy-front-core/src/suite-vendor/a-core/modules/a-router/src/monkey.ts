@@ -1,7 +1,6 @@
 import {
   BeanBase,
   BeanContainerLike,
-  BeanMotherBase,
   BeanMotherPageBase,
   BeanSimple,
   IModule,
@@ -60,7 +59,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   motherDataPrepare(motherData: IMotherData) {
     motherData.context.route = useRoute();
   }
-  motherDataInit(motherData: IMotherData, mother: BeanMotherBase) {
+  motherDataInit(motherData: IMotherData, mother: BeanBase) {
     // only for mother page
     if (mother instanceof BeanMotherPageBase) {
       const route = motherData.context.route;

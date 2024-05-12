@@ -1,7 +1,6 @@
 import {
   BeanBase,
   BeanContainerLike,
-  BeanMotherBase,
   BeanSimple,
   IModule,
   IMonkeyApp,
@@ -21,5 +20,5 @@ export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, 
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   motherDataPrepare(_motherData: IMotherData) {}
-  motherDataInit(_motherData: IMotherData, _mother: BeanMotherBase) {}
+  motherDataInit(_motherData: IMotherData, _mother: BeanBase) {}
 }
