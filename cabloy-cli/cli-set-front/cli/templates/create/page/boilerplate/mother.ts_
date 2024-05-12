@@ -11,7 +11,7 @@ export type QueryInput = zz.input<typeof QuerySchema>;
 export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
-export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule, ParamsOutput, QueryOutput> {
+export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
   $$render: RenderPage<%=argv.nameMeta.fullCapitalize%>;
 
