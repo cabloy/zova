@@ -42,7 +42,7 @@
     "@cabloy/extend": "^3.0.5",
     "@cabloy/last-word": "^1.0.12",
     "@cabloy/localeutil": "^1.0.4",
-    "@cabloy/module-info": "^1.0.12",
+    "@cabloy/module-info": "^1.0.13",
     "@cabloy/vue-runtime-core": "^3.4.29",
     "@vue/reactivity": "^3.4.27",
     "reflect-metadata": "^0.2.2",
