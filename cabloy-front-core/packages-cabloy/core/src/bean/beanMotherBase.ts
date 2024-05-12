@@ -16,10 +16,10 @@ export class BeanMotherBase<
   public $emit: Emits;
 
   /** @internal */
-  public __initMotherParams(motherParams: IMotherData) {
-    this.$props = motherParams.props as Props;
-    this.$attrs = markRaw(motherParams.context?.attrs || {}) as Data;
-    this.$slots = markRaw(motherParams.context?.slots || {}) as Slots;
-    this.$emit = motherParams.context?.emit as Emits;
+  public __initMotherData(motherData: IMotherData) {
+    this.$props = motherData.props as Props;
+    this.$attrs = markRaw(motherData.context?.attrs || {}) as Data;
+    this.$slots = markRaw(motherData.context?.slots || {}) as Slots;
+    this.$emit = motherData.context?.emit as Emits;
   }
 }

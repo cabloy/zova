@@ -3,7 +3,7 @@ import { CabloyApplication, CabloyContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
-import { IBeanRecord, IBeanScopeRecord, IMotherParams, TypeBeanScopeRecordKeys } from './type.js';
+import { IBeanRecord, IBeanScopeRecord, IMotherData, TypeBeanScopeRecordKeys } from './type.js';
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
@@ -247,7 +247,7 @@ export class BeanContainer {
   public async _newBeanInner<T>(
     record: boolean,
     recordProp: MetadataKey | null,
-    motherParams: any,
+    motherData: any,
     beanHook: Functionable | undefined,
     beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
@@ -258,7 +258,7 @@ export class BeanContainer {
       return await this._createBeanInstance<T>(
         record,
         recordProp,
-        motherParams,
+        motherData,
         beanHook,
         undefined,
         undefined,
@@ -275,7 +275,7 @@ export class BeanContainer {
         return await this._createBeanInstance<T>(
           record,
           recordProp,
-          motherParams,
+          motherData,
           undefined,
           undefined,
           beanFullName,
@@ -291,7 +291,7 @@ export class BeanContainer {
     return await this._createBeanInstance<T>(
       record,
       recordProp,
-      motherParams,
+      motherData,
       undefined,
       beanOptions.beanFullName,
       beanOptions.beanClass as Constructable<T>,
@@ -335,7 +335,7 @@ export class BeanContainer {
   private async _createBeanInstance<T>(
     record: boolean,
     recordProp: MetadataKey | null,
-    motherParams: IMotherParams,
+    motherData: IMotherData,
     beanHook: Functionable | undefined,
     beanFullName: string | undefined,
     beanClass: Constructable<T> | undefined,
@@ -346,8 +346,8 @@ export class BeanContainer {
     // prepare
     const beanInstance = this._prepareBeanInstance(beanHook, beanFullName, beanClass, args, aop, markReactive);
     // special for mother
-    if (motherParams) {
-      beanInstance.__initMotherParams(motherParams);
+    if (motherData) {
+      beanInstance.__initMotherData(motherData);
     }
     // record
     if (record) {
