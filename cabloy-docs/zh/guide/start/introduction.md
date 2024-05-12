@@ -27,7 +27,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ## 代码风格演示
 
-### 1. 定义响应式变量
+### 1. 定义响应式状态
 
 ```typescript
 @Local()
@@ -44,7 +44,7 @@ export class MotherPageCounter extends BeanMotherPageBase {
 }
 ```
 
-### 2. 使用响应式变量
+### 2. 使用响应式状态
 
 ```typescript
 @Local()
