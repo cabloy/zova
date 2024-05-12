@@ -30,7 +30,7 @@ export function bool(...args: Parameters<typeof z.boolean>) {
   return z.preprocess(
     val => {
       if (val === undefined) return undefined;
-      if (val === 'false') return false;
+      if (val === 'false' || val === 'undefined' || val === 'null' || val === '0') return false;
       return Boolean(val);
     },
     z.boolean(...args),
