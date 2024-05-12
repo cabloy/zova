@@ -31,7 +31,7 @@ Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.
 
 ## Code style demonstration
 
-### 1. Define reactive variable
+### 1. Define reactive state
 
 ```typescript
 @Local()
@@ -48,7 +48,7 @@ export class MotherPageCounter extends BeanMotherPageBase {
 }
 ```
 
-### 2. Use reactive variable
+### 2. Use reactive state
 
 ```typescript
 @Local()

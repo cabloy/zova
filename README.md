@@ -40,7 +40,7 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 ## Code style demonstration
 
-### 1. Define reactive variable
+### 1. Define reactive state
 
 ```typescript
 @Local()
@@ -57,7 +57,7 @@ export class MotherPageCounter extends BeanMotherPageBase {
 }
 ```
 
-### 2. Use reactive variable
+### 2. Use reactive state
 
 ```typescript
 @Local()
