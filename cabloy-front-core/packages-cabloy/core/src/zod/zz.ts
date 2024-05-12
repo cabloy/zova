@@ -26,23 +26,31 @@ export function date(...args: Parameters<typeof z.coerce.date>) {
 }
 
 // bool
-export function bool(defaultValue?: boolean) {
-  return z.preprocess(val => {
-    if (val === undefined) return defaultValue;
-    if (val === 'false') return false;
-    return Boolean(val);
-  }, z.boolean().optional());
+export function bool(...args: Parameters<typeof z.boolean>) {
+  return z.preprocess(
+    val => {
+      if (val === undefined) return undefined;
+      if (val === 'false') return false;
+      return Boolean(val);
+    },
+    z.boolean(...args),
+  );
 }
 
 // json
 export function json<T extends ZodRawShape>(shape: T, params?: RawCreateParams) {
-  return z.preprocess(val => {
-    // also undefined even val is 'null'
-    if (!val) return undefined;
-    if (val === 'undefined' || val === 'null') return undefined;
-    return JSON.parse(String(val));
-  }, z.object(shape, params).optional());
+  return z.preprocess(
+    val => {
+      // also undefined even val is 'null'
+      if (!val) return undefined;
+      if (val === 'undefined' || val === 'null') return undefined;
+      return JSON.parse(String(val));
+    },
+    z.object(shape, params),
+  );
 }
 
 // infer
 export type infer<T extends ZodType<any, any, any>> = z.infer<T>;
+export type input<T extends ZodType<any, any, any>> = z.input<T>;
+export type output<T extends ZodType<any, any, any>> = z.output<T>;
