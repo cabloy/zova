@@ -5,10 +5,10 @@ import { IMotherData } from './type.js';
 type Data = Record<string, unknown>;
 
 export class BeanMotherBase<
+  TScopeModule = unknown,
   Props = unknown,
   Emits = unknown,
   Slots = unknown,
-  TScopeModule = unknown,
 > extends BeanBase<TScopeModule> {
   public $props: Props;
   public $emit: Emits;
