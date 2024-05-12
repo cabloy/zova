@@ -8,4 +8,5 @@ export type TypePageParamsQuery<P, Q> = {
   query?: Q;
 };
 
-export type TypePageSchemas = Record<string, { params?: z.ZodTypeAny; query: z.ZodTypeAny }>;
+export type TypePageSchema = { params?: z.ZodTypeAny; query: z.ZodTypeAny };
+export type TypePageSchemas = Record<string, TypePageSchema>;
