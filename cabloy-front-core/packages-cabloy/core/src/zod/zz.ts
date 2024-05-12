@@ -1,12 +1,4 @@
-import { z, ZodType } from 'zod';
-
-// array/object
-export function array(...args: Parameters<typeof z.array>) {
-  return z.array(...args);
-}
-export function object(...args: Parameters<typeof z.object>) {
-  return z.object(...args);
-}
+import { z } from 'zod';
 
 // coerce
 export function string(...args: Parameters<typeof z.coerce.string>) {
@@ -33,6 +25,3 @@ export function bool(defaultValue?: boolean) {
     return Boolean(val);
   }, z.boolean().optional());
 }
-
-// infer
-export type infer<T extends ZodType<any, any, any>> = z.infer<T>;
