@@ -21,5 +21,6 @@ export class BeanMotherBase<
     this.$attrs = markRaw(motherData.context?.attrs || {}) as Data;
     this.$slots = markRaw(motherData.context?.slots || {}) as Slots;
     this.$emit = motherData.context?.emit as Emits;
+    this.app.meta.module._monkeyModuleSync('motherDataInit', undefined, motherData, this);
   }
 }

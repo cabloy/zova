@@ -14,16 +14,13 @@ export function useMother<T>(beanFullName: Constructable<T> | string, props?, em
   const attrs = useAttrs();
   // slots
   const slots = useSlots();
+  // motherData
+  const motherData = { props, context: { attrs, slots, emit } };
+  // monkey
+  ctx.app.meta.module._monkeyModuleSync('motherDataPrepare', undefined, motherData);
   // mother
   onMounted(async () => {
-    await ctx.bean._newBeanInner(
-      true,
-      '$$mother',
-      { props, context: { attrs, slots, emit } },
-      undefined,
-      beanFullName,
-      true,
-    );
+    await ctx.bean._newBeanInner(true, '$$mother', motherData, undefined, beanFullName, true);
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {
