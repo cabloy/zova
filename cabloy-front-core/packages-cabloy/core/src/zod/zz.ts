@@ -34,5 +34,15 @@ export function bool(defaultValue?: boolean) {
   }, z.boolean().optional());
 }
 
+// json
+export function json<T extends ZodRawShape>(shape: T, params?: RawCreateParams) {
+  return z.preprocess(val => {
+    // also undefined even val is 'null'
+    if (!val) return undefined;
+    if (val === 'undefined' || val === 'null') return undefined;
+    return JSON.parse(String(val));
+  }, z.object(shape, params).optional());
+}
+
 // infer
 export type infer<T extends ZodType<any, any, any>> = z.infer<T>;
