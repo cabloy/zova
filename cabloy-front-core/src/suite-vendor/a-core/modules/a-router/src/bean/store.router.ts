@@ -86,6 +86,7 @@ export class StoreRouter extends BeanBase {
       })
       .join('&');
     // join
+    if (!query2str) return fullPath;
     const join = Object.keys(query1).length > 0 ? '&' : '?';
     return `${fullPath}${join}${query2str}`;
   }
