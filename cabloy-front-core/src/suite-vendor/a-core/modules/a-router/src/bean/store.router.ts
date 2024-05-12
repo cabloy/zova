@@ -51,6 +51,20 @@ export class StoreRouter extends BeanBase {
   public resolveName<K extends keyof IPageNameRecord>(name: K, options?: IPageNameRecord[K]): string {
     const params = Cast(options)?.params;
     const query = Cast(options)?.query;
+    return this._resolveNameOrPath(query, query => {
+      const route = this[SymbolRouter].resolve({ name, params, query });
+      return route.fullPath;
+    });
+  }
+
+  public resolvePath<K extends keyof IPagePathRecord>(path: K, query?: IPagePathRecord[K]): string {
+    return this._resolveNameOrPath(query, query => {
+      const route = this[SymbolRouter].resolve({ path, query });
+      return route.fullPath;
+    });
+  }
+
+  private _resolveNameOrPath(query, fn) {
     const query1 = {};
     const query2: any = [];
     if (query) {
@@ -64,7 +78,7 @@ export class StoreRouter extends BeanBase {
       }
     }
     // resolve
-    const route = this[SymbolRouter].resolve({ name, params, query: query1 });
+    const fullPath = fn(query1);
     // query2
     const query2str = query2
       .map(([key, value]) => {
@@ -73,12 +87,7 @@ export class StoreRouter extends BeanBase {
       .join('&');
     // join
     const join = Object.keys(query1).length > 0 ? '&' : '?';
-    return `${route.fullPath}${join}${query2str}`;
-  }
-
-  public resolvePath<K extends keyof IPagePathRecord>(path: K, query?: IPagePathRecord[K]): string {
-    const route = this[SymbolRouter].resolve({ path, query: Cast(query) });
-    return route.fullPath;
+    return `${fullPath}${join}${query2str}`;
   }
 
   private _routerGuards(router: StoreRouterLike) {
