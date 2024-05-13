@@ -58,3 +58,28 @@ export class LocalTestA extends BeanBase<ScopeModule> {
   }
 }
 ```
+
+## Override Config
+
+You can use `project-level` Config to override `module-level` Config
+
+`src/front/config/config/config.ts`
+
+```typescript{8-10}
+import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
+
+export default function (_meta: CabloyConfigMeta) {
+  const config = {} as CabloyConfigOptional;
+
+  // module config
+  config.modules = {
+    'test-demo': {
+      prompt: 'Hello World!!!',
+    },
+  };
+
+  return config;
+}
+```
+
+- Change the `prompt` of the module `test-demo` to `Hello World!!!`
