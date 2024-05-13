@@ -1,6 +1,6 @@
 {
   "editor.tabSize": 2,
-  "editor.formatOnSave": false, // true,
+  "editor.formatOnSave": true, //false, // true,
   "files.eol": "\n",
   // typescript
   "typescript.disableAutomaticTypeAcquisition": false,
