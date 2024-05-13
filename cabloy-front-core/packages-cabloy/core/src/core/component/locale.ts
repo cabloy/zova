@@ -52,7 +52,7 @@ export class AppLocale extends BeanSimple {
     const getText = function (text: string, ...args: any[]): string {
       return self.getText(moduleScope, undefined, text, ...args);
     };
-    getText.locale = function <T extends keyof ILocalInfos> (
+    getText.locale = function <T extends keyof ILocalInfos>(
       locale: T | undefined,
       text: string,
       ...args: any[]
@@ -68,7 +68,7 @@ export class AppLocale extends BeanSimple {
     const getText = function (...args: any[]): string {
       return self.getText(moduleScope, undefined, text, ...args);
     };
-    getText.locale = function <T extends keyof ILocalInfos> (locale: T | undefined, ...args: any[]): string {
+    getText.locale = function <T extends keyof ILocalInfos>(locale: T | undefined, ...args: any[]): string {
       return self.getText(moduleScope, locale, text, ...args);
     };
     return getText;
