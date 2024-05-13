@@ -5,7 +5,7 @@ import { Constructable, IDecoratorUseOptions } from '../index.js';
 
 export function Use(options?: IDecoratorUseOptions): PropertyDecorator;
 export function Use<T extends keyof IBeanRecord>(beanFullName?: T): PropertyDecorator;
-export function Use(options?: string | IDecoratorUseOptions): PropertyDecorator {
+export function Use(options?: IDecoratorUseOptions | string): PropertyDecorator {
   return function (target: object, prop: MetadataKey) {
     if (!options) options = {};
     if (typeof options === 'string') {
