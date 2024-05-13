@@ -58,3 +58,28 @@ export class LocalTestA extends BeanBase<ScopeModule> {
   }
 }
 ```
+
+## 覆盖Config配置
+
+可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置
+
+`src/front/config/config/config.ts`
+
+```typescript{8-10}
+import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
+
+export default function (_meta: CabloyConfigMeta) {
+  const config = {} as CabloyConfigOptional;
+
+  // module config
+  config.modules = {
+    'test-demo': {
+      prompt: 'Hello World!!!',
+    },
+  };
+
+  return config;
+}
+```
+
+- 将模块`test-demo`的`prompt`修改为`Hello World!!!`
