@@ -49,11 +49,9 @@ export const routes: IModuleRoute[] = [
 
 `component` is a page component, supporting `synchronous components` and `asynchronous components`. Generally speaking, just provide a `synchronization component` as well. Because in Cabloy-Front, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
 
-`component`就是页面组件，支持`同步组件`和`异步组件`。一般而言，只需提供`同步组件`即可。因为在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk
-
 ## meta.absolute
 
-`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`a-homepagesystem`中定义了两个绝对路由：
+`absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, two absolute routes are defined in the module `a-homepagesystem`:
 
 ```typescript
 import ErrorNotFound from './page/errorNotFound/index.vue';
@@ -78,10 +76,10 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-| 名称                      | 说明                                                                    |
-| ------------------------- | ----------------------------------------------------------------------- |
-| path: '/'                 | 该路由的作用是将`'/'`跳转至`'/a/home/home'`，从而方便我们提供自己的首页 |
-| path: '/:catchAll(.\*)\*' | 拦截所有未匹配路径，显示404页面                                         |
+| Name                      | Description                                                                                              |
+| ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| path: '/'                 | The function of this route is to jump `'/'` to `'/a/home/home'`, so that we can provide our own homepage |
+| path: '/:catchAll(.\*)\*' | Catch all unmatched paths and display a 404 page                                                         |
 
 ## meta.layout
 
