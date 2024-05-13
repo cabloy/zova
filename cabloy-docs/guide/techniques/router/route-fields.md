@@ -83,21 +83,21 @@ export const routes: IModuleRoute[] = [
 
 ## meta.layout
 
-`layout`可以为该路由指定布局组件，如果不设置`layout`就会使用默认的布局组件
+`layout` can specify layout component for this route. If `layout` is not set, the default layout component will be used
 
-### 系统布局组件
+### System layout components
 
-系统提供了两个布局组件:`empty`和`default`:
+The system provides two layout components: `empty` and `default`:
 
-| 名称    | 说明                                                                           |
-| ------- | ------------------------------------------------------------------------------ |
-| empty   | 空布局，一般用于显示Login等系统页面                                            |
-| default | 默认布局，一般会提供Header、Sidebar、Footer等区域，页面组件会在Content区域显示 |
+| Name    | Description                                                                                                                                |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| empty   | Empty layout, generally used to display system pages such as Login                                                                         |
+| default | The default layout generally provides areas such as Header, Sidebar, and Footer, and page components will be displayed in the Content area |
 
-### 自定义布局组件
+### Custom layout components
 
-`empty`和`default`布局组件位于模块`a-homelayout`中，我们可以根据业务需求自行修改
+The `empty` and `default` layout components are located in the module `a-homelayout`, and we can modify them according to business needs
 
 ## meta.requiresAuth
 
-`requiresAuth`标识该路由是否需要认证，可以在`导航守卫`中添加相关的逻辑
+`requiresAuth` identifies whether the route requires authentication. You can add relevant logic in `Navigation Guards`
