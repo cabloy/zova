@@ -61,7 +61,7 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## 覆盖Config配置
 
-可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置
+可以使用`项目级别`的 Config 配置覆盖`模块级别`的 Config 配置
 
 `src/front/config/config/config.ts`
 
