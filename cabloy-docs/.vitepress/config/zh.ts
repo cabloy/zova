@@ -34,6 +34,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      collapsed: true,
       text: '基础',
       items: [
         {
@@ -73,6 +74,21 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'I18n国际化', link: 'locale' },
             { text: 'Error错误异常', link: 'error' },
             { text: 'Vue子组件', link: 'component' },
+          ],
+        },
+      ],
+    },
+    {
+      collapsed: true,
+      text: '技术',
+      items: [
+        {
+          text: '路由',
+          base: '/guide/techniques/router/',
+          items: [
+            { text: '路由记录', link: 'routes' },
+            { text: '导航守卫', link: 'navigation-guards' },
+            { text: 'Params与Query', link: 'params-query' },
           ],
         },
       ],

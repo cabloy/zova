@@ -34,6 +34,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      collapsed: true,
       text: 'Essentials',
       items: [
         {
@@ -78,6 +79,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      collapsed: true,
       text: 'Techniques',
       items: [
         {
