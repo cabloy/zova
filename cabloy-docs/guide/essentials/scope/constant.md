@@ -37,6 +37,9 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 }
 ```
 
+- Gif Demonstration
+  ![scope-constant](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-constant.gif)
+
 ## Use Constant cross-module
 
 ```typescript{3,7-8,11-13}
