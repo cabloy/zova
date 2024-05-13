@@ -86,7 +86,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           text: '路由',
           base: '/guide/techniques/router/',
           items: [
-            { text: '路由记录', link: 'routes' },
+            { text: '路由字段', link: 'route-fields' },
             { text: '导航守卫', link: 'navigation-guards' },
             { text: 'Params与Query', link: 'params-query' },
           ],
