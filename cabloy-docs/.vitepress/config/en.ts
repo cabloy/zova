@@ -78,6 +78,20 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      text: 'Techniques',
+      items: [
+        {
+          text: 'Router',
+          base: '/guide/techniques/router/',
+          items: [
+            { text: 'Routes', link: 'routes' },
+            { text: 'Navigation Guards', link: 'navigation-guards' },
+            { text: 'Params & Query', link: 'params-query' },
+          ],
+        },
+      ],
+    },
+    {
       text: 'Resources',
       items: [{ text: 'Videos', link: 'resources/videos' }],
     },
