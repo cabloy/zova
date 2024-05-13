@@ -128,7 +128,7 @@ import type { StoreUserInfo } from 'cabloy-module-front-test-home';
 
 @Local()
 export class LocalTestD extends BeanBase {
-  @Use({ beanFullName: 'test-home.store.userInfo' })
+  @Use('test-home.store.userInfo')
   $$userInfo: StoreUserInfo;
 
   protected async __init__() {
