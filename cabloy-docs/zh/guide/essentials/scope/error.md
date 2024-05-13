@@ -52,6 +52,9 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 }
 ```
 
+- 动图演示
+  ![scope-error](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-error.gif)
+
 ## 跨模块使用Error
 
 ```typescript{3,7-8,11}
