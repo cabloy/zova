@@ -51,6 +51,36 @@ export const routes: IModuleRoute[] = [
 
 ## meta.absolute
 
+`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`a-homepagesystem`中定义了两个绝对路由：
+
+```typescript
+import ErrorNotFound from './page/errorNotFound/index.vue';
+import { IModuleRoute } from 'cabloy-module-front-a-router';
+
+export const routes: IModuleRoute[] = [
+  {
+    path: '/',
+    redirect: '/a/home/home',
+    meta: {
+      absolute: true,
+    },
+  },
+  {
+    path: '/:catchAll(.*)*',
+    component: ErrorNotFound,
+    meta: {
+      absolute: true,
+      layout: 'empty',
+    },
+  },
+];
+```
+
+| 名称                      | 说明                                                                    |
+| ------------------------- | ----------------------------------------------------------------------- |
+| path: '/'                 | 该路由的作用是将`'/'`跳转至`'/a/home/home'`，从而方便我们提供自己的首页 |
+| path: '/:catchAll(.\*)\*' | 拦截所有未匹配路径，显示404页面                                         |
+
 ## meta.layout
 
 ## meta.requiresAuth
