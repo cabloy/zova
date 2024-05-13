@@ -3,8 +3,8 @@ import { appMetadata, MetadataKey } from '../../core/metadata.js';
 import { appResource } from '../../core/resource.js';
 import { Constructable, IDecoratorUseOptions } from '../index.js';
 
-export function Use<T extends keyof IBeanRecord>(beanFullName?: T): PropertyDecorator;
 export function Use(options?: IDecoratorUseOptions): PropertyDecorator;
+export function Use<T extends keyof IBeanRecord>(beanFullName?: T): PropertyDecorator;
 export function Use(options?: string | IDecoratorUseOptions): PropertyDecorator {
   return function (target: object, prop: MetadataKey) {
     if (!options) options = {};
