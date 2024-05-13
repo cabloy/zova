@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@cabloy/app-vite": "workspace:^",
-    "@cabloy/lint": "^4.0.8",
+    "@cabloy/lint": "^4.0.9",
     "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.4",
     "sass": "^1.77.1",
