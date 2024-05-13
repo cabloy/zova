@@ -47,7 +47,7 @@ import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope({ module: 'a-home' })
+  @UseScope('a-home')
   scopeModuleAHome: ScopeModuleAHome;
 
   protected async __init__() {

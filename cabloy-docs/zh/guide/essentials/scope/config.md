@@ -49,7 +49,7 @@ import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope({ module: 'test-demo' })
+  @UseScope('test-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
