@@ -18,7 +18,7 @@ export const config = (_app: CabloyApplication) => {
 };
 ```
 
-- 直接定义所需要的配置字段即可，系统会自动提取 config 的类型信息
+- 直接定义所需要的配置字段即可，系统会自动提取 Config 的类型信息
 
 ## 使用Config
 

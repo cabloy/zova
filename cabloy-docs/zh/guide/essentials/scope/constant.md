@@ -1,0 +1,58 @@
+# Constant常量
+
+模块可以单独提供自己的 Constant 常量
+
+## 定义Constant
+
+以模块`test-demo`为例，定义模块的 Constant 常量：
+
+`src/module/test-demo/src/config/constants.ts`
+
+```typescript{2-5}
+export const constants = {
+  gender: {
+    male: 1,
+    female: 2,
+  },
+};
+```
+
+- 直接定义所需要的常量即可，系统会自动提取 Constant 的类型信息
+
+## 使用Constant
+
+可以通过 Scope 实例获取模块的 Constant 常量
+
+```typescript{7-9}
+import { BeanBase, Local } from '@cabloy/front';
+import { ScopeModule } from './resource/this.js';
+
+@Local()
+export class LocalTestA extends BeanBase<ScopeModule> {
+  protected async __init__() {
+    const male = this.scope.constant.gender.male;
+    const female = this.scope.constant.gender.female;
+    console.log(male, female);
+  }
+}
+```
+
+## 跨模块使用Constant
+
+```typescript{3,7-8,11-13}
+import { BeanBase, Local, UseScope } from '@cabloy/front';
+import { ScopeModule } from './resource/this.js';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+
+@Local()
+export class LocalTestA extends BeanBase<ScopeModule> {
+  @UseScope('test-demo')
+  scopeModuleTestDemo: ScopeModuleTestDemo;
+
+  protected async __init__() {
+    const male = this.scopeModuleTestDemo.constant.gender.male;
+    const female = this.scopeModuleTestDemo.constant.gender.female;
+    console.log(male, female);
+  }
+}
+```
