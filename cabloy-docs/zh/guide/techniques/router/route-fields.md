@@ -43,7 +43,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-同样，系统也会为`name`添加模块前缀，生成绝对名称，比如这里就是`test-home:user`
+- 同样，系统也会为`name`添加模块前缀，生成绝对名称，比如这里就是`test-home:user`
 
 ## component
 
