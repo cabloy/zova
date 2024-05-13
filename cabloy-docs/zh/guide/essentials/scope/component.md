@@ -26,6 +26,9 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
 }
 ```
 
+- 动图演示
+  ![scope-component](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/scope-component.gif)
+
 ## 跨模块使用子组件
 
 ```typescript{1,5-6,11-18}
