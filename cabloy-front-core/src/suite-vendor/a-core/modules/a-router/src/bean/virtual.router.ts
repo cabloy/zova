@@ -2,7 +2,7 @@ import { BeanBase, TypeEventOff, Virtual } from '@cabloy/front';
 import { StoreRouterLike } from './store.router.js';
 
 @Virtual()
-export class StoreRouter extends BeanBase {
+export class VirtualRouter<TScopeModule = unknown> extends BeanBase<TScopeModule> {
   private _eventRouterGuards: TypeEventOff;
 
   protected async __init__() {
