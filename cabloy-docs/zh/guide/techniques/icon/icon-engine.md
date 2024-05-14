@@ -69,7 +69,8 @@ import { QBtn } from 'quasar';
 ### 4. vuetify
 
 ```typescript
-
+import { VBtn } from 'vuetify/components';
+<VBtn icon={this.$icon('::add')}></VBtn>;
 ```
 
 ## 创建图标
