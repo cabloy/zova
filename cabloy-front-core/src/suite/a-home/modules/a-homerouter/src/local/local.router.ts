@@ -3,7 +3,7 @@ import { ScopeModule } from '../resource/this.js';
 import { StoreRouterLike } from 'cabloy-module-front-a-router';
 
 @Local()
-export class PatchRouter extends BeanBase<ScopeModule> {
+export class LocalRouter extends BeanBase<ScopeModule> {
   eventRouterGuards: TypeEventOff;
 
   protected async __init__() {
