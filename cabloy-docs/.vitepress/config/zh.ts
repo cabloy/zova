@@ -93,6 +93,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'zod', link: 'zod' },
           ],
         },
+        {
+          text: 'API',
+          base: '/zh/guide/techniques/api/',
+          link: 'introduction',
+        },
       ],
     },
     {
