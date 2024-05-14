@@ -26,17 +26,18 @@
 
 ### 特殊约定
 
-为了简化图标的使用，特别做了如下约定：
+为了进一步简化图标的使用，特别做了如下约定：
 
 1. 如果模块名称是`a-homeicon`，则可以省略
 2. 如果分组名称是`default`，则可以省略
 
 举例如下：
-|全称|简称|
-|--|--|
-|a-homeicon:default:add|::add|
-|a-homeicon:auth:github|:auth:github|
-|test-othericon:default:icon|test-othericon::icon|
+
+| 全称                        | 简称                 |
+| --------------------------- | -------------------- |
+| a-homeicon:default:add      | ::add                |
+| a-homeicon:auth:github      | :auth:github         |
+| test-othericon:default:icon | test-othericon::icon |
 
 ## $icon
 
