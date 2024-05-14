@@ -98,6 +98,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/zh/guide/techniques/api/',
           link: 'introduction',
         },
+        {
+          text: '图标',
+          base: '/zh/guide/techniques/icon/',
+          link: 'introduction',
+        },
       ],
     },
     {
