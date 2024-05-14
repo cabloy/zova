@@ -41,15 +41,15 @@ Examples are as follows:
 
 ## $icon
 
-Cabloy-Front 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
+Cabloy-Front injects the `$icon` method into the `BeanBase` base class, so that the typed icon name can be obtained through `this.$icon` in any bean instance, thus supporting auto-completion
 
 ## $iconh
 
-Cabloy-Front 在`BeanBase`基类中注入了`$iconh`方法，从而可以在任何 bean 实例中通过`this.$iconh`直接生成图标的 vnode 对象
+Cabloy-Front injects the `$iconh` method into the `BeanBase` base class, so that the `vnode` object of icon can be directly generated in any bean instance through `this.$iconh`
 
-## 使用图标
+## Use Icon
 
-图标引擎提供了统一的接口，在任何 UI 库都可以直接使用
+The icon engine provides a unified interface that can be used directly in any UI library
 
 ### 1. antdv
 
@@ -79,29 +79,29 @@ import { VBtn } from 'vuetify/components';
 <VBtn icon={this.$icon('::add')}></VBtn>;
 ```
 
-## 创建图标
+## Create Icon
 
-### 1. 准备图标
+### 1. Prepare icon
 
-将 SVG 图标放入图标模块的分组目录中。比如模块`a-homeicon`的`default`分组，其分组目录路径是：
+Place the SVG icon into the icon module's group directory. For example, the `default` group of module `a-homeicon` has the group directory path:
 `src/suite/a-home/modules/a-homeicon/icons`
 
-### 2. 构建图标
+### 2. Build icon
 
-通过 cli 命令执行构建，就会自动把 SVG 图标按分组生成图标文件
+Executing the build through the cli command will automatically group the SVG icons into icon files
 
 ```bash
 $ cabloy front:tools:icons a-homeicon
 ```
 
-## 创建图标模块
+## Create Icon Module
 
-除了模块`a-homeicon`，还可以创建若干新的图标模块，在其中添加图标
+In addition to the module `a-homeicon`, you can also create several new icon modules and add icons to them
 
-可以通过 cli 命令创建图标模块
+Icon modules can be created through the cli command:
 
 ```bash
 $ cabloy front:create:module
 ```
 
-- 在命令行提示中，输入`模块名称`，并选择`图标模块模版`即可
+- In the command line, enter `module name` and select `icon module template`
