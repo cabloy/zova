@@ -90,6 +90,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '导航守卫', link: 'navigation-guards' },
             { text: '路由Query', link: 'route-query' },
             { text: '路由Params', link: 'route-params' },
+            { text: 'zod', link: 'zod' },
           ],
         },
       ],

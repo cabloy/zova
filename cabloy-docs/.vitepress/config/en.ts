@@ -90,6 +90,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Navigation Guards', link: 'navigation-guards' },
             { text: 'Route Query', link: 'route-query' },
             { text: 'Route Params', link: 'route-params' },
+            { text: 'zod', link: 'zod' },
           ],
         },
       ],
