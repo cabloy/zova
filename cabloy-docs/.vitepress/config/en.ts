@@ -99,7 +99,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'introduction',
         },
         {
-          text: 'Icon',
+          text: 'SVG Icon',
           base: '/guide/techniques/icon/',
           link: 'introduction',
         },
