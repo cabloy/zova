@@ -15,7 +15,7 @@ import {
 } from 'quasar';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault { }
+export interface RenderLayoutDefault extends MotherLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {

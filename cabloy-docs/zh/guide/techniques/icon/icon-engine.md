@@ -59,11 +59,11 @@ import { ElButton } from 'element-plus';
 <ElButton icon={this.$icon('::add')}></ElButton>
 ```
 
-### 1. antdv
+### 3. quasar
 
 ```typescript
-import { Button } from 'ant-design-vue';
-<Button icon={this.$iconh('::add')}></Button>
+import { QBtn } from 'quasar';
+<QBtn icon={this.$icon('::add')}></QBtn>;
 ```
 
 ### 1. antdv
