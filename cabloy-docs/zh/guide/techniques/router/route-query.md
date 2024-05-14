@@ -59,7 +59,7 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
 
 接下来，我们需要在导航路由时传入`Query`参数
 
-直接在页面组件`user`中添加一个按钮，响应单击事件，并采用不同的`Query参数`导航至当前页面。这样，我们可以看到`$query`是响应式的
+直接在页面组件`user`中添加一个按钮，响应单击事件，并采用不同的`Query`参数导航至当前页面。这样，我们可以看到`$query`是响应式的
 
 ```typescript{12-20}
 @Local()
