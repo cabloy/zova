@@ -4,9 +4,9 @@ import { VIcon } from 'vuetify/components';
 import { computed, ref, toRef } from 'vue';
 import { provideTheme } from 'vuetify/lib/composables/theme.mjs';
 import { useIcon } from 'vuetify/lib/composables/icons.mjs';
-import { useSize } from 'vuetify/lib/composables/size.mjs'
-import { useTextColor } from 'vuetify/lib/composables/color.mjs'
-import { convertToUnit, flattenFragments } from 'vuetify/lib/util/index.mjs'
+import { useSize } from 'vuetify/lib/composables/size.mjs';
+import { useTextColor } from 'vuetify/lib/composables/color.mjs';
+import { convertToUnit, flattenFragments } from 'vuetify/lib/util/index.mjs';
 import { VSvgIconCabloy } from './svg.js';
 
 @Local()
@@ -26,13 +26,13 @@ export class PatchIcon extends BeanBase<ScopeModule> {
 
       return () => {
         const { iconData } = self._getIconData(slotIcon.value || props.icon);
-        const slotValue = slots.default?.()
+        const slotValue = slots.default?.();
         if (slotValue) {
-          slotIcon.value = flattenFragments(slotValue).filter(node =>
-            node.type === Text && node.children && typeof node.children === 'string'
-          )[0]?.children as string
+          slotIcon.value = flattenFragments(slotValue).filter(
+            node => node.type === Text && node.children && typeof node.children === 'string',
+          )[0]?.children as string;
         }
-        const hasClick = !!(attrs.onClick || attrs.onClickOnce)
+        const hasClick = !!(attrs.onClick || attrs.onClickOnce);
 
         return (
           <iconData.value.component
@@ -53,22 +53,23 @@ export class PatchIcon extends BeanBase<ScopeModule> {
               props.class,
             ]}
             style={[
-              !sizeClasses.value ? ({
-                fontSize: convertToUnit(props.size),
-                height: convertToUnit(props.size),
-                width: convertToUnit(props.size),
-              }) : undefined,
+              !sizeClasses.value
+                ? {
+                    fontSize: convertToUnit(props.size),
+                    height: convertToUnit(props.size),
+                    width: convertToUnit(props.size),
+                  }
+                : undefined,
               textColorStyles.value,
               props.style,
             ]}
             role={hasClick ? 'button' : undefined}
             aria-hidden={!hasClick}
-            tabindex={hasClick ? props.disabled ? -1 : 0 : undefined}
+            tabindex={hasClick ? (props.disabled ? -1 : 0) : undefined}
           >
             {slotValue}
           </iconData.value.component>
-        )
-
+        );
       };
     };
   }
@@ -81,8 +82,8 @@ export class PatchIcon extends BeanBase<ScopeModule> {
         value: {
           component: VSvgIconCabloy,
           icon: `#${iconInfo.symbolId}`,
-        }
-      }
-    }
+        },
+      },
+    };
   }
 }
