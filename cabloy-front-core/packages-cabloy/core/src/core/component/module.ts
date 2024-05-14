@@ -255,7 +255,7 @@ export class AppModule extends BeanSimple {
     // app monkey
     const appMonkey = this.app.meta.appMonkey;
     if (appMonkey && appMonkey[monkeyName]) {
-      this.app.vue.runWithContext( () => {
+      this.app.vue.runWithContext(() => {
         if (moduleTarget === undefined) {
           // @ts-ignore ignore
           appMonkey[monkeyName](...monkeyData);
