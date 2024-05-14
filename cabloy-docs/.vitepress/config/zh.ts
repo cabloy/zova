@@ -101,7 +101,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         {
           text: 'SVG图标',
           base: '/zh/guide/techniques/icon/',
-          link: 'introduction',
+          link: 'icon-engine',
         },
       ],
     },
