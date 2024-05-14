@@ -96,16 +96,11 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>
-          name: {this.$query.name}, {typeof this.$query.name}
-        </div>
-        <div>
-          age: {this.$query.age}, {typeof this.$query.age}
-        </div>
+        <div>id: {this.$params.id}</div>
         <button
           onClick={() => {
-            const age = (this.$query.age ?? 0) + 1;
-            const url = this.$router.resolvePath('/test/demo/user', { name: 'tom', age });
+            const id = this.$params.id + 1;
+            const url = this.$router.resolveName('test-demo:user', { params: { id } });
             this.$router.push(url);
           }}
         >
@@ -117,9 +112,9 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
 }
 ```
 
-## $query
+## $params
 
-Cabloy-Front 在`mother` bean 的基类中注入了`$query`对象，从而可以在 render 实例中通过`this.$query`访问 Query 参数
+Cabloy-Front 在`mother` bean 的基类中注入了`$params`对象，从而可以在 render 实例中通过`this.$params`访问 Params 参数
 
 ## 动图演示
 
