@@ -118,4 +118,4 @@ Cabloy-Front 在`mother` bean 的基类中注入了`$params`对象，从而可�
 
 ## 动图演示
 
-![route-query](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/route-query.gif)
+![route-params](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/route-params.gif)
