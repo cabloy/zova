@@ -2,7 +2,7 @@ import { RendererNode } from 'vue';
 import { BeanBaseSimple } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { AppEvent } from '../core/component/event.js';
-import { getIcon, IModuleLocaleText } from './resource/index.js';
+import { getIcon, IModuleLocaleText, renderIcon } from './resource/index.js';
 
 const SymbolText = Symbol('SymbolText');
 
@@ -27,6 +27,10 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
 
   protected get $icon(): typeof getIcon {
     return getIcon;
+  }
+
+  protected get $iconh(): typeof renderIcon {
+    return renderIcon;
   }
 
   // need not

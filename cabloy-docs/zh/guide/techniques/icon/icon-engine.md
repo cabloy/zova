@@ -32,3 +32,13 @@
 |a-homeicon:default:add|::add|
 |a-homeicon:auth:github|:auth:github|
 |test-othericon:default:icon|test-othericon::icon|
+
+## $icon
+
+Cabloy-Front 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
+
+## 使用图标
+
+图标引擎提供了统一的接口，在任何 UI 库都可以直接使用
+
+## 创建图标
