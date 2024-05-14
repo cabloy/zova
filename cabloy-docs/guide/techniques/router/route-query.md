@@ -25,7 +25,7 @@ export const QuerySchema = zz.object({
 });
 ```
 
-- Cabloy-Front encapsulates [zod](https://zod.dev) and provides `zz` object
+- Cabloy-Front encapsulates [zod](https://zod.dev) and provides an enhanced version of `zz` object
 - An `object` is defined using `zz`, containing two fields: `name` and `age`
 
 ## Use Query

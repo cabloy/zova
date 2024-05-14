@@ -25,7 +25,7 @@ export const QuerySchema = zz.object({
 });
 ```
 
-- Cabloy-Front 对[zod](https://zod.dev)进行了封装，提供了`zz`对象
+- Cabloy-Front 对[zod](https://zod.dev)进行了封装，提供了增强版的`zz`对象
 - 使用`zz`定义了一个`object`，包含两个字段：`name`和`age`
 
 ## 使用Query
