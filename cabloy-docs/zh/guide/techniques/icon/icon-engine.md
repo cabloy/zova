@@ -55,8 +55,8 @@ import { Button } from 'ant-design-vue';
 ### 2. element-plus
 
 ```typescript
-import { Button } from 'ant-design-vue';
-<Button icon={this.$iconh('::add')}></Button>
+import { ElButton } from 'element-plus';
+<ElButton icon={this.$icon('::add')}></ElButton>
 ```
 
 ### 1. antdv
