@@ -66,11 +66,10 @@ import { QBtn } from 'quasar';
 <QBtn icon={this.$icon('::add')}></QBtn>;
 ```
 
-### 1. antdv
+### 4. vuetify
 
 ```typescript
-import { Button } from 'ant-design-vue';
-<Button icon={this.$iconh('::add')}></Button>
+
 ```
 
 ## 创建图标

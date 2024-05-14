@@ -1,10 +1,22 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
-import { VApp, VAppBar, VAppBarNavIcon, VBtn, VDivider, VList, VListSubheader, VMain, VNavigationDrawer, VSpacer, VToolbarTitle } from 'vuetify/components';
+import {
+  VApp,
+  VAppBar,
+  VAppBarNavIcon,
+  VBtn,
+  VDivider,
+  VList,
+  VListSubheader,
+  VMain,
+  VNavigationDrawer,
+  VSpacer,
+  VToolbarTitle,
+} from 'vuetify/components';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault { }
+export interface RenderLayoutDefault extends MotherLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
@@ -41,16 +53,16 @@ export class RenderLayoutDefault extends BeanRenderBase {
           {this._renderMenu()}
         </VNavigationDrawer>
         <VAppBar>
-          <VAppBarNavIcon icon='::menu' variant='text' onClick={() => this.toggleLeftDrawer()}></VAppBarNavIcon>
+          <VAppBarNavIcon icon="::menu" variant="text" onClick={() => this.toggleLeftDrawer()}></VAppBarNavIcon>
           <VToolbarTitle>CabloyJS</VToolbarTitle>
           <VSpacer></VSpacer>
-          <VBtn icon="::search" variant='text'></VBtn>
-          <VBtn icon="::more-horiz" variant='text'></VBtn>
+          <VBtn icon="::search" variant="text"></VBtn>
+          <VBtn icon="::more-horiz" variant="text"></VBtn>
         </VAppBar>
         <VMain>
           <router-view />
         </VMain>
-      </VApp >
-    )
+      </VApp>
+    );
   }
 }
