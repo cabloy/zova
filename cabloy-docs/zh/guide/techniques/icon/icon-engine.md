@@ -37,8 +37,40 @@
 
 Cabloy-Front 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
 
+## $iconh
+
+Cabloy-Front 在`BeanBase`基类中注入了`$iconh`方法，从而可以在任何 bean 实例中通过`this.$iconh`直接生成图标的 vnode 对象
+
 ## 使用图标
 
 图标引擎提供了统一的接口，在任何 UI 库都可以直接使用
+
+### 1. antdv
+
+```typescript
+import { Button } from 'ant-design-vue';
+<Button icon={this.$iconh('::add')}></Button>
+```
+
+### 2. antdv
+
+```typescript
+import { Button } from 'ant-design-vue';
+<Button icon={this.$iconh('::add')}></Button>
+```
+
+### 1. antdv
+
+```typescript
+import { Button } from 'ant-design-vue';
+<Button icon={this.$iconh('::add')}></Button>
+```
+
+### 1. antdv
+
+```typescript
+import { Button } from 'ant-design-vue';
+<Button icon={this.$iconh('::add')}></Button>
+```
 
 ## 创建图标
