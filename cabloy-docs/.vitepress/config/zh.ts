@@ -88,7 +88,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: '路由字段', link: 'route-fields' },
             { text: '导航守卫', link: 'navigation-guards' },
-            { text: 'Params与Query', link: 'params-query' },
+            { text: '路由Query', link: 'route-query' },
+            { text: '路由Params', link: 'route-params' },
           ],
         },
       ],

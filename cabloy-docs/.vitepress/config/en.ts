@@ -88,7 +88,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Route Fields', link: 'route-fields' },
             { text: 'Navigation Guards', link: 'navigation-guards' },
-            { text: 'Params & Query', link: 'params-query' },
+            { text: 'Route Query', link: 'route-query' },
+            { text: 'Route Params', link: 'route-params' },
           ],
         },
       ],
