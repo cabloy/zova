@@ -18,21 +18,25 @@ export class PatchIcon extends BeanBase<ScopeModule> {
       const ns = useNamespace('icon');
       const style = computed(() => {
         const { size, color } = props;
-        if (!size && !color)
-          return {};
+        if (!size && !color) return {};
         return {
           fontSize: isUndefined(size) ? void 0 : addUnit(size),
-          '--color': color
+          '--color': color,
         };
       });
       return () => {
-        return createVNode('i', mergeProps({
-          class: unref(ns).b(),
-          style: unref(style)
-        }, attrs), [
-          self._renderSlotDefault(slots)
-        ]);
-      }
+        return createVNode(
+          'i',
+          mergeProps(
+            {
+              class: unref(ns).b(),
+              style: unref(style),
+            },
+            attrs,
+          ),
+          [self._renderSlotDefault(slots)],
+        );
+      };
     };
   }
 
@@ -44,6 +48,6 @@ export class PatchIcon extends BeanBase<ScopeModule> {
     const iconName = typeof type === 'string' ? type : slotDefault.children;
     const iconInfo = getCabloyIcon(iconName, this.app);
     if (iconInfo === undefined) return slotDefault;
-    return <CabloyIcon href={`#${iconInfo.symbolId}`}></CabloyIcon>
+    return <CabloyIcon href={`#${iconInfo.symbolId}`}></CabloyIcon>;
   }
 }
