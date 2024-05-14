@@ -30,7 +30,7 @@ export const QuerySchema = zz.object({
 
 ## Use Query
 
-In `render.ts`, you can directly obtain Query and render it's fields
+In `render.ts`, you can directly obtain Query and render its fields
 
 `src/module/test-demo/src/page/user/render.tsx`
 
