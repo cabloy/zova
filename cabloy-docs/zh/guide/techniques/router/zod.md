@@ -77,7 +77,7 @@ const user = zz.object({
 
 ### 3. 支持json对象
 
-我们可以在 Query 中传递 json 对象。比如，我们在 Query 中定义一个 user 对象：
+我们可以在 Query 中传递 json 对象。比如，我们在 Query 中定义一个 user 对象
 
 ```typescript
 export const QuerySchema = zz.object({
@@ -90,42 +90,42 @@ export const QuerySchema = zz.object({
 });
 ```
 
-在 render 中可以直接读取 user 对象的值：
+在 render 中可以直接读取 user 对象的值
 
 ```typescript
 @Local()
 export class RenderPageCardHeader extends BeanRenderBase<ScopeModule> {
   render() {
-    //const aa = this.getParams('/test/home2/card/header/:id');
-    //const b = aa;
     return (
       <div>
-        <div>
-          param id: {this.$params.id}:{typeof this.$params.id}
-        </div>
-        <div>
-          query age: {JSON.stringify(this.$query)}:{typeof this.$query.user?.age}
-        </div>
-        <button
-          onClick={() => {
-            const id = this.$params.id + 1;
-            this.$router.push(
-              this.$router.resolveName('test-home2:card-header', {
-                params: { id },
-                query: {
-                  colors: ['yello', 'blue'],
-                  nums:[1,3,4,5],
-                  //married: false,
-                  user: { age: 1, name: 'yang?=%' },
-                  users:[{ age: 2, name: 'wang?=%' }]
-                  //age: 12,
-                },
-              }),
-            );
-          }}
-        >
-          Goto Test Router(Self)
-        </button>
+        <div>name: {this.$query.user?.name}</div>
+        <div>age: {this.$query.user?.age}</div>
+      </div>
+    );
+  }
+}
+```
+
+### 4. 支持array数组
+
+我们可以在 Query 中传递 array 数组。比如，我们在 Query 中定义一个 colors 数组
+
+```typescript
+export const QuerySchema = zz.object({
+  colors: zz.array(zz.string()).optional(),
+});
+```
+
+在 render 中可以直接读取 colors 数组的值
+
+```typescript
+@Local()
+export class RenderPageCardHeader extends BeanRenderBase<ScopeModule> {
+  render() {
+    return (
+      <div>
+        <div>colors: {this.$query.colors?.join(',')}</div>
+        <div>length: {this.$query.colors?.length}</div>
       </div>
     );
   }
