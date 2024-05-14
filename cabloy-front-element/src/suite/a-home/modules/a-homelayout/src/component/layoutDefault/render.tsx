@@ -4,7 +4,7 @@ import { ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault { }
+export interface RenderLayoutDefault extends MotherLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
@@ -15,15 +15,15 @@ export class RenderLayoutDefault extends BeanRenderBase {
     if (item.folder) {
       const slots = {
         title: () => {
-          return (
-            <span>{item.title}</span>
-          )
-        }
-      }
+          return <span>{item.title}</span>;
+        },
+      };
       const domItems = this._renderMenuItems(item.children, levels);
-      return <ElSubMenu key={index} index={index} v-slots={slots}>
-        {domItems}
-      </ElSubMenu>
+      return (
+        <ElSubMenu key={index} index={index} v-slots={slots}>
+          {domItems}
+        </ElSubMenu>
+      );
     }
     // item
     const route = { path: item.to };
@@ -34,14 +34,22 @@ export class RenderLayoutDefault extends BeanRenderBase {
             <ElIcon>{item.icon}</ElIcon>
             <span>{item.title}</span>
           </div>
-        )
-      }
-    }
-    return <ElMenuItem key={index} index={index} route={route} v-slots={slots} onClick={() => {
-      if (item.href) {
-        window.open(item.href);
-      }
-    }}></ElMenuItem>
+        );
+      },
+    };
+    return (
+      <ElMenuItem
+        key={index}
+        index={index}
+        route={route}
+        v-slots={slots}
+        onClick={() => {
+          if (item.href) {
+            window.open(item.href);
+          }
+        }}
+      ></ElMenuItem>
+    );
   }
   _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
     if (!items) return [];
@@ -54,24 +62,30 @@ export class RenderLayoutDefault extends BeanRenderBase {
   }
   _renderMenu() {
     const domItems = this._renderMenuItems(this.menu, []);
-    return <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>{domItems}</ElMenu>;
+    return (
+      <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>
+        {domItems}
+      </ElMenu>
+    );
   }
 
   _renderHeader() {
     return (
       <ElMenu class="el-menu-demo" mode="horizontal">
         <ElMenuItem index="1">Element Plus</ElMenuItem>
-      </ElMenu >
-    )
+      </ElMenu>
+    );
   }
 
   render() {
-    return <ElConfigProvider>
-      {this._renderHeader()}
-      <div class="flex main-container">
-        {this._renderMenu()}
-        <router-view />
-      </div>
-    </ElConfigProvider>
+    return (
+      <ElConfigProvider>
+        {this._renderHeader()}
+        <div class="flex main-container">
+          {this._renderMenu()}
+          <router-view />
+        </div>
+      </ElConfigProvider>
+    );
   }
 }

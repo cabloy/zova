@@ -52,7 +52,7 @@ import { Button } from 'ant-design-vue';
 <Button icon={this.$iconh('::add')}></Button>
 ```
 
-### 2. antdv
+### 2. element-plus
 
 ```typescript
 import { Button } from 'ant-design-vue';
@@ -74,3 +74,5 @@ import { Button } from 'ant-design-vue';
 ```
 
 ## 创建图标
+
+## 创建图标模块
