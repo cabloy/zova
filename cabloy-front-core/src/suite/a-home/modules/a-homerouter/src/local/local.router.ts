@@ -6,7 +6,7 @@ import { StoreRouterLike, VirtualRouter } from 'cabloy-module-front-a-router';
 export class LocalRouter extends VirtualRouter<ScopeModule> {
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async _to => {
-      //console.log(to);
+      // console.log(to);
     });
   }
 }
