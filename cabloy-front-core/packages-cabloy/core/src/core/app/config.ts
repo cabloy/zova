@@ -10,16 +10,9 @@ export const configDefault = {
   api: {
     baseURL: '',
     prefix: '',
-    debounce: 200,
   },
   icon: {
     defaultModule: 'a-homeicon',
-  },
-  nprogress: {
-    debounce: 500,
-  },
-  preload: {
-    delay: 1000,
   },
   layout: {
     component: {
