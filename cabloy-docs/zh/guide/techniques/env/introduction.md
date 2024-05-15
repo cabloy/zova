@@ -45,10 +45,11 @@ $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
 ```typescript{6}
 export default defineConfig(async ({ mode }) => {
   const flavor = getFlavor();
+  const appMode = getAppMode();
   const configMeta: CabloyConfigMeta = {
     flavor,
     mode,
-    appMode: 'spa',
+    appMode,
   };
   ...
 }

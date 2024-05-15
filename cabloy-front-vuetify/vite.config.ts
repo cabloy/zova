@@ -4,17 +4,18 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
-import { getFlavor } from '@cabloy/app-vite';
+import { getAppMode, getFlavor } from '@cabloy/app-vite';
 import { CabloyConfigMeta } from '@cabloy/front';
 import { generateCabloyViteMeta } from '@cabloy/app-vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
   const flavor = getFlavor();
+  const appMode = getAppMode();
   const configMeta: CabloyConfigMeta = {
     flavor,
     mode,
-    appMode: 'spa',
+    appMode,
   };
   const configOptions = {
     appDir: process.cwd(),
