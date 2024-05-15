@@ -1,6 +1,6 @@
-# SVG Icon
+# Icon
 
-For a large system, no matter how many icons are built into the framework, it is not enough. For this purpose, Cabloy-Front provides an icon engine
+For a large system, no matter how many icons are built into the framework, it is not enough. For this purpose, Cabloy-Front provides an `icon engine`
 
 ## Advantages
 

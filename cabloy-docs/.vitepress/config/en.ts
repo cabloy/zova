@@ -99,13 +99,23 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'introduction',
         },
         {
-          text: 'SVG Icon',
+          text: 'Icon',
           base: '/guide/techniques/icon/',
           link: 'icon-engine',
         },
         {
           text: 'Mock',
           base: '/guide/techniques/mock/',
+          link: 'introduction',
+        },
+        {
+          text: 'Env',
+          base: '/guide/techniques/env/',
+          link: 'introduction',
+        },
+        {
+          text: 'Config',
+          base: '/guide/techniques/config/',
           link: 'introduction',
         },
       ],
