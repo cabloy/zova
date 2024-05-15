@@ -108,6 +108,16 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/zh/guide/techniques/mock/',
           link: 'introduction',
         },
+        {
+          text: 'Env',
+          base: '/zh/guide/techniques/env/',
+          link: 'introduction',
+        },
+        {
+          text: 'Config',
+          base: '/zh/guide/techniques/config/',
+          link: 'introduction',
+        },
       ],
     },
     {
