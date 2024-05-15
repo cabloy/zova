@@ -44,8 +44,8 @@ $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
 
 ```bash
 $ npm run [dev/build]                # appMode is 'spa'
-$ APPMODE=spa npm run [dev/build]     # appMode is 'spa'
-$ APPMODE=ssr npm run [dev/build]     # appMode is 'ssr'
+$ APPMODE=spa npm run [dev/build]    # appMode is 'spa'
+$ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 ```
 
 - `quasar`有自己的`appMode`设置机制，参见：[Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)

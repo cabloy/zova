@@ -1,21 +1,21 @@
 # Env
 
-Cabloy-Front 通过`process.env`暴露环境变量，这些变量在构建时会被静态的替换掉
+Cabloy-Front exposes env variables on the special `process.env` object, which are statically replaced at build time
 
-## .env文件
+## .env file
 
-Cabloy-Front 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载下列文件中的环境变量：
+Cabloy-Front uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
 
 ```env
-.env                # 所有情况下都会加载
-.env.mine           # 所有情况下都会加载，但会被 git 忽略
-.env.[meta]         # 只在指定条件下加载
-.env.[meta].mine    # 只在指定条件下加载，但会被 git 忽略
+.env                # loaded in all cases
+.env.mine           # loaded in all cases, ignored by git
+.env.[meta]         # only loaded in specified condition
+.env.[meta].mine    # only loaded in specified condition, ignored by git
 ```
 
-- `[meta]`可以是以下三个字段值的`任意组合`
+- `[meta]` can be `any combination` of the following three field values
 
-| 名称    | 类型                                                                                               |
+| Name    | Description                                                                                        |
 | ------- | -------------------------------------------------------------------------------------------------- |
 | mode    | 'development' \| 'production' \| string;                                                           |
 | flavor  | 'web' \| 'app' \| string;                                                                          |
@@ -30,7 +30,7 @@ $ npm run build   # mode is 'production'
 
 ### flavor
 
-可以通过命令行传入 flavor 变量值，默认是`web`
+The `flavor` variable value can be passed in through the command line. The default value is `web`
 
 ```bash
 $ npm run [dev/build]                # flavor is 'web'
@@ -40,12 +40,12 @@ $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
 
 ### appMode
 
-可以通过命令行传入 appMode 变量值，默认是`spa`
+The `appMode` variable value can be passed in through the command line. The default value is `spa`
 
 ```bash
 $ npm run [dev/build]                # appMode is 'spa'
-$ APPMODE=spa npm run [dev/build]     # appMode is 'spa'
-$ APPMODE=ssr npm run [dev/build]     # appMode is 'ssr'
+$ APPMODE=spa npm run [dev/build]    # appMode is 'spa'
+$ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 ```
 
 - `quasar`有自己的`appMode`设置机制，参见：[Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
