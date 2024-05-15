@@ -51,7 +51,7 @@ MOCK_BUILD_CORS = true
 | Name              | Description                                                 |
 | ----------------- | ----------------------------------------------------------- |
 | MOCK_ENABLED      | Whether to enable mock                                      |
-| MOCK_PATH         | mock file directory                                         |
+| MOCK_PATH         | Mock file directory                                         |
 | MOCK_LOGGER       | Whether to enable logger                                    |
 | MOCK_BASE_NAME    | URL prefix, default is `/api`                               |
 | MOCK_BUILD        | Whether to generate an independently deployable fake server |
