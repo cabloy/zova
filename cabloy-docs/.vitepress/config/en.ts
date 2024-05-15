@@ -43,6 +43,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Module', link: 'module' },
             { text: 'Suite', link: 'suite' },
+            { text: 'Directory Structure', link: 'directory-structure' },
           ],
         },
         {
