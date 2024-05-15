@@ -2,7 +2,7 @@
 
 ## meta与config文件
 
-Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](http://localhost:5173/zh/guide/techniques/env/introduction.html)
+Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](../env/introduction.md)
 
 ### 举例
 
@@ -45,13 +45,11 @@ export class StoreApi extends BeanBase {
 
 ## 访问模块config
 
-模块可以单独提供自己的 Config 配置，可以通过 Scope 实例获取模块的 Config 配置，参见：[Config配置
-](http://localhost:5173/zh/guide/essentials/scope/config.html)
+模块可以单独提供自己的 Config 配置，可以通过 Scope 实例获取模块的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
 
 ## 覆盖Config配置
 
-可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置，参见：[Config配置
-](http://localhost:5173/zh/guide/essentials/scope/config.html)
+可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
 
 ## env与config的关系
 
