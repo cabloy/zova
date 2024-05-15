@@ -51,28 +51,28 @@ Modules can individually provide their own `config` configuration, which can be 
 
 You can use `project-level` config to override `module-level` config, refer to: [Config](../../essentials/scope/config.md)
 
-## env与config的关系
+## The relationship between env and config
 
-有些变量同时存在于 env 和 config 中，基本逻辑如下：
+Some variables exist in both `env` and `config`. The basic logic is as follows:
 
-1. 在 env 中配置变量的值
-2. 让 config 中的值等于 env 中的值
-3. 在代码中优先通过 config 来访问变量的值
-4. 如果需要使用构建时 tree shaking 的能力，就通过`process.env.xxx`来访问变量的值
+1. Configure the value of the variable in `env`
+2. Let the value in `config` equal the value in `env`
+3. Prioritize using variable values through `config` in code
+4. If you need to use the build-time tree shaking capability, use the value of the variable through `process.env.xxx`
 
-### 变量对照表
+### Variable comparison table
 
-| env中的变量     | config中的变量    |
-| --------------- | ----------------- |
-| META_MODE       | meta.mode         |
-| META_FLAVOR     | meta.flavor       |
-| META_APP_MODE   | meta.appMode      |
-| APP_SERVER      | env.appServer     |
-| APP_ROUTER_MODE | env.appRouterMode |
-| APP_ROUTER_BASE | env.appRouterBase |
-| APP_PUBLIC_PATH | env.appPublicPath |
-| APP_NAME        | env.appName       |
-| APP_TITLE       | env.appTitle      |
-| APP_VERSION     | env.appVersion    |
-| API_BASE_URL    | api.baseURL       |
-| API_PREFIX      | api.prefix        |
+| Variables in env | Variables in config |
+| ---------------- | ------------------- |
+| META_MODE        | meta.mode           |
+| META_FLAVOR      | meta.flavor         |
+| META_APP_MODE    | meta.appMode        |
+| APP_SERVER       | env.appServer       |
+| APP_ROUTER_MODE  | env.appRouterMode   |
+| APP_ROUTER_BASE  | env.appRouterBase   |
+| APP_PUBLIC_PATH  | env.appPublicPath   |
+| APP_NAME         | env.appName         |
+| APP_TITLE        | env.appTitle        |
+| APP_VERSION      | env.appVersion      |
+| API_BASE_URL     | api.baseURL         |
+| API_PREFIX       | api.prefix          |
