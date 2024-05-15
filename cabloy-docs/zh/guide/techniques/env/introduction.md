@@ -50,7 +50,7 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 - `quasar`有自己的`appMode`设置机制，参见：[Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
-### 举例：
+### 举例
 
 在命令行执行`npm run dev`，那么，对应的 meta 变量值是：
 
