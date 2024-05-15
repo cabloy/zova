@@ -81,7 +81,7 @@ export default defineConfig(async ({ mode }) => {
 
 ## 内置环境变量
 
-为了进一步开箱即用，Cabloy-Front 提供了若干内置的环境变量：
+为了进一步实现开箱即用的效果，Cabloy-Front 提供了若干内置的环境变量：
 
 ### meta
 
