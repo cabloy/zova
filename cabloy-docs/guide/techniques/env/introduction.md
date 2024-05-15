@@ -2,7 +2,7 @@
 
 Cabloy-Front exposes env variables on the special `process.env` object, which are statically replaced at build time
 
-## .env file
+## meta & .env file
 
 Cabloy-Front uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
 

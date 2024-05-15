@@ -2,7 +2,7 @@
 
 Cabloy-Front 通过`process.env`暴露环境变量，这些变量在构建时会被静态的替换掉
 
-## .env文件
+## meta与.env文件
 
 Cabloy-Front 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载下列文件中的环境变量：
 
