@@ -5,6 +5,10 @@ export function getFlavor(offset: number = 2): string {
   return getEnvFromCli('FLAVOR', 'flavor', 'web', offset);
 }
 
+export function getAppMode(offset: number = 2): string {
+  return getEnvFromCli('APPMODE', 'appMode', 'spa', offset);
+}
+
 export function getEnvMeta(configMeta: CabloyConfigMeta) {
   return { flavor: configMeta.flavor, mode: configMeta.mode, appMode: configMeta.appMode, mine: 'mine' };
 }
