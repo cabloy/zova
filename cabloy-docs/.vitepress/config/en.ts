@@ -103,6 +103,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/guide/techniques/icon/',
           link: 'icon-engine',
         },
+        {
+          text: 'Mock',
+          base: '/guide/techniques/mock/',
+          link: 'introduction',
+        },
       ],
     },
     {
