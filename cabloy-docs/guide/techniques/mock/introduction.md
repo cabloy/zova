@@ -8,8 +8,6 @@ Cabloy-Front provides a module `a-homemock`, just provide the mock files in the 
 
 For example, there is an API: `/a/homemock/getMenu`, which provides the corresponding mock file as follows:
 
-比如，有一个 API:`/a/homemock/getMenu`，提供对应的 mock 文件如下：
-
 `src/suite/a-home/modules/a-homemock/src/mock/menu.fake.ts`
 
 ```typescript
@@ -30,12 +28,12 @@ export default defineFakeRoute([
 ]);
 ```
 
-- 文件后缀名是`.fake.ts`
-- 使用`defineFakeRoute`方法是为了支持类型智能提示
+- The mock file extension is `.fake.ts`
+- The `defineFakeRoute` method is used to support type auto-completion
 
-## 配置
+## Configuration
 
-可以通过`.env`文件配置 mock
+Mock can be configured through `.env` file
 
 `env/.env`
 
@@ -50,24 +48,24 @@ MOCK_BUILD_OUTPUT = distMockServer
 MOCK_BUILD_CORS = true
 ```
 
-| 名称              | 说明                         |
-| ----------------- | ---------------------------- |
-| MOCK_ENABLED      | 是否启用mock                 |
-| MOCK_PATH         | mock文件目录                 |
-| MOCK_LOGGER       | 是否启用logger               |
-| MOCK_BASE_NAME    | url前缀，默认是`/api`        |
-| MOCK_BUILD        | 是否生成独立可部署的fake服务 |
-| MOCK_BUILD_PORT   | fake服务的端口号             |
-| MOCK_BUILD_OUTPUT | fake服务的输出目录           |
-| MOCK_BUILD_CORS   | 是否启用`cors`跨域支持       |
+| Name              | Description                                                 |
+| ----------------- | ----------------------------------------------------------- |
+| MOCK_ENABLED      | Whether to enable mock                                      |
+| MOCK_PATH         | mock file directory                                         |
+| MOCK_LOGGER       | Whether to enable logger                                    |
+| MOCK_BASE_NAME    | URL prefix, default is `/api`                               |
+| MOCK_BUILD        | Whether to generate an independently deployable fake server |
+| MOCK_BUILD_PORT   | The port of fake server                                     |
+| MOCK_BUILD_OUTPUT | The output directory of fake server                         |
+| MOCK_BUILD_CORS   | Whether to enable `cors`                                    |
 
-## 生产环境
+## Production environment
 
-默认情况下，生产环境并不生成 fake 服务。如果需要在进行构建时生成 fake 服务，只需开启`MOCK_ENABLED`即可
+By default, the production environment does not generate the fake server. If want fake server to be generated during building, just turn on `MOCK_ENABLED` as well
 
 ```bash
 $ npm run build
 ```
 
-- 生成的 fake 服务自动输出到`MOCK_BUILD_OUTPUT`指定的目录中
-- fake 服务的工作原理，请参见：[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)
+- The generated fake server is automatically output to the directory specified by `MOCK_BUILD_OUTPUT`
+- For the principle of fake server, please refer to: [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)
