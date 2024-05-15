@@ -44,18 +44,18 @@ Cabloy-Front has planned the modules/suites so that we can start business develo
 2. Suite `suite/a-home`: Development in this suite
    - Module `suite/a-home/modules/a-home`: Development in this module
    - Other modules: Different modules are preset with different system functions, and custom logic can be added
-3. 大型系统：随着业务的扩展，可以创建更多的套件和模块，对系统业务进行拆分
+3. `Grow into a large system`: As the business expands, more suites and modules can be created to split the system business
 
-## 目录说明
+## Directory cheat sheet
 
-| 名称                                      | 说明                                                                             |
-| ----------------------------------------- | -------------------------------------------------------------------------------- |
-| env                                       | [Env](../../techniques/env/introduction.md)                                      |
-| src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                |
-| src/front/config/locales.ts               | [I18n国际化](../scope/locale.md)                                                 |
-| src/suite/a-home/modules/a-homeapi        | [API](../../techniques/api/introduction.md)                                      |
-| src/suite/a-home/modules/a-homeicon       | [图标](../../techniques/icon/icon-engine.md)                                     |
-| src/suite/a-home/modules/a-homelayout     | [路由字段: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
-| src/suite/a-home/modules/a-homemock       | [Mock](../../techniques/mock/introduction.md)                                    |
-| src/suite/a-home/modules/a-homepagesystem | [路由字段: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
-| src/suite/a-home/modules/a-homerouter     | [导航守卫](../../techniques/router/navigation-guards.md)                         |
+| Name                                      | Description                                                                          |
+| ----------------------------------------- | ------------------------------------------------------------------------------------ |
+| env                                       | [Env](../../techniques/env/introduction.md)                                          |
+| src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                    |
+| src/front/config/locales.ts               | [I18n](../scope/locale.md)                                                           |
+| src/suite/a-home/modules/a-homeapi        | [API](../../techniques/api/introduction.md)                                          |
+| src/suite/a-home/modules/a-homeicon       | [Icon](../../techniques/icon/icon-engine.md)                                         |
+| src/suite/a-home/modules/a-homelayout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
+| src/suite/a-home/modules/a-homemock       | [Mock](../../techniques/mock/introduction.md)                                        |
+| src/suite/a-home/modules/a-homepagesystem | [Route Fields: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
+| src/suite/a-home/modules/a-homerouter     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |
