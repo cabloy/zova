@@ -142,7 +142,7 @@ export class StoreApi extends BeanBase {
 }
 ```
 
-## Proxy
+### Proxy
 
 | 名称               | 说明                                                                                            |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
@@ -150,6 +150,6 @@ export class StoreApi extends BeanBase {
 | PROXY_API_BASE_URL | proxy target                                                                                    |
 | PROXY_API_PREFIX   | proxy key                                                                                       |
 
-## Mock
+### Mock
 
 参见：[Mock](../mock/introduction.md)

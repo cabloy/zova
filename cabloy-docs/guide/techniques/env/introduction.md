@@ -52,15 +52,15 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 ### For example
 
-在命令行执行`npm run dev`，那么，对应的 meta 变量值是：
+Execute `npm run dev` on the command line, then the corresponding meta variable values are:
 
-| 名称    | 值            |
+| Name    | Value         |
 | ------- | ------------- |
 | mode    | 'development' |
 | flavor  | 'web'         |
 | appMode | 'spa'         |
 
-系统就会自动加载下列文件中的环境变量，并进行合并:
+The system will automatically load the environment variables in the following files and merge them:
 
 ```env
 .env
@@ -73,44 +73,44 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 .env.web.development.spa.mine
 ```
 
-## 内置环境变量
+## Built-in env variables
 
-为了进一步实现开箱即用的效果，Cabloy-Front 提供了若干内置的环境变量：
+To further achieve out-of-box functionality, Cabloy-Front provides several built-in env variables:
 
 ### meta
 
-| 名称          | 说明          |
-| ------------- | ------------- |
-| META_MODE     | mode          |
-| META_FLAVOR   | flavor        |
-| META_APP_MODE | appMode       |
-| NODE_ENV      | 等于META_MODE |
+| Name          | Description       |
+| ------------- | ----------------- |
+| META_MODE     | mode              |
+| META_FLAVOR   | flavor            |
+| META_APP_MODE | appMode           |
+| NODE_ENV      | equal `META_MODE` |
 
-### 应用
+### App
 
-| 名称            | 说明                                                                                     |
+| Name            | Description                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| APP_SERVER      | 是否在`server`端运行                                                                     |
+| APP_SERVER      | Whether to run on the `server`                                                           |
 | APP_ROUTER_MODE | [Vue Router: History Modes](https://router.vuejs.org/guide/essentials/history-mode.html) |
 | APP_ROUTER_BASE | [Vue Router: base](https://router.vuejs.org/api/interfaces/RouterHistory.html#base)      |
 | APP_PUBLIC_PATH | [Vite: Public Base Path](https://vitejs.dev/guide/build.html#public-base-path)           |
-| APP_NAME        | 应用名称                                                                                 |
-| APP_TITLE       | 应用标题                                                                                 |
-| APP_VERSION     | 应用版本                                                                                 |
+| APP_NAME        | App Name                                                                                 |
+| APP_TITLE       | App Title                                                                                |
+| APP_VERSION     | App Version                                                                              |
 
-### 套件/模块
+### Suite/Module
 
-| 名称                     | 说明           |
-| ------------------------ | -------------- |
-| PROJECT_DISABLED_MODULES | 禁用的模块清单 |
-| PROJECT_DISABLED_SUITES  | 禁用的套件清单 |
+| Name                     | Description              |
+| ------------------------ | ------------------------ |
+| PROJECT_DISABLED_MODULES | List of disabled modules |
+| PROJECT_DISABLED_SUITES  | List of disabled suites  |
 
 ### API
 
-| 名称         | 说明 |
-| ------------ | ---- |
-| API_BASE_URL |      |
-| API_PREFIX   |      |
+| Name         | Description |
+| ------------ | ----------- |
+| API_BASE_URL |             |
+| API_PREFIX   |             |
 
 `src/front/config/config/config.ts`
 
@@ -142,14 +142,14 @@ export class StoreApi extends BeanBase {
 }
 ```
 
-## Proxy
+### Proxy
 
-| 名称               | 说明                                                                                            |
-| ------------------ | ----------------------------------------------------------------------------------------------- |
-| PROXY_API_ENABLED  | 是否启用proxy：[Vite: server.proxy](https://vitejs.dev/config/server-options.html#server-proxy) |
-| PROXY_API_BASE_URL | proxy target                                                                                    |
-| PROXY_API_PREFIX   | proxy key                                                                                       |
+| Name               | Description                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| PROXY_API_ENABLED  | Whether to enable proxy: [Vite: server.proxy](https://vitejs.dev/config/server-options.html#server-proxy) |
+| PROXY_API_BASE_URL | proxy target                                                                                              |
+| PROXY_API_PREFIX   | proxy key                                                                                                 |
 
-## Mock
+### Mock
 
-参见：[Mock](../mock/introduction.md)
+Please refer to: [Mock](../mock/introduction.md)
