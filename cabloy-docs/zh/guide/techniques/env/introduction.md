@@ -113,8 +113,40 @@ export default defineConfig(async ({ mode }) => {
 
 ### API
 
-| 名称 | 说明 |
-| ---- | ---- |
+| 名称         | 说明 |
+| ------------ | ---- |
+| API_BASE_URL |      |
+| API_PREFIX   |      |
+
+`src/front/config/config/config.ts`
+
+```typescript{5-6}
+export default function (_meta: CabloyConfigMeta) {
+  const config = {
+    base: {},
+    api: {
+      baseURL: process.env.API_BASE_URL,
+      prefix: process.env.API_PREFIX,
+    },
+    layout: {},
+  } as CabloyConfigOptional;
+  return config;
+}
+```
+
+`src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
+
+```typescript{6}
+@Store()
+export class StoreApi extends BeanBase {
+  private [SymbolApi]: AxiosInstance;
+
+  protected async __init__() {
+    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
+    this[SymbolApi] = markRaw(axios.create({ baseURL }));
+  }
+}
+```
 
 ## Mock
 
