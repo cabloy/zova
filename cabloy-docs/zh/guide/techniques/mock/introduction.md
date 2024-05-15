@@ -47,3 +47,20 @@ MOCK_BUILD_PORT = 8888
 MOCK_BUILD_OUTPUT = distMockServer
 MOCK_BUILD_CORS = true
 ```
+
+| 名称              | 说明                         |
+| ----------------- | ---------------------------- |
+| MOCK_ENABLED      | 是否启用mock                 |
+| MOCK_PATH         | mock文件目录                 |
+| MOCK_LOGGER       | 是否启用logger               |
+| MOCK_BASE_NAME    | url前缀，默认是`/api`        |
+| MOCK_BUILD        | 是否生成独立可部署的fake服务 |
+| MOCK_BUILD_PORT   | fake服务的端口号             |
+| MOCK_BUILD_OUTPUT | fake服务的输出目录           |
+| MOCK_BUILD_CORS   | 是否启用`cors`跨域支持       |
+
+## 生产环境
+
+默认情况下，生产环境并不生成 fake 服务。如果需要生成 fake 服务，只需开启`MOCK_ENABLED`即可
+
+- fake 服务的工作原理，请参见：[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)
