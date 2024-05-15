@@ -83,6 +83,15 @@ export default defineConfig(async ({ mode }) => {
 
 为了进一步开箱即用，Cabloy-Front 提供了若干内置的环境变量：
 
+### meta
+
+| 名称          | 说明          |
+| ------------- | ------------- |
+| META_MODE     | mode          |
+| META_FLAVOR   | flavor        |
+| META_APP_MODE | appMode       |
+| NODE_ENV      | 等于META_MODE |
+
 ### 应用
 
 | 名称            | 说明                                                                                     |
@@ -106,3 +115,7 @@ export default defineConfig(async ({ mode }) => {
 
 | 名称 | 说明 |
 | ---- | ---- |
+
+## Mock
+
+参见：
