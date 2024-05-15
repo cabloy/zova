@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-element",
-  "version": "5.0.43",
+  "version": "5.0.44",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -30,13 +30,13 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.41",
+    "@cabloy/front": "^5.0.42",
     "element-plus": "^2.7.3",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cabloy/app-vite": "^1.0.41",
+    "@cabloy/app-vite": "^1.0.42",
     "@cabloy/lint": "^4.0.9",
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
