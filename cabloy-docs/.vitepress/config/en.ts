@@ -118,6 +118,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/guide/techniques/config/',
           link: 'introduction',
         },
+        {
+          text: 'Build',
+          base: '/guide/techniques/build/',
+          link: 'build',
+        },
       ],
     },
     {

@@ -118,6 +118,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/zh/guide/techniques/config/',
           link: 'introduction',
         },
+        {
+          text: '构建',
+          base: '/zh/guide/techniques/build/',
+          link: 'build',
+        },
       ],
     },
     {
