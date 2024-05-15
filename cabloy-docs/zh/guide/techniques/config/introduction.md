@@ -2,7 +2,7 @@
 
 ## meta与config文件
 
-Cabloy-Front 从`src/front/config/config`目录中加载 config 文件，同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](http://localhost:5173/zh/guide/techniques/env/introduction.html)
+Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](http://localhost:5173/zh/guide/techniques/env/introduction.html)
 
 ### 举例
 
@@ -29,7 +29,7 @@ config.web.development.spa.mine.ts
 
 ## 访问全局config
 
-在任何 bean 实例中可以直接通过`this.app.config`访问 全局 config 对象
+在任何 bean 实例中可以直接通过`this.app.config`访问全局 config 对象
 
 ```typescript{6}
 @Store()
@@ -64,17 +64,17 @@ export class StoreApi extends BeanBase {
 
 ### 变量对照表
 
-| env中的变量 | config中的变量 |
-| ----------- | -------------- |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
-|             |                |
+| env中的变量     | config中的变量    |
+| --------------- | ----------------- |
+| META_MODE       | meta.mode         |
+| META_FLAVOR     | meta.flavor       |
+| META_APP_MODE   | meta.appMode      |
+| APP_SERVER      | env.appServer     |
+| APP_ROUTER_MODE | env.appRouterMode |
+| APP_ROUTER_BASE | env.appRouterBase |
+| APP_PUBLIC_PATH | env.appPublicPath |
+| APP_NAME        | env.appName       |
+| APP_TITLE       | env.appTitle      |
+| APP_VERSION     | env.appVersion    |
+| API_BASE_URL    | api.baseURL       |
+| API_PREFIX      | api.prefix        |
