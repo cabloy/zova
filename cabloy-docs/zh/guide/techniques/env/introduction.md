@@ -40,19 +40,12 @@ $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
 
 ### appMode
 
-可以在`vite.config.ts`文件中修改 appMode 的变量值，默认是`spa`
+可以通过命令行传入 appMode 变量值，默认是`spa`
 
-```typescript{6}
-export default defineConfig(async ({ mode }) => {
-  const flavor = getFlavor();
-  const appMode = getAppMode();
-  const configMeta: CabloyConfigMeta = {
-    flavor,
-    mode,
-    appMode,
-  };
-  ...
-}
+```bash
+$ npm run [dev/build]                # appMode is 'spa'
+$ APPMODE=spa npm run [dev/build]     # appMode is 'spa'
+$ APPMODE=ssr npm run [dev/build]     # appMode is 'ssr'
 ```
 
 - `quasar`有自己的`appMode`设置机制，参见：[Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
