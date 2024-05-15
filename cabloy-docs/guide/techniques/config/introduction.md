@@ -4,17 +4,17 @@
 
 Cabloy-Front loads config files from the `src/front/config/config` directory. File loading based on `meta` conditions is also supported. For specific rules, refer to: [meta & .env file](../env/introduction.md)
 
-### 举例
+### For example
 
-在命令行执行`npm run dev`，那么，对应的 meta 变量值是：
+Execute `npm run dev` on the command line, then the corresponding meta variable values are:
 
-| 名称    | 值            |
+| Name    | Value         |
 | ------- | ------------- |
 | mode    | 'development' |
 | flavor  | 'web'         |
 | appMode | 'spa'         |
 
-系统就会自动加载下列文件中的 Config 配置，并进行合并:
+The system will automatically load the configuration in the following files and merge them:
 
 ```config
 config.ts
@@ -27,9 +27,9 @@ config.web.development.spa.ts
 config.web.development.spa.mine.ts
 ```
 
-## 访问全局config
+## Use global config
 
-在任何 bean 实例中可以直接通过`this.app.config`访问全局 config 对象
+The global config object can be obtained directly through `this.app.config` in any bean instance
 
 ```typescript{6}
 @Store()
@@ -43,13 +43,13 @@ export class StoreApi extends BeanBase {
 }
 ```
 
-## 访问模块config
+## Use module config
 
-模块可以单独提供自己的 Config 配置，可以通过 Scope 实例获取模块的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
+Modules can individually provide their own `config` configuration, which can be obtained through the `Scope` instance. Refer to: [Config](../../essentials/scope/config.md)
 
-## 覆盖Config配置
+## Override module config
 
-可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
+You can use `project-level` config to override `module-level` config, refer to: [Config](../../essentials/scope/config.md)
 
 ## env与config的关系
 

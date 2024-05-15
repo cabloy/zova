@@ -45,11 +45,11 @@ export class StoreApi extends BeanBase {
 
 ## 访问模块config
 
-模块可以单独提供自己的 Config 配置，可以通过 Scope 实例获取模块的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
+模块可以单独提供自己的 config 配置，可以通过 Scope 实例获取模块的 config 配置，参见：[Config配置](../../essentials/scope/config.md)
 
-## 覆盖Config配置
+## 覆盖模块config
 
-可以使用项目级别的 Config 配置覆盖模块级别的 Config 配置，参见：[Config配置](../../essentials/scope/config.md)
+可以使用项目级别的 config 配置覆盖模块级别的 config 配置，参见：[Config配置](../../essentials/scope/config.md)
 
 ## env与config的关系
 
