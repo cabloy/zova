@@ -148,6 +148,14 @@ export class StoreApi extends BeanBase {
 }
 ```
 
+## Proxy
+
+| 名称               | 说明                                                                                            |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| PROXY_API_ENABLED  | 是否启用proxy：[Vite: server.proxy](https://vitejs.dev/config/server-options.html#server-proxy) |
+| PROXY_API_BASE_URL | proxy target                                                                                    |
+| PROXY_API_PREFIX   | proxy key                                                                                       |
+
 ## Mock
 
-参见：
+参见：[Mock](../mock/introduction.md)
