@@ -113,7 +113,7 @@ For example, the previously created `userInfo` corresponds to the identifier `te
 Next, create a module `a-demo2` using the cli command, and create a local bean `testD` at the same time:
 
 ```bash
-$ cabloy front:create:module a-demo2 --template=module --suite
+$ cabloy front:create:module a-demo2 --template=module --suite=a-demo
 $ pnpm install --force
 $ cabloy front:create:local testD --module=a-demo2
 ```

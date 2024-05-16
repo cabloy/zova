@@ -101,7 +101,5 @@ In addition to the module `a-homeicon`, you can also create several new icon mod
 Icon modules can be created through the cli command:
 
 ```bash
-$ cabloy front:create:module
+$ cabloy front:create:module test-icon --template=module-icon --suite
 ```
-
-- In the command line, enter `module name` and select `icon module template`

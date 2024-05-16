@@ -7,7 +7,7 @@ Cabloy-Front enhances route `Query` and provides Typescript typing support
 In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `test-demo`:
 
 ```bash
-$ cabloy front:create:page user
+$ cabloy front:create:page user --module=a-demo
 ```
 
 ## Define Query
