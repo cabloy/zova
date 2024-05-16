@@ -36,7 +36,7 @@
 可以使用 cli 命令创建模块文件骨架，比如新建一个模块`test-home`：
 
 ```bash
-$ cabloy front:create:module test-home
+$ cabloy front:create:module test-home --template=module --suite
 ```
 
 在创建完模块之后，别忘了重新安装依赖，以便让模块生效:

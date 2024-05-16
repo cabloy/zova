@@ -5,7 +5,7 @@
 我们先通过一个 cli 命令来创建一个页面组件`counter`，该命令会创建一个路由和一个目录:
 
 ```bash
-$ cabloy front:create:page counter
+$ cabloy front:create:page counter --module=a-demo
 ```
 
 ### 路由

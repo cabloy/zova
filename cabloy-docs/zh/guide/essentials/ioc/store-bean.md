@@ -7,7 +7,7 @@
 我们先来创建一个 store bean `userInfo`。可以通过 cli 命令创建 store bean 的代码骨架：
 
 ```bash
-$ cabloy front:create:store userInfo
+$ cabloy front:create:store userInfo --module=a-demo
 ```
 
 生成的文件：`store.userInfo.ts`，内容如下：
@@ -64,7 +64,7 @@ export class StoreUserInfo extends BeanBase {
 接下来通过 cli 命令创建一个 local bean `testC`：
 
 ```bash
-$ cabloy front:create:local testC
+$ cabloy front:create:local testC --module=a-demo
 ```
 
 然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
@@ -110,12 +110,12 @@ export class LocalTestC extends BeanBase {
 
 ### 跨模块使用Store Bean
 
-接下来通过 cli 命令创建一个模块`test-home2`，同时创建一个 local bean `testD`：
+接下来通过 cli 命令创建一个模块`a-demo2`，同时创建一个 local bean `testD`：
 
 ```bash
-$ cabloy front:create:module test-home2
+$ cabloy front:create:module a-demo2 --template=module --suite=a-demo
 $ pnpm install --force
-$ cabloy front:create:local testD
+$ cabloy front:create:local testD --module=a-demo2
 ```
 
 然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法

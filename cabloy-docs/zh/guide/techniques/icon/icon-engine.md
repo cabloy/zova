@@ -101,7 +101,5 @@ $ cabloy front:tools:icons a-homeicon
 可以通过 cli 命令创建图标模块
 
 ```bash
-$ cabloy front:create:module
+$ cabloy front:create:module test-icon --template=module-icon --suite=a-demo
 ```
-
-- 在命令行提示中，输入`模块名称`，并选择`图标模块模版`即可

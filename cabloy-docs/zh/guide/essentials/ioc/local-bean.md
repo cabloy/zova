@@ -7,7 +7,7 @@
 可以通过 cli 命令创建 local bean 的代码骨架：
 
 ```bash
-$ cabloy front:create:local testA
+$ cabloy front:create:local testA --module=a-demo
 ```
 
 生成的文件：`local.testA.ts`，内容如下：
@@ -55,7 +55,7 @@ export class LocalTestA extends BeanBase {
 接下来通过 cli 命令创建 `testB` 的代码骨架：
 
 ```bash
-$ cabloy front:create:local testB
+$ cabloy front:create:local testB --module=a-demo
 ```
 
 然后直接在`testB`中注入`testA`，并调用`testA`的属性和方法
