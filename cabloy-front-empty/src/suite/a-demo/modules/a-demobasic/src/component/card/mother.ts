@@ -1,5 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front';
-import { RenderCard } from './render.jsx';
+import { BeanMotherBase, Local } from '@cabloy/front';
 import { JSX } from 'vue/jsx-runtime';
 
 export interface Props {
@@ -23,7 +22,4 @@ export class MotherCard extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {
     header: 'default header',
   };
-
-  @Use()
-  $$render: RenderCard;
 }

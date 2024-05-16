@@ -1,5 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front';
-import { RenderLayoutDefault } from './render.jsx';
+import { BeanMotherBase, Local } from '@cabloy/front';
 import * as MotherEssentialLink from '../../component/essentialLink/mother.js';
 
 export interface Props {}
@@ -13,9 +12,6 @@ export type TypeMenuItem = MotherEssentialLink.Props & { folder?: boolean; separ
 @Local()
 export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
-
-  @Use()
-  $$render: RenderLayoutDefault;
 
   leftDrawerOpen: boolean = false;
   menu: TypeMenuItem[];

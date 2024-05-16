@@ -1,8 +1,4 @@
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageErrorNotFound } from './render.jsx';
+import { BeanMotherPageBase, Local } from '@cabloy/front';
 
 @Local()
-export class MotherPageErrorNotFound extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageErrorNotFound;
-}
+export class MotherPageErrorNotFound extends BeanMotherPageBase {}
