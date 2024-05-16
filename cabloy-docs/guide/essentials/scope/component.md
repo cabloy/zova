@@ -32,24 +32,24 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
 ## Use Child Component cross-module
 
 ```typescript{1,5-6,11-18}
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
   @UseScope('a-demo')
-  scopeModuleTestDemo: ScopeModuleTestDemo;
+  scopeModuleADemo: ScopeModuleADemo;
 
   render() {
     return (
       <div>
-        <this.scopeModuleTestDemo.component.card
+        <this.scopeModuleADemo.component.card
           header="header"
           content="content"
           footer="footer"
           onReset={time => {
             console.log(time);
           }}
-        ></this.scopeModuleTestDemo.component.card>
+        ></this.scopeModuleADemo.component.card>
       </div>
     );
   }

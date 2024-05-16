@@ -45,16 +45,16 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-13}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
   @UseScope('a-demo')
-  scopeModuleTestDemo: ScopeModuleTestDemo;
+  scopeModuleADemo: ScopeModuleADemo;
 
   protected async __init__() {
-    const male = this.scopeModuleTestDemo.constant.gender.male;
-    const female = this.scopeModuleTestDemo.constant.gender.female;
+    const male = this.scopeModuleADemo.constant.gender.male;
+    const female = this.scopeModuleADemo.constant.gender.female;
     console.log(male, female);
   }
 }

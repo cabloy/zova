@@ -52,20 +52,20 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-17}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
   @UseScope('a-demo')
-  scopeModuleTestDemo: ScopeModuleTestDemo;
+  scopeModuleADemo: ScopeModuleADemo;
 
   protected async __init__() {
     // use current locale
-    const message1 = this.scopeModuleTestDemo.locale.HelloWorld();
+    const message1 = this.scopeModuleADemo.locale.HelloWorld();
     // use locale en-us
-    const message2 = this.scopeModuleTestDemo.locale.HelloWorld.locale('en-us');
+    const message2 = this.scopeModuleADemo.locale.HelloWorld.locale('en-us');
     // use locale zh-cn
-    const message3 = this.scopeModuleTestDemo.locale.HelloWorld.locale('zh-cn');
+    const message3 = this.scopeModuleADemo.locale.HelloWorld.locale('zh-cn');
     console.log(message1, message2, message3);
   }
 }
