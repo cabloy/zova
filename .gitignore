@@ -11,6 +11,7 @@ miniprogram_npm
 .nx
 .idea
 .DS_Store
+vite.config.ts.timestamp-*
 
 *.tsbuildinfo
 
