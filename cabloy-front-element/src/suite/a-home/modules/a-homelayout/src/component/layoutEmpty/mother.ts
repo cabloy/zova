@@ -1,5 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front';
-import { RenderLayoutEmpty } from './render.jsx';
+import { BeanMotherBase, Local } from '@cabloy/front';
 
 export interface Props {
   name?: string;
@@ -14,7 +13,4 @@ export class MotherLayoutEmpty extends BeanMotherBase<unknown, Props, Emits, Slo
   static $propsDefault = {
     name: '',
   };
-
-  @Use()
-  $$render: RenderLayoutEmpty;
 }

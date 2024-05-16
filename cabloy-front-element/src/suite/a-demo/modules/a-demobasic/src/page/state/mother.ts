@@ -1,11 +1,7 @@
-import { BeanMotherPageBase, Local, Use, useComputed } from '@cabloy/front';
-import { RenderPageState } from './render.jsx';
+import { BeanMotherPageBase, Local, useComputed } from '@cabloy/front';
 
 @Local()
 export class MotherPageState extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageState;
-
   counter: number = 0;
   counter2: string;
 
