@@ -17,13 +17,16 @@ export async function generateCabloyViteMeta(
   const env = configUtils.loadEnvs();
   // define
   const define = __getConfigDefine(env);
+  // server
+  const server = __getConfigServer();
+  // build
+  const build = __getConfigBuild();
+  // vitePlugins
+  const vitePlugins = generateVitePlugins(configOptions);
   // alias
   const alias = {
     '@vue/runtime-core': '@cabloy/vue-runtime-core',
   };
-  const server = __getConfigServer(env);
-  // vitePlugins
-  const vitePlugins = generateVitePlugins(configOptions);
   // viteConfig
   const viteConfig = {
     root: configOptions.appDir,
@@ -31,27 +34,10 @@ export async function generateCabloyViteMeta(
     mode: configMeta.mode,
     define,
     server,
+    build,
     resolve: {
       alias,
       extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
-    },
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: id => {
-            return configUtils.configManualChunk(id);
-          },
-        },
-      },
-      assetsInlineLimit: (filePath: string) => {
-        if (__SvgIconPattern.test(filePath)) {
-          return 0;
-        }
-      },
-      minify: 'terser',
-      terserOptions: {
-        keep_classnames: true,
-      },
     },
   };
   // generateEntryFiles
@@ -67,7 +53,7 @@ export async function generateCabloyViteMeta(
 
   //////////////////////////////
 
-  function __getConfigServer(_env) {
+  function __getConfigServer() {
     // proxy
     const proxy = {};
     if (process.env.PROXY_API_ENABLED === 'true') {
@@ -104,5 +90,27 @@ export async function generateCabloyViteMeta(
           : JSON.stringify(env[key]);
     }
     return acc;
+  }
+
+  function __getConfigBuild() {
+    const build = {
+      rollupOptions: {
+        output: {
+          manualChunks: id => {
+            return configUtils.configManualChunk(id);
+          },
+        },
+      },
+      assetsInlineLimit: (filePath: string) => {
+        if (__SvgIconPattern.test(filePath)) {
+          return 0;
+        }
+      },
+      minify: 'terser',
+      terserOptions: {
+        keep_classnames: true,
+      },
+    };
+    return build;
   }
 }
