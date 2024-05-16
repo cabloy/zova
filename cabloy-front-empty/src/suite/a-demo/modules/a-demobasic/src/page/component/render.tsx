@@ -3,7 +3,7 @@ import type { MotherPageComponent } from './mother.js';
 import { ScopeModule } from '../../resource/this.js';
 import { NSMotherCard } from '../../resource/components.js';
 
-export interface RenderPageComponent extends MotherPageComponent { }
+export interface RenderPageComponent extends MotherPageComponent {}
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase<ScopeModule> {

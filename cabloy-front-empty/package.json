@@ -37,9 +37,9 @@
   "devDependencies": {
     "@cabloy/app-vite": "^1.0.45",
     "@cabloy/lint": "^4.0.9",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.77.0",
+    "sass": "^1.77.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vue-tsc": "^1.8.27"
