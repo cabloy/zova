@@ -4,10 +4,25 @@ import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
 import { IBeanRecord } from '../bean/type.js';
 
-export function useMother<T>(A: Constructable<T>, props?, emit?);
-export function useMother<K extends keyof IBeanRecord>(beanFullName: K, props?, emit?);
-export function useMother(beanFullName: string, props?, emit?);
-export function useMother<T>(beanFullName: Constructable<T> | string, props?, emit?) {
+export function useMother<M, R>(
+  motherBeanFullName: Constructable<M>,
+  renderBeanFullName: Constructable<R>,
+  props?,
+  emit?,
+);
+export function useMother<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
+  motherBeanFullName: MK,
+  renderBeanFullName: RK,
+  props?,
+  emit?,
+);
+export function useMother(motherBeanFullName: string, renderBeanFullName: string, props?, emit?);
+export function useMother<M>(
+  motherBeanFullName: Constructable<M> | string,
+  renderBeanFullName: Constructable<M> | string,
+  props?,
+  emit?,
+) {
   // ctx
   const ctx = new CabloyContext(getCurrentInstance()!);
   // attrs
@@ -20,7 +35,8 @@ export function useMother<T>(beanFullName: Constructable<T> | string, props?, em
   ctx.app.meta.module._monkeyModuleSync('motherDataPrepare', undefined, motherData);
   // mother
   onMounted(async () => {
-    await ctx.bean._newBeanInner(true, '$$mother', motherData, undefined, beanFullName, true);
+    await ctx.bean._newBeanInner(true, '$$mother', motherData, undefined, motherBeanFullName, true);
+    await ctx.bean._newBeanInner(true, '$$render', undefined, undefined, renderBeanFullName, true);
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {

@@ -1,5 +1,4 @@
-import { BeanMotherBase, Local, Use } from '@cabloy/front';
-import { RenderEssentialLink } from './render.jsx';
+import { BeanMotherBase, Local } from '@cabloy/front';
 
 export interface Props {
   title: string;
@@ -19,7 +18,4 @@ export class MotherEssentialLink extends BeanMotherBase<unknown, Props, Emits, S
     caption: '',
     icon: '',
   };
-
-  @Use()
-  $$render: RenderEssentialLink;
 }

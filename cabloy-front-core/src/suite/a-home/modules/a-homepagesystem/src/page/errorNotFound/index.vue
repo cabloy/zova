@@ -5,5 +5,6 @@
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
 import { MotherPageErrorNotFound } from './mother.js';
-useMother(MotherPageErrorNotFound);
+import { RenderPageErrorNotFound } from './render.jsx';
+useMother(MotherPageErrorNotFound, RenderPageErrorNotFound);
 </script>
