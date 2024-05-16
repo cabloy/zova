@@ -5,7 +5,8 @@
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
 import { MotherLayoutEmpty, Props, Emits } from './mother.js';
+import { RenderLayoutEmpty } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), MotherLayoutEmpty.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(MotherLayoutEmpty, props, emit);
+useMother(MotherLayoutEmpty, RenderLayoutEmpty, props, emit);
 </script>
