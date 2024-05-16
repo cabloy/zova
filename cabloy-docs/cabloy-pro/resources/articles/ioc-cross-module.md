@@ -2,7 +2,7 @@
 
 ## Preface
 
-In the previous article, we created a business module `test-home`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
+In the previous article, we created a business module `a-demo`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
 
 In actual projects, we often encounter cross-module resource access scenarios. So, can dependency lookup mechanism of Cabloy-Pro5 still achieve cross-module access elegantly? Let's take a look
 
@@ -10,7 +10,7 @@ In actual projects, we often encounter cross-module resource access scenarios. S
 
 The front and back ends of the Cabloy-Pro5 full-stack framework adopt a modular system. A Cabloy-Pro5 project consists of multiple business modules. Each business module can contain resources related to its own business, such as: Service service, Config configuration, international language resources, Error exception, middleware, scheduled tasks, message queue, System startup items, etc.
 
-Here, we create a new business module `test-work` and access the resources provided by `test-home` in `test-work`
+Here, we create a new business module `test-work` and access the resources provided by `a-demo` in `test-work`
 
 ## 1. Create a Business Module
 
@@ -32,7 +32,7 @@ cabloy api:create:controller work
 
 ## 3. Access Services across modules
 
-Next, we access the Service of the module `test-home` in the newly created Service
+Next, we access the Service of the module `a-demo` in the newly created Service
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -41,14 +41,14 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-+   const scopeHome = this.getScope('test-home');
++   const scopeHome = this.getScope('a-demo');
 +   return scopeHome.local.home.action({ user });
     // return user;
   }
 }
 ```
 
-1. Obtain the scope object of the module `test-home` through the `getScope` method
+1. Obtain the scope object of the module `a-demo` through the `getScope` method
 2. Directly access the Service `home` through the scope object
 
 Take a look at the animation demo, which provides complete type intelligent prompts:
@@ -57,7 +57,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 4. Access Config across modules
 
-Access the Config configuration of the module `test-home`
+Access the Config configuration of the module `a-demo`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -66,7 +66,7 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('test-home');
+    const scopeHome = this.getScope('a-demo');
 +   const prompt = scopeHome.config.prompt;
     return scopeHome.local.home.action({ user });
     // return user;
@@ -82,7 +82,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 5. Access I18n across modules
 
-Access the I18n resources of the module `test-home`
+Access the I18n resources of the module `a-demo`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -91,7 +91,7 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('test-home');
+    const scopeHome = this.getScope('a-demo');
 +   const message = scopeHome.locale.HelloWorld();
 +   const message1 = scopeHome.locale.HelloWorld.locale('en-us');
 +   const message2 = scopeHome.locale.HelloWorld.locale('zh-cn');
@@ -107,7 +107,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 6. Access Error Exception across modules
 
-Access and throw the Error exception of the module `test-home`
+Access and throw the Error exception of the module `a-demo`
 
 ```diff
 import { BeanBase, Local } from '@cabloy/core';
@@ -116,7 +116,7 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('test-home');
+    const scopeHome = this.getScope('a-demo');
 +   scopeHome.error.Error001.throw();
     return scopeHome.local.home.action({ user });
     // return user;
