@@ -106,7 +106,7 @@ export class LocalTestC extends BeanBase {
 {moduleName}.store.{beanName}
 ```
 
-比如，前面创建的 `userInfo`，对应的标识为：`test-home.store.userInfo`，其中`test-home`是`userInfo`所归属的模块名称
+比如，前面创建的 `userInfo`，对应的标识为：`a-demo.store.userInfo`，其中`a-demo`是`userInfo`所归属的模块名称
 
 ### 跨模块使用Store Bean
 
@@ -124,11 +124,11 @@ $ cabloy front:create:local testD --module=a-demo2
 
 ```typescript{2,6-7}
 import { BeanBase, Local, Use } from '@cabloy/front';
-import type { StoreUserInfo } from 'cabloy-module-front-test-home';
+import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestD extends BeanBase {
-  @Use('test-home.store.userInfo')
+  @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 
   protected async __init__() {
@@ -138,5 +138,5 @@ export class LocalTestD extends BeanBase {
 }
 ```
 
-- 从`cabloy-module-front-test-home`模块导入 class `StoreUserInfo`的类型
-- 向`Use`装饰器函数传入 store bean 的标识，在这里就是`test-home.store.userInfo`。系统会自动在 app bean 容器中通过 bean 标识来查找或者创建一个 store 实例，然后注入到`testD`中
+- 从`cabloy-module-front-a-demo`模块导入 class `StoreUserInfo`的类型
+- 向`Use`装饰器函数传入 store bean 的标识，在这里就是`a-demo.store.userInfo`。系统会自动在 app bean 容器中通过 bean 标识来查找或者创建一个 store 实例，然后注入到`testD`中

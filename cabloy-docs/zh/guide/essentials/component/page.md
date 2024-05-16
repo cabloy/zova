@@ -10,7 +10,7 @@ $ cabloy front:create:page counter --module=a-demo
 
 ### 路由
 
-`src/module/test-home/src/routes.ts`
+`src/module/a-demo/src/routes.ts`
 
 ```typescript{1,6}
 import Counter from './page/counter/index.vue';
@@ -22,7 +22,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- path: `counter`是相对路径，由于该页面组件属于模块`test-home`，因此其绝对路径是`/test/home/counter`
+- path: `counter`是相对路径，由于该页面组件属于模块`a-demo`，因此其绝对路径是`/a/demo/counter`
 
 ### 目录
 

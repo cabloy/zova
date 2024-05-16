@@ -30,7 +30,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- 由于该页面组件属于模块`test-home`，其绝对路径就是: `/test/home/counter`
+- 由于该页面组件属于模块`a-demo`，其绝对路径就是: `/a/demo/counter`
 
 ## name
 
@@ -43,7 +43,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- 同样，系统也会为`name`添加模块前缀，生成绝对名称，比如这里就是`test-home:user`
+- 同样，系统也会为`name`添加模块前缀，生成绝对名称，比如这里就是`a-demo:user`
 
 ## component
 
