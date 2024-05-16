@@ -25,7 +25,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ![No ref/reactive](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/state-no-ref-reactive.gif)
 
-## 代码风格演示
+## 演示：不用`ref/reactive`，不用`ref.value`
 
 ### 1. 定义响应式状态
 
@@ -55,6 +55,52 @@ export class RenderPageCounter extends BeanRenderBase {
         <div>counter(ref): {this.counter}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
+      </div>
+    );
+  }
+}
+```
+
+## 演示：依赖注入
+
+### 1. 抽离逻辑
+
+将`counter`逻辑抽离出来，创建一个`Counter` Bean
+
+```typescript
+@Local()
+export class LocalCounter extends BeanBase {
+  counter: number = 0;
+
+  inrement() {
+    this.counter++;
+  }
+
+  decrement() {
+    this.counter--;
+  }
+}
+```
+
+### 2. 在组件中注入并使用
+
+```typescript
+@Local()
+export class MotherPageCounter extends BeanMotherPageBase {
+  @Use()
+  $$counter: LocalCounter;
+}
+```
+
+```typescript
+@Local()
+export class RenderPageCounter extends BeanRenderBase {
+  render() {
+    return (
+      <div>
+        <div>counter(ref): {this.$$counter.counter}</div>
+        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );
   }
