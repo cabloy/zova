@@ -88,10 +88,10 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 ### 开发服务
 
-| 名称            | 说明           |
-| --------------- | -------------- |
-| DEV_SERVER_HOST | 开发服务的host |
-| DEV_SERVER_PORT | 开发服务的port |
+| 名称            | 说明                                                                                          |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| DEV_SERVER_HOST | 开发服务的host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
+| DEV_SERVER_PORT | 开发服务的port                                                                                |
 
 ### 应用
 
