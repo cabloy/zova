@@ -26,7 +26,7 @@ export function extendQuasarConf(context: ConfigContext) {
     conf.boot.unshift('cabloy');
     // build: alias
     conf.build = mergeConfig(conf.build as unknown as any, {
-      alias: cabloyViteMeta.alias,
+      alias: cabloyViteMeta.viteConfig.resolve.alias,
       env: cabloyViteMeta.env,
     });
     // build: publicPath
@@ -40,6 +40,6 @@ export function extendQuasarConf(context: ConfigContext) {
     });
     conf.build.vitePlugins = (conf.build.vitePlugins || []).concat(vitePlugins);
     // devServer
-    conf.devServer = mergeConfig(conf.devServer, { proxy: cabloyViteMeta.proxy });
+    conf.devServer = mergeConfig(conf.devServer, cabloyViteMeta.viteConfig.server);
   };
 }
