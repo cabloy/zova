@@ -11,7 +11,6 @@ miniprogram_npm
 .nx
 .idea
 .DS_Store
-vite.config.ts.timestamp-*
 
 *.tsbuildinfo
 
@@ -33,3 +32,4 @@ sftp-config.json
 sftp-config-.json
 /.assets
 cabloy-docs/.vitepress/cache
+vite.config.ts.timestamp-*
