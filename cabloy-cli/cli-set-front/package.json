@@ -36,6 +36,8 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
+    "@cabloy/app-vite": "^1.0.45",
+    "@cabloy/front-core": "^5.0.41",
     "compressing": "^1.10.0",
     "egg-born-utils": "^1.2.0",
     "fs-extra": "^11.2.0",
