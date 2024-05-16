@@ -76,7 +76,7 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
         <button
           onClick={() => {
             const age = (this.$query.age ?? 0) + 1;
-            const url = this.$router.resolvePath('/test/demo/user', { name: 'tom', age });
+            const url = this.$router.resolvePath('/a/demo/user', { name: 'tom', age });
             this.$router.push(url);
           }}
         >
