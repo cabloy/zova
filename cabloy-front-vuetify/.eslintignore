@@ -5,3 +5,4 @@
 /.cabloy
 /node_modules
 .eslintrc.cjs
+vite.config.ts.timestamp-*

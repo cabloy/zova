@@ -6,4 +6,5 @@
 /.cabloy
 /node_modules
 .eslintrc.cjs
+vite.config.ts.timestamp-*
 /quasar.config.*.temporary.compiled*
