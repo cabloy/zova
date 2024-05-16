@@ -5,7 +5,7 @@
 Let's first create a page component `counter` using a cli command, which will create a route and a directory:
 
 ```bash
-$ cabloy front:create:page counter
+$ cabloy front:create:page counter --module=a-demo
 ```
 
 ### Route

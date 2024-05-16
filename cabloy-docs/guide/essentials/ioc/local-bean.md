@@ -7,7 +7,7 @@ Let's create a local bean `testA` and inject it into the local bean `testB`
 The code skeleton for local bean can be created using the cli command:
 
 ```bash
-$ cabloy front:create:local testA
+$ cabloy front:create:local testA --module=a-demo
 ```
 
 The generated file: `local.testA.ts`, with the following content:
@@ -55,7 +55,7 @@ The property `counter` defined here is reactive, bidding farewell to the writing
 Next, create the code skeleton for `testB` using the cli command:
 
 ```bash
-$ cabloy front:create:local testB
+$ cabloy front:create:local testB --module=a-demo
 ```
 
 Then inject `testA` directly into `testB` and access the properties and methods of `testA`
