@@ -1,8 +1,4 @@
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageHome } from './render.jsx';
+import { BeanMotherPageBase, Local } from '@cabloy/front';
 
 @Local()
-export class MotherPageHome extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageHome;
-}
+export class MotherPageHome extends BeanMotherPageBase {}
