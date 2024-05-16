@@ -8,7 +8,7 @@
 
 ### 1. 定义Error枚举
 
-`src/module/a-demo/src/config/errors.ts`
+`src/suite/a-demo/modules/a-demo/src/config/errors.ts`
 
 ```typescript{2}
 export enum Errors {
@@ -20,7 +20,7 @@ export enum Errors {
 
 ### 2. 定义Error语言资源
 
-英文：`src/module/a-demo/src/config/locale/en-us.ts`
+英文：`src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -28,7 +28,7 @@ export default {
 };
 ```
 
-中文：`src/module/a-demo/src/config/locale/zh-cn.ts`
+中文：`src/suite/a-demo/modules/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {

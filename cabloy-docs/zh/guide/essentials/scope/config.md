@@ -6,7 +6,7 @@
 
 以模块`a-demo`为例，定义模块的 Config 配置：
 
-`src/module/a-demo/src/config/config.ts`
+`src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
 ```typescript{5}
 import { CabloyApplication } from '@cabloy/front';

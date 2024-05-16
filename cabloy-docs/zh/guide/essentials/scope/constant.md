@@ -6,7 +6,7 @@
 
 以模块`a-demo`为例，定义模块的 Constant 常量：
 
-`src/module/a-demo/src/config/constants.ts`
+`src/suite/a-demo/modules/a-demo/src/config/constants.ts`
 
 ```typescript{2-5}
 export const constants = {

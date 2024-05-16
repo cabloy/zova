@@ -8,7 +8,7 @@ We still use the page component `user` to fully demonstrate how to define and us
 
 Define Params in `mother.ts`:
 
-`src/module/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
 ```typescript{4}
 import { zz } from '@cabloy/front';
@@ -26,7 +26,7 @@ In order to support `Params`, the `name` field needs to be used on the route rec
 
 ### 1. Route record
 
-`src/module/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/a-demo/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -40,7 +40,7 @@ export const routes: IModuleRoute[] = [
 
 ### 2. Resource record
 
-`src/module/a-demo/src/resource/pages.ts`
+`src/suite/a-demo/modules/a-demo/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
@@ -67,7 +67,7 @@ export const pageNameSchemas = {
 
 In `render.ts`, you can directly obtain Params and render its fields
 
-`src/module/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
 ```typescript{6}
 @Local()

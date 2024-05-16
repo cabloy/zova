@@ -8,7 +8,7 @@ Cabloy-Front 对路由`Params`进行了强化，提供了 Typescript 类型化�
 
 在`mother.ts`中定义 Params：
 
-`src/module/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
 ```typescript{4}
 import { zz } from '@cabloy/front';
@@ -26,7 +26,7 @@ export const ParamsSchema = zz.object({
 
 ### 1. 路由记录
 
-`src/module/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/a-demo/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -40,7 +40,7 @@ export const routes: IModuleRoute[] = [
 
 ### 2. 资源记录
 
-`src/module/a-demo/src/resource/pages.ts`
+`src/suite/a-demo/modules/a-demo/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
@@ -67,7 +67,7 @@ export const pageNameSchemas = {
 
 在`render.ts`中，可以直接获取 Params，并渲染出来
 
-`src/module/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
 ```typescript{6}
 @Local()

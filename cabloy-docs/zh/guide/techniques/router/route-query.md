@@ -14,7 +14,7 @@ $ cabloy front:create:page user --module=a-demo
 
 在`mother.ts`中定义 Query：
 
-`src/module/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
 ```typescript{4-5}
 import { zz } from '@cabloy/front';
@@ -32,7 +32,7 @@ export const QuerySchema = zz.object({
 
 在`render.ts`中，可以直接获取 Query，并渲染出来
 
-`src/module/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
 ```typescript{6-11}
 @Local()

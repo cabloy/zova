@@ -8,7 +8,7 @@ It takes two steps to define `Error`. Taking the module `a-demo` as an example:
 
 ### 1. Define Error enum
 
-`src/module/a-demo/src/config/errors.ts`
+`src/suite/a-demo/modules/a-demo/src/config/errors.ts`
 
 ```typescript{2}
 export enum Errors {
@@ -20,7 +20,7 @@ export enum Errors {
 
 ### 2. Define Error language resources
 
-English: `src/module/a-demo/src/config/locale/en-us.ts`
+English: `src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -28,7 +28,7 @@ export default {
 };
 ```
 
-Chinese: `src/module/a-demo/src/config/locale/zh-cn.ts`
+Chinese: `src/suite/a-demo/modules/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {

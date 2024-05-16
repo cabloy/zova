@@ -6,7 +6,7 @@ Modules can individually provide their own `Config` configuration
 
 Taking the module `a-demo` as an example, define the `Config` configuration of the module:
 
-`src/module/a-demo/src/config/config.ts`
+`src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
 ```typescript{5}
 import { CabloyApplication } from '@cabloy/front';
