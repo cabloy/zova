@@ -18,13 +18,13 @@ const __MenuData = [
     title: 'State',
     caption: 'ref, computed',
     icon: '',
-    to: '/a/demobasic/state',
+    to: '/a/demo/state',
   },
   {
     title: 'Component',
     caption: 'props, emits, slots',
     icon: '',
-    to: '/a/demobasic/component',
+    to: '/a/demo/component',
   },
   {
     folder: true,

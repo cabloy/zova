@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-demobasic",
+  "name": "cabloy-module-front-a-demo",
   "version": "5.0.0",
-  "title": "a-demobasic",
+  "title": "a-demo",
   "type": "module",
   "exports": {
     ".": {

@@ -16,14 +16,14 @@ export interface ScopeModuleADemobasic
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'a-demobasic': ScopeModuleADemobasic;
+    'a-demo': ScopeModuleADemobasic;
   }
 
   export interface IBeanScopeConfig {
-    'a-demobasic': ReturnType<typeof config>;
+    'a-demo': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {
-    'a-demobasic': (typeof locales)[TypeLocaleBase];
+    'a-demo': (typeof locales)[TypeLocaleBase];
   }
 }

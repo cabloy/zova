@@ -6,6 +6,6 @@
   "description": "demo",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-demobasic": "workspace:^"
+    "cabloy-module-front-a-demo": "workspace:^"
   }
 }
