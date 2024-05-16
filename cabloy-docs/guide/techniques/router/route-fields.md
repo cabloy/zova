@@ -30,7 +30,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- Since the page component belongs to the module `test-home`, its absolute path is: `/test/home/counter`
+- Since the page component belongs to the module `a-demo`, its absolute path is: `/test/home/counter`
 
 ## name
 
@@ -43,7 +43,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- Similarly, the system will also add a module prefix to `name` to generate an absolute name, for example, here is `test-home:user`
+- Similarly, the system will also add a module prefix to `name` to generate an absolute name, for example, here is `a-demo:user`
 
 ## component
 

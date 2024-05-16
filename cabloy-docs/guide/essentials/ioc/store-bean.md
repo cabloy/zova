@@ -106,7 +106,7 @@ The system will automatically assign an identifier to each store bean as the fol
 {moduleName}.store.{beanName}
 ```
 
-For example, the previously created `userInfo` corresponds to the identifier `test-home.store.userInfo`, where `test-home` is the module name which `userInfo` belongs to
+For example, the previously created `userInfo` corresponds to the identifier `a-demo.store.userInfo`, where `a-demo` is the module name which `userInfo` belongs to
 
 ### Use Store Bean
 
@@ -124,11 +124,11 @@ Then inject `userInfo` directly into `testD` and access the properties and metho
 
 ```typescript{2,6-7}
 import { BeanBase, Local, Use } from '@cabloy/front';
-import type { StoreUserInfo } from 'cabloy-module-front-test-home';
+import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestD extends BeanBase {
-  @Use('test-home.store.userInfo')
+  @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 
   protected async __init__() {
@@ -138,5 +138,5 @@ export class LocalTestD extends BeanBase {
 }
 ```
 
-- Import the type of class `StoreUserInfo` from the module of `cabloy-module-front-test-home`
-- Pass the identifier of the store bean to the `Use` decorator function, which in this case is `test-home.store.userInfo`. The system will automatically look up or create an instance in the app bean container using the bean identifier, and then inject it into `testD`
+- Import the type of class `StoreUserInfo` from the module of `cabloy-module-front-a-demo`
+- Pass the identifier of the store bean to the `Use` decorator function, which in this case is `a-demo.store.userInfo`. The system will automatically look up or create an instance in the app bean container using the bean identifier, and then inject it into `testD`

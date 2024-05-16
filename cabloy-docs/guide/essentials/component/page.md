@@ -10,7 +10,7 @@ $ cabloy front:create:page counter --module=a-demo
 
 ### Route
 
-`src/module/test-home/src/routes.ts`
+`src/module/a-demo/src/routes.ts`
 
 ```typescript{1,6}
 import Counter from './page/counter/index.vue';
@@ -22,7 +22,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- path: `counter` is a relative path, and since the page component belongs to the module `test-home`, its absolute path is `/test/home/counter`
+- path: `counter` is a relative path, and since the page component belongs to the module `a-demo`, its absolute path is `/test/home/counter`
 
 ### Directory
 
