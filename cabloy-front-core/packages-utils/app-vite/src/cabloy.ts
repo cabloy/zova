@@ -3,6 +3,7 @@ import { CabloyViteConfigOptions, CabloyViteConfigResult } from './types.js';
 import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
+import { CommonServerOptions } from 'vite';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
@@ -15,19 +16,12 @@ export async function generateCabloyViteMeta(
   // env
   const env = configUtils.loadEnvs();
   // define
-  const define = __getBuildDefine(env);
+  const define = __getConfigDefine(env);
   // alias
   const alias = {
     '@vue/runtime-core': '@cabloy/vue-runtime-core',
   };
-  // proxy
-  const proxy = {};
-  if (process.env.PROXY_API_ENABLED === 'true') {
-    proxy[process.env.PROXY_API_PREFIX!] = {
-      target: process.env.PROXY_API_BASE_URL,
-      changeOrigin: true,
-    };
-  }
+  const server = __getConfigServer(env);
   // vitePlugins
   const vitePlugins = generateVitePlugins(configOptions);
   // viteConfig
@@ -36,6 +30,7 @@ export async function generateCabloyViteMeta(
     base: env.APP_PUBLIC_PATH,
     mode: configMeta.mode,
     define,
+    server,
     resolve: {
       alias,
       extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
@@ -58,9 +53,6 @@ export async function generateCabloyViteMeta(
         keep_classnames: true,
       },
     },
-    server: {
-      proxy,
-    },
   };
   // generateEntryFiles
   await generateEntryFiles(configMeta, configOptions);
@@ -68,14 +60,41 @@ export async function generateCabloyViteMeta(
   return {
     env,
     alias,
-    proxy,
+    server,
     vitePlugins,
     viteConfig,
   };
 
   //////////////////////////////
 
-  function __getBuildDefine(env) {
+  function __getConfigServer(_env) {
+    // proxy
+    const proxy = {};
+    if (process.env.PROXY_API_ENABLED === 'true') {
+      proxy[process.env.PROXY_API_PREFIX!] = {
+        target: process.env.PROXY_API_BASE_URL,
+        changeOrigin: true,
+      };
+    }
+    // server
+    const server: CommonServerOptions = {
+      proxy,
+    };
+    // devServerHost
+    if (process.env.DEV_SERVER_HOST) {
+      if (process.env.DEV_SERVER_HOST === 'true') {
+        server.host = true;
+      } else {
+        server.host = process.env.DEV_SERVER_HOST;
+      }
+    }
+    if (process.env.DEV_SERVER_PORT) {
+      server.port = Number(process.env.DEV_SERVER_PORT);
+    }
+    return server;
+  }
+
+  function __getConfigDefine(env) {
     const acc = {};
     for (const key in env) {
       const val = env[key];
