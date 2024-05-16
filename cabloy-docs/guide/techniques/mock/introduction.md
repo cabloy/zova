@@ -37,7 +37,7 @@ Mock can be configured through `.env` file
 
 `env/.env`
 
-```env
+```txt
 MOCK_ENABLED = true
 MOCK_PATH = src/suite/a-home/modules/a-homemock/src/mock
 MOCK_LOGGER = false

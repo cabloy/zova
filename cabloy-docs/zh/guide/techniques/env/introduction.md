@@ -6,7 +6,7 @@ Cabloy-Front 通过`process.env`暴露环境变量，这些变量在构建时会
 
 Cabloy-Front 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载下列文件中的环境变量：
 
-```env
+```txt
 .env                # 所有情况下都会加载
 .env.mine           # 所有情况下都会加载，但会被 git 忽略
 .env.[meta]         # 只在指定条件下加载
@@ -62,7 +62,7 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 系统就会自动加载下列文件中的环境变量，并进行合并:
 
-```env
+```txt
 .env
 .env.mine
 .env.web

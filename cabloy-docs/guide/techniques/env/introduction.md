@@ -6,7 +6,7 @@ Cabloy-Front exposes env variables on the special `process.env` object, which ar
 
 Cabloy-Front uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
 
-```env
+```txt
 .env                # loaded in all cases
 .env.mine           # loaded in all cases, ignored by git
 .env.[meta]         # only loaded in specified condition
@@ -62,7 +62,7 @@ Execute `npm run dev` on the command line, then the corresponding meta variable 
 
 The system will automatically load the environment variables in the following files and merge them:
 
-```env
+```txt
 .env
 .env.mine
 .env.web
