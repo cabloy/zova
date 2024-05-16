@@ -86,6 +86,13 @@ To further achieve out-of-box functionality, Cabloy-Front provides several built
 | META_APP_MODE | appMode           |
 | NODE_ENV      | equal `META_MODE` |
 
+### Dev server
+
+| 名称            | 说明            |
+| --------------- | --------------- |
+| DEV_SERVER_HOST | Dev server host |
+| DEV_SERVER_PORT | Dev server port |
+
 ### App
 
 | Name            | Description                                                                              |

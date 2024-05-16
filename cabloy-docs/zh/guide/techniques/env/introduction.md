@@ -86,6 +86,13 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 | META_APP_MODE | appMode       |
 | NODE_ENV      | 等于META_MODE |
 
+### 开发服务
+
+| 名称            | 说明           |
+| --------------- | -------------- |
+| DEV_SERVER_HOST | 开发服务的host |
+| DEV_SERVER_PORT | 开发服务的port |
+
 ### 应用
 
 | 名称            | 说明                                                                                     |
