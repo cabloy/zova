@@ -1,15 +1,18 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageHome } from './mother.js';
 
-export interface RenderPageHome extends MotherPageHome { }
+export interface RenderPageHome extends MotherPageHome {}
 
 @Local()
 export class RenderPageHome extends BeanRenderBase {
   render() {
     return (
-      <div class="text-center" style={{
-        width: '100%'
-      }}>
+      <div
+        class="text-center"
+        style={{
+          width: '100%',
+        }}
+      >
         <div>
           <div style="font-size: 5vh">Hello CabloyJS</div>
 
@@ -17,7 +20,7 @@ export class RenderPageHome extends BeanRenderBase {
             Less is more, while more is less
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }

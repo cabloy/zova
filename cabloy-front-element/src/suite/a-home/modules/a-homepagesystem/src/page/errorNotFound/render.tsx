@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageErrorNotFound } from './mother.js';
 import { ElButton } from 'element-plus';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
+export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {
@@ -16,9 +16,14 @@ export class RenderPageErrorNotFound extends BeanRenderBase {
             Oops. Nothing here...
           </div>
 
-          <ElButton color="white" onClick={() => {
-            this.$router.push('/');
-          }}>Go Home</ElButton>
+          <ElButton
+            color="white"
+            onClick={() => {
+              this.$router.push('/');
+            }}
+          >
+            Go Home
+          </ElButton>
         </div>
       </div>
     );
