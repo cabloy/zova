@@ -53,7 +53,8 @@ src
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
 import { MotherPageCounter } from './mother.js';
-useMother(MotherPageCounter);
+import { RenderPageCounter } from './render.jsx';
+useMother(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
@@ -62,14 +63,10 @@ useMother(MotherPageCounter);
 ## mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageCounter } from './render.jsx';
+import { BeanMotherPageBase, Local } from '@cabloy/front';
 
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageCounter;
-
   counter: number = 0;
 
   inrement() {
@@ -83,9 +80,8 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ```
 
 1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
-2. 使用`@Use`注入`render`bean
-3. 定义一个响应式属性：`counter`，类型为`number`
-4. 直接用原生 js 代码来修改`counter`的值
+2. 定义一个响应式属性：`counter`，类型为`number`
+3. 直接用原生 js 代码来修改`counter`的值
 
 ## render.tsx
 

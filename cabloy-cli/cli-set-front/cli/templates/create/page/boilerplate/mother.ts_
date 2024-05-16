@@ -1,5 +1,4 @@
-import { BeanMotherPageBase, Local, Use, zz } from '@cabloy/front';
-import { RenderPage<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
+import { BeanMotherPageBase, Local, zz } from '@cabloy/front';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
 export const ParamsSchema = zz.object({});
@@ -12,9 +11,6 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
 export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule, QueryOutput, ParamsOutput> {
-  @Use()
-  $$render: RenderPage<%=argv.nameMeta.fullCapitalize%>;
-
   protected async __init__() {}
 
   protected __dispose__() {}

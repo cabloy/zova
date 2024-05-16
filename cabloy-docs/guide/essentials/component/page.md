@@ -53,7 +53,8 @@ src
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
 import { MotherPageCounter } from './mother.js';
-useMother(MotherPageCounter);
+import { RenderPageCounter } from './render.jsx';
+useMother(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
@@ -62,14 +63,10 @@ useMother(MotherPageCounter);
 ## mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageCounter } from './render.jsx';
+import { BeanMotherPageBase, Local } from '@cabloy/front';
 
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  @Use()
-  $$render: RenderPageCounter;
-
   counter: number = 0;
 
   inrement() {
@@ -83,9 +80,8 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ```
 
 1. Define `mother` as a local bean using `@Local` to register it in the ioc container
-2. Inject the `render` bean using `@Use`
-3. Define a reactive state: `counter` of type `number`
-4. Directly modify the value of `counter` by vanilla javascript
+2. Define a reactive state: `counter` of type `number`
+3. Directly modify the value of `counter` by vanilla javascript
 
 ## render.tsx
 
