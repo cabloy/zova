@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-empty",
-  "version": "5.0.47",
+  "version": "5.0.48",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -35,7 +35,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cabloy/app-vite": "^1.0.45",
+    "@cabloy/app-vite": "^1.0.47",
     "@cabloy/lint": "^4.0.9",
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",

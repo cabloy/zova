@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/cli-set-front",
-  "version": "1.1.27",
+  "version": "1.1.28",
   "description": "cabloy cli-set-front",
   "publishConfig": {
     "access": "public"
@@ -37,7 +37,7 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "@cabloy/app-vite": "^1.0.46",
+    "@cabloy/app-vite": "^1.0.47",
     "@cabloy/front-core": "^5.0.41",
     "compressing": "^1.10.0",
     "egg-born-utils": "^1.2.0",
