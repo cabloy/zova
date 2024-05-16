@@ -7,6 +7,7 @@ miniprogram_npm
 /docs-api
 /run
 
+.my-tools
 .nx
 .idea
 .DS_Store
