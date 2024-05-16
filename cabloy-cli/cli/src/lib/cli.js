@@ -137,6 +137,13 @@ export class CliCommand extends BaseCommand {
         varWant[propName] = propFunction;
       }
     }
+    // special check initial
+    let initial = varWant.initial;
+    if (initial && is.function(initial)) {
+      initial = initial();
+      argv[key] = initial;
+      return null;
+    }
     // result
     varWant.result = value => {
       const propFunction = this._prepareQuestionPropertyExpression({
@@ -158,15 +165,6 @@ export class CliCommand extends BaseCommand {
         if (!value) return 'Required';
         return true;
       };
-    }
-    // silent
-    if (question.silent) {
-      let initial = varWant.initial;
-      if (is.function(initial)) {
-        initial = initial();
-      }
-      argv[key] = initial;
-      return null;
     }
     // ok
     return varWant;

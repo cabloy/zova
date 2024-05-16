@@ -37,7 +37,6 @@ export default {
           initial: {
             expression: 'context.argv.module.split("-")[0]',
           },
-          silent: true,
         },
         controllerNameCapitalize: {
           type: 'input',
@@ -46,7 +45,6 @@ export default {
             expression:
               'context.argv.controllerName.replace(context.argv.controllerName[0], context.argv.controllerName[0].toUpperCase())',
           },
-          silent: true,
         },
       },
     },
