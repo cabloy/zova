@@ -16,7 +16,7 @@ Execute `npm run dev` on the command line, then the corresponding meta variable 
 
 The system will automatically load the configuration in the following files and merge them:
 
-```config
+```txt
 config.ts
 config.mine.ts
 config.web.ts
