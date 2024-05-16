@@ -4,9 +4,9 @@ Modules can individually provide their own `Constant`
 
 ## Define Constant
 
-Taking the module `test-demo` as an example, define the `Constant` of the module:
+Taking the module `a-demo` as an example, define the `Constant` of the module:
 
-`src/module/test-demo/src/config/constants.ts`
+`src/module/a-demo/src/config/constants.ts`
 
 ```typescript{2-5}
 export const constants = {
@@ -45,11 +45,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-13}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {

@@ -8,7 +8,7 @@ We still use the page component `user` to fully demonstrate how to define and us
 
 Define Params in `mother.ts`:
 
-`src/module/test-demo/src/page/user/mother.ts`
+`src/module/a-demo/src/page/user/mother.ts`
 
 ```typescript{4}
 import { zz } from '@cabloy/front';
@@ -26,7 +26,7 @@ In order to support `Params`, the `name` field needs to be used on the route rec
 
 ### 1. Route record
 
-`src/module/test-demo/src/routes.ts`
+`src/module/a-demo/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -35,12 +35,12 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- Set name to `user`, the system automatically adds the module prefix and generates the absolute name `test-demo:user`
+- Set name to `user`, the system automatically adds the module prefix and generates the absolute name `a-demo:user`
 - Change path to `user/:id?`
 
 ### 2. Resource record
 
-`src/module/test-demo/src/resource/pages.ts`
+`src/module/a-demo/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
@@ -48,26 +48,26 @@ import * as NSMotherPageUser from '../page/user/mother.js';
 
 declare module '@cabloy/front' {
   export interface IPageNameRecord {
-    'test-demo:user': TypePageParamsQuery<NSMotherPageUser.QueryInput, NSMotherPageUser.ParamsInput>;
+    'a-demo:user': TypePageParamsQuery<NSMotherPageUser.QueryInput, NSMotherPageUser.ParamsInput>;
   }
 }
 
 export const pageNameSchemas = {
-  'test-demo:user': {
+  'a-demo:user': {
     params: NSMotherPageUser.ParamsSchema,
     query: NSMotherPageUser.QuerySchema,
   },
 };
 ```
 
-- Add a record to the `IPageNameRecord` interface and declare the `Params type` corresponding to `test-demo:user`
-- Add a record to the `pageNameSchemas` object and declare the `ParamsSchema` corresponding to `test-demo:user`
+- Add a record to the `IPageNameRecord` interface and declare the `Params type` corresponding to `a-demo:user`
+- Add a record to the `pageNameSchemas` object and declare the `ParamsSchema` corresponding to `a-demo:user`
 
 ## Use Params
 
 In `render.ts`, you can directly obtain Params and render its fields
 
-`src/module/test-demo/src/page/user/render.tsx`
+`src/module/a-demo/src/page/user/render.tsx`
 
 ```typescript{6}
 @Local()
@@ -100,7 +100,7 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
         <button
           onClick={() => {
             const id = this.$params.id + 1;
-            const url = this.$router.resolveName('test-demo:user', { params: { id } });
+            const url = this.$router.resolveName('a-demo:user', { params: { id } });
             this.$router.push(url);
           }}
         >

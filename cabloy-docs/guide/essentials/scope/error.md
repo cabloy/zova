@@ -4,11 +4,11 @@ Modules can individually provide their own `Error` exceptions
 
 ## Define Error
 
-It takes two steps to define `Error`. Taking the module `test-demo` as an example:
+It takes two steps to define `Error`. Taking the module `a-demo` as an example:
 
 ### 1. Define Error enum
 
-`src/module/test-demo/src/config/errors.ts`
+`src/module/a-demo/src/config/errors.ts`
 
 ```typescript{2}
 export enum Errors {
@@ -20,7 +20,7 @@ export enum Errors {
 
 ### 2. Define Error language resources
 
-English: `src/module/test-demo/src/config/locale/en-us.ts`
+English: `src/module/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -28,7 +28,7 @@ export default {
 };
 ```
 
-Chinese: `src/module/test-demo/src/config/locale/zh-cn.ts`
+Chinese: `src/module/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {
@@ -60,11 +60,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {

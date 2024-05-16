@@ -4,7 +4,7 @@ Cabloy-Front enhances route `Query` and provides Typescript typing support
 
 ## Create Page Component
 
-In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `test-demo`:
+In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `a-demo`:
 
 ```bash
 $ cabloy front:create:page user --module=a-demo
@@ -14,7 +14,7 @@ $ cabloy front:create:page user --module=a-demo
 
 Define Query in `mother.ts`:
 
-`src/module/test-demo/src/page/user/mother.ts`
+`src/module/a-demo/src/page/user/mother.ts`
 
 ```typescript{4-5}
 import { zz } from '@cabloy/front';
@@ -32,7 +32,7 @@ export const QuerySchema = zz.object({
 
 In `render.ts`, you can directly obtain Query and render its fields
 
-`src/module/test-demo/src/page/user/render.tsx`
+`src/module/a-demo/src/page/user/render.tsx`
 
 ```typescript{6-11}
 @Local()

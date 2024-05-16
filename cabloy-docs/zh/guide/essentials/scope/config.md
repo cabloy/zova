@@ -4,9 +4,9 @@
 
 ## 定义Config
 
-以模块`test-demo`为例，定义模块的 Config 配置：
+以模块`a-demo`为例，定义模块的 Config 配置：
 
-`src/module/test-demo/src/config/config.ts`
+`src/module/a-demo/src/config/config.ts`
 
 ```typescript{5}
 import { CabloyApplication } from '@cabloy/front';
@@ -45,11 +45,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-12}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
@@ -73,7 +73,7 @@ export default function (_meta: CabloyConfigMeta) {
 
   // module config
   config.modules = {
-    'test-demo': {
+    'a-demo': {
       prompt: 'Hello World!!!',
     },
   };
@@ -82,4 +82,4 @@ export default function (_meta: CabloyConfigMeta) {
 }
 ```
 
-- 将模块`test-demo`的`prompt`修改为`Hello World!!!`
+- 将模块`a-demo`的`prompt`修改为`Hello World!!!`

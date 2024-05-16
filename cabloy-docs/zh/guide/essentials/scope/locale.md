@@ -4,9 +4,9 @@
 
 ## 定义语言资源
 
-以模块`test-demo`为例，定义模块的语言资源：
+以模块`a-demo`为例，定义模块的语言资源：
 
-英文：`src/module/test-demo/src/config/locale/en-us.ts`
+英文：`src/module/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -14,7 +14,7 @@ export default {
 };
 ```
 
-中文：`src/module/test-demo/src/config/locale/zh-cn.ts`
+中文：`src/module/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {
@@ -52,11 +52,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-17}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
@@ -82,7 +82,7 @@ import { CabloyLocaleOptional } from '@cabloy/front';
 
 export default {
   modules: {
-    'test-demo': {
+    'a-demo': {
       HelloWorld: 'Hello World!!!',
     },
   },
@@ -96,7 +96,7 @@ import { CabloyLocaleOptional } from '@cabloy/front';
 
 export default {
   modules: {
-    'test-demo': {
+    'a-demo': {
       HelloWorld: '您好世界!!!',
     },
   },

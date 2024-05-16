@@ -32,11 +32,11 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
 ## Use Child Component cross-module
 
 ```typescript{1,5-6,11-18}
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   render() {

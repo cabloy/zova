@@ -4,9 +4,9 @@ Modules can individually provide their own `Config` configuration
 
 ## Define Config
 
-Taking the module `test-demo` as an example, define the `Config` configuration of the module:
+Taking the module `a-demo` as an example, define the `Config` configuration of the module:
 
-`src/module/test-demo/src/config/config.ts`
+`src/module/a-demo/src/config/config.ts`
 
 ```typescript{5}
 import { CabloyApplication } from '@cabloy/front';
@@ -45,11 +45,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-12}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
@@ -73,7 +73,7 @@ export default function (_meta: CabloyConfigMeta) {
 
   // module config
   config.modules = {
-    'test-demo': {
+    'a-demo': {
       prompt: 'Hello World!!!',
     },
   };
@@ -82,4 +82,4 @@ export default function (_meta: CabloyConfigMeta) {
 }
 ```
 
-- Change the `prompt` of the module `test-demo` to `Hello World!!!`
+- Change the `prompt` of the module `a-demo` to `Hello World!!!`

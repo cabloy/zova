@@ -4,11 +4,11 @@
 
 ## 定义Error
 
-定义 Error 分为两个步骤，以模块`test-demo`为例：
+定义 Error 分为两个步骤，以模块`a-demo`为例：
 
 ### 1. 定义Error枚举
 
-`src/module/test-demo/src/config/errors.ts`
+`src/module/a-demo/src/config/errors.ts`
 
 ```typescript{2}
 export enum Errors {
@@ -20,7 +20,7 @@ export enum Errors {
 
 ### 2. 定义Error语言资源
 
-英文：`src/module/test-demo/src/config/locale/en-us.ts`
+英文：`src/module/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -28,7 +28,7 @@ export default {
 };
 ```
 
-中文：`src/module/test-demo/src/config/locale/zh-cn.ts`
+中文：`src/module/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {
@@ -60,11 +60,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {

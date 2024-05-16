@@ -8,7 +8,7 @@ Cabloy-Front 对路由`Params`进行了强化，提供了 Typescript 类型化�
 
 在`mother.ts`中定义 Params：
 
-`src/module/test-demo/src/page/user/mother.ts`
+`src/module/a-demo/src/page/user/mother.ts`
 
 ```typescript{4}
 import { zz } from '@cabloy/front';
@@ -26,7 +26,7 @@ export const ParamsSchema = zz.object({
 
 ### 1. 路由记录
 
-`src/module/test-demo/src/routes.ts`
+`src/module/a-demo/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -35,12 +35,12 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- name 设为`user`，系统自动添加模块前缀，生成绝对名称`test-demo:user`
+- name 设为`user`，系统自动添加模块前缀，生成绝对名称`a-demo:user`
 - path 改为`user/:id?`
 
 ### 2. 资源记录
 
-`src/module/test-demo/src/resource/pages.ts`
+`src/module/a-demo/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
@@ -48,26 +48,26 @@ import * as NSMotherPageUser from '../page/user/mother.js';
 
 declare module '@cabloy/front' {
   export interface IPageNameRecord {
-    'test-demo:user': TypePageParamsQuery<NSMotherPageUser.QueryInput, NSMotherPageUser.ParamsInput>;
+    'a-demo:user': TypePageParamsQuery<NSMotherPageUser.QueryInput, NSMotherPageUser.ParamsInput>;
   }
 }
 
 export const pageNameSchemas = {
-  'test-demo:user': {
+  'a-demo:user': {
     params: NSMotherPageUser.ParamsSchema,
     query: NSMotherPageUser.QuerySchema,
   },
 };
 ```
 
-- 向`IPageNameRecord`接口添加记录，声明`test-demo:user`对应的`Params类型`
-- 向`pageNameSchemas`对象添加记录，声明`test-demo:user`对应的`ParamsSchema`
+- 向`IPageNameRecord`接口添加记录，声明`a-demo:user`对应的`Params类型`
+- 向`pageNameSchemas`对象添加记录，声明`a-demo:user`对应的`ParamsSchema`
 
 ## 使用Params
 
 在`render.ts`中，可以直接获取 Params，并渲染出来
 
-`src/module/test-demo/src/page/user/render.tsx`
+`src/module/a-demo/src/page/user/render.tsx`
 
 ```typescript{6}
 @Local()
@@ -100,7 +100,7 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
         <button
           onClick={() => {
             const id = this.$params.id + 1;
-            const url = this.$router.resolveName('test-demo:user', { params: { id } });
+            const url = this.$router.resolveName('a-demo:user', { params: { id } });
             this.$router.push(url);
           }}
         >

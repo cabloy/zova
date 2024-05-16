@@ -4,9 +4,9 @@ Modules can individually provide their own `I18n` language resources
 
 ## Define language resources
 
-Taking the module `test-demo` as an example, define the `I18n` language resources of the module:
+Taking the module `a-demo` as an example, define the `I18n` language resources of the module:
 
-English: `src/module/test-demo/src/config/locale/en-us.ts`
+English: `src/module/a-demo/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -14,7 +14,7 @@ export default {
 };
 ```
 
-Chinese: `src/module/test-demo/src/config/locale/zh-cn.ts`
+Chinese: `src/module/a-demo/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {
@@ -52,11 +52,11 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 ```typescript{3,7-8,11-17}
 import { BeanBase, Local, UseScope } from '@cabloy/front';
 import { ScopeModule } from './resource/this.js';
-import type { ScopeModuleTestDemo } from 'cabloy-module-front-test-demo';
+import type { ScopeModuleTestDemo } from 'cabloy-module-front-a-demo';
 
 @Local()
 export class LocalTestA extends BeanBase<ScopeModule> {
-  @UseScope('test-demo')
+  @UseScope('a-demo')
   scopeModuleTestDemo: ScopeModuleTestDemo;
 
   protected async __init__() {
@@ -82,7 +82,7 @@ import { CabloyLocaleOptional } from '@cabloy/front';
 
 export default {
   modules: {
-    'test-demo': {
+    'a-demo': {
       HelloWorld: 'Hello World!!!',
     },
   },
@@ -96,7 +96,7 @@ import { CabloyLocaleOptional } from '@cabloy/front';
 
 export default {
   modules: {
-    'test-demo': {
+    'a-demo': {
       HelloWorld: '您好世界!!!',
     },
   },
