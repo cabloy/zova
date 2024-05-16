@@ -45,8 +45,6 @@ export async function generateCabloyViteMeta(
   // ok
   return {
     env,
-    alias,
-    server,
     vitePlugins,
     viteConfig,
   };

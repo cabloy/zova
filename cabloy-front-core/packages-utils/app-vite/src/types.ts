@@ -14,8 +14,6 @@ export interface CabloyViteConfigOptions {
 
 export interface CabloyViteConfigResult {
   env: { [name: string]: string };
-  alias: { [name: string]: string };
-  server: any;
   vitePlugins: any[];
   viteConfig: any;
 }
