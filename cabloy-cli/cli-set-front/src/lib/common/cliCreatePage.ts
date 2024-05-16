@@ -2,7 +2,7 @@ import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
 import { __ThisSetName__ } from '../this.js';
-import { getAppMode, getFlavor } from '@cabloy/app-vite';
+import { createConfigUtils } from '@cabloy/app-vite';
 import { CabloyConfigMeta } from '@cabloy/front-core';
 
 declare module '@cabloy/cli' {
@@ -59,22 +59,22 @@ export class CliCreatePageBase extends BeanCliBase {
       boilerplatePath: `create/${this.pageMode}/boilerplate`,
     });
     // log url
-    await this.logUrl();
+    await this.logUrl(argv);
   }
 
-  async logUrl(){
+  async logUrl(argv) {
     const env = await this.loadEnvs();
-    const host=(!env.DEV_SERVER_HOST || env.DEV_SERVER_HOST==='true')?'localhost':env.DEV_SERVER_HOST;
-    const port=  env.DEV_SERVER_PORT;
-    const url = `http://${}:${}/${argv.moduleInfo.pid}/${argv.moduleInfo.name}/${argv.pageName}`;
-    await this.console.log(`downloading ${tgzUrl}`);
+    const host = !env.DEV_SERVER_HOST || env.DEV_SERVER_HOST === 'true' ? 'localhost' : env.DEV_SERVER_HOST;
+    const port = env.DEV_SERVER_PORT;
+    const url = `http://${host}:${port}/#/${argv.moduleInfo.pid}/${argv.moduleInfo.name}/${argv.pageName}`;
+    await this.console.log(`page url: ${url}`);
   }
 
   async loadEnvs() {
     const configMeta: CabloyConfigMeta = {
-      flavor:'web',
-      mode:'development',
-      appMode:'spa',
+      flavor: 'web',
+      mode: 'development',
+      appMode: 'spa',
     };
     const configOptions = {
       appDir: process.cwd(),
@@ -84,7 +84,10 @@ export class CliCreatePageBase extends BeanCliBase {
         vendors: [],
       },
     };
-    // cabloyViteMeta
-    const cabloyViteMeta = await generateCabloyViteMeta(configMeta, configOptions);
+    // config utils
+    const configUtils = createConfigUtils(configMeta, configOptions);
+    // env
+    const env = configUtils.loadEnvs();
+    return env;
   }
 }

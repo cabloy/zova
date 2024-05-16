@@ -2,6 +2,7 @@ import CommonBin from '@zhennann/common-bin';
 import { ICommandArgv } from './types/argv.js';
 import { BeanCli } from './lib/bean.cli.js';
 import { CliCommand } from './lib/cli.js';
+import { collectCommands } from './lib/commands.js';
 const DISPATCH = Symbol.for('eb:Command#dispatch');
 const PARSE = Symbol.for('eb:Command#parse');
 
@@ -12,6 +13,8 @@ export class CabloyCommand extends CommonBin {
   }
 
   async [DISPATCH]() {
+    // collectCommands
+    await collectCommands();
     // cli
     await this._handleCli();
   }

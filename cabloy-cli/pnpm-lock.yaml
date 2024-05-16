@@ -88,8 +88,8 @@ importers:
   cli-set-front:
     dependencies:
       '@cabloy/app-vite':
-        specifier: ^1.0.45
-        version: 1.0.45(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.46
+        version: 1.0.46(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
       '@cabloy/front-core':
         specifier: ^5.0.41
         version: 5.0.41(typescript@5.4.5)
@@ -293,8 +293,8 @@ packages:
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/app-vite@1.0.45':
-    resolution: {integrity: sha512-8lW5TemYeYYt/j9AH37kIMiabmcFY9GBp4RG713osU4MFV8kTF7/nnC1ErBZrrTPRbjuGY/2sqs7YJO7h/i+Rw==}
+  '@cabloy/app-vite@1.0.46':
+    resolution: {integrity: sha512-B4oejF7ttoizoE1WyllkDYxh4HgvIu3Ea4iI1ErtAUU6/PvY6LRc50vpOueGzU1SJILIoQolRpPOdhUTzp/rEA==}
 
   '@cabloy/compose@1.0.2':
     resolution: {integrity: sha512-aOiMY6y5KyJ988pujOX90D+KTuHcFd6nyr/1hNzBnpyx0wYbFBeeJGwvzwk2TKHvkAB+VdbIPkaZNSFlQ4aeug==}
@@ -3603,7 +3603,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
 
-  '@cabloy/app-vite@1.0.45(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))':
+  '@cabloy/app-vite@1.0.46(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.1(@babel/core@7.24.5)
       '@babel/plugin-transform-class-properties': 7.24.1(@babel/core@7.24.5)

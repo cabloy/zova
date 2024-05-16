@@ -1,15 +1,28 @@
 import { commandsConfig } from '../config.js';
 
-let __commandsMap;
-let __commandsAll;
+let __commandsMeta: { map: any; all: any };
 
-function _collectCommands() {
+export async function getCommandsMeta() {
+  await collectCommands();
+  return __commandsMeta;
+}
+
+export function findCommand(cliFullName: string) {
+  return __commandsMeta.map[cliFullName];
+}
+
+export async function collectCommands() {
+  await _collectCommands();
+}
+
+async function _collectCommands() {
+  if (__commandsMeta) return;
   const _commandsMap: any = {};
   const _commandsAll: any = {};
   const sets = commandsConfig.sets;
   for (const setName in sets) {
     const setModuleName = sets[setName];
-    const setModule = require(setModuleName);
+    const setModule = await import(setModuleName);
     const commands = setModule.commands;
     if (!commands) continue;
     const _commandsSet = (_commandsAll[setName] = {});
@@ -27,14 +40,8 @@ function _collectCommands() {
     }
   }
   // ok
-  __commandsMap = _commandsMap;
-  __commandsAll = _commandsAll;
-}
-
-_collectCommands();
-
-export const commandsMeta = { commandsMap: __commandsMap, commandsAll: __commandsAll };
-
-export function findCommand(cliFullName: string) {
-  return __commandsMap[cliFullName];
+  __commandsMeta = {
+    map: _commandsMap,
+    all: _commandsAll,
+  };
 }

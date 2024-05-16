@@ -1,4 +1,4 @@
-import { BeanCliBase, commandsMeta } from '@cabloy/cli';
+import { BeanCliBase, getCommandsMeta } from '@cabloy/cli';
 
 export class CliDefaultList extends BeanCliBase {
   async execute() {
@@ -10,7 +10,7 @@ export class CliDefaultList extends BeanCliBase {
     let groupWant = argv.group;
     if (!setWant) groupWant = undefined;
     // commandsAll
-    const commandsAll = commandsMeta.commandsAll;
+    const commandsAll = (await getCommandsMeta()).all;
     // setsShow
     let setsShow;
     if (setWant) {
