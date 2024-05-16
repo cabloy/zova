@@ -3,7 +3,7 @@ import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault { }
+export interface RenderLayoutDefault extends MotherLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
@@ -36,13 +36,11 @@ export class RenderLayoutDefault extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>
-          {this._renderMenu()}
-        </div>
+        <div>{this._renderMenu()}</div>
         <div>
           <router-view />
         </div>
       </div>
-    )
+    );
   }
 }

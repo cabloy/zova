@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageState } from './mother.js';
 
-export interface RenderPageState extends MotherPageState { }
+export interface RenderPageState extends MotherPageState {}
 
 @Local()
 export class RenderPageState extends BeanRenderBase {

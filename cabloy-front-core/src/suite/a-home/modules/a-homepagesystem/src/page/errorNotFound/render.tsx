@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageErrorNotFound } from './mother.js';
 import { RouterLink } from 'vue-router';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
+export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {
