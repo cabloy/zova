@@ -71,9 +71,6 @@ export default defineConfig(async ({ mode }) => {
       },
     },
     plugins,
-    server: {
-      port: 3000,
-    },
   });
   return viteConfig;
 });

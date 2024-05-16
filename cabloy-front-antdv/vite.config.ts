@@ -36,9 +36,6 @@ export default defineConfig(async ({ mode }) => {
   // viteConfig
   const viteConfig = mergeConfig(cabloyViteMeta.viteConfig, {
     plugins,
-    server: {
-      port: 3000,
-    },
   });
   return viteConfig;
 });
