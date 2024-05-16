@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageState } from './mother.js';
 import { Button } from 'ant-design-vue';
 
-export interface RenderPageState extends MotherPageState { }
+export interface RenderPageState extends MotherPageState {}
 
 @Local()
 export class RenderPageState extends BeanRenderBase {

@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageErrorNotFound } from './mother.js';
 import { Button } from 'ant-design-vue';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
+export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {
@@ -16,9 +16,13 @@ export class RenderPageErrorNotFound extends BeanRenderBase {
             Oops. Nothing here...
           </div>
 
-          <Button onClick={() => {
-            this.$router.push('/');
-          }}>Go Home</Button>
+          <Button
+            onClick={() => {
+              this.$router.push('/');
+            }}
+          >
+            Go Home
+          </Button>
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageComponent } from './mother.js';
 import { NSMotherCard } from '../../resource/components.js';
 import { ScopeModule } from '../../resource/this.js';
-export interface RenderPageComponent extends MotherPageComponent { }
+export interface RenderPageComponent extends MotherPageComponent {}
 
 @Local()
 export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
