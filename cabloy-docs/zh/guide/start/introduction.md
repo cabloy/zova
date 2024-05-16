@@ -63,7 +63,7 @@ export class RenderPageCounter extends BeanRenderBase {
 
 ## 演示：依赖注入
 
-### 1. 抽离逻辑
+### 1. 逻辑抽离
 
 将`counter`逻辑抽离出来，创建一个`Counter` Bean
 
