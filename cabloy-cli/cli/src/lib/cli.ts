@@ -9,6 +9,12 @@ const __envFields = ['TERM', 'TERM_PROGRAM', 'TERM_PROGRAM_VERSION', 'SHELL', 'C
 const __comment_seperator = '====================================================================';
 
 export class CliCommand extends BaseCommand {
+  __meta: any;
+  __groups: any;
+  __argv: any;
+  __cabloyConfig: any;
+  cabloyConfig: any;
+
   constructor(rawArgv, { meta, argv }) {
     super(rawArgv);
     this.usage = meta.info.usage;
@@ -21,7 +27,8 @@ export class CliCommand extends BaseCommand {
     this.cabloyConfig = null;
   }
 
-  async run({ argv, cwd, env, rawArgv }) {
+  async run(options) {
+    let { argv, cwd, env, rawArgv } = options;
     // argv
     argv = Object.assign({}, argv, this.__argv);
     delete argv.t;
@@ -95,7 +102,7 @@ export class CliCommand extends BaseCommand {
     const check = this._checkGroupCondition({ group, context });
     if (!check) return;
     // prepare
-    const varsWant = [];
+    const varsWant: any = [];
     for (const key in group.questions) {
       const value = argv[key];
       if (value !== undefined) continue;
