@@ -148,8 +148,10 @@ export class CliCommand extends BaseCommand {
     let initial = varWant.initial;
     if (initial && is.function(initial)) {
       initial = initial();
-      argv[key] = initial;
-      return null;
+      if (initial !== undefined) {
+        argv[key] = initial;
+        return null;
+      }
     }
     // result
     varWant.result = value => {
