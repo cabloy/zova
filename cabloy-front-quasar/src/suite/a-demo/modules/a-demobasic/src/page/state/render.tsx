@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageState } from './mother.js';
 import { QBtn } from 'quasar';
 
-export interface RenderPageState extends MotherPageState { }
+export interface RenderPageState extends MotherPageState {}
 
 @Local()
 export class RenderPageState extends BeanRenderBase {
@@ -11,8 +11,12 @@ export class RenderPageState extends BeanRenderBase {
       <div>
         <div>counter(ref): {this.counter}</div>
         <div>counter(computed): {this.counter2}</div>
-        <QBtn color="secondary" onClick={() => this.inrement()}>Inrement</QBtn>
-        <QBtn color="secondary" onClick={() => this.decrement()}>Decrement</QBtn>
+        <QBtn color="secondary" onClick={() => this.inrement()}>
+          Inrement
+        </QBtn>
+        <QBtn color="secondary" onClick={() => this.decrement()}>
+          Decrement
+        </QBtn>
       </div>
     );
   }

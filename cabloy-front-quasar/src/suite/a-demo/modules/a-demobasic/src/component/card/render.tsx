@@ -2,14 +2,15 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherCard } from './mother.js';
 import { QBtn } from 'quasar';
 
-export interface RenderCard extends MotherCard { }
+export interface RenderCard extends MotherCard {}
 
 @Local()
 export class RenderCard extends BeanRenderBase {
   render() {
     return (
       <div>
-        <QBtn color="secondary"
+        <QBtn
+          color="secondary"
           onClick={() => {
             this.$emit('reset', new Date());
           }}

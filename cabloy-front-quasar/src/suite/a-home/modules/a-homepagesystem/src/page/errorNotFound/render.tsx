@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageErrorNotFound } from './mother.js';
 import { QBtn } from 'quasar';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
+export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {

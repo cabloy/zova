@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherEssentialLink } from './mother.js';
 import { QIcon, QItem, QItemLabel, QItemSection } from 'quasar';
 
-export interface RenderEssentialLink extends MotherEssentialLink { }
+export interface RenderEssentialLink extends MotherEssentialLink {}
 
 @Local()
 export class RenderEssentialLink extends BeanRenderBase {
