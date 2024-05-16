@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-element",
-  "version": "5.0.47",
+  "version": "5.0.48",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
