@@ -25,7 +25,7 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 ![No ref/reactive](https://cabloy-1258265067.cos.ap-shanghai.myqcloud.com/image/state-no-ref-reactive.gif)
 
-## Code style demonstration
+## Demonstration: no `ref/reactive`, no `ref.value`
 
 ### 1. Define reactive state
 
@@ -55,6 +55,52 @@ export class RenderPageCounter extends BeanRenderBase {
         <div>counter(ref): {this.counter}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
+      </div>
+    );
+  }
+}
+```
+
+## Demonstration: dependency injection
+
+### 1. Logic Reuse
+
+Create a `Counter` Bean to implement the logic of `counter`
+
+```typescript
+@Local()
+export class LocalCounter extends BeanBase {
+  counter: number = 0;
+
+  inrement() {
+    this.counter++;
+  }
+
+  decrement() {
+    this.counter--;
+  }
+}
+```
+
+### 2. Inject and use in a component
+
+```typescript
+@Local()
+export class MotherPageCounter extends BeanMotherPageBase {
+  @Use()
+  $$counter: LocalCounter;
+}
+```
+
+```typescript
+@Local()
+export class RenderPageCounter extends BeanRenderBase {
+  render() {
+    return (
+      <div>
+        <div>counter(ref): {this.$$counter.counter}</div>
+        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );
   }
