@@ -5,5 +5,6 @@
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
 import { MotherPageState } from './mother.js';
-useMother(MotherPageState);
+import { RenderPageState } from './render.jsx';
+useMother(MotherPageState, RenderPageState);
 </script>

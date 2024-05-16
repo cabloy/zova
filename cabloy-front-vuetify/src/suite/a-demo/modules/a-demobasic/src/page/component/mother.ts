@@ -1,5 +1,4 @@
-import { BeanMotherPageBase, Local, Use } from '@cabloy/front';
-import { RenderPageComponent } from './render.jsx';
+import { BeanMotherPageBase, Local } from '@cabloy/front';
 import { MotherCard } from '../../component/card/mother.js';
 import { ScopeModule } from '../../resource/this.js';
 
@@ -7,7 +6,4 @@ import { ScopeModule } from '../../resource/this.js';
 export class MotherPageComponent extends BeanMotherPageBase<ScopeModule> {
   resetTime: Date = new Date();
   cardRef: MotherCard;
-
-  @Use()
-  $$render: RenderPageComponent;
 }
