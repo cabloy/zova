@@ -97,7 +97,7 @@ export function generateVitePlugins(configOptions: CabloyViteConfigOptions) {
           tsconfigPath,
         },
         eslint: {
-          lintCommand: 'eslint "./**/*.{js,ts,mjs,cjs,vue}"',
+          lintCommand: 'eslint "./**/*.{js,ts,tsx,mjs,mts,cjs,cts,vue}"',
         },
       },
       { server: false },
