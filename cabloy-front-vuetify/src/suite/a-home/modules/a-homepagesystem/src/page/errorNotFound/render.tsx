@@ -2,7 +2,7 @@ import { BeanRenderBase, Local } from '@cabloy/front';
 import type { MotherPageErrorNotFound } from './mother.js';
 import { VBtn } from 'vuetify/components';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound { }
+export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {
@@ -16,7 +16,7 @@ export class RenderPageErrorNotFound extends BeanRenderBase {
             Oops. Nothing here...
           </div>
 
-          <VBtn rounded elevation={12} ripple color="white" text='Go Home' text-color="blue" to="/" />
+          <VBtn rounded elevation={12} ripple color="white" text="Go Home" text-color="blue" to="/" />
         </div>
       </div>
     );
