@@ -41,8 +41,8 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-+   const scopeHome = this.getScope('a-demo');
-+   return scopeHome.local.home.action({ user });
++   const scopeDemo = this.getScope('a-demo');
++   return scopeDemo.local.home.action({ user });
     // return user;
   }
 }
@@ -66,15 +66,15 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('a-demo');
-+   const prompt = scopeHome.config.prompt;
-    return scopeHome.local.home.action({ user });
+    const scopeDemo = this.getScope('a-demo');
++   const prompt = scopeDemo.config.prompt;
+    return scopeDemo.local.home.action({ user });
     // return user;
   }
 }
 ```
 
-1. 直接通过 scopeHome 取得 config 中的 prompt 属性值
+1. 直接通过 scopeDemo 取得 config 中的 prompt 属性值
 
 看一下动画演示，提供了完整的类型智能提示：
 
@@ -91,11 +91,11 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('a-demo');
-+   const message = scopeHome.locale.HelloWorld();
-+   const message1 = scopeHome.locale.HelloWorld.locale('en-us');
-+   const message2 = scopeHome.locale.HelloWorld.locale('zh-cn');
-    return scopeHome.local.home.action({ user });
+    const scopeDemo = this.getScope('a-demo');
++   const message = scopeDemo.locale.HelloWorld();
++   const message1 = scopeDemo.locale.HelloWorld.locale('en-us');
++   const message2 = scopeDemo.locale.HelloWorld.locale('zh-cn');
+    return scopeDemo.local.home.action({ user });
     // return user;
   }
 }
@@ -116,15 +116,15 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class LocalWork extends BeanBase<ScopeModule> {
   async action({ user }) {
-    const scopeHome = this.getScope('a-demo');
-+   scopeHome.error.Error001.throw();
-    return scopeHome.local.home.action({ user });
+    const scopeDemo = this.getScope('a-demo');
++   scopeDemo.error.Error001.throw();
+    return scopeDemo.local.home.action({ user });
     // return user;
   }
 }
 ```
 
-1. 直接通过 scopeHome 抛出错误异常 Error001
+1. 直接通过 scopeDemo 抛出错误异常 Error001
 
 看一下动画演示，提供了完整的类型智能提示：
 
