@@ -12,12 +12,12 @@ All beans can provide two lifecycle methods
 ```typescript
 import { useComputed } from '@cabloy/front';
 ...
-  counter: number = 0;
+  count: number = 0;
   counter2: string;
 
   protected async __init__() {
     this.counter2 = useComputed(() => {
-      return `=== ${this.counter} ===`;
+      return `=== ${this.count} ===`;
     });
   }
 ...
@@ -31,14 +31,14 @@ import { useComputed } from '@cabloy/front';
 ```typescript
 import { watch } from 'vue';
 ...
-  counter: number = 0;
+  count: number = 0;
   unwatchCounter;
 
   protected async __init__() {
     this.unwatchCounter = watch(
-      () => this.counter,
+      () => this.count,
       () => {
-        console.log(this.counter);
+        console.log(this.count);
       },
     );
   }

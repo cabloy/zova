@@ -9,7 +9,7 @@ export class RenderPageState extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>counter(ref): {this.counter}</div>
+        <div>counter(ref): {this.count}</div>
         <div>counter(computed): {this.counter2}</div>
         <VBtn color="secondary" onClick={() => this.inrement()}>
           Inrement

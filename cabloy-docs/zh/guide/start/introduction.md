@@ -32,14 +32,14 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 ```typescript
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  counter: number = 0;
+  count: number = 0;
 
   inrement() {
-    this.counter++;
+    this.count++;
   }
 
   decrement() {
-    this.counter--;
+    this.count--;
   }
 }
 ```
@@ -52,7 +52,7 @@ export class RenderPageCounter extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>counter(ref): {this.counter}</div>
+        <div>counter(ref): {this.count}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
@@ -70,14 +70,14 @@ export class RenderPageCounter extends BeanRenderBase {
 ```typescript
 @Local()
 export class LocalCounter extends BeanBase {
-  counter: number = 0;
+  count: number = 0;
 
   inrement() {
-    this.counter++;
+    this.count++;
   }
 
   decrement() {
-    this.counter--;
+    this.count--;
   }
 }
 ```

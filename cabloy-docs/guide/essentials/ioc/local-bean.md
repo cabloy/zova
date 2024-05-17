@@ -34,14 +34,14 @@ import { BeanBase, Local } from '@cabloy/front';
 
 @Local()
 export class LocalTestA extends BeanBase {
-  counter: number = 0;
+  count: number = 0;
 
   inrement() {
-    this.counter++;
+    this.count++;
   }
 
   decrement() {
-    this.counter--;
+    this.count--;
   }
 }
 ```

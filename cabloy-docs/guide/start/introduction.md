@@ -32,14 +32,14 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 ```typescript
 @Local()
 export class MotherPageCounter extends BeanMotherPageBase {
-  counter: number = 0;
+  count: number = 0;
 
   inrement() {
-    this.counter++;
+    this.count++;
   }
 
   decrement() {
-    this.counter--;
+    this.count--;
   }
 }
 ```
@@ -52,7 +52,7 @@ export class RenderPageCounter extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>counter(ref): {this.counter}</div>
+        <div>counter(ref): {this.count}</div>
         <button onClick={() => this.inrement()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
@@ -70,14 +70,14 @@ Create a `Counter` Bean to implement the logic of `counter`
 ```typescript
 @Local()
 export class LocalCounter extends BeanBase {
-  counter: number = 0;
+  count: number = 0;
 
   inrement() {
-    this.counter++;
+    this.count++;
   }
 
   decrement() {
-    this.counter--;
+    this.count--;
   }
 }
 ```
