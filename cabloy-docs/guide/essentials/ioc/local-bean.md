@@ -27,7 +27,7 @@ export class LocalTestA extends BeanBase {
 
 ## Add reactive codes
 
-We add a reactive property `counter` in `testA` and add two methods to modify it
+We add a reactive property `count` in `testA` and add two methods to modify it
 
 ```typescript{5-13}
 import { BeanBase, Local } from '@cabloy/front';
@@ -47,7 +47,7 @@ export class LocalTestA extends BeanBase {
 ```
 
 ::: info
-The property `counter` defined here is reactive, bidding farewell to the writing style of `ref.value`
+The property `count` defined here is reactive, bidding farewell to the writing style of `ref.value`
 :::
 
 ## Create Local Bean: testB
