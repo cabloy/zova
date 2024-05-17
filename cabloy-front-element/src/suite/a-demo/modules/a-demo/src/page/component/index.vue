@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front';
+import { useMotherPage } from '@cabloy/front';
 import { MotherPageComponent } from './mother.js';
 import { RenderPageComponent } from './render.jsx';
-useMother(MotherPageComponent, RenderPageComponent);
+useMotherPage(MotherPageComponent, RenderPageComponent);
 </script>
