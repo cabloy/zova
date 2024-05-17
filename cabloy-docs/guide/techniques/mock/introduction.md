@@ -68,4 +68,4 @@ $ npm run build
 ```
 
 - The generated fake server is automatically output to the directory specified by `MOCK_BUILD_OUTPUT`
-- For the principle of fake server, please refer to: [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)
+- For the principle of fake server, see: [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)

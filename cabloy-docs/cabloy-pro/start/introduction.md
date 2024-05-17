@@ -12,7 +12,7 @@ Each built-in feature of Cabloy-Pro has been carefully adjusted, which reflects 
 
 Cabloy-Pro4 is developed using Javascript and has comprehensive features and documentation
 
-- Please refer to: [Quick Start](https://cabloy.com/articles/guide-quick-start.html)
+- See: [Quick Start](https://cabloy.com/articles/guide-quick-start.html)
 
 ## Cabloy-Pro5 Internal Testing 🚀🚀🚀
 
@@ -23,7 +23,7 @@ Cabloy-Pro5 uses Typescript to carry out a complete restructuring of the entire 
 | Frontend | TS, Vue3, TSX, IOC, Quasar                                |
 | Backend  | TS, Egg3, Multi database compatibility(Mysql, Postgresql) |
 
-- To obtain Cabloy-Pro5 Internal Testing, please visit: [Cabloy-Pro5-Internal-Testing](https://store.cabloy.com/articles/Cabloy-Pro5-Internal-Testing.html)
+- To obtain Cabloy-Pro5 Internal Testing, see: [Cabloy-Pro5-Internal-Testing](https://store.cabloy.com/articles/Cabloy-Pro5-Internal-Testing.html)
 
 ## Resources
 

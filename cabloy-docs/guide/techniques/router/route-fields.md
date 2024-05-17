@@ -85,7 +85,7 @@ export const routes: IModuleRoute[] = [
 
 `layout` can specify layout component for this route. If `layout` is not set, the default layout component will be used
 
-- Refer to: [Layout](../layout/introduction.md)
+- See: [Layout](../layout/introduction.md)
 
 ## meta.requiresAuth
 

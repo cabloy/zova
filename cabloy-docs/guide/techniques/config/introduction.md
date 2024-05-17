@@ -2,7 +2,7 @@
 
 ## meta & config file
 
-Cabloy-Front loads config files from the `src/front/config/config` directory. File loading based on `meta` conditions is also supported. For specific rules, refer to: [meta & .env file](../env/introduction.md)
+Cabloy-Front loads config files from the `src/front/config/config` directory. File loading based on `meta` conditions is also supported. For specific rules, see: [meta & .env file](../env/introduction.md)
 
 ### For example
 
@@ -45,11 +45,11 @@ export class StoreApi extends BeanBase {
 
 ## Use module config
 
-Modules can individually provide their own `config` configuration, which can be obtained through the `Scope` instance. Refer to: [Config](../../essentials/scope/config.md)
+Modules can individually provide their own `config` configuration, which can be obtained through the `Scope` instance. See: [Config](../../essentials/scope/config.md)
 
 ## Override module config
 
-You can use `project-level` config to override `module-level` config, refer to: [Config](../../essentials/scope/config.md)
+You can use `project-level` config to override `module-level` config, see: [Config](../../essentials/scope/config.md)
 
 ## The relationship between env and config
 

@@ -48,7 +48,7 @@ $ APPMODE=spa npm run [dev/build]    # appMode is 'spa'
 $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 ```
 
-- `quasar` has its own `appMode` setting mechanism, refer to: [Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
+- `quasar` has its own `appMode` setting mechanism, see: [Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
 ### For example
 
@@ -159,4 +159,4 @@ export class StoreApi extends BeanBase {
 
 ### Mock
 
-Please refer to: [Mock](../mock/introduction.md)
+See: [Mock](../mock/introduction.md)

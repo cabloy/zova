@@ -20,7 +20,7 @@ export class LocalRouter extends VirtualRouter<ScopeModule> {
 }
 ```
 
-- For specific usage of `router`, please refer to: [Vue Router: Navigation Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html)
+- For specific usage of `router`, see: [Vue Router: Navigation Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html)
 
 ## $router
 
