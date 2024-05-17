@@ -4,6 +4,22 @@ import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
 import { IBeanRecord, IMotherData } from '../bean/type.js';
 
+export function useMotherPage<M, R>(motherBeanFullName: Constructable<M>, renderBeanFullName: Constructable<R>);
+export function useMotherPage<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
+  motherBeanFullName: MK,
+  renderBeanFullName: RK,
+);
+export function useMotherPage(motherBeanFullName: string, renderBeanFullName: string);
+export function useMotherPage<M>(
+  motherBeanFullName: Constructable<M> | string,
+  renderBeanFullName: Constructable<M> | string,
+) {
+  // motherData
+  const motherData = { context: {} };
+  // use mother
+  _useMother(motherData, motherBeanFullName, renderBeanFullName);
+}
+
 export function useMother<M, R>(
   props: unknown | undefined,
   emit: unknown | undefined,
