@@ -23,8 +23,8 @@ import { useComputed } from '@cabloy/front';
 ...
 ```
 
-- `counter` is a reactive property
-- `counter2` is a computed property, initialized by the `useComputed` function
+- `count` is a reactive property
+- `count2` is a computed property, initialized by the `useComputed` function
 
 ## For Example: watch
 
