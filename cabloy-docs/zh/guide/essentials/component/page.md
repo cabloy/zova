@@ -80,8 +80,8 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ```
 
 1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
-2. 定义一个响应式属性：`counter`，类型为`number`
-3. 直接用原生 js 代码来修改`counter`的值
+2. 定义一个响应式属性：`count`，类型为`number`
+3. 直接用原生 js 代码来修改`count`的值
 
 ## render.tsx
 
@@ -107,7 +107,7 @@ export class RenderPageCounter extends BeanRenderBase {
 
 1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
-3. 直接用原生 js 代码来获取`counter`的值
+3. 直接用原生 js 代码来获取`count`的值
 
 ## mother名称的来历
 

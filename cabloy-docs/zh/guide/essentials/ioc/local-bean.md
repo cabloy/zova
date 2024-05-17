@@ -27,7 +27,7 @@ export class LocalTestA extends BeanBase {
 
 ## 添加响应式代码
 
-我们在`testA`中添加一个响应式属性`counter`，并且添加两个方法修改它
+我们在`testA`中添加一个响应式属性`count`，并且添加两个方法修改它
 
 ```typescript{5-13}
 import { BeanBase, Local } from '@cabloy/front';
@@ -47,7 +47,7 @@ export class LocalTestA extends BeanBase {
 ```
 
 ::: info
-这里定义的属性`counter`是响应式的，从此告别`ref.value`的书写方式
+这里定义的属性`count`是响应式的，从此告别`ref.value`的书写方式
 :::
 
 ## 创建Local Bean: testB

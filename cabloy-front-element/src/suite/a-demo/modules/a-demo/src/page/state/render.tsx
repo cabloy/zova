@@ -10,7 +10,7 @@ export class RenderPageState extends BeanRenderBase {
     return (
       <div>
         <div>count(ref): {this.count}</div>
-        <div>counter(computed): {this.count2}</div>
+        <div>count(computed): {this.count2}</div>
         <ElButton onClick={() => this.inrement()}>Inrement</ElButton>
         <ElButton onClick={() => this.decrement()}>Decrement</ElButton>
       </div>

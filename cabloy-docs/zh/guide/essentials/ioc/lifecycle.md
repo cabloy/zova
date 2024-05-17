@@ -23,8 +23,8 @@ import { useComputed } from '@cabloy/front';
 ...
 ```
 
-- `counter`是响应式属性
-- `counter2`是计算属性，使用`useComputed`函数进行初始化
+- `count`是响应式属性
+- `count2`是计算属性，使用`useComputed`函数进行初始化
 
 ## 举例：watch
 

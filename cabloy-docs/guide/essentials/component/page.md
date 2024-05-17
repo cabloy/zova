@@ -80,8 +80,8 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ```
 
 1. Define `mother` as a local bean using `@Local` to register it in the ioc container
-2. Define a reactive state: `counter` of type `number`
-3. Directly modify the value of `counter` by vanilla javascript
+2. Define a reactive state `count` of type `number`
+3. Directly modify the value of `count` by vanilla javascript
 
 ## render.tsx
 
