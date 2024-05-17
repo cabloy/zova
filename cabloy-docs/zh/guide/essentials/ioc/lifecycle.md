@@ -13,7 +13,7 @@
 import { useComputed } from '@cabloy/front';
 ...
   count: number = 0;
-  counter2: string;
+  count2: string;
 
   protected async __init__() {
     this.count2 = useComputed(() => {

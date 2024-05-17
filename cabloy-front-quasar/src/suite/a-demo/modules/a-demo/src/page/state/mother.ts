@@ -3,7 +3,7 @@ import { BeanMotherPageBase, Local, useComputed } from '@cabloy/front';
 @Local()
 export class MotherPageState extends BeanMotherPageBase {
   count: number = 0;
-  counter2: string;
+  count2: string;
 
   protected async __init__() {
     this.count2 = useComputed(() => {
