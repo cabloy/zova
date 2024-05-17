@@ -2,35 +2,49 @@ import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, 
 import { queuePostFlushCb } from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
-import { IBeanRecord } from '../bean/type.js';
+import { IBeanRecord, IMotherData } from '../bean/type.js';
 
 export function useMother<M, R>(
+  props: unknown | undefined,
+  emit: unknown | undefined,
   motherBeanFullName: Constructable<M>,
   renderBeanFullName: Constructable<R>,
-  props?,
-  emit?,
 );
 export function useMother<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
+  props: unknown | undefined,
+  emit: unknown | undefined,
   motherBeanFullName: MK,
   renderBeanFullName: RK,
-  props?,
-  emit?,
 );
-export function useMother(motherBeanFullName: string, renderBeanFullName: string, props?, emit?);
+export function useMother(
+  props: unknown | undefined,
+  emit: unknown | undefined,
+  motherBeanFullName: string,
+  renderBeanFullName: string,
+);
 export function useMother<M>(
+  props: unknown | undefined,
+  emit: unknown | undefined,
   motherBeanFullName: Constructable<M> | string,
   renderBeanFullName: Constructable<M> | string,
-  props?,
-  emit?,
 ) {
-  // ctx
-  const ctx = new CabloyContext(getCurrentInstance()!);
   // attrs
   const attrs = useAttrs();
   // slots
   const slots = useSlots();
   // motherData
   const motherData = { props, context: { attrs, slots, emit } };
+  // use mother
+  _useMother(motherData, motherBeanFullName, renderBeanFullName);
+}
+
+function _useMother<M>(
+  motherData: IMotherData,
+  motherBeanFullName: Constructable<M> | string,
+  renderBeanFullName: Constructable<M> | string,
+) {
+  // ctx
+  const ctx = new CabloyContext(getCurrentInstance()!);
   // monkey
   ctx.app.meta.module._monkeyModuleSync('motherDataPrepare', undefined, motherData);
   // mother
