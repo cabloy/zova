@@ -1,4 +1,4 @@
-# Env
+# Env环境变量
 
 Cabloy-Front 通过`process.env`暴露环境变量，这些变量在构建时会被静态的替换掉
 

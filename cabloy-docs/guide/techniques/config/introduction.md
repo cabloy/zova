@@ -1,4 +1,4 @@
-# Config配置
+# Config
 
 ## meta & config file
 
