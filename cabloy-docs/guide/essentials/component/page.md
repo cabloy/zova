@@ -107,7 +107,7 @@ export class RenderPageCounter extends BeanRenderBase {
 
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
-3. Directly obtain the value of `counter` by vanilla javascript
+3. Directly obtain the value of `count` by vanilla javascript
 
 ## Why is mother?
 
