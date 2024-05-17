@@ -8,5 +8,5 @@ import { MotherLayoutDefault, Props, Emits } from './mother.js';
 import { RenderLayoutDefault } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), MotherLayoutDefault.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(MotherLayoutDefault, RenderLayoutDefault, props, emit);
+useMother(props, emit, MotherLayoutDefault, RenderLayoutDefault);
 </script>

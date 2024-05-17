@@ -8,5 +8,5 @@ import { MotherCard, Props, Emits } from './mother.js';
 import { RenderCard } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(MotherCard, RenderCard, props, emit);
+useMother(props, emit, MotherCard, RenderCard);
 </script>
