@@ -6,9 +6,9 @@
 $ npm run dev
 ```
 
-### Dev server
+- Dev server
 
-| 名称            | 说明                                                                                           |
+| Name            | Description                                                                                    |
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | DEV_SERVER_HOST | Dev server host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
 | DEV_SERVER_PORT | Dev server port                                                                                |
