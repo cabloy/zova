@@ -49,21 +49,21 @@ Cabloy-Front 提供了分层的 IOC 容器，具体而言，提供了两类 IOC 
 
 1. 不清晰的数据来源：在 IOC 中 Class 各司其职，可以很方便的对`this`溯源，定位其出处
 2. 命名空间冲突：在 IOC 中 Class 实例都有自己的变量名，自然没有命名冲突的隐患
-3. 隐式的跨 mixin 交流：通过 IOC 容器的托管，Class 实例可以非常方便的共享数据和逻辑，而且可以清晰定义其来源
+3. 隐式的跨 mixin 交流：通过 IOC 容器的托管，Class 实例可以非常方便的共享数据和逻辑，而且可以清晰定位其来源
 
 - 参见：[Vue3: 和 Mixin 的对比](https://cn.vuejs.org/guide/reusability/composables.html#vs-mixins)
 
 ### 2. 吸收mixins的长处
 
-`mixins`虽然有许多短板，但是有一个长处，就是多个`mixins`之间共享数据和逻辑非常方便。`组合式API`虽然也能实现数据和逻辑的共享，但是一旦层级深了，使用起来就不太方便
+`mixins`虽然有许多短板，但是有一个长处，就是多个`mixins`之间共享数据和逻辑非常方便。`组合式API`虽然也能实现数据和逻辑的共享，但是一旦调用链层级深了，使用起来就不太方便
 
-我们可以看一张示意图：
+- 我们可以看一张示意图：
 
 ![why-ioc-composable](../../../assets/img/why-ioc-composable.svg)
 
 如图所示，一个 Vue 组件使用了两个 Composables，然后这两个 Composables 又分别使用了两个 Composables。那么，如果要在这 6 个 Composables 中共享状态和逻辑是非常不方便的，无法满足复杂业务的需求
 
-我们再来看 IOC 容器的示意图：
+- 我们再来看 IOC 容器的示意图：
 
 ![why-ioc-class](../../../assets/img/why-ioc-class.svg)
 
