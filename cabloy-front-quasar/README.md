@@ -102,7 +102,7 @@ export class RenderPageCounter extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>count(ref): {this.$$counter.counter}</div>
+        <div>count(ref): {this.$$counter.count}</div>
         <button onClick={() => this.$$counter.inrement()}>Inrement</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>

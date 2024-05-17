@@ -72,7 +72,7 @@ export class LocalTestB extends BeanBase {
   $$testA: LocalTestA;
 
   protected async __init__() {
-    console.log(this.$$testA.counter);
+    console.log(this.$$testA.count);
     this.$$testA.inrement();
     this.$$testA.decrement();
   }
