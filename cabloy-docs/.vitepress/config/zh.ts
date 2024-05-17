@@ -95,6 +95,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: 'Layout布局',
+          base: '/zh/guide/techniques/layout/',
+          link: 'introduction',
+        },
+        {
           text: 'API',
           base: '/zh/guide/techniques/api/',
           link: 'introduction',

@@ -95,6 +95,11 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: 'Layout',
+          base: '/guide/techniques/layout/',
+          link: 'introduction',
+        },
+        {
           text: 'API',
           base: '/guide/techniques/api/',
           link: 'introduction',
