@@ -51,7 +51,7 @@ Users who have used Vue2 may be familiar with `mixins`. `Component instance cont
 2. Namespace collisions: In IOC, Class instances have their own variable names, so there is no hidden danger of naming conflicts
 3. Implicit cross-mixin communication: Through the hosting of the IOC container, Class instances can share data and logic very conveniently, and their sources can be clearly located
 
-- 参见：[Vue3: vs. Mixins](https://vuejs.org/guide/reusability/composables.html#vs-mixins)
+- See: [Vue3: vs. Mixins](https://vuejs.org/guide/reusability/composables.html#vs-mixins)
 
 ### 2. Absorb the advantages of mixins
 
