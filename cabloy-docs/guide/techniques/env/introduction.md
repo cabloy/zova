@@ -1,4 +1,4 @@
-# Env
+# Env环境变量
 
 Cabloy-Front exposes env variables on the special `process.env` object, which are statically replaced at build time
 

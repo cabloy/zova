@@ -115,12 +115,12 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'introduction',
         },
         {
-          text: 'Env',
+          text: 'Env环境变量',
           base: '/zh/guide/techniques/env/',
           link: 'introduction',
         },
         {
-          text: 'Config',
+          text: 'Config配置',
           base: '/zh/guide/techniques/config/',
           link: 'introduction',
         },
