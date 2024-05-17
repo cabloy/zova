@@ -16,7 +16,7 @@ import { useComputed } from '@cabloy/front';
   counter2: string;
 
   protected async __init__() {
-    this.counter2 = useComputed(() => {
+    this.count2 = useComputed(() => {
       return `=== ${this.count} ===`;
     });
   }

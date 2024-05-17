@@ -6,7 +6,7 @@ export class MotherPageState extends BeanMotherPageBase {
   counter2: string;
 
   protected async __init__() {
-    this.counter2 = useComputed(() => {
+    this.count2 = useComputed(() => {
       return `=== ${this.count} ===`;
     });
   }
