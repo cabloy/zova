@@ -40,7 +40,7 @@
     "@cabloy/lint": "^4.0.9",
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.77.1",
+    "sass": "^1.77.2",
     "typescript": "^5.4.5",
     "unocss": "^0.58.9",
     "unplugin-element-plus": "^0.8.0",
