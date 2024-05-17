@@ -85,18 +85,7 @@ export const routes: IModuleRoute[] = [
 
 `layout`可以为该路由指定布局组件，如果不设置`layout`就会使用默认的布局组件
 
-### 系统布局组件
-
-系统提供了两个布局组件:`empty`和`default`:
-
-| 名称    | 说明                                                                           |
-| ------- | ------------------------------------------------------------------------------ |
-| empty   | 空布局，一般用于显示Login等系统页面                                            |
-| default | 默认布局，一般会提供Header、Sidebar、Footer等区域，页面组件会在Content区域显示 |
-
-### 自定义布局组件
-
-`empty`和`default`布局组件位于模块`a-homelayout`中，我们可以根据业务需求自行修改
+- 参见：[Layout布局](../layout/introduction.md)
 
 ## meta.requiresAuth
 
