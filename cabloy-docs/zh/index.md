@@ -11,6 +11,9 @@ hero:
       text: 快速开始
       link: /zh/guide/start/introduction
     - theme: alt
+      text: 为什么需要Vue3+IOC?
+      link: /zh/guide/start/why
+    - theme: alt
       text: Github
       link: https://github.com/cabloy/cabloy-front
 

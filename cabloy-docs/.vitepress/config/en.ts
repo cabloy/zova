@@ -29,6 +29,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     {
       text: 'Getting Started',
       items: [
+        { text: 'Why Vue3+IOC', link: 'start/why' },
         { text: 'Introduction', link: 'start/introduction' },
         { text: 'Quick Start', link: 'start/quick-start' },
       ],

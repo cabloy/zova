@@ -29,6 +29,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     {
       text: '开始',
       items: [
+        { text: '为什么需要Vue3+IOC', link: 'start/why' },
         { text: '简介', link: 'start/introduction' },
         { text: '快速上手', link: 'start/quick-start' },
       ],

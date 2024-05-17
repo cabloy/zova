@@ -11,6 +11,9 @@ hero:
       text: Get Started
       link: /guide/start/introduction
     - theme: alt
+      text: Why Vue3+IOC?
+      link: /guide/start/why
+    - theme: alt
       text: Github
       link: https://github.com/cabloy/cabloy-front
 
