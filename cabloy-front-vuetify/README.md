@@ -72,7 +72,7 @@ Create a `Counter` Bean to implement the logic of `counter`
 
 ```typescript
 @Local()
-export class LocalCounter {
+export class Counter {
   count: number = 0;
 
   inrement() {
@@ -90,7 +90,7 @@ export class LocalCounter {
 ```typescript
 export class MotherPageCounter {
   @Use()
-  $$counter: LocalCounter;
+  $$counter: Counter;
 }
 ```
 
