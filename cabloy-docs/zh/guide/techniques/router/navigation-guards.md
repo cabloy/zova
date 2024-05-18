@@ -4,12 +4,12 @@ Cabloy-Front 提供了一个模块`a-homerouter`，我们可以在这个模块�
 
 ## onRouterGuards
 
-模块`a-homerouter`提供了一个`LocalRouter` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
+模块`a-homerouter`提供了一个`Router` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
 
-`src/suite/a-home/modules/a-homerouter/src/local/local.router.ts`
+`src/suite/a-home/modules/a-homerouter/src/local/router.ts`
 
 ```typescript
-export class LocalRouter {
+export class Router {
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async to => {
       console.log(to);

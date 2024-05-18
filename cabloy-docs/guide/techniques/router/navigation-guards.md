@@ -4,12 +4,12 @@ Cabloy-Front provides a module `a-homerouter`. We can add navigation guards to t
 
 ## onRouterGuards
 
-The module `a-homerouter` provides a `LocalRouter` bean, just add custom logic directly in the `onRouterGuards` method as well
+The module `a-homerouter` provides a `Router` bean, just add custom logic directly in the `onRouterGuards` method as well
 
-`src/suite/a-home/modules/a-homerouter/src/local/local.router.ts`
+`src/suite/a-home/modules/a-homerouter/src/local/router.ts`
 
 ```typescript
-export class LocalRouter {
+export class Router {
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async to => {
       console.log(to);
