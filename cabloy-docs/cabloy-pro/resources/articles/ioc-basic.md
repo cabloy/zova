@@ -26,7 +26,7 @@ import { Local } from '@cabloy/core';
 
 @Local()
 export class LocalHome {
-  async echo({ user: _user }) {
+  async echo() {
     return `Hello World!`;
   }
 }

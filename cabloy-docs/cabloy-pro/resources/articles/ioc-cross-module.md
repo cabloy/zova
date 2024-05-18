@@ -36,10 +36,9 @@ Next, we access the Service of the module `a-demo` in the newly created Service
 
 ```diff
 export class LocalWork {
-  async action({ user }) {
+  async action() {
 +   const scopeDemo = this.getScope('a-demo');
-+   return scopeDemo.local.home.action({ user });
-    // return user;
++   return scopeDemo.local.home.action();
   }
 }
 ```
@@ -57,11 +56,10 @@ Access the Config configuration of the module `a-demo`
 
 ```diff
 export class LocalWork {
-  async action({ user }) {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   const prompt = scopeDemo.config.prompt;
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
@@ -78,13 +76,12 @@ Access the I18n resources of the module `a-demo`
 
 ```diff
 export class LocalWork {
-  async action({ user }) {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   const message = scopeDemo.locale.HelloWorld();
 +   const message1 = scopeDemo.locale.HelloWorld.locale('en-us');
 +   const message2 = scopeDemo.locale.HelloWorld.locale('zh-cn');
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
@@ -99,11 +96,10 @@ Access and throw the Error exception of the module `a-demo`
 
 ```diff
 export class LocalWork {
-  async action({ user }) {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   scopeDemo.error.Error001.throw();
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
