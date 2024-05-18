@@ -34,8 +34,7 @@ Documentation can be found at **[https://front.cabloy.com](https://front.cabloy.
 ### 1. Define reactive state
 
 ```typescript
-@Local()
-export class MotherPageCounter extends BeanMotherPageBase {
+export class MotherPageCounter {
   count: number = 0;
 
   inrement() {
@@ -51,8 +50,7 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ### 2. Use reactive state
 
 ```typescript
-@Local()
-export class RenderPageCounter extends BeanRenderBase {
+export class RenderPageCounter {
   render() {
     return (
       <div>
@@ -73,7 +71,7 @@ Create a `Counter` Bean to implement the logic of `counter`
 
 ```typescript
 @Local()
-export class LocalCounter extends BeanBase {
+export class LocalCounter {
   count: number = 0;
 
   inrement() {
@@ -89,16 +87,14 @@ export class LocalCounter extends BeanBase {
 ### 2. Inject and use in a component
 
 ```typescript
-@Local()
-export class MotherPageCounter extends BeanMotherPageBase {
+export class MotherPageCounter {
   @Use()
   $$counter: LocalCounter;
 }
 ```
 
 ```typescript
-@Local()
-export class RenderPageCounter extends BeanRenderBase {
+export class RenderPageCounter {
   render() {
     return (
       <div>
