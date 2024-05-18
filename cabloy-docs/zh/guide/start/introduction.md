@@ -30,8 +30,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 ### 1. 定义响应式状态
 
 ```typescript
-@Local()
-export class MotherPageCounter extends BeanMotherPageBase {
+export class MotherPageCounter {
   count: number = 0;
 
   inrement() {
@@ -47,8 +46,7 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ### 2. 使用响应式状态
 
 ```typescript
-@Local()
-export class RenderPageCounter extends BeanRenderBase {
+export class RenderPageCounter {
   render() {
     return (
       <div>
@@ -69,7 +67,7 @@ export class RenderPageCounter extends BeanRenderBase {
 
 ```typescript
 @Local()
-export class LocalCounter extends BeanBase {
+export class LocalCounter {
   count: number = 0;
 
   inrement() {
@@ -85,16 +83,14 @@ export class LocalCounter extends BeanBase {
 ### 2. 在组件中注入并使用
 
 ```typescript
-@Local()
-export class MotherPageCounter extends BeanMotherPageBase {
+export class MotherPageCounter {
   @Use()
   $$counter: LocalCounter;
 }
 ```
 
 ```typescript
-@Local()
-export class RenderPageCounter extends BeanRenderBase {
+export class RenderPageCounter {
   render() {
     return (
       <div>
