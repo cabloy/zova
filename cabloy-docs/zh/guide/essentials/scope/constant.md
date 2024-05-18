@@ -24,7 +24,7 @@ export const constants = {
 可以通过 Scope 实例获取模块的 Constant 常量
 
 ```typescript{3-5}
-export class LocalTestA {
+export class TestA {
   protected async __init__() {
     const male = this.scope.constant.gender.male;
     const female = this.scope.constant.gender.female;
@@ -41,7 +41,7 @@ export class LocalTestA {
 ```typescript{1,4-5,8-10}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

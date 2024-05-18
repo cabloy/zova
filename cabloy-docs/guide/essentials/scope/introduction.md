@@ -6,14 +6,14 @@ In Cabloy-Front, the actual business code development is done in modules. As a r
 
 All beans inherit from the base class `BeanBase`, and `BeanBase` supports passing in the generic parameter `ScopeModule`. When the generic parameter `ScopeModule` is passed in, the `Scope` instance of the module to which the current bean belongs can be directly obtained
 
-Take `local.testA.ts` as an example：
+Take `testA.ts` as an example：
 
 ```typescript{2,5,7}
 import { BeanBase, Local } from '@cabloy/front';
 import { ScopeModule } from '../resource/this.js';
 
 @Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class TestA extends BeanBase<ScopeModule> {
   protected async __init__() {
     console.log(this.scope);
   }
@@ -38,12 +38,12 @@ So, how to obtain `Scope` instances of other modules?
 
 The `Scope` object itself is also a bean, so you can directly use `dependency injection` to obtain `Scope` instances of other modules
 
-Still taking `local.testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
+Still taking `testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
 
 ```typescript{1,4-5,8}
 import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-home')
   scopeModuleAHome: ScopeModuleAHome;
 

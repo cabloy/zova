@@ -6,14 +6,14 @@
 
 所有 bean 都继承自基类`BeanBase`，`BeanBase`支持传入范型参数`ScopeModule`。当传入范型参数`ScopeModule`之后就可以直接获取到当前 bean 所属模块的`Scope`实例
 
-以`local.testA.ts`为例：
+以`testA.ts`为例：
 
 ```typescript{2,5,7}
 import { BeanBase, Local } from '@cabloy/front';
 import { ScopeModule } from '../resource/this.js';
 
 @Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class TestA extends BeanBase<ScopeModule> {
   protected async __init__() {
     console.log(this.scope);
   }
@@ -38,12 +38,12 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 `Scope`对象本身也是一个 bean，因此可以直接采用`依赖注入`的方式获取到其他模块的`Scope`实例
 
-仍以`local.testA.ts`为例，获取模块`a-home`的`Scope`实例：
+仍以`testA.ts`为例，获取模块`a-home`的`Scope`实例：
 
 ```typescript{1,4-5,8}
 import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-home')
   scopeModuleAHome: ScopeModuleAHome;
 

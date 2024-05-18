@@ -41,7 +41,7 @@ export default {
 可以通过 Scope 实例直接抛出模块的 Error 错误异常
 
 ```typescript{3}
-export class LocalTestA {
+export class TestA {
   protected async __init__() {
     this.scope.error.ErrorTest.throw();
   }
@@ -56,7 +56,7 @@ export class LocalTestA {
 ```typescript{1,4-5,8}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

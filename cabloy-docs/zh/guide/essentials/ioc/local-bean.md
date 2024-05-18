@@ -10,11 +10,11 @@
 $ cabloy front:create:local testA --module=a-demo
 ```
 
-生成的文件：`local.testA.ts`，内容如下：
+生成的文件：`testA.ts`，内容如下：
 
 ```typescript
 @Local()
-export class LocalTestA {}
+export class TestA {}
 ```
 
 - `Local` 是装饰器函数。通过 Local 装饰的 class 会自动注册到 bean 容器中
@@ -24,7 +24,7 @@ export class LocalTestA {}
 我们在`testA`中添加一个响应式属性`count`，并且添加两个方法修改它
 
 ```typescript{2-10}
-export class LocalTestA {
+export class TestA {
   count: number = 0;
 
   inrement() {
@@ -54,11 +54,11 @@ $ cabloy front:create:local testB --module=a-demo
 `local.testB.ts`
 
 ```typescript{1,4-11}
-import { LocalTestA } from './local.testA.js';
+import { TestA } from './testA.js';
 
-export class LocalTestB {
+export class TestB {
   @Use()
-  $$testA: LocalTestA;
+  $$testA: TestA;
 
   protected async __init__() {
     console.log(this.$$testA.count);

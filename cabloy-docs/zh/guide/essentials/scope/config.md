@@ -23,7 +23,7 @@ export const config = (_app: CabloyApplication) => {
 可以通过 Scope 实例获取模块的 Config 配置
 
 ```typescript{3-4}
-export class LocalTestA {
+export class TestA {
   protected async __init__() {
     const message = this.scope.config.prompt;
     console.log(message);
@@ -39,7 +39,7 @@ export class LocalTestA {
 ```typescript{1,4-5,8-9}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

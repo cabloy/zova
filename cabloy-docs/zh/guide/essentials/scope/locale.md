@@ -27,7 +27,7 @@ export default {
 可以通过 Scope 实例提供的`locale`对象获取模块的语言资源
 
 ```typescript{3-9}
-export class LocalTestA {
+export class TestA {
   protected async __init__() {
     // use current locale
     const message1 = this.scope.locale.HelloWorld();
@@ -48,7 +48,7 @@ export class LocalTestA {
 ```typescript{1,4-5,8-14}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

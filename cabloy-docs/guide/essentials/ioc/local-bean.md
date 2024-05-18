@@ -10,11 +10,11 @@ The code skeleton for local bean can be created using the cli command:
 $ cabloy front:create:local testA --module=a-demo
 ```
 
-The generated file: `local.testA.ts`, with the following content:
+The generated file: `testA.ts`, with the following content:
 
 ```typescript
 @Local()
-export class LocalTestA {}
+export class TestA {}
 ```
 
 - `Local` is a decorator function. The class decorated with `Local` will automatically be registered in the bean container
@@ -24,7 +24,7 @@ export class LocalTestA {}
 We add a reactive property `count` in `testA` and add two methods to modify it
 
 ```typescript{2-10}
-export class LocalTestA {
+export class TestA {
   count: number = 0;
 
   inrement() {
@@ -54,11 +54,11 @@ Then inject `testA` directly into `testB` and access the properties and methods 
 `local.testB.ts`
 
 ```typescript{1,4-11}
-import { LocalTestA } from './local.testA.js';
+import { TestA } from './testA.js';
 
-export class LocalTestB {
+export class TestB {
   @Use()
-  $$testA: LocalTestA;
+  $$testA: TestA;
 
   protected async __init__() {
     console.log(this.$$testA.count);

@@ -24,7 +24,7 @@ export const constants = {
 The `Constant` of the module can be obtained through the `Scope` instance
 
 ```typescript{3-5}
-export class LocalTestA {
+export class TestA {
   protected async __init__() {
     const male = this.scope.constant.gender.male;
     const female = this.scope.constant.gender.female;
@@ -41,7 +41,7 @@ export class LocalTestA {
 ```typescript{1,4-5,8-10}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestA {
+export class TestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 
