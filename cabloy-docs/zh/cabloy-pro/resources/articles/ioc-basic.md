@@ -22,11 +22,8 @@
 在 Cabloy-Pro5 中，local bean 相当于 nestjs 中 service 的概念，下面创建一个 local bean
 
 ```javascript
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
 @Local()
-export class LocalHome extends BeanBase<ScopeModule> {
+export class LocalHome {
   async echo({ user: _user }) {
     return `Hello World!`;
   }
@@ -35,19 +32,15 @@ export class LocalHome extends BeanBase<ScopeModule> {
 
 1. 通过`@Local`声明 LocalHome 是一个 local bean
 
-2. LocalHome 继承自基类 BeanBase
-
 ### 2\. Service的依赖注入
 
 接下来，在 Controller 中采用依赖注入的方式来使用 LocalHome
 
 ```javascript
-import { BeanBase, Controller, Use } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
 import { LocalHome } from '../local/home.js';
 
 @Controller()
-export class ControllerHome extends BeanBase<ScopeModule> {
+export class ControllerHome {
   @Use()
   home: LocalHome;
 
@@ -67,11 +60,7 @@ export class ControllerHome extends BeanBase<ScopeModule> {
 然后，在 Controller 中采用依赖查找的方式来使用 LocalHome
 
 ```javascript
-import { BeanBase, Controller } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Controller()
-export class ControllerHome extends BeanBase<ScopeModule> {
+export class ControllerHome {
   async echo() {
     const res = await this.scope.local.home.echo({
       user: this.ctx.state.user.op,
@@ -94,8 +83,6 @@ export class ControllerHome extends BeanBase<ScopeModule> {
 可以为业务模块单独定义一些 Config 配置，如下：
 
 ```diff
-import { CabloyApplication } from '@cabloy/core';
-
 export const config = (_app: CabloyApplication) => {
   return {
 +   prompt: 'hello world',
@@ -108,12 +95,8 @@ export const config = (_app: CabloyApplication) => {
 可以在 LocalHome 中直接使用刚才定义的 config
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async echo({ user: _user }) {
+export class LocalHome {
+  async echo() {
 +   return this.scope.config.prompt;
 -   return `Hello World!`;
   }
@@ -153,12 +136,8 @@ export default {
 可以在 LocalHome 中直接使用刚才定义的语言资源
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async action({ user: _user }) {
+export class LocalHome {
+  async action() {
 +   // 自动判断当前语言
 +   const message = this.scope.locale.HelloWorld();
 +   // 强制使用英文资源
@@ -218,11 +197,8 @@ export default {
 可以在 LocalHome 中直接使用刚才定义的错误枚举值，并抛出异常
 
 ```diff
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async action({ user: _user }) {
+export class LocalHome {
+  async action() {
 +   // 直接抛出异常
 +   this.scope.error.Error001.throw();
 -   return this.scope.config.prompt;

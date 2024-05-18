@@ -45,9 +45,8 @@ export interface Props {
 
 还可以为 Props 设置缺省值：
 
-```typescript{3-5}
-@Local()
-export class MotherCard extends BeanMotherBase<unknown, Props, Emits, Slots> {
+```typescript{2-4}
+export class MotherCard {
   static $propsDefault = {
     header: 'default header',
   };
@@ -69,9 +68,8 @@ const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
 
 在`render.tsx`中访问 Props：
 
-```typescript{8,11,14}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{7,10,13}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -96,11 +94,10 @@ export class RenderCard extends BeanRenderBase {
 
 接下来，在父组件中使用子组件：
 
-```typescript{9-11}
+```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -146,9 +143,8 @@ const emit = defineEmits<Emits>();
 
 在`render.tsx`中触发 Emit：
 
-```typescript{7-9}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{6-8}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -169,11 +165,10 @@ export class RenderCard extends BeanRenderBase {
 
 接下来，在父组件中使用子组件：
 
-```typescript{9-11}
+```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -210,9 +205,8 @@ export interface Slots {
 
 在`render.tsx`中渲染 Slots：
 
-```typescript{8,11,14}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{7,10,13}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -237,12 +231,11 @@ export class RenderCard extends BeanRenderBase {
 
 接下来，在父组件中使用子组件：
 
-```typescript{2,7-17,21}
+```typescript{2,6-16,20}
 import Card from '../../component/card/index.vue';
 import * as MotherCard from '../../component/card/mother.js';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     const slots = {
       header: () => {
@@ -279,11 +272,10 @@ export class RenderPageComponent extends BeanRenderBase {
 
 先在父组件的`mother.ts`中定义属性：
 
-```typescript{1,5}
+```typescript{1,4}
 import { MotherCard } from '../../component/card/mother.js';
 
-@Local()
-export class MotherPageComponent extends BeanMotherPageBase {
+export class MotherPageComponent {
   cardRef: MotherCard;
 }
 ```
@@ -292,9 +284,8 @@ export class MotherPageComponent extends BeanMotherPageBase {
 
 然后监听子组件的`onMotherRef`事件获取到`mother bean`的引用值：
 
-```typescript{7-9}
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+```typescript{6-8}
+export class RenderPageComponent {
   render() {
     return (
       <div>

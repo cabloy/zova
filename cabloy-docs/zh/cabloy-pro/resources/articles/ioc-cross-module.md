@@ -35,15 +35,10 @@ cabloy api:create:controller work
 接下来，我们在刚才新建的 Service 当中，访问模块 a-demo 的 Service 服务
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
-  async action({ user }) {
+export class LocalWork {
+  async action() {
 +   const scopeDemo = this.getScope('a-demo');
-+   return scopeDemo.local.home.action({ user });
-    // return user;
++   return scopeDemo.local.home.action();
   }
 }
 ```
@@ -60,16 +55,11 @@ export class LocalWork extends BeanBase<ScopeModule> {
 访问模块 a-demo 的 Config 配置
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
-  async action({ user }) {
+export class LocalWork {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   const prompt = scopeDemo.config.prompt;
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
@@ -85,18 +75,13 @@ export class LocalWork extends BeanBase<ScopeModule> {
 访问模块 a-demo 的国际化语言资源
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
-  async action({ user }) {
+export class LocalWork {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   const message = scopeDemo.locale.HelloWorld();
 +   const message1 = scopeDemo.locale.HelloWorld.locale('en-us');
 +   const message2 = scopeDemo.locale.HelloWorld.locale('zh-cn');
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
@@ -110,16 +95,11 @@ export class LocalWork extends BeanBase<ScopeModule> {
 抛出模块 a-demo 提供的 Error 错误异常
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
-  async action({ user }) {
+export class LocalWork {
+  async action() {
     const scopeDemo = this.getScope('a-demo');
 +   scopeDemo.error.Error001.throw();
-    return scopeDemo.local.home.action({ user });
-    // return user;
+    return scopeDemo.local.home.action();
   }
 }
 ```
