@@ -67,9 +67,9 @@ export class LocalHelper {
   firstCharToUpperCase(name: string) {
     return name.charAt(0).toUpperCase() + name.substring(1);
   }
-  stringToCapitalize(str: string, separator: string): string {
+  stringToCapitalize(str: string[] | string, separator: string): string {
+    if (typeof str === 'string') str = str.split(separator);
     return str
-      .split(separator)
       .map(name => {
         return this.firstCharToUpperCase(name);
       })
@@ -79,13 +79,19 @@ export class LocalHelper {
     if (count === 0) return './';
     return '../'.repeat(count);
   }
-  parseNameMeta(name: string): NameMeta {
+  parseNameMeta(name: string, ignores?: string[]): NameMeta {
     const original = name;
     const parts = original.split('/');
     const directory = parts.slice(0, parts.length - 1).join('/');
     const short = parts[parts.length - 1];
     const shortCapitalize = this.firstCharToUpperCase(short);
-    const fullCapitalize = this.stringToCapitalize(original, '/');
+    let partsFull;
+    if (ignores && parts.length > 1 && ignores.includes(parts[0])) {
+      partsFull = parts.slice(1);
+    } else {
+      partsFull = parts;
+    }
+    const fullCapitalize = this.stringToCapitalize(partsFull, '/');
     const full = this.firstCharToLowerCase(fullCapitalize);
     return {
       original,
