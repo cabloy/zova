@@ -70,6 +70,6 @@ export class LocalTestB {
 
 - `Use`是装饰器函数。通过 Use 装饰的 属性，系统会自动在 bean 容器中查找或者创建一个实例，然后注入到`testB`中
 
-::: info
-`命名约定`：通过 Use 注入的属性，建议添加前缀`$$`。这样，当一个 class 的成员过多时，也方便快速找到所需要的 bean 实例
-:::
+## 为何bean实例变量名使用$$作为前缀
+
+- 参见：[为何bean实例变量名使用$$作为前缀](../../resources/faq.md#faq-$$)
