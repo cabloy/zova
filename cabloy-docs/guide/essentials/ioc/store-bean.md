@@ -110,12 +110,12 @@ $ cabloy front:create:local testD --module=a-demo2
 
 Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`
 
-`local.testD.ts`
+`testD.ts`
 
 ```typescript{1,4-5}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestD {
+export class TestD {
   @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 

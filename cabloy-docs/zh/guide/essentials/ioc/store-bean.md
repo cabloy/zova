@@ -109,12 +109,12 @@ $ cabloy front:create:local testD --module=a-demo2
 
 然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法
 
-`local.testD.ts`
+`testD.ts`
 
 ```typescript{1,4-5}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
-export class LocalTestD {
+export class TestD {
   @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 
