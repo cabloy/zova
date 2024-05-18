@@ -70,6 +70,6 @@ export class LocalTestB {
 
 - `Use` is a decorator function. By the property decorated with `Use`, the system will automatically look up or create an instance in the bean container, and then inject it into `testB`
 
-::: info
-`Naming convention`: For properties injected through `Use`, it is recommended to add the prefix `$$`. In this way, when there are too many members in a class, it is also convenient to quickly find the required bean instance
-:::
+## Why do the bean instance variable names use $$ as the prefix
+
+- See: [Why do the bean instance variable names use $$ as the prefix](../../resources/faq.md#faq-$$)

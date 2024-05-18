@@ -101,8 +101,6 @@ export class RenderPageCounter {
 2. Write rendering logic using the `tsx` syntax in the `render` method
 3. Directly obtain the value of `count` by vanilla javascript
 
-## Why is mother?
+## Why do the Vue component bean class names use mother as the prefix
 
-`index.vue` is just a facade used to define Vue component. After invoking the `useMother` function, the work is transferred to `mother.ts`. If necessary, the definitions of `props`, `emits` and `slots` are all in `mother.ts`, and most business logics will also be placed in `mother.ts`
-
-This is just like the behavior of lions: the male lions are the facade, and the female lions do the work. Therefore, if you think of `index.vue` as `father`, then `mother.ts` is the one who actually does the work
+- See: [Why do the Vue component bean class names use mother as the prefix ](../../resources/faq.md#faq-mother)
