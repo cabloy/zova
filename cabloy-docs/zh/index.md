@@ -19,9 +19,9 @@ hero:
 
 features:
   - title: 不用ref/reactive
-    details: 因为在大多数场景下，不需要使用ref和reactive
+    details: Class 实例默认支持响应式，所以实例中的状态不需要再通过ref/reactive声明响应式。此外，仍然支持原始数据和部分响应式的用法
   - title: 不用ref.value
-    details: 因为在Cabloy-Front中定义响应式变量更加直观，不再需要ref语义
+    details: 不用 ref，自然也就不用再写大量的 ref.value
   - title: 不用pinia
-    details: 因为Cabloy-Front提供了IOC容器，可以更加灵活的定义和使用全局对象
+    details: 可以直接基于全局 IOC 容器创建全局状态对象
 ---

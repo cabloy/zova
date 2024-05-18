@@ -17,9 +17,9 @@ Cabloy-Front 可以搭配任何 UI 库使用，并且内置了几款 UI 库的�
 
 Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
-- `不用ref/reactive`：因为在大多数场景下，不需要使用 ref 和 reactive
-- `不用ref.value`：因为在 Cabloy-Front 中定义响应式变量更加直观，不再需要 ref 语义
-- `不用pinia`：因为 Cabloy-Front 提供了 IOC 容器，可以更加灵活的定义和使用全局对象
+1. `不用ref/reactive`：Class 实例默认支持响应式，所以实例中的状态不需要再通过`ref/reactive`声明响应式。此外，仍然支持`原始数据`和`部分响应式`的用法
+2. `不用ref.value`：不用 ref，自然也就不用再写大量的 ref.value
+3. `不用 pinia`：可以直接基于全局 IOC 容器创建全局状态对象
 
 ## 动图演示
 
