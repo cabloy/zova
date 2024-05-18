@@ -93,8 +93,7 @@ export const QuerySchema = zz.object({
 在 render 中可以直接读取 user 对象的值
 
 ```typescript
-@Local()
-export class RenderPageCardHeader extends BeanRenderBase<ScopeModule> {
+export class RenderPageCardHeader {
   render() {
     return (
       <div>
@@ -119,8 +118,7 @@ export const QuerySchema = zz.object({
 在 render 中可以直接读取 colors 数组的值
 
 ```typescript
-@Local()
-export class RenderPageCardHeader extends BeanRenderBase<ScopeModule> {
+export class RenderPageCardHeader {
   render() {
     return (
       <div>

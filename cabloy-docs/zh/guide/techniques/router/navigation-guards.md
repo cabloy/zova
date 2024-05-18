@@ -9,8 +9,7 @@ Cabloy-Front 提供了一个模块`a-homerouter`，我们可以在这个模块�
 `src/suite/a-home/modules/a-homerouter/src/local/local.router.ts`
 
 ```typescript
-@Local()
-export class LocalRouter extends VirtualRouter<ScopeModule> {
+export class LocalRouter {
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async to => {
       console.log(to);

@@ -10,9 +10,7 @@ Define Params in `mother.ts`:
 
 `src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
-```typescript{4}
-import { zz } from '@cabloy/front';
-
+```typescript{2}
 export const ParamsSchema = zz.object({
   id: zz.number().optional().default(0),
 });

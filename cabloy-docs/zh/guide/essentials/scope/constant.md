@@ -23,12 +23,8 @@ export const constants = {
 
 可以通过 Scope 实例获取模块的 Constant 常量
 
-```typescript{7-9}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3-5}
+export class LocalTestA {
   protected async __init__() {
     const male = this.scope.constant.gender.male;
     const female = this.scope.constant.gender.female;
@@ -42,13 +38,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## 跨模块使用Constant
 
-```typescript{3,7-8,11-13}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8-10}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

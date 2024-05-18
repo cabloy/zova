@@ -63,7 +63,7 @@ Then inject `userInfo` directly into `testC` and access the properties and metho
 
 `local.testC.ts`
 
-```typescript{4-10}
+```typescript{1,4-10}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
 export class LocalTestC {

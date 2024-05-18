@@ -10,9 +10,8 @@ Cabloy-Front 在`BeanBase`基类中注入了`$api`对象，从而可以在任何
 
 `src/suite/a-home/modules/a-homelayout/src/component/layoutDefault/mother.ts`
 
-```typescript{10-11}
-@Local()
-export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
+```typescript{9-10}
+export class MotherLayoutDefault {
   menu: TypeMenuItem[];
 
   protected async __init__() {
@@ -32,9 +31,8 @@ export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, S
 
 `src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
 
-```typescript{8}
-@Store()
-export class StoreApi extends BeanBase {
+```typescript{7}
+export class StoreApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

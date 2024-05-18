@@ -31,9 +31,8 @@ config.web.development.spa.mine.ts
 
 在任何 bean 实例中可以直接通过`this.app.config`访问全局 config 对象
 
-```typescript{6}
-@Store()
-export class StoreApi extends BeanBase {
+```typescript{5}
+export class StoreApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

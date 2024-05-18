@@ -13,14 +13,8 @@ $ cabloy front:create:store userInfo --module=a-demo
 生成的文件：`store.userInfo.ts`，内容如下：
 
 ```typescript
-import { BeanBase, Store } from '@cabloy/front';
-
 @Store()
-export class StoreUserInfo extends BeanBase {
-  protected async __init__() {}
-
-  protected __dispose__() {}
-}
+export class StoreUserInfo {}
 ```
 
 - `Store` 是装饰器函数。通过 Store 装饰的 class 会自动注册到 bean 容器中
@@ -29,16 +23,13 @@ export class StoreUserInfo extends BeanBase {
 
 我们在`userInfo`中添加一个响应式属性`user`，并且进行异步初始化
 
-```typescript{3-6,10-26}
-import { BeanBase, Store } from '@cabloy/front';
-
+```typescript{1-4,7-23}
 interface User {
   name: string;
   age: number;
 }
 
-@Store()
-export class StoreUserInfo extends BeanBase {
+export class StoreUserInfo {
   user: User;
 
   protected async __init__() {
@@ -71,12 +62,10 @@ $ cabloy front:create:local testC --module=a-demo
 
 `local.testC.ts`
 
-```typescript{6-12}
-import { BeanBase, Local, Use } from '@cabloy/front';
+```typescript{1,4-10}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
-@Local()
-export class LocalTestC extends BeanBase {
+export class LocalTestC {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -122,12 +111,10 @@ $ cabloy front:create:local testD --module=a-demo2
 
 `local.testD.ts`
 
-```typescript{2,6-7}
-import { BeanBase, Local, Use } from '@cabloy/front';
+```typescript{1,4-5}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestD extends BeanBase {
+export class LocalTestD {
   @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 

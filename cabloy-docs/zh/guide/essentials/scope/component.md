@@ -6,9 +6,8 @@
 
 在[子组件](../component/child.md)中，我们创建了一个子组件`card`，现在通过 Scope 实例直接使用子组件`card`
 
-```typescript{6-13}
-@Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+```typescript{5-12}
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -31,11 +30,10 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
 
 ## 跨模块使用子组件
 
-```typescript{1,5-6,11-18}
+```typescript{1,4-5,10-17}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+export class RenderPageComponent {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

@@ -40,13 +40,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 仍以`local.testA.ts`为例，获取模块`a-home`的`Scope`实例：
 
-```typescript{3,7-8,11}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8}
 import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-home')
   scopeModuleAHome: ScopeModuleAHome;
 

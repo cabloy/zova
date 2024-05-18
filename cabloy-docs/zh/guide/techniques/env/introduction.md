@@ -137,9 +137,8 @@ export default function (_meta: CabloyConfigMeta) {
 
 `src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
 
-```typescript{6}
-@Store()
-export class StoreApi extends BeanBase {
+```typescript{5}
+export class StoreApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

@@ -40,12 +40,8 @@ export default {
 
 可以通过 Scope 实例直接抛出模块的 Error 错误异常
 
-```typescript{7}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3}
+export class LocalTestA {
   protected async __init__() {
     this.scope.error.ErrorTest.throw();
   }
@@ -57,13 +53,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## 跨模块使用Error
 
-```typescript{3,7-8,11}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

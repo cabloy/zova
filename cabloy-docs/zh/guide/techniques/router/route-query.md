@@ -16,9 +16,7 @@ $ cabloy front:create:page user --module=a-demo
 
 `src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
-```typescript{4-5}
-import { zz } from '@cabloy/front';
-
+```typescript{2-3}
 export const QuerySchema = zz.object({
   name: zz.string().optional(),
   age: zz.number().optional(),
@@ -34,9 +32,8 @@ export const QuerySchema = zz.object({
 
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
-```typescript{6-11}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{5-10}
+export class RenderPageUser {
   render() {
     return (
       <div>
@@ -61,9 +58,8 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
 
 直接在页面组件`user`中添加一个按钮，响应单击事件，并采用不同的`Query`参数导航至当前页面。这样，我们可以看到`$query`是响应式的
 
-```typescript{12-20}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{11-19}
+export class RenderPageUser {
   render() {
     return (
       <div>

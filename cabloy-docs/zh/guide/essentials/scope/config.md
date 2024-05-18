@@ -8,9 +8,7 @@
 
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
-```typescript{5}
-import { CabloyApplication } from '@cabloy/front';
-
+```typescript{3}
 export const config = (_app: CabloyApplication) => {
   return {
     prompt: 'Hello World',
@@ -24,12 +22,8 @@ export const config = (_app: CabloyApplication) => {
 
 可以通过 Scope 实例获取模块的 Config 配置
 
-```typescript{7-8}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3-4}
+export class LocalTestA {
   protected async __init__() {
     const message = this.scope.config.prompt;
     console.log(message);
@@ -42,13 +36,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## 跨模块使用Config
 
-```typescript{3,7-8,11-12}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8-9}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 
@@ -65,9 +56,7 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 `src/front/config/config/config.ts`
 
-```typescript{8-10}
-import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
-
+```typescript{6-8}
 export default function (_meta: CabloyConfigMeta) {
   const config = {} as CabloyConfigOptional;
 

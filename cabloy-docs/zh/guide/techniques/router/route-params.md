@@ -10,9 +10,7 @@ Cabloy-Front 对路由`Params`进行了强化，提供了 Typescript 类型化�
 
 `src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
-```typescript{4}
-import { zz } from '@cabloy/front';
-
+```typescript{2}
 export const ParamsSchema = zz.object({
   id: zz.number().optional().default(0),
 });
@@ -69,9 +67,8 @@ export const pageNameSchemas = {
 
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
-```typescript{6}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{5}
+export class RenderPageUser {
   render() {
     return (
       <div>
@@ -90,9 +87,8 @@ export class RenderPageUser extends BeanRenderBase<ScopeModule> {
 
 仍然响应页面组件`user`中的按钮单击事件，并采用不同的`Params`参数导航至当前页面。这样，我们可以看到`$params`是响应式的
 
-```typescript{7-15}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{6-14}
+export class RenderPageUser {
   render() {
     return (
       <div>

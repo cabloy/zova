@@ -16,9 +16,7 @@ Define Query in `mother.ts`:
 
 `src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
 
-```typescript{4-5}
-import { zz } from '@cabloy/front';
-
+```typescript{2-3}
 export const QuerySchema = zz.object({
   name: zz.string().optional(),
   age: zz.number().optional(),
