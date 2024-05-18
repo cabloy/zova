@@ -69,9 +69,8 @@ In `render.ts`, you can directly obtain Params and render its fields
 
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
-```typescript{6}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{5}
+export class RenderPageUser {
   render() {
     return (
       <div>
@@ -90,9 +89,8 @@ Next, we need to pass in the `Params` parameter when navigating the route
 
 Still listen to the button click event in the page component `user` and use different `Params` parameter to navigate to the current page. In this way, we can see that `$params` is reactive
 
-```typescript{7-15}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{6-14}
+export class RenderPageUser {
   render() {
     return (
       <div>

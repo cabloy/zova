@@ -10,9 +10,8 @@ For example, load menu data:
 
 `src/suite/a-home/modules/a-homelayout/src/component/layoutDefault/mother.ts`
 
-```typescript{10-11}
-@Local()
-export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
+```typescript{9-10}
+export class MotherLayoutDefault {
   menu: TypeMenuItem[];
 
   protected async __init__() {
@@ -32,9 +31,8 @@ The module `a-homeapi` provides an `a-homeapi.store.api` store bean, in which cu
 
 `src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
 
-```typescript{8}
-@Store()
-export class StoreApi extends BeanBase {
+```typescript{7}
+export class StoreApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

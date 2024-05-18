@@ -34,9 +34,8 @@ In `render.ts`, you can directly obtain Query and render its fields
 
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
-```typescript{6-11}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{5-10}
+export class RenderPageUser {
   render() {
     return (
       <div>
@@ -61,9 +60,8 @@ Next, we need to pass in the `Query` parameter when navigating the route
 
 Add a button directly to the page component `user`, listen to the click event, and use different `Query` parameter to navigate to the current page. In this way, we can see that `$query` is reactive
 
-```typescript{12-20}
-@Local()
-export class RenderPageUser extends BeanRenderBase<ScopeModule> {
+```typescript{11-19}
+export class RenderPageUser {
   render() {
     return (
       <div>

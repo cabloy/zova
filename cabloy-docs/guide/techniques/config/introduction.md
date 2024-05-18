@@ -31,9 +31,8 @@ config.web.development.spa.mine.ts
 
 The global config object can be obtained directly through `this.app.config` in any bean instance
 
-```typescript{6}
-@Store()
-export class StoreApi extends BeanBase {
+```typescript{5}
+export class StoreApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

@@ -9,8 +9,7 @@ The module `a-homerouter` provides a `LocalRouter` bean, just add custom logic d
 `src/suite/a-home/modules/a-homerouter/src/local/local.router.ts`
 
 ```typescript
-@Local()
-export class LocalRouter extends VirtualRouter<ScopeModule> {
+export class LocalRouter {
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async to => {
       console.log(to);
