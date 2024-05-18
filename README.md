@@ -15,7 +15,8 @@ Cabloy-Front is a vue3 framework with ioc container. No `ref/reactive`, no `ref.
 
 ## Documentation
 
-Documentation can be found at [https://front.cabloy.com](https://front.cabloy.com)
+- [Get Started](https://front.cabloy.com/guide/start/introduction.html)
+- [Why Vue3+IOC?](https://front.cabloy.com/guide/start/why.html)
 
 ## With UI libraries
 
