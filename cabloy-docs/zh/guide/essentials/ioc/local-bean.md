@@ -51,7 +51,7 @@ $ cabloy front:create:local testB --module=a-demo
 
 然后直接在`testB`中注入`testA`，并调用`testA`的属性和方法
 
-`local.testB.ts`
+`testB.ts`
 
 ```typescript{1,4-11}
 import { TestA } from './testA.js';

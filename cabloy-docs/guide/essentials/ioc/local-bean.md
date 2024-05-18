@@ -51,7 +51,7 @@ $ cabloy front:create:local testB --module=a-demo
 
 Then inject `testA` directly into `testB` and access the properties and methods of `testA`
 
-`local.testB.ts`
+`testB.ts`
 
 ```typescript{1,4-11}
 import { TestA } from './testA.js';
