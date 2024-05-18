@@ -53,7 +53,9 @@ Then inject `testA` directly into `testB` and access the properties and methods 
 
 `local.testB.ts`
 
-```typescript{2-9}
+```typescript{1,4-11}
+import { LocalTestA } from './local.testA.js';
+
 export class LocalTestB {
   @Use()
   $$testA: LocalTestA;
