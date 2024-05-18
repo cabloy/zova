@@ -19,9 +19,9 @@ hero:
 
 features:
   - title: No ref/reactive
-    details: Because in most scenarios, there is no need to use ref and reactive
+    details: Class instances support reactive by default, so the state in the instance does not need to be declared reactive through ref/reactive. Additionally, usage of raw data and partially reactive is still supported
   - title: No ref.value
-    details: Because defining reactive  variables in Cabloy-Front is more intuitive and no longer requires ref semantics
+    details: Without ref, naturally there is no need to write a lot of ref.value
   - title: No pinia
-    details: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
+    details: Global state objects can be created directly based on the global IOC container
 ---

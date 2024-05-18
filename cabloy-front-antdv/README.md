@@ -22,9 +22,9 @@
 
 @cabloy/front-antdv has introduced the following distinct features for Vue3:
 
-- `No ref/reactive`: Because in most scenarios, there is no need to use ref and reactive
-- `No ref.value`: Because defining reactive variables in Cabloy-Front is more intuitive and no longer requires ref semantics
-- `No pinia`: Because Cabloy-Front provides an ioc container, which can more flexibly define and use global objects
+1. `No ref/reactive`: Class instances support reactive by default, so the state in the instance does not need to be declared reactive through `ref/reactive`. Additionally, usage of `raw data` and `partially reactive` is still supported
+2. `No ref.value`: Without ref, naturally there is no need to write a lot of ref.value
+3. `No pinia`: Global state objects can be created directly based on the global IOC container
 
 ## Gif demonstration
 
