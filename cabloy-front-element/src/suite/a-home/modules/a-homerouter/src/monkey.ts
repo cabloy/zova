@@ -1,12 +1,12 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
-import { LocalRouter } from './local/local.router.js';
+import { Router } from './local/router.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  router: LocalRouter;
+  router: Router;
 
   async appInitialize() {
     // router
-    this.router = await this.bean._newBean(LocalRouter, false);
+    this.router = await this.bean._newBean(Router, false);
   }
   async appInitialized() {}
 
