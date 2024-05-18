@@ -45,9 +45,8 @@ export interface Props {
 
 You can also set default values for Props:
 
-```typescript{3-5}
-@Local()
-export class MotherCard extends BeanMotherBase<unknown, Props, Emits, Slots> {
+```typescript{2-4}
+export class MotherCard {
   static $propsDefault = {
     header: 'default header',
   };
@@ -69,9 +68,8 @@ const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
 
 Access Props in `render.tsx`:
 
-```typescript{8,11,14}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{7,10,13}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -96,11 +94,10 @@ export class RenderCard extends BeanRenderBase {
 
 Next, use the child component inside the parent component:
 
-```typescript{9-11}
+```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -146,9 +143,8 @@ const emit = defineEmits<Emits>();
 
 Raise Emit in `render.tsx`:
 
-```typescript{7-9}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{6-8}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -169,11 +165,10 @@ export class RenderCard extends BeanRenderBase {
 
 Next, use the child component inside the parent component:
 
-```typescript{9-11}
+```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -210,9 +205,8 @@ export interface Slots {
 
 Render Slots in `render.tsx`:
 
-```typescript{8,11,14}
-@Local()
-export class RenderCard extends BeanRenderBase {
+```typescript{7,10,13}
+export class RenderCard {
   render() {
     return (
       <div>
@@ -237,12 +231,11 @@ export class RenderCard extends BeanRenderBase {
 
 Next, use the child component inside the parent component:
 
-```typescript{2,7-17,21}
+```typescript{1,6-16,20}
 import Card from '../../component/card/index.vue';
 import * as MotherCard from '../../component/card/mother.js';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+export class RenderPageComponent {
   render() {
     const slots = {
       header: () => {
@@ -279,11 +272,10 @@ In Cabloy-Front, `Template Refs` is not used to refer to child component instanc
 
 First define a property in `mother.ts` of the parent component:
 
-```typescript{1,5}
+```typescript{1,4}
 import { MotherCard } from '../../component/card/mother.js';
 
-@Local()
-export class MotherPageComponent extends BeanMotherPageBase {
+export class MotherPageComponent {
   cardRef: MotherCard;
 }
 ```
@@ -292,9 +284,8 @@ export class MotherPageComponent extends BeanMotherPageBase {
 
 Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `mother bean`:
 
-```typescript{7-9}
-@Local()
-export class RenderPageComponent extends BeanRenderBase {
+```typescript{6-8}
+export class RenderPageComponent {
   render() {
     return (
       <div>

@@ -24,12 +24,8 @@ export const config = (_app: CabloyApplication) => {
 
 The `Config` configuration of the module can be obtained through the `Scope` instance
 
-```typescript{7-8}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3-4}
+export class LocalTestA {
   protected async __init__() {
     const message = this.scope.config.prompt;
     console.log(message);
@@ -42,13 +38,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## Use Config cross-module
 
-```typescript{3,7-8,11-12}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8-9}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 
@@ -65,9 +58,7 @@ You can use `project-level` Config to override `module-level` Config
 
 `src/front/config/config/config.ts`
 
-```typescript{8-10}
-import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
-
+```typescript{6-8}
 export default function (_meta: CabloyConfigMeta) {
   const config = {} as CabloyConfigOptional;
 

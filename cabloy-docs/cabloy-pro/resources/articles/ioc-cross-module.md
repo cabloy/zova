@@ -35,11 +35,7 @@ cabloy api:create:controller work
 Next, we access the Service of the module `a-demo` in the newly created Service
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
+export class LocalWork {
   async action({ user }) {
 +   const scopeDemo = this.getScope('a-demo');
 +   return scopeDemo.local.home.action({ user });
@@ -60,11 +56,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 Access the Config configuration of the module `a-demo`
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
+export class LocalWork {
   async action({ user }) {
     const scopeDemo = this.getScope('a-demo');
 +   const prompt = scopeDemo.config.prompt;
@@ -85,11 +77,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 Access the I18n resources of the module `a-demo`
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
+export class LocalWork {
   async action({ user }) {
     const scopeDemo = this.getScope('a-demo');
 +   const message = scopeDemo.locale.HelloWorld();
@@ -110,11 +98,7 @@ Take a look at the animation demo, which provides complete type intelligent prom
 Access and throw the Error exception of the module `a-demo`
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalWork extends BeanBase<ScopeModule> {
+export class LocalWork {
   async action({ user }) {
     const scopeDemo = this.getScope('a-demo');
 +   scopeDemo.error.Error001.throw();

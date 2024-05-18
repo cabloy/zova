@@ -22,11 +22,10 @@ TS-based backend frameworks typically provide dependency containers to achieve i
 In Cabloy-Pro5, local bean is equivalent to the concept of service in NestJS. Here is an example of creating a local bean
 
 ```javascript
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
+import { Local } from '@cabloy/core';
 
 @Local()
-export class LocalHome extends BeanBase<ScopeModule> {
+export class LocalHome {
   async echo({ user: _user }) {
     return `Hello World!`;
   }
@@ -35,19 +34,16 @@ export class LocalHome extends BeanBase<ScopeModule> {
 
 1. LocalHome is declared as a local bean with `@Local`
 
-2. LocalHome inherits from the base class BeanBase
-
 ### 2. Dependency injection for Service
 
 Next, in the Controller, use dependency injection to use LocalHome
 
 ```javascript
-import { BeanBase, Controller, Use } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
+import { Controller, Use } from '@cabloy/core';
 import { LocalHome } from '../local/home.js';
 
 @Controller()
-export class ControllerHome extends BeanBase<ScopeModule> {
+export class ControllerHome {
   @Use()
   home: LocalHome;
 
@@ -67,11 +63,10 @@ export class ControllerHome extends BeanBase<ScopeModule> {
 Then, in the Controller, use the dependency lookup method to use LocalHome
 
 ```javascript
-import { BeanBase, Controller } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
+import { Controller } from '@cabloy/core';
 
 @Controller()
-export class ControllerHome extends BeanBase<ScopeModule> {
+export class ControllerHome {
   async echo() {
     const res = await this.scope.local.home.echo({
       user: this.ctx.state.user.op,
@@ -108,12 +103,8 @@ export const config = (_app: CabloyApplication) => {
 You can directly use the configuration just defined in LocalHome
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async echo({ user: _user }) {
+export class LocalHome {
+  async echo() {
 +   return this.scope.config.prompt;
 -   return `Hello World!`;
   }
@@ -153,12 +144,8 @@ export default {
 You can directly use the language resource just defined in LocalHome
 
 ```diff
-import { BeanBase, Local } from '@cabloy/core';
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async action({ user: _user }) {
+export class LocalHome {
+  async action() {
 +   // automatically determine the current language
 +   const message = this.scope.locale.HelloWorld();
 +   // force the use of English resources
@@ -218,11 +205,8 @@ export default {
 You can directly use the error enumeration value just defined in LocalHome and throw an exception
 
 ```diff
-import { ScopeModule } from '../resource/this.js';
-
-@Local()
-export class LocalHome extends BeanBase<ScopeModule> {
-  async action({ user: _user }) {
+export class LocalHome {
+  async action() {
 +   // directly throw an exception
 +   this.scope.error.Error001.throw();
 -   return this.scope.config.prompt;

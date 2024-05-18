@@ -13,14 +13,8 @@ $ cabloy front:create:store userInfo --module=a-demo
 The generated file: `store.userInfo.ts`, with the following content:
 
 ```typescript
-import { BeanBase, Store } from '@cabloy/front';
-
 @Store()
-export class StoreUserInfo extends BeanBase {
-  protected async __init__() {}
-
-  protected __dispose__() {}
-}
+export class StoreUserInfo {}
 ```
 
 - `Store` is a decorator function. The class decorated with `Store` will automatically be registered in the bean container
@@ -29,16 +23,14 @@ export class StoreUserInfo extends BeanBase {
 
 We add a reactive property `user` in `userInfo` and perform asynchronous initialization
 
-```typescript{3-6,10-26}
-import { BeanBase, Store } from '@cabloy/front';
-
+```typescript{1-4,8-24}
 interface User {
   name: string;
   age: number;
 }
 
 @Store()
-export class StoreUserInfo extends BeanBase {
+export class StoreUserInfo {
   user: User;
 
   protected async __init__() {
@@ -71,12 +63,10 @@ Then inject `userInfo` directly into `testC` and access the properties and metho
 
 `local.testC.ts`
 
-```typescript{6-12}
-import { BeanBase, Local, Use } from '@cabloy/front';
+```typescript{4-10}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
-@Local()
-export class LocalTestC extends BeanBase {
+export class LocalTestC {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -122,12 +112,10 @@ Then inject `userInfo` directly into `testD` and access the properties and metho
 
 `local.testD.ts`
 
-```typescript{2,6-7}
-import { BeanBase, Local, Use } from '@cabloy/front';
+```typescript{1,4-5}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestD extends BeanBase {
+export class LocalTestD {
   @Use('a-demo.store.userInfo')
   $$userInfo: StoreUserInfo;
 

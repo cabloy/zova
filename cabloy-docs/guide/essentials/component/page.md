@@ -63,10 +63,8 @@ useMother(MotherPageCounter, RenderPageCounter);
 ## mother.ts
 
 ```typescript
-import { BeanMotherPageBase, Local } from '@cabloy/front';
-
 @Local()
-export class MotherPageCounter extends BeanMotherPageBase {
+export class MotherPageCounter {
   count: number = 0;
 
   inrement() {
@@ -86,13 +84,8 @@ export class MotherPageCounter extends BeanMotherPageBase {
 ## render.tsx
 
 ```typescript
-import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageCounter } from './mother.js';
-
-export interface RenderPageCounter extends MotherPageCounter { }
-
 @Local()
-export class RenderPageCounter extends BeanRenderBase {
+export class RenderPageCounter {
   render() {
     return (
       <div>

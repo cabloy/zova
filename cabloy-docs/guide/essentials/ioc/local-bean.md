@@ -13,14 +13,8 @@ $ cabloy front:create:local testA --module=a-demo
 The generated file: `local.testA.ts`, with the following content:
 
 ```typescript
-import { BeanBase, Local } from '@cabloy/front';
-
 @Local()
-export class LocalTestA extends BeanBase {
-  protected async __init__() {}
-
-  protected __dispose__() {}
-}
+export class LocalTestA {}
 ```
 
 - `Local` is a decorator function. The class decorated with `Local` will automatically be registered in the bean container
@@ -29,11 +23,8 @@ export class LocalTestA extends BeanBase {
 
 We add a reactive property `count` in `testA` and add two methods to modify it
 
-```typescript{5-13}
-import { BeanBase, Local } from '@cabloy/front';
-
-@Local()
-export class LocalTestA extends BeanBase {
+```typescript{2-10}
+export class LocalTestA {
   count: number = 0;
 
   inrement() {
@@ -62,12 +53,8 @@ Then inject `testA` directly into `testB` and access the properties and methods 
 
 `local.testB.ts`
 
-```typescript{6-13}
-import { BeanBase, Local, Use } from '@cabloy/front';
-import { LocalTestA } from './local.testA.js';
-
-@Local()
-export class LocalTestB extends BeanBase {
+```typescript{2-9}
+export class LocalTestB {
   @Use()
   $$testA: LocalTestA;
 

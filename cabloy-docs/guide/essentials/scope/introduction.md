@@ -40,13 +40,10 @@ The `Scope` object itself is also a bean, so you can directly use `dependency in
 
 Still taking `local.testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
 
-```typescript{3,7-8,11}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8}
 import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-home')
   scopeModuleAHome: ScopeModuleAHome;
 

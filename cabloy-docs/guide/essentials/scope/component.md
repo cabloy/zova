@@ -6,9 +6,8 @@ In [Child Component](../component/child.md), we already know how to use child co
 
 In [Child Component](../component/child.md), we created a child component `card`, and now use the child component `card` directly through the `Scope` instance
 
-```typescript{6-13}
-@Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+```typescript{5-12}
+export class RenderPageComponent {
   render() {
     return (
       <div>
@@ -31,11 +30,10 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
 
 ## Use Child Component cross-module
 
-```typescript{1,5-6,11-18}
+```typescript{1,4-5,10-17}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+export class RenderPageComponent {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

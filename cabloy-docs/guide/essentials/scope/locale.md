@@ -26,12 +26,8 @@ export default {
 
 The `I18n` language resources of the module can be obtained through the `locale` object of the `Scope` instance
 
-```typescript{7-13}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3-9}
+export class LocalTestA {
   protected async __init__() {
     // use current locale
     const message1 = this.scope.locale.HelloWorld();
@@ -49,13 +45,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## Use language resources cross-module
 
-```typescript{3,7-8,11-17}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8-14}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 
@@ -77,28 +70,24 @@ You can use `project-level` language resources to override `module-level` langua
 
 English: `src/front/config/locale/en-us.ts`
 
-```typescript{5-7}
-import { CabloyLocaleOptional } from '@cabloy/front';
-
+```typescript{3-5}
 export default {
   modules: {
     'a-demo': {
       HelloWorld: 'Hello World!!!',
     },
   },
-} as CabloyLocaleOptional;
+};
 ```
 
 Chinese: `src/front/config/locale/zh-cn.ts`
 
-```typescript{5-7}
-import { CabloyLocaleOptional } from '@cabloy/front';
-
+```typescript{3-5}
 export default {
   modules: {
     'a-demo': {
       HelloWorld: '您好世界!!!',
     },
   },
-} as CabloyLocaleOptional;
+};
 ```

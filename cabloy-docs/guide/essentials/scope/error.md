@@ -40,12 +40,8 @@ export default {
 
 You can directly throw the module's `Error` exception through the `Scope` instance
 
-```typescript{7}
-import { BeanBase, Local } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
-
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+```typescript{3}
+export class LocalTestA {
   protected async __init__() {
     this.scope.error.ErrorTest.throw();
   }
@@ -57,13 +53,10 @@ export class LocalTestA extends BeanBase<ScopeModule> {
 
 ## Use Error cross-module
 
-```typescript{3,7-8,11}
-import { BeanBase, Local, UseScope } from '@cabloy/front';
-import { ScopeModule } from './resource/this.js';
+```typescript{1,4-5,8}
 import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
 
-@Local()
-export class LocalTestA extends BeanBase<ScopeModule> {
+export class LocalTestA {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 
