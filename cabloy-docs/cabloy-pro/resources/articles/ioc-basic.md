@@ -22,8 +22,6 @@ TS-based backend frameworks typically provide dependency containers to achieve i
 In Cabloy-Pro5, local bean is equivalent to the concept of service in NestJS. Here is an example of creating a local bean
 
 ```javascript
-import { Local } from '@cabloy/core';
-
 @Local()
 export class LocalHome {
   async echo() {
@@ -39,7 +37,6 @@ export class LocalHome {
 Next, in the Controller, use dependency injection to use LocalHome
 
 ```javascript
-import { Controller, Use } from '@cabloy/core';
 import { LocalHome } from '../local/home.js';
 
 @Controller()
@@ -63,9 +60,6 @@ export class ControllerHome {
 Then, in the Controller, use the dependency lookup method to use LocalHome
 
 ```javascript
-import { Controller } from '@cabloy/core';
-
-@Controller()
 export class ControllerHome {
   async echo() {
     const res = await this.scope.local.home.echo({

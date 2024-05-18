@@ -8,9 +8,7 @@ Taking the module `a-demo` as an example, define the `Config` configuration of t
 
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
-```typescript{5}
-import { CabloyApplication } from '@cabloy/front';
-
+```typescript{3}
 export const config = (_app: CabloyApplication) => {
   return {
     prompt: 'Hello World',

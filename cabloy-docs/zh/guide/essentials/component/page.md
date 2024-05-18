@@ -12,9 +12,8 @@ $ cabloy front:create:page counter --module=a-demo
 
 `src/suite/a-demo/modules/a-demo/src/routes.ts`
 
-```typescript{1,6}
+```typescript{1,5}
 import Counter from './page/counter/index.vue';
-import { IModuleRoute } from 'cabloy-module-front-a-router';
 
 export const routes: IModuleRoute[] = [
   //
