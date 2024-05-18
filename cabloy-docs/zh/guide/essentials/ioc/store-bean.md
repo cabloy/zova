@@ -60,12 +60,12 @@ $ cabloy front:create:local testC --module=a-demo
 
 然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
 
-`local.testC.ts`
+`testC.ts`
 
 ```typescript{1,4-10}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
-export class LocalTestC {
+export class TestC {
   @Use()
   $$userInfo: StoreUserInfo;
 
