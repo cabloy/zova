@@ -134,7 +134,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     },
     {
       text: 'Resources',
-      items: [{ text: 'Videos', link: 'resources/videos' }],
+      items: [
+        { text: 'FAQ', link: 'resources/faq' },
+        { text: 'Videos', link: 'resources/videos' },
+      ],
     },
   ];
 }

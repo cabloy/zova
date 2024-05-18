@@ -134,7 +134,10 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     },
     {
       text: '资源',
-      items: [{ text: '视频', link: 'resources/videos' }],
+      items: [
+        { text: '常见问题', link: 'resources/faq' },
+        { text: '视频', link: 'resources/videos' },
+      ],
     },
   ];
 }
