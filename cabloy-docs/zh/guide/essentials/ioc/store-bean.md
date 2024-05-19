@@ -10,7 +10,7 @@
 $ cabloy front:create:store userInfo --module=a-demo
 ```
 
-生成的文件：`store.userInfo.ts`，内容如下：
+`src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
 
 ```typescript
 @Store()
@@ -60,9 +60,9 @@ $ cabloy front:create:local testC --module=a-demo
 
 然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
 
-`testC.ts`
+`src/suite/a-demo/modules/a-demo/src/testC.ts`
 
-```typescript{1,4-10}
+```typescript{1,4-5,8-9}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
 export class TestC {
@@ -109,9 +109,9 @@ $ cabloy front:create:local testD --module=a-demo2
 
 然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法
 
-`testD.ts`
+`src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
-```typescript{1,4-5}
+```typescript{1,4-5,8-9}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
 export class TestD {

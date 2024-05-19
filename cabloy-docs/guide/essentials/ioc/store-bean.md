@@ -10,7 +10,7 @@ Let's first create a store bean `userInfo`. The code skeleton for store bean can
 $ cabloy front:create:store userInfo --module=a-demo
 ```
 
-The generated file: `store.userInfo.ts`, with the following content:
+`src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
 
 ```typescript
 @Store()
@@ -23,13 +23,12 @@ export class StoreUserInfo {}
 
 We add a reactive property `user` in `userInfo` and perform asynchronous initialization
 
-```typescript{1-4,8-24}
+```typescript{1-4,7-23}
 interface User {
   name: string;
   age: number;
 }
 
-@Store()
 export class StoreUserInfo {
   user: User;
 
@@ -61,9 +60,9 @@ $ cabloy front:create:local testC --module=a-demo
 
 Then inject `userInfo` directly into `testC` and access the properties and methods of `userInfo`
 
-`testC.ts`
+`src/suite/a-demo/modules/a-demo/src/testC.ts`
 
-```typescript{1,4-10}
+```typescript{1,4-5,8-9}
 import { StoreUserInfo } from './bean/store.userInfo.js';
 
 export class TestC {
@@ -110,9 +109,9 @@ $ cabloy front:create:local testD --module=a-demo2
 
 Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`
 
-`testD.ts`
+`src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
-```typescript{1,4-5}
+```typescript{1,4-5,8-9}
 import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
 
 export class TestD {
