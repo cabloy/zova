@@ -2,11 +2,14 @@
 
 ## 创建页面组件
 
-我们先通过一个 cli 命令来创建一个页面组件`counter`，该命令会创建一个路由和一个目录:
+我们先通过一个 cli 命令来创建一个页面组件`counter`:
 
 ```bash
 $ cabloy front:create:page counter --module=a-demo
 ```
+
+- module 选项指示该页面组件归属于模块`a-demo`。也可以不指定选项，在命令行提示中再指定
+- 该命令会创建一个路由和一个目录
 
 ### 路由
 
@@ -57,7 +60,7 @@ useMotherPage(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
-1. 只需在`index.vue`中引入`mother`bean 即可
+1. 只需在`index.vue`中引入`mother`bean 和`render`bean 即可
 
 ## mother.ts
 
