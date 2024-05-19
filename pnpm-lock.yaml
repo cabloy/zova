@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cabloy/lint':
-        specifier: ^4.0.9
-        version: 4.0.9(@types/eslint@8.56.10)(typescript@5.4.5)
+        specifier: ^4.0.10
+        version: 4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)
       '@cabloy/process-helper':
         specifier: ^1.0.4
         version: 1.0.4
@@ -131,8 +131,8 @@ packages:
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/lint@4.0.9':
-    resolution: {integrity: sha512-UjZNNkSvsBcPL72qgemz0nDgHdUSLlZv89cSKJv4fXmgM/XugAnU9sEvwHcBdLkW4+cUZy+Dt30vQYfbBKTsbg==}
+  '@cabloy/lint@4.0.10':
+    resolution: {integrity: sha512-cq9QRuZEbaaiFJ7xZFoDifkYYCgIsfRKj1YIlfFeSUAy3qiasvSDTju9CXw7Fn04LrPPfKim+i77TEAwhHjotw==}
 
   '@cabloy/process-helper@1.0.4':
     resolution: {integrity: sha512-w3HBtxHWTisyfdlkfz77CacBkfrypuInLd/qSwu34QWTSlvKBxFouVUARlmvjOFn5nWVNdr37BnP2BwnWeo7YA==}
@@ -3431,7 +3431,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
 
-  '@cabloy/lint@4.0.9(@types/eslint@8.56.10)(typescript@5.4.5)':
+  '@cabloy/lint@4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.8.0(@typescript-eslint/parser@7.8.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.8.0(eslint@8.57.0)(typescript@5.4.5)
