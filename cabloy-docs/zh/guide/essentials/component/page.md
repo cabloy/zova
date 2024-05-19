@@ -50,10 +50,10 @@ src
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front';
+import { useMotherPage } from '@cabloy/front';
 import { MotherPageCounter } from './mother.js';
 import { RenderPageCounter } from './render.jsx';
-useMother(MotherPageCounter, RenderPageCounter);
+useMotherPage(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
