@@ -49,7 +49,7 @@ export class Counter {
 
 `mother.ts`
 
-```typescript{1,4-11}
+```typescript{1,4-5}
 import { Counter } from './counter.js';
 
 export class MotherPageCounter {
