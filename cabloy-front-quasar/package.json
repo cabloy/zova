@@ -38,7 +38,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cabloy/lint": "^4.0.9",
+    "@cabloy/lint": "^4.0.10",
     "@quasar/app-vite": "2.0.0-beta.14",
     "@types/node": "^20.12.12",
     "autoprefixer": "^10.4.19",
