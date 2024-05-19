@@ -2,7 +2,7 @@
 
 在[页面组件](../component/page.md)中，我们通过一个 cli 命令创建了一个页面组件`counter`。现在，我们把其中关于 count 状态的逻辑抽离出来，放入一个 local bean 当中，演示逻辑复用的效果
 
-## 创建Local Bean: Counter
+## 创建Local Bean: counter
 
 可以通过 cli 命令创建 local bean 的代码骨架：
 
@@ -79,7 +79,3 @@ export class RenderPageCounter {
 ## 为何bean实例变量名使用$$作为前缀
 
 - 参见：[为何bean实例变量名使用$$作为前缀](../../resources/faq.md#faq-$$)
-
-```
-
-```

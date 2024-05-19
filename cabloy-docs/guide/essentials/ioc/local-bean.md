@@ -1,30 +1,32 @@
 # Local Bean
 
-Let's create a local bean `testA` and inject it into the local bean `testB`
+In [page component](../component/page.md), we created a page component `counter` through a cli command. Now, we pull out the logic of the `count` state, put it in a local bean to demonstrate the effect of logic reuse
 
-## Create Local Bean: testA
+## Create Local Bean: counter
 
 The code skeleton for local bean can be created using the cli command:
 
 ```bash
-$ cabloy front:create:local testA --module=a-demo
+$ cabloy front:create:local page/counter/counter --module=a-demo
 ```
 
-The generated file: `testA.ts`, with the following content:
+- The name of the local bean is `counter`, located in the directory `page/counter`
+
+`src/suite/a-demo/modules/a-demo/src/page/counter/counter.ts`
 
 ```typescript
 @Local()
-export class TestA {}
+export class Counter {}
 ```
 
 - `Local` is a decorator function. The class decorated with `Local` will automatically be registered in the bean container
 
 ## Add reactive codes
 
-We add a reactive property `count` in `testA` and add two methods to modify it
+Migrate the code in the page component `counter` to the local bean
 
 ```typescript{2-10}
-export class TestA {
+export class Counter {
   count: number = 0;
 
   inrement() {
@@ -41,34 +43,38 @@ export class TestA {
 The property `count` defined here is reactive, bidding farewell to the writing style of `ref.value`
 :::
 
-## Create Local Bean: testB
+## Inject and Use Local Bean
 
-Next, create the code skeleton for `testB` using the cli command:
+Inject local bean in the page component `counter`, and then access properties and methods in render
 
-```bash
-$ cabloy front:create:local testB --module=a-demo
-```
+`mother.ts`
 
-Then inject `testA` directly into `testB` and access the properties and methods of `testA`
+```typescript{1,4-5}
+import { Counter } from './counter.js';
 
-`testB.ts`
-
-```typescript{1,4-11}
-import { TestA } from './testA.js';
-
-export class TestB {
+export class MotherPageCounter {
   @Use()
-  $$testA: TestA;
-
-  protected async __init__() {
-    console.log(this.$$testA.count);
-    this.$$testA.inrement();
-    this.$$testA.decrement();
-  }
+  $$counter: Counter;
 }
 ```
 
-- `Use` is a decorator function. By the property decorated with `Use`, the system will automatically look up or create an instance in the bean container, and then inject it into `testB`
+- `Use` is a decorator function. By the property decorated with `Use`, the system will automatically look up or create an instance in the bean container, and then inject it into page component
+
+`render.tsx`
+
+```typescript{5-7}
+export class RenderPageCounter {
+  render() {
+    return (
+      <div>
+        <div>count(ref): {this.$$counter.count}</div>
+        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.decrement()}>Decrement</button>
+      </div>
+    );
+  }
+}
+```
 
 ## Why do the bean instance variable names use $$ as the prefix
 
