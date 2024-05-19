@@ -39,6 +39,14 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: '基础',
       items: [
         {
+          text: 'Vue组件',
+          base: '/zh/guide/essentials/component/',
+          items: [
+            { text: '页面组件', link: 'page' },
+            { text: '子组件', link: 'child' },
+          ],
+        },
+        {
           text: '模块化体系',
           base: '/zh/guide/essentials/modularization/',
           items: [
@@ -56,14 +64,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Store Bean', link: 'store-bean' },
             { text: 'BeanBase基类', link: 'bean-base' },
             { text: '生命周期', link: 'lifecycle' },
-          ],
-        },
-        {
-          text: 'Vue组件',
-          base: '/zh/guide/essentials/component/',
-          items: [
-            { text: '页面组件', link: 'page' },
-            { text: '子组件', link: 'child' },
           ],
         },
         {

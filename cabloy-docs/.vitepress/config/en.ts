@@ -39,6 +39,14 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: 'Essentials',
       items: [
         {
+          text: 'Vue Component',
+          base: '/guide/essentials/component/',
+          items: [
+            { text: 'Page Component', link: 'page' },
+            { text: 'Child Component', link: 'child' },
+          ],
+        },
+        {
           text: 'Modularization',
           base: '/guide/essentials/modularization/',
           items: [
@@ -56,14 +64,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Store Bean', link: 'store-bean' },
             { text: 'BeanBase', link: 'bean-base' },
             { text: 'Lifecycle', link: 'lifecycle' },
-          ],
-        },
-        {
-          text: 'Vue Component',
-          base: '/guide/essentials/component/',
-          items: [
-            { text: 'Page Component', link: 'page' },
-            { text: 'Child Component', link: 'child' },
           ],
         },
         {
