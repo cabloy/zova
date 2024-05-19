@@ -429,7 +429,9 @@ export class BeanContainer {
       });
     }
     await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
-    beanInstance.__inited__.touch();
+    if (beanInstance.__inited__) {
+      beanInstance.__inited__.touch();
+    }
     // ok
     return beanInstance;
   }
