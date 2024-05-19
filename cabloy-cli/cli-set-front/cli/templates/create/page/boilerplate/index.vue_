@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front';
+import { useMotherPage } from '@cabloy/front';
 import { MotherPage<%=argv.nameMeta.fullCapitalize%> } from './mother.js';
 import { RenderPage<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
-useMother(MotherPage<%=argv.nameMeta.fullCapitalize%>, RenderPage<%=argv.nameMeta.fullCapitalize%>);
+useMotherPage(MotherPage<%=argv.nameMeta.fullCapitalize%>, RenderPage<%=argv.nameMeta.fullCapitalize%>);
 </script>
