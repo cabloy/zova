@@ -33,7 +33,8 @@
     "@cabloy/front": "^5.0.45",
     "ant-design-vue": "^4.2.1",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cabloy/app-vite": "^1.0.48",

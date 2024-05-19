@@ -29,7 +29,8 @@
   "dependencies": {
     "@cabloy/front": "workspace:^",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@cabloy/app-vite": "workspace:^",
