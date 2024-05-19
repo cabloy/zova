@@ -8,5 +8,5 @@ import { Mother<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './mother.
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), Mother<%=argv.nameMeta.fullCapitalize%>.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(Mother<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>, props, emit);
+useMother(props, emit, Mother<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>);
 </script>
