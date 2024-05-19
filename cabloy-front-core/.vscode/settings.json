@@ -8,6 +8,7 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": false,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

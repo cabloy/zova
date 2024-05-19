@@ -21,6 +21,7 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   // prettier
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
