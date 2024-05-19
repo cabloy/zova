@@ -2,11 +2,14 @@
 
 ## Create Page Component
 
-Let's first create a page component `counter` using a cli command, which will create a route and a directory:
+Let's first create a page component `counter` using a cli command:
 
 ```bash
 $ cabloy front:create:page counter --module=a-demo
 ```
+
+- The `module` option indicates that the page component belongs to the module `a-demo`
+- This command will create a route and a directory
 
 ### Route
 
@@ -57,7 +60,7 @@ useMotherPage(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
-1. Just import and use the `mother` bean in `index.vue` as well
+1. Just import and use the `mother` bean and `render` bean in `index.vue` as well
 
 ## mother.ts
 
