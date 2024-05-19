@@ -6,8 +6,9 @@
   "scripts": {
     "cabloy": "node ../cabloy-cli/cli/dist/bin/cabloy.js",
     "dev": "vite",
-    "build": "vue-tsc --noEmit --project tsconfig.vue-tsc.json && vite build",
+    "build": "vite build && tsc",
     "preview": "vite preview",
+    "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "keywords": [
