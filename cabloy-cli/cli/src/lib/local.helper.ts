@@ -91,6 +91,9 @@ export class LocalHelper {
     } else {
       partsFull = parts;
     }
+    if (partsFull.length > 1 && partsFull[0] === partsFull[1]) {
+      partsFull = partsFull.slice(1);
+    }
     const fullCapitalize = this.stringToCapitalize(partsFull, '/');
     const full = this.firstCharToLowerCase(fullCapitalize);
     return {
