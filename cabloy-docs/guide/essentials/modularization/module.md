@@ -36,6 +36,8 @@ You can use the cli command to create a module file skeleton, such as creating a
 $ cabloy front:create:module test-home --template=module --suite
 ```
 
+- The `suite` option indicates which suite the module belongs to, and which can be empty
+
 After creating the module, don't forget to reinstall the dependencies for the module to take effect:
 
 ```bash

@@ -39,6 +39,8 @@
 $ cabloy front:create:module test-home --template=module --suite
 ```
 
+- suite 选项指示该模块归属于哪个套件，可以为空
+
 在创建完模块之后，别忘了重新安装依赖，以便让模块生效:
 
 ```bash
