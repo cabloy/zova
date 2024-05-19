@@ -1,4 +1,5 @@
-import { RawCreateParams, z, ZodRawShape, ZodType, ZodTypeAny } from 'zod';
+//import { RawCreateParams, z, ZodRawShape, ZodType, ZodTypeAny } from 'zod';
+import * as z from 'zod';
 
 // coerce
 export function string(...args: Parameters<typeof z.coerce.string>) {
@@ -30,7 +31,7 @@ export function boolean(...args: Parameters<typeof z.boolean>) {
 }
 
 // json
-export function json<T extends ZodRawShape>(shape: T, params?: RawCreateParams) {
+export function json<T extends z.ZodRawShape>(shape: T, params?: z.RawCreateParams) {
   return z.preprocess(
     val => {
       // also undefined even val is 'null'
@@ -43,7 +44,7 @@ export function json<T extends ZodRawShape>(shape: T, params?: RawCreateParams) 
 }
 
 // array
-export function array<T extends ZodTypeAny>(schema: T, params?: RawCreateParams) {
+export function array<T extends z.ZodTypeAny>(schema: T, params?: z.RawCreateParams) {
   return z.preprocess(
     val => {
       // also undefined even val is 'null'
@@ -56,11 +57,11 @@ export function array<T extends ZodTypeAny>(schema: T, params?: RawCreateParams)
 }
 
 // object
-export function object<T extends ZodRawShape>(shape: T, params?: RawCreateParams) {
+export function object<T extends z.ZodRawShape>(shape: T, params?: z.RawCreateParams) {
   return z.object(shape, params);
 }
 
 // infer
-export type infer<T extends ZodType<any, any, any>> = z.infer<T>;
-export type input<T extends ZodType<any, any, any>> = z.input<T>;
-export type output<T extends ZodType<any, any, any>> = z.output<T>;
+export type infer<T extends z.ZodType<any, any, any>> = z.infer<T>;
+export type input<T extends z.ZodType<any, any, any>> = z.input<T>;
+export type output<T extends z.ZodType<any, any, any>> = z.output<T>;
