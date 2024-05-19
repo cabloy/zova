@@ -28,7 +28,9 @@ export const routes: IModuleRoute[] = [
 
 ### Directory
 
-In Cabloy-Front, a page component will be splited to three files located in the directory `src/page/counter` that was just created:
+In Cabloy-Front, a page component will be splited to three files:
+
+`src/suite/a-demo/modules/a-demo/src/page/counter`
 
 ```
 src

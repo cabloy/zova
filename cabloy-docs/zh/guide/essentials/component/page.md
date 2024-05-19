@@ -28,7 +28,9 @@ export const routes: IModuleRoute[] = [
 
 ### 目录
 
-在 Cabloy-Front 中，一个页面组件被切分为三个文件，位于刚才创建的目录`src/page/counter`中：
+在 Cabloy-Front 中，一个页面组件被切分为三个文件:
+
+`src/suite/a-demo/modules/a-demo/src/page/counter`
 
 ```
 src
