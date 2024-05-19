@@ -1,6 +1,6 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
 import { PatchIcon } from './patch/icon.js';
-import { useQuasar } from 'quasar';
+import useQuasar from 'quasar/src/composables/use-quasar/use-quasar.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {
