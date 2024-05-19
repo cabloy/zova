@@ -7,7 +7,6 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
-  "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

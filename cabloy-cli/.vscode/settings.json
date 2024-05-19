@@ -19,7 +19,6 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   // prettier
-  "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
