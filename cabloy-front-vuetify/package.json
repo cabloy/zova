@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-vuetify",
-  "version": "5.0.64",
+  "version": "5.0.65",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"

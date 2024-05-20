@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-quasar",
-  "version": "5.0.63",
+  "version": "5.0.64",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
