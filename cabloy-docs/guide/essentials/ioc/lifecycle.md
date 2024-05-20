@@ -11,7 +11,8 @@ All beans can provide two lifecycle methods
 
 ```typescript
 import { useComputed } from '@cabloy/front';
-...
+
+export class Counter {
   count: number = 0;
   count2: string;
 
@@ -20,7 +21,7 @@ import { useComputed } from '@cabloy/front';
       return `=== ${this.count} ===`;
     });
   }
-...
+}
 ```
 
 - `count` is a reactive property
@@ -30,23 +31,17 @@ import { useComputed } from '@cabloy/front';
 
 ```typescript
 import { watch } from 'vue';
-...
+
+export class Counter {
   count: number = 0;
-  unwatchCounter;
 
   protected async __init__() {
-    this.unwatchCounter = watch(
+    watch(
       () => this.count,
       () => {
-        console.log(this.count);
+        console.log('changed: ', this.count);
       },
     );
   }
-
-  protected __dispose__() {
-    if (this.unwatchCounter) {
-      this.unwatchCounter();
-    }
-  }
-...
+}
 ```
