@@ -1,6 +1,7 @@
 import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
+import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 import { createConfigUtils } from '@cabloy/app-vite';
 import { CabloyConfigMeta } from '@cabloy/front-core';
@@ -43,6 +44,9 @@ export class CliCreatePageBase extends BeanCliBase {
     // directory
     let pageDir = path.join(targetDir, 'src/page');
     pageDir = path.join(pageDir, pageName);
+    if (fs.existsSync(pageDir)) {
+      throw new Error(`page exists: ${pageName}`);
+    }
     await this.helper.ensureDir(pageDir);
     // render snippets
     await this.template.renderBoilerplateAndSnippets({
