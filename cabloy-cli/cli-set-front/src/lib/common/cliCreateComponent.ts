@@ -1,6 +1,7 @@
 import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
+import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 
 declare module '@cabloy/cli' {
@@ -41,6 +42,9 @@ export class CliCreateComponentBase extends BeanCliBase {
     // directory
     let componentDir = path.join(targetDir, 'src/component');
     componentDir = path.join(componentDir, componentName);
+    if (fs.existsSync(componentDir)) {
+      throw new Error(`component exists: ${componentName}`);
+    }
     await this.helper.ensureDir(componentDir);
     // render snippets
     await this.template.renderBoilerplateAndSnippets({

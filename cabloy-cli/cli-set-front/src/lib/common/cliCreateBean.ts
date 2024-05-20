@@ -1,6 +1,7 @@
 import { BeanCliBase, CmdOptions, NameMeta } from '@cabloy/cli';
 import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
+import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 
 declare module '@cabloy/cli' {
@@ -53,6 +54,10 @@ export class CliCreateBeanBase extends BeanCliBase {
     let beanDir = path.join(targetDir, 'src/bean');
     if (argv.nameMeta.directory) {
       beanDir = path.join(beanDir, argv.nameMeta.directory);
+    }
+    const beanFile = path.join(beanDir, `${argv.sceneName}.${argv.nameMeta.full}.ts`);
+    if (fs.existsSync(beanFile)) {
+      throw new Error(`${argv.sceneName} bean exists: ${argv.beanName}`);
     }
     await this.helper.ensureDir(beanDir);
     // render snippets

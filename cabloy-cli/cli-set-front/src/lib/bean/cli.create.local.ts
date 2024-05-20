@@ -1,5 +1,6 @@
 import { BeanCliBase, NameMeta } from '@cabloy/cli';
 import path from 'path';
+import fs from 'fs';
 import { IModuleInfo } from '@cabloy/module-info';
 import { __ThisSetName__ } from '../this.js';
 
@@ -35,6 +36,10 @@ export class CliCreateLocal extends BeanCliBase {
     let localDir = path.join(targetDir, 'src');
     if (argv.nameMeta.directory) {
       localDir = path.join(localDir, argv.nameMeta.directory);
+    }
+    const localFile = path.join(localDir, `${argv.nameMeta.short}.ts`);
+    if (fs.existsSync(localFile)) {
+      throw new Error(`local bean exists: ${localName}`);
     }
     await this.helper.ensureDir(localDir);
     // render boilerplate
