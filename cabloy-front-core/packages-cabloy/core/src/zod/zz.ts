@@ -26,7 +26,7 @@ export function boolean(...args: Parameters<typeof z.boolean>) {
       return Boolean(val);
     },
     z.boolean(...args),
-  );
+  ) as unknown as z.ZodBoolean;
 }
 
 // json
@@ -63,7 +63,7 @@ export function array<T extends z.ZodTypeAny>(schema: T, params?: z.RawCreatePar
       return JSON.parse(String(val));
     },
     z.array(schema, params),
-  );
+  ) as unknown as z.ZodArray<T, 'many'>;
 }
 
 // object
