@@ -39,7 +39,18 @@ export function json<T extends z.ZodRawShape>(shape: T, params?: z.RawCreatePara
       return JSON.parse(String(val));
     },
     z.object(shape, params),
-  );
+  ) as unknown as z.ZodObject<
+    T,
+    'strip',
+    z.ZodTypeAny,
+    {
+      [k in keyof z.objectUtil.addQuestionMarks<z.baseObjectOutputType<T>, any>]: z.objectUtil.addQuestionMarks<
+        z.baseObjectOutputType<T>,
+        any
+      >[k];
+    },
+    { [k_1 in keyof z.baseObjectInputType<T>]: z.baseObjectInputType<T>[k_1] }
+  >;
 }
 
 // array
