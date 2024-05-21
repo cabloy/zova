@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.cabloy", "./node_modules", "./packages-cabloy/core"]
+  "exclude": ["./dist", "./distMockServer", "./.cabloy", "./node_modules", "./packages-cabloy", "./packages-utils"]
 }
