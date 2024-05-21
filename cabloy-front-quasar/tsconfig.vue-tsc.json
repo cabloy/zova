@@ -1,4 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {}
+  "compilerOptions": {},
+  "exclude": ["./dist", "./distMockServer", "./.cabloy", "./node_modules", "vite.config.ts"]
 }

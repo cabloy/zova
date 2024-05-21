@@ -1,5 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.cabloy", "./node_modules", "./packages-cabloy", "./packages-utils"]
+  "exclude": [
+    "./dist",
+    "./distMockServer",
+    "./.cabloy",
+    "./node_modules",
+    "vite.config.ts",
+    "./packages-cabloy",
+    "./packages-utils"
+  ]
 }
