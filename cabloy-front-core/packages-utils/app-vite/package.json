@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/app-vite",
-  "version": "1.0.53",
+  "version": "1.0.54",
   "description": "cabloy app vite",
   "publishConfig": {
     "access": "public"
