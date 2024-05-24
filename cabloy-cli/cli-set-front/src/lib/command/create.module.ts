@@ -26,8 +26,8 @@ export default {
           type: 'select',
           message: 'Specify the module template',
           choices: [
-            { name: 'module', message: 'cabloy module template (basic)' },
-            { name: 'module-icon', message: 'cabloy module template (icon)' },
+            { name: 'basic', message: 'basic' },
+            { name: 'icon', message: 'icon' },
           ],
         },
       },

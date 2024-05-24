@@ -102,7 +102,7 @@ export class TestC {
 接下来通过 cli 命令创建一个模块`a-demo2`，同时创建一个 local bean `testD`：
 
 ```bash
-$ cabloy front:create:module a-demo2 --template=module --suite=a-demo
+$ cabloy front:create:module a-demo2 --template=basic --suite=a-demo
 $ pnpm install --force
 $ cabloy front:create:local testD --module=a-demo2
 ```

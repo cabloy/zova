@@ -33,7 +33,7 @@ ShortName: {providerId}-{moduleName}
 You can use the cli command to create a module file skeleton, such as creating a new module `test-home`:
 
 ```bash
-$ cabloy front:create:module test-home --template=module --suite
+$ cabloy front:create:module test-home --template=basic --suite
 ```
 
 - The `suite` option indicates which suite the module belongs to, and which can be empty

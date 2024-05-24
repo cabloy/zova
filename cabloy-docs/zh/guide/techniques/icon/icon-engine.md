@@ -101,5 +101,5 @@ $ cabloy front:tools:icons a-homeicon
 可以通过 cli 命令创建图标模块
 
 ```bash
-$ cabloy front:create:module test-icon --template=module-icon --suite=a-demo
+$ cabloy front:create:module test-icon --template=icon --suite=a-demo
 ```
