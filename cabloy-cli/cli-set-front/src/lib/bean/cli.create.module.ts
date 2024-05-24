@@ -57,7 +57,7 @@ export class CliCreateModule extends BeanCliBase {
       await this.template.renderBoilerplateAndSnippets({
         targetDir: argv._suite.root,
         setName: __ThisSetName__,
-        snippetsPath: `create/${template}/snippets`,
+        snippetsPath: `create/module-${template}/snippets`,
         boilerplatePath: null,
       });
     }
@@ -67,7 +67,7 @@ export class CliCreateModule extends BeanCliBase {
       targetDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: `create/${template}/boilerplate`,
+      boilerplatePath: `create/module-${template}/boilerplate`,
     });
   }
 }
