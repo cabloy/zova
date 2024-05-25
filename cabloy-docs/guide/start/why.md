@@ -73,6 +73,5 @@ As shown in the figure, a Vue component corresponds to an IOC container, and 6 C
 
 Introducing the IOC container and implementing all services through Class, you can implement reactive based on Class instances. Then, you can receive the following benefits:
 
-1. `No ref/reactive`: Class instances support reactive by default, so the state in the instance does not need to be declared reactive through `ref/reactive`. Additionally, usage of `raw data` and `partially reactive` is still supported
-2. `No ref.value`: Without ref, naturally there is no need to write a lot of ref.value
-3. `No pinia`: Global state objects can be created directly based on the global IOC container
+1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
+2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`

@@ -73,6 +73,5 @@ Cabloy-Front 提供了分层的 IOC 容器，具体而言，提供了两类 IOC 
 
 引入 IOC 容器，业务都通过 Class 实现，那么就可以基于 Class 实例实现响应式，那么，就可以收到如下好处：
 
-1. `不用ref/reactive`：Class 实例默认支持响应式，所以实例中的状态不需要再通过`ref/reactive`声明响应式。此外，仍然支持`原始数据`和`部分响应式`的用法
-2. `不用ref.value`：不用 ref，自然也就不用再写大量的 ref.value
-3. `不用 pinia`：可以直接基于全局 IOC 容器创建全局状态对象
+1. `不用ref/reactive`：有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`
+2. `不用ref.value`：因为不用`ref`，自然也就不用再写大量的`ref.value`
