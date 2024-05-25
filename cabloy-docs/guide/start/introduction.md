@@ -22,7 +22,7 @@
 
 ## What is Cabloy-Front?
 
-Cabloy-Front is a vue3 framework with ioc container. No `ref/reactive`, no `ref.value`, no `pinia`
+Cabloy-Front is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
 
 ## With UI libraries
 

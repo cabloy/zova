@@ -22,7 +22,7 @@
 
 ## 什么是Cabloy-Front？
 
-Cabloy-Front 是一款支持 IOC 容器的 Vue3 框架。不用`ref/reactive`，不用`ref.value`，不用`pinia`
+Cabloy-Front 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`，也不再需要`ref.value`
 
 ## 与UI库的配合
 
@@ -69,7 +69,7 @@ export class MotherPageCounter {
 
 ### 2. 使用响应式状态
 
-采用tsx语法使用`count`
+采用 tsx 语法使用`count`
 
 ```typescript
 export class RenderPageCounter {
