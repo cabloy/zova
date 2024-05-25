@@ -9,7 +9,8 @@ export function useMotherPage<MK extends keyof IBeanRecord, RK extends keyof IBe
   motherBeanFullName: MK,
   renderBeanFullName?: RK,
 );
-export function useMotherPage(motherBeanFullName: string, renderBeanFullName?: string);
+// not use type string for typed params
+//export function useMotherPage(motherBeanFullName: string, renderBeanFullName?: string);
 export function useMotherPage<M>(
   motherBeanFullName: Constructable<M> | string,
   renderBeanFullName?: Constructable<M> | string,
@@ -32,12 +33,13 @@ export function useMother<MK extends keyof IBeanRecord, RK extends keyof IBeanRe
   motherBeanFullName: MK,
   renderBeanFullName?: RK,
 );
-export function useMother(
-  props: unknown | undefined,
-  emit: unknown | undefined,
-  motherBeanFullName: string,
-  renderBeanFullName?: string,
-);
+// not use type string for typed params
+// export function useMother(
+//   props: unknown | undefined,
+//   emit: unknown | undefined,
+//   motherBeanFullName: string,
+//   renderBeanFullName?: string,
+// );
 export function useMother<M>(
   props: unknown | undefined,
   emit: unknown | undefined,
