@@ -4,15 +4,15 @@ import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
 import { IBeanRecord, IMotherData } from '../bean/type.js';
 
-export function useMotherPage<M, R>(motherBeanFullName: Constructable<M>, renderBeanFullName: Constructable<R>);
+export function useMotherPage<M, R>(motherBeanFullName: Constructable<M>, renderBeanFullName?: Constructable<R>);
 export function useMotherPage<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
   motherBeanFullName: MK,
-  renderBeanFullName: RK,
+  renderBeanFullName?: RK,
 );
-export function useMotherPage(motherBeanFullName: string, renderBeanFullName: string);
+export function useMotherPage(motherBeanFullName: string, renderBeanFullName?: string);
 export function useMotherPage<M>(
   motherBeanFullName: Constructable<M> | string,
-  renderBeanFullName: Constructable<M> | string,
+  renderBeanFullName?: Constructable<M> | string,
 ) {
   // motherData
   const motherData = { context: {} };
@@ -24,25 +24,25 @@ export function useMother<M, R>(
   props: unknown | undefined,
   emit: unknown | undefined,
   motherBeanFullName: Constructable<M>,
-  renderBeanFullName: Constructable<R>,
+  renderBeanFullName?: Constructable<R>,
 );
 export function useMother<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
   props: unknown | undefined,
   emit: unknown | undefined,
   motherBeanFullName: MK,
-  renderBeanFullName: RK,
+  renderBeanFullName?: RK,
 );
 export function useMother(
   props: unknown | undefined,
   emit: unknown | undefined,
   motherBeanFullName: string,
-  renderBeanFullName: string,
+  renderBeanFullName?: string,
 );
 export function useMother<M>(
   props: unknown | undefined,
   emit: unknown | undefined,
   motherBeanFullName: Constructable<M> | string,
-  renderBeanFullName: Constructable<M> | string,
+  renderBeanFullName?: Constructable<M> | string,
 ) {
   // attrs
   const attrs = useAttrs();
@@ -57,7 +57,7 @@ export function useMother<M>(
 function _useMother<M>(
   motherData: IMotherData,
   motherBeanFullName: Constructable<M> | string,
-  renderBeanFullName: Constructable<M> | string,
+  renderBeanFullName?: Constructable<M> | string,
 ) {
   // ctx
   const ctx = new CabloyContext(getCurrentInstance()!);
@@ -66,7 +66,9 @@ function _useMother<M>(
   // mother
   onMounted(async () => {
     await ctx.bean._newBeanInner(true, '$$mother', motherData, undefined, motherBeanFullName, true);
-    await ctx.bean._newBeanInner(true, '$$render', undefined, undefined, renderBeanFullName, true);
+    if (renderBeanFullName) {
+      await ctx.bean._newBeanInner(true, '$$render', undefined, undefined, renderBeanFullName, true);
+    }
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {
