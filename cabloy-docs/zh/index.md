@@ -19,9 +19,9 @@ hero:
 
 features:
   - title: 不用ref/reactive
-    details: Class 实例默认支持响应式，所以实例中的状态不需要再通过ref/reactive声明响应式。此外，仍然支持原始数据和部分响应式的用法
+    details: 有了IOC容器的加持，定义响应式状态不再需要 ref/reactive
   - title: 不用ref.value
-    details: 不用 ref，自然也就不用再写大量的 ref.value
-  - title: 不用pinia
-    details: 可以直接基于全局 IOC 容器创建全局状态对象
+    details: 因为不用 ref，自然也就不用再写大量的 ref.value
+  - title: 模块化体系
+    details: 在一个大型的 Web 业务系统当中，随着业务的增长和变更，为了避免代码失控，有必要将系统拆分为一个个相对独立的模块，这就是 Cabloy-Front 采用模块化体系的缘由。因此，在 Cabloy-Front 中，实际的业务代码开发都是在模块中进行
 ---

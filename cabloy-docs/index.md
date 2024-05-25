@@ -19,9 +19,9 @@ hero:
 
 features:
   - title: No ref/reactive
-    details: Class instances support reactive by default, so the state in the instance does not need to be declared reactive through ref/reactive. Additionally, usage of raw data and partially reactive is still supported
+    details: With the support of ioc container, defining reactive states no longer needs ref/reactive
   - title: No ref.value
     details: Without ref, naturally there is no need to write a lot of ref.value
-  - title: No pinia
-    details: Global state objects can be created directly based on the global IOC container
+  - title: Modularization
+    details: In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Cabloy-Front introduces modularization
 ---
