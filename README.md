@@ -43,6 +43,8 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 ### 1. Define reactive state
 
+Define a reactive variable `count` in the component and add two methods to modify its value
+
 ```typescript
 export class MotherPageCounter {
   count: number = 0;
@@ -58,6 +60,8 @@ export class MotherPageCounter {
 ```
 
 ### 2. Use reactive state
+
+Use `count` in render class
 
 ```typescript
 export class RenderPageCounter {
@@ -77,7 +81,7 @@ export class RenderPageCounter {
 
 ### 1. Logic Reuse
 
-Create a `Counter` Bean to implement the logic of `counter`
+Create a `Counter` Bean to implement the logic of `count`
 
 ```typescript
 @Local()
