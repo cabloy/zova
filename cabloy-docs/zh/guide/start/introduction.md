@@ -31,6 +31,8 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ### 1. 定义响应式状态
 
+在组件中定义一个响应式变量`count`，并且添加两个方法修改变量的值
+
 ```typescript
 export class MotherPageCounter {
   count: number = 0;
@@ -46,6 +48,8 @@ export class MotherPageCounter {
 ```
 
 ### 2. 使用响应式状态
+
+采用tsx语法使用`count`
 
 ```typescript
 export class RenderPageCounter {
@@ -67,7 +71,7 @@ export class RenderPageCounter {
 
 ### 1. 逻辑抽离
 
-将`counter`逻辑抽离出来，创建一个`Counter` Bean
+将`count`逻辑抽离出来，创建一个`Counter`Bean
 
 ```typescript
 @Local()
