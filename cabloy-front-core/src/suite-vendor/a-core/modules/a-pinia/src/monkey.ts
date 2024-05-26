@@ -10,7 +10,16 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   }
   async appInitialized() {}
 
-  async beanInit(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
+  async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+    const self = this;
+    bean.defineProperty(beanInstance, '$pinia', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return self.pinia.pinia;
+      },
+    });
+  }
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
