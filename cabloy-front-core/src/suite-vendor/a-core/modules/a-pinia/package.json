@@ -1,0 +1,29 @@
+{
+  "name": "cabloy-module-front-a-pinia",
+  "version": "5.0.0",
+  "title": "a-pinia",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "pinia",
+  "keywords": [
+    "Cabloy Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
