@@ -22,8 +22,10 @@
   "files": [
     "dist"
   ],
-  "scripts": {},
-  "dependencies": {
-    "zod": "^3.23.8"
-  }
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "dependencies": {}
 }
