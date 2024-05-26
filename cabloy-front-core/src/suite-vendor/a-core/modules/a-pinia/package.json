@@ -2,6 +2,11 @@
   "name": "cabloy-module-front-a-pinia",
   "version": "5.0.0",
   "title": "a-pinia",
+  "cabloyModule": {
+    "capabilities": {
+      "monkey": true
+    }
+  },
   "type": "module",
   "exports": {
     ".": {
