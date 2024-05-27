@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-core",
-  "version": "5.0.18",
+  "version": "5.0.19",
   "title": "a-core",
   "cabloyModule": {
     "dependencies": {
@@ -30,8 +30,8 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "cabloy-module-front-a-pinia": "^5.0.2",
-    "cabloy-module-front-a-router": "^5.0.20"
+    "cabloy-module-front-a-pinia": "^5.0.3",
+    "cabloy-module-front-a-router": "^5.0.21"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
