@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-pinia",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "title": "a-pinia",
   "cabloyModule": {
     "capabilities": {
