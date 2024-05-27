@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "cabloy-module-front-a-core": "^5.0.18",
-    "cabloy-module-front-a-pinia": "workspace:^",
+    "cabloy-module-front-a-pinia": "^5.0.2",
     "cabloy-module-front-a-router": "^5.0.20"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
