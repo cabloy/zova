@@ -26,8 +26,7 @@
   "author": "zhennann",
   "license": "MIT",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "clean": "tsc -b --clean",
