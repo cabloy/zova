@@ -450,7 +450,14 @@ export class BeanContainer {
       if (!targetBeanFullName && useOptions.beanClass) {
         targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
       }
-      beanInstance[key] = await this._injectBeanInstanceProp(targetBeanHook, targetBeanFullName, useOptions);
+      const targetBeanInstance = await this._injectBeanInstanceProp(targetBeanHook, targetBeanFullName, useOptions);
+      if (targetBeanInstance) {
+        targetBeanInstance.__v_isShallow_patch = true;
+        beanInstance[key] = targetBeanInstance;
+        delete targetBeanInstance.__v_isShallow_patch;
+      } else {
+        beanInstance[key] = targetBeanInstance;
+      }
     }
   }
 
@@ -555,6 +562,7 @@ export class BeanContainer {
           return target[prop];
         }
         if (__isInnerMethod(prop)) {
+          if (prop === '__v_isShallow' && target.__v_isShallow_patch) return target.__v_isShallow_patch;
           return target[prop];
         }
         // descriptorInfo
@@ -834,6 +842,7 @@ function __isInnerMethod(prop) {
     '__v_isRef',
     '__v_isVNode',
     '__v_cache',
+    '__v_isShallow_patch',
   ].includes(prop);
 }
 
