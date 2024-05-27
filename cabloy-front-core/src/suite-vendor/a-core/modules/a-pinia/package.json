@@ -10,7 +10,11 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
       "default": "./dist/index.js"
     },
     "./*": "./*"
@@ -22,7 +26,8 @@
   "author": "zhennann",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "clean": "tsc -b --clean",
