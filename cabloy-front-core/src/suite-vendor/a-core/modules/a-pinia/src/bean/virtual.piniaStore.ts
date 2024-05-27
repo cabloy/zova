@@ -3,7 +3,7 @@ import { BeanBase, Virtual } from '@cabloy/front';
 const SymbolPiniaStore = Symbol('SymbolPiniaStore');
 
 @Virtual()
-export class VirtualPiniaStore<TScopeModule = unknown> extends BeanBase<TScopeModule> {
+export class BeanPiniaStoreBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
   [SymbolPiniaStore];
 
   protected __get__(prop) {
