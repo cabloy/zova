@@ -24,8 +24,10 @@
     "Cabloy Module"
   ],
   "author": "zhennann",
+  "license": "MIT",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "clean": "tsc -b --clean",
