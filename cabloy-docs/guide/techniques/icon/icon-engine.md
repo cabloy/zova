@@ -22,21 +22,21 @@ For ease of use, it is necessary to develop a unified icon naming convention:
 {moduleName}:{groupName}:{iconName}
 ```
 
-For example, Cabloy-Front provides an icon module `a-homeicon`, which has a group `default` and an icon `add` in the group. Then, the full name of this icon is: `a-homeicon:default:add`
+For example, Cabloy-Front provides an icon module `home-icon`, which has a group `default` and an icon `add` in the group. Then, the full name of this icon is: `home-icon:default:add`
 
 ### Special conventions
 
 In order to further simplify the use of icons, the following conventions have been made:
 
-1. Can be omitted if module name is `a-homeicon`
+1. Can be omitted if module name is `home-icon`
 2. Can be omitted if group name is `default`
 
 Examples are as follows:
 
 | Full name                   | Short name           |
 | --------------------------- | -------------------- |
-| a-homeicon:default:add      | ::add                |
-| a-homeicon:auth:github      | :auth:github         |
+| home-icon:default:add      | ::add                |
+| home-icon:auth:github      | :auth:github         |
 | test-othericon:default:icon | test-othericon::icon |
 
 ## $icon
@@ -83,20 +83,20 @@ import { VBtn } from 'vuetify/components';
 
 ### 1. Prepare icon
 
-Place the SVG icon into the icon module's group directory. For example, the `default` group of module `a-homeicon` has the group directory path:
-`src/suite/a-home/modules/a-homeicon/icons`
+Place the SVG icon into the icon module's group directory. For example, the `default` group of module `home-icon` has the group directory path:
+`src/suite/a-home/modules/home-icon/icons`
 
 ### 2. Build icon
 
 Executing the build through the cli command will automatically group the SVG icons into icon files
 
 ```bash
-$ cabloy front:tools:icons a-homeicon
+$ cabloy front:tools:icons home-icon
 ```
 
 ## Create Icon Module
 
-In addition to the module `a-homeicon`, you can also create several new icon modules and add icons to them
+In addition to the module `home-icon`, you can also create several new icon modules and add icons to them
 
 Icon modules can be created through the cli command:
 

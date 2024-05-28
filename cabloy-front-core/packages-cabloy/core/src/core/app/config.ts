@@ -12,7 +12,7 @@ export const configDefault = {
     prefix: '',
   },
   icon: {
-    defaultModule: 'a-homeicon',
+    defaultModule: 'home-icon',
   },
   layout: {
     component: {

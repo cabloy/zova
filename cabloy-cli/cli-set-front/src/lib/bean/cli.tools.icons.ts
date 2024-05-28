@@ -157,7 +157,7 @@ ${symbols.join('\n')}
   }
 
   private _getRecordId(moduleName: string, groupName: string, iconName: string) {
-    if (moduleName === 'a-homeicon') moduleName = '';
+    if (moduleName === 'home-icon') moduleName = '';
     if (groupName === 'default') groupName = '';
     return `${moduleName}:${groupName}:${iconName}`;
   }

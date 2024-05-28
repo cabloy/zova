@@ -16,10 +16,10 @@ export interface ScopeModuleAHomeicon
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'a-homeicon': ScopeModuleAHomeicon;
+    'home-icon': ScopeModuleAHomeicon;
   }
 
   export interface IBeanScopeConfig {
-    'a-homeicon': ReturnType<typeof config>;
+    'home-icon': ReturnType<typeof config>;
   }
 }

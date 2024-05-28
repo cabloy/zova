@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-homeicon",
+  "name": "cabloy-module-front-home-icon",
   "version": "5.0.0",
-  "title": "a-homeicon",
+  "title": "home-icon",
   "cabloyModule": {
     "capabilities": {
       "icon": true

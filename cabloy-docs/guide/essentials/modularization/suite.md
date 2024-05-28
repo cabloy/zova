@@ -22,7 +22,7 @@ a-home
 ├── modules
 │   ├── a-home
 │   ├── home-api
-│   ├── a-homeicon
+│   ├── home-icon
 │   ├── a-homelayout
 │   ├── a-homemock
 │   ├── a-homepagesystem

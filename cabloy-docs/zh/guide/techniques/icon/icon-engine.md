@@ -22,21 +22,21 @@
 {moduleName}:{groupName}:{iconName}
 ```
 
-比如，Cabloy-Front 提供了一个图标模块`a-homeicon`，其中有一个分组`default`，该分组中有一个图标`add`。那么，此图标的全称就是：`a-homeicon:default:add`
+比如，Cabloy-Front 提供了一个图标模块`home-icon`，其中有一个分组`default`，该分组中有一个图标`add`。那么，此图标的全称就是：`home-icon:default:add`
 
 ### 特殊约定
 
 为了进一步简化图标的使用，特别做了如下约定：
 
-1. 如果模块名称是`a-homeicon`，则可以省略
+1. 如果模块名称是`home-icon`，则可以省略
 2. 如果分组名称是`default`，则可以省略
 
 举例如下：
 
 | 全称                        | 简称                 |
 | --------------------------- | -------------------- |
-| a-homeicon:default:add      | ::add                |
-| a-homeicon:auth:github      | :auth:github         |
+| home-icon:default:add      | ::add                |
+| home-icon:auth:github      | :auth:github         |
 | test-othericon:default:icon | test-othericon::icon |
 
 ## $icon
@@ -83,20 +83,20 @@ import { VBtn } from 'vuetify/components';
 
 ### 1. 准备图标
 
-将 SVG 图标放入图标模块的分组目录中。比如模块`a-homeicon`的`default`分组，其分组目录路径是：
-`src/suite/a-home/modules/a-homeicon/icons`
+将 SVG 图标放入图标模块的分组目录中。比如模块`home-icon`的`default`分组，其分组目录路径是：
+`src/suite/a-home/modules/home-icon/icons`
 
 ### 2. 构建图标
 
 通过 cli 命令执行构建，就会自动把 SVG 图标按分组生成图标文件
 
 ```bash
-$ cabloy front:tools:icons a-homeicon
+$ cabloy front:tools:icons home-icon
 ```
 
 ## 创建图标模块
 
-除了模块`a-homeicon`，还可以创建若干新的图标模块，在其中添加图标
+除了模块`home-icon`，还可以创建若干新的图标模块，在其中添加图标
 
 可以通过 cli 命令创建图标模块
 

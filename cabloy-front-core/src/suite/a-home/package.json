@@ -7,7 +7,7 @@
   "author": "zhennann",
   "dependencies": {
     "cabloy-module-front-a-home": "workspace:^",
-    "cabloy-module-front-a-homeicon": "workspace:^",
+    "cabloy-module-front-home-icon": "workspace:^",
     "cabloy-module-front-a-homepagesystem": "workspace:^",
     "cabloy-module-front-a-homelayout": "workspace:^",
     "cabloy-module-front-a-homerouter": "workspace:^",

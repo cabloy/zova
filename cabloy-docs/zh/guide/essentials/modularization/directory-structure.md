@@ -19,7 +19,7 @@ project
 │  │    ├── modules
 │  │    │  ├── a-home
 │  │    │  ├── home-api
-│  │    │  ├── a-homeicon
+│  │    │  ├── home-icon
 │  │    │  ├── a-homelayout
 │  │    │  ├── a-homemock
 │  │    │  ├── a-homepagesystem
@@ -54,7 +54,7 @@ Cabloy-Front 对模块/套件进行了规划，方便我们在约定的目录立
 | src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                |
 | src/front/config/locales.ts               | [I18n国际化](../scope/locale.md)                                                 |
 | src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                      |
-| src/suite/a-home/modules/a-homeicon       | [图标](../../techniques/icon/icon-engine.md)                                     |
+| src/suite/a-home/modules/home-icon       | [图标](../../techniques/icon/icon-engine.md)                                     |
 | src/suite/a-home/modules/a-homelayout     | [路由字段: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
 | src/suite/a-home/modules/a-homemock       | [Mock](../../techniques/mock/introduction.md)                                    |
 | src/suite/a-home/modules/a-homepagesystem | [路由字段: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
