@@ -4,11 +4,11 @@ Cabloy-Front 基于[vite-plugin-fake-server](https://github.com/condorheroblog/v
 
 ## 基本用法
 
-Cabloy-Front 提供了一个模块`a-homemock`，只需在目录`a-homemock/src/mock`提供 mock 文件即可
+Cabloy-Front 提供了一个模块`home-mock`，只需在目录`home-mock/src/mock`提供 mock 文件即可
 
 比如，有一个 API：`/a/homemock/getMenu`，提供对应的 mock 文件如下：
 
-`src/suite/a-home/modules/a-homemock/src/mock/menu.fake.ts`
+`src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
 
 ```typescript
 import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
@@ -39,7 +39,7 @@ export default defineFakeRoute([
 
 ```txt
 MOCK_ENABLED = true
-MOCK_PATH = src/suite/a-home/modules/a-homemock/src/mock
+MOCK_PATH = src/suite/a-home/modules/home-mock/src/mock
 MOCK_LOGGER = false
 MOCK_BASE_NAME = $API_PREFIX
 MOCK_BUILD = false

@@ -16,14 +16,14 @@ export interface ScopeModuleAHomemock
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'a-homemock': ScopeModuleAHomemock;
+    'home-mock': ScopeModuleAHomemock;
   }
 
   export interface IBeanScopeConfig {
-    'a-homemock': ReturnType<typeof config>;
+    'home-mock': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {
-    'a-homemock': (typeof locales)[TypeLocaleBase];
+    'home-mock': (typeof locales)[TypeLocaleBase];
   }
 }

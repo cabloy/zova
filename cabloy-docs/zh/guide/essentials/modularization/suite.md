@@ -27,7 +27,7 @@ a-home
 │   ├── home-api
 │   ├── home-icon
 │   ├── home-layout
-│   ├── a-homemock
+│   ├── home-mock
 │   ├── a-homepagesystem
 │   ├── a-homerouter
 │   └── ...

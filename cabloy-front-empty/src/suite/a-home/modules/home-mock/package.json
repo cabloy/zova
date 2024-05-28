@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-homemock",
+  "name": "cabloy-module-front-home-mock",
   "version": "5.0.0",
-  "title": "a-homemock",
+  "title": "home-mock",
   "type": "module",
   "exports": {
     ".": {

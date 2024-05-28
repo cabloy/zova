@@ -4,11 +4,11 @@ Cabloy-Front provides an out-of-the-box `Mock` mechanism based on [vite-plugin-f
 
 ## Basic Usage
 
-Cabloy-Front provides a module `a-homemock`, just provide the mock files in the directory `a-homemock/src/mock` as well
+Cabloy-Front provides a module `home-mock`, just provide the mock files in the directory `home-mock/src/mock` as well
 
 For example, there is an API: `/a/homemock/getMenu`, which provides the corresponding mock file as follows:
 
-`src/suite/a-home/modules/a-homemock/src/mock/menu.fake.ts`
+`src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
 
 ```typescript
 import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
@@ -39,7 +39,7 @@ Mock can be configured through `.env` file
 
 ```txt
 MOCK_ENABLED = true
-MOCK_PATH = src/suite/a-home/modules/a-homemock/src/mock
+MOCK_PATH = src/suite/a-home/modules/home-mock/src/mock
 MOCK_LOGGER = false
 MOCK_BASE_NAME = $API_PREFIX
 MOCK_BUILD = false
