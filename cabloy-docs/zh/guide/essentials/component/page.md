@@ -41,11 +41,11 @@ src
       └─ render.tsx
 ```
 
-| 名称       | 说明                      |
-| ---------- | ------------------------- |
-| index.vue  | 用于定义vue组件           |
-| controller.ts  | 用于代码逻辑的 local bean |
-| render.tsx | 用于渲染逻辑的 local bean |
+| 名称          | 说明                      |
+| ------------- | ------------------------- |
+| index.vue     | 用于定义vue组件           |
+| controller.ts | 用于代码逻辑的 local bean |
+| render.tsx    | 用于渲染逻辑的 local bean |
 
 ## index.vue
 
@@ -105,7 +105,3 @@ export class RenderPageCounter {
 1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
 3. 直接用原生 js 代码来获取`count`的值
-
-## 为何Vue组件bean类名使用controller作为前缀
-
-- 参见：[为何Vue组件bean类名使用controller作为前缀](../../resources/faq.md#faq-controller)

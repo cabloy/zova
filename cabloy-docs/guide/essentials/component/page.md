@@ -41,11 +41,11 @@ src
       └─ render.tsx
 ```
 
-| Name       | Description                 |
-| ---------- | --------------------------- |
-| index.vue  | define vue component        |
-| controller.ts  | local bean for logic codes  |
-| render.tsx | local bean for render codes |
+| Name          | Description                 |
+| ------------- | --------------------------- |
+| index.vue     | define vue component        |
+| controller.ts | local bean for logic codes  |
+| render.tsx    | local bean for render codes |
 
 ## index.vue
 
@@ -105,7 +105,3 @@ export class RenderPageCounter {
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
 3. Directly obtain the value of `count` by vanilla javascript
-
-## Why do the Vue component bean class names use controller as the prefix
-
-- See: [Why do the Vue component bean class names use controller as the prefix ](../../resources/faq.md#faq-controller)
