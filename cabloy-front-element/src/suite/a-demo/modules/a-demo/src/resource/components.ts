@@ -1,3 +1,3 @@
-export * as NSMotherCard from '../component/card/mother.js';
+export * as NSMotherCard from '../component/card/controller.js';
 import card from '../component/card/index.vue';
 export const components = { card };

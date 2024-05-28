@@ -1,5 +1,5 @@
 const __snippet_export =
-  "export * as NSMother<%=argv.nameMeta.fullCapitalize%> from '../component/<%=argv.componentName%>/mother.js';\n";
+  "export * as NSMother<%=argv.nameMeta.fullCapitalize%> from '../component/<%=argv.componentName%>/controller.js';\n";
 const __snippet_import = "import <%=argv.nameMeta.full%> from '../component/<%=argv.componentName%>/index.vue';\n";
 const __snippet_interface = '<%=argv.nameMeta.full%>,\n';
 

@@ -12,9 +12,9 @@ $ cabloy front:create:page user --module=a-demo
 
 ## 定义Query
 
-在`mother.ts`中定义 Query：
+在`controller.ts`中定义 Query：
 
-`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
 
 ```typescript{2-3}
 export const QuerySchema = zz.object({
@@ -86,7 +86,7 @@ export class RenderPageUser {
 
 ## $query
 
-Cabloy-Front 在`mother` bean 的基类中注入了`$query`对象，从而可以在 render 实例中通过`this.$query`访问 Query 参数
+Cabloy-Front 在`controller` bean 的基类中注入了`$query`对象，从而可以在 render 实例中通过`this.$query`访问 Query 参数
 
 ## 动图演示
 

@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
+import type { MotherLayoutDefault, TypeMenuItem } from './controller.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 

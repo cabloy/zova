@@ -37,14 +37,14 @@ src
 └─ page
    └─ counter
       ├─ index.vue
-      ├─ mother.ts
+      ├─ controller.ts
       └─ render.tsx
 ```
 
 | 名称       | 说明                      |
 | ---------- | ------------------------- |
 | index.vue  | 用于定义vue组件           |
-| mother.ts  | 用于代码逻辑的 local bean |
+| controller.ts  | 用于代码逻辑的 local bean |
 | render.tsx | 用于渲染逻辑的 local bean |
 
 ## index.vue
@@ -56,15 +56,15 @@ src
 
 <script setup lang="ts">
 import { useMotherPage } from '@cabloy/front';
-import { MotherPageCounter } from './mother.js';
+import { MotherPageCounter } from './controller.js';
 import { RenderPageCounter } from './render.jsx';
 useMotherPage(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
-1. 只需在`index.vue`中引入`mother`bean 和`render`bean 即可
+1. 只需在`index.vue`中引入`controller`bean 和`render`bean 即可
 
-## mother.ts
+## controller.ts
 
 ```typescript
 @Local()
@@ -81,7 +81,7 @@ export class MotherPageCounter {
 }
 ```
 
-1. 使用`@Local`将`mother`定义为 local bean，从而注册在 IOC 容器中
+1. 使用`@Local`将`controller`定义为 local bean，从而注册在 IOC 容器中
 2. 定义一个响应式属性：`count`，类型为`number`
 3. 直接用原生 js 代码来修改`count`的值
 
@@ -106,6 +106,6 @@ export class RenderPageCounter {
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
 3. 直接用原生 js 代码来获取`count`的值
 
-## 为何Vue组件bean类名使用mother作为前缀
+## 为何Vue组件bean类名使用controller作为前缀
 
-- 参见：[为何Vue组件bean类名使用mother作为前缀](../../resources/faq.md#faq-mother)
+- 参见：[为何Vue组件bean类名使用controller作为前缀](../../resources/faq.md#faq-controller)

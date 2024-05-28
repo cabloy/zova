@@ -6,9 +6,9 @@ We still use the page component `user` to fully demonstrate how to define and us
 
 ## Define Params
 
-Define Params in `mother.ts`:
+Define Params in `controller.ts`:
 
-`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
 
 ```typescript{2}
 export const ParamsSchema = zz.object({
@@ -42,7 +42,7 @@ export const routes: IModuleRoute[] = [
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
-import * as NSMotherPageUser from '../page/user/mother.js';
+import * as NSMotherPageUser from '../page/user/controller.js';
 
 declare module '@cabloy/front' {
   export interface IPageNameRecord {
@@ -110,7 +110,7 @@ export class RenderPageUser {
 
 ## $params
 
-Cabloy-Front injects a `$params` object into the base class of the `mother` bean so that the `Params` parameter can be obtained through `this.$params` in the render instance
+Cabloy-Front injects a `$params` object into the base class of the `controller` bean so that the `Params` parameter can be obtained through `this.$params` in the render instance
 
 ## Gif Demonstration
 

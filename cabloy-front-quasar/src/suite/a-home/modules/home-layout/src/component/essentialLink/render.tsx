@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherEssentialLink } from './mother.js';
+import type { MotherEssentialLink } from './controller.js';
 import { QIcon, QItem, QItemLabel, QItemSection } from 'quasar';
 
 export interface RenderEssentialLink extends MotherEssentialLink {}

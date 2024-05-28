@@ -10,7 +10,7 @@ export class BeanMotherPageBase<
   public $query: Query;
 
   /** @internal */
-  public __initMotherData(motherData: IMotherData) {
-    this.app.meta.module._monkeyModuleSync('motherDataInit', undefined, motherData, this);
+  public __initMotherData(controllerData: IMotherData) {
+    this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
   }
 }

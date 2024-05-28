@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherLayoutDefault, TypeMenuItem } from './mother.js';
+import type { MotherLayoutDefault, TypeMenuItem } from './controller.js';
 import EssentialLink from '../../component/essentialLink/index.vue';
 import {
   QBtn,

@@ -1,7 +1,7 @@
 const __snippet_export =
-  "export * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "export * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
 const __snippet_import =
-  "import * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/mother.js';\n";
+  "import * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
 const __snippet_iPagePathRecord =
   "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QueryInput;\n";
 const __snippet_pagePathSchemas = `'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': {

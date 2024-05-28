@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { useMother } from '@cabloy/front';
-import { Mother<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './mother.js';
+import { Mother<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './controller.js';
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), Mother<%=argv.nameMeta.fullCapitalize%>.$propsDefault);
 const emit = defineEmits<Emits>();

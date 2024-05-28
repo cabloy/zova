@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageErrorNotFound } from './mother.js';
+import type { MotherPageErrorNotFound } from './controller.js';
 import { ElButton } from 'element-plus';
 
 export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}

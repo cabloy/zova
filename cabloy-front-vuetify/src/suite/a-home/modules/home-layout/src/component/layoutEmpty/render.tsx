@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherLayoutEmpty } from './mother.js';
+import type { MotherLayoutEmpty } from './controller.js';
 import { VApp, VMain } from 'vuetify/components';
 
 export interface RenderLayoutEmpty extends MotherLayoutEmpty {}

@@ -33,6 +33,6 @@ export interface IMonkeySystem {
 }
 
 export interface IMonkeyMother {
-  motherDataPrepare(motherData: IMotherData);
-  motherDataInit(motherData: IMotherData, mother: BeanBase);
+  controllerDataPrepare(controllerData: IMotherData);
+  controllerDataInit(controllerData: IMotherData, controller: BeanBase);
 }

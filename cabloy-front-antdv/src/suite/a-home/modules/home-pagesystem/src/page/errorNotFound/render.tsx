@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageErrorNotFound } from './mother.js';
+import type { MotherPageErrorNotFound } from './controller.js';
 import { Button } from 'ant-design-vue';
 
 export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}

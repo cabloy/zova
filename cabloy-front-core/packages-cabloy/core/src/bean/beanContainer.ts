@@ -247,7 +247,7 @@ export class BeanContainer {
   public async _newBeanInner<T>(
     record: boolean,
     recordProp: MetadataKey | null,
-    motherData: any,
+    controllerData: any,
     beanHook: Functionable | undefined,
     beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
@@ -258,7 +258,7 @@ export class BeanContainer {
       return await this._createBeanInstance<T>(
         record,
         recordProp,
-        motherData,
+        controllerData,
         beanHook,
         undefined,
         undefined,
@@ -275,7 +275,7 @@ export class BeanContainer {
         return await this._createBeanInstance<T>(
           record,
           recordProp,
-          motherData,
+          controllerData,
           undefined,
           undefined,
           beanFullName,
@@ -291,7 +291,7 @@ export class BeanContainer {
     return await this._createBeanInstance<T>(
       record,
       recordProp,
-      motherData,
+      controllerData,
       undefined,
       beanOptions.beanFullName,
       beanOptions.beanClass as Constructable<T>,
@@ -335,7 +335,7 @@ export class BeanContainer {
   private async _createBeanInstance<T>(
     record: boolean,
     recordProp: MetadataKey | null,
-    motherData: IMotherData,
+    controllerData: IMotherData,
     beanHook: Functionable | undefined,
     beanFullName: string | undefined,
     beanClass: Constructable<T> | undefined,
@@ -345,9 +345,9 @@ export class BeanContainer {
   ): Promise<T> {
     // prepare
     const beanInstance = this._prepareBeanInstance(beanHook, beanFullName, beanClass, args, aop, markReactive);
-    // special for mother
-    if (motherData) {
-      beanInstance.__initMotherData(motherData);
+    // special for controller
+    if (controllerData) {
+      beanInstance.__initMotherData(controllerData);
     }
     // record
     if (record) {

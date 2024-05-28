@@ -47,7 +47,7 @@ The property `count` defined here is reactive, bidding farewell to the writing s
 
 Inject local bean in the page component `counter`, and then access properties and methods in render
 
-`mother.ts`
+`controller.ts`
 
 ```typescript{1,4-5}
 import { Counter } from './counter.js';

@@ -8,7 +8,7 @@ Cabloy-Front injects the `$api` object into the `BeanBase` base class, so that t
 
 For example, load menu data:
 
-`src/suite/a-home/modules/home-layout/src/component/layoutDefault/mother.ts`
+`src/suite/a-home/modules/home-layout/src/component/layoutDefault/controller.ts`
 
 ```typescript{9-10}
 export class MotherLayoutDefault {

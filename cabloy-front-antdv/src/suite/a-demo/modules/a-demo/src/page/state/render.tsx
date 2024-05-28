@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageState } from './mother.js';
+import type { MotherPageState } from './controller.js';
 import { Button } from 'ant-design-vue';
 
 export interface RenderPageState extends MotherPageState {}

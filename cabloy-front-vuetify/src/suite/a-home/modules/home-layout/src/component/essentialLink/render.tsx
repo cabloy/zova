@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherEssentialLink } from './mother.js';
+import type { MotherEssentialLink } from './controller.js';
 import { VIcon, VListItem, VListItemTitle } from 'vuetify/components';
 
 export interface RenderEssentialLink extends MotherEssentialLink {}

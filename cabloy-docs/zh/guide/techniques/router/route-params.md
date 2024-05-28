@@ -6,9 +6,9 @@ Cabloy-Front 对路由`Params`进行了强化，提供了 Typescript 类型化�
 
 ## 定义Params
 
-在`mother.ts`中定义 Params：
+在`controller.ts`中定义 Params：
 
-`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
 
 ```typescript{2}
 export const ParamsSchema = zz.object({
@@ -42,7 +42,7 @@ export const routes: IModuleRoute[] = [
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
-import * as NSMotherPageUser from '../page/user/mother.js';
+import * as NSMotherPageUser from '../page/user/controller.js';
 
 declare module '@cabloy/front' {
   export interface IPageNameRecord {
@@ -110,7 +110,7 @@ export class RenderPageUser {
 
 ## $params
 
-Cabloy-Front 在`mother` bean 的基类中注入了`$params`对象，从而可以在 render 实例中通过`this.$params`访问 Params 参数
+Cabloy-Front 在`controller` bean 的基类中注入了`$params`对象，从而可以在 render 实例中通过`this.$params`访问 Params 参数
 
 ## 动图演示
 

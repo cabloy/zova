@@ -1,5 +1,5 @@
 import { BeanMotherPageBase, Local } from '@cabloy/front';
-import { MotherCard } from '../../component/card/mother.js';
+import { MotherCard } from '../../component/card/controller.js';
 import { ScopeModule } from '../../resource/this.js';
 
 @Local()

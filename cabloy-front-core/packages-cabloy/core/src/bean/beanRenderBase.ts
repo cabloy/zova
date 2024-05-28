@@ -4,17 +4,17 @@ import { BeanBase } from './beanBase.js';
 
 export class BeanRenderBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
   @Use()
-  $$mother: unknown;
+  $$controller: unknown;
 
   render() {
     return;
   }
 
   protected __get__(prop) {
-    return Cast(this).$$mother[prop];
+    return Cast(this).$$controller[prop];
   }
 
   protected __set__(prop, value) {
-    Cast(this).$$mother[prop] = value;
+    Cast(this).$$controller[prop] = value;
   }
 }

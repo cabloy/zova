@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageComponent } from './mother.js';
+import type { MotherPageComponent } from './controller.js';
 import { NSMotherCard } from '../../resource/components.js';
 import { ScopeModule } from '../../resource/this.js';
 export interface RenderPageComponent extends MotherPageComponent {}

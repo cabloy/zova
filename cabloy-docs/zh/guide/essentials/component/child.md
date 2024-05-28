@@ -17,14 +17,14 @@ src
 └─ component
    └─ card
       ├─ index.vue
-      ├─ mother.ts
+      ├─ controller.ts
       └─ render.tsx
 ```
 
 | 名称       | 说明                      |
 | ---------- | ------------------------- |
 | index.vue  | 用于定义vue组件           |
-| mother.ts  | 用于代码逻辑的 local bean |
+| controller.ts  | 用于代码逻辑的 local bean |
 | render.tsx | 用于渲染逻辑的 local bean |
 
 ## Props
@@ -33,7 +33,7 @@ src
 
 ### 定义Props接口
 
-首先，在`mother.ts`中定义 Props 接口：
+首先，在`controller.ts`中定义 Props 接口：
 
 ```typescript
 export interface Props {
@@ -59,7 +59,7 @@ export class MotherCard {
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { MotherCard, Props} from './mother.js';
+import { MotherCard, Props} from './controller.js';
 const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
 </script>
 ```
@@ -120,7 +120,7 @@ export class RenderPageComponent {
 
 ### 定义Emits接口
 
-首先，在`mother.ts`中定义 Emits 接口：
+首先，在`controller.ts`中定义 Emits 接口：
 
 ```typescript
 export type Emits = {
@@ -134,7 +134,7 @@ export type Emits = {
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { Emits } from './mother.js';
+import { Emits } from './controller.js';
 const emit = defineEmits<Emits>();
 </script>
 ```
@@ -191,7 +191,7 @@ export class RenderPageComponent {
 
 ### 定义Slots接口
 
-首先，在`mother.ts`中定义 Slots 接口：
+首先，在`controller.ts`中定义 Slots 接口：
 
 ```typescript
 export interface Slots {
@@ -233,7 +233,7 @@ export class RenderCard {
 
 ```typescript{2,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as MotherCard from '../../component/card/mother.js';
+import * as MotherCard from '../../component/card/controller.js';
 
 export class RenderPageComponent {
   render() {
@@ -260,20 +260,20 @@ export class RenderPageComponent {
 ```
 
 - 从`index.vue`导入子组件`Card`
-- 从`mother.ts`导入类型命名空间`MotherCard`
+- 从`controller.ts`导入类型命名空间`MotherCard`
 - 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `MotherCard.Slots`来约束类型，并且提供智能提示
 - 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
 
 ## 如何引用子组件实例
 
-在 Cabloy-Front 中，不使用`Template Refs`引用子组件实例，而是直接引用子组件对应的`mother bean`
+在 Cabloy-Front 中，不使用`Template Refs`引用子组件实例，而是直接引用子组件对应的`controller bean`
 
 ### 定义属性
 
-先在父组件的`mother.ts`中定义属性：
+先在父组件的`controller.ts`中定义属性：
 
 ```typescript{1,4}
-import { MotherCard } from '../../component/card/mother.js';
+import { MotherCard } from '../../component/card/controller.js';
 
 export class MotherPageComponent {
   cardRef: MotherCard;
@@ -282,7 +282,7 @@ export class MotherPageComponent {
 
 ### onMotherRef
 
-然后监听子组件的`onMotherRef`事件获取到`mother bean`的引用值：
+然后监听子组件的`onMotherRef`事件获取到`controller bean`的引用值：
 
 ```typescript{6-8}
 export class RenderPageComponent {

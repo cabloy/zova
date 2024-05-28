@@ -37,14 +37,14 @@ src
 └─ page
    └─ counter
       ├─ index.vue
-      ├─ mother.ts
+      ├─ controller.ts
       └─ render.tsx
 ```
 
 | Name       | Description                 |
 | ---------- | --------------------------- |
 | index.vue  | define vue component        |
-| mother.ts  | local bean for logic codes  |
+| controller.ts  | local bean for logic codes  |
 | render.tsx | local bean for render codes |
 
 ## index.vue
@@ -56,15 +56,15 @@ src
 
 <script setup lang="ts">
 import { useMotherPage } from '@cabloy/front';
-import { MotherPageCounter } from './mother.js';
+import { MotherPageCounter } from './controller.js';
 import { RenderPageCounter } from './render.jsx';
 useMotherPage(MotherPageCounter, RenderPageCounter);
 </script>
 ```
 
-1. Just import and use the `mother` bean and `render` bean in `index.vue` as well
+1. Just import and use the `controller` bean and `render` bean in `index.vue` as well
 
-## mother.ts
+## controller.ts
 
 ```typescript
 @Local()
@@ -81,7 +81,7 @@ export class MotherPageCounter {
 }
 ```
 
-1. Define `mother` as a local bean using `@Local` to register it in the ioc container
+1. Define `controller` as a local bean using `@Local` to register it in the ioc container
 2. Define a reactive state `count` of type `number`
 3. Directly modify the value of `count` by vanilla javascript
 
@@ -106,6 +106,6 @@ export class RenderPageCounter {
 2. Write rendering logic using the `tsx` syntax in the `render` method
 3. Directly obtain the value of `count` by vanilla javascript
 
-## Why do the Vue component bean class names use mother as the prefix
+## Why do the Vue component bean class names use controller as the prefix
 
-- See: [Why do the Vue component bean class names use mother as the prefix ](../../resources/faq.md#faq-mother)
+- See: [Why do the Vue component bean class names use controller as the prefix ](../../resources/faq.md#faq-controller)

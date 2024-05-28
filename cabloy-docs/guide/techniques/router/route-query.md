@@ -12,9 +12,9 @@ $ cabloy front:create:page user --module=a-demo
 
 ## Define Query
 
-Define Query in `mother.ts`:
+Define Query in `controller.ts`:
 
-`src/suite/a-demo/modules/a-demo/src/page/user/mother.ts`
+`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
 
 ```typescript{2-3}
 export const QuerySchema = zz.object({
@@ -86,7 +86,7 @@ export class RenderPageUser {
 
 ## $query
 
-Cabloy-Front injects a `$query` object into the base class of the `mother` bean so that the `Query` parameter can be obtained through `this.$query` in the render instance
+Cabloy-Front injects a `$query` object into the base class of the `controller` bean so that the `Query` parameter can be obtained through `this.$query` in the render instance
 
 ## Gif Demonstration
 

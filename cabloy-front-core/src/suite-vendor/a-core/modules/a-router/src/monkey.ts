@@ -56,13 +56,13 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   }
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}
-  motherDataPrepare(motherData: IMotherData) {
-    motherData.context.route = useRoute();
+  controllerDataPrepare(controllerData: IMotherData) {
+    controllerData.context.route = useRoute();
   }
-  motherDataInit(motherData: IMotherData, mother: BeanBase) {
-    // only for mother page
-    if (mother instanceof BeanMotherPageBase) {
-      const route = motherData.context.route;
+  controllerDataInit(controllerData: IMotherData, controller: BeanBase) {
+    // only for controller page
+    if (controller instanceof BeanMotherPageBase) {
+      const route = controllerData.context.route;
       const schemaKey = String(route.name || route.path);
       let schemas: TypePageSchema | undefined;
       const moduleName = ModuleInfo.parseName(schemaKey)!;
@@ -72,11 +72,11 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       } else {
         schemas = module.resource.pagePathSchemas?.[schemaKey];
       }
-      mother.$params = useComputed(() => {
+      controller.$params = useComputed(() => {
         if (!schemas?.params) throw new Error(`page params schema not found: ${schemaKey}`);
         return schemas.params.parse(route.params);
       });
-      mother.$query = useComputed(() => {
+      controller.$query = useComputed(() => {
         if (!schemas?.query) throw new Error(`page query schema not found: ${schemaKey}`);
         return schemas.query.parse(route.query);
       });

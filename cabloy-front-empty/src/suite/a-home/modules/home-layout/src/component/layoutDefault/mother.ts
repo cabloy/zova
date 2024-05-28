@@ -1,5 +1,5 @@
 import { BeanMotherBase, Local } from '@cabloy/front';
-import * as MotherEssentialLink from '../../component/essentialLink/mother.js';
+import * as MotherEssentialLink from '../../component/essentialLink/controller.js';
 
 export interface Props {}
 

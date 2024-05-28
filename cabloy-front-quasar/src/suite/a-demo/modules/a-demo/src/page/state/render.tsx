@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageState } from './mother.js';
+import type { MotherPageState } from './controller.js';
 import { QBtn } from 'quasar';
 
 export interface RenderPageState extends MotherPageState {}

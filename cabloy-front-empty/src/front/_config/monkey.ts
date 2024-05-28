@@ -19,6 +19,6 @@ export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, 
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  motherDataPrepare(_motherData: IMotherData) {}
-  motherDataInit(_motherData: IMotherData, _mother: BeanBase) {}
+  controllerDataPrepare(_controllerData: IMotherData) {}
+  controllerDataInit(_controllerData: IMotherData, _controller: BeanBase) {}
 }

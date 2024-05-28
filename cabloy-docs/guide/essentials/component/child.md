@@ -17,14 +17,14 @@ src
 └─ component
    └─ card
       ├─ index.vue
-      ├─ mother.ts
+      ├─ controller.ts
       └─ render.tsx
 ```
 
 | Name       | Description                 |
 | ---------- | --------------------------- |
 | index.vue  | define vue component        |
-| mother.ts  | local bean for logic codes  |
+| controller.ts  | local bean for logic codes  |
 | render.tsx | local bean for render codes |
 
 ## Props
@@ -33,7 +33,7 @@ Next, in the `card` child component, define three Props: `header`, `content` and
 
 ### Define Props Interface
 
-First, define the Props interface in `mother.ts`:
+First, define the Props interface in `controller.ts`:
 
 ```typescript
 export interface Props {
@@ -59,7 +59,7 @@ Then, define the component Props in `index.vue`:
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { MotherCard, Props} from './mother.js';
+import { MotherCard, Props} from './controller.js';
 const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
 </script>
 ```
@@ -120,7 +120,7 @@ Next, in the `card` child component, define an Emit: `reset`
 
 ### Define Emits Interface
 
-First, define the Emits interface in `mother.ts`:
+First, define the Emits interface in `controller.ts`:
 
 ```typescript
 export type Emits = {
@@ -134,7 +134,7 @@ Then, define the component Emits in `index.vue`:
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { Emits } from './mother.js';
+import { Emits } from './controller.js';
 const emit = defineEmits<Emits>();
 </script>
 ```
@@ -191,7 +191,7 @@ Next, in the `card` child component, define three Slots: `header`, `default` and
 
 ### Define Slots Interface
 
-First, define the Slots interface in `mother.ts`:
+First, define the Slots interface in `controller.ts`:
 
 ```typescript
 export interface Slots {
@@ -233,7 +233,7 @@ Next, use the child component inside the parent component:
 
 ```typescript{1,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as MotherCard from '../../component/card/mother.js';
+import * as MotherCard from '../../component/card/controller.js';
 
 export class RenderPageComponent {
   render() {
@@ -260,20 +260,20 @@ export class RenderPageComponent {
 ```
 
 - Import the child component `Card` from `index.vue`
-- Import the type namespace `MotherCard` from `mother.ts`
+- Import the type namespace `MotherCard` from `controller.ts`
 - Define the object `slots` and provide corresponding rendering functions for slots. You can use `MotherCard.Slots` to constrain types of slots
 - Pass the defined object `slots` to the child component `Card` through `v-slots`
 
 ## How to refer to child component instance?
 
-In Cabloy-Front, `Template Refs` is not used to refer to child component instances, but directly refers to the `mother bean` corresponding to the child component
+In Cabloy-Front, `Template Refs` is not used to refer to child component instances, but directly refers to the `controller bean` corresponding to the child component
 
 ### Define Property
 
-First define a property in `mother.ts` of the parent component:
+First define a property in `controller.ts` of the parent component:
 
 ```typescript{1,4}
-import { MotherCard } from '../../component/card/mother.js';
+import { MotherCard } from '../../component/card/controller.js';
 
 export class MotherPageComponent {
   cardRef: MotherCard;
@@ -282,7 +282,7 @@ export class MotherPageComponent {
 
 ### onMotherRef
 
-Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `mother bean`:
+Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `controller bean`:
 
 ```typescript{6-8}
 export class RenderPageComponent {

@@ -47,7 +47,7 @@ export class Counter {
 
 在页面组件`counter`中注入 local bean，然后在 render 中调用属性和方法
 
-`mother.ts`
+`controller.ts`
 
 ```typescript{1,4-5}
 import { Counter } from './counter.js';
