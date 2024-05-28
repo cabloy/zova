@@ -18,7 +18,7 @@ project
 │  │  └── a-home
 │  │    ├── modules
 │  │    │  ├── a-home
-│  │    │  ├── a-homeapi
+│  │    │  ├── home-api
 │  │    │  ├── a-homeicon
 │  │    │  ├── a-homelayout
 │  │    │  ├── a-homemock
@@ -53,7 +53,7 @@ Cabloy-Front has planned the modules/suites so that we can start business develo
 | env                                       | [Env](../../techniques/env/introduction.md)                                          |
 | src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                    |
 | src/front/config/locales.ts               | [I18n](../scope/locale.md)                                                           |
-| src/suite/a-home/modules/a-homeapi        | [API](../../techniques/api/introduction.md)                                          |
+| src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                          |
 | src/suite/a-home/modules/a-homeicon       | [Icon](../../techniques/icon/icon-engine.md)                                         |
 | src/suite/a-home/modules/a-homelayout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
 | src/suite/a-home/modules/a-homemock       | [Mock](../../techniques/mock/introduction.md)                                        |

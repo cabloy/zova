@@ -1,6 +1,6 @@
 # API
 
-Cabloy-Front provides a module `a-homeapi`, which provides a basic `API` code skeleton based on [axios](https://axios-http.com). Custom API logic can be added on this basis, or even the `axios` underlying library can be directly replaced
+Cabloy-Front provides a module `home-api`, which provides a basic `API` code skeleton based on [axios](https://axios-http.com). Custom API logic can be added on this basis, or even the `axios` underlying library can be directly replaced
 
 ## $api
 
@@ -25,11 +25,11 @@ export class MotherLayoutDefault {
 }
 ```
 
-## a-homeapi.store.api
+## home-api.store.api
 
-The module `a-homeapi` provides an `a-homeapi.store.api` store bean, in which custom logic can be added directly
+The module `home-api` provides an `home-api.store.api` store bean, in which custom logic can be added directly
 
-`src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
+`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
 
 ```typescript{7}
 export class StoreApi {

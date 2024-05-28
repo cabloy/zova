@@ -1,6 +1,6 @@
 # API
 
-Cabloy-Front 提供了一个模块`a-homeapi`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
+Cabloy-Front 提供了一个模块`home-api`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
 
 ## $api
 
@@ -25,11 +25,11 @@ export class MotherLayoutDefault {
 }
 ```
 
-## a-homeapi.store.api
+## home-api.store.api
 
-模块`a-homeapi`提供了一个`a-homeapi.store.api` store bean，可以直接在里面添加自定义逻辑
+模块`home-api`提供了一个`home-api.store.api` store bean，可以直接在里面添加自定义逻辑
 
-`src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
+`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
 
 ```typescript{7}
 export class StoreApi {

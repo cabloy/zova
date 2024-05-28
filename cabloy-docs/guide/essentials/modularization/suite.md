@@ -21,7 +21,7 @@ A suite is a combination of a group of business modules, so the directory struct
 a-home
 ├── modules
 │   ├── a-home
-│   ├── a-homeapi
+│   ├── home-api
 │   ├── a-homeicon
 │   ├── a-homelayout
 │   ├── a-homemock

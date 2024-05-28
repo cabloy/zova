@@ -23,7 +23,7 @@ When a project is created, there will be some modules present in the project, pr
 
 | Name    | Description                                 |
 | ------- | ------------------------------------------- |
-| $api    | Api object provided by module `a-homeapi`   |
+| $api    | Api object provided by module `home-api`   |
 | $router | Router object provided by module `a-router` |
 
 Cabloy-Front can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box. Different UI libraries will also inject objects into the `BeanBase` base class according to their own needs

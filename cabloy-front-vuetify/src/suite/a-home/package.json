@@ -12,6 +12,6 @@
     "cabloy-module-front-a-homelayout": "workspace:^",
     "cabloy-module-front-a-homerouter": "workspace:^",
     "cabloy-module-front-a-homemock": "workspace:^",
-    "cabloy-module-front-a-homeapi": "workspace:^"
+    "cabloy-module-front-home-api": "workspace:^"
   }
 }

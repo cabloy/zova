@@ -16,10 +16,10 @@ export interface ScopeModuleAHomeapi
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'a-homeapi': ScopeModuleAHomeapi;
+    'home-api': ScopeModuleAHomeapi;
   }
 
   export interface IBeanScopeConfig {
-    'a-homeapi': ReturnType<typeof config>;
+    'home-api': ReturnType<typeof config>;
   }
 }

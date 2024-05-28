@@ -135,7 +135,7 @@ export default function (_meta: CabloyConfigMeta) {
 }
 ```
 
-`src/suite/a-home/modules/a-homeapi/src/bean/store.api.ts`
+`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
 
 ```typescript{5}
 export class StoreApi {

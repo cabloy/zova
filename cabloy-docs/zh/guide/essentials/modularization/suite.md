@@ -24,7 +24,7 @@
 a-home
 ├── modules
 │   ├── a-home
-│   ├── a-homeapi
+│   ├── home-api
 │   ├── a-homeicon
 │   ├── a-homelayout
 │   ├── a-homemock
