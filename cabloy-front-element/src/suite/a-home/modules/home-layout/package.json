@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-homelayout",
+  "name": "cabloy-module-front-home-layout",
   "version": "5.0.0",
-  "title": "a-homelayout",
+  "title": "home-layout",
   "type": "module",
   "exports": {
     ".": {

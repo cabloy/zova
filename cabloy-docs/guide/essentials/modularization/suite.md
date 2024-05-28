@@ -23,7 +23,7 @@ a-home
 │   ├── a-home
 │   ├── home-api
 │   ├── home-icon
-│   ├── a-homelayout
+│   ├── home-layout
 │   ├── a-homemock
 │   ├── a-homepagesystem
 │   ├── a-homerouter

@@ -20,7 +20,7 @@ project
 │  │    │  ├── a-home
 │  │    │  ├── home-api
 │  │    │  ├── home-icon
-│  │    │  ├── a-homelayout
+│  │    │  ├── home-layout
 │  │    │  ├── a-homemock
 │  │    │  ├── a-homepagesystem
 │  │    │  └── a-homerouter
@@ -55,7 +55,7 @@ Cabloy-Front has planned the modules/suites so that we can start business develo
 | src/front/config/locales.ts               | [I18n](../scope/locale.md)                                                           |
 | src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                          |
 | src/suite/a-home/modules/home-icon       | [Icon](../../techniques/icon/icon-engine.md)                                         |
-| src/suite/a-home/modules/a-homelayout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
+| src/suite/a-home/modules/home-layout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
 | src/suite/a-home/modules/a-homemock       | [Mock](../../techniques/mock/introduction.md)                                        |
 | src/suite/a-home/modules/a-homepagesystem | [Route Fields: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
 | src/suite/a-home/modules/a-homerouter     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |

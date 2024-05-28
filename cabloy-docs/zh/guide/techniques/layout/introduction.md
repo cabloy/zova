@@ -1,6 +1,6 @@
 # Layout布局
 
-Cabloy-Front 通过模块`a-homelayout`提供了通用的布局机制。在模块`a-homelayout`中可以创建多个布局组件，在`页面路由`中指定使用哪一个即可
+Cabloy-Front 通过模块`home-layout`提供了通用的布局机制。在模块`home-layout`中可以创建多个布局组件，在`页面路由`中指定使用哪一个即可
 
 ## 系统布局组件
 
@@ -13,7 +13,7 @@ Cabloy-Front 通过模块`a-homelayout`提供了通用的布局机制。在模�
 
 - 自定义布局组件
 
-`empty`和`default`布局组件位于模块`a-homelayout`中，我们可以根据业务需求自行修改
+`empty`和`default`布局组件位于模块`home-layout`中，我们可以根据业务需求自行修改
 
 ## 使用布局组件
 

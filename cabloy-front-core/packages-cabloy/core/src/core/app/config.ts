@@ -16,8 +16,8 @@ export const configDefault = {
   },
   layout: {
     component: {
-      default: 'a-homelayout:layoutDefault',
-      empty: 'a-homelayout:layoutEmpty',
+      default: 'home-layout:layoutDefault',
+      empty: 'home-layout:layoutEmpty',
     },
   },
   locales: {

@@ -8,7 +8,7 @@ Cabloy-Front 在`BeanBase`基类中注入了`$api`对象，从而可以在任何
 
 比如，获取菜单数据：
 
-`src/suite/a-home/modules/a-homelayout/src/component/layoutDefault/mother.ts`
+`src/suite/a-home/modules/home-layout/src/component/layoutDefault/mother.ts`
 
 ```typescript{9-10}
 export class MotherLayoutDefault {

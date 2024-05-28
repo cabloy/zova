@@ -16,14 +16,14 @@ export interface ScopeModuleAHomelayout
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'a-homelayout': ScopeModuleAHomelayout;
+    'home-layout': ScopeModuleAHomelayout;
   }
 
   export interface IBeanScopeConfig {
-    'a-homelayout': ReturnType<typeof config>;
+    'home-layout': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {
-    'a-homelayout': (typeof locales)[TypeLocaleBase];
+    'home-layout': (typeof locales)[TypeLocaleBase];
   }
 }

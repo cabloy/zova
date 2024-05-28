@@ -1,6 +1,6 @@
 # Layout
 
-Cabloy-Front provides a general layout mechanism through the module `a-homelayout`. Multiple layout components can be created in the module `a-homelayout`, and you can specify which one to use in `page route`
+Cabloy-Front provides a general layout mechanism through the module `home-layout`. Multiple layout components can be created in the module `home-layout`, and you can specify which one to use in `page route`
 
 ### System layout components
 
@@ -13,7 +13,7 @@ In order to achieve out-of-the-box effects, the system has two built-in layout c
 
 - Custom layout components
 
-The `empty` and `default` layout components are located in the module `a-homelayout`, and we can modify them according to business needs
+The `empty` and `default` layout components are located in the module `home-layout`, and we can modify them according to business needs
 
 ## Use layout components
 
