@@ -1,7 +1,7 @@
 {
   "name": "cabloy-module-front-home-api",
   "version": "5.0.0",
-  "title": "a-homeapi",
+  "title": "home-api",
   "cabloyModule": {
     "capabilities": {
       "monkey": true
