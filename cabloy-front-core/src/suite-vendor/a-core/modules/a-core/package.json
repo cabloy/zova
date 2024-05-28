@@ -1,6 +1,6 @@
 {
   "name": "cabloy-module-front-a-core",
-  "version": "5.0.21",
+  "version": "5.0.22",
   "title": "a-core",
   "cabloyModule": {
     "dependencies": {
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "cabloy-module-front-a-pinia": "^5.0.5",
-    "cabloy-module-front-a-router": "^5.0.23"
+    "cabloy-module-front-a-router": "^5.0.24"
   },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
