@@ -46,7 +46,7 @@ export interface Props {
 还可以为 Props 设置缺省值：
 
 ```typescript{2-4}
-export class MotherCard {
+export class ControllerCard {
   static $propsDefault = {
     header: 'default header',
   };
@@ -59,8 +59,8 @@ export class MotherCard {
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { MotherCard, Props} from './controller.js';
-const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
+import { ControllerCard, Props} from './controller.js';
+const props = withDefaults(defineProps<Props>(), ControllerCard.$propsDefault);
 </script>
 ```
 
@@ -233,7 +233,7 @@ export class RenderCard {
 
 ```typescript{2,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as MotherCard from '../../component/card/controller.js';
+import * as ControllerCard from '../../component/card/controller.js';
 
 export class RenderPageComponent {
   render() {
@@ -247,7 +247,7 @@ export class RenderPageComponent {
       footer: () => {
         return <div>this is a footer slot from parent</div>;
       },
-    } as MotherCard.Slots;
+    } as ControllerCard.Slots;
     return (
       <div>
         <Card
@@ -260,8 +260,8 @@ export class RenderPageComponent {
 ```
 
 - 从`index.vue`导入子组件`Card`
-- 从`controller.ts`导入类型命名空间`MotherCard`
-- 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `MotherCard.Slots`来约束类型，并且提供智能提示
+- 从`controller.ts`导入类型命名空间`ControllerCard`
+- 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `ControllerCard.Slots`来约束类型，并且提供智能提示
 - 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
 
 ## 如何引用子组件实例
@@ -273,16 +273,16 @@ export class RenderPageComponent {
 先在父组件的`controller.ts`中定义属性：
 
 ```typescript{1,4}
-import { MotherCard } from '../../component/card/controller.js';
+import { ControllerCard } from '../../component/card/controller.js';
 
-export class MotherPageComponent {
-  cardRef: MotherCard;
+export class ControllerPageComponent {
+  cardRef: ControllerCard;
 }
 ```
 
-### onMotherRef
+### onControllerRef
 
-然后监听子组件的`onMotherRef`事件获取到`controller bean`的引用值：
+然后监听子组件的`onControllerRef`事件获取到`controller bean`的引用值：
 
 ```typescript{6-8}
 export class RenderPageComponent {
@@ -290,7 +290,7 @@ export class RenderPageComponent {
     return (
       <div>
         <Card
-          onMotherRef={ref => {
+          onControllerRef={ref => {
             this.cardRef = ref;
           }}
         ></Card>

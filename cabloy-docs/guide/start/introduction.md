@@ -54,7 +54,7 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 Define a reactive variable `count` in the component and add two methods to modify its value
 
 ```typescript
-export class MotherPageCounter {
+export class ControllerPageCounter {
   count: number = 0;
 
   inrement() {
@@ -111,7 +111,7 @@ export class Counter {
 ### 2. Inject and use in a component
 
 ```typescript
-export class MotherPageCounter {
+export class ControllerPageCounter {
   @Use()
   $$counter: Counter;
 }

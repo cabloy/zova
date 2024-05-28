@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front';
-import { Mother<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './controller.js';
+import { useController } from '@cabloy/front';
+import { Controller<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './controller.js';
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
-const props = withDefaults(defineProps<Props>(), Mother<%=argv.nameMeta.fullCapitalize%>.$propsDefault);
+const props = withDefaults(defineProps<Props>(), Controller<%=argv.nameMeta.fullCapitalize%>.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(props, emit, Mother<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>);
+useController(props, emit, Controller<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>);
 </script>

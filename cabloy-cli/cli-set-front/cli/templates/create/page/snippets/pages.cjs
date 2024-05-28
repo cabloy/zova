@@ -1,11 +1,11 @@
 const __snippet_export =
-  "export * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
+  "export * as NSControllerPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
 const __snippet_import =
-  "import * as NSMotherPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
+  "import * as NSControllerPage<%=argv.nameMeta.fullCapitalize%> from '../page/<%=argv.pageName%>/controller.js';\n";
 const __snippet_iPagePathRecord =
-  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QueryInput;\n";
+  "'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': NSControllerPage<%=argv.nameMeta.fullCapitalize%>.QueryInput;\n";
 const __snippet_pagePathSchemas = `'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo.name%>/<%=argv.pageName%>': {
-    query: NSMotherPage<%=argv.nameMeta.fullCapitalize%>.QuerySchema,
+    query: NSControllerPage<%=argv.nameMeta.fullCapitalize%>.QuerySchema,
   },
 `;
 
@@ -15,7 +15,7 @@ module.exports = {
 declare module "@cabloy/front" {
   export interface IPagePathRecord {}
   export interface IPageNameRecord {
-    // '<%=argv.moduleInfo.relativeName%>:page-name': TypePageParamsQuery<NSMotherPagePageName.QueryInput, NSMotherPagePageName.ParamsInput>;
+    // '<%=argv.moduleInfo.relativeName%>:page-name': TypePageParamsQuery<NSControllerPagePageName.QueryInput, NSControllerPagePageName.ParamsInput>;
   }
 }
 
@@ -23,8 +23,8 @@ export const pagePathSchemas = {};
 
 export const pageNameSchemas = {
   // '<%=argv.moduleInfo.relativeName%>:page-name': {
-  //   params: NSMotherPagePageName.ParamsSchema,
-  //   query: NSMotherPagePageName.QuerySchema,
+  //   params: NSControllerPagePageName.ParamsSchema,
+  //   query: NSControllerPagePageName.QuerySchema,
   // },
 };
 `,

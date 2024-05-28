@@ -1,7 +1,7 @@
 import { BeanBase } from './beanBase.js';
-import { IMotherData } from './type.js';
+import { IControllerData } from './type.js';
 
-export class BeanMotherPageBase<
+export class BeanControllerPageBase<
   TScopeModule = unknown,
   Query = unknown,
   Params = unknown,
@@ -10,7 +10,7 @@ export class BeanMotherPageBase<
   public $query: Query;
 
   /** @internal */
-  public __initMotherData(controllerData: IMotherData) {
+  public __initControllerData(controllerData: IControllerData) {
     this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
   }
 }

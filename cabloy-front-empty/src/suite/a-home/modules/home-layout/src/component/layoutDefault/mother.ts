@@ -1,5 +1,5 @@
-import { BeanMotherBase, Local } from '@cabloy/front';
-import * as MotherEssentialLink from '../../component/essentialLink/controller.js';
+import { BeanControllerBase, Local } from '@cabloy/front';
+import * as ControllerEssentialLink from '../../component/essentialLink/controller.js';
 
 export interface Props {}
 
@@ -7,10 +7,10 @@ export type Emits = {};
 
 export interface Slots {}
 
-export type TypeMenuItem = MotherEssentialLink.Props & { folder?: boolean; separator?: boolean };
+export type TypeMenuItem = ControllerEssentialLink.Props & { folder?: boolean; separator?: boolean };
 
 @Local()
-export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
 
   leftDrawerOpen: boolean = false;

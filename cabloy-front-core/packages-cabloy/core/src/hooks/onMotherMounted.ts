@@ -1,6 +1,6 @@
 import { useContext } from './useContext.js';
 
-export async function onMotherMounted(fn) {
+export async function onControllerMounted(fn) {
   const ctx = useContext();
   await ctx.meta.state.mounted.wait();
   if (fn) {

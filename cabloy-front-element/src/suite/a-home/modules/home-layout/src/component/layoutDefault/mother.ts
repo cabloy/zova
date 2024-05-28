@@ -1,4 +1,4 @@
-import { BeanMotherBase, Local } from '@cabloy/front';
+import { BeanControllerBase, Local } from '@cabloy/front';
 
 export interface Props {}
 
@@ -18,7 +18,7 @@ export type TypeMenuItem = {
 };
 
 @Local()
-export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
 
   leftDrawerOpen: boolean = false;

@@ -52,7 +52,7 @@ Inject local bean in the page component `counter`, and then access properties an
 ```typescript{1,4-5}
 import { Counter } from './counter.js';
 
-export class MotherPageCounter {
+export class ControllerPageCounter {
   @Use()
   $$counter: Counter;
 }

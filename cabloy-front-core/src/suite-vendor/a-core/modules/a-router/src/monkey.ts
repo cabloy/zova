@@ -1,13 +1,13 @@
 import {
   BeanBase,
   BeanContainerLike,
-  BeanMotherPageBase,
+  BeanControllerPageBase,
   BeanSimple,
   IModule,
   IMonkeyModule,
-  IMonkeyMother,
+  IMonkeyController,
   IMonkeySystem,
-  IMotherData,
+  IControllerData,
   TypePageSchema,
   useComputed,
 } from '@cabloy/front';
@@ -15,7 +15,7 @@ import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
-export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyMother {
+export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
   private _storeRouter: StoreRouterLike;
   private _moduleSelf: IModule;
 
@@ -56,12 +56,12 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   }
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}
-  controllerDataPrepare(controllerData: IMotherData) {
+  controllerDataPrepare(controllerData: IControllerData) {
     controllerData.context.route = useRoute();
   }
-  controllerDataInit(controllerData: IMotherData, controller: BeanBase) {
+  controllerDataInit(controllerData: IControllerData, controller: BeanBase) {
     // only for controller page
-    if (controller instanceof BeanMotherPageBase) {
+    if (controller instanceof BeanControllerPageBase) {
       const route = controllerData.context.route;
       const schemaKey = String(route.name || route.path);
       let schemas: TypePageSchema | undefined;

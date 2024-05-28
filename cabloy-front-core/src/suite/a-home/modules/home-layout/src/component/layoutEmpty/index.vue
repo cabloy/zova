@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useMother } from '@cabloy/front';
-import { MotherLayoutEmpty, Props, Emits } from './controller.js';
+import { useController } from '@cabloy/front';
+import { ControllerLayoutEmpty, Props, Emits } from './controller.js';
 import { RenderLayoutEmpty } from './render.jsx';
-const props = withDefaults(defineProps<Props>(), MotherLayoutEmpty.$propsDefault);
+const props = withDefaults(defineProps<Props>(), ControllerLayoutEmpty.$propsDefault);
 const emit = defineEmits<Emits>();
-useMother(props, emit, MotherLayoutEmpty, RenderLayoutEmpty);
+useController(props, emit, ControllerLayoutEmpty, RenderLayoutEmpty);
 </script>

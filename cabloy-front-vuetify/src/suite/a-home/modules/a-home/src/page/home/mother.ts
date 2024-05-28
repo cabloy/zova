@@ -1,4 +1,4 @@
-import { BeanMotherPageBase, Local } from '@cabloy/front';
+import { BeanControllerPageBase, Local } from '@cabloy/front';
 
 @Local()
-export class MotherPageHome extends BeanMotherPageBase {}
+export class ControllerPageHome extends BeanControllerPageBase {}

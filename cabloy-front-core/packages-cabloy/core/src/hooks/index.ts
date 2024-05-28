@@ -1,4 +1,4 @@
-export * from './onMotherMounted.js';
+export * from './onControllerMounted.js';
 export * from './useApp.js';
 export * from './useContext.js';
-export * from './useMother.js';
+export * from './useController.js';

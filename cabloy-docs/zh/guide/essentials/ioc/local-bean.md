@@ -52,7 +52,7 @@ export class Counter {
 ```typescript{1,4-5}
 import { Counter } from './counter.js';
 
-export class MotherPageCounter {
+export class ControllerPageCounter {
   @Use()
   $$counter: Counter;
 }

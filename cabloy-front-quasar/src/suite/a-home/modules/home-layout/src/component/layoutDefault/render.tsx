@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherLayoutDefault, TypeMenuItem } from './controller.js';
+import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
 import EssentialLink from '../../component/essentialLink/index.vue';
 import {
   QBtn,
@@ -15,7 +15,7 @@ import {
 } from 'quasar';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault {}
+export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {

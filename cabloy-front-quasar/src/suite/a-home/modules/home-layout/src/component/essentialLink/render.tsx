@@ -1,8 +1,8 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherEssentialLink } from './controller.js';
+import type { ControllerEssentialLink } from './controller.js';
 import { QIcon, QItem, QItemLabel, QItemSection } from 'quasar';
 
-export interface RenderEssentialLink extends MotherEssentialLink {}
+export interface RenderEssentialLink extends ControllerEssentialLink {}
 
 @Local()
 export class RenderEssentialLink extends BeanRenderBase {

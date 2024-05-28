@@ -1,8 +1,8 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageErrorNotFound } from './controller.js';
+import type { ControllerPageErrorNotFound } from './controller.js';
 import { VBtn } from 'vuetify/components';
 
-export interface RenderPageErrorNotFound extends MotherPageErrorNotFound {}
+export interface RenderPageErrorNotFound extends ControllerPageErrorNotFound {}
 
 @Local()
 export class RenderPageErrorNotFound extends BeanRenderBase {

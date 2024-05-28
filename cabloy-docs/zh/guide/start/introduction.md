@@ -54,7 +54,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 在组件中定义一个响应式变量`count`，并且添加两个方法修改变量的值
 
 ```typescript
-export class MotherPageCounter {
+export class ControllerPageCounter {
   count: number = 0;
 
   inrement() {
@@ -111,7 +111,7 @@ export class Counter {
 ### 2. 在组件中注入并使用
 
 ```typescript
-export class MotherPageCounter {
+export class ControllerPageCounter {
   @Use()
   $$counter: Counter;
 }

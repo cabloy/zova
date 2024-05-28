@@ -2,7 +2,7 @@ import { BeanSimple } from '../../bean/beanSimple.js';
 import { AppIcon } from '../../bean/resource/icon/icon.js';
 import { IModuleLocaleText } from '../../bean/resource/locale/type.js';
 import { Constructable } from '../../decorator/type/constructable.js';
-import { IMonkeyApp, IMonkeyMother, IMonkeySystem } from '../../types/interface/monkey.js';
+import { IMonkeyApp, IMonkeyController, IMonkeySystem } from '../../types/interface/monkey.js';
 import { AppError } from '../component/error.js';
 import { AppEvent } from '../component/event.js';
 import { AppComponent } from '../component/component.js';
@@ -20,7 +20,7 @@ export class AppMeta extends BeanSimple {
   icon: AppIcon;
   text: IModuleLocaleText;
   /** @internal */
-  public appMonkey?: IMonkeyApp & IMonkeySystem & IMonkeyMother;
+  public appMonkey?: IMonkeyApp & IMonkeySystem & IMonkeyController;
 
   protected __init__() {
     this.module = this.app.bean._newBeanSimple(AppModule, false);
@@ -34,7 +34,7 @@ export class AppMeta extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(AppMonkey: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyMother>) {
+  public async initialize(AppMonkey: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>) {
     this.appMonkey = this.bean._newBeanSimple(AppMonkey, false);
   }
 }

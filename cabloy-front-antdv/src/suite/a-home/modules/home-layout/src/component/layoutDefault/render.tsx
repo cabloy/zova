@@ -1,9 +1,9 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherLayoutDefault, TypeMenuItem } from './controller.js';
+import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
 import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface RenderLayoutDefault extends MotherLayoutDefault {}
+export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {

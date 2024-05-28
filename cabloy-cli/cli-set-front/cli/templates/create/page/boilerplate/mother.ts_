@@ -1,4 +1,4 @@
-import { BeanMotherPageBase, Local, zz } from '@cabloy/front';
+import { BeanControllerPageBase, Local, zz } from '@cabloy/front';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
 export const ParamsSchema = zz.object({});
@@ -10,7 +10,7 @@ export type QueryInput = zz.input<typeof QuerySchema>;
 export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
-export class MotherPage<%=argv.nameMeta.fullCapitalize%> extends BeanMotherPageBase<ScopeModule, QueryOutput, ParamsOutput> {
+export class ControllerPage<%=argv.nameMeta.fullCapitalize%> extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   protected async __init__() {}
 
   protected __dispose__() {}

@@ -42,18 +42,18 @@ export const routes: IModuleRoute[] = [
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from '@cabloy/front';
-import * as NSMotherPageUser from '../page/user/controller.js';
+import * as NSControllerPageUser from '../page/user/controller.js';
 
 declare module '@cabloy/front' {
   export interface IPageNameRecord {
-    'a-demo:user': TypePageParamsQuery<NSMotherPageUser.QueryInput, NSMotherPageUser.ParamsInput>;
+    'a-demo:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
   }
 }
 
 export const pageNameSchemas = {
   'a-demo:user': {
-    params: NSMotherPageUser.ParamsSchema,
-    query: NSMotherPageUser.QuerySchema,
+    params: NSControllerPageUser.ParamsSchema,
+    query: NSControllerPageUser.QuerySchema,
   },
 };
 ```

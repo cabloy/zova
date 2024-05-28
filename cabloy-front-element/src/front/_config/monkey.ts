@@ -4,12 +4,12 @@ import {
   BeanSimple,
   IModule,
   IMonkeyApp,
-  IMonkeyMother,
+  IMonkeyController,
   IMonkeySystem,
-  IMotherData,
+  IControllerData,
 } from '@cabloy/front';
 
-export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, IMonkeyMother {
+export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, IMonkeyController {
   async moduleLoading(_module: IModule) {}
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}
@@ -19,6 +19,6 @@ export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, 
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  controllerDataPrepare(_controllerData: IMotherData) {}
-  controllerDataInit(_controllerData: IMotherData, _controller: BeanBase) {}
+  controllerDataPrepare(_controllerData: IControllerData) {}
+  controllerDataInit(_controllerData: IControllerData, _controller: BeanBase) {}
 }

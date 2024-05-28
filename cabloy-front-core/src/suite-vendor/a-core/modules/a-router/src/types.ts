@@ -23,7 +23,7 @@ declare module '@cabloy/front' {
     routes: IModuleRoute[];
   }
 
-  export interface IMotherDataContext {
+  export interface IControllerDataContext {
     route: RouteLocationNormalizedLoaded;
   }
 

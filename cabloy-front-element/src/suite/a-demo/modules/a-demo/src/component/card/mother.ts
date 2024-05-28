@@ -1,4 +1,4 @@
-import { BeanMotherBase, Local } from '@cabloy/front';
+import { BeanControllerBase, Local } from '@cabloy/front';
 import { JSX } from 'vue/jsx-runtime';
 
 export interface Props {
@@ -18,7 +18,7 @@ export interface Slots {
 }
 
 @Local()
-export class MotherCard extends BeanMotherBase<unknown, Props, Emits, Slots> {
+export class ControllerCard extends BeanControllerBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {
     header: 'default header',
   };

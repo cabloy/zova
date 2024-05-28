@@ -11,7 +11,7 @@ declare module 'vue' {
 declare module 'vue/jsx-runtime' {
   namespace JSX {
     export interface IntrinsicAttributes {
-      onMotherRef?(controller: any): void;
+      onControllerRef?(controller: any): void;
       // see also: @vue/runtime-dom: HTMLAttributes
       class?: any;
       onClick?: (evt: Event) => void;

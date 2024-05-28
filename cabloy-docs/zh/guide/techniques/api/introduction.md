@@ -11,7 +11,7 @@ Cabloy-Front 在`BeanBase`基类中注入了`$api`对象，从而可以在任何
 `src/suite/a-home/modules/home-layout/src/component/layoutDefault/controller.ts`
 
 ```typescript{9-10}
-export class MotherLayoutDefault {
+export class ControllerLayoutDefault {
   menu: TypeMenuItem[];
 
   protected async __init__() {

@@ -12,6 +12,6 @@
 
 ## 为何Vue组件bean类名使用controller作为前缀 {#faq-controller}
 
-`index.vue`仅仅是用于定义 Vue 组件的壳，调用`useMother`函数之后，就把工作让渡给`controller.ts`了。如果需要的话，`props`、`emits`和`slots`的定义都在`controller.ts`中，而且大多数业务逻辑也会放入`controller.ts`中
+`index.vue`仅仅是用于定义 Vue 组件的壳，调用`useController`函数之后，就把工作让渡给`controller.ts`了。如果需要的话，`props`、`emits`和`slots`的定义都在`controller.ts`中，而且大多数业务逻辑也会放入`controller.ts`中
 
 这就好比狮子的行为：雄狮子是门面，干活的都是母狮子。因此，如果把`index.vue`看作是`father`的话，那么具体干活的就是`controller.ts`了

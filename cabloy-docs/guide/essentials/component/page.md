@@ -55,10 +55,10 @@ src
 </template>
 
 <script setup lang="ts">
-import { useMotherPage } from '@cabloy/front';
-import { MotherPageCounter } from './controller.js';
+import { useControllerPage } from '@cabloy/front';
+import { ControllerPageCounter } from './controller.js';
 import { RenderPageCounter } from './render.jsx';
-useMotherPage(MotherPageCounter, RenderPageCounter);
+useControllerPage(ControllerPageCounter, RenderPageCounter);
 </script>
 ```
 
@@ -68,7 +68,7 @@ useMotherPage(MotherPageCounter, RenderPageCounter);
 
 ```typescript
 @Local()
-export class MotherPageCounter {
+export class ControllerPageCounter {
   count: number = 0;
 
   inrement() {

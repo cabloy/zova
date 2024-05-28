@@ -2,45 +2,48 @@ import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, 
 import { queuePostFlushCb } from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
-import { IBeanRecord, IMotherData } from '../bean/type.js';
+import { IBeanRecord, IControllerData } from '../bean/type.js';
 
-export function useMotherPage<M, R>(controllerBeanFullName: Constructable<M>, renderBeanFullName?: Constructable<R>);
-export function useMotherPage<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
+export function useControllerPage<M, R>(
+  controllerBeanFullName: Constructable<M>,
+  renderBeanFullName?: Constructable<R>,
+);
+export function useControllerPage<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
   controllerBeanFullName: MK,
   renderBeanFullName?: RK,
 );
 // not use type string for typed params
-//export function useMotherPage(controllerBeanFullName: string, renderBeanFullName?: string);
-export function useMotherPage<M>(
+//export function useControllerPage(controllerBeanFullName: string, renderBeanFullName?: string);
+export function useControllerPage<M>(
   controllerBeanFullName: Constructable<M> | string,
   renderBeanFullName?: Constructable<M> | string,
 ) {
   // controllerData
   const controllerData = { context: {} };
   // use controller
-  _useMother(controllerData, controllerBeanFullName, renderBeanFullName);
+  _useController(controllerData, controllerBeanFullName, renderBeanFullName);
 }
 
-export function useMother<M, R>(
+export function useController<M, R>(
   props: unknown | undefined,
   emit: unknown | undefined,
   controllerBeanFullName: Constructable<M>,
   renderBeanFullName?: Constructable<R>,
 );
-export function useMother<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
+export function useController<MK extends keyof IBeanRecord, RK extends keyof IBeanRecord>(
   props: unknown | undefined,
   emit: unknown | undefined,
   controllerBeanFullName: MK,
   renderBeanFullName?: RK,
 );
 // not use type string for typed params
-// export function useMother(
+// export function useController(
 //   props: unknown | undefined,
 //   emit: unknown | undefined,
 //   controllerBeanFullName: string,
 //   renderBeanFullName?: string,
 // );
-export function useMother<M>(
+export function useController<M>(
   props: unknown | undefined,
   emit: unknown | undefined,
   controllerBeanFullName: Constructable<M> | string,
@@ -53,11 +56,11 @@ export function useMother<M>(
   // controllerData
   const controllerData = { props, context: { attrs, slots, emit } };
   // use controller
-  _useMother(controllerData, controllerBeanFullName, renderBeanFullName);
+  _useController(controllerData, controllerBeanFullName, renderBeanFullName);
 }
 
-function _useMother<M>(
-  controllerData: IMotherData,
+function _useController<M>(
+  controllerData: IControllerData,
   controllerBeanFullName: Constructable<M> | string,
   renderBeanFullName?: Constructable<M> | string,
 ) {

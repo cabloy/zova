@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useMotherPage } from '@cabloy/front';
-import { MotherPageErrorNotFound } from './controller.js';
+import { useControllerPage } from '@cabloy/front';
+import { ControllerPageErrorNotFound } from './controller.js';
 import { RenderPageErrorNotFound } from './render.jsx';
-useMotherPage(MotherPageErrorNotFound, RenderPageErrorNotFound);
+useControllerPage(ControllerPageErrorNotFound, RenderPageErrorNotFound);
 </script>

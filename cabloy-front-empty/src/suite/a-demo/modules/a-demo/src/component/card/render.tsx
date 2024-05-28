@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherCard } from './controller.js';
+import type { ControllerCard } from './controller.js';
 
-export interface RenderCard extends MotherCard {}
+export interface RenderCard extends ControllerCard {}
 
 @Local()
 export class RenderCard extends BeanRenderBase {

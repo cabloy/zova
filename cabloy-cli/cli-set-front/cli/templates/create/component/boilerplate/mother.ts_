@@ -1,4 +1,4 @@
-import { BeanMotherBase, Local } from '@cabloy/front';
+import { BeanControllerBase, Local } from '@cabloy/front';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
 export interface Props {
@@ -10,7 +10,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class Mother<%=argv.nameMeta.fullCapitalize%> extends BeanMotherBase<ScopeModule, Props, Emits, Slots> {
+export class Controller<%=argv.nameMeta.fullCapitalize%> extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {
     name: '',
   };

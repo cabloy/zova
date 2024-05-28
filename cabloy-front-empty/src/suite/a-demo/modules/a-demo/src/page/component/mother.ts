@@ -1,9 +1,9 @@
-import { BeanMotherPageBase, Local } from '@cabloy/front';
-import { MotherCard } from '../../component/card/controller.js';
+import { BeanControllerPageBase, Local } from '@cabloy/front';
+import { ControllerCard } from '../../component/card/controller.js';
 import { ScopeModule } from '../../resource/this.js';
 
 @Local()
-export class MotherPageComponent extends BeanMotherPageBase<ScopeModule> {
+export class ControllerPageComponent extends BeanControllerPageBase<ScopeModule> {
   resetTime: Date = new Date();
-  cardRef: MotherCard;
+  cardRef: ControllerCard;
 }

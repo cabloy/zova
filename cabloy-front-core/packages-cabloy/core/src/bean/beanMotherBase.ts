@@ -1,10 +1,10 @@
 import { markRaw } from 'vue';
 import { BeanBase } from './beanBase.js';
-import { IMotherData } from './type.js';
+import { IControllerData } from './type.js';
 
 type Data = Record<string, unknown>;
 
-export class BeanMotherBase<
+export class BeanControllerBase<
   TScopeModule = unknown,
   Props = unknown,
   Emits = unknown,
@@ -16,7 +16,7 @@ export class BeanMotherBase<
   public $attrs: Data;
 
   /** @internal */
-  public __initMotherData(controllerData: IMotherData) {
+  public __initControllerData(controllerData: IControllerData) {
     this.$props = controllerData.props as Props;
     this.$emit = controllerData.context.emit as Emits;
     this.$slots = (controllerData.context.slots ? markRaw(controllerData.context.slots) : undefined) as Slots;

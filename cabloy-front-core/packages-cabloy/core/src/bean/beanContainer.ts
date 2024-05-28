@@ -3,7 +3,7 @@ import { CabloyApplication, CabloyContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
-import { IBeanRecord, IBeanScopeRecord, IMotherData, TypeBeanScopeRecordKeys } from './type.js';
+import { IBeanRecord, IBeanScopeRecord, IControllerData, TypeBeanScopeRecordKeys } from './type.js';
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
@@ -335,7 +335,7 @@ export class BeanContainer {
   private async _createBeanInstance<T>(
     record: boolean,
     recordProp: MetadataKey | null,
-    controllerData: IMotherData,
+    controllerData: IControllerData,
     beanHook: Functionable | undefined,
     beanFullName: string | undefined,
     beanClass: Constructable<T> | undefined,
@@ -347,7 +347,7 @@ export class BeanContainer {
     const beanInstance = this._prepareBeanInstance(beanHook, beanFullName, beanClass, args, aop, markReactive);
     // special for controller
     if (controllerData) {
-      beanInstance.__initMotherData(controllerData);
+      beanInstance.__initControllerData(controllerData);
     }
     // record
     if (record) {

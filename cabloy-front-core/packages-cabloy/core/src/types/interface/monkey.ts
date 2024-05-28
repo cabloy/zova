@@ -1,9 +1,9 @@
 import { IModule } from '@cabloy/module-info';
 import { BeanBase } from '../../bean/beanBase.js';
 import { BeanContainerLike } from '../../bean/beanContainer.js';
-import { IMotherData } from '../../bean/type.js';
+import { IControllerData } from '../../bean/type.js';
 
-export type TypeMonkeyName = keyof IMonkeyModule | keyof IMonkeySystem | keyof IMonkeyMother;
+export type TypeMonkeyName = keyof IMonkeyModule | keyof IMonkeySystem | keyof IMonkeyController;
 
 export interface IMonkeyApp {
   moduleLoading(module: IModule): Promise<void>;
@@ -32,7 +32,7 @@ export interface IMonkeySystem {
   beanDisposed(bean: BeanContainerLike, beanInstance: BeanBase): void;
 }
 
-export interface IMonkeyMother {
-  controllerDataPrepare(controllerData: IMotherData);
-  controllerDataInit(controllerData: IMotherData, controller: BeanBase);
+export interface IMonkeyController {
+  controllerDataPrepare(controllerData: IControllerData);
+  controllerDataInit(controllerData: IControllerData, controller: BeanBase);
 }

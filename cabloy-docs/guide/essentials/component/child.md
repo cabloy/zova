@@ -46,7 +46,7 @@ export interface Props {
 You can also set default values for Props:
 
 ```typescript{2-4}
-export class MotherCard {
+export class ControllerCard {
   static $propsDefault = {
     header: 'default header',
   };
@@ -59,8 +59,8 @@ Then, define the component Props in `index.vue`:
 
 ```typescript{2-3}
 <script setup lang="ts">
-import { MotherCard, Props} from './controller.js';
-const props = withDefaults(defineProps<Props>(), MotherCard.$propsDefault);
+import { ControllerCard, Props} from './controller.js';
+const props = withDefaults(defineProps<Props>(), ControllerCard.$propsDefault);
 </script>
 ```
 
@@ -233,7 +233,7 @@ Next, use the child component inside the parent component:
 
 ```typescript{1,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as MotherCard from '../../component/card/controller.js';
+import * as ControllerCard from '../../component/card/controller.js';
 
 export class RenderPageComponent {
   render() {
@@ -247,7 +247,7 @@ export class RenderPageComponent {
       footer: () => {
         return <div>this is a footer slot from parent</div>;
       },
-    } as MotherCard.Slots;
+    } as ControllerCard.Slots;
     return (
       <div>
         <Card
@@ -260,8 +260,8 @@ export class RenderPageComponent {
 ```
 
 - Import the child component `Card` from `index.vue`
-- Import the type namespace `MotherCard` from `controller.ts`
-- Define the object `slots` and provide corresponding rendering functions for slots. You can use `MotherCard.Slots` to constrain types of slots
+- Import the type namespace `ControllerCard` from `controller.ts`
+- Define the object `slots` and provide corresponding rendering functions for slots. You can use `ControllerCard.Slots` to constrain types of slots
 - Pass the defined object `slots` to the child component `Card` through `v-slots`
 
 ## How to refer to child component instance?
@@ -273,16 +273,16 @@ In Cabloy-Front, `Template Refs` is not used to refer to child component instanc
 First define a property in `controller.ts` of the parent component:
 
 ```typescript{1,4}
-import { MotherCard } from '../../component/card/controller.js';
+import { ControllerCard } from '../../component/card/controller.js';
 
-export class MotherPageComponent {
-  cardRef: MotherCard;
+export class ControllerPageComponent {
+  cardRef: ControllerCard;
 }
 ```
 
-### onMotherRef
+### onControllerRef
 
-Then listen to the `onMotherRef` event of the child component to obtain the ref value of the `controller bean`:
+Then listen to the `onControllerRef` event of the child component to obtain the ref value of the `controller bean`:
 
 ```typescript{6-8}
 export class RenderPageComponent {
@@ -290,7 +290,7 @@ export class RenderPageComponent {
     return (
       <div>
         <Card
-          onMotherRef={ref => {
+          onControllerRef={ref => {
             this.cardRef = ref;
           }}
         ></Card>

@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from '@cabloy/front';
-import type { MotherPageHome } from './controller.js';
+import type { ControllerPageHome } from './controller.js';
 
-export interface RenderPageHome extends MotherPageHome {}
+export interface RenderPageHome extends ControllerPageHome {}
 
 @Local()
 export class RenderPageHome extends BeanRenderBase {
