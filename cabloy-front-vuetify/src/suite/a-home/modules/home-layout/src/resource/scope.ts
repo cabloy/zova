@@ -3,9 +3,9 @@ import { config, Errors, locales, constants } from '../config/index.js';
 import { components } from './components.js';
 
 @Scope()
-export class ScopeModuleAHomelayout extends BeanScopeBase {}
+export class ScopeModuleHomeLayout extends BeanScopeBase {}
 
-export interface ScopeModuleAHomelayout
+export interface ScopeModuleHomeLayout
   extends TypeModuleResource<
     typeof components,
     typeof config,
@@ -16,7 +16,7 @@ export interface ScopeModuleAHomelayout
 
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
-    'home-layout': ScopeModuleAHomelayout;
+    'home-layout': ScopeModuleHomeLayout;
   }
 
   export interface IBeanScopeConfig {
