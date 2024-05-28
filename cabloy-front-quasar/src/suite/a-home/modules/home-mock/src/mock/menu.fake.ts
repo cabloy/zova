@@ -52,7 +52,7 @@ const __MenuData = [
 
 export default defineFakeRoute([
   {
-    url: '/a/homemock/getMenu',
+    url: '/home/mock/getMenu',
     method: 'get',
     response: () => {
       return {

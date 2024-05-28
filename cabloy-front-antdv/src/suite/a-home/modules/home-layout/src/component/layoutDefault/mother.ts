@@ -29,7 +29,7 @@ export class MotherLayoutDefault extends BeanMotherBase<unknown, Props, Emits, S
   }
 
   async loadMenu() {
-    const res = await this.$api.get('/a/homemock/getMenu');
+    const res = await this.$api.get('/home/mock/getMenu');
     this.menu = res.data.data;
   }
 

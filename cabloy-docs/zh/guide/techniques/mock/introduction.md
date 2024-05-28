@@ -6,7 +6,7 @@ Cabloy-Front 基于[vite-plugin-fake-server](https://github.com/condorheroblog/v
 
 Cabloy-Front 提供了一个模块`home-mock`，只需在目录`home-mock/src/mock`提供 mock 文件即可
 
-比如，有一个 API：`/a/homemock/getMenu`，提供对应的 mock 文件如下：
+比如，有一个 API：`/home/mock/getMenu`，提供对应的 mock 文件如下：
 
 `src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
 
@@ -15,7 +15,7 @@ import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
 
 export default defineFakeRoute([
   {
-    url: '/a/homemock/getMenu',
+    url: '/home/mock/getMenu',
     method: 'get',
     response: () => {
       return {

@@ -6,7 +6,7 @@ Cabloy-Front provides an out-of-the-box `Mock` mechanism based on [vite-plugin-f
 
 Cabloy-Front provides a module `home-mock`, just provide the mock files in the directory `home-mock/src/mock` as well
 
-For example, there is an API: `/a/homemock/getMenu`, which provides the corresponding mock file as follows:
+For example, there is an API: `/home/mock/getMenu`, which provides the corresponding mock file as follows:
 
 `src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
 
@@ -15,7 +15,7 @@ import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
 
 export default defineFakeRoute([
   {
-    url: '/a/homemock/getMenu',
+    url: '/home/mock/getMenu',
     method: 'get',
     response: () => {
       return {

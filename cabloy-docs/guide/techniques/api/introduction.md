@@ -19,7 +19,7 @@ export class MotherLayoutDefault {
   }
 
   async loadMenu() {
-    const res = await this.$api.get('/a/homemock/getMenu');
+    const res = await this.$api.get('/home/mock/getMenu');
     this.menu = res.data.data;
   }
 }
