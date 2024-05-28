@@ -51,7 +51,7 @@ export const routes: IModuleRoute[] = [
 
 ## meta.absolute
 
-`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`a-homepagesystem`中定义了两个绝对路由：
+`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`home-pagesystem`中定义了两个绝对路由：
 
 ```typescript
 import ErrorNotFound from './page/errorNotFound/index.vue';

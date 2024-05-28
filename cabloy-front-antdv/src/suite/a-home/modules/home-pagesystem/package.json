@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-homepagesystem",
+  "name": "cabloy-module-front-home-pagesystem",
   "version": "5.0.0",
-  "title": "a-homepagesystem",
+  "title": "home-pagesystem",
   "cabloyModule": {
     "capabilities": {
       "sync": true

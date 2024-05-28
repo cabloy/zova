@@ -21,7 +21,7 @@ Just specify which layout component to use in `Page Route`. If not specified, th
 
 ### Example: 404 page
 
-`src/suite/a-home/modules/a-homepagesystem/src/routes.ts`
+`src/suite/a-home/modules/home-pagesystem/src/routes.ts`
 
 ```typescript{7}
 export const routes: IModuleRoute[] = [

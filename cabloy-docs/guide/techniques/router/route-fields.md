@@ -51,7 +51,7 @@ export const routes: IModuleRoute[] = [
 
 ## meta.absolute
 
-`absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, two absolute routes are defined in the module `a-homepagesystem`:
+`absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, two absolute routes are defined in the module `home-pagesystem`:
 
 ```typescript
 import ErrorNotFound from './page/errorNotFound/index.vue';

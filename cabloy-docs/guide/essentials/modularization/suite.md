@@ -25,7 +25,7 @@ a-home
 │   ├── home-icon
 │   ├── home-layout
 │   ├── home-mock
-│   ├── a-homepagesystem
+│   ├── home-pagesystem
 │   ├── a-homerouter
 │   └── ...
 └── package.json
