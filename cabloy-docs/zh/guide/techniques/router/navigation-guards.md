@@ -1,12 +1,12 @@
 # 导航守卫
 
-Cabloy-Front 提供了一个模块`a-homerouter`，我们可以在这个模块中添加`导航守卫`，比如判断用户认证状态，跳转 Login 页面，等等
+Cabloy-Front 提供了一个模块`home-router`，我们可以在这个模块中添加`导航守卫`，比如判断用户认证状态，跳转 Login 页面，等等
 
 ## onRouterGuards
 
-模块`a-homerouter`提供了一个`Router` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
+模块`home-router`提供了一个`Router` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
 
-`src/suite/a-home/modules/a-homerouter/src/local/router.ts`
+`src/suite/a-home/modules/home-router/src/local/router.ts`
 
 ```typescript
 export class Router {

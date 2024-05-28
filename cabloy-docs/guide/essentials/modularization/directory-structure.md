@@ -23,7 +23,7 @@ project
 │  │    │  ├── home-layout
 │  │    │  ├── home-mock
 │  │    │  ├── home-pagesystem
-│  │    │  └── a-homerouter
+│  │    │  └── home-router
 │  └── suite-vendor
 ```
 
@@ -58,4 +58,4 @@ Cabloy-Front has planned the modules/suites so that we can start business develo
 | src/suite/a-home/modules/home-layout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
 | src/suite/a-home/modules/home-mock       | [Mock](../../techniques/mock/introduction.md)                                        |
 | src/suite/a-home/modules/home-pagesystem | [Route Fields: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
-| src/suite/a-home/modules/a-homerouter     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |
+| src/suite/a-home/modules/home-router     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |

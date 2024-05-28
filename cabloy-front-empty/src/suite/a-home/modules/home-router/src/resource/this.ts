@@ -1,4 +1,4 @@
-export const __ThisModule__ = 'a-homerouter';
+export const __ThisModule__ = 'home-router';
 export type __ThisModuleType__ = typeof __ThisModule__;
 
-export { ScopeModuleAHomerouter as ScopeModule } from './scope.js';
+export { ScopeModuleHomeRouter as ScopeModule } from './scope.js';

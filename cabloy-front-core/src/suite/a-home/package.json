@@ -10,7 +10,7 @@
     "cabloy-module-front-home-icon": "workspace:^",
     "cabloy-module-front-home-pagesystem": "workspace:^",
     "cabloy-module-front-home-layout": "workspace:^",
-    "cabloy-module-front-a-homerouter": "workspace:^",
+    "cabloy-module-front-home-router": "workspace:^",
     "cabloy-module-front-home-mock": "workspace:^",
     "cabloy-module-front-home-api": "workspace:^"
   }

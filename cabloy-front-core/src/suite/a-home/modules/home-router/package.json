@@ -1,7 +1,7 @@
 {
-  "name": "cabloy-module-front-a-homerouter",
+  "name": "cabloy-module-front-home-router",
   "version": "5.0.0",
-  "title": "a-homerouter",
+  "title": "home-router",
   "cabloyModule": {
     "capabilities": {
       "monkey": true

@@ -1,12 +1,12 @@
 # Navigation Guards
 
-Cabloy-Front provides a module `a-homerouter`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
+Cabloy-Front provides a module `home-router`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
 
 ## onRouterGuards
 
-The module `a-homerouter` provides a `Router` bean, just add custom logic directly in the `onRouterGuards` method as well
+The module `home-router` provides a `Router` bean, just add custom logic directly in the `onRouterGuards` method as well
 
-`src/suite/a-home/modules/a-homerouter/src/local/router.ts`
+`src/suite/a-home/modules/home-router/src/local/router.ts`
 
 ```typescript
 export class Router {
