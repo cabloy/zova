@@ -33,13 +33,14 @@
   "dependencies": {
     "@cabloy/front": "^5.0.61",
     "@quasar/extras": "^1.16.11",
-    "quasar": "^2.16.4",
+    "quasar": "~2.15.4",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
-    "@quasar/app-vite": "2.0.0-beta.14",
+    "@quasar/app-vite": "2.0.0-beta.11",
+    "@quasar/vite-plugin": "~1.6.0",
     "@types/node": "^20.12.12",
     "autoprefixer": "^10.4.19",
     "quasar-app-extension-cabloy": "^1.1.47",
