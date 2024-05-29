@@ -1,20 +1,20 @@
 import { ComputedRef, Ref } from 'vue';
 import { Functionable } from '../decorator/type/functionable.js';
 
-export type ExtractHook<Hook> = {
-  [Prop in keyof Hook]: Hook[Prop] extends Ref<infer RawType>
+export type ExtractComposable<Composable> = {
+  [Prop in keyof Composable]: Composable[Prop] extends Ref<infer RawType>
     ? RawType
-    : Hook[Prop] extends ComputedRef<infer RawType>
+    : Composable[Prop] extends ComputedRef<infer RawType>
       ? RawType
-      : Hook[Prop] extends Functionable
-        ? Hook[Prop]
-        : Hook[Prop] extends object
-          ? ExtractHook<Hook[Prop]>
-          : Hook[Prop];
+      : Composable[Prop] extends Functionable
+        ? Composable[Prop]
+        : Composable[Prop] extends object
+          ? ExtractComposable<Composable[Prop]>
+          : Composable[Prop];
 };
 
-export type ReturnTypeComposable<Hook extends Functionable> = Hook extends (...args: any[]) => infer R
-  ? ExtractHook<R>
+export type ReturnTypeComposable<Composable extends Functionable> = Composable extends (...args: any[]) => infer R
+  ? ExtractComposable<R>
   : any;
 
 export function useComposable<T extends Functionable>(hook: T, ...args: Parameters<T>): ReturnTypeComposable<T> {

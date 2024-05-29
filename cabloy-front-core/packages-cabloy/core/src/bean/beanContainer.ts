@@ -305,7 +305,7 @@ export class BeanContainer {
   private async _getBeanFullNameByComposableOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
     // bean hook
     if (beanComposable) {
-      return appResource.getBeanFullNameOfHook(beanComposable);
+      return appResource.getBeanFullNameOfComposable(beanComposable);
     }
     // bean options
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
@@ -380,7 +380,7 @@ export class BeanContainer {
     // create
     let beanInstance;
     if (beanComposable) {
-      beanInstance = this._createBeanHookInstance(beanComposable, args);
+      beanInstance = this._createBeanComposableInstance(beanComposable, args);
     } else {
       if (beanClass.prototype.__init__) {
         beanInstance = new beanClass();
@@ -419,7 +419,7 @@ export class BeanContainer {
     return beanInstance;
   }
 
-  private _createBeanHookInstance(beanComposable, args) {
+  private _createBeanComposableInstance(beanComposable, args) {
     return this.runWithInstanceScopeOrAppContext(function () {
       return beanComposable(...args);
     });
