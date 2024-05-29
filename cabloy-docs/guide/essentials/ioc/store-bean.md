@@ -1,6 +1,6 @@
 # Store Bean
 
-Through store bean, we can define a global state object and use it in any module. Therefore, it is no longer necessary to use `pinia`
+Through store bean, we can define a global state object and use it in any module. Therefore, it is no longer necessary to use `pinia`. If you want to use the existing `pinia store`, see: [Pinia](../../vue/pinia.md)
 
 ## Create Store Bean: userInfo
 

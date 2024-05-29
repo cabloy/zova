@@ -1,6 +1,6 @@
 # Store Bean
 
-通过 store bean 我们可以定义一个全局的状态对象，然后在任何一个模块中使用。因此，不再需要使用`pinia`
+通过 store bean 我们可以定义一个全局的状态对象，然后在任何一个模块中使用。因此，不再需要使用`pinia`。如果要使用已经存在的`pinia store`，参见：[Pinia](../../vue/pinia.md)
 
 ## 创建Store Bean: userInfo
 
