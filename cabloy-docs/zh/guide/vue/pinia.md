@@ -54,5 +54,48 @@ $ cabloy front:create:store counter --module=a-demo
 `src/suite/a-demo/modules/a-demo/src/bean/store.counter.ts`
 
 ```typescript
+import { Store } from '@cabloy/front';
+import { PiniaStoreLike, BeanPiniaStoreBase } from 'cabloy-module-front-a-pinia';
+import { useCounterStore } from './counterStore.js';
 
+export type StoreCounterLike = PiniaStoreLike<StoreCounter, typeof useCounterStore>;
+
+@Store()
+export class StoreCounter extends BeanPiniaStoreBase {
+  protected async __init__() {
+    await super.__init__(useCounterStore);
+  }
+}
 ```
+
+- line 5: 定义一个类型`StoreCounterLike`，通过此类型可以直接访问 pinia store 的属性和方法
+- line 8: 继承自基类`BeanPiniaStoreBase`
+- line 10: 调用基类的`__init__`方法创建 pinia store 的实例
+
+## 4. 使用store bean
+
+可以在任何模块使用 store bean。这里以 a-demo 模块现有的页面组件为例：
+
+`src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
+
+```typescript
+import { Local, Use } from '@cabloy/front';
+import type { StoreCounterLike } from '../../bean/store.counter.js';
+
+@Local()
+export class ControllerPageState {
+  @Use('a-demo.store.counter')
+  $$counter: StoreCounterLike;
+
+  protected async __init__() {
+    const count = this.$$counter.count;
+    const doubleCount = this.$$counter.doubleCount;
+    const name = this.$$counter.name;
+    this.$$counter.increment();
+  }
+}
+```
+
+- line 6: 使用@Use 装饰器函数，传入 store bean 的标识
+- line 7: 声明一个变量，类型为 StoreCounterLike
+- 接下来就可以直接访问$$counter 的属性和方法，有完整的 Typescript 类型提示
