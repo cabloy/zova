@@ -444,13 +444,13 @@ export class BeanContainer {
     for (const key in uses) {
       const useOptions = uses[key];
       // beanComposable
-      const targetBeanHook = useOptions.beanComposable;
+      const targetBeanComposable = useOptions.beanComposable;
       // beanClass
       let targetBeanFullName = useOptions.beanFullName;
       if (!targetBeanFullName && useOptions.beanClass) {
         targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
       }
-      const targetBeanInstance = await this._injectBeanInstanceProp(targetBeanHook, targetBeanFullName, useOptions);
+      const targetBeanInstance = await this._injectBeanInstanceProp(targetBeanComposable, targetBeanFullName, useOptions);
       if (targetBeanInstance) {
         targetBeanInstance.__v_isShallow_patch = true;
         beanInstance[key] = targetBeanInstance;
@@ -462,7 +462,7 @@ export class BeanContainer {
   }
 
   private async _injectBeanInstanceProp(
-    targetBeanHook: Functionable | undefined,
+    targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
     useOptions: IDecoratorUseOptionsBase,
   ) {
@@ -471,12 +471,12 @@ export class BeanContainer {
       return this[BeanContainerInstances][useOptions.name];
     }
     // 2. use prop
-    if (!targetBeanHook && !targetBeanFullName) {
+    if (!targetBeanComposable && !targetBeanFullName) {
       return this[BeanContainerInstances][useOptions.prop];
     }
     // 3. targetBeanFullName
     let targetOptions;
-    if (targetBeanHook) {
+    if (targetBeanComposable) {
       targetOptions = {
         containerScope: undefined,
         markReactive: undefined,
@@ -501,16 +501,16 @@ export class BeanContainer {
     if (containerScope === 'app') {
       targetInstance = await this.app.bean._getBeanSelectorInner(
         null,
-        targetBeanHook,
+        targetBeanComposable,
         targetBeanFullName,
         markReactive,
         selector,
       );
-      await this._injectBeanInstanceProp_appBean(recordProp, targetBeanHook, targetBeanFullName, targetInstance);
+      await this._injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
       targetInstance = await this._getBeanSelectorInner(
         recordProp,
-        targetBeanHook,
+        targetBeanComposable,
         targetBeanFullName,
         markReactive,
         selector,
@@ -521,7 +521,7 @@ export class BeanContainer {
         false,
         null,
         null,
-        targetBeanHook,
+        targetBeanComposable,
         targetBeanFullName,
         markReactive,
         selector,
@@ -530,14 +530,14 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private async _injectBeanInstanceProp_appBean(recordProp, targetBeanHook, _targetBeanFullName, targetInstance) {
+  private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
     if (!targetInstance) return;
     // only when ctx bean
     if (!this.ctx) return;
     // record prop
     this.__recordProp(recordProp, undefined, targetInstance, false);
     // force init
-    if (!targetBeanHook) {
+    if (!targetBeanComposable) {
       await targetInstance.__inited__.wait();
     }
   }
