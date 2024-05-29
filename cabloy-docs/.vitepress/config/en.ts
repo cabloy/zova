@@ -149,6 +149,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: 'Videos', link: 'resources/videos' },
       ],
     },
+    { text: 'Thanks', link: 'others/thanks' },
+    { text: 'License', link: 'others/license' },
   ];
 }
 

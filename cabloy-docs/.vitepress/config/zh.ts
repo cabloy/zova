@@ -149,6 +149,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '视频', link: 'resources/videos' },
       ],
     },
+    { text: '致谢', link: 'others/thanks' },
+    { text: 'License', link: 'others/license' },
   ];
 }
 
