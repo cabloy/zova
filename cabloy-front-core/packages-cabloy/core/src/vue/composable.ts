@@ -17,6 +17,6 @@ export type ReturnTypeComposable<Composable extends Functionable> = Composable e
   ? ExtractComposable<R>
   : any;
 
-export function useComposable<T extends Functionable>(hook: T, ...args: Parameters<T>): ReturnTypeComposable<T> {
-  return hook(...args) as ReturnTypeComposable<T>;
+export function useComposable<T extends Functionable>(composable: T, ...args: Parameters<T>): ReturnTypeComposable<T> {
+  return composable(...args) as ReturnTypeComposable<T>;
 }

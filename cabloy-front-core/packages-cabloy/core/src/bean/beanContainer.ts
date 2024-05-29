@@ -7,7 +7,7 @@ import { IBeanRecord, IBeanScopeRecord, IControllerData, TypeBeanScopeRecordKeys
 import { BeanBase } from './beanBase.js';
 import { BeanSimple } from './beanSimple.js';
 import { compose, composeAsync } from '@cabloy/compose';
-import { markRaw, reactive, shallowReactive, provide as hookProvide, inject as hookInject } from 'vue';
+import { markRaw, reactive, shallowReactive, provide as composableProvide, inject as composableInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
 import { IInjectRecord } from '../types/interface/inject.js';
 
@@ -68,7 +68,7 @@ export class BeanContainer {
   provide<K extends keyof IInjectRecord>(injectKey: K, value: IInjectRecord[K]) {
     if (this.ctx) {
       return this.ctx.meta.util.instanceScope(() => {
-        return hookProvide(injectKey, value as any);
+        return composableProvide(injectKey, value as any);
       });
     } else {
       return this.app.vue.provide(injectKey, value as any);
@@ -88,7 +88,7 @@ export class BeanContainer {
   ): IInjectRecord[K];
   inject(injectKey, defaultValue?, treatDefaultAsFactory?) {
     return this.runWithInstanceScopeOrAppContext(() => {
-      return hookInject(injectKey, defaultValue, treatDefaultAsFactory);
+      return composableInject(injectKey, defaultValue, treatDefaultAsFactory);
     });
   }
 
@@ -253,7 +253,7 @@ export class BeanContainer {
     markReactive?: boolean,
     ...args
   ): Promise<T> {
-    // bean hook
+    // bean composable
     if (beanComposable) {
       return await this._createBeanInstance<T>(
         record,
@@ -303,7 +303,7 @@ export class BeanContainer {
   }
 
   private async _getBeanFullNameByComposableOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
-    // bean hook
+    // bean composable
     if (beanComposable) {
       return appResource.getBeanFullNameOfComposable(beanComposable);
     }

@@ -1,5 +1,5 @@
 import { ref, watchEffect } from 'vue';
-import { useApp } from '../../../hooks/useApp.js';
+import { useApp } from '../../../composables/useApp.js';
 import { CabloyApplication } from '../../../core/index.js';
 import { IIconInfo } from './types.js';
 
