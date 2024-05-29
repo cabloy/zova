@@ -75,12 +75,12 @@ export class AppResource extends BeanSimple {
     return appMetadata.getOwnMetadata(DecoratorBeanFullName, A);
   }
 
-  getBeanFullNameOfHook(beanHook: Functionable | undefined): string | undefined {
-    if (!beanHook) return;
-    if (!beanHook[DecoratorBeanFullNameOfHook]) {
-      beanHook[DecoratorBeanFullNameOfHook] = `useComposable.${uuid()}`;
+  getBeanFullNameOfHook(beanComposable: Functionable | undefined): string | undefined {
+    if (!beanComposable) return;
+    if (!beanComposable[DecoratorBeanFullNameOfHook]) {
+      beanComposable[DecoratorBeanFullNameOfHook] = `useComposable.${uuid()}`;
     }
-    return beanHook[DecoratorBeanFullNameOfHook];
+    return beanComposable[DecoratorBeanFullNameOfHook];
   }
 
   getBean<T>(A: Constructable<T>): IDecoratorBeanOptionsBase<T> | undefined;

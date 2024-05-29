@@ -9,7 +9,7 @@ export interface IDecoratorUseOptionsBase<T = unknown> {
   beanFullName?: string;
   name?: string;
   beanClass?: Constructable<T>;
-  beanHook?: Functionable;
+  beanComposable?: Functionable;
   /** such as: moduleScope */
   selector?: string;
   containerScope?: ContainerScope;
@@ -25,7 +25,7 @@ export interface IDecoratorUseOptions {
 }
 
 export interface IDecoratorUseComposableOptions {
-  beanHook?: Functionable;
+  beanComposable?: Functionable;
   name?: string;
   selector?: string;
   containerScope?: ContainerScope;

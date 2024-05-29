@@ -179,13 +179,13 @@ export class BeanContainer {
 
   async _getBeanSelectorInner<T>(
     recordProp: MetadataKey | null,
-    beanHook: Functionable | undefined,
+    beanComposable: Functionable | undefined,
     beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
     selector?: string,
   ): Promise<T> {
     // fullName
-    const fullName = await this._getBeanFullNameByHookOrClass(beanHook, beanFullName);
+    const fullName = await this._getBeanFullNameByHookOrClass(beanComposable, beanFullName);
     if (!fullName) {
       // not found
       return null!;
@@ -196,9 +196,9 @@ export class BeanContainer {
     const key = !isSelectorValid ? fullName : `${fullName}#${selector}`;
     if (this[BeanContainerInstances][key] === undefined) {
       if (isSelectorValid) {
-        await this._newBeanInner(true, recordProp, null, beanHook, fullName, markReactive, selector);
+        await this._newBeanInner(true, recordProp, null, beanComposable, fullName, markReactive, selector);
       } else {
-        await this._newBeanInner(true, recordProp, null, beanHook, fullName, markReactive);
+        await this._newBeanInner(true, recordProp, null, beanComposable, fullName, markReactive);
       }
     }
     return this[BeanContainerInstances][key] as T;
@@ -248,18 +248,18 @@ export class BeanContainer {
     record: boolean,
     recordProp: MetadataKey | null,
     controllerData: any,
-    beanHook: Functionable | undefined,
+    beanComposable: Functionable | undefined,
     beanFullName: Constructable<T> | string | undefined,
     markReactive?: boolean,
     ...args
   ): Promise<T> {
     // bean hook
-    if (beanHook) {
+    if (beanComposable) {
       return await this._createBeanInstance<T>(
         record,
         recordProp,
         controllerData,
-        beanHook,
+        beanComposable,
         undefined,
         undefined,
         args,
@@ -302,10 +302,10 @@ export class BeanContainer {
     );
   }
 
-  private async _getBeanFullNameByHookOrClass(beanHook: Functionable | undefined, beanFullName: any) {
+  private async _getBeanFullNameByHookOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
     // bean hook
-    if (beanHook) {
-      return appResource.getBeanFullNameOfHook(beanHook);
+    if (beanComposable) {
+      return appResource.getBeanFullNameOfHook(beanComposable);
     }
     // bean options
     const beanOptions = await this._getBeanOptionsForce(beanFullName);
@@ -336,7 +336,7 @@ export class BeanContainer {
     record: boolean,
     recordProp: MetadataKey | null,
     controllerData: IControllerData,
-    beanHook: Functionable | undefined,
+    beanComposable: Functionable | undefined,
     beanFullName: string | undefined,
     beanClass: Constructable<T> | undefined,
     args: any[],
@@ -344,7 +344,7 @@ export class BeanContainer {
     markReactive: boolean | undefined,
   ): Promise<T> {
     // prepare
-    const beanInstance = this._prepareBeanInstance(beanHook, beanFullName, beanClass, args, aop, markReactive);
+    const beanInstance = this._prepareBeanInstance(beanComposable, beanFullName, beanClass, args, aop, markReactive);
     // special for controller
     if (controllerData) {
       beanInstance.__initControllerData(controllerData);
@@ -352,7 +352,7 @@ export class BeanContainer {
     // record
     if (record) {
       // fullName
-      const fullName = await this._getBeanFullNameByHookOrClass(beanHook, beanFullName);
+      const fullName = await this._getBeanFullNameByHookOrClass(beanComposable, beanFullName);
       if (fullName) {
         this[BeanContainerInstances][fullName] = beanInstance;
       }
@@ -362,18 +362,18 @@ export class BeanContainer {
       }
     }
     // init
-    if (!beanHook) {
+    if (!beanComposable) {
       await this._initBeanInstance(beanFullName, beanInstance, args);
     }
     // ok
     return beanInstance;
   }
 
-  private _prepareBeanInstance(beanHook: Functionable | undefined, beanFullName, beanClass, args, aop, markReactive) {
+  private _prepareBeanInstance(beanComposable: Functionable | undefined, beanFullName, beanClass, args, aop, markReactive) {
     // create
     let beanInstance;
-    if (beanHook) {
-      beanInstance = this._createBeanHookInstance(beanHook, args);
+    if (beanComposable) {
+      beanInstance = this._createBeanHookInstance(beanComposable, args);
     } else {
       if (beanClass.prototype.__init__) {
         beanInstance = new beanClass();
@@ -412,9 +412,9 @@ export class BeanContainer {
     return beanInstance;
   }
 
-  private _createBeanHookInstance(beanHook, args) {
+  private _createBeanHookInstance(beanComposable, args) {
     return this.runWithInstanceScopeOrAppContext(function () {
-      return beanHook(...args);
+      return beanComposable(...args);
     });
   }
 
@@ -443,8 +443,8 @@ export class BeanContainer {
     if (!uses) return;
     for (const key in uses) {
       const useOptions = uses[key];
-      // beanHook
-      const targetBeanHook = useOptions.beanHook;
+      // beanComposable
+      const targetBeanHook = useOptions.beanComposable;
       // beanClass
       let targetBeanFullName = useOptions.beanFullName;
       if (!targetBeanFullName && useOptions.beanClass) {

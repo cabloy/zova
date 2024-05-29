@@ -5,7 +5,7 @@ import { Functionable, IDecoratorUseComposableOptions } from '../index.js';
 export function UseComposable(options: IDecoratorUseComposableOptions | Functionable): PropertyDecorator {
   return function (target: object, prop: MetadataKey) {
     if (typeof options === 'function') {
-      options = { beanHook: options } as IDecoratorUseComposableOptions;
+      options = { beanComposable: options } as IDecoratorUseComposableOptions;
     }
     // record
     appResource.addUse(target, {
