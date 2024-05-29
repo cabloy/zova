@@ -24,7 +24,7 @@ export interface IDecoratorUseOptions {
   markReactive?: boolean;
 }
 
-export interface IDecoratorUseHookOptions {
+export interface IDecoratorUseComposableOptions {
   beanHook?: Functionable;
   name?: string;
   selector?: string;
