@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-quasar",
-  "version": "5.0.79",
+  "version": "5.0.80",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
     "url": "https://github.com/cabloy/cabloy-front/issues"
   },
   "dependencies": {
-    "@cabloy/front": "^5.0.59",
+    "@cabloy/front": "^5.0.60",
     "@quasar/extras": "^1.16.11",
     "quasar": "^2.16.4",
     "vue": "^3.4.27",
