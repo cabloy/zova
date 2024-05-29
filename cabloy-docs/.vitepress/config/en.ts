@@ -14,7 +14,7 @@ export const en = defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2016-present zhennann',
+      copyright: 'Copyright © 2016-present CabloyJS',
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cabloy/cabloy-front' },

@@ -14,7 +14,7 @@ export const zh = defineConfig({
     },
     footer: {
       message: '基于 MIT 许可发布',
-      copyright: `版权所有 © 2016-present 濮水大叔`,
+      copyright: `版权所有 © 2016-present CabloyJS`,
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cabloy/cabloy-front' },

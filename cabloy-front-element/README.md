@@ -121,4 +121,4 @@ export class RenderPageCounter {
 
 [MIT](./LICENSE)
 
-Copyright (c) 2016-present, zhennann
+Copyright (c) 2016-present, CabloyJS
