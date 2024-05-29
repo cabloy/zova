@@ -185,7 +185,7 @@ export class BeanContainer {
     selector?: string,
   ): Promise<T> {
     // fullName
-    const fullName = await this._getBeanFullNameByHookOrClass(beanComposable, beanFullName);
+    const fullName = await this._getBeanFullNameByComposableOrClass(beanComposable, beanFullName);
     if (!fullName) {
       // not found
       return null!;
@@ -302,7 +302,7 @@ export class BeanContainer {
     );
   }
 
-  private async _getBeanFullNameByHookOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
+  private async _getBeanFullNameByComposableOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
     // bean hook
     if (beanComposable) {
       return appResource.getBeanFullNameOfHook(beanComposable);
@@ -352,7 +352,7 @@ export class BeanContainer {
     // record
     if (record) {
       // fullName
-      const fullName = await this._getBeanFullNameByHookOrClass(beanComposable, beanFullName);
+      const fullName = await this._getBeanFullNameByComposableOrClass(beanComposable, beanFullName);
       if (fullName) {
         this[BeanContainerInstances][fullName] = beanInstance;
       }
@@ -369,7 +369,14 @@ export class BeanContainer {
     return beanInstance;
   }
 
-  private _prepareBeanInstance(beanComposable: Functionable | undefined, beanFullName, beanClass, args, aop, markReactive) {
+  private _prepareBeanInstance(
+    beanComposable: Functionable | undefined,
+    beanFullName,
+    beanClass,
+    args,
+    aop,
+    markReactive,
+  ) {
     // create
     let beanInstance;
     if (beanComposable) {
@@ -450,7 +457,11 @@ export class BeanContainer {
       if (!targetBeanFullName && useOptions.beanClass) {
         targetBeanFullName = appResource.getBeanFullName(useOptions.beanClass);
       }
-      const targetBeanInstance = await this._injectBeanInstanceProp(targetBeanComposable, targetBeanFullName, useOptions);
+      const targetBeanInstance = await this._injectBeanInstanceProp(
+        targetBeanComposable,
+        targetBeanFullName,
+        useOptions,
+      );
       if (targetBeanInstance) {
         targetBeanInstance.__v_isShallow_patch = true;
         beanInstance[key] = targetBeanInstance;
