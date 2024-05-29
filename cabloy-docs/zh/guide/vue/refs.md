@@ -82,7 +82,7 @@ export class RenderPageComponent {
 
 ## Controller Ref {#controller-ref}
 
-对于使用了 ioc 容器的 Vue 组件，不能使用`Template Ref`，而是直接引用 Vue 组件对应的`controller bean`
+对于使用了 ioc 容器的 Vue 组件，不能使用`Template Ref`，而是直接引用 Vue 组件对应的`controller bean`实例
 
 ### 1. 声明变量
 
@@ -98,9 +98,11 @@ export class ControllerPageComponent {
 
 ### 2. onControllerRef
 
-然后监听子组件的`onControllerRef`事件获取到`controller bean`的引用值：
+然后监听子组件的`onControllerRef`事件获取到`controller bean`实例的引用值：
 
 ```typescript
+import Card from '../../component/card/index.vue';
+
 export class RenderPageComponent {
   render() {
     return (
