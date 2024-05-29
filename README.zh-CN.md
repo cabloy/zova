@@ -128,6 +128,8 @@ export class RenderPageCounter {
 - [Twitter](https://twitter.com/zhennann2024)
 - [微信](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
 
+![微信](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
+
 ## 致谢
 
 - 向 Angular 表达感谢，Angular 激发了在 Vue 中实现 ioc 容器的灵感
