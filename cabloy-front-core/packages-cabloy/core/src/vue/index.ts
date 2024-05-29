@@ -1,2 +1,2 @@
+export * from './composable.js';
 export * from './computed.js';
-export * from './hook.js';

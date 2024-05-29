@@ -78,7 +78,7 @@ export class AppResource extends BeanSimple {
   getBeanFullNameOfHook(beanHook: Functionable | undefined): string | undefined {
     if (!beanHook) return;
     if (!beanHook[DecoratorBeanFullNameOfHook]) {
-      beanHook[DecoratorBeanFullNameOfHook] = `useHook.${uuid()}`;
+      beanHook[DecoratorBeanFullNameOfHook] = `useComposable.${uuid()}`;
     }
     return beanHook[DecoratorBeanFullNameOfHook];
   }
