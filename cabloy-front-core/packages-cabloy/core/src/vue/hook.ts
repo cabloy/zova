@@ -13,8 +13,10 @@ export type ExtractHook<Hook> = {
           : Hook[Prop];
 };
 
-export type ReturnTypeHook<Hook extends Functionable> = Hook extends (...args: any[]) => infer R ? ExtractHook<R> : any;
+export type ReturnTypeComposable<Hook extends Functionable> = Hook extends (...args: any[]) => infer R
+  ? ExtractHook<R>
+  : any;
 
-export function useHook<T extends Functionable>(hook: T, ...args: Parameters<T>): ReturnTypeHook<T> {
-  return hook(...args) as ReturnTypeHook<T>;
+export function useHook<T extends Functionable>(hook: T, ...args: Parameters<T>): ReturnTypeComposable<T> {
+  return hook(...args) as ReturnTypeComposable<T>;
 }
