@@ -40,7 +40,9 @@ export class RenderPageComponent {
 
 - 通过回调函数接收 ref 参数，赋值给 inputRef
 
-### 2. Html Element
+### 2. Vue 组件（没有使用 ioc 容器）
+
+以 quasar 的 QBtn 组件为例
 
 ```typescript
 @Local()
@@ -78,7 +80,7 @@ export class RenderPageComponent {
 
 ## Controller Ref {#controller-ref}
 
-如果是使用了 ioc 容器的 Vue 组件，不能使用`Template Ref`，而是直接引用 Vue 组件对应的`controller bean`
+对于使用了 ioc 容器的 Vue 组件，不能使用`Template Ref`，而是直接引用 Vue 组件对应的`controller bean`
 
 ### 1. 声明变量
 
