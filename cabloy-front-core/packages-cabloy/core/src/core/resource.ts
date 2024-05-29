@@ -13,7 +13,7 @@ import { uuid } from '../utils/uuid.js';
 
 export const DecoratorBeanFullName = Symbol.for('Decorator#BeanFullName');
 export const DecoratorUse = Symbol.for('Decorator#Use');
-export const DecoratorBeanFullNameOfHook = Symbol.for('Decorator#BeanFullNameOfHook');
+export const DecoratorBeanFullNameOfComposable = Symbol.for('Decorator#BeanFullNameOfHook');
 
 export class AppResource extends BeanSimple {
   beans: Record<string, IDecoratorBeanOptionsBase> = {};
@@ -77,10 +77,10 @@ export class AppResource extends BeanSimple {
 
   getBeanFullNameOfHook(beanComposable: Functionable | undefined): string | undefined {
     if (!beanComposable) return;
-    if (!beanComposable[DecoratorBeanFullNameOfHook]) {
-      beanComposable[DecoratorBeanFullNameOfHook] = `useComposable.${uuid()}`;
+    if (!beanComposable[DecoratorBeanFullNameOfComposable]) {
+      beanComposable[DecoratorBeanFullNameOfComposable] = `useComposable.${uuid()}`;
     }
-    return beanComposable[DecoratorBeanFullNameOfHook];
+    return beanComposable[DecoratorBeanFullNameOfComposable];
   }
 
   getBean<T>(A: Constructable<T>): IDecoratorBeanOptionsBase<T> | undefined;
