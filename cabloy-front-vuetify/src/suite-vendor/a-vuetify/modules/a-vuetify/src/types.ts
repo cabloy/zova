@@ -1,13 +1,13 @@
-import { ExtractHook } from '@cabloy/front';
+import { ExtractComposable } from '@cabloy/front';
 import { DateInstance, DefaultsInstance, DisplayInstance, LocaleInstance, ThemeInstance } from 'vuetify';
 
 export interface VuetifyGlobal {
-  defaults: ExtractHook<DefaultsInstance>;
-  display: ExtractHook<DisplayInstance>;
-  theme: ExtractHook<ThemeInstance>;
+  defaults: ExtractComposable<DefaultsInstance>;
+  display: ExtractComposable<DisplayInstance>;
+  theme: ExtractComposable<ThemeInstance>;
   icons: Record<string, any>;
-  locale: ExtractHook<LocaleInstance>;
-  date: ExtractHook<DateInstance>;
+  locale: ExtractComposable<LocaleInstance>;
+  date: ExtractComposable<DateInstance>;
 }
 
 declare module '@cabloy/front' {
