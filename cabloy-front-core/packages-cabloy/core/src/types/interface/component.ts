@@ -6,15 +6,14 @@ declare module 'vue' {
       global?: boolean;
     };
   }
+
+  export interface AllowedComponentProps {
+    onControllerRef?(controller: any): void; // not use unknown
+  }
 }
 
 declare module 'vue/jsx-runtime' {
   namespace JSX {
-    export interface IntrinsicAttributes {
-      onControllerRef?(controller: any): void;
-      // see also: @vue/runtime-dom: HTMLAttributes
-      class?: any;
-      onClick?: (evt: Event) => void;
-    }
+    export interface IntrinsicAttributes {}
   }
 }
