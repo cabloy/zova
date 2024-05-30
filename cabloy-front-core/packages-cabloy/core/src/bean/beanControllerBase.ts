@@ -29,7 +29,15 @@ export class BeanControllerBase<
     this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
   }
 
-  protected $useModel<K extends keyof Props>(name: K, options?: DefineModelOptions<Props[K]>): Props[K] {
-    return useModel(this.$props as any, name, options) as unknown as Props[K];
+  // @ts-ignore ignore
+  protected $useModel(options?: DefineModelOptions<Props['modelValue']>): Props['modelValue'];
+  protected $useModel<K extends keyof Props>(name: K, options?: DefineModelOptions<Props[K]>): Props[K];
+  protected $useModel(name?, options?) {
+    if (typeof name === 'object') {
+      options = name;
+      name = 'modelValue';
+    }
+    if (!name) name = 'modelValue';
+    return useModel(this.$props as any, name, options);
   }
 }
