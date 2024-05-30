@@ -22,5 +22,5 @@ export interface IControllerData {
   context: IControllerDataContext;
 }
 
-export const BeanControllerIdentifier = '$$controller';
-export const BeanRenderIdentifier = '$$render';
+export const BeanControllerIdentifier = '$$c';
+export const BeanRenderIdentifier = '$$r';
