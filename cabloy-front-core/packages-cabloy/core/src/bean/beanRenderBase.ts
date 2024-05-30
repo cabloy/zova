@@ -1,11 +1,12 @@
 import { Cast } from '../types/utils/cast.js';
 import { BeanBase } from './beanBase.js';
+import { BeanControllerIdentifier } from './type.js';
 
 const SymbolController = Symbol('SymbolController');
 
 export class BeanRenderBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
   private get [SymbolController]() {
-    return this.bean._getBeanSyncOnly('$$controller');
+    return this.bean._getBeanSyncOnly(BeanControllerIdentifier);
   }
 
   render() {

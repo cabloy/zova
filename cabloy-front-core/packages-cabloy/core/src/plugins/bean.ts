@@ -1,6 +1,7 @@
 import { App } from 'vue';
 import { CabloyContext } from '../core/index.js';
 import { BeanRenderBase } from '../bean/beanRenderBase.js';
+import { BeanRenderIdentifier } from '../bean/type.js';
 
 export const PluginBean = {
   install(app: App) {
@@ -15,7 +16,7 @@ export const PluginBean = {
           if (!ctx.meta.state.inited.state) {
             return self.__bean_render_original.call(this, ...args);
           }
-          const render: BeanRenderBase = ctx.bean._getBeanSyncOnly('$$render');
+          const render: BeanRenderBase = ctx.bean._getBeanSyncOnly(BeanRenderIdentifier);
           if (!render) {
             throw new Error('render bean not found');
           }

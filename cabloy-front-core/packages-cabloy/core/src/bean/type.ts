@@ -21,3 +21,6 @@ export interface IControllerData {
   props?: unknown;
   context: IControllerDataContext;
 }
+
+export const BeanControllerIdentifier = '$$controller';
+export const BeanRenderIdentifier = '$$render';

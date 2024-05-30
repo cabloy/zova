@@ -2,7 +2,7 @@ import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, 
 import { queuePostFlushCb } from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { CabloyContext } from '../core/context/index.js';
-import { IBeanRecord, IControllerData } from '../bean/type.js';
+import { BeanControllerIdentifier, BeanRenderIdentifier, IBeanRecord, IControllerData } from '../bean/type.js';
 
 export function useControllerPage<M, R>(
   controllerBeanFullName: Constructable<M>,
@@ -70,15 +70,22 @@ function _useController<M>(
   ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
   // controller
   onMounted(async () => {
-    await ctx.bean._newBeanInner(true, '$$controller', controllerData, undefined, controllerBeanFullName, true);
+    await ctx.bean._newBeanInner(
+      true,
+      BeanControllerIdentifier,
+      controllerData,
+      undefined,
+      controllerBeanFullName,
+      true,
+    );
     if (renderBeanFullName) {
-      await ctx.bean._newBeanInner(true, '$$render', undefined, undefined, renderBeanFullName, true);
+      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
     }
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
       queuePostFlushCb(() => {
         ctx.meta.state.mounted.touch();
-        const controller = ctx.bean._getBeanSyncOnly('$$controller');
+        const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier);
         // instanceScope useless for emit, because emiter and receiver not the same instance
         ctx.instance.emit('controllerRef', controller);
       });
