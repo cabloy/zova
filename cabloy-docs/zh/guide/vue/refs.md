@@ -9,8 +9,9 @@
 以 input element 为例：
 
 ```typescript
-@Local()
-export class ControllerPageComponent extends BeanControllerPageBase {
+import { onControllerMounted } from '@cabloy/front';
+
+export class ControllerPageComponent {
   inputRef: HTMLInputElement | null;
 
   protected async __init__() {
@@ -47,8 +48,7 @@ export class RenderPageComponent {
 以 quasar 的 QBtn 组件为例：
 
 ```typescript
-@Local()
-export class ControllerPageComponent extends BeanControllerPageBase {
+export class ControllerPageComponent {
   btnRef: InstanceType<typeof QBtn> | null;
 
   protected async __init__() {

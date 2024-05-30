@@ -9,8 +9,9 @@ If it is an Html Element or a regular Vue component (without using an ioc contai
 Take `input` element as an example:
 
 ```typescript
-@Local()
-export class ControllerPageComponent extends BeanControllerPageBase {
+import { onControllerMounted } from '@cabloy/front';
+
+export class ControllerPageComponent {
   inputRef: HTMLInputElement | null;
 
   protected async __init__() {
@@ -47,8 +48,7 @@ export class RenderPageComponent {
 Take quasar's `QBtn` component as an example:
 
 ```typescript
-@Local()
-export class ControllerPageComponent extends BeanControllerPageBase {
+export class ControllerPageComponent {
   btnRef: InstanceType<typeof QBtn> | null;
 
   protected async __init__() {
