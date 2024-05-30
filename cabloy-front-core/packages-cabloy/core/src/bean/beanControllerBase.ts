@@ -1,8 +1,13 @@
-import { markRaw } from 'vue';
+import { markRaw, useModel } from 'vue';
 import { BeanBase } from './beanBase.js';
 import { IControllerData } from './type.js';
 
 type Data = Record<string, unknown>;
+
+type DefineModelOptions<T = any> = {
+  get?: (v: T) => any;
+  set?: (v: T) => any;
+};
 
 export class BeanControllerBase<
   TScopeModule = unknown,
@@ -22,5 +27,9 @@ export class BeanControllerBase<
     this.$slots = (controllerData.context.slots ? markRaw(controllerData.context.slots) : undefined) as Slots;
     this.$attrs = (controllerData.context.attrs ? markRaw(controllerData.context.attrs) : undefined) as Data;
     this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
+  }
+
+  protected $useModel<K extends keyof Props>(name: K, options?: DefineModelOptions<Props[K]>): Props[K] {
+    return useModel(this.$props as any, name, options) as unknown as Props[K];
   }
 }
