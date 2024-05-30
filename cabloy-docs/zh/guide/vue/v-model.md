@@ -77,3 +77,63 @@ export class RenderPageParent {
 ```
 
 - 直接使用`v-model`绑定变量即可
+
+## v-model 的参数
+
+`modelValue`是默认的 model 参数，我们也可以指定其他 model 参数
+
+`child/controller.ts`
+
+```typescript
+export interface Props {
+  title?: string;
+}
+
+export type Emits = {
+  (e: 'update:title', value?: string);
+};
+
+export class ControllerChild {
+  modelTitle?: string;
+
+  protected async __init__() {
+    this.modelTitle = this.$useModel('title');
+  }
+}
+```
+
+`child/render.tsx`
+
+```typescript{5,8}
+export class RenderChild {
+  render() {
+    return (
+      <div>
+        <input v-model={this.modelTitle} />
+      </div>
+    );
+  }
+}
+```
+
+`parent/controller.ts`
+
+```typescript
+export class ControllerPageParent {
+  title?: string;
+}
+```
+
+`parent/render.ts`
+
+```typescript
+export class RenderPageParent {
+  render() {
+    return (
+      <div>
+        <Child v-model:title={this.title}></Child>
+      </div>
+    );
+  }
+}
+```
