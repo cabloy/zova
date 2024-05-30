@@ -78,7 +78,7 @@ export class RenderPageParent {
 
 - 直接使用`v-model`绑定变量即可
 
-## v-model 的参数
+## v-model参数
 
 `modelValue`是默认的 model 参数，我们也可以指定其他 model 参数
 
@@ -104,7 +104,7 @@ export class ControllerChild {
 
 `child/render.tsx`
 
-```typescript{5,8}
+```typescript
 export class RenderChild {
   render() {
     return (
@@ -137,3 +137,5 @@ export class RenderPageParent {
   }
 }
 ```
+
+## v-model参数
