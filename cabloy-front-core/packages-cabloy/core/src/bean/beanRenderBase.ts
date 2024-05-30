@@ -5,7 +5,7 @@ import { BeanControllerIdentifier } from './type.js';
 const SymbolController = Symbol('SymbolController');
 
 export class BeanRenderBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
-  private get [SymbolController]() {
+  private get [SymbolController](): unknown | undefined {
     return this.bean._getBeanSyncOnly(BeanControllerIdentifier);
   }
 
@@ -14,10 +14,14 @@ export class BeanRenderBase<TScopeModule = unknown> extends BeanBase<TScopeModul
   }
 
   protected __get__(prop) {
-    return Cast(this[SymbolController])[prop];
+    const controller = Cast(this[SymbolController]);
+    return controller?.[prop];
   }
 
   protected __set__(prop, value) {
-    Cast(this[SymbolController])[prop] = value;
+    const controller = Cast(this[SymbolController]);
+    if (controller) {
+      controller[prop] = value;
+    }
   }
 }
