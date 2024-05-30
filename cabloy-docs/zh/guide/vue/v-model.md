@@ -126,7 +126,7 @@ export class ControllerPageParent {
 
 `parent/render.ts`
 
-```typescript
+```typescript{5}
 export class RenderPageParent {
   render() {
     return (
@@ -138,4 +138,76 @@ export class RenderPageParent {
 }
 ```
 
-## v-model参数
+## v-model修饰符
+
+v-model 支持修饰符。我们来创建一个自定义的修饰符 capitalize，它会自动将 v-model 绑定值的首字母转为大写：
+
+`child/controller.ts`
+
+```typescript{3-5,18}
+export interface Props {
+  title?: string;
+  titleModifiers?: {
+    capitalize: boolean;
+  };
+}
+
+export type Emits = {
+  (e: 'update:title', value?: string);
+};
+
+export class ControllerChild {
+  modelTitle?: string;
+
+  protected async __init__() {
+    this.modelTitle = this.$useModel('title', {
+      set: value => {
+        if (this.$props.titleModifiers?.capitalize) {
+          if (!value) return value;
+          return value.charAt(0).toUpperCase() + value.slice(1);
+        }
+        return value;
+      },
+    });
+  }
+}
+```
+
+- 添加 Prop `titleModifiers`，并且定义一个修饰符`capitalize`
+- 调用`$useModel`方法时传入 set 选项。在 set 选项中判断`capitalize`的值对`value`做相应的处理
+
+`child/render.tsx`
+
+```typescript
+export class RenderChild {
+  render() {
+    return (
+      <div>
+        <input v-model={this.modelTitle} />
+      </div>
+    );
+  }
+}
+```
+
+`parent/controller.ts`
+
+```typescript
+export class ControllerPageParent {
+  title?: string;
+}
+```
+
+`parent/render.ts`
+
+```typescript{5}
+export class RenderPageParent {
+  render() {
+    return (
+      <div>
+        <Child v-model:title_capitalize={this.title}></Child>
+      </div>
+    );
+  }
+}
+```
