@@ -93,6 +93,7 @@ function _useController<M>(
   });
   // dispose
   onBeforeUnmount(() => {
+    ctx.instance.emit('controllerRef', null);
     ctx.bean.dispose();
   });
   onUnmounted(() => {
