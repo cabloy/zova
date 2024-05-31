@@ -11,8 +11,9 @@ const __snippet_pagePathSchemas = `'/<%=argv.moduleInfo.pid%>/<%=argv.moduleInfo
 
 module.exports = {
   file: 'src/resource/pages.ts',
-  init: `// import { TypePageParamsQuery } from "@cabloy/front";
-declare module "@cabloy/front" {
+  init: `// import { TypePageParamsQuery } from '@cabloy/front';
+import '@cabloy/front';
+declare module '@cabloy/front' {
   export interface IPagePathRecord {}
   export interface IPageNameRecord {
     // '<%=argv.moduleInfo.relativeName%>:page-name': TypePageParamsQuery<NSControllerPagePageName.QueryInput, NSControllerPagePageName.ParamsInput>;
@@ -34,7 +35,7 @@ export const pageNameSchemas = {
     ast.before(code);
     // import
     code = await cli.template.renderContent({ content: __snippet_import });
-    ast.find("declare module '@cabloy/front'").before(code);
+    ast.find("import '@cabloy/front'").before(code);
     // IPagePathRecord
     code = await cli.template.renderContent({ content: __snippet_iPagePathRecord });
     ast.replace('export interface IPagePathRecord {$$$0}', `export interface IPagePathRecord {$$$0 \n ${code}}`);

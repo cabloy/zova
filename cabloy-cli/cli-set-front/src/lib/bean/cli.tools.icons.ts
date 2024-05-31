@@ -79,7 +79,8 @@ export class CliToolsIcons extends BeanCliBase {
         groupsFrontExport.push(`'${recordId}': true;`);
       }
     }
-    const jsContent = `declare module '@cabloy/front' {
+    const jsContent = `import '@cabloy/front';
+  declare module '@cabloy/front' {
   export interface IIconRecord {
     ${groupsFrontExport.join('\n    ').trim()}
   }

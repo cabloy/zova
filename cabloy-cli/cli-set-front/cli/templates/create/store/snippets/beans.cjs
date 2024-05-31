@@ -1,4 +1,5 @@
-const __snippet_export = "export * from '../bean/<%=argv.nameMeta.directory?argv.nameMeta.directory+'/':''%><%=argv.sceneName%>.<%=argv.nameMeta.full%>.js';\n";
+const __snippet_export =
+  "export * from '../bean/<%=argv.nameMeta.directory?argv.nameMeta.directory+'/':''%><%=argv.sceneName%>.<%=argv.nameMeta.full%>.js';\n";
 const __snippet_import =
   "import { <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> } from '../bean/<%=argv.nameMeta.directory?argv.nameMeta.directory+'/':''%><%=argv.sceneName%>.<%=argv.nameMeta.full%>.js';\n";
 const __snippet_interface =
@@ -12,7 +13,7 @@ module.exports = {
     ast.before(code);
     // import
     code = await cli.template.renderContent({ content: __snippet_import });
-    ast.find("declare module '@cabloy/front'").before(code);
+    ast.find("import '@cabloy/front'").before(code);
     // interface
     code = await cli.template.renderContent({ content: __snippet_interface });
     ast.replace('export interface IBeanRecord {$$$0}', `export interface IBeanRecord {$$$0 ${code}}`);
