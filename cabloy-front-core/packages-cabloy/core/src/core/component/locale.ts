@@ -13,7 +13,7 @@ export class AppLocale extends BeanSimple {
   public localeModules: TypeModuleResourceLocaleModules = {};
 
   get current() {
-    return this[SymbolLocaleCurrent] || this.app.config.locale.default;
+    return this[SymbolLocaleCurrent] || this.app.config.base.locale;
   }
 
   set current(value) {

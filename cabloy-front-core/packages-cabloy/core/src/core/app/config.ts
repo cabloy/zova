@@ -20,9 +20,6 @@ export const configDefault = {
       empty: 'home-layout:layoutEmpty',
     },
   },
-  locale: {
-    default: 'en-us',
-  },
   locales: {
     'en-us': 'English',
     'zh-cn': 'Chinese',
@@ -45,10 +42,7 @@ export type CabloyConfig = {
     defaultModule: string;
   };
   layout: {};
-  locale: {
-    default: string;
-  };
-  locales: Record<string, string>;
+  locales: Record<keyof ILocalInfos, string>;
   modules: IBeanScopeConfig;
 } & typeof configDefault;
 
