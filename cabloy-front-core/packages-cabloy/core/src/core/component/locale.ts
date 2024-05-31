@@ -4,20 +4,20 @@ import { TypeModuleResourceLocaleModules, TypeModuleResourceLocales } from '../.
 import { ILocalInfos, IModuleLocale, IModuleLocaleText } from '../../bean/resource/locale/type.js';
 import { CabloyLocaleOptionalMap } from '../app/locale.js';
 
-const SymbolLocale = Symbol('SymbolLocale');
+const SymbolLocaleCurrent = Symbol('SymbolLocaleCurrent');
 
 export class AppLocale extends BeanSimple {
-  private [SymbolLocale]: string;
+  private [SymbolLocaleCurrent]: string;
   /** @internal */
   public locales: TypeModuleResourceLocales = {};
   public localeModules: TypeModuleResourceLocaleModules = {};
 
-  get locale() {
-    return this[SymbolLocale];
+  get current() {
+    return this[SymbolLocaleCurrent] || this.app.config.locale.default;
   }
 
-  set locale(value) {
-    this[SymbolLocale] = value;
+  set current(value) {
+    this[SymbolLocaleCurrent] = value;
   }
 
   /** @internal */
@@ -83,7 +83,7 @@ export class AppLocale extends BeanSimple {
     return localeutil.getLocaleText(
       moduleScope ? this.localeModules[moduleScope] : undefined,
       this.locales,
-      locale || this.locale,
+      locale || this.current,
       key,
       ...args,
     );
