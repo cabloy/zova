@@ -4,13 +4,13 @@
  **/
 {
   "__init__": {
-    "scope": "typescript",
+    "scope": "typescript,typescriptreact",
     "prefix": "init",
     "body": ["protected async __init__() {", "  $0", "}"],
     "description": "__init__",
   },
   "__dispose__": {
-    "scope": "typescript",
+    "scope": "typescript,typescriptreact",
     "prefix": "dispose",
     "body": ["protected __dispose__() {", "  $0", "}"],
     "description": "__dispose__",
