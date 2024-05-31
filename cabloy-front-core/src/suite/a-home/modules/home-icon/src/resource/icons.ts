@@ -1,3 +1,4 @@
+import '@cabloy/front';
 declare module '@cabloy/front' {
   export interface IIconRecord {
     ':auth:dingtalk-square': true;

@@ -14,6 +14,7 @@ export interface ScopeModuleAAntdv
     typeof constants
   > {}
 
+import '@cabloy/front';
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
     'a-antdv': ScopeModuleAAntdv;

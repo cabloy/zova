@@ -6,6 +6,7 @@ export type Lazy<T> = () => Promise<T>;
 export type IModuleRouteComponent = RouteComponent | Lazy<RouteComponent>;
 export type IModuleRoute = RouteRecordRaw;
 
+import 'vue-router';
 declare module 'vue-router' {
   interface RouteMeta {
     absolute?: boolean;

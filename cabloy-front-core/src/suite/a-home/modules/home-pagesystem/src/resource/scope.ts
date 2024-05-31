@@ -14,6 +14,7 @@ export interface ScopeModuleHomePagesystem
     typeof constants
   > {}
 
+import '@cabloy/front';
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
     'home-pagesystem': ScopeModuleHomePagesystem;

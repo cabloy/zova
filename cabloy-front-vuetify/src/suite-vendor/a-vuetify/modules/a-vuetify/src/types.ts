@@ -10,6 +10,7 @@ export interface VuetifyGlobal {
   date: ExtractComposable<DateInstance>;
 }
 
+import '@cabloy/front';
 declare module '@cabloy/front' {
   export interface BeanBase {
     $vuetify: VuetifyGlobal;

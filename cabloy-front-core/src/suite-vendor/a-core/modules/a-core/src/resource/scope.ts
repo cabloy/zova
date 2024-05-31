@@ -14,6 +14,7 @@ export interface ScopeModuleACore
     typeof constants
   > {}
 
+import '@cabloy/front';
 declare module '@cabloy/front' {
   export interface IBeanScopeRecord {
     'a-core': ScopeModuleACore;
