@@ -1,4 +1,3 @@
-// npm run build
 // FLAVOR=web npm run build
 import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
 
