@@ -36,5 +36,6 @@
   },
   "dependencies": {
     "pinia": "^2.1.7"
-  }
+  },
+  "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }

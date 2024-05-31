@@ -37,9 +37,9 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "@cabloy/cli-set-api": "workspace:^",
-    "@cabloy/cli-set-core": "workspace:^",
-    "@cabloy/cli-set-front": "workspace:^",
+    "@cabloy/cli-set-api": "^1.1.12",
+    "@cabloy/cli-set-core": "^1.1.9",
+    "@cabloy/cli-set-front": "^1.1.53",
     "@cabloy/module-glob": "^5.0.4",
     "@cabloy/module-info": "^1.0.12",
     "@cabloy/process-helper": "^1.0.4",
@@ -54,5 +54,6 @@
     "gogocode": "^1.0.53",
     "is-type-of": "^2.1.0",
     "istextorbinary": "^3.3.0"
-  }
+  },
+  "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }
