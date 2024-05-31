@@ -1,6 +1,9 @@
 {
   "extends": "@cabloy/lint/front/tsconfig.base.esm",
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "jsx": "preserve",
     "jsxImportSource": "vue",
     "lib": ["esnext", "dom"],
