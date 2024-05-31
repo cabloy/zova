@@ -14,6 +14,10 @@ declare module 'vue' {
 
 declare module 'vue/jsx-runtime' {
   namespace JSX {
-    export interface IntrinsicAttributes {}
+    // need define class/style in IntrinsicAttributes
+    export interface IntrinsicAttributes {
+      class?: unknown;
+      style?: unknown;
+    }
   }
 }
