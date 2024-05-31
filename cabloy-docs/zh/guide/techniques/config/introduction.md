@@ -11,7 +11,7 @@ Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样�
 | 名称    | 值            |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'web'         |
+| flavor  | 'app'         |
 | appMode | 'spa'         |
 
 系统就会自动加载下列文件中的 Config 配置，并进行合并:
@@ -19,12 +19,12 @@ Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样�
 ```txt
 config.ts
 config.mine.ts
-config.web.ts
-config.web.mine.ts
-config.web.development.ts
-config.web.development.mine.ts
-config.web.development.spa.ts
-config.web.development.spa.mine.ts
+config.app.ts
+config.app.mine.ts
+config.app.development.ts
+config.app.development.mine.ts
+config.app.development.spa.ts
+config.app.development.spa.mine.ts
 ```
 
 ## 访问全局config

@@ -30,12 +30,12 @@ $ npm run build   # mode is 'production'
 
 ### flavor
 
-The `flavor` variable value can be passed in through the command line. The default value is `web`
+The `flavor` variable value can be passed in through the command line. The default value is `app`
 
 ```bash
-$ npm run [dev/build]                # flavor is 'web'
-$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
+$ npm run [dev/build]                # flavor is 'app'
 $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
+$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
 ```
 
 ### appMode
@@ -57,7 +57,7 @@ Execute `npm run dev` on the command line, then the corresponding meta variable 
 | Name    | Value         |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'web'         |
+| flavor  | 'app'         |
 | appMode | 'spa'         |
 
 The system will automatically load the environment variables in the following files and merge them:
@@ -65,12 +65,12 @@ The system will automatically load the environment variables in the following fi
 ```txt
 .env
 .env.mine
-.env.web
-.env.web.mine
-.env.web.development
-.env.web.development.mine
-.env.web.development.spa
-.env.web.development.spa.mine
+.env.app
+.env.app.mine
+.env.app.development
+.env.app.development.mine
+.env.app.development.spa
+.env.app.development.spa.mine
 ```
 
 ## Built-in env variables

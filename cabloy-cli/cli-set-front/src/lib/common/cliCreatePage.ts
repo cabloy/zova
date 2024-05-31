@@ -77,7 +77,7 @@ export class CliCreatePageBase extends BeanCliBase {
 
   async loadEnvs() {
     const configMeta: CabloyConfigMeta = {
-      flavor: 'web',
+      flavor: 'app',
       mode: 'development',
       appMode: 'spa',
     };

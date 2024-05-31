@@ -30,12 +30,12 @@ $ npm run build   # mode is 'production'
 
 ### flavor
 
-可以通过命令行传入 flavor 变量值，默认是`web`
+可以通过命令行传入 flavor 变量值，默认是`app`
 
 ```bash
-$ npm run [dev/build]                # flavor is 'web'
-$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
+$ npm run [dev/build]                # flavor is 'app'
 $ FLAVOR=app npm run [dev/build]     # flavor is 'app'
+$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
 ```
 
 ### appMode
@@ -57,7 +57,7 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 | 名称    | 值            |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'web'         |
+| flavor  | 'app'         |
 | appMode | 'spa'         |
 
 系统就会自动加载下列文件中的环境变量，并进行合并:
@@ -65,12 +65,12 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 ```txt
 .env
 .env.mine
-.env.web
-.env.web.mine
-.env.web.development
-.env.web.development.mine
-.env.web.development.spa
-.env.web.development.spa.mine
+.env.app
+.env.app.mine
+.env.app.development
+.env.app.development.mine
+.env.app.development.spa
+.env.app.development.spa.mine
 ```
 
 ## 内置环境变量

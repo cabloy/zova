@@ -2,7 +2,7 @@ import { CabloyConfigMeta } from '@cabloy/front-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2): string {
-  return getEnvFromCli('FLAVOR', 'flavor', 'web', offset);
+  return getEnvFromCli('FLAVOR', 'flavor', 'app', offset);
 }
 
 export function getAppMode(offset: number = 2): string {

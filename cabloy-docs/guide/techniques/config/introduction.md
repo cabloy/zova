@@ -11,7 +11,7 @@ Execute `npm run dev` on the command line, then the corresponding meta variable 
 | Name    | Value         |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'web'         |
+| flavor  | 'app'         |
 | appMode | 'spa'         |
 
 The system will automatically load the configuration in the following files and merge them:
@@ -19,12 +19,12 @@ The system will automatically load the configuration in the following files and 
 ```txt
 config.ts
 config.mine.ts
-config.web.ts
-config.web.mine.ts
-config.web.development.ts
-config.web.development.mine.ts
-config.web.development.spa.ts
-config.web.development.spa.mine.ts
+config.app.ts
+config.app.mine.ts
+config.app.development.ts
+config.app.development.mine.ts
+config.app.development.spa.ts
+config.app.development.spa.mine.ts
 ```
 
 ## Use global config
