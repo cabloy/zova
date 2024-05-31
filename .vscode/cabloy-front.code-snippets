@@ -1,0 +1,18 @@
+/**
+ * supported code snippets as follows:
+ *   __init__ __dispose__
+ **/
+{
+  "__init__": {
+    "scope": "typescript",
+    "prefix": "init",
+    "body": ["protected async __init__() {", "  $0", "}"],
+    "description": "__init__",
+  },
+  "__dispose__": {
+    "scope": "typescript",
+    "prefix": "dispose",
+    "body": ["protected __dispose__() {", "  $0", "}"],
+    "description": "__dispose__",
+  },
+}
