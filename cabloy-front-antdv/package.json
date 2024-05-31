@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/front-antdv",
-  "version": "5.0.96",
+  "version": "5.0.97",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
