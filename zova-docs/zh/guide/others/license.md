@@ -1,3 +1,3 @@
 MIT License
 
-Copyright (c) 2016-present CabloyJS
+Copyright (c) 2016-present Zova

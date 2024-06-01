@@ -14,7 +14,7 @@ export const en = defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2016-present CabloyJS',
+      copyright: 'Copyright © 2016-present Zova',
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cabloy/zova' },
