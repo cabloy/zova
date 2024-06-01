@@ -42,7 +42,7 @@
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@zhennann/vite-plugin-fake-server": "^2.1.1",
-    "babel-plugin-cabloy-front-bean-module": "^1.0.15",
+    "babel-plugin-zova-bean-module": "^1.0.15",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "chalk": "^3.0.0",
     "esbuild": "^0.20.2",

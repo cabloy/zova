@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-cabloy-front-bean-module",
+  "name": "babel-plugin-zova-bean-module",
   "version": "1.0.15",
-  "description": "babel-plugin-cabloy-front-bean-module",
+  "description": "babel-plugin-zova-bean-module",
   "publishConfig": {
     "access": "public"
   },

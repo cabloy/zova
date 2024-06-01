@@ -1,1 +1,1 @@
-# babel-plugin-cabloy-front-bean-module
+# babel-plugin-zova-bean-module

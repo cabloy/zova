@@ -24,11 +24,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cabloy/cabloy-front.git"
+    "url": "git+https://github.com/cabloy/zova.git"
   },
-  "homepage": "https://github.com/cabloy/cabloy-front#readme",
+  "homepage": "https://github.com/cabloy/zova#readme",
   "bugs": {
-    "url": "https://github.com/cabloy/cabloy-front/issues"
+    "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
     "@cabloy/front": "^5.0.72",

@@ -15,7 +15,7 @@ hero:
       link: /zh/guide/start/why
     - theme: alt
       text: Github
-      link: https://github.com/cabloy/cabloy-front
+      link: https://github.com/cabloy/zova
 
 features:
   - title: 不用ref/reactive
