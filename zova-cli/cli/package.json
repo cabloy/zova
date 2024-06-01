@@ -51,7 +51,6 @@
     "gogocode": "^1.0.53",
     "is-type-of": "^2.1.0",
     "istextorbinary": "^3.3.0",
-    "zova-cli-set-core": "^1.1.9",
     "zova-cli-set-front": "^1.1.61"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
