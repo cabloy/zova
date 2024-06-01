@@ -1,6 +1,6 @@
 # Route Query
 
-Cabloy-Front enhances route `Query` and provides Typescript typing support
+Zova enhances route `Query` and provides Typescript typing support
 
 ## Create Page Component
 
@@ -23,7 +23,7 @@ export const QuerySchema = zz.object({
 });
 ```
 
-- Cabloy-Front encapsulates [zod](https://zod.dev) and provides an enhanced version of `zz` object
+- Zova encapsulates [zod](https://zod.dev) and provides an enhanced version of `zz` object
 - An `object` is defined using `zz`, containing two fields: `name` and `age`
 
 ## Use Query
@@ -86,7 +86,7 @@ export class RenderPageUser {
 
 ## $query
 
-Cabloy-Front injects a `$query` object into the base class of the `controller` bean so that the `Query` parameter can be obtained through `this.$query` in the render instance
+Zova injects a `$query` object into the base class of the `controller` bean so that the `Query` parameter can be obtained through `this.$query` in the render instance
 
 ## Gif Demonstration
 

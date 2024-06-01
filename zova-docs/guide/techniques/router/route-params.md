@@ -1,6 +1,6 @@
 # Route Params
 
-Cabloy-Front enhances route `Params` and provides Typescript typing support
+Zova enhances route `Params` and provides Typescript typing support
 
 We still use the page component `user` to fully demonstrate how to define and use typed `Params`
 
@@ -110,7 +110,7 @@ export class RenderPageUser {
 
 ## $params
 
-Cabloy-Front injects a `$params` object into the base class of the `controller` bean so that the `Params` parameter can be obtained through `this.$params` in the render instance
+Zova injects a `$params` object into the base class of the `controller` bean so that the `Params` parameter can be obtained through `this.$params` in the render instance
 
 ## Gif Demonstration
 

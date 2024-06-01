@@ -47,7 +47,7 @@ export const routes: IModuleRoute[] = [
 
 ## component
 
-`component` is a page component, supporting `synchronous components` and `asynchronous components`. Generally speaking, just provide a `synchronization component` as well. Because in Cabloy-Front, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
+`component` is a page component, supporting `synchronous components` and `asynchronous components`. Generally speaking, just provide a `synchronization component` as well. Because in Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
 
 ## meta.absolute
 

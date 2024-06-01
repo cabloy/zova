@@ -1,6 +1,6 @@
 # Layout布局
 
-Cabloy-Front 通过模块`home-layout`提供了通用的布局机制。在模块`home-layout`中可以创建多个布局组件，在`页面路由`中指定使用哪一个即可
+Zova 通过模块`home-layout`提供了通用的布局机制。在模块`home-layout`中可以创建多个布局组件，在`页面路由`中指定使用哪一个即可
 
 ## 系统布局组件
 

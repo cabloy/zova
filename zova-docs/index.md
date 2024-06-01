@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: 'Cabloy-Front'
+  name: 'Zova'
   text: 'A vue3 framework with ioc'
   tagline: Can be used with any UI library
   actions:
@@ -23,5 +23,5 @@ features:
   - title: No ref.value
     details: Without ref, naturally there is no need to write a lot of ref.value
   - title: Modularization
-    details: In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Cabloy-Front introduces modularization
+    details: In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Zova introduces modularization
 ---

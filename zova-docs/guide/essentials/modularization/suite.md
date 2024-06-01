@@ -2,7 +2,7 @@
 
 ## Origin of Suite
 
-As the project continues to evolve iteratively, the business modules created will also expand. In addition, for some business scenarios, multiple modules are often required to be implemented together. To solve the above problems, Cabloy-Front introduces the concept of suite. In short, a suite is a combination of a group of business modules, often corresponding to a specific business scenario, such as `e-commerce`, `CRM`, `supply chain`, and so on.
+As the project continues to evolve iteratively, the business modules created will also expand. In addition, for some business scenarios, multiple modules are often required to be implemented together. To solve the above problems, Zova introduces the concept of suite. In short, a suite is a combination of a group of business modules, often corresponding to a specific business scenario, such as `e-commerce`, `CRM`, `supply chain`, and so on.
 
 ## Naming Convention
 

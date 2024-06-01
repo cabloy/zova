@@ -47,7 +47,7 @@ export const routes: IModuleRoute[] = [
 
 ## component
 
-`component`就是页面组件，支持`同步组件`和`异步组件`。一般而言，只需提供`同步组件`即可。因为在 Cabloy-Front 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk
+`component`就是页面组件，支持`同步组件`和`异步组件`。一般而言，只需提供`同步组件`即可。因为在 Zova 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk
 
 ## meta.absolute
 

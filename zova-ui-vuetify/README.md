@@ -24,7 +24,7 @@ zova-ui-vuetify has introduced the following distinct features for Vue3:
 
 1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
 2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`
-3. `Modularization`: In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Cabloy-Front introduces modularization
+3. `Modularization`: In a large web business system, as the business grows and changes, it is also necessary to divide the system into relatively independent modules in order to avoid code bloating. This is why Zova introduces modularization
 
 ## Gif demonstration
 

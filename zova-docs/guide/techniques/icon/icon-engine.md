@@ -1,6 +1,6 @@
 # Icon
 
-For a large system, no matter how many icons are built into the framework, it is not enough. For this purpose, Cabloy-Front provides an `icon engine`
+For a large system, no matter how many icons are built into the framework, it is not enough. For this purpose, Zova provides an `icon engine`
 
 ## Advantages
 
@@ -22,7 +22,7 @@ For ease of use, it is necessary to develop a unified icon naming convention:
 {moduleName}:{groupName}:{iconName}
 ```
 
-For example, Cabloy-Front provides an icon module `home-icon`, which has a group `default` and an icon `add` in the group. Then, the full name of this icon is: `home-icon:default:add`
+For example, Zova provides an icon module `home-icon`, which has a group `default` and an icon `add` in the group. Then, the full name of this icon is: `home-icon:default:add`
 
 ### Special conventions
 
@@ -41,11 +41,11 @@ Examples are as follows:
 
 ## $icon
 
-Cabloy-Front injects the `$icon` method into the `BeanBase` base class, so that the typed icon name can be obtained through `this.$icon` in any bean instance, thus supporting auto-completion
+Zova injects the `$icon` method into the `BeanBase` base class, so that the typed icon name can be obtained through `this.$icon` in any bean instance, thus supporting auto-completion
 
 ## $iconh
 
-Cabloy-Front injects the `$iconh` method into the `BeanBase` base class, so that the `vnode` object of icon can be directly generated in any bean instance through `this.$iconh`
+Zova injects the `$iconh` method into the `BeanBase` base class, so that the `vnode` object of icon can be directly generated in any bean instance through `this.$iconh`
 
 ## Use Icon
 

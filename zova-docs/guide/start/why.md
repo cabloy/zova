@@ -31,7 +31,7 @@ Therefore, the introduction of IOC containers and Classes in Vue3 does not confl
 
 ## Two types of IOC containers
 
-Cabloy-Front provides two types of IOC containers:
+Zova provides two types of IOC containers:
 
 ### 1. Global container
 

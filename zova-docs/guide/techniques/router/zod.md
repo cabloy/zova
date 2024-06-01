@@ -2,7 +2,7 @@
 
 [zod](https://zod.dev) is typeScript-first schema validation with static type inference
 
-Cabloy-Front encapsulates `zod` and provides an enhanced version of `zz` object
+Zova encapsulates `zod` and provides an enhanced version of `zz` object
 
 ## Basic usage
 

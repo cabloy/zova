@@ -1,6 +1,6 @@
 # Layout
 
-Cabloy-Front provides a general layout mechanism through the module `home-layout`. Multiple layout components can be created in the module `home-layout`, and you can specify which one to use in `page route`
+Zova provides a general layout mechanism through the module `home-layout`. Multiple layout components can be created in the module `home-layout`, and you can specify which one to use in `page route`
 
 ### System layout components
 

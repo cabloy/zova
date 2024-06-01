@@ -1,6 +1,6 @@
 # Navigation Guards
 
-Cabloy-Front provides a module `home-router`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
+Zova provides a module `home-router`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
 
 ## onRouterGuards
 
@@ -23,4 +23,4 @@ export class Router {
 
 ## $router
 
-Cabloy-Front injects the `$router` object into the `BeanBase` base class, so that the Vue router object can be obtained through `this.$router` in any bean instance
+Zova injects the `$router` object into the `BeanBase` base class, so that the Vue router object can be obtained through `this.$router` in any bean instance

@@ -1,6 +1,6 @@
 # 路由Query
 
-Cabloy-Front 对路由`Query`进行了强化，提供了 Typescript 类型化支持
+Zova 对路由`Query`进行了强化，提供了 Typescript 类型化支持
 
 ## 创建页面组件
 
@@ -23,7 +23,7 @@ export const QuerySchema = zz.object({
 });
 ```
 
-- Cabloy-Front 对[zod](https://zod.dev)进行了封装，提供了增强版的`zz`对象
+- Zova 对[zod](https://zod.dev)进行了封装，提供了增强版的`zz`对象
 - 使用`zz`定义了一个`object`，包含两个字段：`name`和`age`
 
 ## 使用Query
@@ -86,7 +86,7 @@ export class RenderPageUser {
 
 ## $query
 
-Cabloy-Front 在`controller` bean 的基类中注入了`$query`对象，从而可以在 render 实例中通过`this.$query`访问 Query 参数
+Zova 在`controller` bean 的基类中注入了`$query`对象，从而可以在 render 实例中通过`this.$query`访问 Query 参数
 
 ## 动图演示
 

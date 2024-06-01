@@ -1,6 +1,6 @@
 # 路由Params
 
-Cabloy-Front 对路由`Params`进行了强化，提供了 Typescript 类型化支持
+Zova 对路由`Params`进行了强化，提供了 Typescript 类型化支持
 
 我们仍然使用页面组件`user`完整的演示如何定义和使用类型化的`Params`
 
@@ -110,7 +110,7 @@ export class RenderPageUser {
 
 ## $params
 
-Cabloy-Front 在`controller` bean 的基类中注入了`$params`对象，从而可以在 render 实例中通过`this.$params`访问 Params 参数
+Zova 在`controller` bean 的基类中注入了`$params`对象，从而可以在 render 实例中通过`this.$params`访问 Params 参数
 
 ## 动图演示
 

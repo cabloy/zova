@@ -2,7 +2,7 @@
 
 ## meta与config文件
 
-Cabloy-Front 从`src/front/config/config`目录中加载 config 文件。同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](../env/introduction.md)
+Zova 从`src/front/config/config`目录中加载 config 文件。同样支持基于`meta`条件的文件加载，具体规则参见：[meta与.env文件](../env/introduction.md)
 
 ### 举例
 

@@ -1,6 +1,6 @@
 # Child Component
 
-The difference from `Page Component` is that `Child Component` has three parts: `Props`, `Emits` and `Slots`. So how are the three parts defined and used in Cabloy-Front?
+The difference from `Page Component` is that `Child Component` has three parts: `Props`, `Emits` and `Slots`. So how are the three parts defined and used in Zova?
 
 ## Create Child Component
 
@@ -10,7 +10,7 @@ Let's first create a child component `card` using a cli command:
 $ cabloy front:create:component card --module=a-demo
 ```
 
-This command will create a directory `src/component/card`. In Cabloy-Front, a child component will be splited to three files located in that directory:
+This command will create a directory `src/component/card`. In Zova, a child component will be splited to three files located in that directory:
 
 ```
 src
@@ -266,4 +266,4 @@ export class RenderPageComponent {
 
 ## How to refer to child component instance?
 
-In Cabloy-Front, `Template Ref` is not used to refer to child component instances, but directly refers to the `controller bean` corresponding to the child component. See: [Controller Ref](../../vue/refs.md#controller-ref)
+In Zova, `Template Ref` is not used to refer to child component instances, but directly refers to the `controller bean` corresponding to the child component. See: [Controller Ref](../../vue/refs.md#controller-ref)

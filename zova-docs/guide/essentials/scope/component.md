@@ -1,6 +1,6 @@
 # Vue Child Component
 
-In [Child Component](../component/child.md), we already know how to use child components in parent components. In Cabloy-Front, child components are managed uniformly as resources of the module `Scope`. Therefore, we can also use child components more conveniently through `Scope` instance
+In [Child Component](../component/child.md), we already know how to use child components in parent components. In Zova, child components are managed uniformly as resources of the module `Scope`. Therefore, we can also use child components more conveniently through `Scope` instance
 
 ## Use Child Component
 

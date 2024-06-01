@@ -28,7 +28,7 @@ export const routes: IModuleRoute[] = [
 
 ### Directory
 
-In Cabloy-Front, a page component will be splited to three files:
+In Zova, a page component will be splited to three files:
 
 `src/suite/a-demo/modules/a-demo/src/page/counter`
 

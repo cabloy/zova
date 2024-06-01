@@ -1,6 +1,6 @@
 # Pinia
 
-Cabloy-Front 推荐使用[store bean](../essentials/ioc/store-bean.md)来创建全局状态对象。当然也可以使用已经存在的`pinia store`
+Zova 推荐使用[store bean](../essentials/ioc/store-bean.md)来创建全局状态对象。当然也可以使用已经存在的`pinia store`
 
 ## 基本思路
 

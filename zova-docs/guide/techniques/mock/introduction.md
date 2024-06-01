@@ -1,10 +1,10 @@
 # Mock
 
-Cabloy-Front provides an out-of-the-box `Mock` mechanism based on [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/), which can also support `development environment` and `production environment`
+Zova provides an out-of-the-box `Mock` mechanism based on [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/), which can also support `development environment` and `production environment`
 
 ## Basic Usage
 
-Cabloy-Front provides a module `home-mock`, just provide the mock files in the directory `home-mock/src/mock` as well
+Zova provides a module `home-mock`, just provide the mock files in the directory `home-mock/src/mock` as well
 
 For example, there is an API: `/home/mock/getMenu`, which provides the corresponding mock file as follows:
 

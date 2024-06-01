@@ -1,10 +1,10 @@
 # API
 
-Cabloy-Front 提供了一个模块`home-api`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
+Zova 提供了一个模块`home-api`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
 
 ## $api
 
-Cabloy-Front 在`BeanBase`基类中注入了`$api`对象，从而可以在任何 bean 实例中通过`this.$api`访问`axios`的实例
+Zova 在`BeanBase`基类中注入了`$api`对象，从而可以在任何 bean 实例中通过`this.$api`访问`axios`的实例
 
 比如，获取菜单数据：
 

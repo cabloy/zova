@@ -1,6 +1,6 @@
 # 子组件
 
-相对`页面组件`而言，`子组件`有三件套：`Props`、`Emits` 和 `Slots`。那么在 Cabloy-Front 中子组件的三件套如何定义和使用呢？
+相对`页面组件`而言，`子组件`有三件套：`Props`、`Emits` 和 `Slots`。那么在 Zova 中子组件的三件套如何定义和使用呢？
 
 ## 创建子组件
 
@@ -10,7 +10,7 @@
 $ cabloy front:create:component card --module=a-demo
 ```
 
-该命令会创建一个目录`src/component/card`。在 Cabloy-Front 中，一个子组件被切分为三个文件，位于刚才创建的目录中：
+该命令会创建一个目录`src/component/card`。在 Zova 中，一个子组件被切分为三个文件，位于刚才创建的目录中：
 
 ```
 src
@@ -266,4 +266,4 @@ export class RenderPageComponent {
 
 ## 如何引用子组件实例
 
-在 Cabloy-Front 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`controller bean`，参见：[Controller Ref](../../vue/refs.md#controller-ref)
+在 Zova 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`controller bean`，参见：[Controller Ref](../../vue/refs.md#controller-ref)

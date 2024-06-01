@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export const shared = defineConfig({
-  title: 'Cabloy-Front',
+  title: 'Zova',
   description: 'A vue3 framework with ioc',
   base: '/',
   markdown: {

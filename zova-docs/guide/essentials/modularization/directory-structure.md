@@ -38,7 +38,7 @@ project
 
 ## Development suggestions
 
-Cabloy-Front has planned the modules/suites so that we can start business development immediately in the specified directory. The following conventions are only suggestions and are not mandatory:
+Zova has planned the modules/suites so that we can start business development immediately in the specified directory. The following conventions are only suggestions and are not mandatory:
 
 1. Suite `suite/a-demo`: Contains some test or demo code, which can be disabled during build
 2. Suite `suite/a-home`: Development in this suite

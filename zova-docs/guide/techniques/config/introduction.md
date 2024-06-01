@@ -2,7 +2,7 @@
 
 ## meta & config file
 
-Cabloy-Front loads config files from the `src/front/config/config` directory. File loading based on `meta` conditions is also supported. For specific rules, see: [meta & .env file](../env/introduction.md)
+Zova loads config files from the `src/front/config/config` directory. File loading based on `meta` conditions is also supported. For specific rules, see: [meta & .env file](../env/introduction.md)
 
 ### For example
 

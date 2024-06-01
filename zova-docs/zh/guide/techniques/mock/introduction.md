@@ -1,10 +1,10 @@
 # Mock
 
-Cabloy-Front 基于[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)提供了开箱即用的`Mock`机制，可同时支持`开发环境`和`生产环境`
+Zova 基于[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)提供了开箱即用的`Mock`机制，可同时支持`开发环境`和`生产环境`
 
 ## 基本用法
 
-Cabloy-Front 提供了一个模块`home-mock`，只需在目录`home-mock/src/mock`提供 mock 文件即可
+Zova 提供了一个模块`home-mock`，只需在目录`home-mock/src/mock`提供 mock 文件即可
 
 比如，有一个 API：`/home/mock/getMenu`，提供对应的 mock 文件如下：
 

@@ -1,6 +1,6 @@
 # Quick Start
 
-## Creating a Cabloy-Front Application
+## Creating a Zova Application
 
 ### 1. Prerequisites
 

@@ -1,10 +1,10 @@
 # Env
 
-Cabloy-Front exposes env variables on the special `process.env` object, which are statically replaced at build time
+Zova exposes env variables on the special `process.env` object, which are statically replaced at build time
 
 ## meta & .env file
 
-Cabloy-Front uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
+Zova uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
 
 ```txt
 .env                # loaded in all cases
@@ -75,7 +75,7 @@ The system will automatically load the environment variables in the following fi
 
 ## Built-in env variables
 
-To further achieve out-of-box functionality, Cabloy-Front provides several built-in env variables:
+To further achieve out-of-box functionality, Zova provides several built-in env variables:
 
 ### meta
 

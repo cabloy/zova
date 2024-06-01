@@ -1,8 +1,8 @@
 简体中文 | [English](./README.md)
 
-# Cabloy-Front
+# Zova
 
-Cabloy-Front 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`，也不再需要`ref.value`
+Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`，也不再需要`ref.value`
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
@@ -22,7 +22,7 @@ Cabloy-Front 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加
 
 ## 与UI库的配合
 
-Cabloy-Front 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：
+Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：
 
 - antdv
 - element-plus
@@ -31,11 +31,11 @@ Cabloy-Front 可以搭配任何 UI 库使用，并且内置了几款 UI 库的�
 
 ## 特性
 
-Cabloy-Front 为 Vue3 引入了以下鲜明特征：
+Zova 为 Vue3 引入了以下鲜明特征：
 
 1. `不用ref/reactive`：有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`
 2. `不用ref.value`：因为不用`ref`，自然也就不用再写大量的`ref.value`
-3. `模块化体系`：在一个大型的 Web 业务系统当中，随着业务的增长和变更，为了避免代码失控，有必要将系统拆分为一个个相对独立的模块，这就是 Cabloy-Front 采用模块化体系的缘由。因此，在 Cabloy-Front 中，实际的业务代码开发都是在模块中进行
+3. `模块化体系`：在一个大型的 Web 业务系统当中，随着业务的增长和变更，为了避免代码失控，有必要将系统拆分为一个个相对独立的模块，这就是 Zova 采用模块化体系的缘由。因此，在 Zova 中，实际的业务代码开发都是在模块中进行
 
 ## 动图演示
 
@@ -133,7 +133,7 @@ export class RenderPageCounter {
 ## 致谢
 
 - 向 Angular 表达感谢，Angular 激发了在 Vue 中实现 ioc 容器的灵感
-- 向 Vue 表达感谢，Vue 提供了非常强大的响应式系统和生态。如果没有这些生态的支持，Cabloy-Front 的实现将非常困难
+- 向 Vue 表达感谢，Vue 提供了非常强大的响应式系统和生态。如果没有这些生态的支持，Zova 的实现将非常困难
 
 ## License
 

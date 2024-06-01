@@ -1,6 +1,6 @@
 # 图标
 
-对于一个大型系统而言，无论框架内置多少图标都是不够用的。为此，Cabloy-Front 提供了一个`图标引擎`
+对于一个大型系统而言，无论框架内置多少图标都是不够用的。为此，Zova 提供了一个`图标引擎`
 
 ## 优点
 
@@ -22,7 +22,7 @@
 {moduleName}:{groupName}:{iconName}
 ```
 
-比如，Cabloy-Front 提供了一个图标模块`home-icon`，其中有一个分组`default`，该分组中有一个图标`add`。那么，此图标的全称就是：`home-icon:default:add`
+比如，Zova 提供了一个图标模块`home-icon`，其中有一个分组`default`，该分组中有一个图标`add`。那么，此图标的全称就是：`home-icon:default:add`
 
 ### 特殊约定
 
@@ -41,11 +41,11 @@
 
 ## $icon
 
-Cabloy-Front 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
+Zova 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
 
 ## $iconh
 
-Cabloy-Front 在`BeanBase`基类中注入了`$iconh`方法，从而可以在任何 bean 实例中通过`this.$iconh`直接生成图标的 vnode 对象
+Zova 在`BeanBase`基类中注入了`$iconh`方法，从而可以在任何 bean 实例中通过`this.$iconh`直接生成图标的 vnode 对象
 
 ## 使用图标
 
