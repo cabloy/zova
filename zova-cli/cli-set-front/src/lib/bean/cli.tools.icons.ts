@@ -80,7 +80,7 @@ export class CliToolsIcons extends BeanCliBase {
       }
     }
     const jsContent = `import 'zova';
-  declare module 'zova' {
+declare module 'zova' {
   export interface IIconRecord {
     ${groupsFrontExport.join('\n    ').trim()}
   }

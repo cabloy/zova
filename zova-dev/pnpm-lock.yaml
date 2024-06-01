@@ -313,6 +313,18 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
 
+  src/suite/test-aa:
+    dependencies:
+      zova-module-test-aa:
+        specifier: workspace:^
+        version: link:modules/test-aa
+
+  src/suite/test-aa/modules/test-aa:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+
 packages:
 
   '@ampproject/remapping@2.3.0':
