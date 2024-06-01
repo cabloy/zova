@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-zova-bean-module",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "babel-plugin-zova-bean-module",
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
-    "_prepublishOnly": "npm run tsc:publish"
+    "prepublishOnly": "npm run tsc:publish"
   },
   "keywords": [
     "egg",
