@@ -23,7 +23,7 @@ export function extendQuasarConf(context: ConfigContext) {
     const cabloyViteMeta = (context.cabloyViteMeta = await generateCabloyViteMeta(configMeta, configOptions));
 
     // boot
-    conf.boot.unshift('cabloy');
+    conf.boot.unshift('zova');
     // build: alias
     conf.build = mergeConfig(conf.build as unknown as any, {
       alias: cabloyViteMeta.viteConfig.resolve.alias,
