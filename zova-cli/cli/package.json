@@ -37,7 +37,7 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "@cabloy/module-glob": "^5.0.13",
+    "@cabloy/module-glob": "^5.0.14",
     "@cabloy/module-info": "^1.0.16",
     "@cabloy/process-helper": "^1.0.4",
     "@zhennann/common-bin": "^4.0.0",
