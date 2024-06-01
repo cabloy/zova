@@ -115,7 +115,7 @@ export class RenderPageCounter {
 ## Stay In Touch
 
 - [Twitter](https://twitter.com/zhennann2024)
-- [Wechat](./zova-docs/zh/assets/img/wx-zhennann.jpg)
+- [Wechat](../zova-docs/zh/assets/img/wx-zhennann.jpg)
 
 ## License
 
