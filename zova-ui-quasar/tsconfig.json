@@ -5,7 +5,7 @@
     "./dist",
     "./distMockServer",
     "./.quasar",
-    "./.cabloy",
+    "./.zova",
     "./node_modules",
     "./src-capacitor",
     "./src-cordova",

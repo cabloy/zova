@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.cabloy", "./node_modules"]
+  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules"]
 }
