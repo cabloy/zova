@@ -2,7 +2,7 @@ import * as localeutil from '@cabloy/localeutil';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { TypeModuleResourceLocaleModules, TypeModuleResourceLocales } from '../../types/interface/module.js';
 import { ILocalInfos, IModuleLocale, IModuleLocaleText } from '../../bean/resource/locale/type.js';
-import { CabloyLocaleOptionalMap } from '../app/locale.js';
+import { ZovaLocaleOptionalMap } from '../app/locale.js';
 
 const SymbolLocaleCurrent = Symbol('SymbolLocaleCurrent');
 
@@ -21,7 +21,7 @@ export class AppLocale extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(locales: CabloyLocaleOptionalMap) {
+  public async initialize(locales: ZovaLocaleOptionalMap) {
     for (const locale in locales) {
       const moduleMap = locales[locale].modules;
       for (const moduleName in moduleMap) {

@@ -9,4 +9,4 @@ export type ZovaLocale = {
 } & typeof localeDefault;
 
 export type ZovaLocaleOptional = PowerPartial<ZovaLocale>;
-export type CabloyLocaleOptionalMap = Record<string, ZovaLocaleOptional>;
+export type ZovaLocaleOptionalMap = Record<string, ZovaLocaleOptional>;

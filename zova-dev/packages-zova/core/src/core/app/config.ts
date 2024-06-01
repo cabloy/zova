@@ -27,7 +27,7 @@ export const configDefault = {
   modules: {},
 };
 
-export type CabloyConfig = {
+export type ZovaConfig = {
   meta: ZovaConfigMeta;
   env: CabloyConfigEnv;
   base: {
@@ -46,4 +46,4 @@ export type CabloyConfig = {
   modules: IBeanScopeConfig;
 } & typeof configDefault;
 
-export type CabloyConfigOptional = PowerPartial<CabloyConfig>;
+export type CabloyConfigOptional = PowerPartial<ZovaConfig>;

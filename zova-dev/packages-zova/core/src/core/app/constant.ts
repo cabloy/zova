@@ -4,8 +4,8 @@ export const constantDefault = {
   modules: {},
 };
 
-export type CabloyConstant = {
+export type ZovaConstant = {
   modules: Record<string, object>;
 } & typeof constantDefault;
 
-export type CabloyConstantOptional = PowerPartial<CabloyConstant>;
+export type ZovaConstantOptional = PowerPartial<ZovaConstant>;

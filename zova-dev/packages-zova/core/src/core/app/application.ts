@@ -2,16 +2,16 @@ import { App, markRaw } from 'vue';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginCabloyOptions } from '../../types/interface/pluginCabloy.js';
-import { CabloyConfig, configDefault } from './config.js';
-import { CabloyConstant, constantDefault } from './constant.js';
+import { ZovaConfig, configDefault } from './config.js';
+import { ZovaConstant, constantDefault } from './constant.js';
 import { PluginBean } from '../../plugins/bean.js';
 
 export class ZovaApplication {
   vue: App;
   bean: BeanContainerLike;
   meta: AppMeta;
-  config: CabloyConfig;
-  constant: CabloyConstant;
+  config: ZovaConfig;
+  constant: ZovaConstant;
 
   constructor(vue: App) {
     markRaw(this);
