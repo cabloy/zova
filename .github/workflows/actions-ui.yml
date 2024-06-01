@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [18, 20]
         project-template: ['zova-ui-empty','zova-ui-antdv','zova-ui-element','zova-ui-quasar','zova-ui-vuetify']
     runs-on: ubuntu-latest
     steps:
