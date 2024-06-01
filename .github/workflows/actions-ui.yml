@@ -22,6 +22,9 @@ jobs:
       - run: pnpm install
       - run: pnpm add -g zova-cli
       - run: zova :create:project ${{ matrix.project-template }}-${{ matrix.node-version }} --template=${{ matrix.project-template }}
+      - name: pnpm install
+        run: pnpm install
+        working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: suite
         run: zova :create:suite test-demo
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
@@ -31,8 +34,8 @@ jobs:
       - name: page
         run: zova :create:page first --module=test-demo
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
-      - name: pnpm install
-        run: pnpm install
+      - name: pnpm install --force
+        run: pnpm install --force
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: npm run build
         run: npm run build
