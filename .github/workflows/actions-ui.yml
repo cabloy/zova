@@ -32,7 +32,7 @@ jobs:
         run: zova :create:module test-demo --template=basic --suite=test-demo --description --author
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: pnpm install --force
-        run: pnpm install --force
+        run: pnpm install --force --no-frozen-lockfile
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: page
         run: zova :create:page first --module=test-demo
