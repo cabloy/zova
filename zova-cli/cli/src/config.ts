@@ -1,7 +1,6 @@
 export const commandsConfig = {
   sets: {
     core: 'zova-cli-set-core',
-    api: 'zova-cli-set-api',
     front: 'zova-cli-set-front',
   },
   helper: {

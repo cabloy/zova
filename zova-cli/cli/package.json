@@ -37,7 +37,6 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "zova-cli-set-api": "^1.1.12",
     "zova-cli-set-core": "^1.1.9",
     "zova-cli-set-front": "^1.1.60",
     "@cabloy/module-glob": "^5.0.4",

@@ -1,8 +1,0 @@
-{
-  "extends": "<%=!argv.suite?'../':''%>../../tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "include": ["src/**/*.ts", "src/**/*.json"]
-}
