@@ -6,7 +6,6 @@ export const en = defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/guide/start/introduction', activeMatch: '/guide/' },
-      { text: 'Cabloy-Pro', link: '/cabloy-pro/start/introduction', activeMatch: '/cabloy-pro/' },
     ],
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },

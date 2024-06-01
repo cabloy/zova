@@ -6,7 +6,6 @@ export const zh = defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '文档', link: '/zh/guide/start/introduction', activeMatch: '/zh/guide/' },
-      { text: 'Cabloy-Pro', link: '/zh/cabloy-pro/start/introduction', activeMatch: '/zh/cabloy-pro/' },
     ],
     sidebar: {
       '/zh/guide/': { base: '/zh/guide/', items: sidebarGuide() },
