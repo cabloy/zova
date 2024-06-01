@@ -1,5 +1,5 @@
 packages:
-  - 'packages-cabloy/*'
+  - 'packages-zova/*'
   - 'packages-utils/*'
   - 'src/module/*'
   - 'src/module-vendor/*'
