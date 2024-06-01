@@ -1,6 +1,6 @@
 {
   "name": "zova-cli-set-front",
-  "version": "1.1.60",
+  "version": "1.1.61",
   "description": "zova cli-set-front",
   "publishConfig": {
     "access": "public"
@@ -37,15 +37,15 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "zova-vite": "^1.0.70",
-    "zova-core": "^5.0.63",
     "compressing": "^1.10.0",
     "egg-born-utils": "^1.2.0",
     "fs-extra": "^11.2.0",
     "rimraf": "^5.0.5",
     "svg-baker": "1.7.0",
     "svgo": "^3.2.0",
-    "urllib": "^3.24.0"
+    "urllib": "^3.24.0",
+    "zova-core": "^5.0.65",
+    "zova-vite": "^1.0.74"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }

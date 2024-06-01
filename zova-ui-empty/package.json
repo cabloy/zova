@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-empty",
-  "version": "5.0.92",
+  "version": "5.0.93",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -31,19 +31,19 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
-    "zova": "^5.0.72",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "zova": "^5.0.74"
   },
   "devDependencies": {
-    "zova-vite": "^1.0.70",
     "@cabloy/lint": "^4.0.10",
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
     "sass": "^1.77.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
-    "vue-tsc": "^2.0.19"
+    "vue-tsc": "^2.0.19",
+    "zova-vite": "^1.0.74"
   },
   "license": "MIT",
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
