@@ -2,10 +2,10 @@ import babel from '@cabloy/vite-plugin-babel';
 // import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
-import { ZovaViteConfigOptions, CabloyVitePlugin } from './types.js';
+import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
 
 export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
-  const vitePlugins: CabloyVitePlugin[] = [];
+  const vitePlugins: ZovaVitePlugin[] = [];
   vitePlugins.push(__getVitePluginTs());
   vitePlugins.push(__getVitePluginTsx());
   if (process.env.MOCK_ENABLED === 'true') {
@@ -35,7 +35,7 @@ export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
         },
       },
       undefined,
-    ] as CabloyVitePlugin;
+    ] as ZovaVitePlugin;
   }
 
   function __getVitePluginTsx() {
@@ -52,7 +52,7 @@ export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
         ],
       },
       undefined,
-    ] as CabloyVitePlugin;
+    ] as ZovaVitePlugin;
   }
 
   function __getVitePluginMock() {
@@ -83,7 +83,7 @@ export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
         cors,
       },
       undefined,
-    ] as CabloyVitePlugin;
+    ] as ZovaVitePlugin;
   }
 
   // function __getVitePluginChecker(configOptions: ZovaViteConfigOptions) {
@@ -100,6 +100,6 @@ export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
   //       },
   //     },
   //     { server: false },
-  //   ] as CabloyVitePlugin;
+  //   ] as ZovaVitePlugin;
   // }
 }

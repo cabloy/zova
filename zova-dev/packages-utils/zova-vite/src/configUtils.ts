@@ -12,7 +12,7 @@ const __ModuleLibs = [
   /node_modules\/zova-module-([^\/]*?)\//,
 ];
 
-const __CabloyManualChunkVendors = [
+const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
     match: [/zova\/config\.js/],
@@ -29,7 +29,7 @@ export function createConfigUtils(
   configMeta: ZovaConfigMeta,
   configOptions: ZovaViteConfigOptions,
 ): { loadEnvs: () => { [name: string]: string }; configManualChunk: (id: string) => string } {
-  let __cabloyManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
+  let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   return {
     loadEnvs: __loadEnvs,
     configManualChunk: __configManualChunk,
@@ -70,10 +70,10 @@ export function createConfigUtils(
   }
 
   function _configManualChunk_vendors(id: string) {
-    if (!__cabloyManualChunkVendors_runtime) {
-      __cabloyManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(__CabloyManualChunkVendors);
+    if (!__zovaManualChunkVendors_runtime) {
+      __zovaManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(__ZovaManualChunkVendors);
     }
-    const matchItem = __cabloyManualChunkVendors_runtime.find(item => {
+    const matchItem = __zovaManualChunkVendors_runtime.find(item => {
       return item.match.some(item => {
         if (typeof item === 'string') {
           return id.indexOf(`/${item}/`) > -1;

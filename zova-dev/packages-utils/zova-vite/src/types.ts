@@ -18,9 +18,4 @@ export interface ZovaViteConfigResult {
   viteConfig: any;
 }
 
-export type CabloyVitePlugin = [
-  string,
-  (...args: any[]) => any,
-  any,
-  { client?: boolean; server?: boolean } | undefined,
-];
+export type ZovaVitePlugin = [string, (...args: any[]) => any, any, { client?: boolean; server?: boolean } | undefined];
