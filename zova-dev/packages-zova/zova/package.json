@@ -1,6 +1,6 @@
 {
   "name": "zova",
-  "version": "5.0.72",
+  "version": "5.0.73",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
