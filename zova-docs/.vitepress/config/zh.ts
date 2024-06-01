@@ -9,7 +9,7 @@ export const zh = defineConfig({
     ],
     sidebar: {
       '/zh/guide/': { base: '/zh/guide/', items: sidebarGuide() },
-      '/zh/cabloy-pro/': { base: '/zh/cabloy-pro/', items: sidebarCabloyPro() },
+      '/zh/cabloy/': { base: '/zh/cabloy/', items: sidebarCabloyPro() },
     },
     footer: {
       message: '基于 MIT 许可发布',

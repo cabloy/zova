@@ -9,7 +9,7 @@ export const en = defineConfig({
     ],
     sidebar: {
       '/guide/': { base: '/guide/', items: sidebarGuide() },
-      '/cabloy-pro/': { base: '/cabloy-pro/', items: sidebarCabloyPro() },
+      '/cabloy/': { base: '/cabloy/', items: sidebarCabloyPro() },
     },
     footer: {
       message: 'Released under the MIT License.',
