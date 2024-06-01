@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-core",
+  "name": "zova-core",
   "version": "5.0.63",
   "description": "A vue3 framework with ioc",
   "publishConfig": {

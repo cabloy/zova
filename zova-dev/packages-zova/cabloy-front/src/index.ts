@@ -1,1 +1,1 @@
-export * from '@cabloy/front-core';
+export * from 'zova-core';

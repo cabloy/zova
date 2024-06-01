@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@cabloy/app-vite": "^1.0.70",
-    "@cabloy/front-core": "^5.0.63",
+    "zova-core": "^5.0.63",
     "vite": "^5.2.10"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"

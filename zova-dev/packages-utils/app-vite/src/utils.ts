@@ -1,4 +1,4 @@
-import { CabloyConfigMeta } from '@cabloy/front-core';
+import { CabloyConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2): string {

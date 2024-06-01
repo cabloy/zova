@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 import { createConfigUtils } from '@cabloy/app-vite';
-import { CabloyConfigMeta } from '@cabloy/front-core';
+import { CabloyConfigMeta } from 'zova-core';
 
 declare module 'zova-cli' {
   interface ICommandArgv {

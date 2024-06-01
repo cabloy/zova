@@ -38,7 +38,7 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "@cabloy/front-core": "^5.0.63",
+    "zova-core": "^5.0.63",
     "cabloy-suite-front-a-core": "^5.0.32"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"

@@ -10,7 +10,7 @@ import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
 import { getEnvMeta } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
-import { CabloyConfigMeta } from '@cabloy/front-core';
+import { CabloyConfigMeta } from 'zova-core';
 import { CabloyViteConfigOptions } from './types.js';
 
 export async function generateEntryFiles(configMeta: CabloyConfigMeta, configOptions: CabloyViteConfigOptions) {

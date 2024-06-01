@@ -1,1 +1,1 @@
-# @cabloy/front-core
+# zova-core
