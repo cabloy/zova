@@ -3,18 +3,18 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "cabloy-cli/cli",
-    "cabloy-cli/cli-set-api",
-    "cabloy-cli/cli-set-core",
-    "cabloy-cli/cli-set-front",
-    "cabloy-front-core/packages-cabloy/*",
-    "cabloy-front-core/packages-utils/*",
-    "cabloy-front-core/src/suite-vendor/*",
-    "cabloy-front-core/src/suite-vendor/*/modules/*",
-    "cabloy-front-antdv",
-    "cabloy-front-element",
-    "cabloy-front-empty",
-    "cabloy-front-quasar",
-    "cabloy-front-vuetify"
+    "zova-cli/cli",
+    "zova-cli/cli-set-api",
+    "zova-cli/cli-set-core",
+    "zova-cli/cli-set-front",
+    "zova-core/packages-zova/*",
+    "zova-core/packages-utils/*",
+    "zova-core/src/suite-vendor/*",
+    "zova-core/src/suite-vendor/*/modules/*",
+    "zova-antdv",
+    "zova-element",
+    "zova-empty",
+    "zova-quasar",
+    "zova-vuetify"
   ]
 }
