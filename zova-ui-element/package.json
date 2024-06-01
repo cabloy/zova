@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-element",
+  "name": "zova-ui-element",
   "version": "5.0.94",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {

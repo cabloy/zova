@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-empty",
+  "name": "zova-ui-empty",
   "version": "5.0.92",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {

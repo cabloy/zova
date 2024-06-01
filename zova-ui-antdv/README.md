@@ -1,6 +1,6 @@
-# @cabloy/front-antdv
+# zova-ui-antdv
 
-@cabloy/front-antdv is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
+zova-ui-antdv is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
@@ -8,10 +8,10 @@
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://github.com/cabloy/zova/blob/master/LICENSE
-[npm-image]: https://img.shields.io/npm/v/@cabloy/front-antdv.svg?style=flat-square
-[npm-url]: https://npmjs.com/package/@cabloy/front-antdv
-[download-image]: https://img.shields.io/npm/dm/@cabloy/front-antdv?color=orange&label=npm%20downloads
-[download-url]: https://npmjs.com/package/@cabloy/front-antdv
+[npm-image]: https://img.shields.io/npm/v/zova-ui-antdv.svg?style=flat-square
+[npm-url]: https://npmjs.com/package/zova-ui-antdv
+[download-image]: https://img.shields.io/npm/dm/zova-ui-antdv?color=orange&label=npm%20downloads
+[download-url]: https://npmjs.com/package/zova-ui-antdv
 
 ## Documentation
 
@@ -20,7 +20,7 @@
 
 ## Features
 
-@cabloy/front-antdv has introduced the following distinct features for Vue3:
+zova-ui-antdv has introduced the following distinct features for Vue3:
 
 1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
 2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`

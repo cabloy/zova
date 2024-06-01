@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-antdv",
+  "name": "zova-ui-antdv",
   "version": "5.0.97",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
