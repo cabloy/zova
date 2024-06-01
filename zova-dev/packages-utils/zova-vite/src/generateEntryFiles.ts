@@ -101,7 +101,7 @@ export async function generateEntryFiles(configMeta: CabloyConfigMeta, configOpt
     });
     const moduleNames = modulesArray.map(item => item.info.relativeName);
     // src
-    const fileSrc = new URL('../templates/cabloy-modules-meta.ejs', import.meta.url);
+    const fileSrc = new URL('../templates/zova-modules-meta.ejs', import.meta.url);
     const contentSrc = readFileSync(fileSrc, 'utf8');
     const template = compileTemplate(contentSrc);
     // dest

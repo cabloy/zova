@@ -15,12 +15,12 @@ const __ModuleLibs = [
 const __CabloyManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
-    match: [/cabloy\/config\.js/],
-    output: '-cabloy-config',
+    match: [/zova\/config\.js/],
+    output: '-zova-config',
   },
   {
-    match: ['vue', '@vue', 'reflect-metadata', '@cabloy', 'packages-cabloy/core'],
-    output: 'cabloy',
+    match: ['vue', '@vue', 'reflect-metadata', 'zova', 'packages-zova/core'],
+    output: 'zova',
   },
   { match: ['vue-router'], output: 'vue-router' },
 ];
