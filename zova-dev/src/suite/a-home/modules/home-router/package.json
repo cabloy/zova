@@ -2,7 +2,7 @@
   "name": "zova-module-home-router",
   "version": "5.0.0",
   "title": "home-router",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "monkey": true
     },

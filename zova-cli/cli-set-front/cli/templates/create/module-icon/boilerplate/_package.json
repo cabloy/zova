@@ -2,7 +2,7 @@
   "name": "zova-module-<%=argv.name%>",
   "version": "5.0.0",
   "title": "<%=argv.moduleInfo.relativeName%>",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "icon": true
     }

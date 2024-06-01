@@ -2,7 +2,7 @@
   "name": "zova-module-a-antdv",
   "version": "5.0.0",
   "title": "a-antdv",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "monkey": true
     }

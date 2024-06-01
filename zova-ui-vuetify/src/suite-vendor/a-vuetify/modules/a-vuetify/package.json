@@ -2,7 +2,7 @@
   "name": "zova-module-a-vuetify",
   "version": "5.0.0",
   "title": "a-vuetify",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "monkey": true
     }

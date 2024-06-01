@@ -2,7 +2,7 @@
   "name": "zova-module-a-pinia",
   "version": "5.0.10",
   "title": "a-pinia",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "monkey": true
     }

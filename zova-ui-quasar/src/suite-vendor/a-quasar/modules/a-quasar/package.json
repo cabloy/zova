@@ -2,7 +2,7 @@
   "name": "zova-module-a-quasar",
   "version": "5.0.0",
   "title": "a-quasar",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "monkey": true
     }

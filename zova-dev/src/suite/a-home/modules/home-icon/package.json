@@ -2,7 +2,7 @@
   "name": "zova-module-home-icon",
   "version": "5.0.0",
   "title": "home-icon",
-  "cabloyModule": {
+  "zovaModule": {
     "capabilities": {
       "icon": true
     }
