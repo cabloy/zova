@@ -2,10 +2,10 @@
 
 import { App } from 'vue';
 import { PluginCabloy } from 'zova';
-import { modulesMeta } from '../../.cabloy/modules-meta.js';
+import { modulesMeta } from '../../.zova/modules-meta.js';
 import { AppMonkey } from '../front/config/monkey.js';
 import { locales } from '../front/config/locales.js';
-import config from '../../.cabloy/config.js';
+import config from '../../.zova/config.js';
 import { Router } from 'vue-router';
 
 export async function cabloy({ app, router }: { app: App; router: Router }) {

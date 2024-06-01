@@ -3,7 +3,7 @@
 /src-capacitor
 /src-cordova
 /.quasar
-/.cabloy
+/.zova
 /node_modules
 .eslintrc.cjs
 vite.config.ts.timestamp-*

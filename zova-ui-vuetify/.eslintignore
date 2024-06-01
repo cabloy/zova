@@ -2,7 +2,7 @@
 /distMockServer
 /src-capacitor
 /src-cordova
-/.cabloy
+/.zova
 /node_modules
 .eslintrc.cjs
 vite.config.ts.timestamp-*
