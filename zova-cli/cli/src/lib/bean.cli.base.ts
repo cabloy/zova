@@ -65,7 +65,7 @@ export class BeanCliBase {
       if (this.cliFullName.indexOf('api:') === 0) {
         projectMode = 'api';
       } else if (this.cliFullName.indexOf('front:') === 0) {
-        projectMode = 'front';
+        projectMode = 'zova';
       }
     }
     if (!projectMode) return;
