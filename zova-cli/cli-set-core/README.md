@@ -1,1 +1,1 @@
-# @cabloy/cli-set-core
+# zova-cli-set-core
