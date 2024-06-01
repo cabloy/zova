@@ -1,4 +1,4 @@
-import { CabloyViteConfigResult } from '@cabloy/app-vite';
+import { CabloyViteConfigResult } from 'zova-vite';
 
 export interface ConfigContext {
   cabloyViteMeta?: CabloyViteConfigResult;

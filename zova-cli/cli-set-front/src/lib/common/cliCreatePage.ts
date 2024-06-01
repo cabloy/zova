@@ -3,7 +3,7 @@ import { IModuleInfo } from '@cabloy/module-info';
 import path from 'path';
 import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
-import { createConfigUtils } from '@cabloy/app-vite';
+import { createConfigUtils } from 'zova-vite';
 import { CabloyConfigMeta } from 'zova-core';
 
 declare module 'zova-cli' {

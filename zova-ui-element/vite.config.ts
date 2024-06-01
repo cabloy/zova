@@ -8,9 +8,9 @@ import { presetAttributify, presetIcons, presetUno, transformerDirectives, trans
 
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
-import { getAppMode, getFlavor } from '@cabloy/app-vite';
+import { getAppMode, getFlavor } from 'zova-vite';
 import { CabloyConfigMeta } from 'zova';
-import { generateCabloyViteMeta } from '@cabloy/app-vite';
+import { generateCabloyViteMeta } from 'zova-vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {

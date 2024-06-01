@@ -1,1 +1,1 @@
-# @cabloy/app-vite
+# zova-vite

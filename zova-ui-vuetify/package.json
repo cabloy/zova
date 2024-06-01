@@ -38,7 +38,7 @@
     "vuetify": "^3.6.7"
   },
   "devDependencies": {
-    "@cabloy/app-vite": "^1.0.70",
+    "zova-vite": "^1.0.70",
     "@cabloy/lint": "^4.0.10",
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",

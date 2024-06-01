@@ -1,4 +1,4 @@
-import { generateCabloyViteMeta, getFlavor } from '@cabloy/app-vite';
+import { generateCabloyViteMeta, getFlavor } from 'zova-vite';
 import { CabloyConfigMeta } from 'zova-core';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';

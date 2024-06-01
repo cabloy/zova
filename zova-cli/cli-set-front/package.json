@@ -37,7 +37,7 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "@cabloy/app-vite": "^1.0.70",
+    "zova-vite": "^1.0.70",
     "zova-core": "^5.0.63",
     "compressing": "^1.10.0",
     "egg-born-utils": "^1.2.0",
