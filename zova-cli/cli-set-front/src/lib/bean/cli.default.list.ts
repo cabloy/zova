@@ -1,5 +1,13 @@
 import { BeanCliBase, getCommandsMeta } from 'zova-cli';
 
+declare module 'zova-cli' {
+  export interface ICommandArgv {
+    set?: string;
+    group?: string;
+  }
+}
+
+
 export class CliDefaultList extends BeanCliBase {
   async execute() {
     const { argv } = this.context;

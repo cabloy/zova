@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cabloy/lint':
-        specifier: ^4.0.9
-        version: 4.0.9(@types/eslint@8.56.10)(typescript@5.4.5)
+        specifier: ^4.0.10
+        version: 4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)
       '@types/mocha':
         specifier: ^10.0.6
         version: 10.0.6
@@ -29,21 +29,12 @@ importers:
 
   cli:
     dependencies:
-      '@cabloy/cli-set-api':
-        specifier: workspace:^
-        version: link:../cli-set-api
-      '@cabloy/cli-set-core':
-        specifier: workspace:^
-        version: link:../cli-set-core
-      '@cabloy/cli-set-front':
-        specifier: workspace:^
-        version: link:../cli-set-front
       '@cabloy/module-glob':
-        specifier: ^5.0.4
-        version: 5.0.4
+        specifier: ^5.0.13
+        version: 5.0.13
       '@cabloy/module-info':
-        specifier: ^1.0.12
-        version: 1.0.12
+        specifier: ^1.0.16
+        version: 1.0.16
       '@cabloy/process-helper':
         specifier: ^1.0.4
         version: 1.0.4
@@ -80,19 +71,17 @@ importers:
       istextorbinary:
         specifier: ^3.3.0
         version: 3.3.0
-
-  cli-set-api: {}
+      zova-cli-set-core:
+        specifier: ^1.1.9
+        version: link:../cli-set-core
+      zova-cli-set-front:
+        specifier: ^1.1.60
+        version: link:../cli-set-front
 
   cli-set-core: {}
 
   cli-set-front:
     dependencies:
-      '@cabloy/app-vite':
-        specifier: ^1.0.46
-        version: 1.0.46(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-      '@cabloy/front-core':
-        specifier: ^5.0.41
-        version: 5.0.41(typescript@5.4.5)
       compressing:
         specifier: ^1.10.0
         version: 1.10.0
@@ -114,6 +103,12 @@ importers:
       urllib:
         specifier: ^3.24.0
         version: 3.24.0
+      zova-core:
+        specifier: ^5.0.63
+        version: 5.0.64(typescript@5.4.5)
+      zova-vite:
+        specifier: ^1.0.70
+        version: 1.0.73(@babel/core@7.24.5)(@babel/traverse@7.24.5)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
 
 packages:
 
@@ -293,9 +288,6 @@ packages:
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/app-vite@1.0.46':
-    resolution: {integrity: sha512-B4oejF7ttoizoE1WyllkDYxh4HgvIu3Ea4iI1ErtAUU6/PvY6LRc50vpOueGzU1SJILIoQolRpPOdhUTzp/rEA==}
-
   '@cabloy/compose@1.0.2':
     resolution: {integrity: sha512-aOiMY6y5KyJ988pujOX90D+KTuHcFd6nyr/1hNzBnpyx0wYbFBeeJGwvzwk2TKHvkAB+VdbIPkaZNSFlQ4aeug==}
 
@@ -305,29 +297,20 @@ packages:
   '@cabloy/extend@3.0.5':
     resolution: {integrity: sha512-xP/60896+mpkF7AszF8VfItTYDZgvaqwMhzVFmWnKMJSlD9jbl/4Y7Vd2okxEX/nKLoh0NanY7atkR5PWD+CTg==}
 
-  '@cabloy/front-core@5.0.41':
-    resolution: {integrity: sha512-DX15Loxg3mK4a1k0wYc/Vb+Lww4/q0mZoeDMZdb8gDLmSP8Hmgy+AyEK6D6W714Ajk3yx2UaGvMFbgydoxNyXw==}
-
   '@cabloy/last-word@1.0.12':
     resolution: {integrity: sha512-Sff7MlYuPlJ4VSBRS9fuwvElMypGSDJURc9HoF5/IWEcWmoKS2rp+gIsOBLr62z1zNfpw325l1pOp3tMTqVo6A==}
 
-  '@cabloy/lint@4.0.9':
-    resolution: {integrity: sha512-UjZNNkSvsBcPL72qgemz0nDgHdUSLlZv89cSKJv4fXmgM/XugAnU9sEvwHcBdLkW4+cUZy+Dt30vQYfbBKTsbg==}
+  '@cabloy/lint@4.0.10':
+    resolution: {integrity: sha512-cq9QRuZEbaaiFJ7xZFoDifkYYCgIsfRKj1YIlfFeSUAy3qiasvSDTju9CXw7Fn04LrPPfKim+i77TEAwhHjotw==}
 
   '@cabloy/localeutil@1.0.4':
     resolution: {integrity: sha512-ZNcb/v9qCvFlyvdOrag8VcBRkvEqnJZTZWYr2qnf3NFWQDzUBFxVd8LBOYjOJmPd2efGZHM/+nAk21KyJ2mkLw==}
 
-  '@cabloy/module-glob@5.0.4':
-    resolution: {integrity: sha512-lKgO8RwqmO726IDYzYyW/OvcpPGHnvlNbOee/3rsgBYLNdv95n162QilVPojVpYC/jD7u5DibjGGXRU1j8ZjWQ==}
+  '@cabloy/module-glob@5.0.13':
+    resolution: {integrity: sha512-tCgORkM5JI8jTowaTao5rSG+3MIYphd1gayyLRtcwrQ13tnCbGahbqQy3YQ8SgofC426q0oUyqJ9cBKhm/MBeg==}
 
-  '@cabloy/module-glob@5.0.9':
-    resolution: {integrity: sha512-3Pc5E4xvkhqi5rURLE2ZpvJorDv7+JTisCjzqP8/RLtOUP1s0arB71wKktGojSvbtEgU1XiWNZhQBpNYgFPhSg==}
-
-  '@cabloy/module-info@1.0.12':
-    resolution: {integrity: sha512-pFO9fxFR993sqGg75pssDz8ENe03fE/UO/Ny3Jjkf8rKuV4ldY6SmWetAN+XNDyejmJvamwyxiPl/3VMztfWaQ==}
-
-  '@cabloy/module-info@1.0.13':
-    resolution: {integrity: sha512-wkMZlbRq85+mfDZWpq8RxHhi9nLBixKz3cNqxokMw/HgN7vKtUXnlEF4tNxSiR9ZcWA6z+5Wd1cnbPhEs2gUFw==}
+  '@cabloy/module-info@1.0.16':
+    resolution: {integrity: sha512-NNqxo3FA+UL0xsIIAkphsszXk3KYnz3D1tqA24R58UaRr957iX7BvpVHq9Fd1sP4W9a6F+j5H5pEzdiyLvh9dQ==}
 
   '@cabloy/process-helper@1.0.4':
     resolution: {integrity: sha512-w3HBtxHWTisyfdlkfz77CacBkfrypuInLd/qSwu34QWTSlvKBxFouVUARlmvjOFn5nWVNdr37BnP2BwnWeo7YA==}
@@ -338,8 +321,8 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-runtime-core@3.4.29':
-    resolution: {integrity: sha512-B56+/HZ0EPkzQzTlsN8K+YDDB5lBdJ2dq26Q2UBViuR8Y4RKCvJzHvhSVGOjAt2TUW6vfxjt3SRivf5xuuHBJg==}
+  '@cabloy/vue-runtime-core@3.4.31':
+    resolution: {integrity: sha512-dGiIyeWXc01rwMcYQEfuqPGnNFHOABkCME7LBiSlZMZfl5ZILX8rxaLb72IR53NCu3aryfRei0inRQVc3TBZAw==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -996,10 +979,6 @@ packages:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
     engines: {node: '>=6'}
 
-  ansi-escapes@4.3.2:
-    resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
-    engines: {node: '>=8'}
-
   ansi-regex@2.1.1:
     resolution: {integrity: sha512-TIGnTpdo+E3+pCyAluZvtED5p5wCqLdezCyhPZzKPcxvFplEt4i+W7OONCKgeZFT3+y5NZZfOOS/Bdcanm1MYA==}
     engines: {node: '>=0.10.0'}
@@ -1097,9 +1076,6 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  babel-plugin-cabloy-front-bean-module@1.0.15:
-    resolution: {integrity: sha512-T5J7fioHSCGRMv8AAQgThQqr4guPfdwNzwI+uz6OBFe2RSo/PMOeT3b41CPm4hse5MH9Ut1OtX6YFTKb+FNWbw==}
-
   babel-plugin-transform-typescript-metadata@0.3.2:
     resolution: {integrity: sha512-mWEvCQTgXQf48yDqgN7CH50waTyYBeP2Lpqx4nNWab9sxEpdXVeKgfj1qYI2/TgUPQtNFZ85i3PemRtnXVYYJg==}
     peerDependencies:
@@ -1108,6 +1084,9 @@ packages:
     peerDependenciesMeta:
       '@babel/traverse':
         optional: true
+
+  babel-plugin-zova-bean-module@1.0.17:
+    resolution: {integrity: sha512-YeNjqEbaT8Yih/CH40txu9AZwtYnqoKi2KIEzdHXHEQ97hUpn9GMktQ0cXcIk0Wm/orRwqrKvL/dzZkP6LNb7Q==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1281,10 +1260,6 @@ packages:
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
-
-  commander@8.3.0:
-    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
-    engines: {node: '>= 12'}
 
   comment-parser@1.4.1:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
@@ -2388,10 +2363,6 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  npm-run-path@4.0.1:
-    resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
-    engines: {node: '>=8'}
-
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
@@ -2712,6 +2683,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.5:
@@ -2998,9 +2970,6 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  tiny-invariant@1.3.3:
-    resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
-
   tmp@0.2.3:
     resolution: {integrity: sha512-nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==}
     engines: {node: '>=14.14'}
@@ -3061,10 +3030,6 @@ packages:
 
   type-fest@0.20.2:
     resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
-    engines: {node: '>=10'}
-
-  type-fest@0.21.3:
-    resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
   type-fest@0.8.1:
@@ -3185,37 +3150,6 @@ packages:
   vfile-location@3.2.0:
     resolution: {integrity: sha512-aLEIZKv/oxuCDZ8lkJGhuhztf/BW4M+iHdCwglA/eWc+vtuRFJj8EtgceYFX4LRjOhCAAiNHsKGssC6onJ+jbA==}
 
-  vite-plugin-checker@0.6.4:
-    resolution: {integrity: sha512-2zKHH5oxr+ye43nReRbC2fny1nyARwhxdm0uNYp/ERy4YvU9iZpNOsueoi/luXw5gnpqRSvjcEPxXbS153O2wA==}
-    engines: {node: '>=14.16'}
-    peerDependencies:
-      eslint: '>=7'
-      meow: ^9.0.0
-      optionator: ^0.9.1
-      stylelint: '>=13'
-      typescript: '*'
-      vite: '>=2.0.0'
-      vls: '*'
-      vti: '*'
-      vue-tsc: '>=1.3.9'
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-      meow:
-        optional: true
-      optionator:
-        optional: true
-      stylelint:
-        optional: true
-      typescript:
-        optional: true
-      vls:
-        optional: true
-      vti:
-        optional: true
-      vue-tsc:
-        optional: true
-
   vite@5.2.11:
     resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -3244,35 +3178,11 @@ packages:
       terser:
         optional: true
 
-  vscode-jsonrpc@6.0.0:
-    resolution: {integrity: sha512-wnJA4BnEjOSyFMvjZdpiOwhSq9uDoK8e/kpRJDTaMYzwlkrhG1fwDIZI94CLsLzlCK5cIbMMtFlJlfR57Lavmg==}
-    engines: {node: '>=8.0.0 || >=10.0.0'}
-
-  vscode-languageclient@7.0.0:
-    resolution: {integrity: sha512-P9AXdAPlsCgslpP9pRxYPqkNYV7Xq8300/aZDpO35j1fJm/ncize8iGswzYlcvFw5DQUx4eVk+KvfXdL0rehNg==}
-    engines: {vscode: ^1.52.0}
-
-  vscode-languageserver-protocol@3.16.0:
-    resolution: {integrity: sha512-sdeUoAawceQdgIfTI+sdcwkiK2KU+2cbEYA0agzM2uqaUy2UpnnGHtWTHVEtS0ES4zHU0eMFRGN+oQgDxlD66A==}
-
-  vscode-languageserver-textdocument@1.0.11:
-    resolution: {integrity: sha512-X+8T3GoiwTVlJbicx/sIAF+yuJAqz8VvwJyoMVhwEMoEKE/fkDmrqUgDMyBECcM2A2frVZIUj5HI/ErRXCfOeA==}
-
-  vscode-languageserver-types@3.16.0:
-    resolution: {integrity: sha512-k8luDIWJWyenLc5ToFQQMaSrqCHiLwyKPHKPQZ5zz21vM+vIVUSvsRpcbiECH4WR88K2XZqc4ScRcZ7nk/jbeA==}
-
-  vscode-languageserver@7.0.0:
-    resolution: {integrity: sha512-60HTx5ID+fLRcgdHfmz0LDZAXYEV68fzwG0JWwEPBode9NuMYTIxuYXPg4ngO8i8+Ou0lM7y6GzaYWbiDL0drw==}
-    hasBin: true
-
   vscode-oniguruma@1.7.0:
     resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
 
   vscode-textmate@8.0.0:
     resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
-
-  vscode-uri@3.0.8:
-    resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
 
   vue-eslint-parser@9.4.2:
     resolution: {integrity: sha512-Ry9oiGmCAK91HrKMtCrKFWmSFWvYkpGglCeFAIqDdr9zdXmMMpJOmUJS7WWsW7fX81h6mwHmUZCQQ1E0PkSwYQ==}
@@ -3379,6 +3289,12 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  zova-core@5.0.64:
+    resolution: {integrity: sha512-A2MWAkOiQZalcgIOvfq1UKnSWpFYRCOZWGEoCVDUCF63oCq5Y36IzKYSUxZYBL20AobSweUBl4hzdQAYY+RsbA==}
+
+  zova-vite@1.0.73:
+    resolution: {integrity: sha512-3tuTjrVj4/o0+h1H7mQzSs8RDEJ10hss9wgibJwbOCpryr29IszrJTaFr3A/bzqIs+Q6NsnivS7/j/wuoG+FDA==}
 
 snapshots:
 
@@ -3603,51 +3519,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
 
-  '@cabloy/app-vite@1.0.46(@babel/core@7.24.5)(@babel/traverse@7.24.5)(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))':
-    dependencies:
-      '@babel/plugin-proposal-decorators': 7.24.1(@babel/core@7.24.5)
-      '@babel/plugin-transform-class-properties': 7.24.1(@babel/core@7.24.5)
-      '@cabloy/dotenv': 1.0.1
-      '@cabloy/extend': 3.0.5
-      '@cabloy/front-core': 5.0.41(typescript@5.4.5)
-      '@cabloy/module-glob': 5.0.9
-      '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.5)(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))
-      '@cabloy/vue-runtime-core': 3.4.29
-      '@faker-js/faker': 8.4.1
-      '@types/node': 20.12.12
-      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
-      '@zhennann/vite-plugin-fake-server': 2.1.1
-      babel-plugin-cabloy-front-bean-module: 1.0.15
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.24.5)(@babel/traverse@7.24.5)
-      chalk: 3.0.0
-      esbuild: 0.20.2
-      fs-extra: 11.2.0
-      lodash: 4.17.21
-      minimist: 1.2.8
-      terser: 5.31.0
-      tmp: 0.2.3
-      vite: 5.2.11(@types/node@20.12.12)(terser@5.31.0)
-      vite-plugin-checker: 0.6.4(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@babel/traverse'
-      - eslint
-      - less
-      - lightningcss
-      - meow
-      - optionator
-      - proxy-agent
-      - sass
-      - stylelint
-      - stylus
-      - sugarss
-      - supports-color
-      - typescript
-      - vls
-      - vti
-      - vue
-      - vue-tsc
-
   '@cabloy/compose@1.0.2': {}
 
   '@cabloy/dotenv@1.0.1':
@@ -3662,24 +3533,9 @@ snapshots:
 
   '@cabloy/extend@3.0.5': {}
 
-  '@cabloy/front-core@5.0.41(typescript@5.4.5)':
-    dependencies:
-      '@cabloy/compose': 1.0.2
-      '@cabloy/extend': 3.0.5
-      '@cabloy/last-word': 1.0.12
-      '@cabloy/localeutil': 1.0.4
-      '@cabloy/module-info': 1.0.13
-      '@cabloy/vue-runtime-core': 3.4.29
-      '@vue/reactivity': 3.4.27
-      reflect-metadata: 0.2.2
-      vue: 3.4.27(typescript@5.4.5)
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - typescript
-
   '@cabloy/last-word@1.0.12': {}
 
-  '@cabloy/lint@4.0.9(@types/eslint@8.56.10)(typescript@5.4.5)':
+  '@cabloy/lint@4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.9.0(@typescript-eslint/parser@7.9.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.9.0(eslint@8.57.0)(typescript@5.4.5)
@@ -3697,29 +3553,16 @@ snapshots:
 
   '@cabloy/localeutil@1.0.4': {}
 
-  '@cabloy/module-glob@5.0.4':
+  '@cabloy/module-glob@5.0.13':
     dependencies:
-      '@cabloy/module-info': 1.0.12
+      '@cabloy/module-info': 1.0.16
       boxen: 4.2.0
       egg-born-utils: 1.2.0
     transitivePeerDependencies:
       - proxy-agent
       - supports-color
 
-  '@cabloy/module-glob@5.0.9':
-    dependencies:
-      '@cabloy/module-info': 1.0.13
-      boxen: 4.2.0
-      egg-born-utils: 1.2.0
-    transitivePeerDependencies:
-      - proxy-agent
-      - supports-color
-
-  '@cabloy/module-info@1.0.12':
-    dependencies:
-      stack-utils: 2.0.6
-
-  '@cabloy/module-info@1.0.13':
+  '@cabloy/module-info@1.0.16':
     dependencies:
       stack-utils: 2.0.6
 
@@ -3731,7 +3574,7 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.2.11(@types/node@20.12.12)(terser@5.31.0)
 
-  '@cabloy/vue-runtime-core@3.4.29':
+  '@cabloy/vue-runtime-core@3.4.31':
     dependencies:
       '@vue/reactivity': 3.4.27
       '@vue/shared': 3.4.27
@@ -4308,10 +4151,6 @@ snapshots:
 
   ansi-colors@4.1.3: {}
 
-  ansi-escapes@4.3.2:
-    dependencies:
-      type-fest: 0.21.3
-
   ansi-regex@2.1.1: {}
 
   ansi-regex@4.1.1: {}
@@ -4385,14 +4224,14 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  babel-plugin-cabloy-front-bean-module@1.0.15: {}
-
   babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.24.5)(@babel/traverse@7.24.5):
     dependencies:
       '@babel/core': 7.24.5
       '@babel/helper-plugin-utils': 7.24.5
     optionalDependencies:
       '@babel/traverse': 7.24.5
+
+  babel-plugin-zova-bean-module@1.0.17: {}
 
   balanced-match@1.0.2: {}
 
@@ -4626,8 +4465,6 @@ snapshots:
   commander@2.20.3: {}
 
   commander@7.2.0: {}
-
-  commander@8.3.0: {}
 
   comment-parser@1.4.1: {}
 
@@ -5861,10 +5698,6 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  npm-run-path@4.0.1:
-    dependencies:
-      path-key: 3.1.1
-
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
@@ -6533,8 +6366,6 @@ snapshots:
 
   through@2.3.8: {}
 
-  tiny-invariant@1.3.3: {}
-
   tmp@0.2.3: {}
 
   to-buffer@1.1.1: {}
@@ -6596,8 +6427,6 @@ snapshots:
       prelude-ls: 1.2.1
 
   type-fest@0.20.2: {}
-
-  type-fest@0.21.3: {}
 
   type-fest@0.8.1: {}
 
@@ -6756,29 +6585,6 @@ snapshots:
 
   vfile-location@3.2.0: {}
 
-  vite-plugin-checker@0.6.4(eslint@8.57.0)(optionator@0.9.4)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0)):
-    dependencies:
-      '@babel/code-frame': 7.24.2
-      ansi-escapes: 4.3.2
-      chalk: 4.1.2
-      chokidar: 3.6.0
-      commander: 8.3.0
-      fast-glob: 3.3.2
-      fs-extra: 11.2.0
-      npm-run-path: 4.0.1
-      semver: 7.6.2
-      strip-ansi: 6.0.1
-      tiny-invariant: 1.3.3
-      vite: 5.2.11(@types/node@20.12.12)(terser@5.31.0)
-      vscode-languageclient: 7.0.0
-      vscode-languageserver: 7.0.0
-      vscode-languageserver-textdocument: 1.0.11
-      vscode-uri: 3.0.8
-    optionalDependencies:
-      eslint: 8.57.0
-      optionator: 0.9.4
-      typescript: 5.4.5
-
   vite@5.2.11(@types/node@20.12.12)(terser@5.31.0):
     dependencies:
       esbuild: 0.20.2
@@ -6789,32 +6595,9 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.0
 
-  vscode-jsonrpc@6.0.0: {}
-
-  vscode-languageclient@7.0.0:
-    dependencies:
-      minimatch: 3.1.2
-      semver: 7.6.2
-      vscode-languageserver-protocol: 3.16.0
-
-  vscode-languageserver-protocol@3.16.0:
-    dependencies:
-      vscode-jsonrpc: 6.0.0
-      vscode-languageserver-types: 3.16.0
-
-  vscode-languageserver-textdocument@1.0.11: {}
-
-  vscode-languageserver-types@3.16.0: {}
-
-  vscode-languageserver@7.0.0:
-    dependencies:
-      vscode-languageserver-protocol: 3.16.0
-
   vscode-oniguruma@1.7.0: {}
 
   vscode-textmate@8.0.0: {}
-
-  vscode-uri@3.0.8: {}
 
   vue-eslint-parser@9.4.2(eslint@8.57.0):
     dependencies:
@@ -6951,3 +6734,55 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.23.8: {}
+
+  zova-core@5.0.64(typescript@5.4.5):
+    dependencies:
+      '@cabloy/compose': 1.0.2
+      '@cabloy/extend': 3.0.5
+      '@cabloy/last-word': 1.0.12
+      '@cabloy/localeutil': 1.0.4
+      '@cabloy/module-info': 1.0.16
+      '@cabloy/vue-runtime-core': 3.4.31
+      '@vue/reactivity': 3.4.27
+      reflect-metadata: 0.2.2
+      vue: 3.4.27(typescript@5.4.5)
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - typescript
+
+  zova-vite@1.0.73(@babel/core@7.24.5)(@babel/traverse@7.24.5)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      '@babel/plugin-proposal-decorators': 7.24.1(@babel/core@7.24.5)
+      '@babel/plugin-transform-class-properties': 7.24.1(@babel/core@7.24.5)
+      '@cabloy/dotenv': 1.0.1
+      '@cabloy/extend': 3.0.5
+      '@cabloy/module-glob': 5.0.13
+      '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.5)(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))
+      '@cabloy/vue-runtime-core': 3.4.31
+      '@faker-js/faker': 8.4.1
+      '@types/node': 20.12.12
+      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(@types/node@20.12.12)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
+      '@zhennann/vite-plugin-fake-server': 2.1.1
+      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.24.5)(@babel/traverse@7.24.5)
+      babel-plugin-zova-bean-module: 1.0.17
+      chalk: 3.0.0
+      esbuild: 0.20.2
+      fs-extra: 11.2.0
+      lodash: 4.17.21
+      minimist: 1.2.8
+      terser: 5.31.0
+      tmp: 0.2.3
+      vite: 5.2.11(@types/node@20.12.12)(terser@5.31.0)
+      zova-core: 5.0.64(typescript@5.4.5)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@babel/traverse'
+      - less
+      - lightningcss
+      - proxy-agent
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - typescript
+      - vue
