@@ -25,7 +25,7 @@ export const shared = defineConfig({
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1b6d37d42d29984a56d7a7eadc604e5a";
+        hm.src = "https://hm.baidu.com/hm.js?5e11ead9c056f624a69050542dc6c267";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
