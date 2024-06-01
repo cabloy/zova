@@ -31,5 +31,5 @@ miniprogram_npm
 sftp-config.json
 sftp-config-.json
 /.assets
-cabloy-docs/.vitepress/cache
+zova-docs/.vitepress/cache
 vite.config.ts.timestamp-*
