@@ -76,7 +76,6 @@ export class BeanCliBase {
       disabledSuites: undefined,
       log: false,
       projectMode,
-      loadPackage: false,
     });
   }
 
