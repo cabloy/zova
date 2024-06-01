@@ -1,2 +1,2 @@
 export * from './bean.js';
-export * from './cabloy.js';
+export * from './zova.js';

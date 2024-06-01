@@ -9,7 +9,7 @@ import 'roboto-fontface/css/roboto/sass/roboto-fontface.scss';
 import vuetify from './vuetify.js';
 import router from './router.js';
 import App from './app.vue';
-import { cabloy } from './cabloy.js';
+import { cabloy } from './zova.js';
 
 async function start({ app, router }) {
   await cabloy({ app, router });

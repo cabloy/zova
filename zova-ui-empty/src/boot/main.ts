@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import router from './router.js';
 import App from './app.vue';
-import { cabloy } from './cabloy.js';
+import { cabloy } from './zova.js';
 
 import '../css/settings.scss';
 
