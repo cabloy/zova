@@ -4,13 +4,13 @@ import { IMonkeyApp, IMonkeySystem, IMonkeyController } from './monkey.js';
 import { Constructable } from '../../decorator/index.js';
 import { ZovaLocaleOptionalMap } from '../../core/app/locale.js';
 
-export interface PluginCabloyModulesMeta {
+export interface PluginZovaModulesMeta {
   modules: Record<string, IModule>;
   moduleNames: string[];
 }
 
-export interface PluginCabloyOptions {
-  modulesMeta: PluginCabloyModulesMeta;
+export interface PluginZovaOptions {
+  modulesMeta: PluginZovaModulesMeta;
   AppMonkey: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>;
   locales: ZovaLocaleOptionalMap;
   config: ZovaConfig;

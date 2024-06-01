@@ -1,7 +1,7 @@
 import { App, markRaw } from 'vue';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
-import { PluginCabloyOptions } from '../../types/interface/pluginCabloy.js';
+import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
 import { PluginBean } from '../../plugins/bean.js';
@@ -15,14 +15,14 @@ export class ZovaApplication {
 
   constructor(vue: App) {
     markRaw(this);
-    vue.cabloy = this;
+    vue.zova = this;
     this.vue = vue;
     this.bean = BeanContainer.create(this, null);
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
   /** @internal */
-  public async initialize({ modulesMeta, AppMonkey, locales, config }: PluginCabloyOptions) {
+  public async initialize({ modulesMeta, AppMonkey, locales, config }: PluginZovaOptions) {
     // monkey
     await this.meta.initialize(AppMonkey);
     // component
@@ -54,6 +54,6 @@ export class ZovaApplication {
 declare module 'vue' {
   export interface App {
     /** @internal */
-    cabloy: ZovaApplication;
+    zova: ZovaApplication;
   }
 }
