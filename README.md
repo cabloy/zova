@@ -1,8 +1,8 @@
 English | [简体中文](./README.zh-CN.md)
 
-# Cabloy-Front
+# Zova
 
-Cabloy-Front is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
+Zova is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
