@@ -7,7 +7,7 @@
 我们先通过一个 cli 命令来创建一个子组件`card`:
 
 ```bash
-$ cabloy front:create:component card --module=a-demo
+$ zova :create:component card --module=a-demo
 ```
 
 该命令会创建一个目录`src/component/card`。在 Zova 中，一个子组件被切分为三个文件，位于刚才创建的目录中：

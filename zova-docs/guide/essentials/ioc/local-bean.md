@@ -7,7 +7,7 @@ In [page component](../component/page.md), we created a page component `counter`
 The code skeleton for local bean can be created using the cli command:
 
 ```bash
-$ cabloy front:create:local page/counter/counter --module=a-demo
+$ zova :create:local page/counter/counter --module=a-demo
 ```
 
 - The name of the local bean is `counter`, located in the directory `page/counter`

@@ -36,5 +36,5 @@ a-home
 You can use the cli command to create a suite file skeleton, such as creating a new suite `test-home`:
 
 ```bash
-$ cabloy front:create:suite test-home
+$ zova :create:suite test-home
 ```

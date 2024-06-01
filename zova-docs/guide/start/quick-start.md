@@ -14,7 +14,7 @@ $ pnpm add -g zova-cli
 ### 2. Create Project
 
 ```bash
-$ cabloy front:create:project projectName
+$ zova :create:project projectName
 ```
 
 1. Directly execute `cabloy` on the command line to create a project named `projectName`

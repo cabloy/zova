@@ -7,7 +7,7 @@ Zova 对路由`Query`进行了强化，提供了 Typescript 类型化支持
 为了完整的演示如何定义和使用类型化的`Query`，这里我们在模块`a-demo`中创建一个新的页面组件`user`：
 
 ```bash
-$ cabloy front:create:page user --module=a-demo
+$ zova :create:page user --module=a-demo
 ```
 
 ## 定义Query

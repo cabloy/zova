@@ -36,7 +36,7 @@
 可以使用 cli 命令创建模块文件骨架，比如新建一个模块`test-home`：
 
 ```bash
-$ cabloy front:create:module test-home --template=basic --suite
+$ zova :create:module test-home --template=basic --suite
 ```
 
 - suite 选项指示该模块归属于哪个套件，可以为空

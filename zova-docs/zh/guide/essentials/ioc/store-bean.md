@@ -7,7 +7,7 @@
 我们先来创建一个 store bean `userInfo`。可以通过 cli 命令创建 store bean 的代码骨架：
 
 ```bash
-$ cabloy front:create:store userInfo --module=a-demo
+$ zova :create:store userInfo --module=a-demo
 ```
 
 `src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
@@ -55,7 +55,7 @@ export class StoreUserInfo {
 接下来通过 cli 命令创建一个 local bean `testC`：
 
 ```bash
-$ cabloy front:create:local testC --module=a-demo
+$ zova :create:local testC --module=a-demo
 ```
 
 然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
@@ -102,9 +102,9 @@ export class TestC {
 接下来通过 cli 命令创建一个模块`a-demo2`，同时创建一个 local bean `testD`：
 
 ```bash
-$ cabloy front:create:module a-demo2 --template=basic --suite=a-demo
+$ zova :create:module a-demo2 --template=basic --suite=a-demo
 $ pnpm install --force
-$ cabloy front:create:local testD --module=a-demo2
+$ zova :create:local testD --module=a-demo2
 ```
 
 然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法

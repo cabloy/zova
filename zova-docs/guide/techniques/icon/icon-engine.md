@@ -91,7 +91,7 @@ Place the SVG icon into the icon module's group directory. For example, the `def
 Executing the build through the cli command will automatically group the SVG icons into icon files
 
 ```bash
-$ cabloy front:tools:icons home-icon
+$ zova :tools:icons home-icon
 ```
 
 ## Create Icon Module
@@ -101,5 +101,5 @@ In addition to the module `home-icon`, you can also create several new icon modu
 Icon modules can be created through the cli command:
 
 ```bash
-$ cabloy front:create:module test-icon --template=icon --suite=a-demo
+$ zova :create:module test-icon --template=icon --suite=a-demo
 ```

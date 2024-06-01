@@ -7,7 +7,7 @@ Through store bean, we can define a global state object and use it in any module
 Let's first create a store bean `userInfo`. The code skeleton for store bean can be created using the cli command:
 
 ```bash
-$ cabloy front:create:store userInfo --module=a-demo
+$ zova :create:store userInfo --module=a-demo
 ```
 
 `src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
@@ -55,7 +55,7 @@ export class StoreUserInfo {
 Next, create local bean `testC` using the cli command:
 
 ```bash
-$ cabloy front:create:local testC --module=a-demo
+$ zova :create:local testC --module=a-demo
 ```
 
 Then inject `userInfo` directly into `testC` and access the properties and methods of `userInfo`
@@ -102,9 +102,9 @@ For example, the previously created `userInfo` corresponds to the identifier `a-
 Next, create a module `a-demo2` using the cli command, and create a local bean `testD` at the same time:
 
 ```bash
-$ cabloy front:create:module a-demo2 --template=basic --suite=a-demo
+$ zova :create:module a-demo2 --template=basic --suite=a-demo
 $ pnpm install --force
-$ cabloy front:create:local testD --module=a-demo2
+$ zova :create:local testD --module=a-demo2
 ```
 
 Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`

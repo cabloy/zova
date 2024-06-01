@@ -5,7 +5,7 @@
 我们先通过一个 cli 命令来创建一个页面组件`counter`:
 
 ```bash
-$ cabloy front:create:page counter --module=a-demo
+$ zova :create:page counter --module=a-demo
 ```
 
 - module 选项指示该页面组件归属于模块`a-demo`。也可以不指定选项，在命令行提示中再指定

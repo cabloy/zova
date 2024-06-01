@@ -14,7 +14,7 @@ $ pnpm add -g zova-cli
 ### 2. 创建项目
 
 ```bash
-$ cabloy front:create:project projectName
+$ zova :create:project projectName
 ```
 
 1. 直接在命令行执行`cabloy`创建一个项目，名称为`projectName`

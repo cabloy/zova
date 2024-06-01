@@ -5,7 +5,7 @@
 Let's first create a page component `counter` using a cli command:
 
 ```bash
-$ cabloy front:create:page counter --module=a-demo
+$ zova :create:page counter --module=a-demo
 ```
 
 - The `module` option indicates that the page component belongs to the module `a-demo`

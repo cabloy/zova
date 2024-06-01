@@ -7,7 +7,7 @@ The difference from `Page Component` is that `Child Component` has three parts: 
 Let's first create a child component `card` using a cli command:
 
 ```bash
-$ cabloy front:create:component card --module=a-demo
+$ zova :create:component card --module=a-demo
 ```
 
 This command will create a directory `src/component/card`. In Zova, a child component will be splited to three files located in that directory:

@@ -7,7 +7,7 @@
 可以通过 cli 命令创建 local bean 的代码骨架：
 
 ```bash
-$ cabloy front:create:local page/counter/counter --module=a-demo
+$ zova :create:local page/counter/counter --module=a-demo
 ```
 
 - local bean 的名称是`counter`，位于目录`page/counter`中，也就是放入页面组件`counter`所在的目录

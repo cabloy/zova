@@ -91,7 +91,7 @@ import { VBtn } from 'vuetify/components';
 通过 cli 命令执行构建，就会自动把 SVG 图标按分组生成图标文件
 
 ```bash
-$ cabloy front:tools:icons home-icon
+$ zova :tools:icons home-icon
 ```
 
 ## 创建图标模块
@@ -101,5 +101,5 @@ $ cabloy front:tools:icons home-icon
 可以通过 cli 命令创建图标模块
 
 ```bash
-$ cabloy front:create:module test-icon --template=icon --suite=a-demo
+$ zova :create:module test-icon --template=icon --suite=a-demo
 ```

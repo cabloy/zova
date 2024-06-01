@@ -47,7 +47,7 @@ export const useCounterStore = defineStore('counter', () => {
 Use the cli command to create a store bean
 
 ```bash
-$ cabloy front:create:store counter --module=a-demo
+$ zova :create:store counter --module=a-demo
 ```
 
 Use `useCounterStore` in the generated file
