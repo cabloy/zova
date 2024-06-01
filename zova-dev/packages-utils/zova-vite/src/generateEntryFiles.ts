@@ -93,7 +93,7 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
   async function __generateModulesMeta() {
     // modules
     const { modules, modulesArray } = await glob({
-      projectMode: 'front',
+      projectMode: 'zova',
       projectPath: configOptions.appDir,
       disabledModules: process.env.PROJECT_DISABLED_MODULES,
       disabledSuites: process.env.PROJECT_DISABLED_SUITES,
