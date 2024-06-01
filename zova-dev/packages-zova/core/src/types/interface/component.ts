@@ -1,3 +1,4 @@
+import 'vue';
 import 'vue/jsx-runtime';
 
 declare module 'vue' {
