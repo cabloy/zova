@@ -13,7 +13,7 @@ vite.config.ts.timestamp-*
 distMockServer
 
 # Quasar core related directories
-.cabloy
+.zova
 .quasar
 /quasar.config.*.temporary.compiled*
 
