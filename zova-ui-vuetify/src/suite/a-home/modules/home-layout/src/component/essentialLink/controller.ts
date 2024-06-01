@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local } from '@cabloy/front';
+import { BeanControllerBase, Local } from 'zova';
 
 export interface Props {
   title: string;

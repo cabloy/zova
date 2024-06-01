@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerEssentialLink } from './controller.js';
 import { VIcon, VListItem, VListItemTitle } from 'vuetify/components';
 

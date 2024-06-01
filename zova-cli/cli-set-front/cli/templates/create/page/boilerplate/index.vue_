@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { useControllerPage } from '@cabloy/front';
+import { useControllerPage } from 'zova';
 import { ControllerPage<%=argv.nameMeta.fullCapitalize%> } from './controller.js';
 import { RenderPage<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
 useControllerPage(ControllerPage<%=argv.nameMeta.fullCapitalize%>, RenderPage<%=argv.nameMeta.fullCapitalize%>);

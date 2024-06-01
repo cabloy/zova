@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { NSControllerCard } from '../../resource/components.js';
 import { ScopeModule } from '../../resource/this.js';

@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local } from '@cabloy/front';
+import { BeanControllerPageBase, Local } from 'zova';
 
 @Local()
 export class ControllerPageErrorNotFound extends BeanControllerPageBase {}

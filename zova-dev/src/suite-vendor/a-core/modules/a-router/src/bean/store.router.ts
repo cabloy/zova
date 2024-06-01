@@ -1,4 +1,4 @@
-import { BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, Store, TypeEventOff } from '@cabloy/front';
+import { BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, Store, TypeEventOff } from 'zova';
 import { Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';

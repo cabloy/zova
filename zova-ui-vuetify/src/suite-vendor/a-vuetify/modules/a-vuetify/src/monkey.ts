@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import { PatchIcon } from './patch/icon.jsx';
 import { inject, reactive } from 'vue';
 import { DateAdapterSymbol } from 'vuetify/lib/composables/date/date.mjs';

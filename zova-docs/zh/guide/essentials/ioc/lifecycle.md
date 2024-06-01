@@ -10,7 +10,7 @@
 ## 举例：computed计算属性
 
 ```typescript
-import { useComputed } from '@cabloy/front';
+import { useComputed } from 'zova';
 
 export class Counter {
   count: number = 0;

@@ -1,4 +1,4 @@
-import { ExtractComposable } from '@cabloy/front';
+import { ExtractComposable } from 'zova';
 import { DateInstance, DefaultsInstance, DisplayInstance, LocaleInstance, ThemeInstance } from 'vuetify';
 
 export interface VuetifyGlobal {
@@ -10,8 +10,8 @@ export interface VuetifyGlobal {
   date: ExtractComposable<DateInstance>;
 }
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface BeanBase {
     $vuetify: VuetifyGlobal;
   }

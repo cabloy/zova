@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local, zz } from '@cabloy/front';
+import { BeanControllerPageBase, Local, zz } from 'zova';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
 export const ParamsSchema = zz.object({});

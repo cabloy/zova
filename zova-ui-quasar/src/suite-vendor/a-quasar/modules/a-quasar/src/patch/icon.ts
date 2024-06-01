@@ -1,4 +1,4 @@
-import { BeanBase, Cast, getCabloyIcon, Local } from '@cabloy/front';
+import { BeanBase, Cast, getCabloyIcon, Local } from 'zova';
 import { Platform, QIcon, Quasar } from 'quasar';
 import { ScopeModule } from '../resource/this.js';
 

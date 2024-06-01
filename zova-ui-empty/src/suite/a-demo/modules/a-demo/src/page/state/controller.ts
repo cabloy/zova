@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local, useComputed } from '@cabloy/front';
+import { BeanControllerPageBase, Local, useComputed } from 'zova';
 
 @Local()
 export class ControllerPageState extends BeanControllerPageBase {

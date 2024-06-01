@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { App } from 'vue';
-import { PluginCabloy } from '@cabloy/front';
+import { PluginCabloy } from 'zova';
 import { modulesMeta } from '../../.cabloy/modules-meta.js';
 import { AppMonkey } from '../front/config/monkey.js';
 import { locales } from '../front/config/locales.js';

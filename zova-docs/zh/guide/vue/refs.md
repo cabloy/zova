@@ -9,7 +9,7 @@
 以 input element 为例：
 
 ```typescript
-import { onControllerMounted } from '@cabloy/front';
+import { onControllerMounted } from 'zova';
 
 export class ControllerPageComponent {
   inputRef: HTMLInputElement | null;

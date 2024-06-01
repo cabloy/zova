@@ -10,7 +10,7 @@ All beans can provide two lifecycle methods
 ## For Example: computed
 
 ```typescript
-import { useComputed } from '@cabloy/front';
+import { useComputed } from 'zova';
 
 export class Counter {
   count: number = 0;

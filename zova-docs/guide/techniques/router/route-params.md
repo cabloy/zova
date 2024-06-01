@@ -41,10 +41,10 @@ export const routes: IModuleRoute[] = [
 `src/suite/a-demo/modules/a-demo/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
-import { TypePageParamsQuery } from '@cabloy/front';
+import { TypePageParamsQuery } from 'zova';
 import * as NSControllerPageUser from '../page/user/controller.js';
 
-declare module '@cabloy/front' {
+declare module 'zova' {
   export interface IPageNameRecord {
     'a-demo:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
   }

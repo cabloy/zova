@@ -1,4 +1,4 @@
-import { CabloyApplication } from '@cabloy/front';
+import { CabloyApplication } from 'zova';
 
 export const config = (_app: CabloyApplication) => {
   return {};

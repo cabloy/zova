@@ -4,7 +4,7 @@ import Vue from '@vitejs/plugin-vue';
 // Utilities
 import { defineConfig, mergeConfig } from 'vite';
 import { getAppMode, getFlavor } from '@cabloy/app-vite';
-import { CabloyConfigMeta } from '@cabloy/front';
+import { CabloyConfigMeta } from 'zova';
 import { generateCabloyViteMeta } from '@cabloy/app-vite';
 
 // https://vitejs.dev/config/

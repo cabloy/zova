@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
 import EssentialLink from '../../component/essentialLink/index.vue';
 import {

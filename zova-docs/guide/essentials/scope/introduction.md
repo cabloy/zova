@@ -9,7 +9,7 @@ All beans inherit from the base class `BeanBase`, and `BeanBase` supports passin
 Take `testA.ts` as an example：
 
 ```typescript{2,5,7}
-import { BeanBase, Local } from '@cabloy/front';
+import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 
 @Local()

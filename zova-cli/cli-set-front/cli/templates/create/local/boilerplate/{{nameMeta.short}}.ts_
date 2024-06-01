@@ -1,4 +1,4 @@
-import { BeanBase, Local } from '@cabloy/front';
+import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length-1)%>resource/this.js';
 
 @Local()

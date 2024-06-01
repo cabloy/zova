@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageErrorNotFound } from './controller.js';
 import { ElButton } from 'element-plus';
 

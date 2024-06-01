@@ -1,4 +1,4 @@
-import { BeanBase, Store } from '@cabloy/front';
+import { BeanBase, Store } from 'zova';
 import axios, { AxiosInstance } from 'axios';
 import { markRaw } from 'vue';
 

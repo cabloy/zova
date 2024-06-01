@@ -1,4 +1,4 @@
-import { BeanBase, Local } from '@cabloy/front';
+import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { createPinia } from 'pinia';
 

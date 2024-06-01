@@ -7,7 +7,7 @@ import {
   IMonkeyController,
   IMonkeySystem,
   IControllerData,
-} from '@cabloy/front';
+} from 'zova';
 
 export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, IMonkeyController {
   async moduleLoading(_module: IModule) {}

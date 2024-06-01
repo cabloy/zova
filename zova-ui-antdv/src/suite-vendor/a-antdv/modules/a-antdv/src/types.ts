@@ -1,8 +1,8 @@
-import { ExtractComposable } from '@cabloy/front';
+import { ExtractComposable } from 'zova';
 import { useAppProps } from 'ant-design-vue/es/app/context.js';
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface BeanBase {
     $antdv: ExtractComposable<useAppProps>;
   }

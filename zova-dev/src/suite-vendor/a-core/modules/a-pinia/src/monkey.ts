@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from '@cabloy/front';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import { Pinia } from './local/pinia.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {

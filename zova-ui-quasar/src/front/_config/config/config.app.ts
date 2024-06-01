@@ -1,6 +1,6 @@
 // npm run build
 // npm run build -- --flavor=app
-import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
+import { CabloyConfigMeta, CabloyConfigOptional } from 'zova';
 
 export default function (_meta: CabloyConfigMeta) {
   const config = {

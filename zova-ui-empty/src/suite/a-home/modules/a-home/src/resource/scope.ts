@@ -1,4 +1,4 @@
-import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from '@cabloy/front';
+import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 import { config, Errors, locales, constants } from '../config/index.js';
 import { components } from './components.js';
 
@@ -14,8 +14,8 @@ export interface ScopeModuleAHome
     typeof constants
   > {}
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface IBeanScopeRecord {
     'a-home': ScopeModuleAHome;
   }

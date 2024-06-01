@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
 import { ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';

@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { useController } from '@cabloy/front';
+import { useController } from 'zova';
 import { ControllerLayoutEmpty, Props, Emits } from './controller.js';
 import { RenderLayoutEmpty } from './render.jsx';
 const props = withDefaults(defineProps<Props>(), ControllerLayoutEmpty.$propsDefault);

@@ -1,4 +1,4 @@
-import { BeanBase, TypeEventOff, Virtual } from '@cabloy/front';
+import { BeanBase, TypeEventOff, Virtual } from 'zova';
 import { StoreRouterLike } from './store.router.js';
 
 @Virtual()

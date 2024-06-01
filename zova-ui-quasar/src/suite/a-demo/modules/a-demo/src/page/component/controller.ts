@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local } from '@cabloy/front';
+import { BeanControllerPageBase, Local } from 'zova';
 import { ControllerCard } from '../../component/card/controller.js';
 import { ScopeModule } from '../../resource/this.js';
 

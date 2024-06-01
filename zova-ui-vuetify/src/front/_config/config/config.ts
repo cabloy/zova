@@ -1,4 +1,4 @@
-import { CabloyConfigMeta, CabloyConfigOptional } from '@cabloy/front';
+import { CabloyConfigMeta, CabloyConfigOptional } from 'zova';
 
 export default function (_meta: CabloyConfigMeta) {
   const config = {

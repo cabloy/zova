@@ -34,7 +34,7 @@ export function useMouse() {
 `src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
 
 ```typescript
-import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from '@cabloy/front';
+import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from 'zova';
 import { useMouse } from './mouse.js';
 
 @Local()

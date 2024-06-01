@@ -54,7 +54,7 @@ $ cabloy front:create:store counter --module=a-demo
 `src/suite/a-demo/modules/a-demo/src/bean/store.counter.ts`
 
 ```typescript
-import { Store } from '@cabloy/front';
+import { Store } from 'zova';
 import { PiniaStoreLike, BeanPiniaStoreBase } from 'cabloy-module-front-a-pinia';
 import { useCounterStore } from './counterStore.js';
 
@@ -79,7 +79,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 `src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
 
 ```typescript
-import { Local, Use } from '@cabloy/front';
+import { Local, Use } from 'zova';
 import type { StoreCounterLike } from '../../bean/store.counter.js';
 
 @Local()

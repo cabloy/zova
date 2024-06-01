@@ -1,4 +1,4 @@
-import { Local } from '@cabloy/front';
+import { Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { StoreRouterLike, BeanRouterBase } from 'cabloy-module-front-a-router';
 

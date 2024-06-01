@@ -9,7 +9,7 @@ If it is an Html Element or a regular Vue component (without using an ioc contai
 Take `input` element as an example:
 
 ```typescript
-import { onControllerMounted } from '@cabloy/front';
+import { onControllerMounted } from 'zova';
 
 export class ControllerPageComponent {
   inputRef: HTMLInputElement | null;

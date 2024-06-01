@@ -1,4 +1,4 @@
-import { BeanRenderBase, CabloyIcon, Local } from '@cabloy/front';
+import { BeanRenderBase, CabloyIcon, Local } from 'zova';
 import type { ControllerEssentialLink } from './controller.js';
 import { RouterLink } from 'vue-router';
 

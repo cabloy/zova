@@ -1,10 +1,10 @@
-import { Functionable } from '@cabloy/front';
+import { Functionable } from 'zova';
 import { Pinia } from 'pinia';
 
 export type PiniaStoreLike<S, P extends Functionable> = S & ReturnType<P>;
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface BeanBase {
     $pinia: Pinia;
   }

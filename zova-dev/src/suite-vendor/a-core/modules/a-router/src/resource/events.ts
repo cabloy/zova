@@ -1,7 +1,7 @@
 import { StoreRouterLike } from './beans.js';
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface IEventRecord {
     'a-router:routerGuards': StoreRouterLike;
   }

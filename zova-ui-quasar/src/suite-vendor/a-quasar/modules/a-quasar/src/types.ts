@@ -1,8 +1,8 @@
-import { ReturnTypeComposable } from '@cabloy/front';
+import { ReturnTypeComposable } from 'zova';
 import useQuasar from 'quasar/src/composables/use-quasar/use-quasar.js';
 
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface BeanBase {
     $q: ReturnTypeComposable<typeof useQuasar>;
   }

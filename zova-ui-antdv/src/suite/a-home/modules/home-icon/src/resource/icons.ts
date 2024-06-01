@@ -1,5 +1,5 @@
-import '@cabloy/front';
-declare module '@cabloy/front' {
+import 'zova';
+declare module 'zova' {
   export interface IIconRecord {
     ':auth:dingtalk-square': true;
     ':auth:github': true;

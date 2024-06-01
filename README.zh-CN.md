@@ -10,10 +10,10 @@ Cabloy-Front 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://github.com/cabloy/zova/blob/master/LICENSE
-[npm-image]: https://img.shields.io/npm/v/@cabloy/front.svg?style=flat-square
-[npm-url]: https://npmjs.com/package/@cabloy/front
-[download-image]: https://img.shields.io/npm/dm/@cabloy/front?color=orange&label=npm%20downloads
-[download-url]: https://npmjs.com/package/@cabloy/front
+[npm-image]: https://img.shields.io/npm/v/zova.svg?style=flat-square
+[npm-url]: https://npmjs.com/package/zova
+[download-image]: https://img.shields.io/npm/dm/zova?color=orange&label=npm%20downloads
+[download-url]: https://npmjs.com/package/zova
 
 ## 文档
 

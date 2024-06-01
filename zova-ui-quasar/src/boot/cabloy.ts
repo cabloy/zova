@@ -1,7 +1,7 @@
 /* eslint-disable */
 //import { boot } from 'quasar/wrappers';
 import { App } from 'vue';
-import { PluginCabloy } from '@cabloy/front';
+import { PluginCabloy } from 'zova';
 import { modulesMeta } from '../../.quasar/cabloy/modules-meta.js';
 import { AppMonkey } from '../front/config/monkey.js';
 import { locales } from '../front/config/locales.js';

@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local } from '@cabloy/front';
+import { BeanControllerBase, Local } from 'zova';
 import * as ControllerEssentialLink from '../../component/essentialLink/controller.js';
 
 export interface Props {}

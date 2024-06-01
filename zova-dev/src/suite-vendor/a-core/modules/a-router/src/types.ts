@@ -1,4 +1,4 @@
-import { TypePageSchemas } from '@cabloy/front';
+import { TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
@@ -15,7 +15,7 @@ declare module 'vue-router' {
   }
 }
 
-declare module '@cabloy/front' {
+declare module 'zova' {
   export interface BeanBase {
     $router: StoreRouterLike;
   }

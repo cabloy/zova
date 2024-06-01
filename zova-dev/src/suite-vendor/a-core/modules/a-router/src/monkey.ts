@@ -10,7 +10,7 @@ import {
   IControllerData,
   TypePageSchema,
   useComputed,
-} from '@cabloy/front';
+} from 'zova';
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';

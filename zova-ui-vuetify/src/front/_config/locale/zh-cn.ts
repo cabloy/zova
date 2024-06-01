@@ -1,4 +1,4 @@
-import { CabloyLocaleOptional } from '@cabloy/front';
+import { CabloyLocaleOptional } from 'zova';
 
 export default {
   modules: {},

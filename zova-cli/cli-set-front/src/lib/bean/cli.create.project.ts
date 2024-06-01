@@ -38,7 +38,7 @@ export class CliCreateProject extends BeanCliBase {
     }
     // template
     const template = argv.template;
-    const packageName = `@cabloy/front-${template}`;
+    const packageName = `zova-ui-${template}`;
     // download boilerplate
     const templateDir = await this.downloadBoilerplate(packageName);
     fse.copySync(templateDir, targetDir);

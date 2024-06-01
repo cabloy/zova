@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerCard } from './controller.js';
 
 export interface RenderCard extends ControllerCard {}

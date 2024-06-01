@@ -9,7 +9,7 @@
 以`testA.ts`为例：
 
 ```typescript{2,5,7}
-import { BeanBase, Local } from '@cabloy/front';
+import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 
 @Local()

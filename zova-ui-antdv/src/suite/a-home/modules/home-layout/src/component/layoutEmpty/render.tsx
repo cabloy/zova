@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutEmpty } from './controller.js';
 import { App, ConfigProvider } from 'ant-design-vue';
 

@@ -1,4 +1,4 @@
-import { BeanBase, Virtual } from '@cabloy/front';
+import { BeanBase, Virtual } from 'zova';
 
 const SymbolPiniaStore = Symbol('SymbolPiniaStore');
 

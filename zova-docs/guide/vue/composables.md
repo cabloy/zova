@@ -34,7 +34,7 @@ Take the existing page component of module `a-demo` as an example:
 `src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
 
 ```typescript
-import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from '@cabloy/front';
+import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from 'zova';
 import { useMouse } from './mouse.js';
 
 @Local()

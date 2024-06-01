@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from '@cabloy/front';
+import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageState } from './controller.js';
 
 export interface RenderPageState extends ControllerPageState {}

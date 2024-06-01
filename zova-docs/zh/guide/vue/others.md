@@ -5,7 +5,7 @@
 为了保持类型一致，需要使用`useComputed`来创建计算属性。参数与 computed 方法保持一致，参见：[计算属性](https://cn.vuejs.org/guide/essentials/computed.html)
 
 ```typescript
-import { useComputed } from '@cabloy/front';
+import { useComputed } from 'zova';
 
 export class Counter {
   count: number = 0;
@@ -50,7 +50,7 @@ export class Counter {
 由于与组件绑定的 Bean 容器是异步加载的，所以，如果要在 Bean 容器加载完毕后执行一些初始化逻辑，需要响应`onControllerMounted`事件。如果初始化逻辑不依赖 Bean 容器的加载状态，则可以使用`onMounted`
 
 ```typescript
-import { onControllerMounted } from '@cabloy/front';
+import { onControllerMounted } from 'zova';
 
 export class ControllerPageComponent {
   inputRef: HTMLInputElement | null;

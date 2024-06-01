@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front",
+  "name": "zova",
   "version": "5.0.72",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
