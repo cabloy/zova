@@ -1,0 +1,26 @@
+name: actions-ui
+on:
+  push:
+    branches:
+      - main
+jobs:
+  unittest:
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16, 18, 20]
+        project-template: ['zova-ui-empty','zova-ui-antdv','zova-ui-element','zova-ui-quasar','zova-ui-vuetify']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+      - run: pnpm add -g zova-cli
+      - run: zova :create:project ${{ matrix.project-template }} --template=${{ matrix.project-template }}
+      - run: cd ${{ matrix.project-template }}
+      - run: pnpm install
+      - run: npm run build
