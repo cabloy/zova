@@ -1,5 +1,5 @@
 {
-  "name": "cabloy-suite-front-<%=argv.name%>",
+  "name": "zova-suite-<%=argv.name%>",
   "version": "5.0.0",
   "title": "<%=argv.suiteInfo.relativeName%>",
   "type": "module",

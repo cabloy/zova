@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "zova-core": "^5.0.63",
-    "cabloy-suite-front-a-core": "^5.0.32"
+    "zova-suite-a-core": "^5.0.32"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }

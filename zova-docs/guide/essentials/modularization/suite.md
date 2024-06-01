@@ -9,7 +9,7 @@ As the project continues to evolve iteratively, the business modules created wil
 The suite uses a naming convention similar to the module:
 
 ```bash
-FullName: cabloy-suite-front-{providerId}-{suiteName}
+FullName: zova-suite-{providerId}-{suiteName}
 ShortName: {providerId}-{suiteName}
 ```
 

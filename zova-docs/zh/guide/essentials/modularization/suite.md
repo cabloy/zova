@@ -9,7 +9,7 @@
 套件采用与模块类似的命名约定：
 
 ```bash
-完整名: cabloy-suite-front-{providerId}-{suiteName}
+完整名: zova-suite-{providerId}-{suiteName}
 短名: {providerId}-{suiteName}
 ```
 
