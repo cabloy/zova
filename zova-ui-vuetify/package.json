@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-vuetify",
+  "name": "zova-ui-vuetify",
   "version": "5.0.96",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
