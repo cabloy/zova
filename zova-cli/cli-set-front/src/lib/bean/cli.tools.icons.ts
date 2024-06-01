@@ -154,7 +154,7 @@ ${symbols.join('\n')}
   }
 
   private _getSymbolId(moduleName: string, groupName: string, iconName: string) {
-    return `cabloy-svg-icon-${moduleName}-${groupName}-${iconName}`;
+    return `zova-svg-icon-${moduleName}-${groupName}-${iconName}`;
   }
 
   private _getRecordId(moduleName: string, groupName: string, iconName: string) {

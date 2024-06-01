@@ -83,27 +83,27 @@ export class AppIcon extends BeanSimple {
     const iconModule = this._getIconModule(meta.module);
     const iconGroup = iconModule[meta.group];
     // inject container
-    let domContainer = document.getElementById('cabloy-svg-container');
+    let domContainer = document.getElementById('zova-svg-container');
     if (!domContainer) {
       domContainer = document.createElement('div');
       domContainer.style.position = 'absolute';
       domContainer.style.width = '0';
       domContainer.style.height = '0';
-      domContainer.id = 'cabloy-svg-container';
+      domContainer.id = 'zova-svg-container';
       document.body.appendChild(domContainer);
     }
     // inject module
-    let domModule = document.getElementById(`cabloy-svg-module-${meta.module}`);
+    let domModule = document.getElementById(`zova-svg-module-${meta.module}`);
     if (!domModule) {
       domModule = document.createElement('div');
-      domModule.id = `cabloy-svg-module-${meta.module}`;
+      domModule.id = `zova-svg-module-${meta.module}`;
       domContainer.appendChild(domModule);
     }
     // inject group
-    let domGroup = document.getElementById(`cabloy-svg-group-${meta.module}-${meta.group}`) as unknown as SVGSVGElement;
+    let domGroup = document.getElementById(`zova-svg-group-${meta.module}-${meta.group}`) as unknown as SVGSVGElement;
     if (!domGroup) {
       domGroup = document.createElementNS(XMLNS, 'svg');
-      domGroup.id = `cabloy-svg-group-${meta.module}-${meta.group}`;
+      domGroup.id = `zova-svg-group-${meta.module}-${meta.group}`;
       domGroup.setAttribute('xmlns', XMLNS);
       domGroup.setAttribute('xmlns:link', XMLNS_LINK);
       domModule.appendChild(domGroup);
@@ -151,7 +151,7 @@ export class AppIcon extends BeanSimple {
   }
 
   private _getSymbolId(module: string, group: string, name: string) {
-    return `cabloy-svg-icon-${module}-${group}-${name}`;
+    return `zova-svg-icon-${module}-${group}-${name}`;
   }
 
   private _getFullName(module: string, group: string, name: string) {
