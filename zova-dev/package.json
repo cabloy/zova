@@ -17,7 +17,7 @@
     "workflow-engine",
     "vue3",
     "ioc",
-    "cabloy"
+    "zova"
   ],
   "repository": {
     "type": "git",
