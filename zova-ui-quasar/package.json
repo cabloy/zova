@@ -1,5 +1,5 @@
 {
-  "name": "@cabloy/front-quasar",
+  "name": "zova-ui-quasar",
   "version": "5.0.96",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
