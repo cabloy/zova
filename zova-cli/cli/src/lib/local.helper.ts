@@ -107,7 +107,7 @@ export class LocalHelper {
     };
   }
   parseModuleInfo(moduleName) {
-    const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'api', 'module');
+    const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'zova', 'module');
     if (!moduleInfo) throw new Error(`module name is not valid: ${moduleName}`);
     return moduleInfo;
   }
@@ -116,7 +116,7 @@ export class LocalHelper {
     return this.cli.modulesMeta.modules[moduleInfo.relativeName];
   }
   parseSuiteInfo(suiteName) {
-    const suiteInfo = ModuleInfo.parseInfoPro(suiteName, 'api', 'suite');
+    const suiteInfo = ModuleInfo.parseInfoPro(suiteName, 'zova', 'suite');
     if (!suiteInfo) throw new Error(`suite name is not valid: ${suiteName}`);
     return suiteInfo;
   }
