@@ -26,10 +26,10 @@ jobs:
         run: pnpm install
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: suite
-        run: zova :create:suite test-demo
+        run: zova :create:suite test-demo --description --author
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: module
-        run: zova :create:module test-demo --template=basic --suite=test-demo
+        run: zova :create:module test-demo --template=basic --suite=test-demo --description --author
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: pnpm install --force
         run: pnpm install --force
