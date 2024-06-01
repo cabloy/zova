@@ -39,7 +39,7 @@ export class TestA {
 ## 跨模块使用Constant
 
 ```typescript{1,4-5,8-10}
-import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
 export class TestA {
   @UseScope('a-demo')

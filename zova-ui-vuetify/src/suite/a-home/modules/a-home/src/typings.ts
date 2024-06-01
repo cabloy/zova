@@ -1,5 +1,5 @@
-export type * as ACore from 'cabloy-module-front-a-core';
-export type * as AVuetify from 'cabloy-module-front-a-vuetify';
-export type * as HomeApi from 'cabloy-module-front-home-api';
-export type * as HomeIcon from 'cabloy-module-front-home-icon';
-export type * as HomeRouter from 'cabloy-module-front-home-router';
+export type * as ACore from 'zova-module-a-core';
+export type * as AVuetify from 'zova-module-a-vuetify';
+export type * as HomeApi from 'zova-module-home-api';
+export type * as HomeIcon from 'zova-module-home-icon';
+export type * as HomeRouter from 'zova-module-home-router';

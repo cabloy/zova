@@ -1,1 +1,1 @@
-export type * as AHome from 'cabloy-module-front-a-home';
+export type * as AHome from 'zova-module-a-home';

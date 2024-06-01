@@ -41,7 +41,7 @@ export class TestA extends BeanBase<ScopeModule> {
 仍以`testA.ts`为例，获取模块`a-home`的`Scope`实例：
 
 ```typescript{1,4-5,8}
-import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
+import type { ScopeModuleAHome } from 'zova-module-a-home';
 
 export class TestA {
   @UseScope('a-home')

@@ -6,6 +6,6 @@
   "description": "demo",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-demo": "workspace:^"
+    "zova-module-a-demo": "workspace:^"
   }
 }

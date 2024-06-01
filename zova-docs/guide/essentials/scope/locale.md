@@ -46,7 +46,7 @@ export class TestA {
 ## Use language resources cross-module
 
 ```typescript{1,4-5,8-14}
-import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
 export class TestA {
   @UseScope('a-demo')

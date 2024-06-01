@@ -112,7 +112,7 @@ $ cabloy front:create:local testD --module=a-demo2
 `src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
 ```typescript{1,4-5,8-9}
-import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
+import type { StoreUserInfo } from 'zova-module-a-demo';
 
 export class TestD {
   @Use('a-demo.store.userInfo')
@@ -125,5 +125,5 @@ export class TestD {
 }
 ```
 
-- 从`cabloy-module-front-a-demo`模块导入 class `StoreUserInfo`的类型
+- 从`zova-module-a-demo`模块导入 class `StoreUserInfo`的类型
 - 向`Use`装饰器函数传入 store bean 的标识，在这里就是`a-demo.store.userInfo`。系统会自动在 app bean 容器中通过 bean 标识来查找或者创建一个 store 实例，然后注入到`testD`中

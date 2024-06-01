@@ -6,6 +6,6 @@
   "description": "element",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-element": "workspace:^"
+    "zova-module-a-element": "workspace:^"
   }
 }

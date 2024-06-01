@@ -6,6 +6,6 @@
   "description": "quasar",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-quasar": "workspace:^"
+    "zova-module-a-quasar": "workspace:^"
   }
 }

@@ -6,6 +6,6 @@
   "description": "vuetify",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-vuetify": "workspace:^"
+    "zova-module-a-vuetify": "workspace:^"
   }
 }

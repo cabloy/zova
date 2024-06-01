@@ -6,6 +6,6 @@
   "description": "antdv",
   "author": "zhennann",
   "dependencies": {
-    "cabloy-module-front-a-antdv": "workspace:^"
+    "zova-module-a-antdv": "workspace:^"
   }
 }

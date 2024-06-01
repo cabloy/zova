@@ -1,5 +1,5 @@
 {
-  "name": "cabloy-module-front-a-core",
+  "name": "zova-module-a-core",
   "version": "5.0.26",
   "title": "a-core",
   "cabloyModule": {
@@ -35,8 +35,8 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "cabloy-module-front-a-pinia": "^5.0.9",
-    "cabloy-module-front-a-router": "^5.0.26"
+    "zova-module-a-pinia": "^5.0.9",
+    "zova-module-a-router": "^5.0.26"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }

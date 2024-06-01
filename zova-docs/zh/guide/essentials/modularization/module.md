@@ -24,7 +24,7 @@
 为了实现命名空间隔离，Cabloy-Front 对模块采用如下命名约定：
 
 ```bash
-完整名: cabloy-module-front-{providerId}-{moduleName}
+完整名: zova-module-{providerId}-{moduleName}
 短名: {providerId}-{moduleName}
 ```
 

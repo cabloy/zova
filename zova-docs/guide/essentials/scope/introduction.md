@@ -41,7 +41,7 @@ The `Scope` object itself is also a bean, so you can directly use `dependency in
 Still taking `testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
 
 ```typescript{1,4-5,8}
-import type { ScopeModuleAHome } from 'cabloy-module-front-a-home';
+import type { ScopeModuleAHome } from 'zova-module-a-home';
 
 export class TestA {
   @UseScope('a-home')

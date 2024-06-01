@@ -112,7 +112,7 @@ Then inject `userInfo` directly into `testD` and access the properties and metho
 `src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
 ```typescript{1,4-5,8-9}
-import type { StoreUserInfo } from 'cabloy-module-front-a-demo';
+import type { StoreUserInfo } from 'zova-module-a-demo';
 
 export class TestD {
   @Use('a-demo.store.userInfo')
@@ -125,5 +125,5 @@ export class TestD {
 }
 ```
 
-- Import the type of class `StoreUserInfo` from the module of `cabloy-module-front-a-demo`
+- Import the type of class `StoreUserInfo` from the module of `zova-module-a-demo`
 - Pass the identifier of the store bean to the `Use` decorator function, which in this case is `a-demo.store.userInfo`. The system will automatically look up or create an instance in the app bean container using the bean identifier, and then inject it into `testD`

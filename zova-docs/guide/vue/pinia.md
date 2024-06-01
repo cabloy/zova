@@ -56,7 +56,7 @@ Use `useCounterStore` in the generated file
 
 ```typescript
 import { Store } from 'zova';
-import { PiniaStoreLike, BeanPiniaStoreBase } from 'cabloy-module-front-a-pinia';
+import { PiniaStoreLike, BeanPiniaStoreBase } from 'zova-module-a-pinia';
 import { useCounterStore } from './counterStore.js';
 
 export type StoreCounterLike = PiniaStoreLike<StoreCounter, typeof useCounterStore>;

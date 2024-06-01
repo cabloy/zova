@@ -4,7 +4,7 @@ module.exports = {
     language: 'json',
   },
   async transform({ /* cli,*/ ast, argv }) {
-    ast.dependencies[`cabloy-module-front-${argv.name}`] = 'workspace:^';
+    ast.dependencies[`zova-module-${argv.name}`] = 'workspace:^';
     // ok
     return ast;
   },

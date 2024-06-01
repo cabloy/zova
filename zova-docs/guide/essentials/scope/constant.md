@@ -39,7 +39,7 @@ export class TestA {
 ## Use Constant cross-module
 
 ```typescript{1,4-5,8-10}
-import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
 export class TestA {
   @UseScope('a-demo')

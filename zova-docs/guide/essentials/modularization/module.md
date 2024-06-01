@@ -24,7 +24,7 @@ In a large web business system, as the business grows and changes, it is also ne
 To achieve namespace isolation, Cabloy-Front introduces the following naming convention for modules:
 
 ```bash
-FullName: cabloy-module-front-{providerId}-{moduleName}
+FullName: zova-module-{providerId}-{moduleName}
 ShortName: {providerId}-{moduleName}
 ```
 

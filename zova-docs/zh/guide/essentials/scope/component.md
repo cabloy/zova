@@ -31,7 +31,7 @@ export class RenderPageComponent {
 ## 跨模块使用子组件
 
 ```typescript{1,4-5,10-17}
-import type { ScopeModuleADemo } from 'cabloy-module-front-a-demo';
+import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
 export class RenderPageComponent {
   @UseScope('a-demo')

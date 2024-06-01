@@ -1,3 +1,3 @@
-import { IModuleRoute } from 'cabloy-module-front-a-router';
+import { IModuleRoute } from 'zova-module-a-router';
 
 export const routes: IModuleRoute[] = [];
