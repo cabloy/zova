@@ -4,11 +4,11 @@
 
 What is `make types invisible`? In short, you don’t need type annotations, but you can enjoy the benefits of type constraints and autocompletion
 
-Using ts in a project can bring many benefits of intelligent type prompts and type checks. At the same time, in order to reduce type annotations and achieve the effect of `making types invisible`, Cabloy-Pro5 introduces the `ioc` and `dependency lookup` mechanisms
+Using ts in a project can bring many benefits of intelligent type prompts and type checks. At the same time, in order to reduce type annotations and achieve the effect of `making types invisible`, Cabloy5 introduces the `ioc` and `dependency lookup` mechanisms
 
 ## Two strategies for ioc
 
-TS-based backend frameworks typically provide dependency containers to achieve inversion of control. There are two strategies for inversion of control: dependency injection and dependency lookup. Cabloy-Pro5 supports both of them, and makes the code for dependency lookup more concise and efficient. Here are a few examples of features:
+TS-based backend frameworks typically provide dependency containers to achieve inversion of control. There are two strategies for inversion of control: dependency injection and dependency lookup. Cabloy5 supports both of them, and makes the code for dependency lookup more concise and efficient. Here are a few examples of features:
 
 1. Service
 2. Config configuration
@@ -19,7 +19,7 @@ TS-based backend frameworks typically provide dependency containers to achieve i
 
 ### 1. Create a Service
 
-In Cabloy-Pro5, local bean is equivalent to the concept of service in NestJS. Here is an example of creating a local bean
+In Cabloy5, local bean is equivalent to the concept of service in NestJS. Here is an example of creating a local bean
 
 ```javascript
 @Local()
@@ -216,4 +216,4 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## Postscript
 
-Cabloy-Pro4 already provides a large number of business capabilities, such as workflow engine, form engine, permission engine, field permission, multi-level cache, modular system, distributed architecture, multi-tenant engine, etc. With the empowerment of Cabloy-Pro5 Typescript, these business capabilities will also have a new expression
+Cabloy4 already provides a large number of business capabilities, such as workflow engine, form engine, permission engine, field permission, multi-level cache, modular system, distributed architecture, multi-tenant engine, etc. With the empowerment of Cabloy5 Typescript, these business capabilities will also have a new expression

@@ -4,11 +4,11 @@
 
 In the previous article, we created a business module `a-demo`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
 
-In actual projects, we often encounter cross-module resource access scenarios. So, can dependency lookup mechanism of Cabloy-Pro5 still achieve cross-module access elegantly? Let's take a look
+In actual projects, we often encounter cross-module resource access scenarios. So, can dependency lookup mechanism of Cabloy5 still achieve cross-module access elegantly? Let's take a look
 
 ## Modular system and task description
 
-The front and back ends of the Cabloy-Pro5 full-stack framework adopt a modular system. A Cabloy-Pro5 project consists of multiple business modules. Each business module can contain resources related to its own business, such as: Service service, Config configuration, international language resources, Error exception, middleware, scheduled tasks, message queue, System startup items, etc.
+The front and back ends of the Cabloy5 full-stack framework adopt a modular system. A Cabloy5 project consists of multiple business modules. Each business module can contain resources related to its own business, such as: Service service, Config configuration, international language resources, Error exception, middleware, scheduled tasks, message queue, System startup items, etc.
 
 Here, we create a new business module `test-work` and access the resources provided by `a-demo` in `test-work`
 
@@ -112,4 +112,4 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## Postscript
 
-Cabloy-Pro5 uses `ioc` and `dependency lookup` mechanisms to reduce type annotations and achieve the effect of `making types invisible`, thus keeping our code elegant and concise, which in turn can significantly improve development efficiency and ensure code quality
+Cabloy5 uses `ioc` and `dependency lookup` mechanisms to reduce type annotations and achieve the effect of `making types invisible`, thus keeping our code elegant and concise, which in turn can significantly improve development efficiency and ensure code quality
