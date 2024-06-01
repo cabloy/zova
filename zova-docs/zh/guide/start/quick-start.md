@@ -7,8 +7,8 @@
 ```bash
 # 安装pnpm
 $ npm install -g pnpm
-# 安装@cabloy/cli
-$ pnpm add -g @cabloy/cli
+# 安装zova-cli
+$ pnpm add -g zova-cli
 ```
 
 ### 2. 创建项目

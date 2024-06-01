@@ -7,8 +7,8 @@
 ```bash
 # install pnpm
 $ npm install -g pnpm
-# install @cabloy/cli
-$ pnpm add -g @cabloy/cli
+# install zova-cli
+$ pnpm add -g zova-cli
 ```
 
 ### 2. Create Project
