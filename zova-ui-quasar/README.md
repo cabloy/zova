@@ -15,8 +15,8 @@ zova-ui-quasar is a vue3 framework with ioc container. With the support of ioc c
 
 ## Documentation
 
-- [Get Started](https://front.cabloy.com/guide/start/introduction.html)
-- [Why Vue3+IOC?](https://front.cabloy.com/guide/start/why.html)
+- [Get Started](https://zova.cabloy.com/guide/start/introduction.html)
+- [Why Vue3+IOC?](https://zova.cabloy.com/guide/start/why.html)
 
 ## Features
 
