@@ -9,7 +9,7 @@ const PARSE = Symbol.for('eb:Command#parse');
 export class CabloyCommand extends CommonBin {
   constructor(rawArgv?) {
     super(rawArgv);
-    this.usage = 'Usage: cabloy [command] [options]';
+    this.usage = 'Usage: zova [command] [options]';
   }
 
   async [DISPATCH]() {
@@ -27,7 +27,7 @@ export class CabloyCommand extends CommonBin {
       projectPath: process.cwd(),
     } as ICommandArgv;
     // indexCabloy
-    const indexCabloy = this.rawArgv.indexOf('cabloy');
+    const indexCabloy = this.rawArgv.indexOf('zova');
     // cli
     const indexCommand = indexCabloy > -1 ? indexCabloy + 1 : 0;
     Object.assign(argv, this._prepareCliFullName(parsed._[indexCommand]));

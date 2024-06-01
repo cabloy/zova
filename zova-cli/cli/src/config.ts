@@ -1,8 +1,8 @@
 export const commandsConfig = {
   sets: {
-    core: '@cabloy/cli-set-core',
-    api: '@cabloy/cli-set-api',
-    front: '@cabloy/cli-set-front',
+    core: 'zova-cli-set-core',
+    api: 'zova-cli-set-api',
+    front: 'zova-cli-set-front',
   },
   helper: {
     chalk: {

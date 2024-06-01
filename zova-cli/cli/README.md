@@ -1,1 +1,1 @@
-# @cabloy/cli
+# zova-cli

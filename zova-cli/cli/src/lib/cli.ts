@@ -37,7 +37,7 @@ export class CliCommand extends BaseCommand {
     // context
     const context = { argv, cwd, env: this._adjustEnv({ env }), rawArgv };
     // log start
-    console.log(`cabloy ${chalk.cyan(argv.cliFullName)} at %s\n`, cwd);
+    console.log(`zova ${chalk.cyan(argv.cliFullName)} at %s\n`, cwd);
     // log meta welcomes
     this._logMetaWelcomes();
     // prompt
