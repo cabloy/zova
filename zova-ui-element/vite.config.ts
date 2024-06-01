@@ -23,7 +23,7 @@ export default defineConfig(async ({ mode }) => {
   };
   const configOptions = {
     appDir: process.cwd(),
-    runtimeDir: '.cabloy',
+    runtimeDir: '.zova',
     cabloyManualChunk: {
       debug: false,
       vendors: [{ match: ['element-plus'], output: 'element-plus' }],

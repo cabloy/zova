@@ -83,7 +83,7 @@ export class CliCreatePageBase extends BeanCliBase {
     };
     const configOptions = {
       appDir: process.cwd(),
-      runtimeDir: '.cabloy',
+      runtimeDir: '.zova',
       cabloyManualChunk: {
         debug: false,
         vendors: [],
