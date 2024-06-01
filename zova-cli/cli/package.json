@@ -39,7 +39,7 @@
   "dependencies": {
     "zova-cli-set-core": "^1.1.9",
     "zova-cli-set-front": "^1.1.60",
-    "@cabloy/module-glob": "^5.0.4",
+    "@cabloy/module-glob": "^5.0.11",
     "@cabloy/module-info": "^1.0.12",
     "@cabloy/process-helper": "^1.0.4",
     "@zhennann/common-bin": "^4.0.0",

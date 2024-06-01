@@ -88,8 +88,8 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5
       '@cabloy/module-glob':
-        specifier: ^5.0.9
-        version: 5.0.9
+        specifier: ^5.0.11
+        version: 5.0.11
       '@cabloy/vite-plugin-babel':
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.24.5)(vite@5.2.12(@types/node@20.12.13)(sass@1.77.4)(terser@5.31.0))
@@ -493,11 +493,14 @@ packages:
   '@cabloy/localeutil@1.0.4':
     resolution: {integrity: sha512-ZNcb/v9qCvFlyvdOrag8VcBRkvEqnJZTZWYr2qnf3NFWQDzUBFxVd8LBOYjOJmPd2efGZHM/+nAk21KyJ2mkLw==}
 
-  '@cabloy/module-glob@5.0.9':
-    resolution: {integrity: sha512-3Pc5E4xvkhqi5rURLE2ZpvJorDv7+JTisCjzqP8/RLtOUP1s0arB71wKktGojSvbtEgU1XiWNZhQBpNYgFPhSg==}
+  '@cabloy/module-glob@5.0.11':
+    resolution: {integrity: sha512-Sn6r6tMWSnWVKEBWGs+tqjsULU7CZv1r2QaCk1DPaHblbBSqxKKTaWlZUxoC6bvkIRJ4gAwtRvZp1B69Xpkofg==}
 
   '@cabloy/module-info@1.0.13':
     resolution: {integrity: sha512-wkMZlbRq85+mfDZWpq8RxHhi9nLBixKz3cNqxokMw/HgN7vKtUXnlEF4tNxSiR9ZcWA6z+5Wd1cnbPhEs2gUFw==}
+
+  '@cabloy/module-info@1.0.14':
+    resolution: {integrity: sha512-ZQAIeM/p7MCoiwINmBoHVASLj1QKojxQLKRXHfERScHX5wEm3T+/PSglHfMZTD3SH4S4LgBTsJdxbrYntGQPjg==}
 
   '@cabloy/vite-plugin-babel@1.1.3':
     resolution: {integrity: sha512-OW9J2q9ze0hLvBQOPwjzX/CPMs3PszDc6rbJP6BgNFfdLkoebkWkkZuCB03CCOl35kOdPIRKs/tjxQDxd6WSzw==}
@@ -2597,9 +2600,9 @@ snapshots:
 
   '@cabloy/localeutil@1.0.4': {}
 
-  '@cabloy/module-glob@5.0.9':
+  '@cabloy/module-glob@5.0.11':
     dependencies:
-      '@cabloy/module-info': 1.0.13
+      '@cabloy/module-info': 1.0.14
       boxen: 4.2.0
       egg-born-utils: 1.2.0
     transitivePeerDependencies:
@@ -2607,6 +2610,10 @@ snapshots:
       - supports-color
 
   '@cabloy/module-info@1.0.13':
+    dependencies:
+      stack-utils: 2.0.6
+
+  '@cabloy/module-info@1.0.14':
     dependencies:
       stack-utils: 2.0.6
 
