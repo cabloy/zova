@@ -1,4 +1,4 @@
-import { CmdOptions } from '@cabloy/cli';
+import { CmdOptions } from 'zova-cli';
 import { CliCreatePageBase } from '../common/cliCreatePage.js';
 
 export class CliCreatePage extends CliCreatePageBase {

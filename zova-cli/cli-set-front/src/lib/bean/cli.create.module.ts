@@ -1,10 +1,10 @@
-import { BeanCliBase } from '@cabloy/cli';
+import { BeanCliBase } from 'zova-cli';
 import { IModuleInfo, ISuite } from '@cabloy/module-info';
 import fs from 'fs';
 import path from 'path';
 import { __ThisSetName__ } from '../this.js';
 
-declare module '@cabloy/cli' {
+declare module 'zova-cli' {
   interface ICommandArgv {
     suite: string;
     suiteInfo: IModuleInfo;

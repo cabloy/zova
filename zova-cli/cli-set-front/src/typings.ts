@@ -1,5 +1,5 @@
-import '@cabloy/cli';
+import 'zova-cli';
 
-declare module '@cabloy/cli' {
+declare module 'zova-cli' {
   export interface ICommandArgv {}
 }

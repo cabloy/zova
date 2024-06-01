@@ -1,11 +1,11 @@
-import { BeanCliBase } from '@cabloy/cli';
+import { BeanCliBase } from 'zova-cli';
 import fse from 'fs-extra';
 import path from 'path';
 import eggBornUtils from 'egg-born-utils';
 import SVGCompiler from 'svg-baker';
 import { optimize } from 'svgo';
 
-declare module '@cabloy/cli' {
+declare module 'zova-cli' {
   interface ICommandArgv {}
 }
 

@@ -1,4 +1,4 @@
-import { BeanCliBase, getCommandsMeta } from '@cabloy/cli';
+import { BeanCliBase, getCommandsMeta } from 'zova-cli';
 
 export class CliDefaultList extends BeanCliBase {
   async execute() {
