@@ -12,8 +12,8 @@ vite.config.ts.timestamp-*
 **/dist
 distMockServer
 
-# cabloy core related directories
-.cabloy
+# zova core related directories
+.zova
 
 # Cordova related directories and files
 /src-cordova/node_modules
