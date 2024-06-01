@@ -7,14 +7,14 @@
     "zova-cli/cli-set-api",
     "zova-cli/cli-set-core",
     "zova-cli/cli-set-front",
-    "zova-core/packages-zova/*",
-    "zova-core/packages-utils/*",
-    "zova-core/src/suite-vendor/*",
-    "zova-core/src/suite-vendor/*/modules/*",
-    "zova-antdv",
-    "zova-element",
-    "zova-empty",
-    "zova-quasar",
-    "zova-vuetify"
+    "zova-dev/packages-zova/*",
+    "zova-dev/packages-utils/*",
+    "zova-dev/src/suite-vendor/*",
+    "zova-dev/src/suite-vendor/*/modules/*",
+    "zova-ui-antdv",
+    "zova-ui-element",
+    "zova-ui-empty",
+    "zova-ui-quasar",
+    "zova-ui-vuetify"
   ]
 }
