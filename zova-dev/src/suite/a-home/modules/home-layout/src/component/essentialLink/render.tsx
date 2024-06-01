@@ -1,4 +1,4 @@
-import { BeanRenderBase, CabloyIcon, Local } from 'zova';
+import { BeanRenderBase, ZovaIcon, Local } from 'zova';
 import type { ControllerEssentialLink } from './controller.js';
 import { RouterLink } from 'vue-router';
 
@@ -8,7 +8,7 @@ export interface RenderEssentialLink extends ControllerEssentialLink {}
 export class RenderEssentialLink extends BeanRenderBase {
   _renderLink() {
     const domContent = [
-      <CabloyIcon name={this.$props.icon} height={24} width={24}></CabloyIcon>,
+      <ZovaIcon name={this.$props.icon} height={24} width={24}></ZovaIcon>,
       <span>{this.$props.title}</span>,
     ];
     if (this.$props.href) {

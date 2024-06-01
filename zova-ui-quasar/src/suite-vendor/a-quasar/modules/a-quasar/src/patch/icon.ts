@@ -1,4 +1,4 @@
-import { BeanBase, Cast, getCabloyIcon, Local } from 'zova';
+import { BeanBase, Cast, getZovaIcon, Local } from 'zova';
 import { Platform, QIcon, Quasar } from 'quasar';
 import { ScopeModule } from '../resource/this.js';
 
@@ -220,7 +220,7 @@ export class PatchIcon extends BeanBase<ScopeModule> {
 
   private _patchIconMap() {
     Quasar.iconSet.iconMapFn = iconName => {
-      const iconInfo = getCabloyIcon(iconName, this.app);
+      const iconInfo = getZovaIcon(iconName, this.app);
       if (iconInfo === undefined) return undefined; // system handle
       return { icon: `svguse:#${iconInfo.symbolId}` };
     };

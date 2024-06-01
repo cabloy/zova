@@ -1,4 +1,4 @@
-import { BeanBase, getCabloyIcon, Local } from 'zova';
+import { BeanBase, getZovaIcon, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { VIcon } from 'vuetify/components';
 import { computed, ref, toRef } from 'vue';
@@ -75,7 +75,7 @@ export class PatchIcon extends BeanBase<ScopeModule> {
   }
 
   private _getIconData(iconName) {
-    const iconInfo = getCabloyIcon(iconName);
+    const iconInfo = getZovaIcon(iconName);
     if (iconInfo === undefined) return useIcon(computed(() => iconName));
     return {
       iconData: {

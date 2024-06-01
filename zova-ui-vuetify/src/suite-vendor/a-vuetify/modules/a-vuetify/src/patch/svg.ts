@@ -1,4 +1,4 @@
-import { CabloyIcon } from 'zova';
+import { ZovaIcon } from 'zova';
 import { defineComponent } from 'vue';
 import { mergeProps as _mergeProps, createVNode as _createVNode } from 'vue';
 import { makeIconProps } from 'vuetify/lib/composables/icons.mjs';
@@ -17,7 +17,7 @@ export const VSvgIconCabloy = defineComponent({
         }),
         {
           default: () => [
-            _createVNode(CabloyIcon, {
+            _createVNode(ZovaIcon, {
               class: 'v-icon__svg',
               href: props.icon,
             }),

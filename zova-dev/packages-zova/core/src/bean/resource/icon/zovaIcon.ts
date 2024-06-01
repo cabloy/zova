@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue';
 import { mergeProps, createVNode } from 'vue';
-import { useCabloyIcon } from './useCabloyIcon.js';
+import { useZovaIcon } from './useZovaIcon.js';
 
-export const CabloyIcon = defineComponent({
-  name: 'CabloyIcon',
+export const ZovaIcon = defineComponent({
+  name: 'ZovaIcon',
   inheritAttrs: true,
   props: {
     name: String,
@@ -13,7 +13,7 @@ export const CabloyIcon = defineComponent({
     color: String,
   },
   setup(props, _ref2) {
-    const { iconInfo } = useCabloyIcon(() => props.name);
+    const { iconInfo } = useZovaIcon(() => props.name);
     return () => {
       // href
       let href = props.href;

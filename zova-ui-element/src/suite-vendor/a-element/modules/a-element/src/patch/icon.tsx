@@ -1,4 +1,4 @@
-import { BeanBase, CabloyIcon, getCabloyIcon, Local } from 'zova';
+import { BeanBase, ZovaIcon, getZovaIcon, Local } from 'zova';
 import { ElIcon } from 'element-plus';
 import { useNamespace } from 'element-plus/es/hooks/use-namespace/index.mjs';
 import { addUnit } from 'element-plus/es/utils/dom/style.mjs';
@@ -46,8 +46,8 @@ export class PatchIcon extends BeanBase<ScopeModule> {
     const type = slotDefault.type;
     if (typeof type !== 'string' && type !== Text) return slotDefault;
     const iconName = typeof type === 'string' ? type : slotDefault.children;
-    const iconInfo = getCabloyIcon(iconName, this.app);
+    const iconInfo = getZovaIcon(iconName, this.app);
     if (iconInfo === undefined) return slotDefault;
-    return <CabloyIcon href={`#${iconInfo.symbolId}`}></CabloyIcon>;
+    return <ZovaIcon href={`#${iconInfo.symbolId}`}></ZovaIcon>;
   }
 }
