@@ -1,5 +1,5 @@
-import { CabloyViteConfigResult } from 'zova-vite';
+import { ZovaViteConfigResult } from 'zova-vite';
 
 export interface ConfigContext {
-  cabloyViteMeta?: CabloyViteConfigResult;
+  zovaViteMeta?: ZovaViteConfigResult;
 }

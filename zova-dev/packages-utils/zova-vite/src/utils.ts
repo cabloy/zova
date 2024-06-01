@@ -1,4 +1,4 @@
-import { CabloyConfigMeta } from 'zova-core';
+import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2): string {
@@ -9,7 +9,7 @@ export function getAppMode(offset: number = 2): string {
   return getEnvFromCli('APPMODE', 'appMode', 'spa', offset);
 }
 
-export function getEnvMeta(configMeta: CabloyConfigMeta) {
+export function getEnvMeta(configMeta: ZovaConfigMeta) {
   return { flavor: configMeta.flavor, mode: configMeta.mode, appMode: configMeta.appMode, mine: 'mine' };
 }
 

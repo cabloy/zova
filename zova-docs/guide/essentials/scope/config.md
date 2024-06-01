@@ -57,7 +57,7 @@ You can use `project-level` Config to override `module-level` Config
 `src/front/config/config/config.ts`
 
 ```typescript{6-8}
-export default function (_meta: CabloyConfigMeta) {
+export default function (_meta: ZovaConfigMeta) {
   const config = {} as CabloyConfigOptional;
 
   // module config

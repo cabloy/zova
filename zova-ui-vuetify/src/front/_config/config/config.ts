@@ -1,6 +1,6 @@
-import { CabloyConfigMeta, CabloyConfigOptional } from 'zova';
+import { ZovaConfigMeta, CabloyConfigOptional } from 'zova';
 
-export default function (_meta: CabloyConfigMeta) {
+export default function (_meta: ZovaConfigMeta) {
   const config = {
     base: {},
     api: {

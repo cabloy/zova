@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 import { createConfigUtils } from 'zova-vite';
-import { CabloyConfigMeta } from 'zova-core';
+import { ZovaConfigMeta } from 'zova-core';
 
 declare module 'zova-cli' {
   interface ICommandArgv {
@@ -76,7 +76,7 @@ export class CliCreatePageBase extends BeanCliBase {
   }
 
   async loadEnvs() {
-    const configMeta: CabloyConfigMeta = {
+    const configMeta: ZovaConfigMeta = {
       flavor: 'app',
       mode: 'development',
       appMode: 'spa',
@@ -84,7 +84,7 @@ export class CliCreatePageBase extends BeanCliBase {
     const configOptions = {
       appDir: process.cwd(),
       runtimeDir: '.zova',
-      cabloyManualChunk: {
+      zovaManualChunk: {
         debug: false,
         vendors: [],
       },

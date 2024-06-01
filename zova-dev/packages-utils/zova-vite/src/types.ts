@@ -1,18 +1,18 @@
-export interface CabloyViteConfigChunkVendor {
+export interface ZovaViteConfigChunkVendor {
   match: (string | RegExp)[];
   output: string;
 }
 
-export interface CabloyViteConfigOptions {
+export interface ZovaViteConfigOptions {
   appDir: string;
   runtimeDir: string;
-  cabloyManualChunk: {
+  zovaManualChunk: {
     debug: boolean;
-    vendors: CabloyViteConfigChunkVendor[];
+    vendors: ZovaViteConfigChunkVendor[];
   };
 }
 
-export interface CabloyViteConfigResult {
+export interface ZovaViteConfigResult {
   env: { [name: string]: string };
   vitePlugins: any[];
   viteConfig: any;

@@ -1,4 +1,4 @@
-export interface CabloyConfigMeta {
+export interface ZovaConfigMeta {
   flavor: 'app' | 'web' | string;
   mode: 'development' | 'production' | string;
   appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;

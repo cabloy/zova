@@ -1,5 +1,5 @@
-import { CabloyConfigMeta } from 'zova-core';
-import { CabloyViteConfigChunkVendor, CabloyViteConfigOptions } from './types.js';
+import { ZovaConfigMeta } from 'zova-core';
+import { ZovaViteConfigChunkVendor, ZovaViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
 import { getEnvMeta } from './utils.js';
@@ -26,10 +26,10 @@ const __CabloyManualChunkVendors = [
 ];
 
 export function createConfigUtils(
-  configMeta: CabloyConfigMeta,
-  configOptions: CabloyViteConfigOptions,
+  configMeta: ZovaConfigMeta,
+  configOptions: ZovaViteConfigOptions,
 ): { loadEnvs: () => { [name: string]: string }; configManualChunk: (id: string) => string } {
-  let __cabloyManualChunkVendors_runtime: CabloyViteConfigChunkVendor[];
+  let __cabloyManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   return {
     loadEnvs: __loadEnvs,
     configManualChunk: __configManualChunk,
@@ -63,7 +63,7 @@ export function createConfigUtils(
     output = _configManualChunk_vendors(id);
     if (output) return output;
     // default
-    if (configOptions.cabloyManualChunk.debug) {
+    if (configOptions.zovaManualChunk.debug) {
       console.log(id);
     }
     return 'vendor';
@@ -71,7 +71,7 @@ export function createConfigUtils(
 
   function _configManualChunk_vendors(id: string) {
     if (!__cabloyManualChunkVendors_runtime) {
-      __cabloyManualChunkVendors_runtime = configOptions.cabloyManualChunk.vendors.concat(__CabloyManualChunkVendors);
+      __cabloyManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(__CabloyManualChunkVendors);
     }
     const matchItem = __cabloyManualChunkVendors_runtime.find(item => {
       return item.match.some(item => {

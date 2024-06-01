@@ -2,9 +2,9 @@ import babel from '@cabloy/vite-plugin-babel';
 // import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
-import { CabloyViteConfigOptions, CabloyVitePlugin } from './types.js';
+import { ZovaViteConfigOptions, CabloyVitePlugin } from './types.js';
 
-export function generateVitePlugins(_configOptions: CabloyViteConfigOptions) {
+export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
   const vitePlugins: CabloyVitePlugin[] = [];
   vitePlugins.push(__getVitePluginTs());
   vitePlugins.push(__getVitePluginTsx());
@@ -86,7 +86,7 @@ export function generateVitePlugins(_configOptions: CabloyViteConfigOptions) {
     ] as CabloyVitePlugin;
   }
 
-  // function __getVitePluginChecker(configOptions: CabloyViteConfigOptions) {
+  // function __getVitePluginChecker(configOptions: ZovaViteConfigOptions) {
   //   const tsconfigPath = path.join(configOptions.appDir, 'tsconfig.vue-tsc.json');
   //   return [
   //     'vite-plugin-checker',

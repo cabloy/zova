@@ -1,5 +1,5 @@
-import { CabloyConfigMeta } from 'zova-core';
-import { CabloyViteConfigOptions, CabloyViteConfigResult } from './types.js';
+import { ZovaConfigMeta } from 'zova-core';
+import { ZovaViteConfigOptions, ZovaViteConfigResult } from './types.js';
 import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
@@ -7,10 +7,10 @@ import { CommonServerOptions } from 'vite';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
-export async function generateCabloyViteMeta(
-  configMeta: CabloyConfigMeta,
-  configOptions: CabloyViteConfigOptions,
-): Promise<CabloyViteConfigResult> {
+export async function generateZovaViteMeta(
+  configMeta: ZovaConfigMeta,
+  configOptions: ZovaViteConfigOptions,
+): Promise<ZovaViteConfigResult> {
   // config utils
   const configUtils = createConfigUtils(configMeta, configOptions);
   // env

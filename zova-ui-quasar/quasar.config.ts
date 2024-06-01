@@ -7,7 +7,7 @@ import { configure } from 'quasar/wrappers';
 
 export default configure(_ctx => {
   return {
-    cabloyManualChunk: {
+    zovaManualChunk: {
       debug: false,
       vendors: [{ match: ['quasar'], output: 'quasar' }],
     },

@@ -11,7 +11,7 @@ import { ConfigContext } from './types.js';
 
 export async function quasar(api) {
   // context
-  const context: ConfigContext = { cabloyViteMeta: undefined };
+  const context: ConfigContext = { zovaViteMeta: undefined };
   // config
   api.extendQuasarConf(extendQuasarConf(context));
   api.extendViteConf(extendViteConf(context));

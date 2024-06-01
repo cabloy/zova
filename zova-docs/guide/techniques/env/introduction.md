@@ -122,7 +122,7 @@ To further achieve out-of-box functionality, Cabloy-Front provides several built
 `src/front/config/config/config.ts`
 
 ```typescript{5-6}
-export default function (_meta: CabloyConfigMeta) {
+export default function (_meta: ZovaConfigMeta) {
   const config = {
     base: {},
     api: {
