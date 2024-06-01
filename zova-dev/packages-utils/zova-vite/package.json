@@ -35,7 +35,7 @@
     "@cabloy/dotenv": "^1.0.1",
     "@cabloy/extend": "^3.0.5",
     "zova-core": "^5.0.63",
-    "@cabloy/module-glob": "^5.0.11",
+    "@cabloy/module-glob": "^5.0.12",
     "@cabloy/vite-plugin-babel": "^1.1.3",
     "@cabloy/vue-runtime-core": "^3.4.31",
     "@faker-js/faker": "^8.4.1",
