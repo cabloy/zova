@@ -26,7 +26,7 @@ export function generateVitePlugins(_configOptions: CabloyViteConfigOptions) {
           babelrc: false,
           configFile: false,
           plugins: [
-            ['babel-plugin-cabloy-front-bean-module'],
+            ['babel-plugin-zova-bean-module'],
             ['babel-plugin-transform-typescript-metadata'],
             ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
             ['@babel/plugin-transform-class-properties', { loose: true }],
@@ -45,7 +45,7 @@ export function generateVitePlugins(_configOptions: CabloyViteConfigOptions) {
       {
         include: /\.[jt]sx$/,
         babelPlugins: [
-          ['babel-plugin-cabloy-front-bean-module'],
+          ['babel-plugin-zova-bean-module'],
           ['babel-plugin-transform-typescript-metadata'],
           ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
           ['@babel/plugin-transform-class-properties', { loose: true }],

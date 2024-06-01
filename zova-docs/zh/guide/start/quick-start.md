@@ -20,13 +20,13 @@ $ cabloy front:create:project projectName
 1. 直接在命令行执行`cabloy`创建一个项目，名称为`projectName`
 2. 命令行会列出模版列表，当前提供的模版如下：
 
-   - cabloy-front + antdv
-   - cabloy-front + element-plus
-   - cabloy-front + quasar
-   - cabloy-front + vuetify
-   - cabloy-front only
+   - zova + antdv
+   - zova + element-plus
+   - zova + quasar
+   - zova + vuetify
+   - zova only
 
-3. 在这里，我们选择`cabloy-front only`
+3. 在这里，我们选择`zova only`
 
 ### 3. 安装依赖
 

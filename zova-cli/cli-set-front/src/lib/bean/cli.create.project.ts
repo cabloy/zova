@@ -73,7 +73,7 @@ export class CliCreateProject extends BeanCliBase {
 
     await this.console.log(`downloading ${tgzUrl}`);
 
-    const saveDir = path.join(os.tmpdir(), 'cabloy-front-project-boilerplate');
+    const saveDir = path.join(os.tmpdir(), 'zova-project-boilerplate');
     await rimraf(saveDir);
 
     const response = await this.curl(tgzUrl, { streaming: true, followRedirect: true });

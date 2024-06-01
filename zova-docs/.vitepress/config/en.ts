@@ -17,7 +17,7 @@ export const en = defineConfig({
       copyright: 'Copyright © 2016-present CabloyJS',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/cabloy/cabloy-front' },
+      { icon: 'github', link: 'https://github.com/cabloy/zova' },
       { icon: 'x', link: 'https://twitter.com/zhennann2024' },
       { icon: 'youtube', link: 'https://www.youtube.com/@cabloyjs' },
     ],
