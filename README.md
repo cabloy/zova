@@ -39,7 +39,7 @@ Cabloy-Front has introduced the following distinct features for Vue3:
 
 ## Gif demonstration
 
-![No ref/reactive](./cabloy-docs/assets/img/state-no-ref-reactive.gif)
+![No ref/reactive](./zova-docs/assets/img/state-no-ref-reactive.gif)
 
 ## Demonstration: no `ref/reactive`, no `ref.value`
 
@@ -126,7 +126,7 @@ export class RenderPageCounter {
 ## Stay In Touch
 
 - [Twitter](https://twitter.com/zhennann2024)
-- [Wechat](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
+- [Wechat](./zova-docs/zh/assets/img/wx-zhennann.jpg)
 
 ## Thanks
 

@@ -39,7 +39,7 @@ Cabloy-Front 为 Vue3 引入了以下鲜明特征：
 
 ## 动图演示
 
-![No ref/reactive](./cabloy-docs/assets/img/state-no-ref-reactive.gif)
+![No ref/reactive](./zova-docs/assets/img/state-no-ref-reactive.gif)
 
 ## 演示：不用`ref/reactive`，不用`ref.value`
 
@@ -126,9 +126,9 @@ export class RenderPageCounter {
 ## 联系方式
 
 - [Twitter](https://twitter.com/zhennann2024)
-- [微信](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
+- [微信](./zova-docs/zh/assets/img/wx-zhennann.jpg)
 
-![微信](./cabloy-docs/zh/assets/img/wx-zhennann.jpg)
+![微信](./zova-docs/zh/assets/img/wx-zhennann.jpg)
 
 ## 致谢
 

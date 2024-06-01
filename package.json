@@ -25,9 +25,9 @@
   },
   "scripts": {
     "commit": "node ./scripts/commit.js",
-    "docs:dev": "vitepress dev cabloy-docs",
-    "docs:build": "vitepress build cabloy-docs",
-    "docs:preview": "vitepress preview cabloy-docs"
+    "docs:dev": "vitepress dev zova-docs",
+    "docs:build": "vitepress build zova-docs",
+    "docs:preview": "vitepress preview zova-docs"
   },
   "pnpm": {
     "overrides": {}

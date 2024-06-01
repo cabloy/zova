@@ -10,7 +10,7 @@ export const shared = defineConfig({
   },
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/cabloy/zova/edit/main/cabloy-docs/:path',
+      pattern: 'https://github.com/cabloy/zova/edit/main/zova-docs/:path',
     },
     search: {
       provider: 'local',
