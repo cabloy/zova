@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@cabloy/front':
-        specifier: ^5.0.57
-        version: 5.0.57(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
       roboto-fontface:
         specifier: ^0.10.0
         version: 0.10.0
@@ -23,10 +20,10 @@ importers:
       vuetify:
         specifier: ^3.6.7
         version: 3.6.7(typescript@5.4.5)(vite-plugin-vuetify@2.0.3)(vue@3.4.27(typescript@5.4.5))
+      zova:
+        specifier: ^5.0.74
+        version: 5.0.74(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
     devDependencies:
-      '@cabloy/app-vite':
-        specifier: ^1.0.57
-        version: 1.0.57(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.2)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
       '@cabloy/lint':
         specifier: ^4.0.10
         version: 4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)
@@ -51,10 +48,13 @@ importers:
       vue-tsc:
         specifier: ^2.0.19
         version: 2.0.19(typescript@5.4.5)
+      zova-vite:
+        specifier: ^1.0.74
+        version: 1.0.74(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.2)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
 
   src/suite-vendor/a-vuetify:
     dependencies:
-      cabloy-module-front-a-vuetify:
+      zova-module-a-vuetify:
         specifier: workspace:^
         version: link:modules/a-vuetify
 
@@ -66,7 +66,7 @@ importers:
 
   src/suite/a-demo:
     dependencies:
-      cabloy-module-front-a-demo:
+      zova-module-a-demo:
         specifier: workspace:^
         version: link:modules/a-demo
 
@@ -78,25 +78,25 @@ importers:
 
   src/suite/a-home:
     dependencies:
-      cabloy-module-front-a-home:
+      zova-module-a-home:
         specifier: workspace:^
         version: link:modules/a-home
-      cabloy-module-front-home-api:
+      zova-module-home-api:
         specifier: workspace:^
         version: link:modules/home-api
-      cabloy-module-front-home-icon:
+      zova-module-home-icon:
         specifier: workspace:^
         version: link:modules/home-icon
-      cabloy-module-front-home-layout:
+      zova-module-home-layout:
         specifier: workspace:^
         version: link:modules/home-layout
-      cabloy-module-front-home-mock:
+      zova-module-home-mock:
         specifier: workspace:^
         version: link:modules/home-mock
-      cabloy-module-front-home-pagesystem:
+      zova-module-home-pagesystem:
         specifier: workspace:^
         version: link:modules/home-pagesystem
-      cabloy-module-front-home-router:
+      zova-module-home-router:
         specifier: workspace:^
         version: link:modules/home-router
 
@@ -310,9 +310,6 @@ packages:
     resolution: {integrity: sha512-WaMsgi6Q8zMgMth93GvWPXkhAIEobfsIkLTacoVZoK1J0CevIPGYY2Vo5YvJGqyHqXM6P4ppOYGsIRU8MM9pFQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/app-vite@1.0.57':
-    resolution: {integrity: sha512-xXsB4RBVSIuGdv+PzNaZsgBnU4hfOcH3femRTwtZmPS0kLcafIW3rNvAdpaJjP7WEAQ6Wl52ARVjYBVg/cahTw==}
-
   '@cabloy/compose@1.0.2':
     resolution: {integrity: sha512-aOiMY6y5KyJ988pujOX90D+KTuHcFd6nyr/1hNzBnpyx0wYbFBeeJGwvzwk2TKHvkAB+VdbIPkaZNSFlQ4aeug==}
 
@@ -322,14 +319,8 @@ packages:
   '@cabloy/extend@3.0.5':
     resolution: {integrity: sha512-xP/60896+mpkF7AszF8VfItTYDZgvaqwMhzVFmWnKMJSlD9jbl/4Y7Vd2okxEX/nKLoh0NanY7atkR5PWD+CTg==}
 
-  '@cabloy/front-core@5.0.50':
-    resolution: {integrity: sha512-S5/h1zZlwn70Pn5eZLRJfz/oPbRLb2R5Cb0enr7JRozFOHZddCQ//rhSdvKLmPBrcuzFhdkynPi/uE9oiAFODg==}
-
-  '@cabloy/front@5.0.57':
-    resolution: {integrity: sha512-lzgEi8aoHPDc9OOlZuTSJWPhC0/NBtJB58v0QwKURix5djP5AtuQS2WGLajRxyiBulo0wSbsRpXsGY+K5KxRBQ==}
-
-  '@cabloy/last-word@1.0.12':
-    resolution: {integrity: sha512-Sff7MlYuPlJ4VSBRS9fuwvElMypGSDJURc9HoF5/IWEcWmoKS2rp+gIsOBLr62z1zNfpw325l1pOp3tMTqVo6A==}
+  '@cabloy/last-word@1.0.13':
+    resolution: {integrity: sha512-6/A4UHmLwEDxf2b93EoPTP5vn193pHafvWSOwkQJUGuhlihFWMLwOjNCle7TQSz2fiH+HdYWijXI5xJkfUwlOQ==}
 
   '@cabloy/lint@4.0.10':
     resolution: {integrity: sha512-cq9QRuZEbaaiFJ7xZFoDifkYYCgIsfRKj1YIlfFeSUAy3qiasvSDTju9CXw7Fn04LrPPfKim+i77TEAwhHjotw==}
@@ -337,11 +328,14 @@ packages:
   '@cabloy/localeutil@1.0.4':
     resolution: {integrity: sha512-ZNcb/v9qCvFlyvdOrag8VcBRkvEqnJZTZWYr2qnf3NFWQDzUBFxVd8LBOYjOJmPd2efGZHM/+nAk21KyJ2mkLw==}
 
-  '@cabloy/module-glob@5.0.9':
-    resolution: {integrity: sha512-3Pc5E4xvkhqi5rURLE2ZpvJorDv7+JTisCjzqP8/RLtOUP1s0arB71wKktGojSvbtEgU1XiWNZhQBpNYgFPhSg==}
+  '@cabloy/module-glob@5.0.13':
+    resolution: {integrity: sha512-tCgORkM5JI8jTowaTao5rSG+3MIYphd1gayyLRtcwrQ13tnCbGahbqQy3YQ8SgofC426q0oUyqJ9cBKhm/MBeg==}
 
   '@cabloy/module-info@1.0.13':
     resolution: {integrity: sha512-wkMZlbRq85+mfDZWpq8RxHhi9nLBixKz3cNqxokMw/HgN7vKtUXnlEF4tNxSiR9ZcWA6z+5Wd1cnbPhEs2gUFw==}
+
+  '@cabloy/module-info@1.0.16':
+    resolution: {integrity: sha512-NNqxo3FA+UL0xsIIAkphsszXk3KYnz3D1tqA24R58UaRr957iX7BvpVHq9Fd1sP4W9a6F+j5H5pEzdiyLvh9dQ==}
 
   '@cabloy/vite-plugin-babel@1.1.3':
     resolution: {integrity: sha512-OW9J2q9ze0hLvBQOPwjzX/CPMs3PszDc6rbJP6BgNFfdLkoebkWkkZuCB03CCOl35kOdPIRKs/tjxQDxd6WSzw==}
@@ -349,8 +343,8 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-runtime-core@3.4.29':
-    resolution: {integrity: sha512-B56+/HZ0EPkzQzTlsN8K+YDDB5lBdJ2dq26Q2UBViuR8Y4RKCvJzHvhSVGOjAt2TUW6vfxjt3SRivf5xuuHBJg==}
+  '@cabloy/vue-runtime-core@3.4.31':
+    resolution: {integrity: sha512-dGiIyeWXc01rwMcYQEfuqPGnNFHOABkCME7LBiSlZMZfl5ZILX8rxaLb72IR53NCu3aryfRei0inRQVc3TBZAw==}
 
   '@es-joy/jsdoccomment@0.43.0':
     resolution: {integrity: sha512-Q1CnsQrytI3TlCB1IVWXWeqUIPGVEKGaE7IbVdt13Nq/3i0JESAkQQERrfiQkmlpijl+++qyqPgaS31Bvc1jRQ==}
@@ -1004,9 +998,6 @@ packages:
   axios@1.6.8:
     resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
 
-  babel-plugin-cabloy-front-bean-module@1.0.15:
-    resolution: {integrity: sha512-T5J7fioHSCGRMv8AAQgThQqr4guPfdwNzwI+uz6OBFe2RSo/PMOeT3b41CPm4hse5MH9Ut1OtX6YFTKb+FNWbw==}
-
   babel-plugin-transform-typescript-metadata@0.3.2:
     resolution: {integrity: sha512-mWEvCQTgXQf48yDqgN7CH50waTyYBeP2Lpqx4nNWab9sxEpdXVeKgfj1qYI2/TgUPQtNFZ85i3PemRtnXVYYJg==}
     peerDependencies:
@@ -1015,6 +1006,9 @@ packages:
     peerDependenciesMeta:
       '@babel/traverse':
         optional: true
+
+  babel-plugin-zova-bean-module@1.0.18:
+    resolution: {integrity: sha512-7bGY6XKdICQAPeEmftdamX0mClJoR0YWeyxseAo+RFrEW3bq5bbPVXKw8uaL9/NsUZrSb5jOsOFDy2tgUoIldQ==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1054,18 +1048,6 @@ packages:
 
   bundle-import@0.0.1:
     resolution: {integrity: sha512-L0z0iPX7t7ff5eZsK7oMEH+Ly2lzJczFKPHwrta6X8SF64a20R3wOrAOYK1MzHZVaWWugg9qlSTVfVwqvQJ2dw==}
-
-  cabloy-module-front-a-core@5.0.21:
-    resolution: {integrity: sha512-3bke20lmVa04onnTAHots6kIvaHNtxWaA5rcYs5xD9X/IHLMz7IESgiEmd4ISpuol7aNsipWkXKvYDErMBLtGA==}
-
-  cabloy-module-front-a-pinia@5.0.5:
-    resolution: {integrity: sha512-2aIwBiuKjxGzbu/7qIaNjrW3+vFdIfelhQN1c6iIGa4LyeKajeWTDRDiHrL2sUscMCL9bEiwS5eccH0ekmjSdw==}
-
-  cabloy-module-front-a-router@5.0.23:
-    resolution: {integrity: sha512-4q3PxfQZDT8mF7axCmnFDGfh+lvzXXESeDqC11X7er8H8TMAyVz/5LpMjHE6ZtfLwoVOEIvtHk47TmYi1t3J6g==}
-
-  cabloy-suite-front-a-core@5.0.27:
-    resolution: {integrity: sha512-EA2UQfW2TFOEl/7ZD/BZJH1Rw+x4itgnREA8fTSrrmwksgLgGWyNLtUvgl+ENLgwj0vpnA8rf8V5SNt8VYN7tg==}
 
   call-bind@1.0.7:
     resolution: {integrity: sha512-GHTSNSYICQ7scH7sZ+M2rFopRoLh8t2bLSW6BbgrtLsahOIB5iyAVJf9GjWK3cYTDaMj4XdBpM1cA6pIS0Kv2w==}
@@ -2222,6 +2204,27 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
+  zova-core@5.0.65:
+    resolution: {integrity: sha512-lMghKBzkBuV+LDbr15OxGOCj/42DsfdMb56u7ocM3d6KGvtp+8YPB48c4NpLOl7K6W8DrhBVOUYX8z58MFWCbw==}
+
+  zova-module-a-core@5.0.27:
+    resolution: {integrity: sha512-mrDcfk2RMYnV8WvGzmaL3vYHL4kkztwN9o6JZxurcawtoX5IidQEpKkEQdE9afUzHEHNqr9Ww/bxzK1+olLnaA==}
+
+  zova-module-a-pinia@5.0.10:
+    resolution: {integrity: sha512-oQezUMYGeZ+y8A9TrPCCzxHGqphPww40j5kO6i9DyjtzHQYQy4KbzSYE0LNTr00R/qnKeHzytSU30we0PTBL+g==}
+
+  zova-module-a-router@5.0.27:
+    resolution: {integrity: sha512-FyaSQpK6fTHzCmycVRrHATMwdK39FPRmSfqeeG10uSgYiu1drs5qu86nuQyjho5VdRpcfBzMrszVn0NlV+Uqng==}
+
+  zova-suite-a-core@5.0.33:
+    resolution: {integrity: sha512-6aNHxRCy+B+rGobJnkdU3gSuO67/306iUKWmsfvi/ejkkksrwBBXYqoLMBVg/h9sZxrx2NiUZrR1fCGXe30dBQ==}
+
+  zova-vite@1.0.74:
+    resolution: {integrity: sha512-1aDzCzW6uHyJUn/67zrAFAFz3Q0LHnRinzuZZmQF92/msHo/K/AHKmsDMrpshWE3z2DxDOu3aVdtQCXe/HUuYA==}
+
+  zova@5.0.74:
+    resolution: {integrity: sha512-xgqEGO4Dmqm6In3SNDrKQeJK6R4u8rQudvHAt3QKw7HpmVT76hjReEdHxHK8GCjiQutnMxRZVauHjP+8fokPvA==}
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
@@ -2430,43 +2433,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
 
-  '@cabloy/app-vite@1.0.57(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.2)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))':
-    dependencies:
-      '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
-      '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
-      '@cabloy/dotenv': 1.0.1
-      '@cabloy/extend': 3.0.5
-      '@cabloy/front-core': 5.0.50(typescript@5.4.5)
-      '@cabloy/module-glob': 5.0.9
-      '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.6)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0))
-      '@cabloy/vue-runtime-core': 3.4.29
-      '@faker-js/faker': 8.4.1
-      '@types/node': 20.12.12
-      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
-      '@zhennann/vite-plugin-fake-server': 2.1.1
-      babel-plugin-cabloy-front-bean-module: 1.0.15
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.24.6)(@babel/traverse@7.24.6)
-      chalk: 3.0.0
-      esbuild: 0.20.2
-      fs-extra: 11.2.0
-      lodash: 4.17.21
-      minimist: 1.2.8
-      terser: 5.31.0
-      tmp: 0.2.3
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@babel/traverse'
-      - less
-      - lightningcss
-      - proxy-agent
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - typescript
-      - vue
-
   '@cabloy/compose@1.0.2': {}
 
   '@cabloy/dotenv@1.0.1':
@@ -2481,31 +2447,7 @@ snapshots:
 
   '@cabloy/extend@3.0.5': {}
 
-  '@cabloy/front-core@5.0.50(typescript@5.4.5)':
-    dependencies:
-      '@cabloy/compose': 1.0.2
-      '@cabloy/extend': 3.0.5
-      '@cabloy/last-word': 1.0.12
-      '@cabloy/localeutil': 1.0.4
-      '@cabloy/module-info': 1.0.13
-      '@cabloy/vue-runtime-core': 3.4.29
-      '@vue/reactivity': 3.4.27
-      reflect-metadata: 0.2.2
-      vue: 3.4.27(typescript@5.4.5)
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - typescript
-
-  '@cabloy/front@5.0.57(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))':
-    dependencies:
-      '@cabloy/front-core': 5.0.50(typescript@5.4.5)
-      cabloy-suite-front-a-core: 5.0.27(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - typescript
-      - vue
-
-  '@cabloy/last-word@1.0.12': {}
+  '@cabloy/last-word@1.0.13': {}
 
   '@cabloy/lint@4.0.10(@types/eslint@8.56.10)(typescript@5.4.5)':
     dependencies:
@@ -2525,9 +2467,9 @@ snapshots:
 
   '@cabloy/localeutil@1.0.4': {}
 
-  '@cabloy/module-glob@5.0.9':
+  '@cabloy/module-glob@5.0.13':
     dependencies:
-      '@cabloy/module-info': 1.0.13
+      '@cabloy/module-info': 1.0.16
       boxen: 4.2.0
       egg-born-utils: 1.2.0
     transitivePeerDependencies:
@@ -2538,13 +2480,17 @@ snapshots:
     dependencies:
       stack-utils: 2.0.6
 
+  '@cabloy/module-info@1.0.16':
+    dependencies:
+      stack-utils: 2.0.6
+
   '@cabloy/vite-plugin-babel@1.1.3(@babel/core@7.24.6)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0))':
     dependencies:
       '@babel/core': 7.24.6
       esbuild: 0.20.2
       vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0)
 
-  '@cabloy/vue-runtime-core@3.4.29':
+  '@cabloy/vue-runtime-core@3.4.31':
     dependencies:
       '@vue/reactivity': 3.4.27
       '@vue/shared': 3.4.27
@@ -3115,14 +3061,14 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  babel-plugin-cabloy-front-bean-module@1.0.15: {}
-
   babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.24.6)(@babel/traverse@7.24.6):
     dependencies:
       '@babel/core': 7.24.6
       '@babel/helper-plugin-utils': 7.24.6
     optionalDependencies:
       '@babel/traverse': 7.24.6
+
+  babel-plugin-zova-bean-module@1.0.18: {}
 
   balanced-match@1.0.2: {}
 
@@ -3171,39 +3117,6 @@ snapshots:
     dependencies:
       get-tsconfig: 4.7.3
       import-from-string: 0.0.4
-
-  cabloy-module-front-a-core@5.0.21(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
-    dependencies:
-      cabloy-module-front-a-pinia: 5.0.5(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-      cabloy-module-front-a-router: 5.0.23(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - typescript
-      - vue
-
-  cabloy-module-front-a-pinia@5.0.5(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
-    dependencies:
-      pinia: 2.1.7(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - typescript
-      - vue
-
-  cabloy-module-front-a-router@5.0.23(vue@3.4.27(typescript@5.4.5)):
-    dependencies:
-      vue-router: 4.3.2(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - vue
-
-  cabloy-suite-front-a-core@5.0.27(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
-    dependencies:
-      cabloy-module-front-a-core: 5.0.21(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-      cabloy-module-front-a-pinia: 5.0.5(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
-      cabloy-module-front-a-router: 5.0.23(vue@3.4.27(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - typescript
-      - vue
 
   call-bind@1.0.7:
     dependencies:
@@ -4327,3 +4240,97 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.23.8: {}
+
+  zova-core@5.0.65(typescript@5.4.5):
+    dependencies:
+      '@cabloy/compose': 1.0.2
+      '@cabloy/extend': 3.0.5
+      '@cabloy/last-word': 1.0.13
+      '@cabloy/localeutil': 1.0.4
+      '@cabloy/module-info': 1.0.13
+      '@cabloy/vue-runtime-core': 3.4.31
+      '@vue/reactivity': 3.4.27
+      reflect-metadata: 0.2.2
+      vue: 3.4.27(typescript@5.4.5)
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - typescript
+
+  zova-module-a-core@5.0.27(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      zova-module-a-pinia: 5.0.10(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+      zova-module-a-router: 5.0.27(vue@3.4.27(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+      - vue
+
+  zova-module-a-pinia@5.0.10(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      pinia: 2.1.7(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+      - vue
+
+  zova-module-a-router@5.0.27(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      vue-router: 4.3.2(vue@3.4.27(typescript@5.4.5))
+    transitivePeerDependencies:
+      - vue
+
+  zova-suite-a-core@5.0.33(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      zova-module-a-core: 5.0.27(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+      zova-module-a-pinia: 5.0.10(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+      zova-module-a-router: 5.0.27(vue@3.4.27(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+      - vue
+
+  zova-vite@1.0.74(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.2)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
+      '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
+      '@cabloy/dotenv': 1.0.1
+      '@cabloy/extend': 3.0.5
+      '@cabloy/module-glob': 5.0.13
+      '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.6)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0))
+      '@cabloy/vue-runtime-core': 3.4.31
+      '@faker-js/faker': 8.4.1
+      '@types/node': 20.12.12
+      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
+      '@zhennann/vite-plugin-fake-server': 2.1.1
+      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.24.6)(@babel/traverse@7.24.6)
+      babel-plugin-zova-bean-module: 1.0.18
+      chalk: 3.0.0
+      esbuild: 0.20.2
+      fs-extra: 11.2.0
+      lodash: 4.17.21
+      minimist: 1.2.8
+      terser: 5.31.0
+      tmp: 0.2.3
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.31.0)
+      zova-core: 5.0.65(typescript@5.4.5)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@babel/traverse'
+      - less
+      - lightningcss
+      - proxy-agent
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - typescript
+      - vue
+
+  zova@5.0.74(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      zova-core: 5.0.65(typescript@5.4.5)
+      zova-suite-a-core: 5.0.33(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+      - vue
