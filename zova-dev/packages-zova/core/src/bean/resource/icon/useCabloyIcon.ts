@@ -1,9 +1,9 @@
 import { ref, watchEffect } from 'vue';
 import { useApp } from '../../../composables/useApp.js';
-import { CabloyApplication } from '../../../core/index.js';
+import { ZovaApplication } from '../../../core/index.js';
 import { IIconInfo } from './types.js';
 
-export function getCabloyIcon(iconName?: string, app?: CabloyApplication): IIconInfo | undefined {
+export function getCabloyIcon(iconName?: string, app?: ZovaApplication): IIconInfo | undefined {
   if (!app) app = useApp();
   return app.meta.icon.parseIconInfoSync(iconName);
 }

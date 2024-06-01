@@ -1,6 +1,6 @@
-import { CabloyApplication } from '../../../core/app/application.js';
+import { ZovaApplication } from '../../../core/app/application.js';
 
-export type TypeModuleConfig<T extends (app: CabloyApplication) => object> = ReturnType<T>;
+export type TypeModuleConfig<T extends (app: ZovaApplication) => object> = ReturnType<T>;
 
 export interface IModuleConfigBroadcast {
   bean: string | { module: string; name: string };

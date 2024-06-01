@@ -1,7 +1,7 @@
 import { getCurrentInstance } from 'vue';
-import { CabloyApplication } from '../core/index.js';
+import { ZovaApplication } from '../core/index.js';
 
-export function useApp(): CabloyApplication {
+export function useApp(): ZovaApplication {
   const instance = getCurrentInstance();
-  return instance?.appContext.app.cabloy as CabloyApplication;
+  return instance?.appContext.app.zova as ZovaApplication;
 }

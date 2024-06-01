@@ -1,5 +1,5 @@
 import { isClass } from '../utils/isClass.js';
-import { CabloyApplication, CabloyContext } from '../core/index.js';
+import { ZovaApplication, ZovaContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
@@ -17,13 +17,13 @@ const BeanContainerInstances = Symbol.for('Bean#Instances');
 export type BeanContainerLike = IBeanRecord & BeanContainer;
 
 export class BeanContainer {
-  private app: CabloyApplication;
-  private ctx: CabloyContext;
+  private app: ZovaApplication;
+  private ctx: ZovaContext;
 
   // fullName / uuid / propName
   private [BeanContainerInstances]: Record<MetadataKey, unknown> = shallowReactive({});
 
-  static create(app: CabloyApplication, ctx: CabloyContext | null) {
+  static create(app: ZovaApplication, ctx: ZovaContext | null) {
     const beanContainer = new BeanContainer(app, ctx);
     const proxy = new Proxy(beanContainer, {
       get(obj, prop) {
@@ -35,7 +35,7 @@ export class BeanContainer {
     return markRaw(proxy) as BeanContainerLike;
   }
 
-  protected constructor(app: CabloyApplication, ctx: CabloyContext | null) {
+  protected constructor(app: ZovaApplication, ctx: ZovaContext | null) {
     this.app = app;
     this.ctx = ctx as any;
   }

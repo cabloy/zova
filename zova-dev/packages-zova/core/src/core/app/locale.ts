@@ -4,9 +4,9 @@ export const localeDefault = {
   modules: {},
 };
 
-export type CabloyLocale = {
+export type ZovaLocale = {
   modules: IBeanScopeLocale;
 } & typeof localeDefault;
 
-export type CabloyLocaleOptional = PowerPartial<CabloyLocale>;
-export type CabloyLocaleOptionalMap = Record<string, CabloyLocaleOptional>;
+export type ZovaLocaleOptional = PowerPartial<ZovaLocale>;
+export type CabloyLocaleOptionalMap = Record<string, ZovaLocaleOptional>;

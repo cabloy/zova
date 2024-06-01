@@ -83,7 +83,7 @@ export class ControllerHome {
 可以为业务模块单独定义一些 Config 配置，如下：
 
 ```diff
-export const config = (_app: CabloyApplication) => {
+export const config = (_app: ZovaApplication) => {
   return {
 +   prompt: 'hello world',
   };

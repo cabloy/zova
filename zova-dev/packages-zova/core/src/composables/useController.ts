@@ -1,7 +1,7 @@
 import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, useSlots } from 'vue';
 import { queuePostFlushCb } from 'vue';
 import { Constructable } from '../decorator/index.js';
-import { CabloyContext } from '../core/context/index.js';
+import { ZovaContext } from '../core/context/index.js';
 import { BeanControllerIdentifier, BeanRenderIdentifier, IBeanRecord, IControllerData } from '../bean/type.js';
 
 export function useControllerPage<M, R>(
@@ -65,7 +65,7 @@ function _useController<M>(
   renderBeanFullName?: Constructable<M> | string,
 ) {
   // ctx
-  const ctx = new CabloyContext(getCurrentInstance()!);
+  const ctx = new ZovaContext(getCurrentInstance()!);
   // monkey
   ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
   // controller

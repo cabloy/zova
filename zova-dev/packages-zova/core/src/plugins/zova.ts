@@ -1,11 +1,11 @@
 import { App } from 'vue';
-import { CabloyApplication } from '../core/index.js';
+import { ZovaApplication } from '../core/index.js';
 import { PluginCabloyOptions } from '../types/interface/pluginCabloy.js';
 
-export const PluginCabloy = {
+export const PluginZova = {
   async install(vue: App, { modulesMeta, AppMonkey, locales, config }: PluginCabloyOptions) {
     // cabloy app
-    const app = new CabloyApplication(vue);
+    const app = new ZovaApplication(vue);
     await app.initialize({ modulesMeta, AppMonkey, locales, config });
   },
 };

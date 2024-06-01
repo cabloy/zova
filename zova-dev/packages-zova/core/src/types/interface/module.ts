@@ -1,5 +1,5 @@
 import { IModuleInfo } from '@cabloy/module-info';
-import { CabloyApplication } from '../../core/app/application.js';
+import { ZovaApplication } from '../../core/app/application.js';
 import { IModuleMain, IMonkeyModule, IMonkeyController, IMonkeySystem } from './monkey.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { Component } from 'vue';
@@ -16,7 +16,7 @@ export interface IModuleResource {
   Monkey: new () => IMonkeyModule & IMonkeySystem & IMonkeyController;
   locales: TypeModuleResourceLocales;
   Errors: TypeModuleResourceErrors;
-  config: (app: CabloyApplication) => object | Promise<object>;
+  config: (app: ZovaApplication) => object | Promise<object>;
   constants: unknown;
   icons: TypeModuleResourceIcons;
   components: TypeModuleResourceComponents;

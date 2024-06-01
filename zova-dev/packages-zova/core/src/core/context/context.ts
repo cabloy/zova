@@ -1,28 +1,28 @@
 import { ComponentInternalInstance, markRaw } from 'vue';
-import { CabloyApplication } from '../app/application.js';
+import { ZovaApplication } from '../app/application.js';
 import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
 import { CtxMeta } from './meta.js';
 import { Cast } from '../../types/utils/cast.js';
 
-export class CabloyContext {
+export class ZovaContext {
   instance: ComponentInternalInstance;
-  app: CabloyApplication;
+  app: ZovaApplication;
   bean: BeanContainerLike;
   meta: CtxMeta;
   //config: ContextConfig;
 
   constructor(instance: ComponentInternalInstance) {
     markRaw(this);
-    instance.cabloy = this;
+    instance.zova = this;
     this.instance = instance;
-    this.app = instance.appContext.app.cabloy;
+    this.app = instance.appContext.app.zova;
     this.bean = BeanContainer.create(this.app, this);
     this.meta = this.bean._newBeanSimple(CtxMeta, false);
   }
 
   /** @internal */
   public dispose() {
-    Cast(this.instance).cabloy = null;
+    Cast(this.instance).zova = null;
     Cast(this).instance = null;
     Cast(this).app = null;
     Cast(this).bean = null;
@@ -32,6 +32,6 @@ export class CabloyContext {
 
 declare module 'vue' {
   export interface ComponentInternalInstance {
-    cabloy: CabloyContext;
+    zova: ZovaContext;
   }
 }

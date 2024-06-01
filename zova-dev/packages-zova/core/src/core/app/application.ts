@@ -6,7 +6,7 @@ import { CabloyConfig, configDefault } from './config.js';
 import { CabloyConstant, constantDefault } from './constant.js';
 import { PluginBean } from '../../plugins/bean.js';
 
-export class CabloyApplication {
+export class ZovaApplication {
   vue: App;
   bean: BeanContainerLike;
   meta: AppMeta;
@@ -54,6 +54,6 @@ export class CabloyApplication {
 declare module 'vue' {
   export interface App {
     /** @internal */
-    cabloy: CabloyApplication;
+    cabloy: ZovaApplication;
   }
 }

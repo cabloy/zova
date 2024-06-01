@@ -1,7 +1,7 @@
 import { getCurrentInstance } from 'vue';
-import { CabloyContext } from '../core/context/context.js';
+import { ZovaContext } from '../core/context/context.js';
 
-export function useContext(): CabloyContext {
+export function useContext(): ZovaContext {
   const instance = getCurrentInstance();
-  return instance?.cabloy as CabloyContext;
+  return instance?.zova as ZovaContext;
 }

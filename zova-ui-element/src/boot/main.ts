@@ -1,13 +1,13 @@
 import { createApp } from 'vue';
 import router from './router.js';
 import App from './app.vue';
-import { cabloy } from './zova.js';
+import { zova } from './zova.js';
 
 import '../css/index.scss';
 import 'uno.css';
 
 async function start({ app, router }) {
-  await cabloy({ app, router });
+  await zova({ app, router });
   app.use(router);
   app.mount('#app');
 }

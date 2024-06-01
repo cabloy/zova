@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { CabloyContext } from '../core/index.js';
+import { ZovaContext } from '../core/index.js';
 import { BeanRenderBase } from '../bean/beanRenderBase.js';
 import { BeanRenderIdentifier } from '../bean/type.js';
 
@@ -9,7 +9,7 @@ export const PluginBean = {
       created() {
         const self = this;
         // self._ is instance, not use self.$
-        const ctx: CabloyContext = self._.cabloy;
+        const ctx: ZovaContext = self._.zova;
         if (!ctx) return;
         self.__bean_render_original = self._.render;
         self._.render = function (this, ...args) {

@@ -1,5 +1,5 @@
-import { CabloyLocaleOptional } from 'zova';
+import { ZovaLocaleOptional } from 'zova';
 
 export default {
   modules: {},
-} as CabloyLocaleOptional;
+} as ZovaLocaleOptional;

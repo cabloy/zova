@@ -9,7 +9,7 @@ Taking the module `a-demo` as an example, define the `Config` configuration of t
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
 ```typescript{3}
-export const config = (_app: CabloyApplication) => {
+export const config = (_app: ZovaApplication) => {
   return {
     prompt: 'Hello World',
   };
