@@ -4,7 +4,7 @@ export interface ZovaConfigMeta {
   appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
 }
 
-export interface CabloyConfigEnv {
+export interface ZovaConfigEnv {
   appServer: boolean;
   appRouterMode: 'hash' | 'history' | 'abstract' | undefined;
   appRouterBase: string | undefined;

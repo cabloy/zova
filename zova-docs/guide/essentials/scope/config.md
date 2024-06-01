@@ -58,7 +58,7 @@ You can use `project-level` Config to override `module-level` Config
 
 ```typescript{6-8}
 export default function (_meta: ZovaConfigMeta) {
-  const config = {} as CabloyConfigOptional;
+  const config = {} as ZovaConfigOptional;
 
   // module config
   config.modules = {

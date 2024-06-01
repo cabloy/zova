@@ -130,7 +130,7 @@ export default function (_meta: ZovaConfigMeta) {
       prefix: process.env.API_PREFIX,
     },
     layout: {},
-  } as CabloyConfigOptional;
+  } as ZovaConfigOptional;
   return config;
 }
 ```

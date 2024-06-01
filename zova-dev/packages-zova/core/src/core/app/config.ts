@@ -1,4 +1,4 @@
-import { CabloyConfigEnv, ZovaConfigMeta, IBeanScopeConfig, ILocalInfos, PowerPartial } from '../../index.js';
+import { ZovaConfigEnv, ZovaConfigMeta, IBeanScopeConfig, ILocalInfos, PowerPartial } from '../../index.js';
 
 export const configDefault = {
   meta: {},
@@ -29,7 +29,7 @@ export const configDefault = {
 
 export type ZovaConfig = {
   meta: ZovaConfigMeta;
-  env: CabloyConfigEnv;
+  env: ZovaConfigEnv;
   base: {
     locale: keyof ILocalInfos;
     jwt: boolean;
@@ -46,4 +46,4 @@ export type ZovaConfig = {
   modules: IBeanScopeConfig;
 } & typeof configDefault;
 
-export type CabloyConfigOptional = PowerPartial<ZovaConfig>;
+export type ZovaConfigOptional = PowerPartial<ZovaConfig>;

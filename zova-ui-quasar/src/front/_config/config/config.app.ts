@@ -1,13 +1,13 @@
 // npm run build
 // npm run build -- --flavor=app
-import { ZovaConfigMeta, CabloyConfigOptional } from 'zova';
+import { ZovaConfigMeta, ZovaConfigOptional } from 'zova';
 
 export default function (_meta: ZovaConfigMeta) {
   const config = {
     base: {
       jwt: true,
     },
-  } as CabloyConfigOptional;
+  } as ZovaConfigOptional;
 
   // module config
   config.modules = {};
