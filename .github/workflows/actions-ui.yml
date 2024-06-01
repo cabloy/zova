@@ -25,4 +25,5 @@ jobs:
       - run: pwd
       - run: pnpm install
       - run: pwd
+      - run: cat package.json
       - run: npm run build
