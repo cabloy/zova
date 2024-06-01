@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Project',
-    usage: 'cabloy front:create:project projectName -- [--template=] [--force]',
+    usage: 'zova :create:project projectName [--template=] [--force]',
   },
   options: {
     template: {

@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Suite',
-    usage: 'cabloy front:create:suite suiteName',
+    usage: 'zova :create:suite suiteName',
   },
   options: {},
   groups: {

@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Store Bean',
-    usage: 'cabloy front:create:store storeName -- [--module=]',
+    usage: 'zova :create:store storeName [--module=]',
   },
   options: {
     module: {

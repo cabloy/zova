@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Page TSX Component',
-    usage: 'cabloy front:create:page pageName -- [--module=]',
+    usage: 'zova :create:page pageName [--module=]',
   },
   options: {
     module: {

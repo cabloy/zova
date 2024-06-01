@@ -139,7 +139,7 @@ export class BeanCliBase {
     };
     // usage
     if (!metaInfo.usage) {
-      metaInfo.usage = `${'Usage'}: npm run cli ${argv.cliFullName} -- [options] [-h] [-v] [-t]`;
+      metaInfo.usage = `${'Usage'}: zova ${argv.cliFullName} [options] [-h] [-v]`;
     }
     // welcomes
     metaInfo.welcomes = this._commandMeta_info_welcomes({ info });

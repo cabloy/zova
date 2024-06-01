@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Module',
-    usage: 'cabloy front:create:module moduleName -- [--template=] [--suite=] [--force]',
+    usage: 'zova :create:module moduleName [--template=] [--suite=] [--force]',
   },
   options: {
     template: {

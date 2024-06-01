@@ -3,7 +3,7 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Create Local Bean',
-    usage: 'cabloy front:create:local localName -- [--module=]',
+    usage: 'zova :create:local localName [--module=]',
   },
   options: {
     module: {
