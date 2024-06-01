@@ -81,7 +81,7 @@ export class CliDefaultList extends BeanCliBase {
 
   _combineCliFullName({ setShow, groupShow, commandName }: any) {
     const parts: any[] = [];
-    if (setShow === 'core') {
+    if (setShow === 'front') {
       parts.push('');
     } else {
       parts.push(setShow);
