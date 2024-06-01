@@ -22,5 +22,7 @@ jobs:
       - run: pnpm add -g zova-cli
       - run: zova :create:project ${{ matrix.project-template }}-${{ matrix.node-version }} --template=${{ matrix.project-template }}
       - run: cd ${{ matrix.project-template }}-${{ matrix.node-version }}
+      - run: pwd
       - run: pnpm install
+      - run: pwd
       - run: npm run build
