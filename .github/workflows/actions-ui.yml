@@ -21,9 +21,9 @@ jobs:
           version: 9
       - run: pnpm add -g zova-cli
       - run: zova :create:project ${{ matrix.project-template }}-${{ matrix.node-version }} --template=${{ matrix.project-template }}
-      - run: cd ${{ matrix.project-template }}-${{ matrix.node-version }}
-      - run: pwd
-      - run: pnpm install
-      - run: pwd
-      - run: cat package.json
-      - run: npm run build
+      - name: pnpm install
+        run: pnpm install
+        working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
+      - name: npm run build
+        run: npm run build
+        working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
