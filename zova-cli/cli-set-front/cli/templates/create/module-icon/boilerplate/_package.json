@@ -17,7 +17,7 @@
     "./*": "./*"
   },
   "description": "<%=argv.description%>",
-  "keywords": ["Cabloy Module"],
+  "keywords": ["Zova Module"],
   "author": "<%=argv.author%>",
   "files": ["dist"],
   "scripts": {},
