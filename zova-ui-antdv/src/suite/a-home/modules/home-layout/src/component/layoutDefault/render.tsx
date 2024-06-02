@@ -23,7 +23,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return (
       <MenuItem
         key={key}
-        icon={this.$iconh(item.icon)}
+        icon={this.$iconh(item.icon as any)}
         onClick={() => {
           if (item.href) {
             window.open(item.href);
