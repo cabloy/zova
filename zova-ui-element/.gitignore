@@ -40,10 +40,9 @@ yarn-error.log*
 
 # mine .env files
 env/.env*.mine
+/src/front/config/config/config*.mine.ts
 
 **/*.tsbuildinfo
-
-/src/front/config
 
 /src/suite/*
 !/src/suite/.gitkeep
