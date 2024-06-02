@@ -40,7 +40,6 @@ declare module 'zova' {
     '::article': true;
     '::attachment-line': true;
     '::book': true;
-    '::cabloy': true;
     '::checkbox-checked': true;
     '::checkbox-intermediate': true;
     '::checkbox-off': true;
