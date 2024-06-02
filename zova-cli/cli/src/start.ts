@@ -6,7 +6,7 @@ import { collectCommands } from './lib/commands.js';
 const DISPATCH = Symbol.for('eb:Command#dispatch');
 const PARSE = Symbol.for('eb:Command#parse');
 
-export class CabloyCommand extends CommonBin {
+export class ZovaCommand extends CommonBin {
   constructor(rawArgv?) {
     super(rawArgv);
     this.usage = 'Usage: zova [command] [options]';
@@ -26,10 +26,10 @@ export class CabloyCommand extends CommonBin {
     const argv = {
       projectPath: process.cwd(),
     } as ICommandArgv;
-    // indexCabloy
-    const indexCabloy = this.rawArgv.indexOf('zova');
+    // indexZova
+    const indexZova = this.rawArgv.indexOf('zova');
     // cli
-    const indexCommand = indexCabloy > -1 ? indexCabloy + 1 : 0;
+    const indexCommand = indexZova > -1 ? indexZova + 1 : 0;
     Object.assign(argv, this._prepareCliFullName(parsed._[indexCommand]));
     // cli meta
     const context = { argv };
@@ -37,8 +37,8 @@ export class CabloyCommand extends CommonBin {
     const meta = await beanCli.meta({ context });
     // cli run
     const rawArgv = this.rawArgv.slice();
-    if (indexCabloy > -1) {
-      rawArgv.splice(0, indexCabloy + 2);
+    if (indexZova > -1) {
+      rawArgv.splice(0, indexZova + 2);
     } else {
       rawArgv.splice(0, 1);
     }

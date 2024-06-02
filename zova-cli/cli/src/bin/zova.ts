@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-import { CabloyCommand } from '../start.js';
-new CabloyCommand().start();
+import { ZovaCommand } from '../start.js';
+new ZovaCommand().start();
