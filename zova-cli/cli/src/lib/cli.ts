@@ -31,8 +31,6 @@ export class CliCommand extends BaseCommand {
     let { argv, cwd, env, rawArgv } = options;
     // argv
     argv = Object.assign({}, argv, this.__argv);
-    delete argv.t;
-    delete argv.token;
     delete argv.$0;
     // context
     const context = { argv, cwd, env: this._adjustEnv({ env }), rawArgv };
