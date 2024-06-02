@@ -129,6 +129,7 @@ declare module 'zova' {
     '::visibility': true;
     '::zoom-in': true;
     '::zoom-out': true;
+    '::zova': true;
     ':editor:add-box-outline': true;
     ':editor:add-box': true;
     ':editor:bookmark-outline': true;

@@ -2,7 +2,8 @@ import { createVNode } from 'vue';
 import { IIconRecord } from './types.js';
 import { ZovaIcon } from './zovaIcon.js';
 
-export function renderIcon(name?: string, color?: string, size?: string | number);
+// should not provide name?: string
+//export function renderIcon(name?: string, color?: string, size?: string | number);
 export function renderIcon<K extends keyof IIconRecord>(name: K, color?: string, size?: string | number);
 export function renderIcon(name?, color?, size?) {
   size = size ?? 24;
