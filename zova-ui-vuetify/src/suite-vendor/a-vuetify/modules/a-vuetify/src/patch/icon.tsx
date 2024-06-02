@@ -7,7 +7,7 @@ import { useIcon } from 'vuetify/lib/composables/icons.mjs';
 import { useSize } from 'vuetify/lib/composables/size.mjs';
 import { useTextColor } from 'vuetify/lib/composables/color.mjs';
 import { convertToUnit, flattenFragments } from 'vuetify/lib/util/index.mjs';
-import { VSvgIconCabloy } from './svg.js';
+import { VSvgIconZova } from './svg.js';
 
 @Local()
 export class PatchIcon extends BeanBase<ScopeModule> {
@@ -80,7 +80,7 @@ export class PatchIcon extends BeanBase<ScopeModule> {
     return {
       iconData: {
         value: {
-          component: VSvgIconCabloy,
+          component: VSvgIconZova,
           icon: `#${iconInfo.symbolId}`,
         },
       },

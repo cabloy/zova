@@ -3,8 +3,8 @@ import { defineComponent } from 'vue';
 import { mergeProps as _mergeProps, createVNode as _createVNode } from 'vue';
 import { makeIconProps } from 'vuetify/lib/composables/icons.mjs';
 
-export const VSvgIconCabloy = defineComponent({
-  name: 'VSvgIconCabloy',
+export const VSvgIconZova = defineComponent({
+  name: 'VSvgIconZova',
   inheritAttrs: false,
   props: makeIconProps(),
   setup(props, _ref2) {

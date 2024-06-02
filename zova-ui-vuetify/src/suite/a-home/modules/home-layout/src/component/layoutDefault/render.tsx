@@ -54,7 +54,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
         </VNavigationDrawer>
         <VAppBar>
           <VAppBarNavIcon icon="::menu" variant="text" onClick={() => this.toggleLeftDrawer()}></VAppBarNavIcon>
-          <VToolbarTitle>CabloyJS</VToolbarTitle>
+          <VToolbarTitle>Zova</VToolbarTitle>
           <VSpacer></VSpacer>
           <VBtn icon="::search" variant="text"></VBtn>
           <VBtn icon="::more-horiz" variant="text"></VBtn>
