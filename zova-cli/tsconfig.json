@@ -4,26 +4,12 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "include": [
-    "src/backend/package.json",
-    "src/backend/config",
-    "src/backend/demo"
-  ],
-  "exclude": [
-    "src/backend/_config"
-  ],
   "ts-node": {
     "swc": true
   },
   "references": [
     {
       "path": "cli"
-    },
-    {
-      "path": "cli-set-api"
-    },
-    {
-      "path": "cli-set-core"
     },
     {
       "path": "cli-set-front"

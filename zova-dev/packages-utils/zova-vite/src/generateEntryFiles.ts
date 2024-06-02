@@ -25,7 +25,7 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
     // check config
     let configDir = path.join(configOptions.appDir, 'src/front/config');
     if (!fse.existsSync(configDir)) {
-      console.log(chalk.red('Please copy directory: from _config to config\n'));
+      console.log(chalk.red('path not found: src/front/config\n'));
       process.exit(0);
     }
     // meta
