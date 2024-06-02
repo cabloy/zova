@@ -20,7 +20,7 @@
 [vue3+tsx+ioc-slots-image]: ../../assets/cover/vue3+tsx+ioc-slots.jpg
 [vue3+tsx+ioc-slots-url]: https://www.bilibili.com/video/BV1nm421u71x/
 
-## 什么是Cabloy-Front？
+## 什么是Zova？
 
 Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`，也不再需要`ref.value`
 
