@@ -6,7 +6,7 @@
   "description": "A Node.js full-stack framework with workflow engine, based on koa + egg + vue + framework7",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhennann/cabloy.git"
+    "url": "git+https://github.com/cabloy/zova.git"
   },
   "author": "zhennann",
   "license": "MIT",
@@ -19,9 +19,9 @@
     "zova"
   ],
   "bugs": {
-    "url": "https://github.com/zhennann/cabloy/issues"
+    "url": "https://github.com/cabloy/zova/issues"
   },
-  "homepage": "https://github.com/zhennann/cabloy#readme",
+  "homepage": "https://github.com/cabloy/zova#readme",
   "engines": {
     "node": ">=16.0.0"
   },
