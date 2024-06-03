@@ -41,7 +41,7 @@
     "@cabloy/lint": "^4.0.10",
     "@quasar/app-vite": "2.0.0-beta.11",
     "@quasar/vite-plugin": "~1.6.0",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.0",
     "autoprefixer": "^10.4.19",
     "quasar-app-extension-zova": "^1.1.64",
     "typescript": "^5.4.5",
