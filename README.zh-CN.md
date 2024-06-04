@@ -17,7 +17,7 @@ Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，�
 
 ## 文档
 
-- [快速开始](https://zova.cabloy.com/zh/guide/start/introduction.html)
+- [快速开始](https://zova.js.org/zh/guide/start/introduction.html)
 - [为什么需要Vue3+IOC?](https://zova.cabloy.com/zh/guide/start/why.html)
 
 ## 与UI库的配合
