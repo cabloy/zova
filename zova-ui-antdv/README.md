@@ -15,8 +15,8 @@ zova-ui-antdv is a vue3 framework with ioc container. With the support of ioc co
 
 ## Documentation
 
-- [Get Started](https://zova.cabloy.com/guide/start/introduction.html)
-- [Why Vue3+IOC?](https://zova.cabloy.com/guide/start/why.html)
+- [Get Started](https://zova.js.org/guide/start/introduction.html)
+- [Why Vue3+IOC?](https://zova.js.org/guide/start/why.html)
 
 ## Features
 
