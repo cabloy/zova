@@ -28,7 +28,5 @@
     "dist"
   ],
   "scripts": {},
-  "dependencies": {
-    "element-plus": "^2.7.2"
-  }
+  "dependencies": {}
 }
