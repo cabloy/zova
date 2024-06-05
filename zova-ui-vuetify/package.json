@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-vuetify",
-  "version": "5.0.106",
+  "version": "5.0.107",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -46,7 +46,7 @@
     "vite": "^5.2.11",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-tsc": "^2.0.19",
-    "zova-vite": "^1.0.82"
+    "zova-vite": "^1.0.83"
   },
   "license": "MIT",
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
