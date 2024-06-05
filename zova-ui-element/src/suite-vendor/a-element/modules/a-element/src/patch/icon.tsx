@@ -4,26 +4,17 @@ import { addUnit } from 'element-plus/es/utils/dom/style.mjs';
 import { isUndefined } from 'element-plus/es/utils/types.mjs';
 import { Text, computed, createVNode, mergeProps, unref } from 'vue';
 import { ScopeModule } from '../resource/this.js';
+import { ElIcon } from 'element-plus';
 
 @Local()
 export class PatchIcon extends BeanBase<ScopeModule> {
   public async initialize() {
-    const self = this;
-    let __patched = false;
-    this.app.vue.mixin({
-      created() {
-        const Component = this._.type;
-        if (Component.name === 'ElIcon' && !__patched) {
-          self._patchSetup(Component);
-          __patched = true;
-        }
-      },
-    });
+    this._patchSetup();
   }
 
-  _patchSetup(Component) {
+  _patchSetup() {
     const self = this;
-    Component.setup = function (props, { attrs, slots }) {
+    ElIcon.setup = function (props, { attrs, slots }) {
       const ns = useNamespace('icon');
       const style = computed(() => {
         const { size, color } = props;
