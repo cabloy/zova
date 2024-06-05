@@ -1,5 +1,4 @@
 import { BeanBase, ZovaIcon, getZovaIcon, Local } from 'zova';
-import { ElIcon } from 'element-plus';
 import { useNamespace } from 'element-plus/es/hooks/use-namespace/index.mjs';
 import { addUnit } from 'element-plus/es/utils/dom/style.mjs';
 import { isUndefined } from 'element-plus/es/utils/types.mjs';
@@ -9,12 +8,20 @@ import { ScopeModule } from '../resource/this.js';
 @Local()
 export class PatchIcon extends BeanBase<ScopeModule> {
   public async initialize() {
-    this._patchSetup();
+    const self = this;
+    this.app.vue.mixin({
+      created() {
+        const Component = this._.type;
+        if (Component.name === 'ElIcon') {
+          self._patchSetup(Component);
+        }
+      },
+    });
   }
 
-  _patchSetup() {
+  _patchSetup(Component) {
     const self = this;
-    ElIcon.setup = function (props, { attrs, slots }) {
+    Component.setup = function (props, { attrs, slots }) {
       const ns = useNamespace('icon');
       const style = computed(() => {
         const { size, color } = props;
