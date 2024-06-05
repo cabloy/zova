@@ -86,7 +86,11 @@ export function createConfigUtils(
         _configManualChunk_vendorsDefault(),
       );
     }
-    const matchItem = __zovaManualChunkVendors_runtime.find(item => {
+    return _configManualChunk_match(id, __zovaManualChunkVendors_runtime);
+  }
+
+  function _configManualChunk_match(id: string, vendors) {
+    const matchItem = vendors.find(item => {
       return item.match.some(item => {
         if (typeof item === 'string') {
           const matchItem = item[0] === '~' ? item.substring(1) : `/${item}/`;
