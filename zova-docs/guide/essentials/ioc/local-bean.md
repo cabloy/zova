@@ -29,7 +29,7 @@ Migrate the code in the page component `counter` to the local bean
 export class Counter {
   count: number = 0;
 
-  inrement() {
+  increment() {
     this.count++;
   }
 
@@ -68,7 +68,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.$$counter.count}</div>
-        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.increment()}>Inrement</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );

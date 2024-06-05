@@ -51,7 +51,7 @@ Define a reactive variable `count` in the component and add two methods to modif
 export class ControllerPageCounter {
   count: number = 0;
 
-  inrement() {
+  increment() {
     this.count++;
   }
 
@@ -71,7 +71,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.count}</div>
-        <button onClick={() => this.inrement()}>Inrement</button>
+        <button onClick={() => this.increment()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
     );
@@ -90,7 +90,7 @@ Create a `Counter` Bean to implement the logic of `count`
 export class Counter {
   count: number = 0;
 
-  inrement() {
+  increment() {
     this.count++;
   }
 
@@ -115,7 +115,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.$$counter.count}</div>
-        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.increment()}>Inrement</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );

@@ -11,7 +11,7 @@ export class ControllerPageState extends BeanControllerPageBase {
     });
   }
 
-  inrement() {
+  increment() {
     this.count++;
   }
 

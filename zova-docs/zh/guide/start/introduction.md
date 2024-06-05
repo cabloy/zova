@@ -57,7 +57,7 @@ Zova 为 Vue3 引入了以下鲜明特征：
 export class ControllerPageCounter {
   count: number = 0;
 
-  inrement() {
+  increment() {
     this.count++;
   }
 
@@ -77,7 +77,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.count}</div>
-        <button onClick={() => this.inrement()}>Inrement</button>
+        <button onClick={() => this.increment()}>Inrement</button>
         <button onClick={() => this.decrement()}>Decrement</button>
       </div>
     );
@@ -98,7 +98,7 @@ export class RenderPageCounter {
 export class Counter {
   count: number = 0;
 
-  inrement() {
+  increment() {
     this.count++;
   }
 
@@ -123,7 +123,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.$$counter.count}</div>
-        <button onClick={() => this.$$counter.inrement()}>Inrement</button>
+        <button onClick={() => this.$$counter.increment()}>Inrement</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );
