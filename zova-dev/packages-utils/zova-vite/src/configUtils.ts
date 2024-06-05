@@ -19,7 +19,7 @@ const __ZovaManualChunkVendors = [
     output: '-zova-config',
   },
   {
-    match: ['vue', '@vue', 'reflect-metadata', 'zova', 'packages-zova/core'],
+    match: ['vue', '@vue', 'reflect-metadata', '@cabloy', 'zova', 'zova-core', 'packages-zova/core'],
     output: 'zova',
   },
   { match: ['vue-router'], output: 'vue-router' },
