@@ -56,8 +56,11 @@ export function createConfigUtils(
 
   function __configManualChunk(id: string) {
     id = id.replace(/\\/gi, '/');
+    // modules before
+    let output = _configManualChunk_modulesBefore(id);
+    if (output) return output;
     // modules
-    let output = _configManualChunk_modules(id);
+    output = _configManualChunk_modules(id);
     if (output) return output;
     // vendors
     output = _configManualChunk_vendors(id);
@@ -70,6 +73,10 @@ export function createConfigUtils(
   }
 
   function _configManualChunk_vendorsDefault() {
+    return __ZovaManualChunkVendors;
+  }
+
+  function _configManualChunk_vendorsModulesBefore() {
     const vendors: any = [];
     if (process.env.MOCK_ENABLED === 'true') {
       vendors.push({
@@ -77,7 +84,7 @@ export function createConfigUtils(
         output: '-zova-mock',
       });
     }
-    return vendors.concat(__ZovaManualChunkVendors);
+    return vendors;
   }
 
   function _configManualChunk_vendors(id: string) {
@@ -109,5 +116,9 @@ export function createConfigUtils(
       if (matched) return matched[1];
     }
     return null;
+  }
+
+  function _configManualChunk_modulesBefore(id: string) {
+    return _configManualChunk_match(id, _configManualChunk_vendorsModulesBefore());
   }
 }
