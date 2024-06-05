@@ -6,6 +6,10 @@ export function extendViteConf(context: ConfigContext) {
   return function extendViteConf(conf) {
     const zovaViteMeta = context.zovaViteMeta as ZovaViteConfigResult;
     // conf.build override zovaViteMeta.viteConfig.build
-    conf.build = mergeConfig(mergeConfig({}, zovaViteMeta.viteConfig.build), conf.build as unknown as any);
+    const minify = conf.build.minify;
+    conf.build = mergeConfig(conf.build as unknown as any, zovaViteMeta.viteConfig.build);
+    if (minify === false) {
+      conf.build.minify = minify;
+    }
   };
 }
