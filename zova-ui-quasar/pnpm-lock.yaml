@@ -40,8 +40,8 @@ importers:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
       quasar-app-extension-zova:
-        specifier: ^1.1.71
-        version: 1.1.71(@babel/core@7.24.6)(@babel/traverse@7.24.6)(@types/node@20.14.1)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.1.72
+        version: 1.1.72(@babel/core@7.24.6)(@babel/traverse@7.24.6)(@types/node@20.14.1)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -1259,8 +1259,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  caniuse-lite@1.0.30001627:
-    resolution: {integrity: sha512-4zgNiB8nTyV/tHhwZrFs88ryjls/lHiqFhrxCW4qSTeuRByBVnPYpDInchOIySWknznucaf31Z4KYqjfbrecVw==}
+  caniuse-lite@1.0.30001628:
+    resolution: {integrity: sha512-S3BnR4Kh26TBxbi5t5kpbcUlLJb9lhtDXISDPwOfI+JoC+ik0QksvkZtUVyikw3hjnkgkMPSJ8oIM9yMm9vflA==}
 
   cascade-extend@1.0.4:
     resolution: {integrity: sha512-VO3ESjQ/hIS/jN3yh9+mg2th/cNFRofEGEZ61/Wk4pt9/thfMHQMgGR2ZK7iqtl9vEzk0F7DoM8G1bD6lQ5Feg==}
@@ -1513,8 +1513,8 @@ packages:
   egg-born-utils@1.2.0:
     resolution: {integrity: sha512-TZowrdqmVoT5HC4P1KyPiJerxBullFPeszzMNOXjYLm0sWCT0Sun5LvBCVtBDrBLAQav0t2Nz7UuqcxGZYaHfw==}
 
-  electron-to-chromium@1.4.789:
-    resolution: {integrity: sha512-0VbyiaXoT++Fi2vHGo2ThOeS6X3vgRCWrjPeO2FeIAWL6ItiSJ9BqlH8LfCXe3X1IdcG+S0iLoNaxQWhfZoGzQ==}
+  electron-to-chromium@1.4.790:
+    resolution: {integrity: sha512-eVGeQxpaBYbomDBa/Mehrs28MdvCXfJmEFzaMFsv8jH/MJDLIylJN81eTJ5kvx7B7p18OiPK0BkC06lydEy63A==}
 
   elementtree@0.1.7:
     resolution: {integrity: sha512-wkgGT6kugeQk/P6VZ/f4T+4HB41BVgNBq5CDIZVbQ02nvTVqAiVTbskxxu3eA/X96lMlfYOwnLQpN2v5E1zDEg==}
@@ -2411,8 +2411,8 @@ packages:
     resolution: {integrity: sha512-zWmv4RSuB9r2mYQw3zxQuHWeU+42aKi1wWig/j4ele4ygELZ7PEO6MM7rim9oAQH2A5MWfsAVf/jPvTPgCbvUQ==}
     engines: {node: '>=0.6'}
 
-  quasar-app-extension-zova@1.1.71:
-    resolution: {integrity: sha512-M6VIq22QwfnyU45wE1sxeNsPwYqxEc2YFgH8XtXeR/5RteeaGV7bg+H9xbIKj6ex/7T7oz4nJWsqYMdPwGHksg==}
+  quasar-app-extension-zova@1.1.72:
+    resolution: {integrity: sha512-1UKBsXO088g1bJ72pq7LOjshkNmjYYREdH7aJ+alBohCooUUiWqf18J78n5XKuiFiCgEtEX4Bhca2Tn98SOLzA==}
 
   quasar@2.15.4:
     resolution: {integrity: sha512-6Rtj0KrsVA0IV9zMZ6R7U7hOpwLS/6E06hsISVHRPn21KEm3XAwHdvy9xWz5kwqWraHRlcisFSDu/KPL4VQK1w==}
@@ -2991,8 +2991,8 @@ packages:
   zova-suite-a-core@5.0.34:
     resolution: {integrity: sha512-Tuml5WraBtRATTakLRHqO6KOL5aJ19mq8cwN4jO7D8uVbIanlT0a5OBBXvu7vbn9EPwacmmK3lyuFc4RIHFNUg==}
 
-  zova-vite@1.0.84:
-    resolution: {integrity: sha512-p/MGtT9NG7HDrdHFkKiCHdfklRDPxJsJXAoEKzN75s+hE/oZ/aMawRyo4YgxUMVxTXq0bYhXkv4zimMaLWv04g==}
+  zova-vite@1.0.85:
+    resolution: {integrity: sha512-jLLr51xLt2t1IxLzQw8qiFdsbqwe2TzgxzIkjxpuMbW+HERzJ6aKcO0/Tppzb2Z2t9VANC44JXT1GTVeh94Mgg==}
 
   zova@5.0.78:
     resolution: {integrity: sha512-bOXp1WGUwM0hEp8NRlYyf6gJDdm1Ote/orwkW5sZ1l+vVBeLPBJbIeeVqmL+1rrDiBMurSpc4qR5k8fa7AlRiQ==}
@@ -4021,7 +4021,7 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001627
+      caniuse-lite: 1.0.30001628
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -4107,8 +4107,8 @@ snapshots:
 
   browserslist@4.23.0:
     dependencies:
-      caniuse-lite: 1.0.30001627
-      electron-to-chromium: 1.4.789
+      caniuse-lite: 1.0.30001628
+      electron-to-chromium: 1.4.790
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
 
@@ -4158,7 +4158,7 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-  caniuse-lite@1.0.30001627: {}
+  caniuse-lite@1.0.30001628: {}
 
   cascade-extend@1.0.4:
     dependencies:
@@ -4390,7 +4390,7 @@ snapshots:
       - proxy-agent
       - supports-color
 
-  electron-to-chromium@1.4.789: {}
+  electron-to-chromium@1.4.790: {}
 
   elementtree@0.1.7:
     dependencies:
@@ -5329,11 +5329,11 @@ snapshots:
     dependencies:
       side-channel: 1.0.6
 
-  quasar-app-extension-zova@1.1.71(@babel/core@7.24.6)(@babel/traverse@7.24.6)(@types/node@20.14.1)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+  quasar-app-extension-zova@1.1.72(@babel/core@7.24.6)(@babel/traverse@7.24.6)(@types/node@20.14.1)(sass@1.77.4)(terser@5.31.0)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       vite: 5.2.12(@types/node@20.14.1)(sass@1.77.4)(terser@5.31.0)
       zova-core: 5.0.68(typescript@5.4.5)
-      zova-vite: 1.0.84(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+      zova-vite: 1.0.85(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'
@@ -5965,7 +5965,7 @@ snapshots:
       - typescript
       - vue
 
-  zova-vite@1.0.84(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.85(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
