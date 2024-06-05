@@ -68,7 +68,7 @@ export class RenderPageCounter {
     return (
       <div>
         <div>count(ref): {this.$$counter.count}</div>
-        <button onClick={() => this.$$counter.increment()}>Inrement</button>
+        <button onClick={() => this.$$counter.increment()}>Increment</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
     );
