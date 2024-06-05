@@ -9,11 +9,13 @@ import { ScopeModule } from '../resource/this.js';
 export class PatchIcon extends BeanBase<ScopeModule> {
   public async initialize() {
     const self = this;
+    let __patched = false;
     this.app.vue.mixin({
       created() {
         const Component = this._.type;
-        if (Component.name === 'ElIcon') {
+        if (Component.name === 'ElIcon' && !__patched) {
           self._patchSetup(Component);
+          __patched = true;
         }
       },
     });
