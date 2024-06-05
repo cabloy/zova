@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
-    "@types/node": "^20.13.0",
+    "@types/node": "^20.14.1",
     "@vitejs/plugin-vue": "^5.0.5",
     "sass": "^1.77.4",
     "typescript": "^5.4.5",

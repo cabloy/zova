@@ -9,7 +9,7 @@ const __ModuleLibs = [
   /src\/module-vendor\/([^\/]*?)\//,
   /src\/suite\/.*\/modules\/([^\/]*?)\//,
   /src\/suite-vendor\/.*\/modules\/([^\/]*?)\//,
-  /node_modules\/zova-module-([^\/]*?)\//,
+  /\/zova-module-([^\/]*?)\//,
 ];
 
 const __ZovaManualChunkVendors = [
