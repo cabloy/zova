@@ -49,8 +49,8 @@ importers:
         specifier: ^2.0.19
         version: 2.0.19(typescript@5.4.5)
       zova-vite:
-        specifier: ^1.0.86
-        version: 1.0.86(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.87
+        version: 1.0.87(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
 
   src/suite-vendor/a-vuetify:
     dependencies:
@@ -2216,8 +2216,8 @@ packages:
   zova-suite-a-core@5.0.34:
     resolution: {integrity: sha512-Tuml5WraBtRATTakLRHqO6KOL5aJ19mq8cwN4jO7D8uVbIanlT0a5OBBXvu7vbn9EPwacmmK3lyuFc4RIHFNUg==}
 
-  zova-vite@1.0.86:
-    resolution: {integrity: sha512-fTsBfYq+ua6tQljpsFxwzwQFC+ssUIDZyXfDWY3jX9p29oNicbD7tWuwO21KNopEsb2c6Tph6B50CBoS3FRkkw==}
+  zova-vite@1.0.87:
+    resolution: {integrity: sha512-rQZXGqlyG15KKGNmSPMfvDIRABztBkcU/K47IE4ylgdRpENXkjoMIV/OnZGwksDME0bph5RwXRlRwRlVBuS6FQ==}
 
   zova@5.0.78:
     resolution: {integrity: sha512-bOXp1WGUwM0hEp8NRlYyf6gJDdm1Ote/orwkW5sZ1l+vVBeLPBJbIeeVqmL+1rrDiBMurSpc4qR5k8fa7AlRiQ==}
@@ -4282,7 +4282,7 @@ snapshots:
       - typescript
       - vue
 
-  zova-vite@1.0.86(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.87(@babel/core@7.24.6)(@babel/traverse@7.24.6)(sass@1.77.4)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)

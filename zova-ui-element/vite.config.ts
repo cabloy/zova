@@ -71,6 +71,9 @@ export default defineConfig(async ({ mode }) => {
       },
     },
     plugins,
+    build: {
+      // minify: false,
+    },
   });
   return viteConfig;
 });

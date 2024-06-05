@@ -48,6 +48,9 @@ export default defineConfig(async ({ mode }) => {
   // viteConfig
   const viteConfig = mergeConfig(zovaViteMeta.viteConfig, {
     plugins,
+    build: {
+      // minify: false,
+    },
   });
   return viteConfig;
 });
