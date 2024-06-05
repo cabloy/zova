@@ -19,7 +19,18 @@ const __ZovaManualChunkVendors = [
     output: '-zova-config',
   },
   {
-    match: ['vue', '@vue', 'reflect-metadata', '@cabloy', 'zova', 'zova-core', 'packages-zova/core'],
+    match: [
+      'vue/dist',
+      '@vue/runtime-dom/dist',
+      '@vue/shared/dist',
+      '@vue/reactivity/dist',
+      'vue/jsx-runtime',
+      '@cabloy/vue-runtime-core/dist',
+    ],
+    output: 'vue',
+  },
+  {
+    match: ['reflect-metadata', '@cabloy', 'zova', 'zova-core', 'packages-zova/core'],
     output: 'zova',
   },
   { match: ['vue-router'], output: 'vue-router' },
