@@ -30,6 +30,7 @@ export function createConfigUtils(
   configOptions: ZovaViteConfigOptions,
 ): { loadEnvs: () => { [name: string]: string }; configManualChunk: (id: string) => string } {
   let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
+  let __zovaManualChunkVendors_runtime_modulesBefore: ZovaViteConfigChunkVendor[];
   return {
     loadEnvs: __loadEnvs,
     configManualChunk: __configManualChunk,
@@ -89,8 +90,8 @@ export function createConfigUtils(
 
   function _configManualChunk_vendors(id: string) {
     if (!__zovaManualChunkVendors_runtime) {
-      __zovaManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(
-        _configManualChunk_vendorsDefault(),
+      __zovaManualChunkVendors_runtime = _configManualChunk_vendorsDefault().concat(
+        configOptions.zovaManualChunk.vendors as any,
       );
     }
     return _configManualChunk_match(id, __zovaManualChunkVendors_runtime);
@@ -119,6 +120,9 @@ export function createConfigUtils(
   }
 
   function _configManualChunk_modulesBefore(id: string) {
-    return _configManualChunk_match(id, _configManualChunk_vendorsModulesBefore());
+    if (!__zovaManualChunkVendors_runtime_modulesBefore) {
+      __zovaManualChunkVendors_runtime_modulesBefore = _configManualChunk_vendorsModulesBefore();
+    }
+    return _configManualChunk_match(id, __zovaManualChunkVendors_runtime_modulesBefore);
   }
 }
