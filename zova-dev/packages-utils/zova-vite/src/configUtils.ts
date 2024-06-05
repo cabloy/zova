@@ -55,8 +55,25 @@ export function createConfigUtils(
     );
   }
 
-  function __configManualChunk(id: string) {
+  function __configManualChunk_adjustId(id: string) {
+    //
     id = id.replace(/\\/gi, '/');
+    const appDir = configOptions.appDir.replace(/\\/gi, '/');
+    //
+    let index = id.indexOf(appDir);
+    if (index > -1) {
+      id = id.substring(index + appDir.length);
+    }
+    //
+    index = id.lastIndexOf('node_modules');
+    if (index > -1) {
+      id = id.substring(index + 'node_modules'.length);
+    }
+    return id;
+  }
+
+  function __configManualChunk(id: string) {
+    id = __configManualChunk_adjustId(id);
     // modules before
     let output = _configManualChunk_modulesBefore(id);
     if (output) return output;
