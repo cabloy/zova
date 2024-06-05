@@ -28,7 +28,5 @@
     "dist"
   ],
   "scripts": {},
-  "dependencies": {
-    "vuetify": "^3.5.8"
-  }
+  "dependencies": {}
 }
