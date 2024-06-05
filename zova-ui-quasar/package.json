@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-quasar",
-  "version": "5.0.111",
+  "version": "5.0.112",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -43,7 +43,7 @@
     "@quasar/vite-plugin": "~1.6.0",
     "@types/node": "^20.14.1",
     "autoprefixer": "^10.4.19",
-    "quasar-app-extension-zova": "^1.1.72",
+    "quasar-app-extension-zova": "^1.1.73",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.19"
   },
