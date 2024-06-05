@@ -69,14 +69,28 @@ export function createConfigUtils(
     return 'vendor';
   }
 
+  function _configManualChunk_vendorsDefault() {
+    const vendors: any = [];
+    if (process.env.MOCK_ENABLED === 'true') {
+      vendors.push({
+        match: [`~${process.env.MOCK_PATH}`],
+        output: '-zova-mock',
+      });
+    }
+    return vendors.concat(__ZovaManualChunkVendors);
+  }
+
   function _configManualChunk_vendors(id: string) {
     if (!__zovaManualChunkVendors_runtime) {
-      __zovaManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(__ZovaManualChunkVendors);
+      __zovaManualChunkVendors_runtime = configOptions.zovaManualChunk.vendors.concat(
+        _configManualChunk_vendorsDefault(),
+      );
     }
     const matchItem = __zovaManualChunkVendors_runtime.find(item => {
       return item.match.some(item => {
         if (typeof item === 'string') {
-          return id.indexOf(`/${item}/`) > -1;
+          const matchItem = item[0] === '~' ? item.substring(1) : `/${item}/`;
+          return id.indexOf(matchItem) > -1;
         }
         return item.test(id);
       });
