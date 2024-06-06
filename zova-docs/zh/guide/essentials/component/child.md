@@ -237,7 +237,7 @@ import * as ControllerCard from '../../component/card/controller.js';
 
 export class RenderPageComponent {
   render() {
-    const slots = {
+    const slots: ControllerCard.Slots = {
       header: () => {
         return <div>this is a header slot from parent</div>;
       },
@@ -247,7 +247,7 @@ export class RenderPageComponent {
       footer: () => {
         return <div>this is a footer slot from parent</div>;
       },
-    } as ControllerCard.Slots;
+    };
     return (
       <div>
         <Card

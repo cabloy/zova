@@ -8,7 +8,7 @@ export interface RenderPageComponent extends ControllerPageComponent {}
 @Local()
 export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
   render() {
-    const slots = {
+    const slots: NSControllerCard.Slots = {
       header: () => {
         return <div>this is a header slot from parent</div>;
       },
@@ -18,7 +18,7 @@ export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
       footer: () => {
         return <div>this is a footer slot from parent</div>;
       },
-    } as NSControllerCard.Slots;
+    };
     return (
       <div>
         <this.scope.component.card
