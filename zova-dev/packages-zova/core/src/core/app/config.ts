@@ -1,4 +1,11 @@
-import { ZovaConfigEnv, ZovaConfigMeta, IBeanScopeConfig, ILocalInfos, PowerPartial } from '../../index.js';
+import {
+  ZovaConfigEnv,
+  ZovaConfigMeta,
+  IBeanScopeConfig,
+  ILocalInfos,
+  PowerPartial,
+  IComponentRecord,
+} from '../../index.js';
 
 export const configDefault = {
   meta: {},
@@ -41,9 +48,14 @@ export type ZovaConfig = {
   icon: {
     defaultModule: string;
   };
-  layout: {};
+  layout: {
+    component: {
+      default: keyof IComponentRecord;
+      empty: keyof IComponentRecord;
+    };
+  };
   locales: Record<keyof ILocalInfos, string>;
   modules: IBeanScopeConfig;
-} & typeof configDefault;
+};
 
 export type ZovaConfigOptional = PowerPartial<ZovaConfig>;
