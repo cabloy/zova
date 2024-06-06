@@ -9,8 +9,9 @@ export class RenderPageLocale extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>{this.scope.locale.HelloWorld()}</div>
-        <div>{this.app.meta.locale.current}</div>
+        <div>
+          {this.app.meta.locale.current}: {this.scope.locale.HelloWorld()}
+        </div>
         <button
           onClick={() => {
             if (this.app.meta.locale.current === 'en-us') {
