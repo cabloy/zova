@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [18, 20]
-        project-template: ['empty','antdv','element','quasar','vuetify']
+        project-template: ['empty', 'antdv', 'element', 'quasar', 'vuetify']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,6 +36,9 @@ jobs:
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: page
         run: zova :create:page first --module=test-demo
+        working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
+      - name: component
+        run: zova :create:component child --module=test-demo
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: npm run build
         run: npm run build
