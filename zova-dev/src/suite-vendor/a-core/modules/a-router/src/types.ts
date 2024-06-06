@@ -1,4 +1,4 @@
-import { TypePageSchemas } from 'zova';
+import { IComponentRecord, TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { StoreRouterLike } from './bean/store.router.js';
 
@@ -10,7 +10,7 @@ import 'vue-router';
 declare module 'vue-router' {
   interface RouteMeta {
     absolute?: boolean;
-    layout?: 'empty' | 'default' | false | string | IModuleRouteComponent;
+    layout?: keyof IComponentRecord | 'empty' | 'default' | false | IModuleRouteComponent;
     requiresAuth?: boolean;
   }
 }
