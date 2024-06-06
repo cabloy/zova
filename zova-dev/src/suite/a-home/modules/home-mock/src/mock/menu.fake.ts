@@ -8,6 +8,12 @@ const __MenuData = [
     to: '/a/home/home',
   },
   {
+    title: 'Github',
+    caption: 'github.com/cabloy',
+    icon: ':social:github',
+    href: 'https://github.com/cabloy',
+  },
+  {
     title: 'State',
     caption: 'ref, computed',
     icon: '',
@@ -20,10 +26,10 @@ const __MenuData = [
     to: '/a/demo/component',
   },
   {
-    title: 'Github',
-    caption: 'github.com/cabloy',
-    icon: ':social:github',
-    href: 'https://github.com/cabloy',
+    title: 'Locale',
+    caption: '',
+    icon: '',
+    to: '/a/demo/locale',
   },
 ];
 
