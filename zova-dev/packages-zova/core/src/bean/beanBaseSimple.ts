@@ -4,12 +4,13 @@ import { BeanSimple } from './beanSimple.js';
 
 export const SymbolBeanFullName = Symbol('SymbolBeanFullName');
 export const SymbolModuleBelong = Symbol('SymbolModuleBelong');
+export const SymbolInited = Symbol('SymbolInited');
 
 export class BeanBaseSimple extends BeanSimple {
   private [SymbolBeanFullName]: string;
   private [SymbolModuleBelong]?: string;
   // @ts-ignore: ignore
-  private __inited__: StateLock;
+  private [SymbolInited]: StateLock;
 
   constructor(moduleBelong?: string) {
     super();
@@ -17,7 +18,7 @@ export class BeanBaseSimple extends BeanSimple {
       throw new Error(`moduleBelong not valid: ${moduleBelong}`);
     }
     this[SymbolModuleBelong] = moduleBelong;
-    this.__inited__ = StateLock.create();
+    this[SymbolInited] = StateLock.create();
   }
 
   protected get moduleBelong() {

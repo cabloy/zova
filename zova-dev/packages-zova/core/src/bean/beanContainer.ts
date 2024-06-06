@@ -10,7 +10,7 @@ import { compose, composeAsync } from '@cabloy/compose';
 import { markRaw, reactive, shallowReactive, provide as composableProvide, inject as composableInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
 import { IInjectRecord } from '../types/interface/inject.js';
-import { SymbolBeanFullName } from './beanBaseSimple.js';
+import { SymbolBeanFullName, SymbolInited } from './beanBaseSimple.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
@@ -146,7 +146,7 @@ export class BeanContainer {
       }
       return undefined;
     }
-    if (beanInstance.__inited__ && !beanInstance.__inited__.state) {
+    if (beanInstance[SymbolInited] && !beanInstance[SymbolInited].state) {
       return undefined;
     }
     return beanInstance as T;
@@ -437,8 +437,8 @@ export class BeanContainer {
       });
     }
     await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
-    if (beanInstance.__inited__) {
-      beanInstance.__inited__.touch();
+    if (beanInstance[SymbolInited]) {
+      beanInstance[SymbolInited].touch();
     }
     // ok
     return beanInstance;
@@ -550,7 +550,7 @@ export class BeanContainer {
     this.__recordProp(recordProp, undefined, targetInstance, false);
     // force init
     if (!targetBeanComposable) {
-      await targetInstance.__inited__.wait();
+      await targetInstance[SymbolInited].wait();
     }
   }
 
