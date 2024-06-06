@@ -123,14 +123,14 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 
 ```typescript{5-6}
 export default function (_meta: ZovaConfigMeta) {
-  const config = {
+  const config: ZovaConfigOptional = {
     base: {},
     api: {
       baseURL: process.env.API_BASE_URL,
       prefix: process.env.API_PREFIX,
     },
     layout: {},
-  } as ZovaConfigOptional;
+  };
   return config;
 }
 ```

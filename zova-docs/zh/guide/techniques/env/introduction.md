@@ -123,14 +123,14 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 ```typescript{5-6}
 export default function (_meta: ZovaConfigMeta) {
-  const config = {
+  const config: ZovaConfigOptional = {
     base: {},
     api: {
       baseURL: process.env.API_BASE_URL,
       prefix: process.env.API_PREFIX,
     },
     layout: {},
-  } as ZovaConfigOptional;
+  };
   return config;
 }
 ```

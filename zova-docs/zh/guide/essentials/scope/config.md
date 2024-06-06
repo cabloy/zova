@@ -9,7 +9,7 @@
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
 ```typescript{3}
-export const config = (_app: ZovaApplication) => {
+export const config: ZovaConfigOptional = (_app: ZovaApplication) => {
   return {
     prompt: 'Hello World',
   };
@@ -58,7 +58,7 @@ export class TestA {
 
 ```typescript{6-8}
 export default function (_meta: ZovaConfigMeta) {
-  const config = {} as ZovaConfigOptional;
+  const config = {};
 
   // module config
   config.modules = {
