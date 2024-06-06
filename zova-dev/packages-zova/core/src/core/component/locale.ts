@@ -3,21 +3,22 @@ import { BeanSimple } from '../../bean/beanSimple.js';
 import { TypeModuleResourceLocaleModules, TypeModuleResourceLocales } from '../../types/interface/module.js';
 import { ILocalInfos, IModuleLocale, IModuleLocaleText } from '../../bean/resource/locale/type.js';
 import { ZovaLocaleOptionalMap } from '../app/locale.js';
+import { ref, Ref } from 'vue';
 
 const SymbolLocaleCurrent = Symbol('SymbolLocaleCurrent');
 
 export class AppLocale extends BeanSimple {
-  private [SymbolLocaleCurrent]: string;
+  private [SymbolLocaleCurrent]: Ref<string | undefined> = ref();
   /** @internal */
   public locales: TypeModuleResourceLocales = {};
   public localeModules: TypeModuleResourceLocaleModules = {};
 
   get current(): keyof ILocalInfos {
-    return (this[SymbolLocaleCurrent] || this.app.config.base.locale) as keyof ILocalInfos;
+    return (this[SymbolLocaleCurrent].value || this.app.config.base.locale) as keyof ILocalInfos;
   }
 
   set current(value: keyof ILocalInfos) {
-    this[SymbolLocaleCurrent] = value;
+    this[SymbolLocaleCurrent].value = value;
   }
 
   /** @internal */
