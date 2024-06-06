@@ -1,6 +1,6 @@
 {
   "name": "zova-vite",
-  "version": "1.0.87",
+  "version": "1.0.88",
   "description": "zova vite",
   "publishConfig": {
     "access": "public"
@@ -51,7 +51,7 @@
     "terser": "^5.31.0",
     "tmp": "^0.2.3",
     "vite": "^5.2.11",
-    "zova-core": "^5.0.68"
+    "zova-core": "^5.0.69"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }
