@@ -4,7 +4,7 @@ import {
   IBeanScopeConfig,
   ILocalInfos,
   PowerPartial,
-  IComponentRecord,
+  IComponentLayoutRecord,
 } from '../../index.js';
 
 export const configDefault = {
@@ -50,8 +50,8 @@ export type ZovaConfig = {
   };
   layout: {
     component: {
-      default: keyof IComponentRecord;
-      empty: keyof IComponentRecord;
+      default: keyof IComponentLayoutRecord;
+      empty: keyof IComponentLayoutRecord;
     };
   };
   locales: Record<keyof ILocalInfos, string>;
