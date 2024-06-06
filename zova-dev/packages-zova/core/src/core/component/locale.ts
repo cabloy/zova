@@ -12,11 +12,11 @@ export class AppLocale extends BeanSimple {
   public locales: TypeModuleResourceLocales = {};
   public localeModules: TypeModuleResourceLocaleModules = {};
 
-  get current() {
-    return this[SymbolLocaleCurrent] || this.app.config.base.locale;
+  get current(): keyof ILocalInfos {
+    return (this[SymbolLocaleCurrent] || this.app.config.base.locale) as keyof ILocalInfos;
   }
 
-  set current(value) {
+  set current(value: keyof ILocalInfos) {
     this[SymbolLocaleCurrent] = value;
   }
 
