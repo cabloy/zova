@@ -2,8 +2,10 @@ import { appResource } from '../core/resource.js';
 import { StateLock } from '../utils/stateLock.js';
 import { BeanSimple } from './beanSimple.js';
 
+export const SymbolBeanFullName = Symbol('SymbolBeanFullName');
+
 export class BeanBaseSimple extends BeanSimple {
-  private __beanFullName__: string;
+  private [SymbolBeanFullName]: string;
   private __moduleBelong__?: string;
   // @ts-ignore: ignore
   private __inited__: StateLock;
@@ -18,6 +20,6 @@ export class BeanBaseSimple extends BeanSimple {
   }
 
   protected get moduleBelong() {
-    return this.__moduleBelong__ || appResource._getModuleBelong(this.__beanFullName__);
+    return this.__moduleBelong__ || appResource._getModuleBelong(this[SymbolBeanFullName]);
   }
 }

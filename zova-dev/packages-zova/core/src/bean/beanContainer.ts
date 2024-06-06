@@ -10,6 +10,7 @@ import { compose, composeAsync } from '@cabloy/compose';
 import { markRaw, reactive, shallowReactive, provide as composableProvide, inject as composableInject } from 'vue';
 import { Cast } from '../types/utils/cast.js';
 import { IInjectRecord } from '../types/interface/inject.js';
+import { SymbolBeanFullName } from './beanBaseSimple.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
@@ -397,7 +398,7 @@ export class BeanContainer {
     }
     // beanFullName
     if (typeof beanFullName === 'string') {
-      __setPropertyValue(beanInstance, '__beanFullName__', beanFullName);
+      __setPropertyValue(beanInstance, SymbolBeanFullName, beanFullName);
     }
     // reactive
     if (markReactive) {
