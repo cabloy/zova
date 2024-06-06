@@ -14,12 +14,12 @@ import * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js
 import 'zova';
 declare module 'zova' {
   export interface IComponentRecord {
-    'home-layout:layoutDefault': typeof NSControllerLayoutDefault;
-    'home-layout:layoutEmpty': typeof NSControllerLayoutEmpty;
+    'home-layout:layoutDefault': NSControllerLayoutDefault.ControllerLayoutDefault;
+    'home-layout:layoutEmpty': NSControllerLayoutEmpty.ControllerLayoutEmpty;
   }
 
   export interface IComponentLayoutRecord {
-    'home-layout:layoutDefault': typeof NSControllerLayoutDefault;
-    'home-layout:layoutEmpty': typeof NSControllerLayoutEmpty;
+    'home-layout:layoutDefault': NSControllerLayoutDefault.ControllerLayoutDefault;
+    'home-layout:layoutEmpty': NSControllerLayoutEmpty.ControllerLayoutEmpty;
   }
 }
