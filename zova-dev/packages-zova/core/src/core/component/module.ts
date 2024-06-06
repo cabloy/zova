@@ -2,7 +2,7 @@ import { IModule, IModuleInfo } from '@cabloy/module-info';
 import * as ModuleInfo from '@cabloy/module-info';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { shallowReactive } from 'vue';
-import { IModuleResource, PluginZovaModulesMeta, TypeMonkeyName } from '../../types/index.js';
+import { IModuleResource, PluginZovaModulesMeta, SymbolInstalled, TypeMonkeyName } from '../../types/index.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { TypeBeanScopeRecordKeys } from '../../bean/type.js';
 
@@ -35,7 +35,7 @@ export class AppModule extends BeanSimple {
       }
       return undefined;
     }
-    if (!module.__installed__ || !module.__installed__.state) {
+    if (!module[SymbolInstalled] || !module[SymbolInstalled].state) {
       return undefined;
     }
     return module;
@@ -100,12 +100,12 @@ export class AppModule extends BeanSimple {
   }
 
   private async _install(moduleName: string, module: IModule) {
-    if (!module.__installed__) {
-      module.__installed__ = StateLock.create();
+    if (!module[SymbolInstalled]) {
+      module[SymbolInstalled] = StateLock.create();
     }
     // check
     if (this.modules[moduleName]) {
-      await module.__installed__.wait();
+      await module[SymbolInstalled].wait();
       return;
     }
     // record
@@ -113,8 +113,8 @@ export class AppModule extends BeanSimple {
     // install
     await this._installInner(moduleName, module);
     // installed
-    module.__installed__.touch();
-    // scope: should after __installed__.touch
+    module[SymbolInstalled].touch();
+    // scope: should after [SymbolInstalled].touch
     await this.app.bean._getBean(`${moduleName}.scope.module`, false);
   }
 

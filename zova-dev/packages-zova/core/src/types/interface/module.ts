@@ -22,10 +22,12 @@ export interface IModuleResource {
   components: TypeModuleResourceComponents;
 }
 
+export const SymbolInstalled = Symbol('SymbolInstalled');
+
 declare module '@cabloy/module-info' {
   export interface IModule {
     /** @internal */
-    __installed__: StateLock;
+    [SymbolInstalled]: StateLock;
     resource: IModuleResource; // IModuleResource | Promise<IModuleResource>;
     info: IModuleInfo;
     mainInstance: IModuleMain;
