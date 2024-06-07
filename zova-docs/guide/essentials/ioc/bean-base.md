@@ -15,7 +15,6 @@
 | $el    | The dom element of the Vue component which the current bean instance belongs to |
 | $text  | I18n translation function                                                       |
 | $event | Global event object                                                             |
-| $icon  | Icon function to obtain typed icon name                                         |
 
 ## Extended Members
 
@@ -23,7 +22,7 @@ When a project is created, there will be some modules present in the project, pr
 
 | Name    | Description                                 |
 | ------- | ------------------------------------------- |
-| $api    | Api object provided by module `home-api`   |
+| $api    | Api object provided by module `home-api`    |
 | $router | Router object provided by module `a-router` |
 
 Zova can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box. Different UI libraries will also inject objects into the `BeanBase` base class according to their own needs

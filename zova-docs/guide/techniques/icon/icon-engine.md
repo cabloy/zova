@@ -35,17 +35,17 @@ Examples are as follows:
 
 | Full name                   | Short name           |
 | --------------------------- | -------------------- |
-| home-icon:default:add      | ::add                |
-| home-icon:auth:github      | :auth:github         |
+| home-icon:default:add       | ::add                |
+| home-icon:auth:github       | :auth:github         |
 | test-othericon:default:icon | test-othericon::icon |
 
-## $icon
+## icon function
 
-Zova injects the `$icon` method into the `BeanBase` base class, so that the typed icon name can be obtained through `this.$icon` in any bean instance, thus supporting auto-completion
+The typed icon name can be obtained through `icon` function in any bean instance, thus supporting auto-completion
 
-## $iconh
+## iconh function
 
-Zova injects the `$iconh` method into the `BeanBase` base class, so that the `vnode` object of icon can be directly generated in any bean instance through `this.$iconh`
+The `vnode` object of icon can be directly generated in any bean instance through `iconh` function
 
 ## Use Icon
 
@@ -62,21 +62,21 @@ import { Button } from 'ant-design-vue';
 
 ```typescript
 import { ElButton } from 'element-plus';
-<ElButton icon={this.$icon('::add')}></ElButton>
+<ElButton icon={icon('::add')}></ElButton>
 ```
 
 ### 3. quasar
 
 ```typescript
 import { QBtn } from 'quasar';
-<QBtn icon={this.$icon('::add')}></QBtn>;
+<QBtn icon={icon('::add')}></QBtn>;
 ```
 
 ### 4. vuetify
 
 ```typescript
 import { VBtn } from 'vuetify/components';
-<VBtn icon={this.$icon('::add')}></VBtn>;
+<VBtn icon={icon('::add')}></VBtn>;
 ```
 
 ## Create Icon

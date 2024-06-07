@@ -35,17 +35,17 @@
 
 | 全称                        | 简称                 |
 | --------------------------- | -------------------- |
-| home-icon:default:add      | ::add                |
-| home-icon:auth:github      | :auth:github         |
+| home-icon:default:add       | ::add                |
+| home-icon:auth:github       | :auth:github         |
 | test-othericon:default:icon | test-othericon::icon |
 
-## $icon
+## icon函数
 
-Zova 在`BeanBase`基类中注入了`$icon`方法，从而可以在任何 bean 实例中通过`this.$icon`获取到类型化的图标名称，从而支持智能提示
+可以在任何 bean 实例中通过`icon`函数获取到类型化的图标名称，从而支持智能提示
 
-## $iconh
+## iconh函数
 
-Zova 在`BeanBase`基类中注入了`$iconh`方法，从而可以在任何 bean 实例中通过`this.$iconh`直接生成图标的 vnode 对象
+可以在任何 bean 实例中通过`iconh`函数直接生成图标的 vnode 对象
 
 ## 使用图标
 
@@ -62,21 +62,21 @@ import { Button } from 'ant-design-vue';
 
 ```typescript
 import { ElButton } from 'element-plus';
-<ElButton icon={this.$icon('::add')}></ElButton>
+<ElButton icon={icon('::add')}></ElButton>
 ```
 
 ### 3. quasar
 
 ```typescript
 import { QBtn } from 'quasar';
-<QBtn icon={this.$icon('::add')}></QBtn>;
+<QBtn icon={icon('::add')}></QBtn>;
 ```
 
 ### 4. vuetify
 
 ```typescript
 import { VBtn } from 'vuetify/components';
-<VBtn icon={this.$icon('::add')}></VBtn>;
+<VBtn icon={icon('::add')}></VBtn>;
 ```
 
 ## 创建图标

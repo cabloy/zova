@@ -15,6 +15,6 @@ export function renderIcon(name?, color?, size?) {
   });
 }
 
-export function getIcon<K extends keyof IIconRecord>(name: K): K {
+export function icon<K extends keyof IIconRecord>(name: K): K {
   return name;
 }
