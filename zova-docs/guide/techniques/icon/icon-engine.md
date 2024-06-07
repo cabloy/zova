@@ -55,7 +55,7 @@ The icon engine provides a unified interface that can be used directly in any UI
 
 ```typescript
 import { Button } from 'ant-design-vue';
-<Button icon={this.$iconh('::add')}></Button>
+<Button icon={iconh('::add')}></Button>
 ```
 
 ### 2. element-plus

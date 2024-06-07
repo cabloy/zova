@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, iconh, Local } from 'zova';
 import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
 import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
@@ -23,7 +23,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return (
       <MenuItem
         key={key}
-        icon={this.$iconh(item.icon as any)}
+        icon={iconh(item.icon as any)}
         onClick={() => {
           if (item.href) {
             window.open(item.href);

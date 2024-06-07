@@ -55,7 +55,7 @@
 
 ```typescript
 import { Button } from 'ant-design-vue';
-<Button icon={this.$iconh('::add')}></Button>
+<Button icon={iconh('::add')}></Button>
 ```
 
 ### 2. element-plus
