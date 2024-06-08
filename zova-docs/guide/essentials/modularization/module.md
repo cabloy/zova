@@ -17,7 +17,7 @@ In a large web business system, as the business grows and changes, it is also ne
 ### For Code
 
 4. **Namespace isolation**: the namespace isolation mechanism of the module helps to reduce the mental burden during development. When we name variables for resources such as component, config and so on in the module, we don’t have to worry that this name will conflict with other modules, which can also make variable naming more concise and natural
-5. **Building chunks more easier**: In Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
+5. **Building chunks more easier**: In Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building, bidding farewell to the hassle of Vite configuration and effectively avoiding the fragmentation of bundles. Especially in large business systems, this advantage is particularly evident
 
 ## Naming Convention
 
