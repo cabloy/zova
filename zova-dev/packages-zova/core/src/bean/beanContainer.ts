@@ -643,7 +643,11 @@ export class BeanContainer {
         // aop
         self.__composeForProp(_aopChainsProp)(context, (context, next) => {
           if (!descriptorInfo && target.__set__) {
-            target.__set__(prop, context.value);
+            const res = target.__set__(prop, context.value);
+            if (res === undefined) throw new Error('__set__ must return true/false');
+            if (!res) {
+              target[prop] = context.value;
+            }
           } else {
             target[prop] = context.value;
           }
