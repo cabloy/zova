@@ -9,7 +9,8 @@
   "dependencies": {
     "zova-module-a-core": "^5.0.29",
     "zova-module-a-pinia": "^5.0.11",
-    "zova-module-a-router": "^5.0.29"
+    "zova-module-a-router": "^5.0.29",
+    "zova-module-a-style": "workspace:^"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }
