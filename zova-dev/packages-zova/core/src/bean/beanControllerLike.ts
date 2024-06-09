@@ -5,19 +5,22 @@ import { BeanControllerIdentifier } from './type.js';
 const SymbolController = Symbol('SymbolController');
 
 export class BeanControllerLike<TScopeModule = unknown> extends BeanBase<TScopeModule> {
-  private get [SymbolController](): unknown | undefined {
+  protected get [SymbolController](): unknown {
     return this.bean._getBeanSyncOnly(BeanControllerIdentifier);
   }
 
   protected __get__(prop) {
     const controller = Cast(this[SymbolController]);
-    return controller?.[prop];
+    return controller[prop];
   }
 
   protected __set__(prop, value) {
     const controller = Cast(this[SymbolController]);
-    if (controller) {
+    if (prop in controller) {
       controller[prop] = value;
+      return true;
+    } else {
+      return false;
     }
   }
 }
