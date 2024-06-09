@@ -7,6 +7,6 @@ export interface RenderPageStyle extends ControllerPageStyle {}
 @Local()
 export class RenderPageStyle extends BeanRenderBase<ScopeModule> {
   render() {
-    return <div></div>;
+    return <div>Hello World</div>;
   }
 }
