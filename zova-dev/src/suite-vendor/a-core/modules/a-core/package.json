@@ -4,7 +4,8 @@
   "title": "a-core",
   "zovaModule": {
     "dependencies": {
-      "a-router": "5.0.0"
+      "a-router": "5.0.0",
+      "a-style": "5.0.0"
     }
   },
   "type": "module",
