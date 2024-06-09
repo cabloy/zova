@@ -9,7 +9,7 @@ export class StyleStyle extends BeanStyleBase<ScopeModule> {
   textColor;
   protected async __init__() {
     this.textColor = useComputed(() => {
-      return this.$style({ $debugName: 'a-demo', color: this.active ? 'orange' : '' });
+      return this.$style({ color: this.active ? 'orange' : '' });
     });
   }
 }
