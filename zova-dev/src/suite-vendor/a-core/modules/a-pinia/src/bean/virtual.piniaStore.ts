@@ -11,7 +11,12 @@ export class BeanPiniaStoreBase<TScopeModule = unknown> extends BeanBase<TScopeM
   }
 
   protected __set__(prop, value) {
-    this[SymbolPiniaStore][prop] = value;
+    if (prop in this[SymbolPiniaStore]) {
+      this[SymbolPiniaStore][prop] = value;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   protected async __init__(useStore) {
