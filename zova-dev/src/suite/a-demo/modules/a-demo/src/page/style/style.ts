@@ -7,10 +7,10 @@ export interface StyleStyle extends ControllerPageStyle {}
 
 @Local()
 export class StyleStyle extends BeanStyleBase<ScopeModule> {
-  classTextColor;
+  textColor;
   protected async __init__() {
-    this.classTextColor = useComputed(() => {
-      return style({ $debugName: 'a-demo', color: this.textColor });
+    this.textColor = useComputed(() => {
+      return style({ $debugName: 'a-demo', color: this.active ? 'orange' : '' });
     });
   }
 }

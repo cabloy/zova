@@ -9,13 +9,13 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div class={this.classTextColor}>Hello World</div>
+        <div class={this.textColor}>Hello World</div>
         <button
           onClick={() => {
-            this.textColor = this.textColor === 'red' ? 'orange' : 'red';
+            this.active = !this.active;
           }}
         >
-          Change Text Color
+          Switch Active
         </button>
       </div>
     );
