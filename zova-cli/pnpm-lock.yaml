@@ -72,10 +72,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0
       zova-cli-set-front:
-        specifier: ^1.1.62
+        specifier: ^1.1.79
         version: link:../cli-set-front
-
-  cli-set-core: {}
 
   cli-set-front:
     dependencies:
@@ -101,11 +99,11 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-core:
-        specifier: ^5.0.66
-        version: 5.0.66(typescript@5.4.5)
+        specifier: ^5.0.72
+        version: 5.0.72(typescript@5.4.5)
       zova-vite:
-        specifier: ^1.0.75
-        version: 1.0.75(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.91
+        version: 1.0.91(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
 
 packages:
 
@@ -3300,11 +3298,11 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
-  zova-core@5.0.66:
-    resolution: {integrity: sha512-nv7pqvEF1sY6HQlRVbCMbwmWemmxHtWmbsuhTvYD1t097bYTSFwYqxySo3S9uPNzL/g96SerwMcF37r0acjwdQ==}
+  zova-core@5.0.72:
+    resolution: {integrity: sha512-amyG9kDCsA9K+wui0dl912LR+T5XSircAYOcipMSBhLzKTgw0aPc6+r0rgE999PIGgGi7N5CHNNga4ZQj2L/sw==}
 
-  zova-vite@1.0.75:
-    resolution: {integrity: sha512-WwWkMGeSyDcMXcdA5TPOcvVySIofuczf/T/apkHFKtMk8wPRd68QHDwwYoiQ6P0mRk4p9GRTm2tU8ujn56TN7Q==}
+  zova-vite@1.0.91:
+    resolution: {integrity: sha512-iHRzBwCo2cXyfDx81LZlFPYmc6V7DwBlWLvzccpyIfbtGQiP8KhOQvB2cHr/xQ/oB+0Ay33FekhX39m7M7ycdw==}
 
 snapshots:
 
@@ -4040,8 +4038,8 @@ snapshots:
 
   '@vue/compiler-core@3.0.11':
     dependencies:
-      '@babel/parser': 7.24.4
-      '@babel/types': 7.24.0
+      '@babel/parser': 7.24.6
+      '@babel/types': 7.24.6
       '@vue/shared': 3.0.11
       estree-walker: 2.0.2
       source-map: 0.6.1
@@ -6749,7 +6747,7 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zova-core@5.0.66(typescript@5.4.5):
+  zova-core@5.0.72(typescript@5.4.5):
     dependencies:
       '@cabloy/compose': 1.0.2
       '@cabloy/extend': 3.0.5
@@ -6764,7 +6762,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  zova-vite@1.0.75(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.91(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
@@ -6787,7 +6785,7 @@ snapshots:
       terser: 5.31.0
       tmp: 0.2.3
       vite: 5.2.12(@types/node@20.13.0)(terser@5.31.0)
-      zova-core: 5.0.66(typescript@5.4.5)
+      zova-core: 5.0.72(typescript@5.4.5)
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'

@@ -11,6 +11,9 @@ importers:
       ant-design-vue:
         specifier: ^4.2.2
         version: 4.2.2(vue@3.4.27(typescript@5.4.5))
+      typestyle:
+        specifier: ^2.4.0
+        version: 2.4.0
       vue:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
@@ -1167,6 +1170,9 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
+  csstype@3.0.10:
+    resolution: {integrity: sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==}
+
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
@@ -1443,6 +1449,9 @@ packages:
 
   formstream@1.5.0:
     resolution: {integrity: sha512-68mMWAyJC4wfqKr1S1lJ0yE/sTOcXqJBtcU+fGydVEwInDN25aNK21iYixaw3lt68pNu2fRVbKOQLQJBGMmTvw==}
+
+  free-style@3.1.0:
+    resolution: {integrity: sha512-vJujYSIyT30iDoaoeigNAxX4yB1RUrh+N2ZMhIElMr3BvCuGXOw7XNJMEEJkDUeamK2Rnb/IKFGKRKlTWIGRWA==}
 
   fs-extra@11.2.0:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
@@ -2086,6 +2095,9 @@ packages:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  typestyle@2.4.0:
+    resolution: {integrity: sha512-/d1BL6Qi+YlMLEydnUEB8KL/CAjAN8cyt3/UyGnOyBrWf7bLGcR/6yhmsaUstO2IcYwZfagjE7AIzuI2vUW9mg==}
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
@@ -3305,6 +3317,8 @@ snapshots:
 
   cssesc@3.0.0: {}
 
+  csstype@3.0.10: {}
+
   csstype@3.1.3: {}
 
   dayjs@1.11.11: {}
@@ -3641,6 +3655,8 @@ snapshots:
       mime: 2.6.0
       node-hex: 1.0.1
       pause-stream: 0.0.11
+
+  free-style@3.1.0: {}
 
   fs-extra@11.2.0:
     dependencies:
@@ -4205,6 +4221,11 @@ snapshots:
   type-fest@0.8.1: {}
 
   typescript@5.4.5: {}
+
+  typestyle@2.4.0:
+    dependencies:
+      csstype: 3.0.10
+      free-style: 3.1.0
 
   undici-types@5.26.5: {}
 
