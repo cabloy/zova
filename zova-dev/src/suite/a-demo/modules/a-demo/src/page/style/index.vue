@@ -6,5 +6,6 @@
 import { useControllerPage } from 'zova';
 import { ControllerPageStyle } from './controller.js';
 import { RenderStyle } from './render.jsx';
-useControllerPage(ControllerPageStyle, RenderStyle);
+import { StyleStyle } from './style.js';
+useControllerPage(ControllerPageStyle, RenderStyle, StyleStyle);
 </script>
