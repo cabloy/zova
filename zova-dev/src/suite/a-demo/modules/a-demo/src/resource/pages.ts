@@ -1,10 +1,13 @@
+export * as NSControllerPageStyle from '../page/style/controller.js';
 export * as NSControllerPageLocale from '../page/locale/controller.js';
 import * as NSControllerPageLocale from '../page/locale/controller.js';
+import * as NSControllerPageStyle from '../page/style/controller.js';
 // import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
     '/a/demo/locale': NSControllerPageLocale.QueryInput;
+    '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {
     // 'a-demo:page-name': TypePageParamsQuery<NSControllerPagePageName.QueryInput, NSControllerPagePageName.ParamsInput>;
@@ -14,6 +17,9 @@ declare module 'zova' {
 export const pagePathSchemas = {
   '/a/demo/locale': {
     query: NSControllerPageLocale.QuerySchema,
+  },
+  '/a/demo/style': {
+    query: NSControllerPageStyle.QuerySchema,
   },
 };
 
