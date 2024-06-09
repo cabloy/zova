@@ -9,12 +9,14 @@ export class BeanControllerLike<TScopeModule = unknown> extends BeanBase<TScopeM
     return this.bean._getBeanSyncOnly(BeanControllerIdentifier);
   }
 
-  protected __get__(prop) {
+  /** @internal */
+  public __get__(prop): unknown {
     const controller = Cast(this[SymbolController]);
     return controller[prop];
   }
 
-  protected __set__(prop, value) {
+  /** @internal */
+  public __set__(prop, value): boolean {
     const controller = Cast(this[SymbolController]);
     if (prop in controller) {
       controller[prop] = value;
