@@ -7,7 +7,7 @@
 在[子组件](../component/child.md)中，我们创建了一个子组件`card`，现在通过 Scope 实例直接使用子组件`card`
 
 ```typescript{5-12}
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -33,7 +33,7 @@ export class RenderPageComponent {
 ```typescript{1,4-5,10-17}
 import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
-export class RenderPageComponent {
+export class RenderComponent {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

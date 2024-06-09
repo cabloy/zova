@@ -3,10 +3,10 @@ import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../resource/this.js';
 import { NSControllerCard } from '../../resource/components.js';
 
-export interface RenderPageComponent extends ControllerPageComponent {}
+export interface RenderComponent extends ControllerPageComponent {}
 
 @Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     const slots: NSControllerCard.Slots = {
       header: () => {

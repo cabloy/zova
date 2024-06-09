@@ -93,7 +93,7 @@ export const QuerySchema = zz.object({
 The value of the user object can be obtained directly in render
 
 ```typescript
-export class RenderPageCardHeader {
+export class RenderCardHeader {
   render() {
     return (
       <div>
@@ -118,7 +118,7 @@ export const QuerySchema = zz.object({
 The value of the colors array can be obtained directly in render
 
 ```typescript
-export class RenderPageCardHeader {
+export class RenderCardHeader {
   render() {
     return (
       <div>

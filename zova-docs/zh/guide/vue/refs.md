@@ -26,7 +26,7 @@ export class ControllerPageComponent {
 - 响应 onControllerMounted 事件，执行 focus 方法
 
 ```typescript
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -63,7 +63,7 @@ export class ControllerPageComponent {
 - 响应 onControllerMounted 事件，执行 click 方法
 
 ```typescript
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -103,7 +103,7 @@ export class ControllerPageComponent {
 ```typescript
 import Card from '../../component/card/index.vue';
 
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>

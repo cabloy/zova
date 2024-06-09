@@ -51,7 +51,7 @@ export class ControllerPageState extends BeanControllerPageBase {
 
 ```typescript
 @Local()
-export class RenderPageState extends BeanRenderBase {
+export class RenderState extends BeanRenderBase {
   render() {
     return (
       <div>

@@ -65,7 +65,7 @@ export class ControllerPageParent {
 `parent/render.ts`
 
 ```typescript
-export class RenderPageParent {
+export class RenderParent {
   render() {
     return (
       <div>
@@ -127,7 +127,7 @@ export class ControllerPageParent {
 `parent/render.ts`
 
 ```typescript{5}
-export class RenderPageParent {
+export class RenderParent {
   render() {
     return (
       <div>
@@ -201,7 +201,7 @@ export class ControllerPageParent {
 `parent/render.ts`
 
 ```typescript{5}
-export class RenderPageParent {
+export class RenderParent {
   render() {
     return (
       <div>

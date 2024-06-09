@@ -2,10 +2,10 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageState } from './controller.js';
 import { QBtn } from 'quasar';
 
-export interface RenderPageState extends ControllerPageState {}
+export interface RenderState extends ControllerPageState {}
 
 @Local()
-export class RenderPageState extends BeanRenderBase {
+export class RenderState extends BeanRenderBase {
   render() {
     return (
       <div>

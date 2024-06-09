@@ -26,7 +26,7 @@ export class ControllerPageComponent {
 - Listen to `onControllerMounted` event and call `focus` method
 
 ```typescript
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -63,7 +63,7 @@ export class ControllerPageComponent {
 - Listen to `onControllerMounted` event and call `click` method
 
 ```typescript
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -103,7 +103,7 @@ Then listen to the `onControllerRef` event of the child component to obtain the 
 ```typescript
 import Card from '../../component/card/index.vue';
 
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>

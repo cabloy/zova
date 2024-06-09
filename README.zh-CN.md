@@ -66,7 +66,7 @@ export class ControllerPageCounter {
 采用 tsx 语法使用`count`
 
 ```typescript
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>
@@ -110,7 +110,7 @@ export class ControllerPageCounter {
 ```
 
 ```typescript
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>

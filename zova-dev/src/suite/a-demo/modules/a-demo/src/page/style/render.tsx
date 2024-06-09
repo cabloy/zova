@@ -2,10 +2,10 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageStyle } from './controller.js';
 import { ScopeModule } from '../../resource/this.js';
 
-export interface RenderPageStyle extends ControllerPageStyle {}
+export interface RenderStyle extends ControllerPageStyle {}
 
 @Local()
-export class RenderPageStyle extends BeanRenderBase<ScopeModule> {
+export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return <div>Hello World</div>;
   }

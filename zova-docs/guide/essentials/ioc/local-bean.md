@@ -63,7 +63,7 @@ export class ControllerPageCounter {
 `render.tsx`
 
 ```typescript{5-7}
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>

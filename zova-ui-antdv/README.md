@@ -55,7 +55,7 @@ export class ControllerPageCounter {
 Use `count` in render class
 
 ```typescript
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>
@@ -99,7 +99,7 @@ export class ControllerPageCounter {
 ```
 
 ```typescript
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>

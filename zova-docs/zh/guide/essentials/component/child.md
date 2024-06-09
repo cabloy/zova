@@ -97,7 +97,7 @@ export class RenderCard {
 ```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -168,7 +168,7 @@ export class RenderCard {
 ```typescript{8-10}
 import Card from '../../component/card/index.vue';
 
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -235,7 +235,7 @@ export class RenderCard {
 import Card from '../../component/card/index.vue';
 import * as ControllerCard from '../../component/card/controller.js';
 
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     const slots: ControllerCard.Slots = {
       header: () => {

@@ -57,8 +57,8 @@ src
 <script setup lang="ts">
 import { useControllerPage } from 'zova';
 import { ControllerPageCounter } from './controller.js';
-import { RenderPageCounter } from './render.jsx';
-useControllerPage(ControllerPageCounter, RenderPageCounter);
+import { RenderCounter } from './render.jsx';
+useControllerPage(ControllerPageCounter, RenderCounter);
 </script>
 ```
 
@@ -89,7 +89,7 @@ export class ControllerPageCounter {
 
 ```typescript
 @Local()
-export class RenderPageCounter {
+export class RenderCounter {
   render() {
     return (
       <div>

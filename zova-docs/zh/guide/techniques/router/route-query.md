@@ -33,7 +33,7 @@ export const QuerySchema = zz.object({
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
 ```typescript{5-10}
-export class RenderPageUser {
+export class RenderUser {
   render() {
     return (
       <div>
@@ -59,7 +59,7 @@ export class RenderPageUser {
 直接在页面组件`user`中添加一个按钮，响应单击事件，并采用不同的`Query`参数导航至当前页面。这样，我们可以看到`$query`是响应式的
 
 ```typescript{11-19}
-export class RenderPageUser {
+export class RenderUser {
   render() {
     return (
       <div>

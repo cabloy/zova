@@ -68,7 +68,7 @@ export const pageNameSchemas = {
 `src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
 
 ```typescript{5}
-export class RenderPageUser {
+export class RenderUser {
   render() {
     return (
       <div>
@@ -88,7 +88,7 @@ export class RenderPageUser {
 仍然响应页面组件`user`中的按钮单击事件，并采用不同的`Params`参数导航至当前页面。这样，我们可以看到`$params`是响应式的
 
 ```typescript{6-14}
-export class RenderPageUser {
+export class RenderUser {
   render() {
     return (
       <div>

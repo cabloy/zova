@@ -2,10 +2,10 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { NSControllerCard } from '../../resource/components.js';
 import { ScopeModule } from '../../resource/this.js';
-export interface RenderPageComponent extends ControllerPageComponent {}
+export interface RenderComponent extends ControllerPageComponent {}
 
 @Local()
-export class RenderPageComponent extends BeanRenderBase<ScopeModule> {
+export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     const slots: NSControllerCard.Slots = {
       header: () => {

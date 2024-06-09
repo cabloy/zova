@@ -2,10 +2,10 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageErrorNotFound } from './controller.js';
 import { QBtn, QPage } from 'quasar';
 
-export interface RenderPageErrorNotFound extends ControllerPageErrorNotFound {}
+export interface RenderErrorNotFound extends ControllerPageErrorNotFound {}
 
 @Local()
-export class RenderPageErrorNotFound extends BeanRenderBase {
+export class RenderErrorNotFound extends BeanRenderBase {
   render() {
     return (
       <QPage>

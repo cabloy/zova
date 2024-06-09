@@ -7,7 +7,7 @@ In [Child Component](../component/child.md), we already know how to use child co
 In [Child Component](../component/child.md), we created a child component `card`, and now use the child component `card` directly through the `Scope` instance
 
 ```typescript{5-12}
-export class RenderPageComponent {
+export class RenderComponent {
   render() {
     return (
       <div>
@@ -33,7 +33,7 @@ export class RenderPageComponent {
 ```typescript{1,4-5,10-17}
 import type { ScopeModuleADemo } from 'zova-module-a-demo';
 
-export class RenderPageComponent {
+export class RenderComponent {
   @UseScope('a-demo')
   scopeModuleADemo: ScopeModuleADemo;
 

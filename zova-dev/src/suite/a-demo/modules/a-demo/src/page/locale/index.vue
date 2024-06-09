@@ -5,6 +5,6 @@
 <script setup lang="ts">
 import { useControllerPage } from 'zova';
 import { ControllerPageLocale } from './controller.js';
-import { RenderPageLocale } from './render.jsx';
-useControllerPage(ControllerPageLocale, RenderPageLocale);
+import { RenderLocale } from './render.jsx';
+useControllerPage(ControllerPageLocale, RenderLocale);
 </script>

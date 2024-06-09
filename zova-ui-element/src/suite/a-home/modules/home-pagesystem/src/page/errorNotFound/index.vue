@@ -5,6 +5,6 @@
 <script setup lang="ts">
 import { useControllerPage } from 'zova';
 import { ControllerPageErrorNotFound } from './controller.js';
-import { RenderPageErrorNotFound } from './render.jsx';
-useControllerPage(ControllerPageErrorNotFound, RenderPageErrorNotFound);
+import { RenderErrorNotFound } from './render.jsx';
+useControllerPage(ControllerPageErrorNotFound, RenderErrorNotFound);
 </script>
