@@ -33,7 +33,6 @@
   "dependencies": {
     "@quasar/extras": "^1.16.11",
     "quasar": "~2.15.4",
-    "typestyle": "^2.4.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "zova": "^5.0.82"

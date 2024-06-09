@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "roboto-fontface": "^0.10.0",
-    "typestyle": "^2.4.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vuetify": "^3.6.8",
