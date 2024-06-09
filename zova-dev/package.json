@@ -28,6 +28,7 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
+    "typestyle": "^2.4.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "zova": "workspace:^"
@@ -38,8 +39,8 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "sass": "^1.77.4",
     "typescript": "^5.4.5",
-    "vite": "^5.2.12",
-    "vue-tsc": "^2.0.19",
+    "vite": "^5.2.13",
+    "vue-tsc": "^2.0.21",
     "zova-vite": "workspace:^"
   },
   "license": "MIT"
