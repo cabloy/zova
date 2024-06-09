@@ -11,6 +11,8 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
 export class ControllerPageStyle extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
+  textColor: string = 'red';
+
   protected async __init__() {}
 
   protected __dispose__() {}

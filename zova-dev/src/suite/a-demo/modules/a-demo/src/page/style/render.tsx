@@ -7,6 +7,17 @@ export interface RenderStyle extends ControllerPageStyle {}
 @Local()
 export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
-    return <div>Hello World</div>;
+    return (
+      <div>
+        <div>Hello World</div>
+        <button
+          onClick={() => {
+            this.textColor = this.textColor === 'red' ? 'orange' : 'red';
+          }}
+        >
+          Change Text Color
+        </button>
+      </div>
+    );
   }
 }
