@@ -23,9 +23,8 @@ Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，�
 ## 如何做
 
 ```bash
-$ pnpm install
+$ npm run init
 $ cd ./zova-dev
-$ pnpm install
 $ npm run dev
 ```
 

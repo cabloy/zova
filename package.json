@@ -24,6 +24,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "init": "pnpm install && cd ./zova-cli && pnpm install && cd ../zova-dev && pnpm install",
     "docs:dev": "vitepress dev zova-docs",
     "docs:build": "vitepress build zova-docs",
     "docs:preview": "vitepress preview zova-docs"

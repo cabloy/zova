@@ -23,9 +23,8 @@ Zova is a vue3 framework with ioc container. With the support of ioc container, 
 ## How to do
 
 ```bash
-$ pnpm install
+$ npm run init
 $ cd ./zova-dev
-$ pnpm install
 $ npm run dev
 ```
 
