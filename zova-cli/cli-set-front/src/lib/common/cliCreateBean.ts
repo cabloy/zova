@@ -65,7 +65,7 @@ export class CliCreateBeanBase extends BeanCliBase {
     await this.template.renderBoilerplateAndSnippets({
       targetDir,
       setName: __ThisSetName__,
-      snippetsPath: `create/${this.sceneName}/snippets`,
+      snippetsPath: 'create/bean/snippets',
       boilerplatePath: null,
     });
     // render boilerplate
@@ -73,7 +73,7 @@ export class CliCreateBeanBase extends BeanCliBase {
       targetDir: beanDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: `create/${this.sceneName}/boilerplate`,
+      boilerplatePath: 'create/bean/boilerplate',
     });
   }
 }

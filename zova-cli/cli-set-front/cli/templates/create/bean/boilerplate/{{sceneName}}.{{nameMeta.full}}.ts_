@@ -1,7 +1,7 @@
-import { BeanBase, Store } from 'zova';
+import { BeanBase, <%=argv.sceneNameCapitalize%> } from 'zova';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length)%>resource/this.js';
 
-@Store()
+@<%=argv.sceneNameCapitalize%>()
 export class <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> extends BeanBase<ScopeModule> {
   protected async __init__() {}
 
