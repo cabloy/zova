@@ -3,9 +3,11 @@ import { ScopeModule } from '../resource/this.js';
 
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
-  hello: string = 'a';
+  textCenter: string;
 
-  protected async __init__() {}
+  protected async __init__() {
+    this.textCenter = this.$style({ textAlign: 'center' });
+  }
 
   protected __dispose__() {}
 }
