@@ -22,6 +22,13 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
         };
       },
     });
+    bean.defineProperty(beanInstance, '$class', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return this._storeStyleDefault;
+      },
+    });
   }
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
