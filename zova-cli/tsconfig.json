@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
+  "exclude": ["cli", "cli-set-front"],
   "references": [
     {
       "path": "cli"
