@@ -106,7 +106,7 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
     const template = compileTemplate(contentSrc);
     // dest
     const contentDest = template({ modules, moduleNames });
-    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'modules-meta.js');
+    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'modules-meta.ts');
     fse.ensureFileSync(fileDest);
     fse.writeFileSync(fileDest, contentDest, 'utf-8');
   }
