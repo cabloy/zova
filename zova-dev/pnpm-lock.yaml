@@ -267,6 +267,9 @@ importers:
       zova-module-home-router:
         specifier: workspace:^
         version: link:modules/home-router
+      zova-module-home-style:
+        specifier: workspace:^
+        version: link:modules/home-style
 
   src/suite/a-home/modules/a-home:
     dependencies:
@@ -308,6 +311,12 @@ importers:
         version: 3.23.8
 
   src/suite/a-home/modules/home-router:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+
+  src/suite/a-home/modules/home-style:
     dependencies:
       zod:
         specifier: ^3.23.8
