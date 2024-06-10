@@ -1,5 +1,25 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules"]
+  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules"],
+  "references": [
+    {
+      "path": "packages-utils/last-word"
+    },
+    {
+      "path": "packages-utils/babel-plugin-zova-bean-module"
+    },
+    {
+      "path": "packages-zova/core"
+    },
+    {
+      "path": "packages-zova/zova"
+    },
+    {
+      "path": "packages-utils/zova-vite"
+    },
+    {
+      "path": "packages-utils/quasar-app-extension-zova"
+    }
+  ]
 }

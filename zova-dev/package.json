@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "zova": "node ../zova-cli/cli/dist/bin/zova.js",
-    "dev": "vite",
-    "build": "vite build && tsc --noEmit --project tsconfig.vue-tsc.json",
+    "dev": "tsc -b && vite",
+    "build": "tsc -b && vite build && vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "preview": "vite preview",
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
