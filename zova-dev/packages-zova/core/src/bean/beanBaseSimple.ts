@@ -5,6 +5,7 @@ import { BeanSimple } from './beanSimple.js';
 export const SymbolBeanFullName = Symbol('SymbolBeanFullName');
 export const SymbolModuleBelongInner = Symbol('SymbolModuleBelongInner');
 export const SymbolModuleBelong = Symbol('SymbolModuleBelong');
+export const SymbolModuleName = Symbol('SymbolModuleName');
 export const SymbolInited = Symbol('SymbolInited');
 
 export class BeanBaseSimple extends BeanSimple {
@@ -22,7 +23,11 @@ export class BeanBaseSimple extends BeanSimple {
     this[SymbolInited] = StateLock.create();
   }
 
-  protected get moduleBelong() {
+  protected get [SymbolModuleBelong]() {
     return this[SymbolModuleBelongInner] || appResource._getModuleBelong(this[SymbolBeanFullName]);
+  }
+
+  protected get [SymbolModuleName]() {
+    return appResource._getModuleName(this[SymbolBeanFullName]);
   }
 }

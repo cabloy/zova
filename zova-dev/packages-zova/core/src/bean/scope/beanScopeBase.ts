@@ -1,4 +1,4 @@
-import { BeanBaseSimple } from '../beanBaseSimple.js';
+import { BeanBaseSimple, SymbolModuleBelong } from '../beanBaseSimple.js';
 import { BeanScopeError } from '../resource/error/beanScopeError.js';
 import { BeanScopeLocale } from '../resource/locale/beanScopeLocale.js';
 import { IModule } from '@cabloy/module-info';
@@ -19,11 +19,11 @@ export class BeanScopeBase extends BeanBaseSimple {
   private [BeanModuleComponent]: unknown;
 
   get module(): IModule {
-    return this.app.meta.module.get(this.moduleBelong) as unknown as IModule;
+    return this.app.meta.module.get(this[SymbolModuleBelong]) as unknown as IModule;
   }
 
   protected __get__(prop) {
-    const moduleBelong = this.moduleBelong;
+    const moduleBelong = this[SymbolModuleBelong];
     // error
     if (prop === 'error') {
       if (!this[BeanModuleError]) {

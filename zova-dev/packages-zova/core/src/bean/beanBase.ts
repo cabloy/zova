@@ -1,5 +1,5 @@
 import { RendererNode } from 'vue';
-import { BeanBaseSimple } from './beanBaseSimple.js';
+import { BeanBaseSimple, SymbolModuleBelong } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { AppEvent } from '../core/component/event.js';
 import { IModuleLocaleText } from './resource/index.js';
@@ -16,7 +16,7 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
 
   protected get $text(): IModuleLocaleText {
     if (!this[SymbolText]) {
-      this[SymbolText] = this.app.meta.locale.createLocaleText(this.moduleBelong);
+      this[SymbolText] = this.app.meta.locale.createLocaleText(this[SymbolModuleBelong]);
     }
     return this[SymbolText];
   }
@@ -38,7 +38,7 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   protected getScope(): TScopeModule;
   protected getScope(moduleScope?: string) {
     if (!moduleScope) {
-      return this.app.bean.scope(this.moduleBelong) as TScopeModule;
+      return this.app.bean.scope(this[SymbolModuleBelong]) as TScopeModule;
     }
     return this.app.bean.scope(moduleScope);
   }
