@@ -8,7 +8,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {
     const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
     this._storeStyleDefault = await this.bean._newBean(scope.config.defaultStyle, true);
-    console.log(this._storeStyleDefault);
   }
   async appInitialized() {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
