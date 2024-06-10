@@ -24,7 +24,6 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "commit": "node ./scripts/commit.js",
     "docs:dev": "vitepress dev zova-docs",
     "docs:build": "vitepress build zova-docs",
     "docs:preview": "vitepress preview zova-docs"
