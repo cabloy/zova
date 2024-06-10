@@ -92,11 +92,11 @@ function _useController(
       controllerBeanFullName,
       true,
     );
-    if (renderBeanFullName) {
-      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
-    }
     if (styleBeanFullName) {
       await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
+    }
+    if (renderBeanFullName) {
+      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
     }
     ctx.meta.state.inited.touch();
     ctx.meta.util.instanceScope(() => {
