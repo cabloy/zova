@@ -26,7 +26,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       enumerable: false,
       configurable: true,
       get() {
-        return this._storeStyleDefault;
+        return self._storeStyleDefault;
       },
     });
   }

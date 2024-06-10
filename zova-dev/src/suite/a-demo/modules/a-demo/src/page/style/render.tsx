@@ -17,6 +17,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </button>
+        <div class={this.$class}>$class</div>
       </div>
     );
   }

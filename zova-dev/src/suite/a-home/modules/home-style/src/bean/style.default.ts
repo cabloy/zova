@@ -3,7 +3,7 @@ import { ScopeModule } from '../resource/this.js';
 
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
-  hello: string;
+  hello: string = 'a';
 
   protected async __init__() {}
 
