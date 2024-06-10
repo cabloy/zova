@@ -1,6 +1,6 @@
 {
   "name": "zova-vite",
-  "version": "1.0.91",
+  "version": "1.0.92",
   "description": "zova vite",
   "publishConfig": {
     "access": "public"
@@ -42,7 +42,7 @@
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@zhennann/vite-plugin-fake-server": "^2.1.1",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
-    "babel-plugin-zova-bean-module": "^1.0.18",
+    "babel-plugin-zova-bean-module": "^1.0.19",
     "chalk": "^3.0.0",
     "esbuild": "^0.20.2",
     "fs-extra": "^11.2.0",
@@ -51,7 +51,7 @@
     "terser": "^5.31.0",
     "tmp": "^0.2.3",
     "vite": "^5.2.11",
-    "zova-core": "^5.0.72"
+    "zova-core": "^5.0.73"
   },
   "gitHead": "5d8e87bdb90a85153694892e3a11a08e7276241b"
 }
