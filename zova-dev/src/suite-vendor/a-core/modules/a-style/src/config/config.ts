@@ -1,5 +1,7 @@
-import { ZovaApplication } from 'zova';
+import { IBeanRecord, ZovaApplication } from 'zova';
 
 export const config = (_app: ZovaApplication) => {
-  return {};
+  return {
+    defaultStyle: 'home-style.style.default' as keyof IBeanRecord,
+  };
 };
