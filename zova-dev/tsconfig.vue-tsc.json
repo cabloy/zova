@@ -8,6 +8,7 @@
     "./node_modules",
     "vite.config.ts",
     "./packages-zova",
-    "./packages-utils"
+    "./packages-utils",
+    "./src/boot"
   ]
 }
