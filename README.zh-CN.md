@@ -20,107 +20,13 @@ Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，�
 - [快速开始](https://zova.js.org/zh/guide/start/introduction.html)
 - [为什么需要Vue3+IOC?](https://zova.js.org/zh/guide/start/why.html)
 
-## 与UI库的配合
+## 如何做
 
-Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：
-
-- antdv
-- element-plus
-- quasar
-- vuetify
-
-## 特性
-
-Zova 为 Vue3 引入了以下鲜明特征：
-
-1. `不用ref/reactive`, `不用ref.value`：有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`。因为不用`ref`，自然也就不用再写大量的`ref.value`
-2. `化类型于无形`：Zova 采用依赖注入与依赖查找相结合的策略，大量减少装饰器函数的使用。优先使用依赖查找可以达到`化类型于无形`的开发体验，也就是不需要标注类型就可以享受到类型编程的诸多好处，从而让我们的代码始终保持简洁和优雅，进而显著提升开发效率，保证代码质量
-3. `模块化体系`：在一个大型的 Web 业务系统当中，随着业务的增长和变更，为了避免代码失控，有必要将系统拆分为一个个相对独立的模块，这就是 Zova 采用模块化体系的缘由。在 Zova 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk，告别 Vite 配置的烦恼，同时可以有效避免构建产物的碎片化。特别是在大型业务系统中，这种优势尤其明显
-
-## 动图演示
-
-![No ref/reactive](./zova-docs/assets/img/state-no-ref-reactive.gif)
-
-## 演示：不用`ref/reactive`，不用`ref.value`
-
-### 1. 定义响应式状态
-
-在组件中定义一个响应式变量`count`，并且添加两个方法修改变量的值
-
-```typescript
-export class ControllerPageCounter {
-  count: number = 0;
-
-  increment() {
-    this.count++;
-  }
-
-  decrement() {
-    this.count--;
-  }
-}
-```
-
-### 2. 使用响应式状态
-
-采用 tsx 语法使用`count`
-
-```typescript
-export class RenderCounter {
-  render() {
-    return (
-      <div>
-        <div>count(ref): {this.count}</div>
-        <button onClick={() => this.increment()}>Increment</button>
-        <button onClick={() => this.decrement()}>Decrement</button>
-      </div>
-    );
-  }
-}
-```
-
-## 演示：依赖注入
-
-### 1. 逻辑抽离
-
-将`count`逻辑抽离出来，创建一个`Counter`Bean
-
-```typescript
-@Local()
-export class Counter {
-  count: number = 0;
-
-  increment() {
-    this.count++;
-  }
-
-  decrement() {
-    this.count--;
-  }
-}
-```
-
-### 2. 在组件中注入并使用
-
-```typescript
-export class ControllerPageCounter {
-  @Use()
-  $$counter: Counter;
-}
-```
-
-```typescript
-export class RenderCounter {
-  render() {
-    return (
-      <div>
-        <div>count(ref): {this.$$counter.count}</div>
-        <button onClick={() => this.$$counter.increment()}>Increment</button>
-        <button onClick={() => this.$$counter.decrement()}>Decrement</button>
-      </div>
-    );
-  }
-}
+```bash
+$ pnpm install
+$ cd ./zova-dev
+$ pnpm install
+$ npm run dev
 ```
 
 ## 联系方式
