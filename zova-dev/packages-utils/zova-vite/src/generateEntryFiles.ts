@@ -53,8 +53,8 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
       }
     }
     // output
-    const contentDest = `export default ${JSON.stringify(target, null, 2)};`;
-    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'config.js');
+    const contentDest = `import { ZovaConfig } from 'zova';\nexport default ${JSON.stringify(target, null, 2)} as ZovaConfig;`;
+    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'config.ts');
     fse.ensureFileSync(fileDest);
     fse.writeFileSync(fileDest, contentDest, 'utf-8');
     // ok
