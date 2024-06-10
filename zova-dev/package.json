@@ -28,6 +28,7 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
+    "typestyle": "^2.4.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "zova": "workspace:^"
