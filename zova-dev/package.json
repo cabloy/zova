@@ -4,7 +4,7 @@
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {
-    "zova": "node ../zova-cli/cli/dist/bin/zova.js",
+    "zova": "cd ../zova-cli && tsc -b && node ./cli/dist/bin/zova.js",
     "dev": "tsc -b && vite",
     "build": "tsc -b && vite build && vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "preview": "vite preview",

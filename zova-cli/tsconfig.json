@@ -1,18 +1,12 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "ts-node": {
-    "swc": true
-  },
+  "compilerOptions": {},
   "references": [
     {
       "path": "cli"
     },
     {
       "path": "cli-set-front"
-    },
+    }
   ]
 }
