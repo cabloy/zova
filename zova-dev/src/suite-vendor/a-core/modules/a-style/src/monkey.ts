@@ -1,5 +1,5 @@
 import { style } from 'typestyle';
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem, SymbolBeanFullName, appResource } from 'zova';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem, SymbolModuleName } from 'zova';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {}
@@ -22,8 +22,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
 
   _patchStyle(beanInstance: BeanBase, props, ...args) {
     if (props && typeof props === 'object') {
-      const moduleName = appResource._getModuleName(beanInstance[SymbolBeanFullName]);
-      props.$debugName = moduleName;
+      props.$debugName = beanInstance[SymbolModuleName];
     }
     return style(props, ...args);
   }
