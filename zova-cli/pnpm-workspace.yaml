@@ -1,6 +1,3 @@
 packages:
   - 'cli'
-  - 'cli-set-api'
-  - 'cli-set-core'
   - 'cli-set-front'
-
