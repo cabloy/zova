@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules"],
+  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules", "src"],
   "references": [
     {
       "path": "packages-utils/last-word"
