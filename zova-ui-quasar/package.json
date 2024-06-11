@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "quasar dev",
-    "build": "quasar build && vue-tsc --noEmit --project tsconfig.vue-tsc.json",
+    "build": "vue-tsc --noEmit --project tsconfig.vue-tsc.json && quasar build",
     "preview": "vite preview --outDir=dist/spa",
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
