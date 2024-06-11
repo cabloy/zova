@@ -6,7 +6,8 @@ export type ThemeDarkMode = 'auto' | boolean;
 export class StoreTheme extends BeanBase<ScopeModule> {
   dark: boolean;
   darkMode: ThemeDarkMode; // auto/true/false
-  private _mediaDark;
+  private _mediaDark?: MediaQueryList;
+  private _onMediaDarkChange?;
 
   protected async __init__() {
     this.setDark('auto');
@@ -17,8 +18,25 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   setDark(mode: ThemeDarkMode) {
     this.darkMode = mode;
     if (mode === 'auto') {
+      this._listenMediaDarkChange(true);
     }
   }
 
-  _listenMediaDarkChange(listen: boolean) {}
+  _listenMediaDarkChange(listen: boolean) {
+    if (listen) {
+      if (!this._mediaDark) {
+        this._mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
+        this._onMediaDarkChange = () => {
+          this.setDark('auto');
+        };
+        this._mediaDark.addEventListener('change', this._onMediaDarkChange);
+      }
+    } else {
+      if (this._mediaDark) {
+        this._mediaDark.removeEventListener('change', this._onMediaDarkChange);
+        this._onMediaDarkChange = undefined;
+        this._mediaDark = undefined;
+      }
+    }
+  }
 }
