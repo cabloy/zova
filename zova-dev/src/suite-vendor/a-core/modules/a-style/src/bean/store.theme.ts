@@ -2,6 +2,7 @@ import { BeanBase, Store } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 
 export type ThemeDarkMode = 'auto' | boolean;
+
 @Store()
 export class StoreTheme extends BeanBase<ScopeModule> {
   dark: boolean;

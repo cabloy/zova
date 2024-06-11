@@ -9,6 +9,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
+        <div>--------------------</div>
         <div class={this.textColor}>Hello World</div>
         <button
           onClick={() => {
@@ -17,10 +18,33 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </button>
+        <div>--------------------</div>
         <div class={this.$class.textCenter}>
           <div>$class.textCenter</div>
           <button class={this.$class.buttonPrimary}>$token.color.primary: {this.$token.color.primary}</button>
-          <div>dark: {this.$theme}</div>
+          <div>--------------------</div>
+          <div>dark: {String(this.$theme.dark)}</div>
+          <div>dark mode: {String(this.$theme.darkMode)}</div>
+          <div>
+            <select
+              onChange={e => {
+                const target = e.target as HTMLSelectElement;
+                const value = target.value;
+                const darkMode = value === 'auto' ? value : value === 'true' ? true : false;
+                this.$theme.setDark(darkMode);
+              }}
+            >
+              <option value={false} selected={this.$theme.darkMode === false}>
+                Light
+              </option>
+              <option value={true} selected={this.$theme.darkMode === true}>
+                Dark
+              </option>
+              <option value={'auto'} selected={this.$theme.darkMode === 'auto'}>
+                Auto
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     );
