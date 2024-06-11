@@ -5,3 +5,10 @@ declare module 'zova' {
     $token: ThemeToken;
   }
 }
+
+import 'zova-module-a-style';
+declare module 'zova-module-a-style' {
+  export interface ThemeApplyResult {
+    token: ThemeToken;
+  }
+}

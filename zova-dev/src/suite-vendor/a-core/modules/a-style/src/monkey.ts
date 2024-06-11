@@ -4,15 +4,15 @@ import { ScopeModule, __ThisModule__ } from './resource/this.js';
 import { StoreTheme } from './bean/store.theme.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  private _storeStyleDefault: any;
   private _storeTheme: StoreTheme;
+  private _storeStyleDefault: any;
 
   async appInitialize() {
+    // theme
+    this._storeTheme = await this.bean._getBean(StoreTheme, true);
     // style default
     const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
     this._storeStyleDefault = await this.bean._getBean(scope.config.defaultStyle, true);
-    // theme
-    this._storeTheme = await this.bean._getBean(StoreTheme, true);
   }
   async appInitialized() {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
@@ -38,6 +38,13 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       configurable: true,
       get() {
         return self._storeTheme;
+      },
+    });
+    bean.defineProperty(beanInstance, '$token', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return self._storeTheme.token;
       },
     });
   }

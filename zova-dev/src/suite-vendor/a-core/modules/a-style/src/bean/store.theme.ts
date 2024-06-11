@@ -9,6 +9,7 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   name: string;
   dark: boolean;
   darkMode: ThemeDarkMode; // auto/true/false
+  token: unknown;
   private _mediaDark?: MediaQueryList;
   private _onMediaDarkChange?;
 
