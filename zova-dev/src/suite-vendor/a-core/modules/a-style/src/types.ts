@@ -7,3 +7,13 @@ declare module 'zova' {
     $theme: StoreTheme;
   }
 }
+
+export interface ThemeApplyParams {
+  name: string;
+  dark: boolean;
+}
+
+export interface ThemeApplyResult {}
+export interface ThemeBase {
+  apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult>;
+}

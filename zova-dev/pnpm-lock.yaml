@@ -269,6 +269,9 @@ importers:
       zova-module-home-style:
         specifier: workspace:^
         version: link:modules/home-style
+      zova-module-home-theme:
+        specifier: workspace:^
+        version: link:modules/home-theme
 
   src/suite/a-home/modules/a-home: {}
 
@@ -296,6 +299,8 @@ importers:
   src/suite/a-home/modules/home-router: {}
 
   src/suite/a-home/modules/home-style: {}
+
+  src/suite/a-home/modules/home-theme: {}
 
 packages:
 

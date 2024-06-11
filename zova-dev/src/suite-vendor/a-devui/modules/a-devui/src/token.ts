@@ -11,6 +11,6 @@ export const themeToken: ThemeToken = {
     primary: '#00b96b',
   },
   var: {
-    borderColor: '#AAAAAA',
+    borderColor: '#aaa',
   },
 };
