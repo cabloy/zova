@@ -1,5 +1,5 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
-import { token } from './token.js';
+import { themeToken } from './token.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {}
@@ -9,7 +9,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       enumerable: false,
       configurable: true,
       get() {
-        return token;
+        return themeToken;
       },
     });
   }
