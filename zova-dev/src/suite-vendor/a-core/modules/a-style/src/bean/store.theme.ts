@@ -1,4 +1,4 @@
-import { BeanBase, Cast, IBeanRecord, Store } from 'zova';
+import { BeanBase, Cast, IBeanRecord, Store, useComputed } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase } from '../types.js';
 
@@ -10,13 +10,17 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   dark: boolean;
   darkMode: ThemeDarkMode; // auto/true/false
   token: unknown;
+  tokenComputed: unknown;
   private _mediaDark?: MediaQueryList;
   private _onMediaDarkChange?;
 
   protected async __init__() {
-    this._setDark('auto');
-    this._setTheme();
-    this.applyTheme();
+    this.tokenComputed = useComputed(() => {
+      return this.token;
+    });
+    await this._setDark('auto');
+    await this._setTheme();
+    await this.applyTheme();
   }
 
   protected __dispose__() {
@@ -29,21 +33,21 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     this.token = Cast(res).token;
   }
 
-  setTheme(name?: keyof IBeanRecord) {
-    this._setTheme(name);
-    this.applyTheme();
+  async setTheme(name?: keyof IBeanRecord) {
+    await this._setTheme(name);
+    await this.applyTheme();
   }
 
-  _setTheme(name?: keyof IBeanRecord) {
+  async _setTheme(name?: keyof IBeanRecord) {
     this.name = name || this.scope.config.defaultTheme;
   }
 
-  setDark(mode: ThemeDarkMode) {
-    this._setDark(mode);
-    this.applyTheme();
+  async setDark(mode: ThemeDarkMode) {
+    await this._setDark(mode);
+    await this.applyTheme();
   }
 
-  _setDark(mode: ThemeDarkMode) {
+  async _setDark(mode: ThemeDarkMode) {
     this.darkMode = mode;
     if (mode === 'auto') {
       this._listenMediaDarkChange(true);
@@ -54,16 +58,16 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     }
   }
 
-  toggleDark() {
-    this.setDark(!this.dark);
+  async toggleDark() {
+    await this.setDark(!this.dark);
   }
 
   _listenMediaDarkChange(listen: boolean) {
     if (listen) {
       if (!this._mediaDark) {
         this._mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
-        this._onMediaDarkChange = () => {
-          this.setDark('auto');
+        this._onMediaDarkChange = async () => {
+          await this.setDark('auto');
         };
         this._mediaDark.addEventListener('change', this._onMediaDarkChange);
       }

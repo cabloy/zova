@@ -44,7 +44,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       enumerable: false,
       configurable: true,
       get() {
-        return self._storeTheme.token;
+        return self._storeTheme.tokenComputed;
       },
     });
   }
