@@ -20,6 +20,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         <div class={this.$class.textCenter}>
           <div>$class.textCenter</div>
           <button class={this.$class.buttonPrimary}>$token.color.primary: {this.$token.color.primary}</button>
+          <div>dark: {this.$theme}</div>
         </div>
       </div>
     );
