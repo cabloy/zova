@@ -1,0 +1,9 @@
+{
+  "name": "zova-suite-a-devui",
+  "version": "5.0.0",
+  "title": "a-devui",
+  "type": "module",
+  "description": "devui",
+  "author": "zhennann",
+  "dependencies": {}
+}

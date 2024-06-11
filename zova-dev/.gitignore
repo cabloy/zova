@@ -59,6 +59,7 @@ env/.env*.mine
 /src/suite-vendor/*
 !/src/suite-vendor/.gitkeep
 !/src/suite-vendor/a-core
+!/src/suite-vendor/a-devui
 
 /src/module/*
 !/src/module/.gitkeep
