@@ -3,6 +3,7 @@ import createProject from './command/create.project.js';
 import createComponent from './command/create.component.js';
 import createStore from './command/create.store.js';
 import createStyle from './command/create.style.js';
+import createTheme from './command/create.theme.js';
 import createLocal from './command/create.local.js';
 import createModule from './command/create.module.js';
 import createPage from './command/create.page.js';
@@ -21,6 +22,7 @@ export const commands = {
     component: createComponent,
     store: createStore,
     style: createStyle,
+    theme: createTheme,
     local: createLocal,
   },
   tools: {

@@ -3,6 +3,7 @@ import { CliCreateProject } from './bean/cli.create.project.js';
 import { CliCreateComponent } from './bean/cli.create.component.js';
 import { CliCreateStore } from './bean/cli.create.store.js';
 import { CliCreateStyle } from './bean/cli.create.style.js';
+import { CliCreateTheme } from './bean/cli.create.theme.js';
 import { CliCreateLocal } from './bean/cli.create.local.js';
 import { CliCreateModule } from './bean/cli.create.module.js';
 import { CliCreatePage } from './bean/cli.create.page.js';
@@ -18,6 +19,7 @@ export const beans = {
   'create.component': CliCreateComponent,
   'create.store': CliCreateStore,
   'create.style': CliCreateStyle,
+  'create.theme': CliCreateTheme,
   'create.local': CliCreateLocal,
   'tools.icons': CliToolsIcons,
 };
