@@ -5,5 +5,7 @@
   "type": "module",
   "description": "devui",
   "author": "zhennann",
-  "dependencies": {}
+  "dependencies": {
+    "zova-module-a-devui": "workspace:^"
+  }
 }
