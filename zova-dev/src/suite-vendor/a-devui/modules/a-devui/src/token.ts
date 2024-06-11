@@ -1,5 +1,4 @@
 export interface ThemeToken {
-  dark?: boolean; // true/false/undefined
   color: {
     primary: string;
   };
