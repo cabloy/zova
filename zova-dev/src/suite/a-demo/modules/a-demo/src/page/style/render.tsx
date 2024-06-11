@@ -17,8 +17,10 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </button>
-        <div class={this.$class.textCenter}>$class.textCenter</div>
-        <button class={this.$class.buttonPrimary}>$token.colorPrimary: ${this.$token.colorPrimary}</button>
+        <div class={this.$class.textCenter}>
+          <div>$class.textCenter</div>
+          <button class={this.$class.buttonPrimary}>$token.colorPrimary: {this.$token.colorPrimary}</button>
+        </div>
       </div>
     );
   }
