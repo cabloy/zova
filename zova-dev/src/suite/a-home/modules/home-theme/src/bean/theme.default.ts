@@ -1,10 +1,10 @@
 import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { ThemeApplyParams, ThemeApplyResult } from 'zova-module-a-style';
+import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
 import { ThemeToken } from 'zova-module-a-devui';
 
 @Theme()
-export class ThemeDefault extends BeanBase<ScopeModule> {
+export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
       color: {
