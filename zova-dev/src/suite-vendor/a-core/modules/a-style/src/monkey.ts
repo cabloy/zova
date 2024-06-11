@@ -1,5 +1,5 @@
 import { style } from 'typestyle';
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem, SymbolModuleName } from 'zova';
+import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
 import { StoreTheme } from './bean/store.theme.js';
 
@@ -44,7 +44,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       enumerable: false,
       configurable: true,
       get() {
-        return self._storeTheme.tokenComputed;
+        return useComputed(() => self._storeTheme.token);
       },
     });
   }
