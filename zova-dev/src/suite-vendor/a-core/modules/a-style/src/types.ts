@@ -14,6 +14,7 @@ export interface ThemeApplyParams {
 }
 
 export interface ThemeApplyResult {}
+
 export interface ThemeBase {
   apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult>;
 }
