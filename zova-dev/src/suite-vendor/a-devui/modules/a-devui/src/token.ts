@@ -1,6 +1,17 @@
 export interface ThemeToken {
-  colorPrimary: string;
+  dark?: boolean; // true/false/undefined
+  color: {
+    primary: string;
+  };
+  var: {
+    borderColor: string;
+  };
 }
 export const themeToken: ThemeToken = {
-  colorPrimary: '#00b96b',
+  color: {
+    primary: '#00b96b',
+  },
+  var: {
+    borderColor: '#AAAAAA',
+  },
 };
