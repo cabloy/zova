@@ -5,13 +5,19 @@ import { ThemeToken } from 'zova-module-a-devui';
 
 @Theme()
 export class ThemeDefault extends BeanBase<ScopeModule> {
-  async apply({ name: _name, dark: _dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
       color: {
         primary: '#00b96b',
       },
       var: {
         borderColor: '#aaa',
+      },
+      component: {
+        page: {
+          background: dark ? '#121212' : '#fff',
+          color: dark ? '#fff' : '#000',
+        },
       },
     };
     return { token };

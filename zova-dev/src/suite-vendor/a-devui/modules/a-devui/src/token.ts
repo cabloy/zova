@@ -5,4 +5,10 @@ export interface ThemeToken {
   var: {
     borderColor: string;
   };
+  component: {
+    page: {
+      background: string;
+      color: string;
+    };
+  };
 }
