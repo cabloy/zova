@@ -11,12 +11,14 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   darkMode: ThemeDarkMode; // auto/true/false
   token: unknown;
   tokenComputed: unknown;
+  private _tokenCounter: number = 0;
   private _mediaDark?: MediaQueryList;
   private _onMediaDarkChange?;
 
   protected async __init__() {
     this.tokenComputed = useComputed(() => {
-      return this.token;
+      console.log(this._tokenCounter);
+      return Object.assign({}, this.token, { __version__: this._tokenCounter });
     });
     await this._setDark('auto');
     await this._setTheme();
@@ -31,6 +33,7 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     const theme = (await this.bean._getBean(this.name, true)) as ThemeBase;
     const res = await theme.apply({ name: this.name, dark: this.dark });
     this.token = Cast(res).token;
+    this._tokenCounter++;
   }
 
   async setTheme(name?: keyof IBeanRecord) {
