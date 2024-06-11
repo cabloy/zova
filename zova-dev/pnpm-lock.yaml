@@ -66,10 +66,10 @@ importers:
         specifier: ^5.2.10
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.72
+        specifier: ^5.0.77
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.91
+        specifier: ^1.0.96
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -115,7 +115,7 @@ importers:
         specifier: ^0.3.2
         version: 0.3.2(@babel/core@7.24.7)(@babel/traverse@7.24.7)
       babel-plugin-zova-bean-module:
-        specifier: ^1.0.18
+        specifier: ^1.0.23
         version: link:../babel-plugin-zova-bean-module
       chalk:
         specifier: ^3.0.0
@@ -142,7 +142,7 @@ importers:
         specifier: ^5.2.11
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.72
+        specifier: ^5.0.77
         version: link:../../packages-zova/core
 
   packages-zova/core:
@@ -181,40 +181,36 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.72
+        specifier: ^5.0.77
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.35
+        specifier: ^5.0.40
         version: link:../../src/suite-vendor/a-core
 
-  src/module/test-demo2:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/module/test-demo2: {}
 
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
-        specifier: ^5.0.29
+        specifier: ^5.0.34
         version: link:modules/a-core
       zova-module-a-pinia:
-        specifier: ^5.0.11
+        specifier: ^5.0.16
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.29
+        specifier: ^5.0.34
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: workspace:^
+        specifier: ^5.0.5
         version: link:modules/a-style
 
   src/suite-vendor/a-core/modules/a-core:
     dependencies:
       zova-module-a-pinia:
-        specifier: ^5.0.11
+        specifier: ^5.0.16
         version: link:../a-pinia
       zova-module-a-router:
-        specifier: ^5.0.29
+        specifier: ^5.0.34
         version: link:../a-router
 
   src/suite-vendor/a-core/modules/a-pinia:
@@ -231,17 +227,21 @@ importers:
 
   src/suite-vendor/a-core/modules/a-style: {}
 
+  src/suite-vendor/a-devui:
+    dependencies:
+      zova-module-a-devui:
+        specifier: workspace:^
+        version: link:modules/a-devui
+
+  src/suite-vendor/a-devui/modules/a-devui: {}
+
   src/suite/a-demo:
     dependencies:
       zova-module-a-demo:
         specifier: workspace:^
         version: link:modules/a-demo
 
-  src/suite/a-demo/modules/a-demo:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-demo/modules/a-demo: {}
 
   src/suite/a-home:
     dependencies:
@@ -270,11 +270,7 @@ importers:
         specifier: workspace:^
         version: link:modules/home-style
 
-  src/suite/a-home/modules/a-home:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/a-home: {}
 
   src/suite/a-home/modules/home-api:
     dependencies:
@@ -282,17 +278,9 @@ importers:
         specifier: ^1.6.8
         version: 1.7.2
 
-  src/suite/a-home/modules/home-icon:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/home-icon: {}
 
-  src/suite/a-home/modules/home-layout:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/home-layout: {}
 
   src/suite/a-home/modules/home-mock:
     dependencies:
@@ -303,23 +291,11 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
 
-  src/suite/a-home/modules/home-pagesystem:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/home-pagesystem: {}
 
-  src/suite/a-home/modules/home-router:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/home-router: {}
 
-  src/suite/a-home/modules/home-style:
-    dependencies:
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+  src/suite/a-home/modules/home-style: {}
 
 packages:
 
