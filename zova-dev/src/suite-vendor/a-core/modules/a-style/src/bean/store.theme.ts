@@ -13,13 +13,23 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     this.setDark('auto');
   }
 
-  protected __dispose__() {}
+  protected __dispose__() {
+    this._listenMediaDarkChange(false);
+  }
 
   setDark(mode: ThemeDarkMode) {
     this.darkMode = mode;
     if (mode === 'auto') {
       this._listenMediaDarkChange(true);
+      this.dark = !!this._mediaDark?.matches;
+    } else {
+      this._listenMediaDarkChange(false);
+      this.dark = mode;
     }
+  }
+
+  toggle() {
+    this.setDark(!this.dark);
   }
 
   _listenMediaDarkChange(listen: boolean) {
