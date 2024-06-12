@@ -4,7 +4,7 @@ export interface ThemeToken {
     secondary: string;
     accent: string;
     dark: string;
-    darkPage: string;
+    'dark-page': string;
     positive: string;
     negative: string;
     info: string;

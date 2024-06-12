@@ -14,7 +14,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
         secondary: '#26A69A',
         accent: '#9C27B0',
         dark: '#1d1d1d',
-        darkPage: '#121212',
+        'dark-page': '#121212',
         positive: '#21BA45',
         negative: '#C10015',
         info: '#31CCEC',
@@ -22,8 +22,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
       },
     };
     for (const key in token.color) {
-      const key2 = key === 'darkPage' ? 'dark-page' : key;
-      setCssVar(key2, token.color[key]);
+      setCssVar(key, token.color[key]);
     }
     // dark
     this.$q.dark.set(dark);
