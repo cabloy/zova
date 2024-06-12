@@ -36,6 +36,7 @@
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vuetify": "^3.6.8",
+    "zod": "^3.23.8",
     "zova": "^5.0.89"
   },
   "devDependencies": {

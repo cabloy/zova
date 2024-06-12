@@ -23,6 +23,9 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.3(vue@3.4.27(typescript@5.4.5))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
       zova:
         specifier: ^5.0.89
         version: 5.0.89(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
