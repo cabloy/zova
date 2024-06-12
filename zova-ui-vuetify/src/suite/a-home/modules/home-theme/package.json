@@ -1,0 +1,27 @@
+{
+  "name": "zova-module-home-theme",
+  "version": "5.0.0",
+  "title": "home-theme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "theme",
+  "keywords": [
+    "Zova Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}
