@@ -123,6 +123,8 @@ importers:
 
   src/suite/a-home/modules/home-router: {}
 
+  src/suite/a-home/modules/home-style: {}
+
 packages:
 
   '@ampproject/remapping@2.3.0':
