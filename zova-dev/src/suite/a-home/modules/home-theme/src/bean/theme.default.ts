@@ -11,7 +11,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
         primary: '#1976d2',
       },
       var: {
-        borderColor: '#aaa',
+        borderColor: '#297acc',
       },
       component: {
         page: {
