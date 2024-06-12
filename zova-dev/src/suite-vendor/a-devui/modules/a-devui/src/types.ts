@@ -1,5 +1,5 @@
 import 'zova';
-import { ThemeToken } from './token.js';
+import { ThemeToken } from './themeToken.js';
 declare module 'zova' {
   export interface BeanBase {
     $token: ThemeToken;
