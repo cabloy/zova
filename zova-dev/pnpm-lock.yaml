@@ -17,6 +17,9 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.3(vue@3.4.27(typescript@5.4.5))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
       zova:
         specifier: workspace:^
         version: link:packages-zova/zova
@@ -66,10 +69,10 @@ importers:
         specifier: ^5.2.10
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.77
+        specifier: ^5.0.79
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.96
+        specifier: ^1.0.98
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -115,7 +118,7 @@ importers:
         specifier: ^0.3.2
         version: 0.3.2(@babel/core@7.24.7)(@babel/traverse@7.24.7)
       babel-plugin-zova-bean-module:
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../babel-plugin-zova-bean-module
       chalk:
         specifier: ^3.0.0
@@ -142,7 +145,7 @@ importers:
         specifier: ^5.2.11
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.77
+        specifier: ^5.0.79
         version: link:../../packages-zova/core
 
   packages-zova/core:
@@ -181,11 +184,13 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.77
+        specifier: ^5.0.79
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.40
+        specifier: ^5.0.41
         version: link:../../src/suite-vendor/a-core
+
+  src/module/test-demo: {}
 
   src/module/test-demo2: {}
 
@@ -201,7 +206,7 @@ importers:
         specifier: ^5.0.34
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.5
+        specifier: ^5.0.6
         version: link:modules/a-style
 
   src/suite-vendor/a-core/modules/a-core:
