@@ -1,0 +1,24 @@
+name: actions-dev
+on:
+  push:
+    branches:
+      - main
+jobs:
+  unittest:
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+      - run: npm run init
+      - name: build
+        run: npm run build
+        working-directory: zova-dev
