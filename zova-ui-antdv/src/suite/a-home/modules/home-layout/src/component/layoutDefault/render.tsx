@@ -56,7 +56,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
 
   render() {
     return (
-      <ConfigProvider>
+      <ConfigProvider theme={{ token: this.$token }}>
         <App>
           <Layout class="fill-height">
             <LayoutHeader style={{ color: 'white' }}>
