@@ -27,6 +27,12 @@ const __MenuData = [
     to: '/a/demo/component',
   },
   {
+    title: 'Style',
+    caption: 'style & theme',
+    icon: '',
+    to: '/a/demo/style',
+  },
+  {
     folder: true,
     title: 'Quasar',
   },
