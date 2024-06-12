@@ -86,7 +86,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
     const token: ThemeToken = dark ? themeDark : themeLight;
     // theme
     Cast(this.$vuetify.theme.global).name = name;
-    Cast(this.$vuetify.theme.themes)[name] = themeLight; // token;
+    Cast(this.$vuetify.theme.themes)[name] = token;
     return { token };
   }
 }
