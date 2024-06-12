@@ -11,7 +11,7 @@ export class StyleStyle extends BeanStyleBase<ScopeModule> {
 
   protected async __init__() {
     this.textColor = useComputed(() => {
-      return this.$style({ color: this.active ? 'orange' : '' });
+      return this.$style({ color: this.active ? this.$token.color.primary : '' });
     });
     this.pageColor = useComputed(() => {
       return this.$style({
