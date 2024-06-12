@@ -11,8 +11,17 @@ export interface VuetifyGlobal {
 }
 
 import 'zova';
+import { ThemeToken } from './themeToken.js';
 declare module 'zova' {
   export interface BeanBase {
     $vuetify: VuetifyGlobal;
+    $token: ThemeToken;
+  }
+}
+
+import 'zova-module-a-style';
+declare module 'zova-module-a-style' {
+  export interface ThemeApplyResult {
+    token: ThemeToken;
   }
 }
