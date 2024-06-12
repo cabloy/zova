@@ -1,0 +1,10 @@
+import { BeanStyleBase, Local } from 'zova';
+import type { Controller<%=argv.nameMeta.fullCapitalize%> } from './controller.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
+
+export interface Style<%=argv.nameMeta.fullCapitalize%> extends Controller<%=argv.nameMeta.fullCapitalize%> {}
+
+@Local()
+export class Style<%=argv.nameMeta.fullCapitalize%> extends BeanStyleBase<ScopeModule> {
+  protected async __init__() {}
+}

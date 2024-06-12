@@ -6,7 +6,8 @@
 import { useController } from 'zova';
 import { Controller<%=argv.nameMeta.fullCapitalize%>, Props, Emits } from './controller.js';
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
+import { Style<%=argv.nameMeta.fullCapitalize%> } from './style.js';
 const props = withDefaults(defineProps<Props>(), Controller<%=argv.nameMeta.fullCapitalize%>.$propsDefault);
 const emit = defineEmits<Emits>();
-useController(props, emit, Controller<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>);
+useController(props, emit, Controller<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>, Style<%=argv.nameMeta.fullCapitalize%>);
 </script>
