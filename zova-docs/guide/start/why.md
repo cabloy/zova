@@ -75,3 +75,16 @@ Introducing the IOC container and implementing all services through Class, you c
 
 1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
 2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`
+
+## FAQ
+
+### Some people say that Zova has a strong flavor of Java
+
+In fact, the coding styles of Zova and Java are significantly different, which is reflected in the following two aspects:
+
+1. `Fewer decorator functions`: Zova adopts a strategy that combines dependency injection and dependency lookup, giving priority to dependency lookup, thus significantly reducing the use of decorator functions
+2. `Fewer type annotations`: Zova gives priority to using dependency lookup to achieve a development experience of `Type programming without type`, which means that we can enjoy the many benefits of type programming without the need to annotate types, thus keeping our code concise and elegant, significantly improving development efficiency, and ensuring code quality
+
+### Some people say that the technology trend of the front-end is that `composition better than inheritance`, so it is inappropriate to introduce IOC
+
+In fact, in essence, the core architectural concept of the IOC container is composition. Through the hosting of the IOC container, these bean instances can be composited more freely and flexibly, and can share states and logic more conveniently
