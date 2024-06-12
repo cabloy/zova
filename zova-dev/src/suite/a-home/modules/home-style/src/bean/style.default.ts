@@ -1,4 +1,4 @@
-import { BeanBase, Style } from 'zova';
+import { BeanBase, Style, useComputed } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 
 @Style()
@@ -8,9 +8,11 @@ export class StyleDefault extends BeanBase<ScopeModule> {
 
   protected async __init__() {
     this.textCenter = this.$style({ textAlign: 'center' });
-    this.buttonPrimary = this.$style({
-      color: this.$token.color.primary,
-      borderColor: this.$token.var.borderColor,
+    this.buttonPrimary = useComputed(() => {
+      return this.$style({
+        color: this.$token.color.primary,
+        borderColor: this.$token.var.borderColor,
+      });
     });
   }
 

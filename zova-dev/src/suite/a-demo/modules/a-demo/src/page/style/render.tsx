@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, Local, getBeanName } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import type { StyleStyle } from './style.js';
 
@@ -43,6 +43,29 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
                 </option>
                 <option value={'auto'} selected={this.$theme.darkMode === 'auto'}>
                   Auto
+                </option>
+              </select>
+            </div>
+            <div>--------------------</div>
+            <div>theme: {this.$theme.name}</div>
+            <div>
+              <select
+                onChange={async e => {
+                  const target = e.target as HTMLSelectElement;
+                  await this.$theme.setTheme(target.value as any);
+                }}
+              >
+                <option
+                  value={getBeanName('home-theme.theme.default')}
+                  selected={this.$theme.name === getBeanName('home-theme.theme.default')}
+                >
+                  Default
+                </option>
+                <option
+                  value={getBeanName('a-demo.theme.orange')}
+                  selected={this.$theme.name === getBeanName('a-demo.theme.orange')}
+                >
+                  Orange
                 </option>
               </select>
             </div>
