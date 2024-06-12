@@ -6,5 +6,6 @@
 import { useControllerPage } from 'zova';
 import { ControllerPage<%=argv.nameMeta.fullCapitalize%> } from './controller.js';
 import { Render<%=argv.nameMeta.fullCapitalize%> } from './render.jsx';
-useControllerPage(ControllerPage<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>);
+import { Style<%=argv.nameMeta.fullCapitalize%> } from './style.js';
+useControllerPage(ControllerPage<%=argv.nameMeta.fullCapitalize%>, Render<%=argv.nameMeta.fullCapitalize%>, Style<%=argv.nameMeta.fullCapitalize%>);
 </script>

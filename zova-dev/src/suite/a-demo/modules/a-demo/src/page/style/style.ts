@@ -1,6 +1,6 @@
 import { BeanStyleBase, Local, useComputed } from 'zova';
+import type { ControllerPageStyle } from './controller.js';
 import { ScopeModule } from '../../resource/this.js';
-import { ControllerPageStyle } from './controller.js';
 
 export interface StyleStyle extends ControllerPageStyle {}
 
