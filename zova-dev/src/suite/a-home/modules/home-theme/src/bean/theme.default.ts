@@ -8,7 +8,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
       color: {
-        primary: '#00b96b',
+        primary: '#1976d2',
       },
       var: {
         borderColor: '#aaa',
