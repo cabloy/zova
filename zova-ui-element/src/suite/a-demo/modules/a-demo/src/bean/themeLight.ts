@@ -1,5 +1,5 @@
 export const themeLight = {
-  'color-primary': '#409eff',
+  'color-primary': '#f28238',
   'color-primary-light-3': '#79bbff',
   'color-primary-light-5': '#a0cfff',
   'color-primary-light-7': '#c6e2ff',

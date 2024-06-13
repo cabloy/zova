@@ -1,5 +1,5 @@
 export const themeDark = {
-  'color-primary': '#409eff',
+  'color-primary': '#f28238',
   'color-primary-light-3': '#3375b9',
   'color-primary-light-5': '#2a598a',
   'color-primary-light-7': '#213d5b',
