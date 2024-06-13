@@ -21,6 +21,6 @@ export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
         body.classList.remove('dark');
       }
     }
-    return { token };
+    return { token } as any;
   }
 }
