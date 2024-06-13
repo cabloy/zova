@@ -23,6 +23,12 @@ const __MenuData = [
         icon: '',
         to: '/a/demo/component',
       },
+      {
+        title: 'Style',
+        caption: 'Style & Theme',
+        icon: '',
+        to: '/a/demo/style',
+      },
     ],
   },
   {

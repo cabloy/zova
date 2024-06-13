@@ -1,6 +1,16 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
-import { ElConfigProvider, ElIcon, ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import {
+  ElAside,
+  ElConfigProvider,
+  ElContainer,
+  ElHeader,
+  ElIcon,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+} from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 //import EssentialLink from '../essentialLink/index.vue';
 
@@ -80,11 +90,15 @@ export class RenderLayoutDefault extends BeanRenderBase {
   render() {
     return (
       <ElConfigProvider>
-        {this._renderHeader()}
-        <div class="flex main-container">
-          {this._renderMenu()}
-          <router-view />
-        </div>
+        <ElContainer>
+          <ElHeader>{this._renderHeader()}</ElHeader>
+          <ElContainer class="main-container">
+            <ElAside>{this._renderMenu()}</ElAside>
+            <ElMain>
+              <router-view />
+            </ElMain>
+          </ElContainer>
+        </ElContainer>
       </ElConfigProvider>
     );
   }
