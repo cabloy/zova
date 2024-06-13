@@ -1,7 +1,7 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, Local, getBeanName } from 'zova';
 import type { StyleStyle } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
-import { Button } from 'ant-design-vue';
+import { Button, Radio, RadioGroup } from 'ant-design-vue';
 
 export interface RenderStyle extends StyleStyle {}
 
@@ -18,6 +18,21 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </Button>
+        <hr></hr>
+        <div>
+          <RadioGroup v-model:value={this.$theme.darkMode}>
+            <Radio value={false}>Light</Radio>
+            <Radio value={true}>Dark</Radio>
+            <Radio value={'auto'}>Auto</Radio>
+          </RadioGroup>
+        </div>
+        <hr></hr>
+        <div>
+          <RadioGroup v-model:value={this.$theme.name}>
+            <Radio value={getBeanName('home-theme.theme.default')}>Default</Radio>
+            <Radio value={getBeanName('a-demo.theme.orange')}>Orange</Radio>
+          </RadioGroup>
+        </div>
       </div>
     );
   }
