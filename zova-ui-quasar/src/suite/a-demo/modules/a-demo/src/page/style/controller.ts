@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local, zz } from 'zova';
+import { BeanControllerPageBase, Local, getBeanName, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 
 export const ParamsSchema = zz.object({});
@@ -12,6 +12,18 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageStyle extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   active: boolean;
+  themeDarkOptions = [
+    { label: 'Light', value: false },
+    { label: 'Dark', value: true },
+    { label: 'Auto', value: 'auto' },
+  ];
+  themeNameOptions = [
+    {
+      label: 'Default',
+      value: getBeanName('home-theme.theme.default'),
+    },
+    { label: 'Orange', value: getBeanName('a-demo.theme.orange') },
+  ];
 
   protected async __init__() {}
 

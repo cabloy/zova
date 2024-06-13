@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleStyle } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
-import { QBtn, QPage } from 'quasar';
+import { QBtn, QOptionGroup, QPage } from 'quasar';
 
 export interface RenderStyle extends StyleStyle {}
 
@@ -18,6 +18,19 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </QBtn>
+        <hr></hr>
+        <div>
+          <QOptionGroup
+            options={this.themeDarkOptions}
+            type="radio"
+            inline
+            v-model={this.$theme.darkMode}
+          ></QOptionGroup>
+        </div>
+        <hr></hr>
+        <div>
+          <QOptionGroup options={this.themeNameOptions} type="radio" inline v-model={this.$theme.name}></QOptionGroup>
+        </div>
       </QPage>
     );
   }
