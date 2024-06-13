@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       element-plus:
-        specifier: ^2.7.4
+        specifier: ^2.7.5
         version: 2.7.5(vue@3.4.27(typescript@5.4.5))
       typestyle:
         specifier: ^2.4.0
@@ -18,7 +18,7 @@ importers:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
       vue-router:
-        specifier: ^4.3.2
+        specifier: ^4.3.3
         version: 4.3.3(vue@3.4.27(typescript@5.4.5))
       zod:
         specifier: ^3.23.8
@@ -37,7 +37,7 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5(vite@5.2.13(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1))(vue@3.4.27(typescript@5.4.5))
       sass:
-        specifier: ^1.77.4
+        specifier: ^1.77.5
         version: 1.77.5
       typescript:
         specifier: ^5.4.5
@@ -49,10 +49,10 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(rollup@4.18.0)
       vite:
-        specifier: ^5.2.12
+        specifier: ^5.2.13
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1)
       vue-tsc:
-        specifier: ^2.0.19
+        specifier: ^2.0.21
         version: 2.0.21(typescript@5.4.5)
       zova-vite:
         specifier: ^1.0.98
