@@ -20,7 +20,14 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         </ElButton>
         <div>----------</div>
         <div>
-          <div>{this.$theme.name}</div>
+          <ElRadioGroup v-model={this.$theme.darkMode}>
+            <ElRadio value={false}>Light</ElRadio>
+            <ElRadio value={true}>Dark</ElRadio>
+            <ElRadio value={'auto'}>Auto</ElRadio>
+          </ElRadioGroup>
+        </div>
+        <div>----------</div>
+        <div>
           <ElRadioGroup v-model={this.$theme.name}>
             <ElRadio value={getBeanName('home-theme.theme.default')}>Default</ElRadio>
             <ElRadio value={getBeanName('a-demo.theme.orange')}>Orange</ElRadio>
