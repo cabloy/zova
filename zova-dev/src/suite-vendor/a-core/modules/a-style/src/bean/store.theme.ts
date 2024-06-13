@@ -11,11 +11,19 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     return this._name;
   }
   public set name(value: string) {
-    this._name = value;
-    this.applyTheme();
+    this.setTheme(value as any);
   }
-  dark: boolean;
-  darkMode: ThemeDarkMode; // auto/true/false
+  private _dark: boolean;
+  public get dark(): boolean {
+    return this._dark;
+  }
+  private _darkMode: ThemeDarkMode; // auto/true/false
+  public get darkMode(): ThemeDarkMode {
+    return this._darkMode;
+  }
+  public set darkMode(value: ThemeDarkMode) {
+    this.setDark(value);
+  }
   token: unknown;
   private _mediaDark?: MediaQueryList;
   private _onMediaDarkChange?;
@@ -42,7 +50,7 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   }
 
   async _setTheme(name?: keyof IBeanRecord) {
-    this.name = name || this.scope.config.defaultTheme;
+    this._name = name || this.scope.config.defaultTheme;
   }
 
   async setDark(mode: ThemeDarkMode) {
@@ -51,13 +59,13 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   }
 
   async _setDark(mode: ThemeDarkMode) {
-    this.darkMode = mode;
+    this._darkMode = mode;
     if (mode === 'auto') {
       this._listenMediaDarkChange(true);
-      this.dark = !!this._mediaDark?.matches;
+      this._dark = !!this._mediaDark?.matches;
     } else {
       this._listenMediaDarkChange(false);
-      this.dark = mode;
+      this._dark = mode;
     }
   }
 
