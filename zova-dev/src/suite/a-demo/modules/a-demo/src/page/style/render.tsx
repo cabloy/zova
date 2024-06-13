@@ -9,7 +9,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>--------------------</div>
+        <hr></hr>
         <div class={this.textColor}>Hello World</div>
         <button
           onClick={() => {
@@ -18,11 +18,11 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </button>
-        <div>--------------------</div>
+        <hr></hr>
         <div class={this.$class.textCenter}>
           <div>$class.textCenter</div>
           <button class={this.$class.buttonPrimary}>$token.color.primary: {this.$token.color.primary}</button>
-          <div>--------------------</div>
+          <hr></hr>
           <div class={this.pageColor}>
             <div>dark: {String(this.$theme.dark)}</div>
             <div>dark mode: {String(this.$theme.darkMode)}</div>
@@ -46,8 +46,8 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
                 </option>
               </select>
             </div>
-            <div>--------------------</div>
-            <div>theme: {this.$theme.name}</div>
+            <hr></hr>
+            <div style={{ color: this.$token.color.primary }}>theme: {this.$theme.name}</div>
             <div>
               <select
                 onChange={async e => {
