@@ -72,7 +72,11 @@ importers:
         specifier: workspace:^
         version: link:modules/a-demo
 
-  src/suite/a-demo/modules/a-demo: {}
+  src/suite/a-demo/modules/a-demo:
+    dependencies:
+      zova-module-a-style:
+        specifier: ^5.0.8
+        version: 5.0.8
 
   src/suite/a-home:
     dependencies:

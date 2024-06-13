@@ -7,7 +7,7 @@ import { themeLight } from './themeLight.js';
 
 @Theme()
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
-  apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = dark ? themeDark : themeLight;
     const body = window?.document?.documentElement;
     if (body) {
@@ -21,6 +21,6 @@ export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
         body.classList.remove('dark');
       }
     }
-    return { token } as any;
+    return { token };
   }
 }
