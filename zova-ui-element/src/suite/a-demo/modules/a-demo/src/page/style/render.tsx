@@ -1,7 +1,7 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, Local, getBeanName } from 'zova';
 import type { StyleStyle } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
-import { ElButton } from 'element-plus';
+import { ElButton, ElRadio, ElRadioGroup } from 'element-plus';
 
 export interface RenderStyle extends StyleStyle {}
 
@@ -18,6 +18,14 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         >
           Switch Active
         </ElButton>
+        <div>----------</div>
+        <div>
+          <div>{this.$theme.name}</div>
+          <ElRadioGroup v-model={this.$theme.name}>
+            <ElRadio value={getBeanName('home-theme.theme.default')}>Default</ElRadio>
+            <ElRadio value={getBeanName('a-demo.theme.orange')}>Orange</ElRadio>
+          </ElRadioGroup>
+        </div>
       </div>
     );
   }

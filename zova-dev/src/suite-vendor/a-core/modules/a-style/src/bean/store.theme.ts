@@ -6,7 +6,14 @@ export type ThemeDarkMode = 'auto' | boolean;
 
 @Store()
 export class StoreTheme extends BeanBase<ScopeModule> {
-  name: string;
+  private _name: string;
+  public get name(): string {
+    return this._name;
+  }
+  public set name(value: string) {
+    this._name = value;
+    this.applyTheme();
+  }
   dark: boolean;
   darkMode: ThemeDarkMode; // auto/true/false
   token: unknown;
