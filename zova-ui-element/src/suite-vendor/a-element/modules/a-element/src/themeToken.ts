@@ -68,6 +68,7 @@ export interface ThemeToken {
   'fill-color-blank': string;
   'mask-color': string;
   'mask-color-extra-light': string;
+  'empty-fill-color-0': string;
   'empty-fill-color-1': string;
   'empty-fill-color-2': string;
   'empty-fill-color-3': string;
