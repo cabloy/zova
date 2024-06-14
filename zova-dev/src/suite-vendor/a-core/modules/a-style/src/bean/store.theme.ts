@@ -44,7 +44,7 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     this.token = Cast(res).token;
     if (res.handler) {
       const themeHandler = (await this.bean._getBean(res.handler, true)) as unknown as ThemeHandler;
-      await themeHandler.apply(res);
+      await themeHandler.apply({ name: this.name, dark: this.dark, token: this.token } as any);
     }
   }
 

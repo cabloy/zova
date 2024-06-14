@@ -1,10 +1,10 @@
 import { BeanBase, Tool } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { ThemeApplyResult, ThemeHandler } from 'zova-module-a-style';
+import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 @Tool()
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
-  async apply({ token }: ThemeApplyResult): Promise<void> {
+  async apply({ token }: ThemeHandlerApplyParams): Promise<void> {
     const body = window?.document?.documentElement;
     if (body) {
       for (const key in token) {

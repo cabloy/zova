@@ -23,5 +23,10 @@ export interface ThemeBase {
 }
 
 export interface ThemeHandler {
-  apply(result: ThemeApplyResult): Promise<void>;
+  apply(result: ThemeHandlerApplyParams): Promise<void>;
+}
+
+export interface ThemeHandlerApplyParams {
+  name: string;
+  dark: boolean;
 }
