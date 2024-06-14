@@ -60,3 +60,15 @@ export interface IDecoratorStyleOptions {
   name?: string;
   markReactive?: boolean;
 }
+
+export interface IDecoratorThemeOptions {
+  scene?: TypeDecoratorBeanOptionsScene;
+  name?: string;
+  markReactive?: boolean;
+}
+
+export interface IDecoratorToolOptions {
+  scene?: TypeDecoratorBeanOptionsScene;
+  name?: string;
+  markReactive?: boolean;
+}

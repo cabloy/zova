@@ -4,6 +4,7 @@ export * from './scope.js';
 export * from './store.js';
 export * from './style.js';
 export * from './theme.js';
+export * from './tool.js';
 export * from './use.js';
 export * from './useComposable.js';
 export * from './useScope.js';
