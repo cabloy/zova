@@ -1,4 +1,8 @@
+export * from '../bean/tool.themeHandler.js';
+import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
 import 'zova';
 declare module 'zova' {
-  export interface IBeanRecord {}
+  export interface IBeanRecord {
+    'a-quasar.tool.themeHandler': ToolThemeHandler;
+  }
 }
