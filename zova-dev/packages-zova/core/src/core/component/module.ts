@@ -62,6 +62,18 @@ export class AppModule extends BeanSimple {
     return moduleRepo;
   }
 
+  exists<K extends TypeBeanScopeRecordKeys>(moduleName: K): boolean;
+  exists(moduleName: string): boolean;
+  exists(moduleName: IModuleInfo): boolean;
+  exists(moduleName: string | IModuleInfo): boolean {
+    // module info
+    if (!moduleName) return false;
+    const moduleInfo = typeof moduleName === 'string' ? ModuleInfo.parseInfo(moduleName) : moduleName;
+    if (!moduleInfo) throw new Error(`invalid module name: ${moduleName}`);
+    const moduleRepo = this.modulesMeta.modules[moduleInfo.relativeName];
+    return !!moduleRepo;
+  }
+
   private async _loadAllMonkeysAndSyncs() {
     const promises: Promise<IModuleResource>[] = [];
     const moduleNames: string[] = [];
