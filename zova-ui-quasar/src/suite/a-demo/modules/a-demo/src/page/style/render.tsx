@@ -29,6 +29,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         </div>
         <hr></hr>
         <div>
+          <div style={{ color: this.$token.color.primary }}>theme: {this.$theme.name}</div>
           <QOptionGroup options={this.themeNameOptions} type="radio" inline v-model={this.$theme.name}></QOptionGroup>
         </div>
       </QPage>
