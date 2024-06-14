@@ -4,7 +4,7 @@ import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 @Tool()
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
-  async apply({ token }: ThemeHandlerApplyParams): Promise<void> {
+  async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
     const body = window?.document?.documentElement;
     if (body) {
       for (const key in token) {
