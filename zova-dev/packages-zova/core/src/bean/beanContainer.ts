@@ -142,7 +142,7 @@ export class BeanContainer {
     if (!beanInstance) {
       // bean not loaded, so async load to raise the next call
       if (forceLoad !== false) {
-        this._getBean(key, markReactive);
+        this._getBean(key as any, markReactive);
       }
       return undefined;
     }
@@ -158,7 +158,7 @@ export class BeanContainer {
 
   async _getBean<T>(A: Constructable<T>, markReactive?: boolean): Promise<T>;
   async _getBean<K extends keyof IBeanRecord>(beanFullName: K, markReactive?: boolean): Promise<IBeanRecord[K]>;
-  async _getBean<T>(beanFullName: string, markReactive?: boolean): Promise<T>;
+  // async _getBean<T>(beanFullName: string, markReactive?: boolean): Promise<T>;
   async _getBean<T>(beanFullName: Constructable<T> | string, markReactive?: boolean): Promise<T> {
     return await this._getBeanSelector(beanFullName as any, markReactive);
   }
@@ -169,7 +169,7 @@ export class BeanContainer {
     markReactive?: boolean,
     selector?: string,
   ): Promise<IBeanRecord[K]>;
-  async _getBeanSelector<T>(beanFullName: string, markReactive?: boolean, selector?: string): Promise<T>;
+  // async _getBeanSelector<T>(beanFullName: string, markReactive?: boolean, selector?: string): Promise<T>;
   async _getBeanSelector<T>(
     beanFullName: Constructable<T> | string,
     markReactive?: boolean,
@@ -222,7 +222,7 @@ export class BeanContainer {
     markReactive?: boolean,
     ...args
   ): Promise<IBeanRecord[K]>;
-  async _newBean<T>(beanFullName: string, markReactive?: boolean, ...args): Promise<T>;
+  // async _newBean<T>(beanFullName: string, markReactive?: boolean, ...args): Promise<T>;
   async _newBean<T>(beanFullName: Constructable<T> | string, markReactive?: boolean, ...args): Promise<T> {
     return await this._newBeanInner(false, null, null, undefined, beanFullName, markReactive, ...args);
   }
@@ -234,7 +234,7 @@ export class BeanContainer {
     selector?: string,
     ...args
   ): Promise<IBeanRecord[K]>;
-  async _newBeanSelector<T>(beanFullName: string, markReactive?: boolean, selector?: string, ...args): Promise<T>;
+  // async _newBeanSelector<T>(beanFullName: string, markReactive?: boolean, selector?: string, ...args): Promise<T>;
   async _newBeanSelector<T>(
     beanFullName: Constructable<T> | string,
     markReactive?: boolean,

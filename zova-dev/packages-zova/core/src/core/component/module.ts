@@ -115,7 +115,7 @@ export class AppModule extends BeanSimple {
     // installed
     module[SymbolInstalled].touch();
     // scope: should after [SymbolInstalled].touch
-    await this.app.bean._getBean(`${moduleName}.scope.module`, false);
+    await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
   }
 
   private async _installInner(_moduleName: string, module: IModule) {

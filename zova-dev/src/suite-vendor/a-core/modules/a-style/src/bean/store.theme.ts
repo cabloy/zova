@@ -39,7 +39,7 @@ export class StoreTheme extends BeanBase<ScopeModule> {
   }
 
   async applyTheme() {
-    const theme = (await this.bean._getBean(this.name, true)) as ThemeBase;
+    const theme = (await this.bean._getBean(this.name as any, true)) as ThemeBase;
     const res = await theme.apply({ name: this.name, dark: this.dark });
     this.token = Cast(res).token;
     if (res.handler) {
