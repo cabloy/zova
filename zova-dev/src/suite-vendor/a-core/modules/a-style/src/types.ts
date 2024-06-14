@@ -15,7 +15,7 @@ export interface ThemeApplyParams {
 }
 
 export interface ThemeApplyResult {
-  handler: keyof IBeanRecord;
+  handler?: keyof IBeanRecord;
 }
 
 export interface ThemeBase {
