@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.132",
+  "version": "5.0.133",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -36,7 +36,7 @@
     "vue": "^3.4.27",
     "vue-router": "^4.3.3",
     "zod": "^3.23.8",
-    "zova": "^5.0.92"
+    "zova": "^5.0.93"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
@@ -48,7 +48,7 @@
     "unplugin-element-plus": "^0.8.0",
     "vite": "^5.2.13",
     "vue-tsc": "^2.0.21",
-    "zova-vite": "^1.0.99"
+    "zova-vite": "^1.0.100"
   },
   "license": "MIT",
   "gitHead": "91eeac4b9907ad6dcbe273a62ca9f431181e3307"
