@@ -1,6 +1,6 @@
 {
   "name": "zova-module-a-core",
-  "version": "5.0.34",
+  "version": "5.0.35",
   "title": "a-core",
   "zovaModule": {
     "dependencies": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "zova-module-a-pinia": "^5.0.16",
-    "zova-module-a-router": "^5.0.34"
+    "zova-module-a-router": "^5.0.35"
   },
   "gitHead": "91eeac4b9907ad6dcbe273a62ca9f431181e3307"
 }
