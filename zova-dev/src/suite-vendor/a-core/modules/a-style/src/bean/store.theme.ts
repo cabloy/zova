@@ -1,6 +1,6 @@
 import { BeanBase, Cast, IBeanRecord, Store } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { ThemeBase } from '../types.js';
+import { ThemeBase, ThemeHandler } from '../types.js';
 
 export type ThemeDarkMode = 'auto' | boolean;
 
@@ -42,6 +42,10 @@ export class StoreTheme extends BeanBase<ScopeModule> {
     const theme = (await this.bean._getBean(this.name, true)) as ThemeBase;
     const res = await theme.apply({ name: this.name, dark: this.dark });
     this.token = Cast(res).token;
+    if (res.handler) {
+      const themeHandler = (await this.bean._getBean(res.handler, true)) as unknown as ThemeHandler;
+      await themeHandler.apply(res);
+    }
   }
 
   async setTheme(name?: keyof IBeanRecord) {
