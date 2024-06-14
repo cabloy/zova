@@ -1,4 +1,4 @@
-import { BeanBase, Cast, Theme } from 'zova';
+import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
 import { ThemeToken } from 'zova-module-a-vuetify';
@@ -81,12 +81,9 @@ const themeDark = {
 
 @Theme()
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
-  async apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     // token
     const token: ThemeToken = dark ? themeDark : themeLight;
-    // theme
-    Cast(this.$vuetify.theme.global).name = name;
-    Cast(this.$vuetify.theme.themes)[name] = token;
-    return { token };
+    return { token, handler: 'a-vuetify.tool.themeHandler' };
   }
 }
