@@ -1,0 +1,27 @@
+{
+  "name": "zova-module-home-style",
+  "version": "5.0.0",
+  "title": "home-style",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "style",
+  "keywords": [
+    "Zova Module"
+  ],
+  "author": "zhennann",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}
