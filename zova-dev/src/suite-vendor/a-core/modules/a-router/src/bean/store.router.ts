@@ -64,6 +64,13 @@ export class StoreRouter extends BeanBase {
     });
   }
 
+  public checkPathValid(path?: string): boolean {
+    if (!path) return false;
+    const moduleInfo = ModuleInfo.parseInfo(path);
+    if (!moduleInfo) return true;
+    return this.app.meta.module.exists(moduleInfo.relativeName);
+  }
+
   private _resolveNameOrPath(query, fn) {
     const query1 = {};
     const query2: any = [];
