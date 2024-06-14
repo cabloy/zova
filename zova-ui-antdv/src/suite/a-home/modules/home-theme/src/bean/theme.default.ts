@@ -18,6 +18,6 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
     } else {
       token.colorBorder = getAlphaColor('#000', 15);
     }
-    return { token };
+    return { token, handler: 'a-antdv.tool.themeHandler' };
   }
 }
