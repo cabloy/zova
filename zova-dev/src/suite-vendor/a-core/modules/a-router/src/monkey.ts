@@ -65,8 +65,12 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       const route = controllerData.context.route;
       const schemaKey = String(route.name || route.path);
       let schemas: TypePageSchema | undefined;
-      const moduleName = ModuleInfo.parseName(schemaKey)!;
-      const module = this.app.meta.module.get(moduleName)!;
+      const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(schemaKey));
+      if (!moduleInfo) {
+        // do nothing
+        return;
+      }
+      const module = this.app.meta.module.get(moduleInfo.relativeName)!;
       if (route.name) {
         schemas = module.resource.pageNameSchemas?.[schemaKey];
       } else {
