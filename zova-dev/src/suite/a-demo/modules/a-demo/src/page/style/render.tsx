@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, getBeanName } from 'zova';
+import { BeanRenderBase, Local, getBeanName, useComputed } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import type { StyleStyle } from './style.js';
 
@@ -6,11 +6,22 @@ export interface RenderStyle extends StyleStyle {}
 
 @Local()
 export class RenderStyle extends BeanRenderBase<ScopeModule> {
+  renderHello;
+  renderHello2;
+
+  protected async __init__() {
+    this.renderHello = <div class={this.textColor}>Hello World</div>;
+    this.renderHello2 = useComputed(() => {
+      return <div class={this.textColor}>Hello World</div>;
+    });
+  }
   render() {
     return (
       <div>
         <hr></hr>
         <div class={this.textColor}>Hello World</div>
+        {this.renderHello}
+        {this.renderHello2}
         <button
           onClick={() => {
             this.active = !this.active;
