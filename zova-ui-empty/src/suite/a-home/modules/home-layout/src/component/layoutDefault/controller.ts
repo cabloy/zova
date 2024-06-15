@@ -22,7 +22,10 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
 
   async loadMenu() {
     const res = await this.$api.get('/home/mock/getMenu');
-    this.menu = res.data.data;
+    this.menu = res.data.data.filter(item => {
+      if (!item.to) return true;
+      return this.$router.checkPathValid(item.to);
+    });
   }
 
   toggleLeftDrawer() {
