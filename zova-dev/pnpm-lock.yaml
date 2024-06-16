@@ -100,8 +100,8 @@ importers:
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.24.7)(vite@5.2.13(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1))
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.31
-        version: 3.4.31
+        specifier: ^3.4.32
+        version: 3.4.32
       '@faker-js/faker':
         specifier: ^8.4.1
         version: 8.4.1
@@ -166,8 +166,8 @@ importers:
         specifier: ^1.0.13
         version: 1.0.16
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.31
-        version: 3.4.31
+        specifier: ^3.4.32
+        version: 3.4.32
       '@vue/reactivity':
         specifier: ^3.4.27
         version: 3.4.27
@@ -497,8 +497,8 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-runtime-core@3.4.31':
-    resolution: {integrity: sha512-dGiIyeWXc01rwMcYQEfuqPGnNFHOABkCME7LBiSlZMZfl5ZILX8rxaLb72IR53NCu3aryfRei0inRQVc3TBZAw==}
+  '@cabloy/vue-runtime-core@3.4.32':
+    resolution: {integrity: sha512-XMd/G0dZH3YRzQFzHvqzoNtar+rKXHzN4k2aMB7JKnuCDVieBdmQMZoyZzExwPHMsfbOUcCEblhUJ+wFUO+AYg==}
 
   '@es-joy/jsdoccomment@0.43.1':
     resolution: {integrity: sha512-I238eDtOolvCuvtxrnqtlBaw0BwdQuYqK7eA6XIonicMdOOOb75mqdIzkGDUbS04+1Di007rgm9snFRNeVrOog==}
@@ -2809,10 +2809,10 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.2.13(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1)
 
-  '@cabloy/vue-runtime-core@3.4.31':
+  '@cabloy/vue-runtime-core@3.4.32':
     dependencies:
-      '@vue/reactivity': 3.4.27
-      '@vue/shared': 3.4.27
+      '@vue/reactivity': 3.4.29
+      '@vue/shared': 3.4.29
 
   '@es-joy/jsdoccomment@0.43.1':
     dependencies:
