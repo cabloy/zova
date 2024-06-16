@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "typestyle": "^2.4.0",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
     "zod": "^3.23.8",
     "zova": "workspace:^"
   },
@@ -38,9 +38,9 @@
     "@cabloy/lint": "^4.0.10",
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
-    "sass": "^1.77.4",
+    "sass": "^1.77.5",
     "typescript": "^5.4.5",
-    "vite": "^5.2.13",
+    "vite": "^5.3.1",
     "vue-tsc": "^2.0.21",
     "zova-vite": "workspace:^"
   },
