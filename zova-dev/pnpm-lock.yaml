@@ -69,10 +69,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.82
+        specifier: ^5.0.83
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.101
+        specifier: ^1.0.102
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -145,7 +145,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.82
+        specifier: ^5.0.83
         version: link:../../packages-zova/core
 
   packages-zova/core:
@@ -184,7 +184,7 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.82
+        specifier: ^5.0.83
         version: link:../core
       zova-suite-a-core:
         specifier: ^5.0.47
