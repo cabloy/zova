@@ -23,6 +23,15 @@ importers:
       zova:
         specifier: workspace:^
         version: link:packages-zova/zova
+      zova-module-a-pinia:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-core/modules/a-pinia
+      zova-module-a-router:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-core/modules/a-router
+      zova-module-a-style:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-core/modules/a-style
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.10
@@ -215,6 +224,9 @@ importers:
       zova-module-a-router:
         specifier: ^5.0.36
         version: link:../a-router
+      zova-module-a-style:
+        specifier: ^5.0.10
+        version: link:../a-style
 
   src/suite-vendor/a-core/modules/a-pinia:
     dependencies:

@@ -23,9 +23,15 @@ importers:
       zova:
         specifier: ^5.0.97
         version: 5.0.97(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
-      zova-suite-a-core:
-        specifier: ^5.0.47
-        version: 5.0.47(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+      zova-module-a-pinia:
+        specifier: ^5.0.16
+        version: 5.0.16(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+      zova-module-a-router:
+        specifier: ^5.0.36
+        version: 5.0.36(vue@3.4.29(typescript@5.4.5))
+      zova-module-a-style:
+        specifier: ^5.0.10
+        version: 5.0.10
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.10
