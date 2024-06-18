@@ -204,9 +204,6 @@ importers:
 
   src/module/test-demo:
     dependencies:
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.45.0
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.45.0(vue@3.4.29(typescript@5.4.5))
@@ -245,9 +242,6 @@ importers:
 
   src/suite-vendor/a-core/modules/a-storage:
     dependencies:
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.45.0
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.45.0(vue@3.4.29(typescript@5.4.5))
@@ -267,8 +261,13 @@ importers:
       zova-module-a-demo:
         specifier: workspace:^
         version: link:modules/a-demo
+      zova-module-demo-user:
+        specifier: workspace:^
+        version: link:modules/demo-user
 
   src/suite/a-demo/modules/a-demo: {}
+
+  src/suite/a-demo/modules/demo-user: {}
 
   src/suite/a-home:
     dependencies:
@@ -1100,9 +1099,6 @@ packages:
 
   '@tanstack/query-core@5.45.0':
     resolution: {integrity: sha512-RVfIZQmFUTdjhSAAblvueimfngYyfN6HlwaJUPK71PKd7yi43Vs1S/rdimmZedPWX/WGppcq/U1HOj7O7FwYxw==}
-
-  '@tanstack/query-persist-client-core@5.45.0':
-    resolution: {integrity: sha512-iAETglkRB6FR1//185TcWGnMxkisJPnCrlvIhLpHzT4eKLmh4n4vq1Cys42YIJzM2il4YWf8P4refzdq4D5Vdw==}
 
   '@tanstack/vue-query@5.45.0':
     resolution: {integrity: sha512-WogAH4+xDPWbiK9CUXAE4cQiCyvWeYZI3g3/onKbkb3tVnoEPRhbGHANgxpfAEFY165Vj4afKnI3hkVQvr7aHA==}
@@ -3123,10 +3119,6 @@ snapshots:
       remove-accents: 0.5.0
 
   '@tanstack/query-core@5.45.0': {}
-
-  '@tanstack/query-persist-client-core@5.45.0':
-    dependencies:
-      '@tanstack/query-core': 5.45.0
 
   '@tanstack/vue-query@5.45.0(vue@3.4.29(typescript@5.4.5))':
     dependencies:
