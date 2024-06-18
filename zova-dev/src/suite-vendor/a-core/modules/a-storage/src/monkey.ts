@@ -1,7 +1,7 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import { Storage } from './local/storage.js';
 import { useQueryClient } from '@tanstack/vue-query';
-import { markRaw, shallowReactive } from 'vue';
+import { markRaw } from 'vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   storage: Storage;
