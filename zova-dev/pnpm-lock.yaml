@@ -202,7 +202,14 @@ importers:
         specifier: ^5.0.48
         version: link:../../src/suite-vendor/a-core
 
-  src/module/test-demo: {}
+  src/module/test-demo:
+    dependencies:
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.45.0
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.45.0(vue@3.4.29(typescript@5.4.5))
 
   src/suite-vendor/a-core:
     dependencies:
