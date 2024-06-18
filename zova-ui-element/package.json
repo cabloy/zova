@@ -43,9 +43,9 @@
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.4",
     "@vitejs/plugin-vue": "^5.0.5",
-    "sass": "^1.77.5",
+    "sass": "^1.77.6",
     "typescript": "^5.4.5",
     "unocss": "^0.58.9",
     "unplugin-element-plus": "^0.8.0",
