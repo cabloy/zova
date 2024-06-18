@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleLogin } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
+import { withModifiers } from 'vue';
 
 export interface RenderLogin extends StyleLogin {}
 
@@ -12,21 +13,21 @@ export class RenderLogin extends BeanRenderBase<ScopeModule> {
         <form class={this.$class.textCenter}>
           <div>{JSON.stringify(this.user)}</div>
           <div>
-            <label>UserName</label>
+            <label>{this.scope.locale.YourUsername()}</label>
             <input v-model={this.user.username}></input>
           </div>
           <div>
-            <label>Password</label>
+            <label>{this.scope.locale.YourPassword()}</label>
             <input v-model={this.user.password} type="password"></input>
           </div>
           <div>
             <button
               type="submit"
-              onClick={() => {
+              onClick={withModifiers(() => {
                 this.login();
-              }}
+              }, ['prevent'])}
             >
-              Login
+              {this.scope.locale.Login()}
             </button>
           </div>
         </form>
