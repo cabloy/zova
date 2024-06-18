@@ -35,6 +35,7 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "@tanstack/vue-query": "^5.45.0"
+    "@tanstack/vue-query": "^5.45.0",
+    "@tanstack/query-persist-client-core": "^5.45.0"
   }
 }
