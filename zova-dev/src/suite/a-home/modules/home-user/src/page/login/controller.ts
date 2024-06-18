@@ -1,6 +1,6 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { StoreUserInfo } from '../../bean/store.userInfo.js';
+import { StoreUserInfo, UserInfoData } from '../../bean/store.userInfo.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -22,8 +22,7 @@ export class ControllerPageLogin extends BeanControllerPageBase<ScopeModule, Que
 
   async login() {
     // api
-    const res = await this.$api.post('/home/user/login', this.user);
-    const data = res.data.data;
+    const data = await this.$api.post<any, UserInfoData>('/home/user/login', this.user);
     // save
     this.$$userInfo.setUserInfo(data);
     // home
