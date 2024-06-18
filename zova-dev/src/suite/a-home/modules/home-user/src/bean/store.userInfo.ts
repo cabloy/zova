@@ -33,4 +33,9 @@ export class StoreUserInfo extends BeanBase<ScopeModule> {
     this.setUserInfo({});
     this.$router.replace('/home/user/login');
   }
+
+  getJwtAuthorization() {
+    if (!this.jwt) return '';
+    return this.jwt.expireTime - Date.now() > 120 * 1000 ? this.jwt.accessToken : this.jwt.refreshToken;
+  }
 }
