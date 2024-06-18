@@ -159,6 +159,7 @@ declare module 'zova' {
     ':editor:task-alt': true;
     ':editor:title': true;
     ':editor:undo': true;
+    ':emoji:flower': true;
     ':flow:activity-none': true;
     ':flow:activity-service': true;
     ':flow:activity-user-task': true;
