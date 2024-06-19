@@ -8,7 +8,13 @@ export class Storage extends BeanBase<ScopeModule> {
     const vueQueryPluginOptions: VueQueryPluginOptions = {
       queryClientConfig: {
         defaultOptions: {
-          queries: {},
+          queries: {
+            retry: false,
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            refetchOnReconnect: false,
+            // gcTime: 1000 * 60 * 5,
+          },
         },
       },
     };
