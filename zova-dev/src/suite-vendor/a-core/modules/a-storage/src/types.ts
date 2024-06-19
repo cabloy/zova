@@ -7,3 +7,11 @@ declare module 'zova' {
     $queryClient: ReturnTypeComposable<typeof useQueryClient>;
   }
 }
+
+export interface StoreConfigPersist {
+  storage?: 'cookie' | 'local' | 'db';
+}
+
+export interface StoreConfig {
+  persist?: StoreConfigPersist | boolean;
+}

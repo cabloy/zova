@@ -19,6 +19,17 @@ export interface UserInfoData {
 
 @Store()
 export class StoreUserInfo extends BeanBase<ScopeModule> {
+  static $storeConfig = {
+    user: {
+      persist: true,
+      query: false,
+    },
+    jwt: {
+      persist: true,
+      query: false,
+    },
+  };
+
   user?: User;
   jwt?: JWT;
 
