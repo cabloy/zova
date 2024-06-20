@@ -7,7 +7,7 @@ export class DataTodo extends BeanBase<ScopeModule> {
   protected async __init__() {}
 
   select() {
-    return this.bean.runWithInstanceScopeOrAppContext(() => {
+    return this.ctx.meta.util.instanceScope(() => {
       const data = useQuery({
         queryKey: ['demo-todo.store.todo', 'select'],
         queryFn: async () => {
