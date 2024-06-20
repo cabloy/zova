@@ -1,13 +1,13 @@
-import { BeanBase, Store } from 'zova';
+import { BeanBase, Data } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { useQuery } from '@tanstack/vue-query';
 
-@Store()
-export class StoreTodo extends BeanBase<ScopeModule> {
+@Data()
+export class DataTodo extends BeanBase<ScopeModule> {
   protected async __init__() {}
 
   select() {
-    this.bean.runWithInstanceScopeOrAppContext(() => {
+    return this.bean.runWithInstanceScopeOrAppContext(() => {
       const data = useQuery({
         queryKey: ['demo-todo.store.todo', 'select'],
         queryFn: async () => {

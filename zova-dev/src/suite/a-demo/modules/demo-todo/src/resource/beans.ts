@@ -1,8 +1,8 @@
-export * from '../bean/store.todo.js';
-import { StoreTodo } from '../bean/store.todo.js';
+export * from '../bean/data.todo.js';
+import { DataTodo } from '../bean/data.todo.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'demo-todo.store.todo': StoreTodo;
+    'demo-todo.data.todo': DataTodo;
   }
 }

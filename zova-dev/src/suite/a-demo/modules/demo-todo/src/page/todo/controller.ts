@@ -1,6 +1,8 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { StoreTodo } from '../../bean/store.todo.js';
+import { DataTodo } from '../../bean/data.todo.js';
+import { useQuery } from '@tanstack/vue-query';
+import { UnwrapNestedRefs } from 'vue';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -13,15 +15,15 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
-  $$todo: StoreTodo;
-  todoQeury;
+  $$todo: DataTodo;
+  todoQuery: UnwrapNestedRefs<ReturnType<typeof useQuery<number>>>;
 
   protected async __init__() {
     const list = await this.scope.service.todo.select();
     console.log(list.length);
     const item = await this.scope.service.todo.get({ id: 'xxx' });
     console.log(item);
-    this.todoQeury = this.$$todo.select();
+    this.todoQuery = this.$$todo.select();
   }
 
   protected __dispose__() {}
