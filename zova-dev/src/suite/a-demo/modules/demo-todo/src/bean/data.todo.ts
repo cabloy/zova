@@ -1,21 +1,18 @@
-import { BeanBase, Data } from 'zova';
+import { Data, getBeanName } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { useQuery } from '@tanstack/vue-query';
+import { BeanDataBase } from 'zova-module-a-data';
 
 @Data()
-export class DataTodo extends BeanBase<ScopeModule> {
+export class DataTodo extends BeanDataBase<ScopeModule> {
   protected async __init__() {}
 
   select() {
-    return this.ctx.meta.util.instanceScope(() => {
-      const data = useQuery({
-        queryKey: ['demo-todo.store.todo', 'select'],
-        queryFn: async () => {
-          await this.app.meta.util.sleep(1000);
-          return 100;
-        },
-      });
-      return data;
+    return this.$useQuery({
+      queryKey: ['select'],
+      queryFn: async () => {
+        await this.app.meta.util.sleep(1000);
+        return 100;
+      },
     });
   }
 }
