@@ -17,6 +17,7 @@ declare module 'zova-cli' {
     styleName: string;
     themeName: string;
     toolName: string;
+    dataName: string;
   }
 }
 
@@ -49,7 +50,7 @@ export class CliCreateBeanBase extends BeanCliBase {
     argv.sceneNameCapitalize = this.helper.firstCharToUpperCase(argv.sceneName);
     // bean name
     if (!argv.beanName) {
-      argv.beanName = argv.storeName || argv.styleName || argv.themeName || argv.toolName;
+      argv.beanName = argv.storeName || argv.styleName || argv.themeName || argv.toolName || argv.dataName;
     }
     // nameMeta
     argv.nameMeta = this.helper.parseNameMeta(argv.beanName);
