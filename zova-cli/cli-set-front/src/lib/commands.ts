@@ -2,6 +2,7 @@ import defaultList from './command/default.list.js';
 import createProject from './command/create.project.js';
 import createComponent from './command/create.component.js';
 import createStore from './command/create.store.js';
+import createData from './command/create.data.js';
 import createStyle from './command/create.style.js';
 import createTheme from './command/create.theme.js';
 import createTool from './command/create.tool.js';
@@ -22,6 +23,7 @@ export const commands = {
     page: createPage,
     component: createComponent,
     store: createStore,
+    data: createData,
     style: createStyle,
     theme: createTheme,
     tool: createTool,

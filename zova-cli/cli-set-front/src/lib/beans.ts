@@ -2,6 +2,7 @@ import { CliDefaultList } from './bean/cli.default.list.js';
 import { CliCreateProject } from './bean/cli.create.project.js';
 import { CliCreateComponent } from './bean/cli.create.component.js';
 import { CliCreateStore } from './bean/cli.create.store.js';
+import { CliCreateData } from './bean/cli.create.data.js';
 import { CliCreateStyle } from './bean/cli.create.style.js';
 import { CliCreateTheme } from './bean/cli.create.theme.js';
 import { CliCreateTool } from './bean/cli.create.tool.js';
@@ -19,6 +20,7 @@ export const beans = {
   'create.page': CliCreatePage,
   'create.component': CliCreateComponent,
   'create.store': CliCreateStore,
+  'create.data': CliCreateData,
   'create.style': CliCreateStyle,
   'create.theme': CliCreateTheme,
   'create.tool': CliCreateTool,
