@@ -12,7 +12,7 @@ export type TypeModuleResource<
   ERRORS,
   LOCALES,
   CONSTANTS = object,
-  SERVICES = object,
+  SERVICES = never,
 > = {
   component: TypeModuleComponents<COMPONENTS>;
   config: TypeModuleConfig<CONFIG>;
