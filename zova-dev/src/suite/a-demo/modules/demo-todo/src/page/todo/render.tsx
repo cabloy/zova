@@ -7,6 +7,10 @@ export interface RenderTodo extends StyleTodo {}
 @Local()
 export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <div>{this.todoQeury}</div>
+      </div>
+    );
   }
 }

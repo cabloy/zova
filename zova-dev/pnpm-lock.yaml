@@ -204,6 +204,9 @@ importers:
 
   src/module/test-demo:
     dependencies:
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.45.0
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.45.0(vue@3.4.29(typescript@5.4.5))
@@ -270,7 +273,14 @@ importers:
 
   src/suite/a-demo/modules/a-demo: {}
 
-  src/suite/a-demo/modules/demo-todo: {}
+  src/suite/a-demo/modules/demo-todo:
+    dependencies:
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.45.0
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.45.0(vue@3.4.29(typescript@5.4.5))
 
   src/suite/a-home:
     dependencies:

@@ -4,7 +4,7 @@ import { ContainerScope } from '../index.js';
 
 export type TypeDecoratorBeanOptionsSceneBase = 'local' | 'aop' | 'virtual' | 'scope' | TypeDecoratorBeanOptionsScene;
 // containerScope: store(app) data(new)
-export type TypeDecoratorBeanOptionsScene = 'store' | 'style' | 'theme' | 'tool'; // | 'ui' | 'data' | 'event';
+export type TypeDecoratorBeanOptionsScene = 'store' | 'data' | 'style' | 'theme' | 'tool'; // | 'ui' | 'event';
 
 export interface IDecoratorBeanOptionsBase<T = unknown> {
   /**
@@ -50,6 +50,12 @@ export interface IDecoratorAopOptions {
 export interface IDecoratorScopeOptions {}
 
 export interface IDecoratorStoreOptions {
+  scene?: TypeDecoratorBeanOptionsScene;
+  name?: string;
+  markReactive?: boolean;
+}
+
+export interface IDecoratorDataOptions {
   scene?: TypeDecoratorBeanOptionsScene;
   name?: string;
   markReactive?: boolean;
