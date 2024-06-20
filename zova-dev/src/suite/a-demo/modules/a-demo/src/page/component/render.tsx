@@ -24,6 +24,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
         <this.scope.component.card
           onControllerRef={ref => {
             this.cardRef = ref;
+            console.log('cardRef.$props: ', this.cardRef.$props);
           }}
           header="header"
           content={this.resetTime.toString()}
