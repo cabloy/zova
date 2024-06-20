@@ -14,6 +14,8 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
   protected async __init__() {
     const list = await this.scope.service.todo.select();
     console.log(list.length);
+    const item = await this.scope.service.todo.get({ id: 'xxx' });
+    console.log(item);
   }
 
   protected __dispose__() {}
