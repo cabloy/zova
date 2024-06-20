@@ -24,7 +24,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
         <this.scope.component.card
           onControllerRef={ref => {
             this.cardRef = ref;
-            console.log('cardRef.$props: ', this.cardRef.$props);
+            console.log('cardRef.$props: ', this.cardRef?.$props);
           }}
           header="header"
           content={this.resetTime.toString()}
@@ -34,6 +34,12 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
           }}
           v-slots={slots}
         ></this.scope.component.card>
+        <input
+          ref={ref => {
+            this.inputRef = ref as any;
+            this.inputRef?.focus();
+          }}
+        ></input>
       </div>
     );
   }

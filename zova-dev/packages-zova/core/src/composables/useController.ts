@@ -1,4 +1,4 @@
-import { getCurrentInstance, onBeforeUnmount, onMounted, onUnmounted, useAttrs, useSlots } from 'vue';
+import { getCurrentInstance, onBeforeUnmount, onUnmounted, useAttrs, useSlots } from 'vue';
 import { queuePostFlushCb } from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { ZovaContext } from '../core/context/index.js';
@@ -72,7 +72,7 @@ export function useController(
   _useController(controllerData, controllerBeanFullName, renderBeanFullName, styleBeanFullName);
 }
 
-function _useController(
+async function _useController(
   controllerData: IControllerData,
   controllerBeanFullName: Constructable | string,
   renderBeanFullName?: Constructable | string,
@@ -82,32 +82,6 @@ function _useController(
   const ctx = new ZovaContext(getCurrentInstance()!);
   // monkey
   ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
-  // controller
-  onMounted(async () => {
-    await ctx.bean._newBeanInner(
-      true,
-      BeanControllerIdentifier,
-      controllerData,
-      undefined,
-      controllerBeanFullName,
-      true,
-    );
-    if (styleBeanFullName) {
-      await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
-    }
-    if (renderBeanFullName) {
-      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
-    }
-    ctx.meta.state.inited.touch();
-    ctx.meta.util.instanceScope(() => {
-      queuePostFlushCb(() => {
-        ctx.meta.state.mounted.touch();
-        const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier);
-        // instanceScope useless for emit, because emiter and receiver not the same instance
-        ctx.instance.emit('controllerRef', controller);
-      });
-    });
-  });
   // dispose
   onBeforeUnmount(() => {
     // undefined better than null
@@ -117,4 +91,23 @@ function _useController(
   onUnmounted(() => {
     ctx.dispose();
   });
+  // controller
+  //onMounted(async () => {
+  await ctx.bean._newBeanInner(true, BeanControllerIdentifier, controllerData, undefined, controllerBeanFullName, true);
+  if (styleBeanFullName) {
+    await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
+  }
+  if (renderBeanFullName) {
+    await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
+  }
+  ctx.meta.state.inited.touch();
+  ctx.meta.util.instanceScope(() => {
+    queuePostFlushCb(() => {
+      ctx.meta.state.mounted.touch();
+      const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier);
+      // instanceScope useless for emit, because emiter and receiver not the same instance
+      ctx.instance.emit('controllerRef', controller);
+    });
+  });
+  //});
 }
