@@ -1,5 +1,6 @@
 import { BeanBaseSimple, SymbolModuleBelong } from '../beanBaseSimple.js';
 import { BeanScopeError } from '../resource/error/beanScopeError.js';
+import { BeanScopeService } from '../resource/service/beanScopeService.js';
 import { BeanScopeLocale } from '../resource/locale/beanScopeLocale.js';
 import { IModule } from '@cabloy/module-info';
 
@@ -10,6 +11,7 @@ const BeanModuleLocale = Symbol('BeanScopeBase#BeanModuleLocale');
 const BeanModuleConfig = Symbol('BeanScopeBase#BeanModuleConfig');
 const BeanModuleConstant = Symbol('BeanScopeBase#BeanModuleConstant');
 const BeanModuleComponent = Symbol('BeanScopeBase#BeanModuleComponent');
+const BeanModuleService = Symbol('BeanScopeBase#BeanModuleService');
 
 export class BeanScopeBase extends BeanBaseSimple {
   private [BeanModuleError]: BeanScopeError;
@@ -17,6 +19,7 @@ export class BeanScopeBase extends BeanBaseSimple {
   private [BeanModuleConfig]: unknown;
   private [BeanModuleConstant]: unknown;
   private [BeanModuleComponent]: unknown;
+  private [BeanModuleService]: unknown;
 
   get module(): IModule {
     return this.app.meta.module.get(this[SymbolModuleBelong]) as unknown as IModule;
@@ -59,6 +62,13 @@ export class BeanScopeBase extends BeanBaseSimple {
         this[BeanModuleComponent] = module!.resource.components;
       }
       return this[BeanModuleComponent];
+    }
+    // service
+    if (prop === 'service') {
+      if (!this[BeanModuleService]) {
+        this[BeanModuleService] = this.bean._newBeanSimple(BeanScopeService, false, moduleBelong);
+      }
+      return this[BeanModuleService];
     }
   }
 }
