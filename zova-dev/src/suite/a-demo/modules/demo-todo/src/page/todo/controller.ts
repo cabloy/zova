@@ -11,7 +11,10 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
-  protected async __init__() {}
+  protected async __init__() {
+    const list = await this.scope.service.todo.select();
+    console.log(list[0]);
+  }
 
   protected __dispose__() {}
 }
