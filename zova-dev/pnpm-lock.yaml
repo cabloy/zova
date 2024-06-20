@@ -264,8 +264,13 @@ importers:
       zova-module-a-demo:
         specifier: workspace:^
         version: link:modules/a-demo
+      zova-module-demo-todo:
+        specifier: workspace:^
+        version: link:modules/demo-todo
 
   src/suite/a-demo/modules/a-demo: {}
+
+  src/suite/a-demo/modules/demo-todo: {}
 
   src/suite/a-home:
     dependencies:

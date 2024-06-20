@@ -1,6 +1,7 @@
 import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 import { config, Errors, locales, constants } from '../config/index.js';
 import { components } from './components.js';
+import { services } from '../service/index.js';
 
 @Scope()
 export class ScopeModuleDemoTodo extends BeanScopeBase {}
