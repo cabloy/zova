@@ -35,7 +35,7 @@
     "zova": "workspace:^",
     "zova-module-a-pinia": "workspace:^",
     "zova-module-a-router": "workspace:^",
-    "zova-module-a-storage": "workspace:^",
+    "zova-module-a-data": "workspace:^",
     "zova-module-a-style": "workspace:^"
   },
   "devDependencies": {

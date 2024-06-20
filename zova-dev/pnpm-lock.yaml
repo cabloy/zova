@@ -29,9 +29,9 @@ importers:
       zova-module-a-router:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-router
-      zova-module-a-storage:
+      zova-module-a-data:
         specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-storage
+        version: link:src/suite-vendor/a-core/modules/a-data
       zova-module-a-style:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
@@ -222,9 +222,9 @@ importers:
       zova-module-a-router:
         specifier: ^5.0.36
         version: link:modules/a-router
-      zova-module-a-storage:
+      zova-module-a-data:
         specifier: ^5.0.0
-        version: link:modules/a-storage
+        version: link:modules/a-data
       zova-module-a-style:
         specifier: ^5.0.10
         version: link:modules/a-style
@@ -243,7 +243,7 @@ importers:
         specifier: ^4.3.2
         version: 4.3.3(vue@3.4.29(typescript@5.4.5))
 
-  src/suite-vendor/a-core/modules/a-storage:
+  src/suite-vendor/a-core/modules/a-data:
     dependencies:
       '@tanstack/query-persist-client-core':
         specifier: ^5.45.0

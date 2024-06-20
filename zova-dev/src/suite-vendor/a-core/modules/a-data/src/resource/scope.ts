@@ -17,14 +17,14 @@ export interface ScopeModuleAStorage
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-storage': ScopeModuleAStorage;
+    'a-data': ScopeModuleAStorage;
   }
 
   export interface IBeanScopeConfig {
-    'a-storage': ReturnType<typeof config>;
+    'a-data': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {
-    'a-storage': (typeof locales)[TypeLocaleBase];
+    'a-data': (typeof locales)[TypeLocaleBase];
   }
 }
