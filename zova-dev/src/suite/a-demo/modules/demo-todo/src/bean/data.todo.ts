@@ -1,4 +1,4 @@
-import { Data, getBeanName } from 'zova';
+import { Data } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { BeanDataBase } from 'zova-module-a-data';
 

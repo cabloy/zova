@@ -7,6 +7,7 @@ import {
   UseQueryDefinedReturnType,
   UseQueryOptions,
 } from '@tanstack/vue-query';
+import { UnwrapNestedRefs } from 'vue';
 import { BeanBase, SymbolBeanFullName, Virtual } from 'zova';
 
 type NonUndefinedGuard<T> = T extends undefined ? never : T;
@@ -33,15 +34,15 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,
-  ): UseQueryReturnType<TData, TError>;
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,
-  ): UseQueryDefinedReturnType<TData, TError>;
+  ): UnwrapNestedRefs<UseQueryDefinedReturnType<TData, TError>>;
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>,
     queryClient?: QueryClient,
-  ): UseQueryReturnType<TData, TError>;
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
   $useQuery(params) {
     params = { ...params };
     params.queryKey = this._forcePrefix(params.queryKey);
