@@ -19,9 +19,11 @@ export interface QueryMetaSSR {
   dehydrate?: boolean;
 }
 
+export type QueryMetaPersisterStorage = 'cookie' | 'local' | 'db' | undefined;
+
 export interface QueryMetaPersister {
   /** default is db if async, local if sync */
-  storage?: 'cookie' | 'local' | 'db';
+  storage?: QueryMetaPersisterStorage;
   /** default is 24 hours */
   maxAge?: number;
 }

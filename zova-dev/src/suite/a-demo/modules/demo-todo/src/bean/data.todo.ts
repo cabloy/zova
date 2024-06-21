@@ -8,21 +8,15 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
   protected async __init__() {}
 
   select() {
-    const persister = experimental_createPersister({
-      storage: localStorage,
-      maxAge: 1000 * 60 * 60 * 12, // 12 hours
-      prefix: `${this.app.config.env.appName}-query`,
-      serialize: data => {
-        return JSON.stringify(data);
-      },
-    }) as any;
     return this.$useQuery({
       queryKey: ['select'],
       queryFn: async () => {
         await this.app.meta.util.sleep(1000);
         return 100;
       },
-      persister,
+      meta: {
+        persister: { storage: 'db' },
+      },
     });
   }
 }

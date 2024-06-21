@@ -23,15 +23,15 @@ importers:
       zova:
         specifier: workspace:^
         version: link:packages-zova/zova
+      zova-module-a-data:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-core/modules/a-data
       zova-module-a-pinia:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-pinia
       zova-module-a-router:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-router
-      zova-module-a-data:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-data
       zova-module-a-style:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
@@ -216,20 +216,32 @@ importers:
       zova-module-a-core:
         specifier: ^5.0.37
         version: link:modules/a-core
+      zova-module-a-data:
+        specifier: ^5.0.0
+        version: link:modules/a-data
       zova-module-a-pinia:
         specifier: ^5.0.16
         version: link:modules/a-pinia
       zova-module-a-router:
         specifier: ^5.0.36
         version: link:modules/a-router
-      zova-module-a-data:
-        specifier: ^5.0.0
-        version: link:modules/a-data
       zova-module-a-style:
         specifier: ^5.0.10
         version: link:modules/a-style
 
   src/suite-vendor/a-core/modules/a-core: {}
+
+  src/suite-vendor/a-core/modules/a-data:
+    dependencies:
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.45.0
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.45.0(vue@3.4.29(typescript@5.4.5))
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
 
   src/suite-vendor/a-core/modules/a-pinia:
     dependencies:
@@ -242,15 +254,6 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.3(vue@3.4.29(typescript@5.4.5))
-
-  src/suite-vendor/a-core/modules/a-data:
-    dependencies:
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.45.0
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.45.0(vue@3.4.29(typescript@5.4.5))
 
   src/suite-vendor/a-core/modules/a-style: {}
 
@@ -1918,6 +1921,10 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4097,6 +4104,8 @@ snapshots:
   is-path-inside@3.0.3: {}
 
   isexe@2.0.0: {}
+
+  js-cookie@3.0.5: {}
 
   js-tokens@4.0.0: {}
 

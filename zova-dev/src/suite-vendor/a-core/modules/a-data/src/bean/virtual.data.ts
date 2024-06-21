@@ -11,7 +11,9 @@ import {
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 import { BeanBase, Cast, SymbolBeanFullName, Virtual } from 'zova';
-import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from './types.js';
+import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../common/types.js';
+import { experimental_createPersister } from '@tanstack/query-persist-client-core';
+import { QueryMetaPersisterStorage } from '../types.js';
 
 @Virtual()
 export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
@@ -30,6 +32,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   $useQuery(params) {
     params = { ...params };
     params.queryKey = this._forceQueryKeyPrefix(params.queryKey);
+    params.persister = this._createPersister(params.meta?.persister, false);
     return this.ctx.meta.util.instanceScope(() => {
       const data = useQuery(params);
       window.setTimeout(() => {
@@ -66,6 +69,22 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     filters = { ...filters };
     Cast(filters).queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
     return this.$queryClient.getQueryCache().find(filters as any);
+  }
+
+  private _createPersister(options, sync: boolean) {
+    console.log('options:', options);
+    return experimental_createPersister({
+      storage: localStorage,
+      maxAge: 1000 * 60 * 60 * 12, // 12 hours
+      prefix: `${this.app.config.env.appName}-query`,
+      serialize: data => {
+        return JSON.stringify(data);
+      },
+    });
+  }
+
+  private _getPersisterStorage(storage: QueryMetaPersisterStorage, sync: boolean) {
+    storage = storage ?? (sync ? 'local' : 'db');
   }
 
   private _getPersisterPrefix() {
