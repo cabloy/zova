@@ -61,29 +61,29 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   }
   controllerDataInit(controllerData: IControllerData, controller: BeanBase) {
     // only for controller page
-    if (controller instanceof BeanControllerPageBase) {
-      const route = controllerData.context.route;
-      const schemaKey = String(route.name || route.path);
-      let schemas: TypePageSchema | undefined;
-      const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(schemaKey));
-      if (!moduleInfo) {
-        // do nothing
-        return;
-      }
-      const module = this.app.meta.module.get(moduleInfo.relativeName)!;
-      if (route.name) {
-        schemas = module.resource.pageNameSchemas?.[schemaKey];
-      } else {
-        schemas = module.resource.pagePathSchemas?.[schemaKey];
-      }
-      controller.$params = useComputed(() => {
-        if (!schemas?.params) throw new Error(`page params schema not found: ${schemaKey}`);
-        return schemas.params.parse(route.params);
-      });
-      controller.$query = useComputed(() => {
-        if (!schemas?.query) throw new Error(`page query schema not found: ${schemaKey}`);
-        return schemas.query.parse(route.query);
-      });
+    if (!(controller instanceof BeanControllerPageBase)) return;
+    const route = controllerData.context.route;
+    if (!route) return;
+    const schemaKey = String(route.name || route.path);
+    let schemas: TypePageSchema | undefined;
+    const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(schemaKey));
+    if (!moduleInfo) {
+      // do nothing
+      return;
     }
+    const module = this.app.meta.module.get(moduleInfo.relativeName)!;
+    if (route.name) {
+      schemas = module.resource.pageNameSchemas?.[schemaKey];
+    } else {
+      schemas = module.resource.pagePathSchemas?.[schemaKey];
+    }
+    controller.$params = useComputed(() => {
+      if (!schemas?.params) throw new Error(`page params schema not found: ${schemaKey}`);
+      return schemas.params.parse(route.params);
+    });
+    controller.$query = useComputed(() => {
+      if (!schemas?.query) throw new Error(`page query schema not found: ${schemaKey}`);
+      return schemas.query.parse(route.query);
+    });
   }
 }
