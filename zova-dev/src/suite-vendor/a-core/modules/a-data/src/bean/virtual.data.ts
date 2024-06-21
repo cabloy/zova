@@ -139,7 +139,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
         const expired = queryAge > options.maxAge!;
-        const busted = persistedQuery.buster !== this._getPersisterBuster();
+        const busted = persistedQuery.buster !== options.buster;
         if (expired || busted) {
           storage.removeItem(storageKey);
         } else {
@@ -174,7 +174,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       state: query.state,
       queryKey: query.queryKey,
       queryHash: query.queryHash,
-      buster: this._getPersisterBuster(),
+      buster: options.buster,
     });
     if (options.sync === true) {
       storage.setItem(storageKey, data);
