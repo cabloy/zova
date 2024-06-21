@@ -36,12 +36,13 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
             },
           });
           if (query.data === undefined && true) {
-            self.$persisterLoad;
+            return self.$persisterLoad(['user']);
           }
           return query.data;
         },
         set(newValue) {
           self.$setQueryData(['user'], newValue);
+          self.$persisterSave(['user']);
           trigger();
         },
       };
