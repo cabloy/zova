@@ -205,9 +205,6 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       storage: this._getPersisterStorage(options) as any,
       maxAge: this._getPersisterMaxAge(options.maxAge),
       prefix: this._getPersisterPrefix(),
-      // serialize: data => {
-      //   return JSON.stringify(data);
-      // },
     });
   }
 

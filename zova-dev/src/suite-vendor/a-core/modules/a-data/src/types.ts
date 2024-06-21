@@ -28,6 +28,16 @@ export interface QueryMetaPersister {
   storage?: QueryMetaPersisterStorage;
   /** default is 24 hours */
   maxAge?: number;
+  /**
+   * How to serialize the data to storage.
+   * @default `JSON.stringify`
+   */
+  serialize?: (persistedQuery: any) => any;
+  /**
+   * How to deserialize the data from storage.
+   * @default `JSON.parse`
+   */
+  deserialize?: (cachedString: any) => any;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData>>>;
