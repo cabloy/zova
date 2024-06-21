@@ -22,6 +22,8 @@ export interface QueryMetaSSR {
 export type QueryMetaPersisterStorage = 'cookie' | 'local' | 'db' | undefined;
 
 export interface QueryMetaPersister {
+  /** default is false */
+  sync?: boolean;
   /** default is db if async, local if sync */
   storage?: QueryMetaPersisterStorage;
   /** default is 24 hours */

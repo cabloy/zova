@@ -41,7 +41,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   $useQuery(params) {
     params = { ...params };
     params.queryKey = this._forceQueryKeyPrefix(params.queryKey);
-    params.persister = this._createPersister(params.meta?.persister, false);
+    params.persister = this._createPersister(params.meta?.persister);
     return this.ctx.meta.util.instanceScope(() => {
       return useQuery(params);
     });
@@ -52,12 +52,25 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     if (!query) return;
     const prefix = this._getPersisterPrefix();
     const storageKey = `${prefix}-${query.queryHash}`;
-    if (sync === true) return;
-    // Persist if we have storage defined, we use timeout to get proper state to be persisted
-    setTimeout(async () => {
+    const queryMeta = query.meta;
+    if (sync === true) {
+      this._getPersisterStorage(queryMeta?.persister);
       localStorage.setItem(
         storageKey,
-        await JSON.stringify({
+        JSON.stringify({
+          state: query.state,
+          queryKey: query.queryKey,
+          queryHash: query.queryHash,
+          buster: '',
+        }),
+      );
+      return;
+    }
+    // Persist if we have storage defined, we use timeout to get proper state to be persisted
+    setTimeout(() => {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify({
           state: query.state,
           queryKey: query.queryKey,
           queryHash: query.queryHash,
@@ -75,19 +88,23 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     return this.$queryClient.getQueryCache().find(filters as any);
   }
 
-  private _createPersister(options: QueryMetaPersister, sync: boolean) {
+  private _createPersister(options?: QueryMetaPersister | boolean) {
+    if (options === false) return undefined;
+    if (options === undefined || options === true) options = {};
     return experimental_createPersister({
-      storage: this._getPersisterStorage(options.storage, sync) as any,
+      storage: this._getPersisterStorage(options) as any,
       maxAge: options.maxAge ?? this.scopeSelf.config.persister.maxAge,
-      prefix: `${this.app.config.env.appName}-query`,
+      prefix: this._getPersisterPrefix(),
       serialize: data => {
         return JSON.stringify(data);
       },
     });
   }
 
-  private _getPersisterStorage(storage: QueryMetaPersisterStorage, sync: boolean) {
-    storage = storage ?? (sync ? 'local' : 'db');
+  private _getPersisterStorage(options?: QueryMetaPersister | boolean) {
+    if (options === false) return undefined;
+    if (options === undefined || options === true) options = {};
+    const storage = options.storage ?? (options.sync ? 'local' : 'db');
     if (storage === 'cookie') return cookieStorage;
     if (storage === 'local') return localStorage;
     if (storage === 'db') return localforage;
