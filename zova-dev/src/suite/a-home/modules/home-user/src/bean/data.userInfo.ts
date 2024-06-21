@@ -35,10 +35,13 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
               persister: { storage: 'local', sync: true },
             },
           });
+          if (query.data === undefined && true) {
+            self.$persisterLoad;
+          }
           return query.data;
         },
         set(newValue) {
-          self.$queryClient.setQueryData(['jwt'], newValue);
+          self.$setQueryData(['user'], newValue);
           trigger();
         },
       };

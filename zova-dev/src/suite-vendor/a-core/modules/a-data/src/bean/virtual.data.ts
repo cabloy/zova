@@ -67,6 +67,47 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     return this.$queryClient.setQueryData(queryKey, updater, options);
   }
 
+  $persisterLoad<T>(queryKey: QueryKey): T | undefined {
+    const query = this.$queryFind({ queryKey });
+    if (!query) return undefined;
+    const prefix = this._getPersisterPrefix();
+    const storageKey = `${prefix}-${query.queryHash}`;
+    let options = query.meta?.persister;
+    if (options === false) return undefined;
+    if (options === undefined || options === true) options = {};
+    const storage = this._getPersisterStorage(options);
+    if (!storage) return undefined;
+    try {
+      const storedData = storage.getItem(storageKey);
+      if (!storedData) return undefined;
+      const persistedQuery = JSON.parse(storedData as string);
+
+      if (persistedQuery.state.dataUpdatedAt) {
+        const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
+        const expired = queryAge > this._getPersisterMaxAge(options.maxAge);
+        const busted = persistedQuery.buster !== this._getPersisterBuster();
+        if (expired || busted) {
+          storage.removeItem(storageKey);
+        } else {
+          // Set proper updatedAt, since resolving in the first pass overrides those values
+          query.setState({
+            dataUpdatedAt: persistedQuery.state.dataUpdatedAt,
+            errorUpdatedAt: persistedQuery.state.errorUpdatedAt,
+          });
+          return persistedQuery.state.data as T;
+        }
+      } else {
+        storage.removeItem(storageKey);
+      }
+    } catch (err) {
+      if (process.env.NODE_ENV === 'development') {
+        console.error(err);
+        console.warn('Encountered an error attempting to restore query cache from persisted location.');
+      }
+      storage.removeItem(storageKey);
+    }
+  }
+
   $persisterSave(queryKey: QueryKey) {
     const query = this.$queryFind({ queryKey });
     if (!query) return;
@@ -81,7 +122,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       state: query.state,
       queryKey: query.queryKey,
       queryHash: query.queryHash,
-      buster: this.app.config.env.appVersion,
+      buster: this._getPersisterBuster(),
     });
     if (options.sync === true) {
       storage.setItem(storageKey, data);
@@ -106,12 +147,16 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     if (options === undefined || options === true) options = {};
     return experimental_createPersister({
       storage: this._getPersisterStorage(options) as any,
-      maxAge: options.maxAge ?? this.scopeSelf.config.persister.maxAge,
+      maxAge: this._getPersisterMaxAge(options.maxAge),
       prefix: this._getPersisterPrefix(),
       // serialize: data => {
       //   return JSON.stringify(data);
       // },
     });
+  }
+
+  private _getPersisterMaxAge(maxAge?: number) {
+    return maxAge ?? this.scopeSelf.config.persister.maxAge;
   }
 
   private _getPersisterStorage(options?: QueryMetaPersister | boolean) {
@@ -125,6 +170,10 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
 
   private _getPersisterPrefix() {
     return `${this.app.config.env.appName}-query`;
+  }
+
+  private _getPersisterBuster() {
+    return this.app.config.env.appVersion;
   }
 
   private _forceQueryKeyPrefix(queryKey: QueryKey): QueryKey {

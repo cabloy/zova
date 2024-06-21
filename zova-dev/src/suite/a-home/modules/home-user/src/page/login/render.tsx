@@ -10,6 +10,7 @@ export class RenderLogin extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
+        <div>{this.userQuery?.username}</div>
         <form class={this.$class.textCenter}>
           <div>{JSON.stringify(this.user)}</div>
           <div>
