@@ -1,4 +1,4 @@
-import { Data, useCustomRef } from 'zova';
+import { Data } from 'zova';
 import { BeanDataBase } from 'zova-module-a-data';
 import { ScopeModule } from '../resource/this.js';
 
@@ -24,25 +24,8 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
   jwt?: JWT;
 
   protected async __init__() {
-    const self = this;
-    this.user = useCustomRef<User | undefined>((track, trigger) => {
-      return {
-        get() {
-          track();
-          const query = self.$useQuery({}) as any;
-          if (query.data.value === undefined) {
-            const data = self.$persisterLoad(['user']);
-            if (data !== undefined) {
-              self.$setQueryData(['user'], data);
-            }
-          }
-          return query.data;
-        },
-        set(newValue) {
-          self.$setQueryData(['user'], newValue, true);
-          trigger();
-        },
-      };
+    this.user = this.$useQueryLocal({
+      queryKey: ['user'],
     });
   }
 
