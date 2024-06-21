@@ -1,7 +1,6 @@
 import { Data } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { BeanDataBase } from 'zova-module-a-data';
-import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 
 @Data()
 export class DataTodo extends BeanDataBase<ScopeModule> {

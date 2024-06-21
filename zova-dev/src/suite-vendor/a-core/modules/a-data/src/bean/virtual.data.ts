@@ -61,7 +61,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       state: query.state,
       queryKey: query.queryKey,
       queryHash: query.queryHash,
-      buster: '',
+      buster: this.app.config.env.appVersion,
     });
     if (options.sync === true) {
       storage.setItem(storageKey, data);
