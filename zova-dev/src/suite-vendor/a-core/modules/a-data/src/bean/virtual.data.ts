@@ -8,10 +8,13 @@ import {
   UseQueryOptions,
   QueryFilters,
   Query,
+  DataTag,
+  Updater,
+  SetDataOptions,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 import { BeanBase, Cast, SymbolBeanFullName, Virtual } from 'zova';
-import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../common/types.js';
+import { DefinedInitialQueryOptions, MaybeRefDeep, NoUnknown, UndefinedInitialQueryOptions } from '../common/types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { QueryMetaPersister } from '../types.js';
 import { cookieStorage } from '../common/cookieStorage.js';
@@ -36,13 +39,32 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>,
     queryClient?: QueryClient,
   ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
-  $useQuery(params) {
-    params = { ...params };
-    params.queryKey = this._forceQueryKeyPrefix(params.queryKey);
-    params.persister = this._createPersister(params.meta?.persister);
+  $useQuery(options, queryClient) {
+    options = { ...options };
+    options.queryKey = this._forceQueryKeyPrefix(options.queryKey);
+    options.persister = this._createPersister(options.meta?.persister);
     return this.ctx.meta.util.instanceScope(() => {
-      return useQuery(params);
+      return useQuery(options, queryClient);
     });
+  }
+
+  $setQueryData<
+    TQueryFnData,
+    TTaggedQueryKey extends QueryKey,
+    TData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData,
+  >(
+    queryKey: TTaggedQueryKey,
+    updater: Updater<NoInfer<TData> | undefined, NoInfer<TData> | undefined>,
+    options?: MaybeRefDeep<SetDataOptions>,
+  ): TData | undefined;
+  $setQueryData<TQueryFnData, TData = NoUnknown<TQueryFnData>>(
+    queryKey: MaybeRefDeep<QueryKey>,
+    updater: Updater<NoInfer<TData> | undefined, NoInfer<TData> | undefined>,
+    options?: MaybeRefDeep<SetDataOptions>,
+  ): TData | undefined;
+  $setQueryData(queryKey, updater, options) {
+    queryKey = this._forceQueryKeyPrefix(queryKey);
+    return this.$queryClient.setQueryData(queryKey, updater, options);
   }
 
   $persisterSave(queryKey: QueryKey) {
