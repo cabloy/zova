@@ -4,8 +4,6 @@ import { BeanDataBase } from 'zova-module-a-data';
 
 @Data()
 export class DataTodo extends BeanDataBase<ScopeModule> {
-  protected async __init__() {}
-
   select() {
     return this.$useQuery({
       queryKey: ['select'],
