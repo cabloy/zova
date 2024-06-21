@@ -128,9 +128,8 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     if (!query) return undefined;
     const prefix = this._getPersisterPrefix();
     const storageKey = `${prefix}-${query.queryHash}`;
-    let options = query.meta?.persister;
-    if (options === false) return undefined;
-    if (options === undefined || options === true) options = {};
+    const options = this._adjustPersisterOptions(query.meta?.persister);
+    if (!options) return undefined;
     const storage = this._getPersisterStorage(options);
     if (!storage) return undefined;
     try {
@@ -140,7 +139,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
-        const expired = queryAge > this._getPersisterMaxAge(options.maxAge);
+        const expired = queryAge > options.maxAge!;
         const busted = persistedQuery.buster !== this._getPersisterBuster();
         if (expired || busted) {
           storage.removeItem(storageKey);
@@ -208,17 +207,24 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     });
   }
 
-  private _getPersisterMaxAge(maxAge?: number) {
-    return maxAge ?? this.scopeSelf.config.persister.maxAge;
+  private _adjustPersisterOptions(options?: QueryMetaPersister | boolean) {
+    if (options === false) return undefined;
+    if (options === undefined || options === true) {
+      options = {};
+    } else {
+      options = { ...options };
+    }
+    options.storage = options.storage ?? (options.sync ? 'local' : 'db');
+    options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge;
+    return options;
   }
 
   private _getPersisterStorage(options?: QueryMetaPersister | boolean) {
-    if (options === false) return undefined;
-    if (options === undefined || options === true) options = {};
-    const storage = options.storage ?? (options.sync ? 'local' : 'db');
-    if (storage === 'cookie') return cookieStorage;
-    if (storage === 'local') return localStorage;
-    if (storage === 'db') return localforage;
+    options = this._adjustPersisterOptions(options);
+    if (!options) return undefined;
+    if (options.storage === 'cookie') return cookieStorage;
+    if (options.storage === 'local') return localStorage;
+    if (options.storage === 'db') return localforage;
   }
 
   private _getPersisterPrefix() {
