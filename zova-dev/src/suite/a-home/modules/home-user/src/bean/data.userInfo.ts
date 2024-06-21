@@ -31,7 +31,7 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
           track();
           const query = self.$useQuery({
             queryKey: ['user'],
-
+            enabled: false,
             staleTime: Infinity,
             meta: {
               persister: { storage: 'local', sync: true },
