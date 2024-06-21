@@ -67,14 +67,13 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryLocal(options, queryClient) {
-    options = {
-      ...options,
+    options = this.app.meta.util.extend({}, options, {
       enabled: false,
       staleTime: Infinity,
       meta: {
         persister: { storage: 'local', sync: true },
       },
-    };
+    });
     const queryKey = options.queryKey;
     const self = this;
     return useCustomRef((track, trigger) => {
@@ -213,7 +212,9 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       options = { ...options };
     }
     options.storage = options.storage ?? (options.sync ? 'local' : 'db');
-    options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge;
+    options.maxAge =
+      options.maxAge ??
+      (options.sync ? this.scopeSelf.config.persister.sync.maxAge : this.scopeSelf.config.persister.async.maxAge);
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
     options.serialize = options.serialize ?? JSON.stringify;

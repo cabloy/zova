@@ -22,16 +22,21 @@ export interface UserInfoData {
 export class DataUserInfo extends BeanDataBase<ScopeModule> {
   user?: User;
   jwt?: JWT;
+  accessToken?: string;
 
   protected async __init__() {
     this.user = this.$useQueryLocal({
       queryKey: ['user'],
+    });
+    this.jwt = this.$useQueryLocal({
+      queryKey: ['jwt'],
     });
   }
 
   setUserInfo(data: UserInfoData) {
     this.user = data.user;
     this.jwt = data.jwt;
+    this.accessToken = data.jwt?.accessToken;
   }
 
   logout() {
