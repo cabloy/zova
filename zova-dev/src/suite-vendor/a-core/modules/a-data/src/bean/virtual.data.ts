@@ -134,7 +134,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     try {
       const storedData = storage.getItem(storageKey);
       if (!storedData) return undefined;
-      const persistedQuery = JSON.parse(storedData as string);
+      const persistedQuery = options.deserialize!(storedData as string);
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
@@ -170,7 +170,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     const storage = this._getPersisterStorage(options);
     if (!storage) return;
     const storageKey = `${options.prefix}-${query.queryHash}`;
-    const data = JSON.stringify({
+    const data = options.serialize!({
       state: query.state,
       queryKey: query.queryKey,
       queryHash: query.queryHash,
@@ -216,6 +216,8 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge;
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
+    options.serialize = options.serialize ?? JSON.stringify;
+    options.deserialize = options.deserialize ?? JSON.parse;
     return options;
   }
 
