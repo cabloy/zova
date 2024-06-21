@@ -88,9 +88,9 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       storage: this._getPersisterStorage(options) as any,
       maxAge: options.maxAge ?? this.scopeSelf.config.persister.maxAge,
       prefix: this._getPersisterPrefix(),
-      serialize: data => {
-        return JSON.stringify(data);
-      },
+      // serialize: data => {
+      //   return JSON.stringify(data);
+      // },
     });
   }
 
