@@ -13,10 +13,19 @@ import { UnwrapNestedRefs } from 'vue';
 import { BeanBase, Cast, SymbolBeanFullName, Virtual } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../common/types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
-import { QueryMetaPersisterStorage } from '../types.js';
+import { QueryMetaPersister, QueryMetaPersisterStorage } from '../types.js';
+import { cookieStorage } from '../common/cookieStorage.js';
+import localforage from 'localforage';
+import { ScopeModule, __ThisModule__ } from '../resource/this.js';
 
 @Virtual()
 export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
+  scopeSelf: ScopeModule;
+
+  protected async __init__() {
+    this.scopeSelf = this.getScope(__ThisModule__);
+  }
+
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,
@@ -34,12 +43,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     params.queryKey = this._forceQueryKeyPrefix(params.queryKey);
     params.persister = this._createPersister(params.meta?.persister, false);
     return this.ctx.meta.util.instanceScope(() => {
-      const data = useQuery(params);
-      window.setTimeout(() => {
-        this.$queryClient.setQueryData(params.queryKey, 500);
-        this.$persisterSave(params.queryKey);
-      }, 2000);
-      return data;
+      return useQuery(params);
     });
   }
 
@@ -71,11 +75,10 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     return this.$queryClient.getQueryCache().find(filters as any);
   }
 
-  private _createPersister(options, sync: boolean) {
-    console.log('options:', options);
+  private _createPersister(options: QueryMetaPersister, sync: boolean) {
     return experimental_createPersister({
-      storage: localStorage,
-      maxAge: 1000 * 60 * 60 * 12, // 12 hours
+      storage: this._getPersisterStorage(options.storage, sync) as any,
+      maxAge: options.maxAge ?? this.scopeSelf.config.persister.maxAge,
       prefix: `${this.app.config.env.appName}-query`,
       serialize: data => {
         return JSON.stringify(data);
@@ -85,6 +88,9 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
 
   private _getPersisterStorage(storage: QueryMetaPersisterStorage, sync: boolean) {
     storage = storage ?? (sync ? 'local' : 'db');
+    if (storage === 'cookie') return cookieStorage;
+    if (storage === 'local') return localStorage;
+    if (storage === 'db') return localforage;
   }
 
   private _getPersisterPrefix() {

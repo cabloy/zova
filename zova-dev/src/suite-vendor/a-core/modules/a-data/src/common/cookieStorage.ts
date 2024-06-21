@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-export const cookie = {
+export const cookieStorage = {
   getItem(key: string): string | undefined {
     return Cookies.get(key);
   },
