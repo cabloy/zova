@@ -1,6 +1,6 @@
 import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { VueQueryPlugin, VueQueryPluginOptions } from '@tanstack/vue-query';
+import { VueQueryPlugin, VueQueryPluginOptions, defaultShouldDehydrateQuery } from '@tanstack/vue-query';
 
 @Local()
 export class Storage extends BeanBase<ScopeModule> {
@@ -14,6 +14,12 @@ export class Storage extends BeanBase<ScopeModule> {
             refetchOnMount: false,
             refetchOnReconnect: false,
             // gcTime: 1000 * 60 * 5,
+          },
+          dehydrate: {
+            shouldDehydrateQuery(query) {
+              if (query.meta?.dehydrate === false) return false;
+              return defaultShouldDehydrateQuery(query);
+            },
           },
         },
       },
