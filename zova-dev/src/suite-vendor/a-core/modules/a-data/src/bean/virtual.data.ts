@@ -13,7 +13,7 @@ import {
   SetDataOptions,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
-import { BeanBase, Cast, SymbolBeanFullName, Virtual } from 'zova';
+import { BeanBase, Cast, SymbolBeanFullName, Virtual, useCustomRef } from 'zova';
 import { DefinedInitialQueryOptions, MaybeRefDeep, NoUnknown, UndefinedInitialQueryOptions } from '../common/types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { QueryMetaPersister } from '../types.js';
@@ -45,6 +45,56 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     options.persister = this._createPersister(options.meta?.persister);
     return this.ctx.meta.util.instanceScope(() => {
       return useQuery(options, queryClient);
+    });
+  }
+
+  $useQueryLocal<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocal<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocal<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocal(options, queryClient) {
+    options = {
+      ...options,
+      enabled: false,
+      staleTime: Infinity,
+      meta: {
+        persister: { storage: 'local', sync: true },
+      },
+    };
+    const queryKey = options.queryKey;
+    const self = this;
+    return useCustomRef((track, trigger) => {
+      return {
+        get() {
+          track();
+          const query = self.$useQuery(options, queryClient) as any;
+          if (query.data.value === undefined) {
+            const data = self.$persisterLoad(queryKey);
+            if (data !== undefined) {
+              self.$setQueryData(queryKey, data);
+            }
+          }
+          return query.data;
+        },
+        set(newValue) {
+          self.$setQueryData(queryKey, newValue, true);
+          trigger();
+        },
+      };
     });
   }
 
