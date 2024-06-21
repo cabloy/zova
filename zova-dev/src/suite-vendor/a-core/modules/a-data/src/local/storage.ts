@@ -17,7 +17,7 @@ export class Storage extends BeanBase<ScopeModule> {
           },
           dehydrate: {
             shouldDehydrateQuery(query) {
-              if (query.meta?.dehydrate === false) return false;
+              if (query.meta?.ssr?.dehydrate === false) return false;
               return defaultShouldDehydrateQuery(query);
             },
           },

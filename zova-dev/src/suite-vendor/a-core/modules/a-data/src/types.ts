@@ -9,16 +9,21 @@ declare module 'zova' {
 
 declare module '@tanstack/vue-query' {
   export interface QueryMeta {
-    dehydrate?: boolean;
+    ssr?: QueryMetaSSR;
+    persister?: QueryMetaPersister | boolean;
   }
 }
 
-export interface StoreConfigPersist {
-  storage?: 'cookie' | 'local' | 'db';
+export interface QueryMetaSSR {
+  /** default is true */
+  dehydrate?: boolean;
 }
 
-export interface StoreConfig {
-  persist?: StoreConfigPersist | boolean;
+export interface QueryMetaPersister {
+  /** default is db if async, local if sync */
+  storage?: 'cookie' | 'local' | 'db';
+  /** default is 24 hours */
+  maxAge?: number;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData>>>;
