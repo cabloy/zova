@@ -47,37 +47,30 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     });
   }
 
-  $persisterSave(queryKey: QueryKey, sync?: boolean) {
+  $persisterSave(queryKey: QueryKey) {
     const query = this.$queryFind({ queryKey });
     if (!query) return;
     const prefix = this._getPersisterPrefix();
     const storageKey = `${prefix}-${query.queryHash}`;
-    const queryMeta = query.meta;
-    if (sync === true) {
-      this._getPersisterStorage(queryMeta?.persister);
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({
-          state: query.state,
-          queryKey: query.queryKey,
-          queryHash: query.queryHash,
-          buster: '',
-        }),
-      );
-      return;
+    let options = query.meta?.persister;
+    if (options === false) return;
+    if (options === undefined || options === true) options = {};
+    const storage = this._getPersisterStorage(options);
+    if (!storage) return;
+    const data = JSON.stringify({
+      state: query.state,
+      queryKey: query.queryKey,
+      queryHash: query.queryHash,
+      buster: '',
+    });
+    if (options.sync === true) {
+      storage.setItem(storageKey, data);
+    } else {
+      // Persist if we have storage defined, we use timeout to get proper state to be persisted
+      setTimeout(() => {
+        storage.setItem(storageKey, data);
+      }, 0);
     }
-    // Persist if we have storage defined, we use timeout to get proper state to be persisted
-    setTimeout(() => {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({
-          state: query.state,
-          queryKey: query.queryKey,
-          queryHash: query.queryHash,
-          buster: '',
-        }),
-      );
-    }, 0);
   }
 
   $queryFind<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData>(
