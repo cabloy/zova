@@ -55,16 +55,22 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   >(
     queryKey: TTaggedQueryKey,
     updater: Updater<NoInfer<TData> | undefined, NoInfer<TData> | undefined>,
+    persisterSave?: boolean,
     options?: MaybeRefDeep<SetDataOptions>,
   ): TData | undefined;
   $setQueryData<TQueryFnData, TData = NoUnknown<TQueryFnData>>(
     queryKey: MaybeRefDeep<QueryKey>,
     updater: Updater<NoInfer<TData> | undefined, NoInfer<TData> | undefined>,
+    persisterSave?: boolean,
     options?: MaybeRefDeep<SetDataOptions>,
   ): TData | undefined;
-  $setQueryData(queryKey, updater, options) {
+  $setQueryData(queryKey, updater, persisterSave, options) {
     queryKey = this._forceQueryKeyPrefix(queryKey);
-    return this.$queryClient.setQueryData(queryKey, updater, options);
+    const data = this.$queryClient.setQueryData(queryKey, updater, options);
+    if (persisterSave) {
+      this.$persisterSave(queryKey);
+    }
+    return data;
   }
 
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {

@@ -46,8 +46,7 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
           return query.data;
         },
         set(newValue) {
-          self.$setQueryData(['user'], newValue);
-          self.$persisterSave(['user']);
+          self.$setQueryData(['user'], newValue, true);
           trigger();
         },
       };
