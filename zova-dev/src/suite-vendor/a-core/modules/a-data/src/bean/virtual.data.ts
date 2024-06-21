@@ -20,10 +20,8 @@ import { ScopeModule, __ThisModule__ } from '../resource/this.js';
 
 @Virtual()
 export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
-  scopeSelf: ScopeModule;
-
-  protected async __init__() {
-    this.scopeSelf = this.getScope(__ThisModule__);
+  get scopeSelf(): ScopeModule {
+    return this.getScope(__ThisModule__);
   }
 
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
