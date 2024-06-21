@@ -35,7 +35,6 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
               persister: { storage: 'local', sync: true },
             },
           });
-          console.log('user: ', query.data);
           return query.data;
         },
         set(newValue) {
