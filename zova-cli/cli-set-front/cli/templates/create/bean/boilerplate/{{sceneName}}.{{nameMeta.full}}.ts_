@@ -1,6 +1,5 @@
-import { <%=argv.sceneName==='data'?'':'BeanBase, '%><%=argv.sceneNameCapitalize%> } from 'zova';
+import { <%=argv.sceneName==='data'?'':'BeanBase, '%><%=argv.sceneNameCapitalize%> } from 'zova';<%-argv.sceneName==='data'?"\nimport { BeanDataBase } from 'zova-module-a-data';":''%>
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length)%>resource/this.js';
-<%=argv.sceneName==='data'?"import { BeanDataBase } from 'zova-module-a-data';":''%>
 
 @<%=argv.sceneNameCapitalize%>()
 export class <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> extends <%=argv.sceneName==='data'?'BeanDataBase':'BeanBase'%><ScopeModule> {
