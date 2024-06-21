@@ -29,14 +29,19 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
       return {
         get() {
           track();
-          const query = self.$useQuery<User>({
+          const query = self.$useQuery({
             queryKey: ['user'],
+
+            staleTime: Infinity,
             meta: {
               persister: { storage: 'local', sync: true },
             },
-          });
-          if (query.data === undefined && true) {
-            return self.$persisterLoad(['user']);
+          }) as any;
+          if (query.data.value === undefined) {
+            const data = self.$persisterLoad(['user']);
+            if (data !== undefined) {
+              self.$setQueryData(['user'], data);
+            }
           }
           return query.data;
         },
