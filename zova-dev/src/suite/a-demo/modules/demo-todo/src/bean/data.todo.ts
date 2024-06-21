@@ -15,7 +15,7 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
       serialize: data => {
         return JSON.stringify(data);
       },
-    });
+    }) as any;
     return this.$useQuery({
       queryKey: ['select'],
       queryFn: async () => {

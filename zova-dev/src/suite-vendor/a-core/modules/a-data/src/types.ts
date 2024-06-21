@@ -9,7 +9,7 @@ declare module 'zova' {
 
 declare module '@tanstack/vue-query' {
   export interface QueryMeta {
-    dehydrate: boolean;
+    dehydrate?: boolean;
   }
 }
 
