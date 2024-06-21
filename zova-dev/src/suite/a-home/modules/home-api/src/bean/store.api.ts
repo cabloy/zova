@@ -1,7 +1,7 @@
 import { BeanBase, Store, Use } from 'zova';
 import axios, { AxiosInstance } from 'axios';
 import { markRaw } from 'vue';
-import type { StoreUserInfo } from 'zova-module-home-user';
+import type { DataUserInfo } from 'zova-module-home-user';
 
 const SymbolApi = Symbol('SymbolApi');
 
@@ -11,8 +11,8 @@ export type StoreApiLike = StoreApi & AxiosInstance;
 
 @Store()
 export class StoreApi extends BeanBase {
-  @Use('home-user.store.userInfo')
-  $$userInfo: StoreUserInfo;
+  @Use('home-user.data.userInfo')
+  $$userInfo: DataUserInfo;
 
   private [SymbolApi]: AxiosInstance;
 

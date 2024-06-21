@@ -1,12 +1,12 @@
 import { Local, Use } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { StoreRouterLike, BeanRouterBase } from 'zova-module-a-router';
-import type { StoreUserInfo } from 'zova-module-home-user';
+import type { DataUserInfo } from 'zova-module-home-user';
 
 @Local()
 export class Router extends BeanRouterBase<ScopeModule> {
-  @Use('home-user.store.userInfo')
-  $$userInfo: StoreUserInfo;
+  @Use('home-user.data.userInfo')
+  $$userInfo: DataUserInfo;
 
   protected onRouterGuards(router: StoreRouterLike) {
     router.beforeEach(async _to => {
