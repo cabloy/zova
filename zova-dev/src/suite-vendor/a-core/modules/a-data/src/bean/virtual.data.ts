@@ -126,12 +126,11 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
     const query = this.$queryFind({ queryKey });
     if (!query) return undefined;
-    const prefix = this._getPersisterPrefix();
-    const storageKey = `${prefix}-${query.queryHash}`;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return undefined;
     const storage = this._getPersisterStorage(options);
     if (!storage) return undefined;
+    const storageKey = `${options.prefix}-${query.queryHash}`;
     try {
       const storedData = storage.getItem(storageKey);
       if (!storedData) return undefined;
@@ -166,13 +165,11 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   $persisterSave(queryKey: QueryKey) {
     const query = this.$queryFind({ queryKey });
     if (!query) return;
-    const prefix = this._getPersisterPrefix();
-    const storageKey = `${prefix}-${query.queryHash}`;
-    let options = query.meta?.persister;
-    if (options === false) return;
-    if (options === undefined || options === true) options = {};
+    const options = this._adjustPersisterOptions(query.meta?.persister);
+    if (!options) return;
     const storage = this._getPersisterStorage(options);
     if (!storage) return;
+    const storageKey = `${options.prefix}-${query.queryHash}`;
     const data = JSON.stringify({
       state: query.state,
       queryKey: query.queryKey,
@@ -198,12 +195,13 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
   }
 
   private _createPersister(options?: QueryMetaPersister | boolean) {
-    if (options === false) return undefined;
-    if (options === undefined || options === true) options = {};
+    options = this._adjustPersisterOptions(options);
+    if (!options) return undefined;
     return experimental_createPersister({
       storage: this._getPersisterStorage(options) as any,
-      maxAge: this._getPersisterMaxAge(options.maxAge),
-      prefix: this._getPersisterPrefix(),
+      maxAge: options.maxAge,
+      prefix: options.prefix,
+      buster: options.buster,
     });
   }
 
@@ -216,6 +214,8 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     }
     options.storage = options.storage ?? (options.sync ? 'local' : 'db');
     options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge;
+    options.prefix = options.prefix ?? this._getPersisterPrefix();
+    options.buster = options.buster ?? this._getPersisterBuster();
     return options;
   }
 

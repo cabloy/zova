@@ -38,6 +38,8 @@ export interface QueryMetaPersister {
    * @default `JSON.parse`
    */
   deserialize?: (cachedString: any) => any;
+  prefix?: string;
+  buster?: string;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData>>>;
