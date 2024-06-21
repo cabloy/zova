@@ -13,7 +13,7 @@ import { UnwrapNestedRefs } from 'vue';
 import { BeanBase, Cast, SymbolBeanFullName, Virtual } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../common/types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
-import { QueryMetaPersister, QueryMetaPersisterStorage } from '../types.js';
+import { QueryMetaPersister } from '../types.js';
 import { cookieStorage } from '../common/cookieStorage.js';
 import localforage from 'localforage';
 import { ScopeModule, __ThisModule__ } from '../resource/this.js';
