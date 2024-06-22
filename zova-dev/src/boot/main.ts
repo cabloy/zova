@@ -1,15 +1,13 @@
 import { createApp } from 'vue';
-import router from './router.js';
-import App from './app.vue';
+import App from './app/index.vue';
 import { zova } from './zova.js';
 
 import '../css/settings.scss';
 
-async function start({ app, router }) {
-  await zova({ app, router });
-  app.use(router);
+async function start({ app }) {
+  await zova({ app });
   app.mount('#app');
 }
 
 const app = createApp(App);
-start({ app, router });
+start({ app });
