@@ -1,6 +1,7 @@
-import { BeanControllerPageBase, Local, Use, zz } from 'zova';
+import { BeanControllerPageBase, Local, Use, useComputed, useRef, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataUserInfo, User, UserInfoData } from '../../bean/data.userInfo.js';
+import { toRef } from 'vue';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -24,9 +25,9 @@ export class ControllerPageLogin extends BeanControllerPageBase<ScopeModule, Que
   tokenQuery?: string;
 
   protected async __init__() {
-    this.userQuery = this.$$userInfo.user;
+    this.userQuery = useRef(() => this.$$userInfo.user);
     console.log(this.userQuery);
-    this.tokenQuery = this.$$userInfo.token;
+    this.tokenQuery = useRef(() => this.$$userInfo.token);
     console.log(this.tokenQuery);
   }
 
