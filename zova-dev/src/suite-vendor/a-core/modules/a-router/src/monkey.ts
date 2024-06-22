@@ -31,8 +31,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     return this._beanRouter;
   }
 
-  async appInitialize() {}
-  async appInitialized() {
+  async appInitialize(_bean: BeanContainerLike) {}
+  async appInitialized(_bean: BeanContainerLike) {
     // emit event
     const router = this.bean.inject('a-router:router');
     await this.app.meta.event.emit('a-router:routerGuards', router);

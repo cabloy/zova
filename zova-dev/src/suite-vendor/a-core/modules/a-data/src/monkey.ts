@@ -6,11 +6,11 @@ import { markRaw } from 'vue';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   storage: Storage;
 
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // storage
     this.storage = await this.bean._newBean(Storage, false);
   }
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
 
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$queryClient', {

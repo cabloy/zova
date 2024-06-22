@@ -4,11 +4,11 @@ import { Pinia } from './local/pinia.js';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   pinia: Pinia;
 
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // pinia
     this.pinia = await this.bean._newBean(Pinia, false);
   }
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
 
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
     const self = this;

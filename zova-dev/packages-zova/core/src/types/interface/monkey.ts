@@ -24,8 +24,8 @@ export interface IMonkeyModule {
 }
 
 export interface IMonkeySystem {
-  appInitialize(): Promise<void>;
-  appInitialized(): Promise<void>;
+  appInitialize(bean: BeanContainerLike): Promise<void>;
+  appInitialized(bean: BeanContainerLike): Promise<void>;
   beanInit(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
   beanInited(bean: BeanContainerLike, beanInstance: BeanBase): Promise<void>;
   beanDispose(bean: BeanContainerLike, beanInstance: BeanBase): void;
