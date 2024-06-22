@@ -116,7 +116,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
       enabled: false,
       staleTime: Infinity,
       meta: {
-        persister: { storage: 'local', sync: true },
+        persister: { storage: 'cookie', sync: true },
       },
     });
     const queryKey = options.queryKey;

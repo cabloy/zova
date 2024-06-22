@@ -31,6 +31,9 @@ export class DataUserInfo extends BeanDataBase<ScopeModule> {
     this.jwt = this.$useQueryLocal({
       queryKey: ['jwt'],
     });
+    this.token = this.$useQueryCookie({
+      queryKey: ['token'],
+    });
   }
 
   setUserInfo(data: UserInfoData) {
