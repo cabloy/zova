@@ -93,6 +93,51 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     });
   }
 
+  $useQueryCookie<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryCookie<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryCookie<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryCookie(options, queryClient) {
+    options = this.app.meta.util.extend({}, options, {
+      enabled: false,
+      staleTime: Infinity,
+      meta: {
+        persister: { storage: 'local', sync: true },
+      },
+    });
+    const queryKey = options.queryKey;
+    const self = this;
+    return useComputed({
+      get() {
+        const query = self.$useQuery(options, queryClient) as any;
+        if (query.data.value === undefined) {
+          const data = self.$persisterLoad(queryKey);
+          if (data !== undefined) {
+            self.$setQueryData(queryKey, data);
+          }
+        }
+        return query.data;
+      },
+      set(value) {
+        self.$setQueryData(queryKey, value, true);
+      },
+    });
+  }
+
   $setQueryData<
     TQueryFnData,
     TTaggedQueryKey extends QueryKey,
