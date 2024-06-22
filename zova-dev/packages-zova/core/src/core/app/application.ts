@@ -39,10 +39,16 @@ export class ZovaApplication {
     await this.handlePlugins();
     // module
     await this.meta.module.initialize(modulesMeta);
+  }
+
+  /** @internal */
+  public async initialized({ bean }: { bean: BeanContainerLike }) {
+    // module
+    await this.meta.module.initialized();
     // monkey: appInitialize
-    await this.meta.module._monkeyModule('appInitialize');
+    await this.meta.module._monkeyModule('appInitialize', undefined, bean);
     // monkey: appInitialized
-    await this.meta.module._monkeyModule('appInitialized');
+    await this.meta.module._monkeyModule('appInitialized', undefined, bean);
   }
 
   private async handlePlugins() {
