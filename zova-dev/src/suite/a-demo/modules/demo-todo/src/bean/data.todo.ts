@@ -8,8 +8,7 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
     return this.$useQuery({
       queryKey: ['select'],
       queryFn: async () => {
-        await this.app.meta.util.sleep(1000);
-        return 100;
+        return this.scope.service.todo.select();
       },
       meta: {
         persister: { storage: 'db' },

@@ -2,6 +2,7 @@ import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataTodo } from '../../bean/data.todo.js';
 import { DataQuery } from 'zova-module-a-data';
+import { ServiceTodoEntity } from '../../api/index.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -15,14 +16,14 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
   $$todo: DataTodo;
-  todoQuery: DataQuery<number>;
+  dataTodos: DataQuery<ServiceTodoEntity[]>;
 
   protected async __init__() {
     const list = await this.scope.service.todo.select();
     console.log(list.length);
     const item = await this.scope.service.todo.get({ id: 'xxx' });
     console.log(item);
-    this.todoQuery = this.$$todo.select();
+    this.dataTodos = this.$$todo.select();
   }
 
   protected __dispose__() {}

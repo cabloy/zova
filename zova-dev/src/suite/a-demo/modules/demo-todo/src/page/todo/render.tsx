@@ -9,8 +9,10 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>{this.todoQuery.isFetching.toString()}</div>
-        <div>{this.todoQuery.data}</div>
+        <div>{this.dataTodos.isFetching.toString()}</div>
+        {this.dataTodos.data?.map(item => {
+          return <div>{item.title}</div>;
+        })}
       </div>
     );
   }
