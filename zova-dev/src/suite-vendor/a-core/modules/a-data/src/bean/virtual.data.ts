@@ -185,7 +185,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     if (!options) return undefined;
     const storage = this._getPersisterStorage(options);
     if (!storage) return undefined;
-    const storageKey = `${options.prefix}-${query.queryHash}`;
+    const storageKey = this._getPersisterStorageKey(options, query);
     try {
       const storedData = storage.getItem(storageKey);
       if (!storedData) return undefined;
@@ -224,7 +224,7 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     if (!options) return;
     const storage = this._getPersisterStorage(options);
     if (!storage) return;
-    const storageKey = `${options.prefix}-${query.queryHash}`;
+    const storageKey = this._getPersisterStorageKey(options, query);
     const data = options.serialize!({
       state: query.state,
       queryKey: query.queryKey,
@@ -276,6 +276,11 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     options.serialize = options.serialize ?? JSON.stringify;
     options.deserialize = options.deserialize ?? JSON.parse;
     return options;
+  }
+
+  private _getPersisterStorageKey(options: QueryMetaPersister, query: Query) {
+    if (options.storage === 'cookie') return String(query.queryKey[query.queryKey.length - 1]);
+    return `${options.prefix}-${query.queryHash}`;
   }
 
   private _getPersisterStorage(options?: QueryMetaPersister | boolean) {
