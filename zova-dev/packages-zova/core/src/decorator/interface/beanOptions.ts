@@ -4,7 +4,7 @@ import { ContainerScope } from '../index.js';
 
 export type TypeDecoratorBeanOptionsSceneBase = 'local' | 'aop' | 'virtual' | 'scope' | TypeDecoratorBeanOptionsScene;
 // containerScope: store(app) data(new)
-export type TypeDecoratorBeanOptionsScene = 'store' | 'data' | 'style' | 'theme' | 'tool'; // | 'ui' | 'event';
+export type TypeDecoratorBeanOptionsScene = 'bean' | 'store' | 'data' | 'style' | 'theme' | 'tool'; // | 'ui' | 'event';
 
 export interface IDecoratorBeanOptionsBase<T = unknown> {
   /**
