@@ -51,7 +51,7 @@
     "vite": "^5.3.1",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-tsc": "^2.0.21",
-    "zova-vite": "^1.0.102"
+    "zova-vite": "^1.0.103"
   },
   "license": "MIT",
   "gitHead": "91eeac4b9907ad6dcbe273a62ca9f431181e3307"

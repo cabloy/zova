@@ -45,7 +45,7 @@
     "svgo": "^3.2.0",
     "urllib": "^3.24.0",
     "zova-core": "^5.0.83",
-    "zova-vite": "^1.0.102"
+    "zova-vite": "^1.0.103"
   },
   "gitHead": "91eeac4b9907ad6dcbe273a62ca9f431181e3307"
 }
