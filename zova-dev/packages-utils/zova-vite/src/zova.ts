@@ -26,6 +26,7 @@ export async function generateZovaViteMeta(
   // alias
   const alias = {
     '@vue/runtime-core': '@cabloy/vue-runtime-core',
+    '@vue/reactivity': '@cabloy/vue-reactivity',
   };
   // viteConfig
   const viteConfig = {
