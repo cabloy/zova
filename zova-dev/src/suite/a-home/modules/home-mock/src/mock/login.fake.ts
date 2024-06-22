@@ -5,6 +5,7 @@ export default defineFakeRoute([
     url: '/home/user/login',
     method: 'post',
     response: req => {
+      const now = Date.now();
       return {
         code: 0,
         message: 'Success',
@@ -14,8 +15,8 @@ export default defineFakeRoute([
             avatar: ':emoji:flower',
           },
           jwt: {
-            accessToken: 'accessToken-xxxxx',
-            refreshToken: 'refreshToken-xxxxx',
+            accessToken: `accessToken-${now}`,
+            refreshToken: `refreshToken-${now}`,
             expireTime: Date.now() + 2 * 3600 * 1000,
           },
         },
