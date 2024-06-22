@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import router from './router.js';
+import createRouter from './router.js';
 import App from './app.vue';
 import { zova } from './zova.js';
 
@@ -13,4 +13,4 @@ async function start({ app, router }) {
 }
 
 const app = createApp(App);
-start({ app, router });
+start({ app, router: createRouter() });

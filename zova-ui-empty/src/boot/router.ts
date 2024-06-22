@@ -7,8 +7,10 @@ const createHistory =
       ? createWebHistory
       : createWebHashHistory;
 
-export default createRouter({
-  scrollBehavior: () => ({ left: 0, top: 0 }),
-  routes: [],
-  history: createHistory(process.env.APP_ROUTER_BASE),
-});
+export default function () {
+  return createRouter({
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+    routes: [],
+    history: createHistory(process.env.APP_ROUTER_BASE),
+  });
+}
