@@ -35,6 +35,10 @@ const __ZovaManualChunkVendors = [
     output: 'zova',
   },
   { match: ['vue-router'], output: 'vue-router' },
+  { match: ['pinia'], output: 'pinia' },
+  { match: ['@tanstack'], output: 'tanstack' },
+  { match: ['js-cookie'], output: 'js-cookie' },
+  { match: ['localforage'], output: 'localforage' },
 ];
 
 export function createConfigUtils(
@@ -99,8 +103,8 @@ export function createConfigUtils(
     if (configOptions.zovaManualChunk.debug) {
       console.log(id);
     }
-    return null;
-    //return 'vendor';
+    return 'vendor';
+    // return null;
   }
 
   function _configManualChunk_vendorsDefault() {
