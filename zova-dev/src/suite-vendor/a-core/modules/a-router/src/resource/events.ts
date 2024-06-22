@@ -1,9 +1,9 @@
-import { StoreRouterLike } from './beans.js';
+import { BeanRouterLike } from './beans.js';
 
 import 'zova';
 declare module 'zova' {
   export interface IEventRecord {
-    'a-router:routerGuards': StoreRouterLike;
+    'a-router:routerGuards': BeanRouterLike;
   }
 
   export interface IEventResultRecord {
