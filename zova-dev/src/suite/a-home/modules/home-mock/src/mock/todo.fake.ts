@@ -8,7 +8,7 @@ const todos = [
 export default defineFakeRoute([
   {
     url: '/demo/todo/select',
-    method: 'post',
+    method: 'get',
     response: _req => {
       return {
         code: 0,
@@ -19,12 +19,12 @@ export default defineFakeRoute([
   },
   {
     url: '/demo/todo/get',
-    method: 'post',
+    method: 'get',
     response: req => {
       return {
         code: 0,
         message: 'Success',
-        data: todos.find(item => item.id === req.body.id),
+        data: todos.find(item => item.id === req.query.id),
       };
     },
   },
