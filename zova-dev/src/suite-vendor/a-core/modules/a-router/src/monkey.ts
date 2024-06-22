@@ -13,10 +13,10 @@ import {
 } from 'zova';
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
-import { StoreRouterLike } from './bean/store.router.js';
+import { BeanRouterLike } from './bean/bean.router.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
-  private _storeRouter: StoreRouterLike;
+  private _beanRouter: BeanRouterLike;
   private _moduleSelf: IModule;
 
   constructor(moduleSelf: IModule) {
@@ -24,11 +24,11 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     this._moduleSelf = moduleSelf;
   }
 
-  async getStoreRouter() {
-    if (!this._storeRouter) {
-      this._storeRouter = (await this.bean._getBean('a-router.store.router', false)) as StoreRouterLike;
+  async getBeanRouter() {
+    if (!this._beanRouter) {
+      this._beanRouter = (await this.bean._getBean('a-router.bean.router', false)) as BeanRouterLike;
     }
-    return this._storeRouter;
+    return this._beanRouter;
   }
 
   async appInitialize() {}
@@ -51,7 +51,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   async moduleLoading(module: IModule) {
     if (this._moduleSelf === module) return;
-    const storeRouter = await this.getStoreRouter();
+    const storeRouter = await this.getBeanRouter();
     storeRouter._registerRoutes(module);
   }
   async moduleLoaded(_module: IModule) {}
