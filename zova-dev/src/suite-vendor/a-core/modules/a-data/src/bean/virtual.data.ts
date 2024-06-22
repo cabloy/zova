@@ -112,13 +112,28 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryCookie(options, queryClient) {
-    options = this.app.meta.util.extend({}, options, {
-      enabled: false,
-      staleTime: Infinity,
-      meta: {
-        persister: { storage: 'cookie', sync: true },
+    options = this.app.meta.util.extend(
+      {
+        meta: {
+          persister: {
+            serialize: (obj?: Query) => {
+              return this.$serializeCookie(obj);
+            },
+            deserialize: (value?: string) => {
+              return this.$deserializeCookie(value);
+            },
+          },
+        },
       },
-    });
+      options,
+      {
+        enabled: false,
+        staleTime: Infinity,
+        meta: {
+          persister: { storage: 'cookie', sync: true },
+        },
+      },
+    );
     const queryKey = options.queryKey;
     const self = this;
     return useComputed({
@@ -284,5 +299,31 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     const prefix = queryKey[0];
     if (prefix && typeof prefix === 'string' && prefix.split('.').length === 3) return queryKey;
     return [this[SymbolBeanFullName]].concat(queryKey as any);
+  }
+
+  $serializeCookie(obj?: Query) {
+    return String(obj?.state?.data ?? '');
+  }
+
+  $deserializeCookie(value?: string) {
+    return {
+      state: {
+        data: value,
+        dataUpdateCount: 0,
+        dataUpdatedAt: Date.now(),
+        error: null,
+        errorUpdateCount: 0,
+        errorUpdatedAt: 0,
+        fetchFailureCount: 0,
+        fetchFailureReason: null,
+        fetchMeta: null,
+        isInvalidated: false,
+        status: 'success',
+        fetchStatus: 'idle',
+      },
+      queryKey: undefined,
+      queryHash: undefined,
+      buster: this._getPersisterBuster(),
+    };
   }
 }
