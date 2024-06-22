@@ -1,4 +1,4 @@
-export interface ServiceTodoResult {
+export interface ServiceTodoEntity {
   id: string;
   title: string;
   done: boolean;
@@ -9,5 +9,5 @@ export interface ServiceTodoGetParams {
 }
 
 export type ServiceTodoDeleteParams = ServiceTodoGetParams;
-export type ServiceTodoIntertParams = ServiceTodoResult;
-export type ServiceTodoUpdateParams = ServiceTodoResult;
+export type ServiceTodoIntertParams = ServiceTodoEntity;
+export type ServiceTodoUpdateParams = ServiceTodoEntity;
