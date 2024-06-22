@@ -84,7 +84,7 @@ importers:
         specifier: ^5.0.83
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.102
+        specifier: ^1.0.103
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
