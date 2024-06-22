@@ -8,7 +8,7 @@ export class ControllerPageApp extends BeanControllerPageBase {
     const router = createRouter();
     this.app.vue.provide('a-router:appRouter', router);
     // app
-    Cast(this.app).initialized({ bean: this.bean });
+    await Cast(this.app).initialized({ bean: this.bean });
     // use router
     this.app.vue.use(router);
   }
