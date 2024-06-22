@@ -3,9 +3,9 @@ import { config, Errors, locales, constants } from '../config/index.js';
 import { components } from './components.js';
 
 @Scope()
-export class ScopeModuleAStorage extends BeanScopeBase {}
+export class ScopeModuleAData extends BeanScopeBase {}
 
-export interface ScopeModuleAStorage
+export interface ScopeModuleAData
   extends TypeModuleResource<
     typeof components,
     typeof config,
@@ -17,7 +17,7 @@ export interface ScopeModuleAStorage
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-data': ScopeModuleAStorage;
+    'a-data': ScopeModuleAData;
   }
 
   export interface IBeanScopeConfig {

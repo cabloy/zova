@@ -1,7 +1,6 @@
-import { BeanControllerPageBase, Local, Use, useComputed, useRef, zz } from 'zova';
+import { BeanControllerPageBase, Local, Use, useRef, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataUserInfo, User, UserInfoData } from '../../bean/data.userInfo.js';
-import { toRef } from 'vue';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
