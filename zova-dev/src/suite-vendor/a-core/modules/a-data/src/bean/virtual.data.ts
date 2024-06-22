@@ -13,7 +13,7 @@ import {
   SetDataOptions,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
-import { BeanBase, Cast, SymbolBeanFullName, Virtual, useComputed, useCustomRef } from 'zova';
+import { BeanBase, Cast, SymbolBeanFullName, Virtual, useComputed } from 'zova';
 import { DefinedInitialQueryOptions, MaybeRefDeep, NoUnknown, UndefinedInitialQueryOptions } from '../common/types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { QueryMetaPersister } from '../types.js';
