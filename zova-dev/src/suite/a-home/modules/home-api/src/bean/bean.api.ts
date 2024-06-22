@@ -1,16 +1,16 @@
-import { BeanBase, Store, Use } from 'zova';
+import { Bean, BeanBase, Use } from 'zova';
 import axios, { AxiosInstance } from 'axios';
 import { markRaw } from 'vue';
 import type { DataUserInfo } from 'zova-module-home-user';
 
 const SymbolApi = Symbol('SymbolApi');
 
-export type StoreApiLike = StoreApi & AxiosInstance;
+export type BeanApiLike = BeanApi & AxiosInstance;
 
 // const __ApiMethods = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch'];
 
-@Store()
-export class StoreApi extends BeanBase {
+@Bean({ scene: 'bean', name: 'api', containerScope: 'ctx' })
+export class BeanApi extends BeanBase {
   @Use('home-user.data.userInfo')
   $$userInfo: DataUserInfo;
 
