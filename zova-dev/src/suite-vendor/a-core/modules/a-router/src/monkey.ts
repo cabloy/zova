@@ -51,8 +51,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   async moduleLoading(module: IModule) {
     if (this._moduleSelf === module) return;
-    const storeRouter = await this.getBeanRouter();
-    storeRouter._registerRoutes(module);
+    const beanRouter = await this.getBeanRouter();
+    beanRouter._registerRoutes(module);
   }
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}

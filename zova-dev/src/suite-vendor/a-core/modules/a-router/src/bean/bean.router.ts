@@ -1,14 +1,14 @@
-import { BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, Store, TypeEventOff } from 'zova';
+import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, TypeEventOff } from 'zova';
 import { Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
 
 const SymbolRouter = Symbol('SymbolRouter');
 
-export type StoreRouterLike = StoreRouter & Router;
+export type BeanRouterLike = BeanRouter & Router;
 
-@Store()
-export class StoreRouter extends BeanBase {
+@Bean({ scene: 'bean', name: 'router', containerScope: 'new' })
+export class BeanRouter extends BeanBase {
   [SymbolRouter]: Router;
   eventRouterGuards: TypeEventOff;
 
@@ -27,7 +27,7 @@ export class StoreRouter extends BeanBase {
       if (!router) {
         throw new Error('Should provide router');
       }
-      this.bean.provide('a-router:router', Cast<StoreRouterLike>(this));
+      this.bean.provide('a-router:router', Cast<BeanRouterLike>(this));
       // event
       this.eventRouterGuards = this.app.meta.event.on('a-router:routerGuards', async (context, next) => {
         this._routerGuards(context.data);
@@ -98,7 +98,7 @@ export class StoreRouter extends BeanBase {
     return `${fullPath}${join}${query2str}`;
   }
 
-  private _routerGuards(router: StoreRouterLike) {
+  private _routerGuards(router: BeanRouterLike) {
     router.beforeEach(async to => {
       // fullPath
       const fullPath = to.fullPath;
