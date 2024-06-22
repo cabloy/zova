@@ -21,10 +21,13 @@ export class ControllerPageLogin extends BeanControllerPageBase<ScopeModule, Que
   };
 
   userQuery?: User;
+  tokenQuery?: string;
 
   protected async __init__() {
     this.userQuery = this.$$userInfo.user;
     console.log(this.userQuery);
+    this.tokenQuery = this.$$userInfo.token;
+    console.log(this.tokenQuery);
   }
 
   async login() {
