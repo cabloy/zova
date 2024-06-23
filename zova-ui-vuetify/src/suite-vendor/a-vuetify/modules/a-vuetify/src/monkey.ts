@@ -9,7 +9,7 @@ import { LocaleSymbol } from 'vuetify/lib/composables/locale.mjs';
 import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // icon
     const patchIcon = await this.bean._newBean(PatchIcon, false);
     await patchIcon.initialize();

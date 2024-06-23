@@ -3,7 +3,7 @@ import axios from 'axios';
 import { StoreApiLike } from './bean/store.api.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     this.app.meta.$axios = axios;
     this.app.meta.$api = (await this.app.bean._getBean('home-api.store.api', false)) as StoreApiLike;
   }

@@ -3,7 +3,7 @@ import { PatchIcon } from './patch/icon.js';
 import useQuasar from 'quasar/src/composables/use-quasar/use-quasar.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // icon
     const patchIcon = await this.bean._newBean(PatchIcon, false);
     await patchIcon.initialize();

@@ -4,7 +4,7 @@ import { Router } from './local/router.js';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   router: Router;
 
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // router
     this.router = await this.bean._newBean(Router, false);
   }

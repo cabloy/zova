@@ -2,7 +2,7 @@ import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import { App } from 'ant-design-vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize() {}
+  async appInitialize(_bean: BeanContainerLike) {}
   async appInitialized() {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$antdv', {

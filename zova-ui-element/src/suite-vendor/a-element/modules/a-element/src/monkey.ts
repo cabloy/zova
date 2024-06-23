@@ -2,7 +2,7 @@ import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import { PatchIcon } from './patch/icon.jsx';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize() {
+  async appInitialize(_bean: BeanContainerLike) {
     // icon
     const patchIcon = await this.bean._newBean(PatchIcon, false);
     await patchIcon.initialize();
