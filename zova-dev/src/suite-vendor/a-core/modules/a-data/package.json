@@ -1,6 +1,6 @@
 {
   "name": "zova-module-a-data",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "title": "a-data",
   "zovaModule": {
     "capabilities": {
@@ -35,9 +35,9 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "@types/js-cookie": "^3.0.6",
-    "@tanstack/vue-query": "^5.45.0",
     "@tanstack/query-persist-client-core": "^5.45.0",
+    "@tanstack/vue-query": "^5.45.0",
+    "@types/js-cookie": "^3.0.6",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0"
   }
