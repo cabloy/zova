@@ -10,10 +10,7 @@ export class RenderLogin extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>token: {this.tokenQuery}</div>
-        <div>username: {this.userQuery?.username}</div>
         <form class={this.$class.textCenter}>
-          <div>{JSON.stringify(this.user)}</div>
           <div>
             <label>{this.scope.locale.YourUsername()}</label>
             <input v-model={this.user.username}></input>
