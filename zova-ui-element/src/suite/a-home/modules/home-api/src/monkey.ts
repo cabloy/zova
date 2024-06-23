@@ -1,11 +1,11 @@
 import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
 import axios from 'axios';
-import { StoreApiLike } from './bean/store.api.js';
+import { BeanApiLike } from './bean/bean.api.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize(_bean: BeanContainerLike) {
+  async appInitialize(bean: BeanContainerLike) {
     this.app.meta.$axios = axios;
-    this.app.meta.$api = (await this.app.bean._getBean('home-api.store.api', false)) as StoreApiLike;
+    this.app.meta.$api = (await bean._getBean('home-api.store.api', false)) as BeanApiLike;
   }
   async appInitialized(_bean: BeanContainerLike) {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
