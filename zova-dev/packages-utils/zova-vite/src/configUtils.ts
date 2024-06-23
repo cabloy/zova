@@ -103,8 +103,8 @@ export function createConfigUtils(
     if (configOptions.zovaManualChunk.debug) {
       console.log(id);
     }
-    return 'vendor';
-    // return null;
+    return null;
+    // return 'vendor';
   }
 
   function _configManualChunk_vendorsDefault() {
