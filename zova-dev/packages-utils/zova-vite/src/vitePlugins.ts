@@ -57,7 +57,7 @@ export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
   }
 
   function __getVitePluginMock(configOptions: ZovaViteConfigOptions) {
-    const include = getMockPath(configOptions);
+    const include = getMockPath(configOptions, true);
     const logger = process.env.MOCK_LOGGER === 'true';
     const basename = process.env.MOCK_BASE_NAME || '';
     const build =

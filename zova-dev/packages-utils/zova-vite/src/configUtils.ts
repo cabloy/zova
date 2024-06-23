@@ -115,7 +115,7 @@ export function createConfigUtils(
     const vendors: any = [];
     if (process.env.MOCK_ENABLED === 'true') {
       vendors.push({
-        match: [`~${getMockPath(configOptions)}`],
+        match: [`~${getMockPath(configOptions, true)}`],
         output: '-zova-mock',
       });
     }

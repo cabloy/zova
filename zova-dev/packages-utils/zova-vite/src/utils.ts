@@ -32,6 +32,7 @@ export function getEnvFromCli(
   return value;
 }
 
-export function getMockPath(configOptions: ZovaViteConfigOptions) {
+export function getMockPath(configOptions: ZovaViteConfigOptions, relative?: boolean) {
+  if (relative) return path.join(configOptions.runtimeDir, 'mock');
   return path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
 }
