@@ -81,10 +81,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.83
+        specifier: ^5.0.85
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.103
+        specifier: ^1.0.105
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -133,7 +133,7 @@ importers:
         specifier: ^0.3.2
         version: 0.3.2(@babel/core@7.24.7)(@babel/traverse@7.24.7)
       babel-plugin-zova-bean-module:
-        specifier: ^1.0.24
+        specifier: ^1.0.26
         version: link:../babel-plugin-zova-bean-module
       chalk:
         specifier: ^3.0.0
@@ -160,7 +160,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.83
+        specifier: ^5.0.85
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -206,10 +206,10 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.83
+        specifier: ^5.0.85
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.48
+        specifier: ^5.0.51
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -226,19 +226,19 @@ importers:
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
-        specifier: ^5.0.37
+        specifier: ^5.0.39
         version: link:modules/a-core
       zova-module-a-data:
-        specifier: ^5.0.0
+        specifier: ^5.0.3
         version: link:modules/a-data
       zova-module-a-pinia:
-        specifier: ^5.0.16
+        specifier: ^5.0.18
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.36
+        specifier: ^5.0.38
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.10
+        specifier: ^5.0.12
         version: link:modules/a-style
 
   src/suite-vendor/a-core/modules/a-core: {}
@@ -278,7 +278,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-a-devui:
-        specifier: workspace:^
+        specifier: ^5.0.6
         version: link:modules/a-devui
 
   src/suite-vendor/a-devui/modules/a-devui: {}
@@ -294,14 +294,7 @@ importers:
 
   src/suite/a-demo/modules/a-demo: {}
 
-  src/suite/a-demo/modules/demo-todo:
-    dependencies:
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.45.0
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.45.0(vue@3.4.29(typescript@5.4.5))
+  src/suite/a-demo/modules/demo-todo: {}
 
   src/suite/a-home:
     dependencies:
