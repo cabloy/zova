@@ -1,17 +1,17 @@
 {
   "name": "zova-suite-a-core",
-  "version": "5.0.49",
+  "version": "5.0.50",
   "title": "a-core",
   "type": "module",
   "description": "core",
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "zova-module-a-core": "^5.0.38",
-    "zova-module-a-data": "^5.0.1",
-    "zova-module-a-pinia": "^5.0.17",
-    "zova-module-a-router": "^5.0.37",
-    "zova-module-a-style": "^5.0.11"
+    "zova-module-a-core": "^5.0.39",
+    "zova-module-a-data": "^5.0.2",
+    "zova-module-a-pinia": "^5.0.18",
+    "zova-module-a-router": "^5.0.38",
+    "zova-module-a-style": "^5.0.12"
   },
   "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
 }
