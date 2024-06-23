@@ -8,10 +8,15 @@ declare module 'zova' {
 }
 
 declare module '@tanstack/vue-query' {
-  export interface QueryMeta {
-    ssr?: QueryMetaSSR;
-    persister?: QueryMetaPersister | boolean;
+  export interface Register {
+    queryMeta: MyQueryMeta;
+    mutationMeta: MyQueryMeta;
   }
+}
+
+export interface MyQueryMeta extends Record<string, unknown> {
+  ssr?: QueryMetaSSR;
+  persister?: QueryMetaPersister | boolean;
 }
 
 export interface QueryMetaSSR {
