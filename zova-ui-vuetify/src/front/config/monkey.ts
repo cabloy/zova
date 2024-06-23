@@ -14,7 +14,7 @@ export class AppMonkey extends BeanSimple implements IMonkeyApp, IMonkeySystem, 
   async moduleLoaded(_module: IModule) {}
   async configLoaded(_module: IModule, _config) {}
   async appInitialize(_bean: BeanContainerLike) {}
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
   async beanInit(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}

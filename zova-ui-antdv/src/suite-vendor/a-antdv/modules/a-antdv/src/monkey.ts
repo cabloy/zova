@@ -3,7 +3,7 @@ import { App } from 'ant-design-vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize(_bean: BeanContainerLike) {}
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$antdv', {
       enumerable: false,

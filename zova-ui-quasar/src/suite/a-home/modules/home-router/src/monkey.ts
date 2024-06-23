@@ -8,7 +8,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     // router
     this.router = await this.bean._newBean(Router, false);
   }
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
 
   async beanInit(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
   async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}

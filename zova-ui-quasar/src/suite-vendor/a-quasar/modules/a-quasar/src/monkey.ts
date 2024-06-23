@@ -8,7 +8,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     const patchIcon = await this.bean._newBean(PatchIcon, false);
     await patchIcon.initialize();
   }
-  async appInitialized() {}
+  async appInitialized(_bean: BeanContainerLike) {}
   async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$q', {
       enumerable: false,
