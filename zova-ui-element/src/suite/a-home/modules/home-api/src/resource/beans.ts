@@ -3,6 +3,6 @@ import { BeanApi } from '../bean/bean.api.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'home-api.store.api': BeanApi;
+    'home-api.bean.api': BeanApi;
   }
 }
