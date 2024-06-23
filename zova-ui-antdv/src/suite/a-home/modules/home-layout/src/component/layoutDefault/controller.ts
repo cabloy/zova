@@ -16,11 +16,11 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   @Use()
   $$dataMenu: DataMenu;
 
-  dataMenus: DataQuery<ServiceMenuEntity[]>;
+  queryMenus: DataQuery<ServiceMenuEntity[]>;
   leftDrawerOpen: boolean = false;
 
   protected async __init__() {
-    this.dataMenus = this.$$dataMenu.select();
+    this.queryMenus = this.$$dataMenu.select();
   }
 
   toggleLeftDrawer() {

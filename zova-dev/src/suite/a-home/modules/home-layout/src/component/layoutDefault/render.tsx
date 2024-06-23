@@ -27,9 +27,9 @@ export class RenderLayoutDefault extends BeanRenderBase {
     );
   }
   _renderMenu() {
-    if (this.dataMenus.isLoading) return;
+    if (this.queryMenus.isLoading) return;
     const domItems: JSX.Element[] = [];
-    for (const item of this.dataMenus.data!) {
+    for (const item of this.queryMenus.data!) {
       domItems.push(this._renderMenuItem(item));
     }
     return <div class="menu-list">{domItems}</div>;

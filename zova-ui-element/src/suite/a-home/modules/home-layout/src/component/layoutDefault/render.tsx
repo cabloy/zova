@@ -72,8 +72,8 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return domItems;
   }
   _renderMenu() {
-    if (this.dataMenus.isLoading) return;
-    const domItems = this._renderMenuItems(this.dataMenus.data, []);
+    if (this.queryMenus.isLoading) return;
+    const domItems = this._renderMenuItems(this.queryMenus.data, []);
     return (
       <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>
         {domItems}
