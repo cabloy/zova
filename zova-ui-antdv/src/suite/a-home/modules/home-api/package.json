@@ -25,6 +25,7 @@
   ],
   "author": "zhennann",
   "files": [
+    "mock",
     "dist"
   ],
   "scripts": {},
