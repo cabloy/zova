@@ -58,7 +58,7 @@ const __MenuData = [
 
 export default defineFakeRoute([
   {
-    url: '/home/mock/getMenu',
+    url: '/home/layout/menu/select',
     method: 'get',
     response: () => {
       return {
