@@ -221,6 +221,8 @@ importers:
         specifier: ^5.45.0
         version: 5.45.0(vue@3.4.29(typescript@5.4.5))
 
+  src/module/test-task2: {}
+
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
