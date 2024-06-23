@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.143",
+  "version": "5.0.144",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -36,8 +36,8 @@
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
     "zod": "^3.23.8",
-    "zova": "^5.0.100",
-    "zova-module-a-data": "^5.0.2",
+    "zova": "^5.0.101",
+    "zova-module-a-data": "^5.0.3",
     "zova-module-a-pinia": "^5.0.18",
     "zova-module-a-router": "^5.0.38",
     "zova-module-a-style": "^5.0.12"
