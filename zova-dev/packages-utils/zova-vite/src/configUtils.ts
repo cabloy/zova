@@ -15,7 +15,7 @@ const __ModuleLibs = [
 const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
-    match: [/zova\/config\.js/],
+    match: [/\.zova\/config\.ts/],
     output: '-zova-config',
   },
   {
