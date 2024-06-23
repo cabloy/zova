@@ -11,9 +11,9 @@ import {
 import { UnwrapNestedRefs } from 'vue';
 import { useComputed } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
-import { BeanDataPersister } from './bean.data.persister.js';
+import { BeanDataQuery } from './bean.data.query.js';
 
-export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataPersister<TScopeModule> {
+export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataQuery<TScopeModule> {
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,

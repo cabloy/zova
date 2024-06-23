@@ -1,14 +1,14 @@
-import { BeanDataLast } from './bean.data.last.js';
 import { QueryMetaPersister } from '../../types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { Query, QueryKey } from '@tanstack/vue-query';
 import { cookieStorage } from '../../common/cookieStorage.js';
 import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
+import { BeanDataLast } from './bean.data.last.js';
 
 export class BeanDataPersister<TScopeModule = unknown> extends BeanDataLast<TScopeModule> {
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
-    const query = this.$queryFind({ queryKey });
+    const query = this.self.$queryFind({ queryKey });
     if (!query) return undefined;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return undefined;
@@ -47,7 +47,7 @@ export class BeanDataPersister<TScopeModule = unknown> extends BeanDataLast<TSco
   }
 
   $persisterSave(queryKey: QueryKey) {
-    const query = this.$queryFind({ queryKey });
+    const query = this.self.$queryFind({ queryKey });
     if (!query) return;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return;

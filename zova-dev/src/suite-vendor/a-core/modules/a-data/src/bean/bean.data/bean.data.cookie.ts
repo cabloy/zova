@@ -1,9 +1,7 @@
 import { Query } from '@tanstack/vue-query';
-import { Virtual } from 'zova';
-import { BeanDataFirst } from './bean.data/bean.data.first.js';
+import { BeanDataPersister } from './bean.data.persister.js';
 
-@Virtual()
-export class BeanDataBase<TScopeModule = unknown> extends BeanDataFirst<TScopeModule> {
+export class BeanDataCookie<TScopeModule = unknown> extends BeanDataPersister<TScopeModule> {
   $serializeCookie(obj?: Query) {
     return String(obj?.state?.data ?? '');
   }
