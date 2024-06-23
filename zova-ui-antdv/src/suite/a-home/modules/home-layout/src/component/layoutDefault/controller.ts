@@ -6,17 +6,6 @@ export type Emits = {};
 
 export interface Slots {}
 
-export type TypeMenuItem = {
-  title: string;
-  caption?: string;
-  icon?: string;
-  href?: string;
-  to?: string;
-  folder?: boolean;
-  separator?: boolean;
-  children?: TypeMenuItem[];
-};
-
 @Local()
 export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
