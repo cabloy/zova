@@ -1,4 +1,7 @@
-import { BeanControllerBase, Local } from 'zova';
+import { BeanControllerBase, Local, Use } from 'zova';
+import { DataMenu } from '../../bean/data.menu.js';
+import { ServiceMenuEntity } from '../../api/index.js';
+import { DataQuery } from 'zova-module-a-data';
 
 export interface Props {}
 
@@ -17,22 +20,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   leftDrawerOpen: boolean = false;
 
   protected async __init__() {
-    await this.loadMenu();
-  }
-
-  async loadMenu() {
-    const res = await this.$api.get('/home/mock/getMenu');
-    this.menu = res.data.data.filter((item: TypeMenuItem) => {
-      if (item.children) {
-        item.children = item.children.filter(item => {
-          if (!item.to) return true;
-          return this.$router.checkPathValid(item.to);
-        });
-        return item.children.length > 0;
-      }
-      if (!item.to) return true;
-      return this.$router.checkPathValid(item.to);
-    });
+    this.dataMenus = this.$$dataMenu.select();
   }
 
   toggleLeftDrawer() {

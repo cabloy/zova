@@ -1,13 +1,14 @@
 import { BeanRenderBase, iconh, Local } from 'zova';
-import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
+import type { ControllerLayoutDefault } from './controller.js';
 import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
+import { ServiceMenuEntity } from '../../api/interface/menu.js';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
-  _renderMenuItem(item: TypeMenuItem, levels: number[]) {
+  _renderMenuItem(item: ServiceMenuEntity, levels: number[]) {
     // key
     const key = levels.join('-');
     // folder
@@ -36,7 +37,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
       </MenuItem>
     );
   }
-  _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
+  _renderMenuItems(items: ServiceMenuEntity[] | undefined, levels: number[]) {
     if (!items) return [];
     const domItems: JSX.Element[] = [];
     for (let index = 0; index < items.length; index++) {
@@ -46,7 +47,8 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return domItems;
   }
   _renderMenu() {
-    const domItems = this._renderMenuItems(this.menu, []);
+    if (this.dataMenus.isLoading) return;
+    const domItems = this._renderMenuItems(this.dataMenus.data, []);
     return (
       <Menu mode="inline" style={{ height: '100%' }}>
         {domItems}
