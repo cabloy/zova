@@ -6,6 +6,7 @@
   "description": "devui",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-devui": "workspace:^"
-  }
+    "zova-module-a-devui": "^5.0.5"
+  },
+  "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
 }

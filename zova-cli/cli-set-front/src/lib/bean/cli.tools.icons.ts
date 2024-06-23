@@ -139,7 +139,7 @@ ${symbols.join('\n')}
 
   async _combineSymbol(file, moduleName, groupName, iconName): Promise<string> {
     // load
-    let content = await fse.readFile(file);
+    let content = (await fse.readFile(file)).toString();
     // optimize
     const { data } = await optimize(content, {});
     content = data || content;

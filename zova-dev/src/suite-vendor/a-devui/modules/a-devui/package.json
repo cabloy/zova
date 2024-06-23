@@ -30,5 +30,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {}
+  "scripts": {},
+  "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
 }

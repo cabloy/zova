@@ -40,5 +40,6 @@
     "@types/js-cookie": "^3.0.6",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0"
-  }
+  },
+  "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
 }
