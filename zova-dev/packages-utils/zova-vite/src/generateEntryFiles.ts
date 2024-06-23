@@ -14,10 +14,20 @@ import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
 
 export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptions: ZovaViteConfigOptions) {
+  // modules
+  const modulesMeta = await glob({
+    projectMode: 'zova',
+    projectPath: configOptions.appDir,
+    disabledModules: process.env.PROJECT_DISABLED_MODULES,
+    disabledSuites: process.env.PROJECT_DISABLED_SUITES,
+    log: true,
+  });
   // config
   await __generateConfig();
   // modules meta
   await __generateModulesMeta();
+  // mock files
+  await __generateMockFiles();
 
   //////////////////////////////
 
@@ -90,15 +100,24 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
     };
   }
 
+  async function __generateMockFiles() {
+    // modules
+    const { modules } = modulesMeta;
+    // clear dest
+    const pathDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
+    console.log(pathDest);
+    // loop
+    for (const moduleName in modules) {
+      const module = modules[moduleName];
+      const mockPath = path.join(module.root, 'src/mock');
+      if (!fse.existsSync(mockPath)) continue;
+      console.log('--:', moduleName, mockPath);
+    }
+  }
+
   async function __generateModulesMeta() {
     // modules
-    const { modules, modulesArray } = await glob({
-      projectMode: 'zova',
-      projectPath: configOptions.appDir,
-      disabledModules: process.env.PROJECT_DISABLED_MODULES,
-      disabledSuites: process.env.PROJECT_DISABLED_SUITES,
-      log: true,
-    });
+    const { modules, modulesArray } = modulesMeta;
     const moduleNames = modulesArray.map(item => item.info.relativeName);
     // src
     const fileSrc = new URL('../templates/zova-modules-meta.ejs', import.meta.url);
