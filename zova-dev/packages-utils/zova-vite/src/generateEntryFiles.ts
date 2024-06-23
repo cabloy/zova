@@ -101,17 +101,23 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
   }
 
   async function __generateMockFiles() {
-    // modules
-    const { modules } = modulesMeta;
     // clear dest
     const pathDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
-    console.log(pathDest);
+    if (fse.existsSync(pathDest)) {
+      await fse.emptyDir(pathDest);
+      await fse.rmdir(pathDest);
+    }
+    // check enabled
+    if (process.env.MOCK_ENABLED !== 'true') return;
+    await fse.ensureDir(pathDest);
+    // modules
+    const { modules } = modulesMeta;
     // loop
     for (const moduleName in modules) {
       const module = modules[moduleName];
       const mockPath = path.join(module.root, 'src/mock');
       if (!fse.existsSync(mockPath)) continue;
-      console.log('--:', moduleName, mockPath);
+      await fse.copy(mockPath, path.join(pathDest, moduleName));
     }
   }
 
