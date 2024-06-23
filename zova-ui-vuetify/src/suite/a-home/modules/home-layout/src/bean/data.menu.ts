@@ -4,7 +4,16 @@ import { ScopeModule } from '../resource/this.js';
 
 @Data()
 export class DataMenu extends BeanDataBase<ScopeModule> {
-  protected async __init__() {}
-
-  protected __dispose__() {}
+  select() {
+    return this.$useQuery({
+      queryKey: ['select'],
+      queryFn: async () => {
+        const data = await this.scope.service.menu.select();
+        return data.filter(item => {
+          if (!item.to) return true;
+          return this.$router.checkPathValid(item.to);
+        });
+      },
+    });
+  }
 }
