@@ -32,6 +32,9 @@
   "pnpm": {
     "overrides": {}
   },
+  "dependencies": {
+    "zova": "^5"
+  },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
     "@cabloy/process-helper": "^1.0.4",
