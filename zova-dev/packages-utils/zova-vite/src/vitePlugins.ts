@@ -3,13 +3,14 @@ import babel from '@cabloy/vite-plugin-babel';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
 import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
+import { getMockPath } from './utils.js';
 
-export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
+export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
   const vitePlugins: ZovaVitePlugin[] = [];
   vitePlugins.push(__getVitePluginTs());
   vitePlugins.push(__getVitePluginTsx());
   if (process.env.MOCK_ENABLED === 'true') {
-    vitePlugins.push(__getVitePluginMock());
+    vitePlugins.push(__getVitePluginMock(configOptions));
   }
   // vitePlugins.push(__getVitePluginChecker(configOptions));
   return vitePlugins;
@@ -55,8 +56,8 @@ export function generateVitePlugins(_configOptions: ZovaViteConfigOptions) {
     ] as ZovaVitePlugin;
   }
 
-  function __getVitePluginMock() {
-    const include = process.env.MOCK_PATH;
+  function __getVitePluginMock(configOptions: ZovaViteConfigOptions) {
+    const include = getMockPath(configOptions);
     const logger = process.env.MOCK_LOGGER === 'true';
     const basename = process.env.MOCK_BASE_NAME || '';
     const build =

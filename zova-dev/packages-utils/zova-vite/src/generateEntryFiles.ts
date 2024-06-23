@@ -8,7 +8,7 @@ import chalk from 'chalk';
 import { extend } from '@cabloy/extend';
 import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
-import { getEnvMeta } from './utils.js';
+import { getEnvMeta, getMockPath } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
@@ -102,7 +102,7 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
 
   async function __generateMockFiles() {
     // clear dest
-    const pathDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
+    const pathDest = getMockPath(configOptions);
     if (fse.existsSync(pathDest)) {
       await fse.emptyDir(pathDest);
       await fse.rmdir(pathDest);
