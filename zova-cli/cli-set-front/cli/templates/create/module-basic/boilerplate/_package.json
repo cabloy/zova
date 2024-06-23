@@ -14,7 +14,7 @@
   "description": "<%=argv.description%>",
   "keywords": ["Zova Module"],
   "author": "<%=argv.author%>",
-  "files": ["dist"],
+  "files": ["mock", "dist"],
   "scripts": {},
   "dependencies": {}
 }
