@@ -10,8 +10,11 @@ export interface Slots {}
 export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
   static $propsDefault = {};
 
+  @Use()
+  $$dataMenu: DataMenu;
+
+  dataMenus: DataQuery<ServiceMenuEntity[]>;
   leftDrawerOpen: boolean = false;
-  menu: TypeMenuItem[];
 
   protected async __init__() {
     await this.loadMenu();
