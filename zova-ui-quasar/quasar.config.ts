@@ -93,8 +93,8 @@ export default configure(_ctx => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#sourcefiles
     sourceFiles: {
-      rootComponent: 'src/boot/app.vue',
-      router: 'src/boot/router',
+      rootComponent: 'src/boot/app/index.vue',
+      router: 'src/boot/routerNoop',
       //   store: 'src/store/index',
       //   pwaRegisterServiceWorker: 'src-pwa/register-service-worker',
       //   pwaServiceWorker: 'src-pwa/custom-service-worker',
