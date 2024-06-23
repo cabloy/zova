@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from 'zova';
-import type { ControllerLayoutDefault, TypeMenuItem } from './controller.js';
+import type { ControllerLayoutDefault } from './controller.js';
 import {
   ElAside,
   ElConfigProvider,
@@ -12,13 +12,14 @@ import {
   ElSubMenu,
 } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
+import { ServiceMenuEntity } from '../../api/index.js';
 //import EssentialLink from '../essentialLink/index.vue';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
-  _renderMenuItem(item: TypeMenuItem, levels: number[]) {
+  _renderMenuItem(item: ServiceMenuEntity, levels: number[]) {
     // index
     const index = levels.join('-');
     // folder
@@ -61,7 +62,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
       ></ElMenuItem>
     );
   }
-  _renderMenuItems(items: TypeMenuItem[] | undefined, levels: number[]) {
+  _renderMenuItems(items: ServiceMenuEntity[] | undefined, levels: number[]) {
     if (!items) return [];
     const domItems: JSX.Element[] = [];
     for (let index = 0; index < items.length; index++) {
@@ -71,7 +72,8 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return domItems;
   }
   _renderMenu() {
-    const domItems = this._renderMenuItems(this.menu, []);
+    if (this.dataMenus.isLoading) return;
+    const domItems = this._renderMenuItems(this.dataMenus.data, []);
     return (
       <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>
         {domItems}
