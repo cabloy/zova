@@ -153,6 +153,45 @@ export class BeanDataBase<TScopeModule = unknown> extends BeanBase<TScopeModule>
     });
   }
 
+  $useQueryMem<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryMem<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryMem<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryMem(options, queryClient) {
+    options = this.app.meta.util.extend({}, options, {
+      enabled: false,
+      staleTime: Infinity,
+      meta: {
+        persister: false,
+      },
+    });
+    const queryKey = options.queryKey;
+    const self = this;
+    return useComputed({
+      get() {
+        const query = self.$useQuery(options, queryClient) as any;
+        return query.data;
+      },
+      set(value) {
+        self.$setQueryData(queryKey, value, false);
+      },
+    });
+  }
+
   $setQueryData<
     TQueryFnData,
     TTaggedQueryKey extends QueryKey,
