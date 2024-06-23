@@ -315,9 +315,6 @@ importers:
       zova-module-home-layout:
         specifier: workspace:^
         version: link:modules/home-layout
-      zova-module-home-mock:
-        specifier: workspace:^
-        version: link:modules/home-mock
       zova-module-home-pagesystem:
         specifier: workspace:^
         version: link:modules/home-pagesystem
@@ -345,15 +342,6 @@ importers:
   src/suite/a-home/modules/home-icon: {}
 
   src/suite/a-home/modules/home-layout: {}
-
-  src/suite/a-home/modules/home-mock:
-    dependencies:
-      '@faker-js/faker':
-        specifier: ^8.4.1
-        version: 8.4.1
-      '@zhennann/vite-plugin-fake-server':
-        specifier: ^2.1.2
-        version: 2.1.2
 
   src/suite/a-home/modules/home-pagesystem: {}
 
