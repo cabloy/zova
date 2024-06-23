@@ -1,13 +1,13 @@
 import { AxiosInstance } from 'axios';
-import { StoreApiLike } from './bean/store.api.js';
+import { BeanApiLike } from './bean/bean.api.js';
 
 import 'zova';
 declare module 'zova' {
   export interface AppMeta {
     $axios: AxiosInstance;
-    $api: StoreApiLike;
+    $api: BeanApiLike;
   }
   export interface BeanBase {
-    $api: StoreApiLike;
+    $api: BeanApiLike;
   }
 }

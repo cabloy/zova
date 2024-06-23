@@ -1,8 +1,8 @@
-export * from '../bean/store.api.js';
-import { StoreApi } from '../bean/store.api.js';
+export * from '../bean/bean.api.js';
+import { BeanApi } from '../bean/bean.api.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'home-api.store.api': StoreApi;
+    'home-api.bean.api': BeanApi;
   }
 }
