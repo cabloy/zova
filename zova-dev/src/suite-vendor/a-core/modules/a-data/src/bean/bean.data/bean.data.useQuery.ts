@@ -27,9 +27,9 @@ export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataQuery<TSco
     queryClient?: QueryClient,
   ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
   $useQuery(options, queryClient) {
-    options = { ...options };
-    options.queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
-    options.persister = this._createPersister(options.meta?.persister);
+    const queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
+    const persister = this._createPersister(options.meta?.persister);
+    options = { ...options, queryKey, persister };
     return this.ctx.meta.util.instanceScope(() => {
       return useQuery(options, queryClient);
     });
