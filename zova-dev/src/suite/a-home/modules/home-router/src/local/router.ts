@@ -9,10 +9,10 @@ export class Router extends BeanRouterBase<ScopeModule> {
   $$userInfo: DataUserInfo;
 
   protected onRouterGuards(router: BeanRouterLike) {
-    router.beforeEach(async _to => {
-      // if (to.meta.requiresAuth !== false && !this.$$userInfo.jwt) {
-      //   return '/home/user/login';
-      // }
+    router.beforeEach(async to => {
+      if (to.meta.requiresAuth !== false && !this.$$userInfo.jwt) {
+        return '/home/user/login';
+      }
     });
   }
 }
