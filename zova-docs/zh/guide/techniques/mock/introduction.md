@@ -39,7 +39,6 @@ export default defineFakeRoute([
 
 ```txt
 MOCK_ENABLED = true
-MOCK_PATH = src/suite/a-home/modules/home-mock/src/mock
 MOCK_LOGGER = false
 MOCK_BASE_NAME = $API_PREFIX
 MOCK_BUILD = false
@@ -51,7 +50,6 @@ MOCK_BUILD_CORS = true
 | 名称              | 说明                         |
 | ----------------- | ---------------------------- |
 | MOCK_ENABLED      | 是否启用mock                 |
-| MOCK_PATH         | mock文件目录                 |
 | MOCK_LOGGER       | 是否启用logger               |
 | MOCK_BASE_NAME    | url前缀，默认是`/api`        |
 | MOCK_BUILD        | 是否生成独立可部署的fake服务 |

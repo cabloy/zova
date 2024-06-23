@@ -2,7 +2,7 @@ import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigChunkVendor, ZovaViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
-import { getEnvMeta } from './utils.js';
+import { getEnvMeta, getMockPath } from './utils.js';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -115,7 +115,7 @@ export function createConfigUtils(
     const vendors: any = [];
     if (process.env.MOCK_ENABLED === 'true') {
       vendors.push({
-        match: [`~${process.env.MOCK_PATH}`],
+        match: [`~${getMockPath(configOptions)}`],
         output: '-zova-mock',
       });
     }
