@@ -21,7 +21,6 @@ project
 │  │    │  ├── home-api
 │  │    │  ├── home-icon
 │  │    │  ├── home-layout
-│  │    │  ├── home-mock
 │  │    │  ├── home-pagesystem
 │  │    │  └── home-router
 │  └── suite-vendor
@@ -56,6 +55,5 @@ Zova 对模块/套件进行了规划，方便我们在约定的目录立即开�
 | src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                      |
 | src/suite/a-home/modules/home-icon       | [图标](../../techniques/icon/icon-engine.md)                                     |
 | src/suite/a-home/modules/home-layout     | [路由字段: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
-| src/suite/a-home/modules/home-mock       | [Mock](../../techniques/mock/introduction.md)                                    |
 | src/suite/a-home/modules/home-pagesystem | [路由字段: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
 | src/suite/a-home/modules/home-router     | [导航守卫](../../techniques/router/navigation-guards.md)                         |

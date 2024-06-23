@@ -21,7 +21,6 @@ project
 │  │    │  ├── home-api
 │  │    │  ├── home-icon
 │  │    │  ├── home-layout
-│  │    │  ├── home-mock
 │  │    │  ├── home-pagesystem
 │  │    │  └── home-router
 │  └── suite-vendor
@@ -56,6 +55,5 @@ Zova has planned the modules/suites so that we can start business development im
 | src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                          |
 | src/suite/a-home/modules/home-icon       | [Icon](../../techniques/icon/icon-engine.md)                                         |
 | src/suite/a-home/modules/home-layout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
-| src/suite/a-home/modules/home-mock       | [Mock](../../techniques/mock/introduction.md)                                        |
 | src/suite/a-home/modules/home-pagesystem | [Route Fields: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
 | src/suite/a-home/modules/home-router     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |
