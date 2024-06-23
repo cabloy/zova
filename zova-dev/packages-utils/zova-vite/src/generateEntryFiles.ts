@@ -115,7 +115,7 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
     // loop
     for (const moduleName in modules) {
       const module = modules[moduleName];
-      const mockPath = path.join(module.root, 'src/mock');
+      const mockPath = path.join(module.root, 'mock');
       if (!fse.existsSync(mockPath)) continue;
       await fse.copy(mockPath, path.join(pathDest, moduleName));
     }
