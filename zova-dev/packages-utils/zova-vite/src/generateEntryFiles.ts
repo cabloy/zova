@@ -26,6 +26,8 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
   await __generateConfig();
   // modules meta
   await __generateModulesMeta();
+  // app component
+  await __generateAppComponent();
   // mock files
   await __generateMockFiles();
 
@@ -118,6 +120,19 @@ export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptio
       const mockPath = path.join(module.root, 'mock');
       if (!fse.existsSync(mockPath)) continue;
       await fse.copy(mockPath, path.join(pathDest, moduleName));
+    }
+  }
+
+  async function __generateAppComponent() {
+    // dest
+    const pathDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'app');
+    fse.ensureDirSync(pathDest);
+    // src
+    const files = ['controller.ts', 'render.tsx'];
+    for (const file of files) {
+      const fileSrc = new URL(`../templates/app/${file}`, import.meta.url);
+      const fileDest = path.join(pathDest, file);
+      fse.copyFileSync(fileSrc, fileDest);
     }
   }
 
