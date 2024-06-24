@@ -16,7 +16,7 @@ export function extendQuasarConf(context: ConfigContext) {
     };
     const configOptions = {
       appDir: appPaths.appDir,
-      runtimeDir: '.quasar/zova',
+      runtimeDir: '.zova',
       zovaManualChunk: conf.zovaManualChunk,
     };
     // zovaViteMeta
