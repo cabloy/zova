@@ -6,10 +6,6 @@ export class BeanSimple {
   protected ctx: ZovaContext;
 
   protected get bean() {
-    return this.ctx ? this.ctx.bean : this.app.bean;
-  }
-
-  protected get beanRoot() {
-    return this.bean.beanRoot;
+    return this.ctx.bean;
   }
 }

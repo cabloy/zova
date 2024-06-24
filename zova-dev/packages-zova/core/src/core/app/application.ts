@@ -1,5 +1,5 @@
 import { App, markRaw } from 'vue';
-import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
+import { BeanContainerLike } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
@@ -10,7 +10,6 @@ import { Cast } from '../../types/utils/cast.js';
 export class ZovaApplication {
   vue: App;
   bean: BeanContainerLike;
-  beanRoot: BeanContainerLike;
   meta: AppMeta;
   config: ZovaConfig;
   constant: ZovaConstant;
@@ -19,9 +18,8 @@ export class ZovaApplication {
     markRaw(this);
     vue.zova = this;
     this.vue = vue;
-    this.bean = BeanContainer.create(this, null);
-    this.beanRoot = beanRoot;
-    Cast(this.beanRoot).app = this;
+    this.bean = beanRoot;
+    Cast(this.bean).app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
@@ -44,9 +42,9 @@ export class ZovaApplication {
     // module
     await this.meta.module.initialize(modulesMeta);
     // monkey: appInitialize
-    await this.meta.module._monkeyModule('appInitialize', undefined, this.beanRoot);
+    await this.meta.module._monkeyModule('appInitialize', undefined, this.bean);
     // monkey: appInitialized
-    await this.meta.module._monkeyModule('appInitialized', undefined, this.beanRoot);
+    await this.meta.module._monkeyModule('appInitialized', undefined, this.bean);
   }
 
   private async handlePlugins() {

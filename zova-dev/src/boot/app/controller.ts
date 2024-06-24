@@ -15,14 +15,15 @@ import config from '../../../.zova/config.js';
 @Local()
 export class ControllerPageApp extends BeanControllerPageBase {
   protected async __init__() {
-    // beanRoot
-    this.bean.provide(SymbolBeanRoot, this.ctx.bean);
-    // router
-    const router = createRouter();
-    this.bean.provide('a-router:appRouter', router);
     // app
     const instance = getCurrentInstance();
     const app = instance!.appContext.app!;
+    // beanRoot
+    app.provide(SymbolBeanRoot, this.ctx.bean);
+    // router
+    const router = createRouter();
+    app.provide('a-router:appRouter', router);
+    // install
     await PluginZova.install(app, this.ctx.bean, { modulesMeta, AppMonkey, locales, config });
     // use router
     app.use(router);
