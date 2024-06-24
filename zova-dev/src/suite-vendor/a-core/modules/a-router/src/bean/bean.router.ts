@@ -7,7 +7,7 @@ const SymbolRouter = Symbol('SymbolRouter');
 
 export type BeanRouterLike = BeanRouter & Router;
 
-@Bean({ scene: 'bean', name: 'router', containerScope: 'ctx' })
+@Bean()
 export class BeanRouter extends BeanBase {
   [SymbolRouter]: Router;
   eventRouterGuards: TypeEventOff;

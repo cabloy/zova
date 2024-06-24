@@ -9,7 +9,7 @@ export function Bean<T>(options?: IDecoratorBeanOptions): ClassDecorator {
     // add
     appResource.addBean({
       module: Cast(options).module,
-      scene: options.scene,
+      scene: options.scene || 'bean',
       name: options.name,
       containerScope: options.containerScope,
       markReactive: options.markReactive,

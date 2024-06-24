@@ -11,6 +11,7 @@ export default function () {
       function getModuleName() {
         if (moduleName) return moduleName;
         const sourceFileName = state.file.opts.sourceFileName || state.file.opts.filename;
+        if (sourceFileName && sourceFileName.indexOf('src/boot/app/') > -1) return;
         const moduleInfo = parseInfoFromPath(sourceFileName);
         if (!moduleInfo) return;
         moduleName = moduleInfo.relativeName;
