@@ -64,8 +64,8 @@ importers:
   packages-utils/babel-plugin-zova-bean-module:
     devDependencies:
       '@cabloy/module-info':
-        specifier: ^1.0.12
-        version: 1.0.16
+        specifier: ^1.0.19
+        version: 1.0.19
       '@types/babel__core':
         specifier: ^7.20.5
         version: 7.20.5
@@ -81,10 +81,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.85
+        specifier: ^5.0.86
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.105
+        specifier: ^1.0.106
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -106,8 +106,8 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5
       '@cabloy/module-glob':
-        specifier: ^5.0.14
-        version: 5.0.14
+        specifier: ^5.0.15
+        version: 5.0.15
       '@cabloy/vite-plugin-babel':
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.24.7)(vite@5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1))
@@ -133,7 +133,7 @@ importers:
         specifier: ^0.3.2
         version: 0.3.2(@babel/core@7.24.7)(@babel/traverse@7.24.7)
       babel-plugin-zova-bean-module:
-        specifier: ^1.0.26
+        specifier: ^1.0.27
         version: link:../babel-plugin-zova-bean-module
       chalk:
         specifier: ^3.0.0
@@ -160,7 +160,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.85
+        specifier: ^5.0.86
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -182,8 +182,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
       '@cabloy/module-info':
-        specifier: ^1.0.13
-        version: 1.0.16
+        specifier: ^1.0.19
+        version: 1.0.19
       '@cabloy/vue-reactivity':
         specifier: ^3.4.32
         version: 3.4.32
@@ -206,10 +206,10 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.85
+        specifier: ^5.0.86
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.51
+        specifier: ^5.0.53
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -229,16 +229,16 @@ importers:
         specifier: ^5.0.39
         version: link:modules/a-core
       zova-module-a-data:
-        specifier: ^5.0.3
+        specifier: ^5.0.5
         version: link:modules/a-data
       zova-module-a-pinia:
-        specifier: ^5.0.18
+        specifier: ^5.0.19
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.38
+        specifier: ^5.0.39
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.12
+        specifier: ^5.0.13
         version: link:modules/a-style
 
   src/suite-vendor/a-core/modules/a-core: {}
@@ -528,11 +528,11 @@ packages:
   '@cabloy/localeutil@1.0.4':
     resolution: {integrity: sha512-ZNcb/v9qCvFlyvdOrag8VcBRkvEqnJZTZWYr2qnf3NFWQDzUBFxVd8LBOYjOJmPd2efGZHM/+nAk21KyJ2mkLw==}
 
-  '@cabloy/module-glob@5.0.14':
-    resolution: {integrity: sha512-54rGiMVk1+dYeLp8tnGOsXygVXq9QeNmQDx/gQHkuERL1l7MOfZyvrHOb6kzy2zps4VtSSwKMU8W6JweDJIyCQ==}
+  '@cabloy/module-glob@5.0.15':
+    resolution: {integrity: sha512-okia6pVV2nmaG63O3qCylpmpPRcpZDun+QQHG24/MNf7N478RGwpxtQOmnME3y6+pA4DyNuylsyRClZQO5zUtw==}
 
-  '@cabloy/module-info@1.0.16':
-    resolution: {integrity: sha512-NNqxo3FA+UL0xsIIAkphsszXk3KYnz3D1tqA24R58UaRr957iX7BvpVHq9Fd1sP4W9a6F+j5H5pEzdiyLvh9dQ==}
+  '@cabloy/module-info@1.0.19':
+    resolution: {integrity: sha512-rDdr40iWxzYvjBckAtSKcH20SLs88pY6l4yoqQdL7FVxx1mRyOBq7gEAhPzIUGNnHBhi+7BVrzxLLH89xVtCRA==}
 
   '@cabloy/vite-plugin-babel@1.1.3':
     resolution: {integrity: sha512-OW9J2q9ze0hLvBQOPwjzX/CPMs3PszDc6rbJP6BgNFfdLkoebkWkkZuCB03CCOl35kOdPIRKs/tjxQDxd6WSzw==}
@@ -2802,15 +2802,15 @@ snapshots:
 
   '@cabloy/localeutil@1.0.4': {}
 
-  '@cabloy/module-glob@5.0.14':
+  '@cabloy/module-glob@5.0.15':
     dependencies:
-      '@cabloy/module-info': 1.0.16
+      '@cabloy/module-info': 1.0.19
       boxen: 4.2.0
       egg-born-utils: 1.2.0
     transitivePeerDependencies:
       - proxy-agent
 
-  '@cabloy/module-info@1.0.16':
+  '@cabloy/module-info@1.0.19':
     dependencies:
       stack-utils: 2.0.6
 

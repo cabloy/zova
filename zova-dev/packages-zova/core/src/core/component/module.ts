@@ -80,7 +80,7 @@ export class AppModule extends BeanSimple {
     for (const moduleName of this.modulesMeta.moduleNames) {
       const module = this.modulesMeta.modules[moduleName];
       const info = module.info;
-      if (info.monkey || info.sync) {
+      if (info.capabilities?.monkey || info.capabilities?.sync) {
         const moduleResource = module.resource as any;
         promises.push(moduleResource());
         moduleNames.push(moduleName);
@@ -96,7 +96,7 @@ export class AppModule extends BeanSimple {
   private async _requireAllMonkeys() {
     for (const moduleName of this.modulesMeta.moduleNames) {
       const module = this.modulesMeta.modules[moduleName];
-      if (module.info.monkey) {
+      if (module.info.capabilities?.monkey) {
         await this._install(moduleName, module);
       }
     }
@@ -105,7 +105,7 @@ export class AppModule extends BeanSimple {
   private async _requireAllSyncs() {
     for (const moduleName of this.modulesMeta.moduleNames) {
       const module = this.modulesMeta.modules[moduleName];
-      if (module.info.sync) {
+      if (module.info.capabilities?.sync) {
         await this._install(moduleName, module);
       }
     }
@@ -209,7 +209,7 @@ export class AppModule extends BeanSimple {
     // module monkey
     for (const key of this.modulesMeta.moduleNames) {
       const moduleMonkey: IModule = this.modulesMeta.modules[key];
-      if (moduleMonkey.info.monkey) {
+      if (moduleMonkey.info.capabilities?.monkey) {
         if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
           await this.app.vue.runWithContext(async () => {
             if (moduleTarget === undefined) {
@@ -250,7 +250,7 @@ export class AppModule extends BeanSimple {
     // module monkey
     for (const key of this.modulesMeta.moduleNames) {
       const moduleMonkey: IModule = this.modulesMeta.modules[key];
-      if (moduleMonkey.info.monkey) {
+      if (moduleMonkey.info.capabilities?.monkey) {
         if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
           this.app.vue.runWithContext(() => {
             if (moduleTarget === undefined) {

@@ -129,17 +129,14 @@ export function createConfigUtils(
 
   function _configManualChunk_vendorsModules() {
     // modules
-    const { modules, modulesArray } = modulesMeta;
-    const moduleNames = modulesArray.map(item => item.info.relativeName);
-    // src
-    const fileSrc = new URL('../templates/zova-modules-meta.ejs', import.meta.url);
-    const contentSrc = readFileSync(fileSrc, 'utf8');
-    const template = compileTemplate(contentSrc);
-    // dest
-    const contentDest = template({ modules, moduleNames });
-    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'modules-meta.ts');
-    fse.ensureFileSync(fileDest);
-    fse.writeFileSync(fileDest, contentDest, 'utf-8');
+    const { modules } = modulesMeta;
+    // loop
+    for (const moduleName in modules) {
+      const module = modules[moduleName];
+      const mockPath = path.join(module.root, 'mock');
+      if (!fse.existsSync(mockPath)) continue;
+      await fse.copy(mockPath, path.join(pathDest, moduleName));
+    }
   }
 
   function _configManualChunk_vendorsModulesBefore() {
