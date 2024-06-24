@@ -8,5 +8,6 @@ export const PluginZova = {
     // zova app
     const app = new ZovaApplication(vue, beanRoot);
     await app.initialize({ modulesMeta, AppMonkey, locales, config });
+    return app;
   },
 };
