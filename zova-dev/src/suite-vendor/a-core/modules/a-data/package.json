@@ -5,6 +5,28 @@
   "zovaModule": {
     "capabilities": {
       "monkey": true
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "@tanstack"
+          ],
+          "output": "tanstack"
+        },
+        {
+          "match": [
+            "js-cookie"
+          ],
+          "output": "js-cookie"
+        },
+        {
+          "match": [
+            "localforage"
+          ],
+          "output": "localforage"
+        }
+      ]
     }
   },
   "type": "module",
