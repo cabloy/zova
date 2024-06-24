@@ -11,7 +11,7 @@ export default function () {
       function getModuleName() {
         if (moduleName) return moduleName;
         const sourceFileName = state.file.opts.sourceFileName || state.file.opts.filename;
-        if (sourceFileName && sourceFileName.indexOf('src/boot/app/') > -1) return;
+        if (!__checkIfValid(sourceFileName)) return;
         const moduleInfo = parseInfoFromPath(sourceFileName);
         if (!moduleInfo) return;
         moduleName = moduleInfo.relativeName;
@@ -46,4 +46,11 @@ function __applyDecorator(expression: t.CallExpression, moduleName: string) {
     const objectExpression = args[0] as t.ObjectExpression;
     objectExpression.properties.push(propertyNode);
   }
+}
+
+function __checkIfValid(fileName?: string | null) {
+  if (!fileName) return false;
+  return !['src/boot/app/', '.zova/app/'].some(item => {
+    return fileName.indexOf(item) > -1;
+  });
 }
