@@ -34,7 +34,7 @@
     "@babel/plugin-transform-class-properties": "^7.24.1",
     "@cabloy/dotenv": "^1.0.1",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/module-glob": "^5.0.14",
+    "@cabloy/module-glob": "^5.0.15",
     "@cabloy/vite-plugin-babel": "^1.1.3",
     "@cabloy/vue-reactivity": "^3.4.32",
     "@cabloy/vue-runtime-core": "^3.4.32",
