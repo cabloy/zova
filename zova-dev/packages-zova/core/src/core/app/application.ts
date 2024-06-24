@@ -5,6 +5,7 @@ import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
 import { PluginBean } from '../../plugins/bean.js';
+import { Cast } from '../../types/utils/cast.js';
 
 export class ZovaApplication {
   vue: App;
@@ -20,6 +21,7 @@ export class ZovaApplication {
     this.vue = vue;
     this.bean = BeanContainer.create(this, null);
     this.beanRoot = beanRoot;
+    Cast(this.beanRoot).app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
