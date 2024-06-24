@@ -1,6 +1,5 @@
 import { ZovaApplication } from '../core/app/index.js';
 import { ZovaContext } from '../core/context/index.js';
-import { SymbolBeanRoot } from '../types/interface/inject.js';
 
 export class BeanSimple {
   protected app: ZovaApplication;
@@ -11,10 +10,6 @@ export class BeanSimple {
   }
 
   protected get beanRoot() {
-    const bean = this.bean.inject(SymbolBeanRoot);
-    if (!bean) {
-      throw new Error('not found root bean');
-    }
-    return bean;
+    return this.bean.beanRoot;
   }
 }

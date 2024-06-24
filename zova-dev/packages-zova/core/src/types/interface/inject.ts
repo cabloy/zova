@@ -1,6 +1,4 @@
-import { BeanContainerLike } from '../../bean/beanContainer.js';
-
-export const SymbolBeanRoot = Symbol('SymbolBeanRoot');
+import { BeanContainerLike, SymbolBeanRoot } from '../../bean/beanContainer.js';
 
 export interface IInjectRecord {
   [SymbolBeanRoot]: BeanContainerLike;

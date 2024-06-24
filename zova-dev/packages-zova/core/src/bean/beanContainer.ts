@@ -15,6 +15,8 @@ import { SymbolBeanFullName, SymbolInited } from './beanBaseSimple.js';
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 const BeanContainerInstances = Symbol.for('Bean#Instances');
 
+export const SymbolBeanRoot = Symbol('SymbolBeanRoot');
+
 export type BeanContainerLike = IBeanRecord & BeanContainer;
 
 export class BeanContainer {
@@ -129,6 +131,12 @@ export class BeanContainer {
     // module: load
     await this.app.meta.module.use(moduleScope);
     return this.scope(moduleScope);
+  }
+
+  get beanRoot() {
+    const bean = this.inject(SymbolBeanRoot);
+    if (!bean) throw new Error('not found root bean');
+    return bean;
   }
 
   _getBeanSync<K extends keyof IBeanRecord>(
