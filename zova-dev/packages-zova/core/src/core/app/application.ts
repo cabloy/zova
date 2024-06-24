@@ -4,7 +4,6 @@ import { AppMeta } from './meta.js';
 import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
-import { PluginBean } from '../../plugins/bean.js';
 import { Cast } from '../../types/utils/cast.js';
 
 export class ZovaApplication {
@@ -37,19 +36,12 @@ export class ZovaApplication {
     this.config = this.meta.util.extend({}, configDefault, config);
     // constant
     this.constant = constantDefault;
-    // plugins
-    await this.handlePlugins();
     // module
     await this.meta.module.initialize(modulesMeta);
     // monkey: appInitialize
     await this.meta.module._monkeyModule('appInitialize', undefined, this.bean);
     // monkey: appInitialized
     await this.meta.module._monkeyModule('appInitialized', undefined, this.bean);
-  }
-
-  private async handlePlugins() {
-    // bean
-    this.vue.use(PluginBean);
   }
 }
 
