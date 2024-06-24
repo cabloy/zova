@@ -11,6 +11,10 @@ export class BeanSimple {
   }
 
   protected get beanRoot() {
-    return this.bean.inject(SymbolBeanRoot);
+    const bean = this.bean.inject(SymbolBeanRoot);
+    if (!bean) {
+      throw new Error('not found root bean');
+    }
+    return bean;
   }
 }
