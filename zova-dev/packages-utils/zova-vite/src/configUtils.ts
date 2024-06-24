@@ -4,6 +4,7 @@ import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
 import { getEnvMeta, getMockPath } from './utils.js';
 import { glob } from '@cabloy/module-glob';
+import { IBundleVendor } from '@cabloy/module-info';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -128,15 +129,19 @@ export function createConfigUtils(
   }
 
   function _configManualChunk_vendorsModules() {
+    // vendors
+    let vendors: IBundleVendor[] = [];
     // modules
-    const { modules } = modulesMeta;
+    const { modules } = __modulesMeta;
     // loop
     for (const moduleName in modules) {
       const module = modules[moduleName];
-      const mockPath = path.join(module.root, 'mock');
-      if (!fse.existsSync(mockPath)) continue;
-      await fse.copy(mockPath, path.join(pathDest, moduleName));
+      const vendorsModule = module.package.zovaModule?.bundle?.vendors;
+      if (vendorsModule) {
+        vendors = vendors.concat(vendorsModule);
+      }
     }
+    return vendors;
   }
 
   function _configManualChunk_vendorsModulesBefore() {
@@ -152,9 +157,9 @@ export function createConfigUtils(
 
   function _configManualChunk_vendors(id: string) {
     if (!__zovaManualChunkVendors_runtime) {
-      __zovaManualChunkVendors_runtime = _configManualChunk_vendorsDefault().concat(
-        configOptions.zovaManualChunk.vendors as any,
-      );
+      __zovaManualChunkVendors_runtime = _configManualChunk_vendorsDefault()
+        .concat(_configManualChunk_vendorsModules() as any)
+        .concat(configOptions.zovaManualChunk.vendors as any);
     }
     return _configManualChunk_match(id, __zovaManualChunkVendors_runtime);
   }
