@@ -14,12 +14,12 @@ export class ZovaApplication {
   config: ZovaConfig;
   constant: ZovaConstant;
 
-  constructor(vue: App, bean: BeanContainerLike) {
+  constructor(vue: App, beanRoot: BeanContainerLike) {
     markRaw(this);
     vue.zova = this;
     this.vue = vue;
     this.bean = BeanContainer.create(this, null);
-    this.beanRoot = bean;
+    this.beanRoot = beanRoot;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
