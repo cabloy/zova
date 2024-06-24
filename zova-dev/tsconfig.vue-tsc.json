@@ -9,7 +9,7 @@
     "vite.config.ts",
     "./packages-zova",
     "./packages-utils",
-    "./src/boot/zova.ts",
+    "./src/boot/app",
     "./src/boot/main.ts"
   ]
 }

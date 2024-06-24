@@ -7,7 +7,7 @@
     "./.zova",
     "./node_modules",
     "./packages-utils/zova-vite/templates",
-    "./src/boot/zova.ts",
+    "./src/boot/app",
     "./src/boot/main.ts"
   ],
   "references": [

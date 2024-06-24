@@ -7,7 +7,7 @@
     "./.zova",
     "./node_modules",
     "vite.config.ts",
-    "./src/boot/zova.ts",
+    "./src/boot/app",
     "./src/boot/main.ts"
   ]
 }
