@@ -1,12 +1,12 @@
 import { createApp } from 'vue';
+import { PluginBean } from 'zova';
 import App from './app/index.vue';
-import { zova } from './zova.js';
 
 import '../css/index.scss';
 import 'uno.css';
 
 async function start({ app }) {
-  await zova({ app });
+  app.use(PluginBean);
   app.mount('#app');
 }
 

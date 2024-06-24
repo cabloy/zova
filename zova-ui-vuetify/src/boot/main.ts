@@ -5,13 +5,13 @@
  */
 
 import { createApp } from 'vue';
+import { PluginBean } from 'zova';
 import 'roboto-fontface/css/roboto/sass/roboto-fontface.scss';
 import vuetify from './vuetify.js';
 import App from './app/index.vue';
-import { zova } from './zova.js';
 
 async function start({ app }) {
-  await zova({ app });
+  app.use(PluginBean);
   app.mount('#app');
 }
 

@@ -1,15 +1,12 @@
 /* eslint-disable */
-// @ts-ignore: ssss
 
-import { BeanControllerPageBase, Cast, Local } from 'zova';
+import { BeanControllerPageBase, Local } from 'zova';
 import createRouter from '../router.js';
 import { getCurrentInstance } from 'vue';
 import { PluginZova } from 'zova';
-// @ts-ignore: ssss
 import { modulesMeta } from '../../../.zova/modules-meta.js';
 import { AppMonkey } from '../../front/config/monkey.js';
 import { locales } from '../../front/config/locales.js';
-// @ts-ignore: ssss
 import config from '../../../.zova/config.js';
 
 @Local()
