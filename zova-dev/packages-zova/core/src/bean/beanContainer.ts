@@ -116,7 +116,7 @@ export class BeanContainer {
   scope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): IBeanScopeRecord[K];
   scope<T>(moduleScope: string): T;
   scope<T>(moduleScope: string): T {
-    if (this.ctx) {
+    if (this !== this.app.bean) {
       return this.app.bean.scope(moduleScope);
     }
     return this._getBeanSyncOnly(`${moduleScope}.scope.module`);
@@ -125,7 +125,7 @@ export class BeanContainer {
   async getScope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): Promise<IBeanScopeRecord[K]>;
   async getScope<T>(moduleScope: string): Promise<T>;
   async getScope<T>(moduleScope: string): Promise<T> {
-    if (this.ctx) {
+    if (this !== this.app.bean) {
       return await this.app.bean.getScope(moduleScope);
     }
     // module: load
