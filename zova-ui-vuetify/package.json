@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-vuetify",
-  "version": "5.0.149",
+  "version": "5.0.150",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -37,8 +37,8 @@
     "vue-router": "^4.3.3",
     "vuetify": "^3.6.9",
     "zod": "^3.23.8",
-    "zova": "^5.0.103",
-    "zova-module-a-data": "^5.0.5",
+    "zova": "^5.0.104",
+    "zova-module-a-data": "^5.0.6",
     "zova-module-a-pinia": "^5.0.19",
     "zova-module-a-router": "^5.0.39",
     "zova-module-a-style": "^5.0.13"
@@ -52,7 +52,7 @@
     "vite": "^5.3.1",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-tsc": "^2.0.21",
-    "zova-vite": "^1.0.106"
+    "zova-vite": "^1.0.107"
   },
   "license": "MIT",
   "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
