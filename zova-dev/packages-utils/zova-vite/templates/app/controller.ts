@@ -1,13 +1,10 @@
-/* eslint-disable */
-
-import { BeanControllerPageBase, Local } from 'zova';
-import createRouter from '../router.js';
 import { getCurrentInstance } from 'vue';
-import { PluginZova } from 'zova';
-import { modulesMeta } from '../../../.zova/modules-meta.js';
-import { AppMonkey } from '../../front/config/monkey.js';
-import { locales } from '../../front/config/locales.js';
-import config from '../../../.zova/config.js';
+import { BeanControllerPageBase, Local, PluginZova } from 'zova';
+import createRouter from '../../src/boot/router.js';
+import { locales } from '../../src/front/config/locales.js';
+import { AppMonkey } from '../../src/front/config/monkey.js';
+import config from '../config.js';
+import { modulesMeta } from '../modules-meta.js';
 
 @Local()
 export class ControllerPageApp extends BeanControllerPageBase {
