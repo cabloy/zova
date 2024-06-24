@@ -13,10 +13,6 @@ export class AppModule extends BeanSimple {
   /** @internal */
   public async initialize(modulesMeta: PluginZovaModulesMeta) {
     this.modulesMeta = modulesMeta;
-  }
-
-  /** @internal */
-  public async initialized() {
     await this._loadAllMonkeysAndSyncs();
     await this._requireAllMonkeys();
     await this._requireAllSyncs();
