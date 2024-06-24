@@ -8,7 +8,7 @@ export type BeanApiLike = BeanApi & AxiosInstance;
 
 // const __ApiMethods = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch'];
 
-@Bean({ scene: 'bean', name: 'api', containerScope: 'ctx' })
+@Bean()
 export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
 
