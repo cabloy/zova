@@ -23,8 +23,7 @@ export class ControllerPageApp extends BeanControllerPageBase {
     // app
     const instance = getCurrentInstance();
     const app = instance?.appContext.app;
-    const app2 = await PluginZova.install(app!, { modulesMeta, AppMonkey, locales, config });
-    await Cast(app2).initialized({ bean: this.bean });
+    await PluginZova.install(app!, this.ctx.bean, { modulesMeta, AppMonkey, locales, config });
     // use router
     this.app.vue.use(router);
   }

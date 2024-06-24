@@ -14,11 +14,12 @@ export class ZovaApplication {
   config: ZovaConfig;
   constant: ZovaConstant;
 
-  constructor(vue: App) {
+  constructor(vue: App, bean: BeanContainerLike) {
     markRaw(this);
     vue.zova = this;
     this.vue = vue;
     this.bean = BeanContainer.create(this, null);
+    this.beanRoot = bean;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
@@ -41,10 +42,9 @@ export class ZovaApplication {
     // module
     await this.meta.module.initialize(modulesMeta);
     // monkey: appInitialize
-
-    await this.meta.module._monkeyModule('appInitialize', undefined, bean);
+    await this.meta.module._monkeyModule('appInitialize', undefined, this.beanRoot);
     // monkey: appInitialized
-    await this.meta.module._monkeyModule('appInitialized', undefined, bean);
+    await this.meta.module._monkeyModule('appInitialized', undefined, this.beanRoot);
   }
 
   private async handlePlugins() {
