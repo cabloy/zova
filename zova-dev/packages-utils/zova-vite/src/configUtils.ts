@@ -3,6 +3,7 @@ import { ZovaViteConfigChunkVendor, ZovaViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
 import { getEnvMeta, getMockPath } from './utils.js';
+import { glob } from '@cabloy/module-glob';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -41,11 +42,17 @@ const __ZovaManualChunkVendors = [
 export function createConfigUtils(
   configMeta: ZovaConfigMeta,
   configOptions: ZovaViteConfigOptions,
-): { loadEnvs: () => { [name: string]: string }; configManualChunk: (id: string) => string } {
+): {
+  loadEnvs: () => { [name: string]: string };
+  loadModulesMeta: () => ReturnType<typeof glob>;
+  configManualChunk: (id: string) => string;
+} {
   let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   let __zovaManualChunkVendors_runtime_modulesBefore: ZovaViteConfigChunkVendor[];
+  let __modulesMeta: Awaited<ReturnType<typeof glob>>;
   return {
     loadEnvs: __loadEnvs,
+    loadModulesMeta: __loadModulesMeta,
     configManualChunk: __configManualChunk,
   };
 
@@ -66,6 +73,18 @@ export function createConfigUtils(
         META_APP_MODE: meta.appMode,
       },
     );
+  }
+
+  async function __loadModulesMeta() {
+    // modules
+    __modulesMeta = await glob({
+      projectMode: 'zova',
+      projectPath: configOptions.appDir,
+      disabledModules: process.env.PROJECT_DISABLED_MODULES,
+      disabledSuites: process.env.PROJECT_DISABLED_SUITES,
+      log: true,
+    });
+    return __modulesMeta;
   }
 
   function __configManualChunk_adjustId(id: string) {
@@ -106,6 +125,21 @@ export function createConfigUtils(
 
   function _configManualChunk_vendorsDefault() {
     return __ZovaManualChunkVendors;
+  }
+
+  function _configManualChunk_vendorsModules() {
+    // modules
+    const { modules, modulesArray } = modulesMeta;
+    const moduleNames = modulesArray.map(item => item.info.relativeName);
+    // src
+    const fileSrc = new URL('../templates/zova-modules-meta.ejs', import.meta.url);
+    const contentSrc = readFileSync(fileSrc, 'utf8');
+    const template = compileTemplate(contentSrc);
+    // dest
+    const contentDest = template({ modules, moduleNames });
+    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'modules-meta.ts');
+    fse.ensureFileSync(fileDest);
+    fse.writeFileSync(fileDest, contentDest, 'utf-8');
   }
 
   function _configManualChunk_vendorsModulesBefore() {

@@ -13,15 +13,11 @@ import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
 
-export async function generateEntryFiles(configMeta: ZovaConfigMeta, configOptions: ZovaViteConfigOptions) {
-  // modules
-  const modulesMeta = await glob({
-    projectMode: 'zova',
-    projectPath: configOptions.appDir,
-    disabledModules: process.env.PROJECT_DISABLED_MODULES,
-    disabledSuites: process.env.PROJECT_DISABLED_SUITES,
-    log: true,
-  });
+export async function generateEntryFiles(
+  configMeta: ZovaConfigMeta,
+  configOptions: ZovaViteConfigOptions,
+  modulesMeta: Awaited<ReturnType<typeof glob>>,
+) {
   // config
   await __generateConfig();
   // modules meta

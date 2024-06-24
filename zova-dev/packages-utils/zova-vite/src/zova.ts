@@ -15,6 +15,8 @@ export async function generateZovaViteMeta(
   const configUtils = createConfigUtils(configMeta, configOptions);
   // env
   const env = configUtils.loadEnvs();
+  // modulesMeta
+  const modulesMeta = await configUtils.loadModulesMeta();
   // define
   const define = __getConfigDefine(env);
   // server
@@ -42,7 +44,7 @@ export async function generateZovaViteMeta(
     },
   };
   // generateEntryFiles
-  await generateEntryFiles(configMeta, configOptions);
+  await generateEntryFiles(configMeta, configOptions, modulesMeta);
   // ok
   return {
     env,
