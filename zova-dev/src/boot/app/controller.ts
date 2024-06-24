@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-ignore: ssss
 
-import { BeanControllerPageBase, Cast, Local, SymbolBeanRoot } from 'zova';
+import { BeanControllerPageBase, Cast, Local } from 'zova';
 import createRouter from '../router.js';
 import { getCurrentInstance } from 'vue';
 import { PluginZova } from 'zova';
@@ -18,8 +18,6 @@ export class ControllerPageApp extends BeanControllerPageBase {
     // app
     const instance = getCurrentInstance();
     const app = instance!.appContext.app!;
-    // beanRoot
-    app.provide(SymbolBeanRoot, this.ctx.bean);
     // router
     const router = createRouter();
     app.provide('a-router:appRouter', router);
