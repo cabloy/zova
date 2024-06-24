@@ -27,6 +27,7 @@ export class BeanRouter extends BeanBase {
       if (!router) {
         throw new Error('Should provide router');
       }
+      this.app.vue.provide('a-router:router', Cast<BeanRouterLike>(this));
       this.bean.provide('a-router:router', Cast<BeanRouterLike>(this));
       // event
       this.eventRouterGuards = this.app.meta.event.on('a-router:routerGuards', async (context, next) => {

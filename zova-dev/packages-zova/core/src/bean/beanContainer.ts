@@ -69,13 +69,9 @@ export class BeanContainer {
   }
 
   provide<K extends keyof IInjectRecord>(injectKey: K, value: IInjectRecord[K]) {
-    if (this.ctx) {
-      return this.ctx.meta.util.instanceScope(() => {
-        return composableProvide(injectKey, value as any);
-      });
-    } else {
-      return this.app.vue.provide(injectKey, value as any);
-    }
+    return this.ctx.meta.util.instanceScope(() => {
+      return composableProvide(injectKey, value as any);
+    });
   }
 
   inject<K extends keyof IInjectRecord>(injectKey: K): IInjectRecord[K];
@@ -90,7 +86,7 @@ export class BeanContainer {
     treatDefaultAsFactory?: true,
   ): IInjectRecord[K];
   inject(injectKey, defaultValue?, treatDefaultAsFactory?) {
-    return this.runWithInstanceScopeOrAppContext(() => {
+    return this.ctx.meta.util.instanceScope(() => {
       return composableInject(injectKey, defaultValue, treatDefaultAsFactory);
     });
   }

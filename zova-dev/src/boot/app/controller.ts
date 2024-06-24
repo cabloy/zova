@@ -21,6 +21,7 @@ export class ControllerPageApp extends BeanControllerPageBase {
     // router
     const router = createRouter();
     app.provide('a-router:appRouter', router);
+    this.bean.provide('a-router:appRouter', router);
     // install
     await PluginZova.install(app, this.ctx.bean, { modulesMeta, AppMonkey, locales, config });
     // use router
