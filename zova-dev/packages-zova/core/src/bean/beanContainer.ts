@@ -1,5 +1,5 @@
 import { isClass } from '../utils/isClass.js';
-import { ZovaApplication, ZovaContext } from '../core/index.js';
+import { AppUtil, ZovaApplication, ZovaContext } from '../core/index.js';
 import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
@@ -22,6 +22,7 @@ export type BeanContainerLike = IBeanRecord & BeanContainer;
 export class BeanContainer {
   private app: ZovaApplication;
   private ctx: ZovaContext;
+  private appUtil: AppUtil;
 
   // fullName / uuid / propName
   private [BeanContainerInstances]: Record<MetadataKey, unknown> = shallowReactive({});
@@ -41,6 +42,7 @@ export class BeanContainer {
   protected constructor(app: ZovaApplication, ctx: ZovaContext | null) {
     this.app = app;
     this.ctx = ctx as any;
+    this.appUtil = new AppUtil();
   }
 
   /** @internal */
@@ -331,7 +333,7 @@ export class BeanContainer {
       return appResource.getBean(beanFullName);
     }
     // check if uuid
-    if (!this.app.meta.util.isUuid(beanFullName)) {
+    if (!this.appUtil.isUuid(beanFullName)) {
       // module: name
       const moduleName = beanFullName.split('.')[0];
       // module: load
@@ -438,13 +440,17 @@ export class BeanContainer {
     // inject
     await this._injectBeanInstance(beanInstance, beanFullName);
     // init
-    await this.app.meta.module._monkeyModule('beanInit', undefined, this, beanInstance);
+    if (this.app) {
+      await this.app.meta.module._monkeyModule('beanInit', undefined, this, beanInstance);
+    }
     if (beanInstance.__init__) {
       await this.runWithInstanceScopeOrAppContext(async () => {
         await beanInstance.__init__(...args);
       });
     }
-    await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
+    if (this.app) {
+      await this.app.meta.module._monkeyModule('beanInited', undefined, this, beanInstance);
+    }
     if (beanInstance[SymbolInited]) {
       beanInstance[SymbolInited].touch();
     }

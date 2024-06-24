@@ -81,7 +81,9 @@ async function _useController(
   // ctx
   const ctx = new ZovaContext(getCurrentInstance()!);
   // monkey
-  ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
+  if (ctx.app) {
+    ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
+  }
   // dispose
   onBeforeUnmount(() => {
     // undefined better than null

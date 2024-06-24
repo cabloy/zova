@@ -11,6 +11,8 @@ export class BeanControllerPageBase<
 
   /** @internal */
   public __initControllerData(controllerData: IControllerData) {
-    this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
+    if (this.app) {
+      this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
+    }
   }
 }
