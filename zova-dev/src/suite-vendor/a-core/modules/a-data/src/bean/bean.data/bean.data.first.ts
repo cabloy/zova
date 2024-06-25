@@ -1,3 +1,3 @@
-import { BeanDataUseQuery } from './bean.data.useQuery.js';
+import { BeanDataUseMutation } from './bean.data.useMutation.js';
 
-export class BeanDataFirst<TScopeModule = unknown> extends BeanDataUseQuery<TScopeModule> {}
+export class BeanDataFirst<TScopeModule = unknown> extends BeanDataUseMutation<TScopeModule> {}

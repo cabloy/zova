@@ -29,5 +29,6 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
       title: this.newTitle,
       done: false,
     };
+    this.newTitle = '';
   }
 }

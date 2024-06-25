@@ -15,4 +15,8 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
       },
     });
   }
+
+  insert() {
+    //return this.
+  }
 }
