@@ -21,10 +21,12 @@ export default defineFakeRoute([
     url: '/demo/todo/get',
     method: 'get',
     response: req => {
+      const data = todos.find(item => item.id === req.query.id);
+      if (!data) return { code: 404, message: 'Not Found' };
       return {
         code: 0,
         message: 'Success',
-        data: todos.find(item => item.id === req.query.id),
+        data,
       };
     },
   },
