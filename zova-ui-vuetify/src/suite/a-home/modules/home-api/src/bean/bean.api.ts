@@ -4,7 +4,7 @@ import { markRaw } from 'vue';
 
 const SymbolApi = Symbol('SymbolApi');
 
-export type BeanApiLike = BeanApi & AxiosInstance;
+export type BeanApi = BeanApi & AxiosInstance;
 
 // const __ApiMethods = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch'];
 

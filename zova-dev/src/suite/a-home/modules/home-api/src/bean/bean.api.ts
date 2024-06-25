@@ -5,7 +5,7 @@ import type { DataUserInfo } from 'zova-module-home-user';
 
 const SymbolApi = Symbol('SymbolApi');
 
-export type BeanApiLike = BeanApi & AxiosInstance;
+export interface BeanApi extends AxiosInstance {}
 
 // const __ApiMethods = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch'];
 
