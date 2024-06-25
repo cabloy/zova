@@ -5,7 +5,7 @@ import { IModuleRoute, IModuleRouteComponent } from '../types.js';
 
 const SymbolRouter = Symbol('SymbolRouter');
 
-export type BeanRouterLike = BeanRouter & Router;
+export interface BeanRouter extends Router {}
 
 @Bean()
 export class BeanRouter extends BeanBase {
@@ -27,8 +27,8 @@ export class BeanRouter extends BeanBase {
       if (!router) {
         throw new Error('Should provide router');
       }
-      this.app.vue.provide('a-router:router', Cast<BeanRouterLike>(this));
-      this.bean.provide('a-router:router', Cast<BeanRouterLike>(this));
+      this.app.vue.provide('a-router:router', this);
+      this.bean.provide('a-router:router', this);
       // event
       this.eventRouterGuards = this.app.meta.event.on('a-router:routerGuards', async (context, next) => {
         this._routerGuards(context.data);
@@ -99,7 +99,7 @@ export class BeanRouter extends BeanBase {
     return `${fullPath}${join}${query2str}`;
   }
 
-  private _routerGuards(router: BeanRouterLike) {
+  private _routerGuards(router: BeanRouter) {
     router.beforeEach(async to => {
       // fullPath
       const fullPath = to.fullPath;
