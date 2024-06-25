@@ -38,6 +38,12 @@ const __MenuData = [
     to: '/a/demo/style',
   },
   {
+    title: 'Pinia',
+    caption: '',
+    icon: '',
+    to: '/a/demo/pinia',
+  },
+  {
     title: 'Todo',
     caption: '',
     icon: '',
