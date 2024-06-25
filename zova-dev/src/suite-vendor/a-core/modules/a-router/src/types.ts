@@ -1,6 +1,6 @@
 import { IComponentLayoutRecord, TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
-import { BeanRouterLike } from './bean/bean.router.js';
+import { BeanRouter } from './bean/bean.router.js';
 
 export type Lazy<T> = () => Promise<T>;
 export type IModuleRouteComponent = RouteComponent | Lazy<RouteComponent>;
@@ -17,7 +17,7 @@ declare module 'vue-router' {
 
 declare module 'zova' {
   export interface BeanBase {
-    $router: BeanRouterLike;
+    $router: BeanRouter;
   }
 
   export interface IModuleResource {

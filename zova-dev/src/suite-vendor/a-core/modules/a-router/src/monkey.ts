@@ -13,10 +13,10 @@ import {
 } from 'zova';
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
-import { BeanRouterLike } from './bean/bean.router.js';
+import { BeanRouter } from './bean/bean.router.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
-  private _beanRouter: BeanRouterLike;
+  private _beanRouter: BeanRouter;
   private _moduleSelf: IModule;
 
   constructor(moduleSelf: IModule) {
@@ -26,7 +26,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
 
   async getBeanRouter() {
     if (!this._beanRouter) {
-      this._beanRouter = (await this.bean._getBean('a-router.bean.router', false)) as BeanRouterLike;
+      this._beanRouter = (await this.bean._getBean('a-router.bean.router', false)) as BeanRouter;
     }
     return this._beanRouter;
   }

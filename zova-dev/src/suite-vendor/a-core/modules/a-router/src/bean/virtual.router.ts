@@ -1,5 +1,5 @@
 import { BeanBase, TypeEventOff, Virtual } from 'zova';
-import { BeanRouterLike } from './bean.router.js';
+import { BeanRouter } from './bean.router.js';
 
 @Virtual()
 export class BeanRouterBase<TScopeModule = unknown> extends BeanBase<TScopeModule> {
@@ -18,5 +18,5 @@ export class BeanRouterBase<TScopeModule = unknown> extends BeanBase<TScopeModul
     }
   }
 
-  protected onRouterGuards(_router: BeanRouterLike) {}
+  protected onRouterGuards(_router: BeanRouter) {}
 }
