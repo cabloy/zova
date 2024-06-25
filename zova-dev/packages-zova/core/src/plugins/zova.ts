@@ -1,7 +1,9 @@
 import { App } from 'vue';
 import { ZovaApplication, ZovaContext } from '../core/index.js';
 import { PluginZovaOptions } from '../types/interface/pluginZova.js';
-import { BeanContainerLike } from '../bean/beanContainer.js';
+import { BeanContainerInstances, BeanContainerLike } from '../bean/beanContainer.js';
+import { Cast } from '../types/index.js';
+import { BeanControllerIdentifier, BeanRenderIdentifier, BeanStyleIdentifier } from '../bean/type.js';
 
 export const PluginZova = {
   async install(vue: App, beanRoot: BeanContainerLike, { modulesMeta, AppMonkey, locales, config }: PluginZovaOptions) {
@@ -10,5 +12,14 @@ export const PluginZova = {
     await app.initialize({ modulesMeta, AppMonkey, locales, config });
     return app;
   },
-  async update(_app: ZovaApplication, _ctx: ZovaContext) {},
+  async update(app: ZovaApplication, ctxRoot: ZovaContext) {
+    const bean = Cast(app.bean);
+    bean.ctx = ctxRoot;
+    //
+    bean[BeanContainerInstances][BeanControllerIdentifier] = ctxRoot.bean[BeanControllerIdentifier];
+    bean[BeanContainerInstances][BeanRenderIdentifier] = ctxRoot.bean[BeanRenderIdentifier];
+    bean[BeanContainerInstances][BeanStyleIdentifier] = ctxRoot.bean[BeanStyleIdentifier];
+    //
+    ctxRoot.bean = bean;
+  },
 };

@@ -88,7 +88,9 @@ async function _useController(
   onBeforeUnmount(() => {
     // undefined better than null
     ctx.instance.emit('controllerRef', undefined);
-    ctx.bean.dispose();
+    if (ctx.bean !== ctx.app.bean) {
+      ctx.bean.dispose();
+    }
   });
   onUnmounted(() => {
     ctx.dispose();

@@ -1,20 +1,10 @@
 import { App, getCurrentInstance } from 'vue';
-import {
-  BeanContainerInstances,
-  BeanControllerIdentifier,
-  BeanControllerPageBase,
-  BeanRenderIdentifier,
-  BeanStyleIdentifier,
-  Cast,
-  Local,
-  PluginZova,
-  ZovaApplication,
-} from 'zova';
-import createRouter from '../router.js';
+import { BeanControllerPageBase, Local, PluginZova, ZovaApplication } from 'zova';
 import { locales } from '../../src/front/config/locales.js';
 import { AppMonkey } from '../../src/front/config/monkey.js';
 import config from '../config.js';
 import { modulesMeta } from '../modules-meta.js';
+import createRouter from '../router.js';
 
 @Local()
 export class ControllerPageApp extends BeanControllerPageBase {
