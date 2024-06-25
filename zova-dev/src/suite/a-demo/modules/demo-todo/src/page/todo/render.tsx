@@ -54,6 +54,15 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
                       Update
                     </button>
                   </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.deleteTodo(item);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}

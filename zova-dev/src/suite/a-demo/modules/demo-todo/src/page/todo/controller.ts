@@ -34,4 +34,8 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
     const todo = { ...item, title: `${item.title}!` };
     await this.$$dataTodo.update.mutateAsync(todo);
   }
+
+  async deleteTodo(item: ServiceTodoEntity) {
+    await this.$$dataTodo.delete.mutateAsync({ id: item.id });
+  }
 }

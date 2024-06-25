@@ -53,4 +53,18 @@ export default defineFakeRoute([
       };
     },
   },
+  {
+    url: '/demo/todo/delete',
+    method: 'post',
+    response: req => {
+      const index = todos.findIndex(item => item.id === req.body.id);
+      if (index > -1) {
+        todos.splice(index, 1);
+      }
+      return {
+        code: 0,
+        message: 'Success',
+      };
+    },
+  },
 ]);
