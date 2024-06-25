@@ -13,6 +13,7 @@ export const PluginBean = {
         if (!ctx) return;
         self.__bean_render_original = self._.render;
         self._.render = function (this, ...args) {
+          if (self._.isUnmounted) return;
           if (!ctx.meta.state.inited.state) {
             return self.__bean_render_original.call(this, ...args);
           }

@@ -1,4 +1,4 @@
-import { getCurrentInstance } from 'vue';
+import { App, getCurrentInstance } from 'vue';
 import { BeanControllerPageBase, Local, PluginZova } from 'zova';
 import createRouter from '../router.js';
 import { locales } from '../../src/front/config/locales.js';
@@ -12,6 +12,12 @@ export class ControllerPageApp extends BeanControllerPageBase {
     // app
     const instance = getCurrentInstance();
     const app = instance!.appContext.app!;
+    if (!app.zova) {
+      await this.initApp(app);
+    }
+  }
+
+  protected async initApp(app: App) {
     // router
     const router = this.onCreateRouter();
     app.provide('a-router:appRouter', router);

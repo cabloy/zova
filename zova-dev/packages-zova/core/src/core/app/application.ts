@@ -47,7 +47,6 @@ export class ZovaApplication {
 
 declare module 'vue' {
   export interface App {
-    /** @internal */
     zova: ZovaApplication;
   }
 }

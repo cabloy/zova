@@ -15,7 +15,7 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
-  $$todo: DataTodo;
+  $$dataTodo: DataTodo;
   queryTodos: DataQuery<ServiceTodoEntity[]>;
 
   protected async __init__() {
@@ -23,7 +23,7 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
     console.log(list.length);
     const item = await this.scope.service.todo.get({ id: 'xxx' });
     console.log(item);
-    this.queryTodos = this.$$todo.select();
+    this.queryTodos = this.$$dataTodo.select();
   }
 
   protected __dispose__() {}
