@@ -5,6 +5,7 @@ import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
 import { Cast } from '../../types/utils/cast.js';
+import { ZovaContext } from '../context/context.js';
 
 export class ZovaApplication {
   vue: App;
@@ -13,12 +14,13 @@ export class ZovaApplication {
   config: ZovaConfig;
   constant: ZovaConstant;
 
-  constructor(vue: App, beanRoot: BeanContainerLike) {
+  constructor(vue: App, ctxRoot: ZovaContext) {
     markRaw(this);
     vue.zova = this;
     this.vue = vue;
-    this.bean = beanRoot;
+    this.bean = ctxRoot.bean;
     Cast(this.bean).app = this;
+    ctxRoot.app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
   }
 
