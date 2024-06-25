@@ -32,7 +32,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
             </tr>
           </thead>
           <tbody>
-            {this.$$dataTodo.select.data?.map(item => {
+            {this.$$dataTodo.select().data?.map(item => {
               return (
                 <tr>
                   <td>
