@@ -1,12 +1,18 @@
 import { Data } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { BeanDataBase, DataMutation, DataQuery } from 'zova-module-a-data';
-import { ServiceTodoEntity, ServiceTodoGetParams, ServiceTodoIntertParams } from '../api/index.js';
+import {
+  ServiceTodoEntity,
+  ServiceTodoGetParams,
+  ServiceTodoIntertParams,
+  ServiceTodoUpdateParams,
+} from '../api/index.js';
 
 @Data()
 export class DataTodo extends BeanDataBase<ScopeModule> {
   select: DataQuery<ServiceTodoEntity[]>;
   insert: DataMutation<void, ServiceTodoIntertParams>;
+  update: DataMutation<void, ServiceTodoUpdateParams>;
 
   protected async __init__() {
     this.select = this.$useQuery({
@@ -22,6 +28,16 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
       },
       onSuccess: () => {
         this.$invalidateQueries({ queryKey: ['select'] });
+      },
+    });
+
+    this.update = this.$useMutation<void, ServiceTodoUpdateParams>({
+      mutationFn: async params => {
+        return this.scope.service.todo.update(params);
+      },
+      onSuccess: (_data, params) => {
+        this.$invalidateQueries({ queryKey: ['select'] });
+        this.$invalidateQueries({ queryKey: ['get', params.id] });
       },
     });
   }
