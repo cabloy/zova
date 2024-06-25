@@ -15,7 +15,7 @@ import { SymbolBeanFullName, SymbolInited } from './beanBaseSimple.js';
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
 export const BeanContainerInstances = Symbol('Bean#Instances');
 
-export type BeanContainerLike = IBeanRecord & BeanContainer;
+export interface BeanContainer extends IBeanRecord {}
 
 export class BeanContainer {
   private app: ZovaApplication;
