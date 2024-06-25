@@ -7,13 +7,18 @@ import {
   UseQueryDefinedReturnType,
   UseQueryOptions,
   Query,
+  hashKey,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 import { useComputed } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
 import { BeanDataQuery } from './bean.data.query.js';
 
+const SymbolUseQueries = Symbol('SymbolUseQueries');
+
 export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataQuery<TScopeModule> {
+  [SymbolUseQueries]: Record<string, unknown> = {};
+
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,
@@ -33,6 +38,42 @@ export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataQuery<TSco
     return this.ctx.meta.util.instanceScope(() => {
       return useQuery(options, queryClient);
     });
+  }
+
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryDefinedReturnType<TData, TError>>;
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
+  $useQueryExisting(options, queryClient) {
+    const queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
+    const queryHash = hashKey(queryKey);
+    if (!this[SymbolUseQueries][queryHash]) {
+      this[SymbolUseQueries][queryHash] = this.$useQuery(options, queryClient);
+    }
+    return this[SymbolUseQueries][queryHash];
   }
 
   $useQueryLocal<

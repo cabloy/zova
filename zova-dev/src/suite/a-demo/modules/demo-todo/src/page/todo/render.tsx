@@ -10,6 +10,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
+        <div>Current: {this.$$dataTodo.get(this.currentTodo)?.data?.title}</div>
         <form>
           <input v-model={this.newTitle}></input>
           <button
@@ -33,7 +34,16 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
             {this.$$dataTodo.select.data?.map(item => {
               return (
                 <tr>
-                  <td>{item.title}</td>
+                  <td>
+                    <a
+                      href="#"
+                      onClick={withModifiers(() => {
+                        this.currentTodo = { id: item.id };
+                      }, ['prevent'])}
+                    >
+                      {item.title}
+                    </a>
+                  </td>
                   <td>{item.done && iconh('::checkbox-checked')}</td>
                   <td></td>
                 </tr>

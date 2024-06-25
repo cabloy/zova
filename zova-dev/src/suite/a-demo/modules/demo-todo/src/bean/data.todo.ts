@@ -26,8 +26,9 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
     });
   }
 
-  get(params: ServiceTodoGetParams) {
-    return this.$useQuery({
+  get(params?: ServiceTodoGetParams) {
+    if (!params) return undefined;
+    return this.$useQueryExisting({
       queryKey: ['get', params.id],
       queryFn: async () => {
         return this.scope.service.todo.get(params);

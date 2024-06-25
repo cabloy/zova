@@ -1,6 +1,7 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataTodo } from '../../bean/data.todo.js';
+import { ServiceTodoGetParams } from '../../api/index.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -15,6 +16,7 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
   @Use()
   $$dataTodo: DataTodo;
   newTitle: string;
+  currentTodo?: ServiceTodoGetParams;
 
   protected async __init__() {}
 
