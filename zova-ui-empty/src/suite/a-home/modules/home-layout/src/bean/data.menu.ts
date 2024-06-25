@@ -5,7 +5,7 @@ import { ScopeModule } from '../resource/this.js';
 @Data()
 export class DataMenu extends BeanDataBase<ScopeModule> {
   select() {
-    return this.$useQuery({
+    return this.$useQueryExisting({
       queryKey: ['select'],
       queryFn: async () => {
         const data = await this.scope.service.menu.select();

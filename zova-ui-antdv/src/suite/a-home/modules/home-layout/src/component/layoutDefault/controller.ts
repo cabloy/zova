@@ -1,7 +1,5 @@
 import { BeanControllerBase, Local, Use } from 'zova';
 import { DataMenu } from '../../bean/data.menu.js';
-import { ServiceMenuEntity } from '../../api/index.js';
-import { DataQuery } from 'zova-module-a-data';
 
 export interface Props {}
 
@@ -16,12 +14,9 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   @Use()
   $$dataMenu: DataMenu;
 
-  queryMenus: DataQuery<ServiceMenuEntity[]>;
   leftDrawerOpen: boolean = false;
 
-  protected async __init__() {
-    this.queryMenus = this.$$dataMenu.select();
-  }
+  protected async __init__() {}
 
   toggleLeftDrawer() {
     this.leftDrawerOpen = !this.leftDrawerOpen;
