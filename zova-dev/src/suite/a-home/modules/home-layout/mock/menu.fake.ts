@@ -37,6 +37,12 @@ const __MenuData = [
     icon: '',
     to: '/a/demo/style',
   },
+  {
+    title: 'Todo',
+    caption: '',
+    icon: '',
+    to: '/demo/todo/todo',
+  },
 ];
 
 export default defineFakeRoute([
