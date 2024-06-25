@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-quasar",
-  "version": "5.0.157",
+  "version": "5.0.158",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
