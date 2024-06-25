@@ -30,8 +30,8 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
     this.newTitle = '';
   }
 
-  async updateTodo(item: ServiceTodoEntity) {
-    const todo = { ...item, title: `${item.title}!` };
+  async completeTodo(item: ServiceTodoEntity) {
+    const todo = { ...item, title: `${item.title}!`, done: true };
     await this.$$dataTodo.update.mutateAsync(todo);
   }
 
