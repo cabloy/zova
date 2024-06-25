@@ -1,5 +1,5 @@
 import { style } from 'typestyle';
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
+import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
 import { StoreTheme } from './bean/store.theme.js';
 
@@ -7,15 +7,15 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   private _storeTheme: StoreTheme;
   private _storeStyleDefault: any;
 
-  async appInitialize(bean: BeanContainerLike) {
+  async appInitialize(bean: BeanContainer) {
     // theme
     this._storeTheme = await bean._getBean(StoreTheme, true);
     // style default
     const scope: ScopeModule = await bean.getScope(__ThisModule__);
     this._storeStyleDefault = await bean._getBean(scope.config.defaultStyle, true);
   }
-  async appInitialized(_bean: BeanContainerLike) {}
-  async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+  async appInitialized(_bean: BeanContainer) {}
+  async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
     bean.defineProperty(beanInstance, '$style', {
       enumerable: false,
@@ -48,9 +48,9 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       },
     });
   }
-  async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
+  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 
   _patchStyle(beanInstance: BeanBase, props, ...args) {
     if (props && typeof props === 'object') {

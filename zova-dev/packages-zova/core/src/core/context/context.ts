@@ -1,13 +1,13 @@
 import { ComponentInternalInstance, markRaw } from 'vue';
 import { ZovaApplication } from '../app/application.js';
-import { BeanContainer, BeanContainerLike } from '../../bean/beanContainer.js';
+import { BeanContainer } from '../../bean/beanContainer.js';
 import { CtxMeta } from './meta.js';
 import { Cast } from '../../types/utils/cast.js';
 
 export class ZovaContext {
   instance: ComponentInternalInstance;
   app: ZovaApplication;
-  bean: BeanContainerLike;
+  bean: BeanContainer;
   meta: CtxMeta;
   //config: ContextConfig;
 

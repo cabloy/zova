@@ -1,5 +1,5 @@
 import { App, markRaw } from 'vue';
-import { BeanContainerLike } from '../../bean/beanContainer.js';
+import { BeanContainer } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
 import { ZovaConfig, configDefault } from './config.js';
@@ -9,7 +9,7 @@ import { ZovaContext } from '../context/context.js';
 
 export class ZovaApplication {
   vue: App;
-  bean: BeanContainerLike;
+  bean: BeanContainer;
   meta: AppMeta;
   config: ZovaConfig;
   constant: ZovaConstant;

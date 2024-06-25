@@ -1,10 +1,10 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
+import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
 import { App } from 'ant-design-vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize(_bean: BeanContainerLike) {}
-  async appInitialized(_bean: BeanContainerLike) {}
-  async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+  async appInitialize(_bean: BeanContainer) {}
+  async appInitialized(_bean: BeanContainer) {}
+  async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$antdv', {
       enumerable: false,
       configurable: true,
@@ -13,7 +13,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       },
     });
   }
-  async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
+  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 }

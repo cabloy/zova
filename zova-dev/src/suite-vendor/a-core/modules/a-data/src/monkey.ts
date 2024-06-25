@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainerLike, BeanSimple, IMonkeySystem } from 'zova';
+import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
 import { Storage } from './local/storage.js';
 import { useQueryClient } from '@tanstack/vue-query';
 import { markRaw } from 'vue';
@@ -6,13 +6,13 @@ import { markRaw } from 'vue';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   storage: Storage;
 
-  async appInitialize(bean: BeanContainerLike) {
+  async appInitialize(bean: BeanContainer) {
     // storage
     this.storage = await bean._newBean(Storage, false);
   }
-  async appInitialized(_bean: BeanContainerLike) {}
+  async appInitialized(_bean: BeanContainer) {}
 
-  async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+  async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$queryClient', {
       enumerable: false,
       configurable: true,
@@ -21,7 +21,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       },
     });
   }
-  async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
+  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 }

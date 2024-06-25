@@ -1,6 +1,6 @@
 import {
   BeanBase,
-  BeanContainerLike,
+  BeanContainer,
   BeanControllerPageBase,
   BeanSimple,
   IModule,
@@ -31,13 +31,13 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     return this._beanRouter;
   }
 
-  async appInitialize(_bean: BeanContainerLike) {}
-  async appInitialized(bean: BeanContainerLike) {
+  async appInitialize(_bean: BeanContainer) {}
+  async appInitialized(bean: BeanContainer) {
     // emit event
     const router = bean.inject('a-router:router');
     await this.app.meta.event.emit('a-router:routerGuards', router);
   }
-  async beanInit(bean: BeanContainerLike, beanInstance: BeanBase) {
+  async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$router', {
       enumerable: false,
       configurable: true,
@@ -46,9 +46,9 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       },
     });
   }
-  async beanInited(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainerLike, _beanInstance: BeanBase) {}
+  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
+  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
   async moduleLoading(module: IModule) {
     if (this._moduleSelf === module) return;
     const beanRouter = await this.getBeanRouter();
