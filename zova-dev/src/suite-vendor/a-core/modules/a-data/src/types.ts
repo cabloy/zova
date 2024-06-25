@@ -47,7 +47,7 @@ export interface QueryMetaPersister {
   buster?: string;
 }
 
-export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData>>>;
+export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData | undefined, Error | null>>>;
 
 export type DataMutation<TData = unknown, TVariables = void, TContext = unknown> = UnwrapNestedRefs<
   ReturnType<typeof useMutation<TData, DefaultError, TVariables, TContext>>

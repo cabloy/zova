@@ -1,8 +1,6 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataTodo } from '../../bean/data.todo.js';
-import { DataMutation, DataQuery } from 'zova-module-a-data';
-import { ServiceTodoEntity, ServiceTodoIntertParams } from '../../api/index.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -16,14 +14,9 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
   $$dataTodo: DataTodo;
-  queryTodos: DataQuery<ServiceTodoEntity[]>;
-  mutationTodoInsert: DataMutation<void, ServiceTodoIntertParams>;
   newTitle: string;
 
-  protected async __init__() {
-    this.queryTodos = this.$$dataTodo.select();
-    this.mutationTodoInsert = this.$$dataTodo.insert();
-  }
+  protected async __init__() {}
 
   async addTodo() {
     const todo = {
@@ -31,7 +24,7 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
       title: this.newTitle,
       done: false,
     };
-    this.mutationTodoInsert.mutate(todo);
+    await this.$$dataTodo.insert.mutateAsync(todo);
     this.newTitle = '';
   }
 }
