@@ -1,7 +1,7 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { DataTodo } from '../../bean/data.todo.js';
-import { ServiceTodoGetParams } from '../../api/index.js';
+import { ServiceTodoEntity, ServiceTodoGetParams } from '../../api/index.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -28,5 +28,10 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
     };
     await this.$$dataTodo.insert.mutateAsync(todo);
     this.newTitle = '';
+  }
+
+  async updateTodo(item: ServiceTodoEntity) {
+    const todo = { ...item, title: `${item.title}!` };
+    await this.$$dataTodo.update.mutateAsync(todo);
   }
 }

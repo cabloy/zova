@@ -45,7 +45,15 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
                     </a>
                   </td>
                   <td>{item.done && iconh('::checkbox-checked')}</td>
-                  <td></td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.updateTodo(item);
+                      }}
+                    >
+                      Update
+                    </button>
+                  </td>
                 </tr>
               );
             })}
