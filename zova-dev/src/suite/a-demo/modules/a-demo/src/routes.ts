@@ -1,3 +1,4 @@
+import Pinia from './page/pinia/index.vue';
 import Style from './page/style/index.vue';
 import Locale from './page/locale/index.vue';
 import Component from './page/component/index.vue';
@@ -9,4 +10,5 @@ export const routes: IModuleRoute[] = [
   { path: 'component', component: Component },
   { path: 'locale', component: Locale },
   { path: 'style', component: Style },
+  { path: 'pinia', component: Pinia },
 ];
