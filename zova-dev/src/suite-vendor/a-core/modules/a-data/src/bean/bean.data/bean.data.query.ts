@@ -1,4 +1,14 @@
-import { DataTag, DefaultError, Query, QueryFilters, QueryKey, SetDataOptions, Updater } from '@tanstack/vue-query';
+import {
+  DataTag,
+  DefaultError,
+  InvalidateOptions,
+  InvalidateQueryFilters,
+  Query,
+  QueryFilters,
+  QueryKey,
+  SetDataOptions,
+  Updater,
+} from '@tanstack/vue-query';
 import { MaybeRefDeep, NoUnknown } from '../../common/types.js';
 import { Cast } from 'zova';
 import { BeanDataCookie } from './bean.data.cookie.js';
@@ -35,5 +45,16 @@ export class BeanDataQuery<TScopeModule = unknown> extends BeanDataCookie<TScope
     filters = { ...filters };
     Cast(filters).queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
     return this.$queryClient.getQueryCache().find(filters as any);
+  }
+
+  $invalidateQueries(
+    filters?: MaybeRefDeep<InvalidateQueryFilters>,
+    options?: MaybeRefDeep<InvalidateOptions>,
+  ): Promise<void> {
+    if (filters) {
+      const queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
+      filters = { ...filters, queryKey };
+    }
+    return this.$queryClient.invalidateQueries(filters, options);
   }
 }

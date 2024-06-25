@@ -22,6 +22,9 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
       mutationFn: async params => {
         return this.scope.service.todo.insert(params);
       },
+      onSuccess: () => {
+        this.$invalidateQueries({ queryKey: ['select'] });
+      },
     });
   }
 }
