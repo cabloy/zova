@@ -28,4 +28,15 @@ export default defineFakeRoute([
       };
     },
   },
+  {
+    url: '/demo/todo/insert',
+    method: 'post',
+    response: req => {
+      todos.unshift(req.body as any);
+      return {
+        code: 0,
+        message: 'Success',
+      };
+    },
+  },
 ]);

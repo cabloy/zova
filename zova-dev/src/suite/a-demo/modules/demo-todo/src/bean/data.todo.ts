@@ -1,6 +1,7 @@
 import { Data } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { BeanDataBase } from 'zova-module-a-data';
+import { ServiceTodoIntertParams } from '../api/index.js';
 
 @Data()
 export class DataTodo extends BeanDataBase<ScopeModule> {
@@ -17,6 +18,10 @@ export class DataTodo extends BeanDataBase<ScopeModule> {
   }
 
   insert() {
-    //return this.
+    return this.$useMutation<void, ServiceTodoIntertParams>({
+      mutationFn: async params => {
+        return this.scope.service.todo.insert(params);
+      },
+    });
   }
 }

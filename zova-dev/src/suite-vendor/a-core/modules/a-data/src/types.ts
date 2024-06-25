@@ -1,5 +1,5 @@
 import 'zova';
-import { useQuery, useQueryClient } from '@tanstack/vue-query';
+import { DefaultError, useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 declare module 'zova' {
   export interface BeanBase {
@@ -48,3 +48,7 @@ export interface QueryMetaPersister {
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData>>>;
+
+export type DataMutation<TData = unknown, TVariables = void, TContext = unknown> = UnwrapNestedRefs<
+  ReturnType<typeof useMutation<TData, DefaultError, TVariables, TContext>>
+>;
