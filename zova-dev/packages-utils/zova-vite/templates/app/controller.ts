@@ -1,5 +1,15 @@
 import { App, getCurrentInstance } from 'vue';
-import { BeanControllerPageBase, Local, PluginZova } from 'zova';
+import {
+  BeanContainerInstances,
+  BeanControllerIdentifier,
+  BeanControllerPageBase,
+  BeanRenderIdentifier,
+  BeanStyleIdentifier,
+  Cast,
+  Local,
+  PluginZova,
+  ZovaApplication,
+} from 'zova';
 import createRouter from '../router.js';
 import { locales } from '../../src/front/config/locales.js';
 import { AppMonkey } from '../../src/front/config/monkey.js';
@@ -14,6 +24,8 @@ export class ControllerPageApp extends BeanControllerPageBase {
     const app = instance!.appContext.app!;
     if (!app.zova) {
       await this.initApp(app);
+    } else {
+      await this.updateApp(app.zova);
     }
   }
 
@@ -26,6 +38,11 @@ export class ControllerPageApp extends BeanControllerPageBase {
     await PluginZova.install(app, this.ctx.bean, { modulesMeta, AppMonkey, locales, config });
     // use router
     app.use(router);
+  }
+
+  protected async updateApp(app: ZovaApplication) {
+    // update
+    await PluginZova.update(app, this.ctx);
   }
 
   protected onCreateRouter() {

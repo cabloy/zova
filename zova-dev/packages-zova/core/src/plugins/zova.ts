@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { ZovaApplication } from '../core/index.js';
+import { ZovaApplication, ZovaContext } from '../core/index.js';
 import { PluginZovaOptions } from '../types/interface/pluginZova.js';
 import { BeanContainerLike } from '../bean/beanContainer.js';
 
@@ -10,4 +10,5 @@ export const PluginZova = {
     await app.initialize({ modulesMeta, AppMonkey, locales, config });
     return app;
   },
+  async update(_app: ZovaApplication, _ctx: ZovaContext) {},
 };

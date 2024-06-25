@@ -13,7 +13,7 @@ import { IInjectRecord } from '../types/interface/inject.js';
 import { SymbolBeanFullName, SymbolInited } from './beanBaseSimple.js';
 
 const ProxyMagic = Symbol.for('Bean#ProxyMagic');
-const BeanContainerInstances = Symbol.for('Bean#Instances');
+export const BeanContainerInstances = Symbol('Bean#Instances');
 
 export type BeanContainerLike = IBeanRecord & BeanContainer;
 
