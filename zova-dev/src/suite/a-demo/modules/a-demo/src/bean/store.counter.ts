@@ -1,9 +1,9 @@
 import { Store } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { BeanPiniaStoreBase, PiniaStoreLike } from 'zova-module-a-pinia';
+import { BeanPiniaStoreBase, PiniaStore } from 'zova-module-a-pinia';
 import { useCounterStore } from './counterStore.js';
 
-export type StoreCounterLike = PiniaStoreLike<StoreCounter, typeof useCounterStore>;
+export interface StoreCounter extends PiniaStore<typeof useCounterStore> {}
 
 @Store()
 export class StoreCounter extends BeanPiniaStoreBase<ScopeModule> {

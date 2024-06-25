@@ -1,7 +1,7 @@
 import { Functionable } from 'zova';
 import { Pinia } from 'pinia';
 
-export type PiniaStoreLike<S, P extends Functionable> = S & ReturnType<P>;
+export type PiniaStore<P extends Functionable> = ReturnType<P>;
 
 import 'zova';
 declare module 'zova' {
