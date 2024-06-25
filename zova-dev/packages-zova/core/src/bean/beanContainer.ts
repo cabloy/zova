@@ -34,7 +34,7 @@ export class BeanContainer {
         return obj._getBeanSyncOnly(prop);
       },
     });
-    return markRaw(proxy) as BeanContainerLike;
+    return markRaw(proxy);
   }
 
   protected constructor(app: ZovaApplication, ctx: ZovaContext | null) {
