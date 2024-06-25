@@ -17,14 +17,17 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
   @Use()
   $$dataTodo: DataTodo;
   queryTodos: DataQuery<ServiceTodoEntity[]>;
+  newTitle: string;
 
   protected async __init__() {
-    const list = await this.scope.service.todo.select();
-    console.log(list.length);
-    const item = await this.scope.service.todo.get({ id: 'xxx' });
-    console.log(item);
     this.queryTodos = this.$$dataTodo.select();
   }
 
-  protected __dispose__() {}
+  async addTodo() {
+    const todo = {
+      id: this.app.meta.util.uuid(),
+      title: this.newTitle,
+      done: false,
+    };
+  }
 }

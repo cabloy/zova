@@ -6,5 +6,19 @@ export interface StyleTodo extends ControllerPageTodo {}
 
 @Local()
 export class StyleTodo extends BeanStyleBase<ScopeModule> {
-  protected async __init__() {}
+  styleTable;
+
+  protected async __init__() {
+    this.styleTable = this.$style({
+      width: '100%',
+      backgroundColor: '#cccccc',
+      marginTop: '16px',
+      $nest: {
+        td: {
+          backgroundColor: '#ffffff',
+          padding: '6px',
+        },
+      },
+    });
+  }
 }
