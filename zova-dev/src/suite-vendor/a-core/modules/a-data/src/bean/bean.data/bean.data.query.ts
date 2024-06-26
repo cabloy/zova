@@ -51,10 +51,9 @@ export class BeanDataQuery<TScopeModule = unknown> extends BeanDataCookie<TScope
     filters?: MaybeRefDeep<InvalidateQueryFilters>,
     options?: MaybeRefDeep<InvalidateOptions>,
   ): Promise<void> {
-    if (filters) {
-      const queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
-      filters = { ...filters, queryKey };
-    }
+    if (!filters) filters = {};
+    const queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
+    filters = { ...filters, queryKey };
     return this.$queryClient.invalidateQueries(filters, options);
   }
 }
