@@ -120,8 +120,8 @@ export class BeanDataPersister<TScopeModule = unknown> extends BeanDataLast<TSco
     return this.app.config.env.appVersion;
   }
 
-  protected _forceQueryKeyPrefix(queryKey: QueryKey): QueryKey {
-    if (!queryKey) return queryKey;
+  protected _forceQueryKeyPrefix(queryKey?: QueryKey): QueryKey {
+    if (!queryKey) queryKey = [];
     const prefix = queryKey[0];
     if (prefix && typeof prefix === 'string' && prefix.split('.').length === 3) return queryKey;
     return [this[SymbolBeanFullName]].concat(queryKey as any);
