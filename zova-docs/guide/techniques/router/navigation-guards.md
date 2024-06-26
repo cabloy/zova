@@ -10,7 +10,7 @@ The module `home-router` provides a `Router` bean, just add custom logic directl
 
 ```typescript
 export class Router {
-  protected onRouterGuards(router: StoreRouterLike) {
+  protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async to => {
       console.log(to);
       console.log(to.meta.requiresAuth);

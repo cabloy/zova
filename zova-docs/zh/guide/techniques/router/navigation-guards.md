@@ -10,7 +10,7 @@ Zova 提供了一个模块`home-router`，我们可以在这个模块中添加`�
 
 ```typescript
 export class Router {
-  protected onRouterGuards(router: StoreRouterLike) {
+  protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async to => {
       console.log(to);
       console.log(to.meta.requiresAuth);
