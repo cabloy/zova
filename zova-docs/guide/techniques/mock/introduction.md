@@ -4,18 +4,18 @@ Zova provides an out-of-the-box `Mock` mechanism based on [vite-plugin-fake-serv
 
 ## Basic Usage
 
-Zova provides a module `home-mock`, just provide the mock files in the directory `home-mock/src/mock` as well
+Just provide the mock files in the mock directory of the module
 
-For example, there is an API: `/home/mock/getMenu`, which provides the corresponding mock file as follows:
+For example, the module `home-layout` needs to get the menu through the API: `/home/layout/menu/select`, then you can directly provide the corresponding mock file in `home-layout` as follows:
 
-`src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
+`src/suite/a-home/modules/home-layout/mock/menu.fake.ts`
 
 ```typescript
 import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
 
 export default defineFakeRoute([
   {
-    url: '/home/mock/getMenu',
+    url: '/home/layout/menu/select',
     method: 'get',
     response: () => {
       return {
@@ -59,7 +59,7 @@ MOCK_BUILD_CORS = true
 
 ## Production environment
 
-By default, the production environment does not generate the fake server. If want fake server to be generated during building, just turn on `MOCK_ENABLED` as well
+By default, the production environment does not generate the fake server. If want fake server to be generated during building, just turn on `MOCK_BUILD` as well
 
 ```bash
 $ npm run build

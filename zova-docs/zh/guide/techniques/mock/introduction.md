@@ -4,18 +4,18 @@ Zova 基于[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plug
 
 ## 基本用法
 
-Zova 提供了一个模块`home-mock`，只需在目录`home-mock/src/mock`提供 mock 文件即可
+只需在模块的 mock 目录提供 mock 文件即可
 
-比如，有一个 API：`/home/mock/getMenu`，提供对应的 mock 文件如下：
+比如，模块 home-layout 需要通过 API：`/home/layout/menu/select`获取菜单，那么可以直接在 home-layout 中提供对应的 mock 文件如下：
 
-`src/suite/a-home/modules/home-mock/src/mock/menu.fake.ts`
+`src/suite/a-home/modules/home-layout/mock/menu.fake.ts`
 
 ```typescript
 import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
 
 export default defineFakeRoute([
   {
-    url: '/home/mock/getMenu',
+    url: '/home/layout/menu/select',
     method: 'get',
     response: () => {
       return {
@@ -59,7 +59,7 @@ MOCK_BUILD_CORS = true
 
 ## 生产环境
 
-默认情况下，生产环境并不生成 fake 服务。如果需要在进行构建时生成 fake 服务，只需开启`MOCK_ENABLED`即可
+默认情况下，生产环境并不生成 fake 服务。如果需要在进行构建时生成 fake 服务，只需开启`MOCK_BUILD`即可
 
 ```bash
 $ npm run build
