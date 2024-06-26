@@ -117,6 +117,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'icon-engine',
         },
         {
+          text: 'CSS-in-JS: Style & Theme',
+          base: '/zh/guide/techniques/css-in-js/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: '$style', link: 'style' },
+            { text: '$class', link: 'class' },
+            { text: '$token', link: 'token' },
+            { text: '$theme', link: 'theme' },
+          ],
+        },
+        {
           text: 'Env',
           base: '/guide/techniques/env/',
           link: 'introduction',

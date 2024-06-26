@@ -117,6 +117,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'icon-engine',
         },
         {
+          text: 'CSS-in-JS: 样式&主题',
+          base: '/zh/guide/techniques/css-in-js/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: '$style', link: 'style' },
+            { text: '$class', link: 'class' },
+            { text: '$token', link: 'token' },
+            { text: '$theme', link: 'theme' },
+          ],
+        },
+        {
           text: 'Env环境变量',
           base: '/zh/guide/techniques/env/',
           link: 'introduction',
