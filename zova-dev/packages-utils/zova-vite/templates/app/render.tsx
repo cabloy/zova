@@ -8,7 +8,7 @@ export class RenderApp extends BeanRenderBase {
   render() {
     return (
       <div key={Cast(this.app).updateCounter.value}>
-        <router-view />;
+        <router-view />
       </div>
     );
   }
