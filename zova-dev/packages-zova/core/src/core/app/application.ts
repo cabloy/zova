@@ -1,4 +1,4 @@
-import { App, markRaw } from 'vue';
+import { App, markRaw, ref } from 'vue';
 import { BeanContainer } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
@@ -8,6 +8,7 @@ import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
 
 export class ZovaApplication {
+  private updateCounter = ref(0);
   vue: App;
   bean: BeanContainer;
   meta: AppMeta;
@@ -22,6 +23,9 @@ export class ZovaApplication {
     Cast(this.bean).app = this;
     ctxRoot.app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
+    Cast(ctxRoot.instance.appContext).reload = () => {
+      this.updateCounter.value++;
+    };
   }
 
   /** @internal */

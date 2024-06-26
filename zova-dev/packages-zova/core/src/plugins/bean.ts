@@ -19,7 +19,8 @@ export const PluginBean = {
           }
           const render: BeanRenderBase = ctx.bean._getBeanSyncOnly(BeanRenderIdentifier);
           if (!render) {
-            throw new Error('render bean not found');
+            return self.__bean_render_original.call(this, ...args);
+            // throw new Error('render bean not found');
           }
           // need not use ctx.meta.util.instanceScope, since ctx.instance = getCurrentInstance()
           return render.render();
