@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-empty",
-  "version": "5.0.149",
+  "version": "5.0.150",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -49,7 +49,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.21",
-    "zova-vite": "^1.0.110"
+    "zova-vite": "^1.0.111"
   },
   "license": "MIT",
   "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"

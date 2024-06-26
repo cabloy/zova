@@ -1,6 +1,6 @@
 {
   "name": "zova-vite",
-  "version": "1.0.110",
+  "version": "1.0.111",
   "description": "zova vite",
   "publishConfig": {
     "access": "public"

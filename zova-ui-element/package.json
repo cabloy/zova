@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.155",
+  "version": "5.0.156",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -52,7 +52,7 @@
     "unplugin-element-plus": "^0.8.0",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.21",
-    "zova-vite": "^1.0.110"
+    "zova-vite": "^1.0.111"
   },
   "license": "MIT",
   "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
