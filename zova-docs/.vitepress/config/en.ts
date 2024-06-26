@@ -107,14 +107,14 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'introduction',
         },
         {
-          text: 'Icon',
-          base: '/guide/techniques/icon/',
-          link: 'icon-engine',
-        },
-        {
           text: 'Mock',
           base: '/guide/techniques/mock/',
           link: 'introduction',
+        },
+        {
+          text: 'Icon',
+          base: '/guide/techniques/icon/',
+          link: 'icon-engine',
         },
         {
           text: 'Env',

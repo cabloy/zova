@@ -107,14 +107,14 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           link: 'introduction',
         },
         {
-          text: '图标',
-          base: '/zh/guide/techniques/icon/',
-          link: 'icon-engine',
-        },
-        {
           text: 'Mock',
           base: '/zh/guide/techniques/mock/',
           link: 'introduction',
+        },
+        {
+          text: '图标',
+          base: '/zh/guide/techniques/icon/',
+          link: 'icon-engine',
         },
         {
           text: 'Env环境变量',
