@@ -56,10 +56,10 @@ Use `useCounterStore` in the generated file
 
 ```typescript
 import { Store } from 'zova';
-import { PiniaStoreLike, BeanPiniaStoreBase } from 'zova-module-a-pinia';
+import { BeanPiniaStoreBase, PiniaStore } from 'zova-module-a-pinia';
 import { useCounterStore } from './counterStore.js';
 
-export type StoreCounterLike = PiniaStoreLike<StoreCounter, typeof useCounterStore>;
+export interface StoreCounter extends PiniaStore<typeof useCounterStore> {}
 
 @Store()
 export class StoreCounter extends BeanPiniaStoreBase {
@@ -69,7 +69,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 }
 ```
 
-- line 5: Define a type `StoreCounterLike`, through which you can directly access the properties and methods of pinia store
+- line 5: Define a type `StoreCounter`, through which you can directly access the properties and methods of pinia store
 - line 8: Inherited from the base class `BeanPiniaStoreBase`
 - line 10: Call the `__init__` method of the base class to create an instance of pinia store
 
@@ -77,16 +77,16 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 You can use store bean in any module. Here we take the existing page component of module `a-demo` as an example:
 
-`src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
+`src/suite/a-demo/modules/a-demo/src/page/pinia/controller.ts`
 
 ```typescript
 import { Local, Use } from 'zova';
-import type { StoreCounterLike } from '../../bean/store.counter.js';
+import type { StoreCounter } from '../../bean/store.counter.js';
 
 @Local()
-export class ControllerPageState {
+export class ControllerPagePinia {
   @Use('a-demo.store.counter')
-  $$counter: StoreCounterLike;
+  $$counter: StoreCounter;
 
   protected async __init__() {
     const count = this.$$counter.count;
@@ -98,5 +98,5 @@ export class ControllerPageState {
 ```
 
 - line 6: Use the `@Use` decorator function to pass in the store bean's identifier
-- line 7: Declare a variable of type `StoreCounterLike`
+- line 7: Declare a variable of type `StoreCounter`
 - Then you can directly access the properties and methods of `$$counter`
