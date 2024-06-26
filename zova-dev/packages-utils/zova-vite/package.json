@@ -1,6 +1,6 @@
 {
   "name": "zova-vite",
-  "version": "1.0.112",
+  "version": "1.0.113",
   "description": "zova vite",
   "publishConfig": {
     "access": "public"
@@ -53,7 +53,7 @@
     "terser": "^5.31.0",
     "tmp": "^0.2.3",
     "vite": "^5.2.11",
-    "zova-core": "^5.0.90"
+    "zova-core": "^5.0.91"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4"
