@@ -19,6 +19,6 @@ export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
     } else {
       token.colorBorder = getAlphaColor('#000', 15);
     }
-    return { token, handler: 'a-antdv.tool.themeHandler' };
+    return { token };
   }
 }
