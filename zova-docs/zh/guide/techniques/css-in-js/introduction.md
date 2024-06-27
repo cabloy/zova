@@ -6,7 +6,7 @@ Zova 通过[TypeStyle](https://github.com/typestyle/typestyle) 实现了`css-in-
 
 ## 特性
 
-- `Scope 样式`：避免样式冲突
+- `Scope样式`：避免样式冲突
 - `动态样式`：可以基于响应式变量动态生成样式
 - `token`：提炼出与 UI 库无关的 token 定义与使用机制
 - `theme`：提炼出与 UI 库无关的 theme 定义与使用机制，并且提供开箱即用的 theme 切换能力
