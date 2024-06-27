@@ -4,7 +4,7 @@ import { ThemeBase, ThemeHandler } from '../types.js';
 
 export type ThemeDarkMode = 'auto' | boolean;
 
-@Bean()
+@Bean({ containerScope: 'app' })
 export class BeanTheme extends BeanBase<ScopeModule> {
   private _name: string;
   public get name(): string {
