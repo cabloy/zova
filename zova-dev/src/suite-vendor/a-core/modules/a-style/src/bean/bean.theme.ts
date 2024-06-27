@@ -1,11 +1,11 @@
-import { BeanBase, Cast, IBeanRecord, Store } from 'zova';
+import { Bean, BeanBase, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
 
 export type ThemeDarkMode = 'auto' | boolean;
 
-@Store()
-export class StoreTheme extends BeanBase<ScopeModule> {
+@Bean()
+export class BeanTheme extends BeanBase<ScopeModule> {
   private _name: string;
   public get name(): string {
     return this._name;
