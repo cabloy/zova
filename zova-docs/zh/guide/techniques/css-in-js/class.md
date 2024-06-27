@@ -55,7 +55,7 @@ export class RenderTest extends BeanRenderBase {
 }
 ```
 
-- 使用@Use 注入 Bean 实例，传入 Bean 的标识：`home-style.style.default`
+- 使用@Use 注入 Bean 实例，传入 Bean 标识：`home-style.style.default`
 
 ## $class
 
