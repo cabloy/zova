@@ -4,35 +4,29 @@ Zova provides a module `home-api`, which provides a basic `API` code skeleton ba
 
 ## $api
 
-Zova injects the `$api` object into the `BeanBase` base class, so that the `axios` instance can be obtained through `this.$api` in any bean instance
+- Zova injects the `$api` object into the `BeanBase` base class, so that the `axios` instance can be obtained through `this.$api` in any bean instance
+- Zova also injects the `$api` object in `app.meta`, so that the `axios` instance can be accessed outside the bean instance
 
 For example, load menu data:
 
-`src/suite/a-home/modules/home-layout/src/component/layoutDefault/controller.ts`
+`src/suite/a-home/modules/home-layout/src/api/service/menu.ts`
 
-```typescript{9-10}
-export class ControllerLayoutDefault {
-  menu: TypeMenuItem[];
-
-  protected async __init__() {
-    await this.loadMenu();
-  }
-
-  async loadMenu() {
-    const res = await this.$api.get('/home/mock/getMenu');
-    this.menu = res.data.data;
-  }
-}
+```typescript
+export default (app: ZovaApplication) => {
+  return {
+    select: () => app.meta.$api.get<any, ServiceMenuEntity[]>('/home/layout/menu/select'),
+  };
+};
 ```
 
-## home-api.store.api
+## home-api.bean.api
 
-The module `home-api` provides an `home-api.store.api` store bean, in which custom logic can be added directly
+The module `home-api` provides an `home-api.bean.api` bean, in which custom logic can be added directly
 
-`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
+`src/suite/a-home/modules/home-api/src/bean/bean.api.ts`
 
 ```typescript{7}
-export class StoreApi {
+export class BeanApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {

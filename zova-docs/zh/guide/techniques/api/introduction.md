@@ -4,35 +4,29 @@ Zova 提供了一个模块`home-api`，该模块基于[axios](https://axios-http
 
 ## $api
 
-Zova 在`BeanBase`基类中注入了`$api`对象，从而可以在任何 bean 实例中通过`this.$api`访问`axios`的实例
+- Zova 在`BeanBase`基类中注入了`$api`对象，从而可以在任何 bean 实例中通过`this.$api`访问`axios`实例
+- Zova 同时在`app.meta`中注入了`$api`对象，从而可以在 bean 实例的外部访问`axios`实例
 
 比如，获取菜单数据：
 
-`src/suite/a-home/modules/home-layout/src/component/layoutDefault/controller.ts`
+`src/suite/a-home/modules/home-layout/src/api/service/menu.ts`
 
-```typescript{9-10}
-export class ControllerLayoutDefault {
-  menu: TypeMenuItem[];
-
-  protected async __init__() {
-    await this.loadMenu();
-  }
-
-  async loadMenu() {
-    const res = await this.$api.get('/home/mock/getMenu');
-    this.menu = res.data.data;
-  }
-}
+```typescript
+export default (app: ZovaApplication) => {
+  return {
+    select: () => app.meta.$api.get<any, ServiceMenuEntity[]>('/home/layout/menu/select'),
+  };
+};
 ```
 
-## home-api.store.api
+## home-api.bean.api
 
-模块`home-api`提供了一个`home-api.store.api` store bean，可以直接在里面添加自定义逻辑
+模块`home-api`提供了一个`home-api.bean.api`bean，可以直接在里面添加自定义逻辑
 
-`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
+`src/suite/a-home/modules/home-api/src/bean/bean.api.ts`
 
 ```typescript{7}
-export class StoreApi {
+export class BeanApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
