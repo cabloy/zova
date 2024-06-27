@@ -128,6 +128,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: 'Unified Data Source',
+          base: '/zh/guide/techniques/data/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: 'Data Query', link: 'query' },
+            { text: 'Data Mutation', link: 'mutation' },
+          ],
+        },
+        {
           text: 'Env',
           base: '/guide/techniques/env/',
           link: 'introduction',

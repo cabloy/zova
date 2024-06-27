@@ -128,6 +128,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: '统一数据源',
+          base: '/zh/guide/techniques/data/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: '数据获取', link: 'query' },
+            { text: '数据变更', link: 'mutation' },
+          ],
+        },
+        {
           text: 'Env环境变量',
           base: '/zh/guide/techniques/env/',
           link: 'introduction',
