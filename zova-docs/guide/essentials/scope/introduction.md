@@ -31,6 +31,7 @@ export class TestA extends BeanBase<ScopeModule> {
 | locale    | I18n of Module            |
 | error     | Error exception of Module |
 | component | Vue Component of Module   |
+| service   | Api Service of Module     |
 
 ## How to obtain Scope Instance cross-module?
 

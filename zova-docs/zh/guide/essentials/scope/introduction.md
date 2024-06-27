@@ -31,6 +31,7 @@ export class TestA extends BeanBase<ScopeModule> {
 | locale    | 模块的I18n国际化 |
 | error     | 模块的错误异常   |
 | component | 模块的Vue组件    |
+| service   | 模块的Api服务    |
 
 ## 跨模块访问Scope实例
 
