@@ -1,10 +1,14 @@
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
 import { PatchIcon } from './patch/icon.jsx';
+import { ScopeModuleAStyle } from 'zova-module-a-style';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize(_bean: BeanContainer) {
+  async appInitialize(bean: BeanContainer) {
+    // defaultThemeHandler
+    const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
+    scopeStyle.config.defaultThemeHandler = 'a-element.tool.themeHandler';
     // icon
-    const patchIcon = await this.bean._newBean(PatchIcon, false);
+    const patchIcon = await bean._newBean(PatchIcon, false);
     await patchIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}

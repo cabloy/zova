@@ -9,6 +9,6 @@ import { themeLight } from './themeLight.js';
 export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = dark ? themeDark : themeLight;
-    return { token, handler: 'a-element.tool.themeHandler' };
+    return { token };
   }
 }
