@@ -42,8 +42,9 @@ export class BeanTheme extends BeanBase<ScopeModule> {
     const theme = (await this.bean._getBean(this.name as any, true)) as ThemeBase;
     const res = await theme.apply({ name: this.name, dark: this.dark });
     this.token = Cast(res).token;
-    if (res.handler) {
-      const themeHandler = (await this.bean._getBean(res.handler, true)) as unknown as ThemeHandler;
+    const handler = res.handler ?? this.scope.config.defaultThemeHandler;
+    if (handler) {
+      const themeHandler = (await this.bean._getBean(handler, true)) as unknown as ThemeHandler;
       await themeHandler.apply({ name: this.name, dark: this.dark, token: this.token } as any);
     }
   }

@@ -20,6 +20,6 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
         },
       },
     };
-    return { token, handler: 'a-devui.tool.themeHandler' };
+    return { token };
   }
 }
