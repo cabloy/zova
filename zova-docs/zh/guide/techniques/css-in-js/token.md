@@ -31,10 +31,10 @@ export interface ThemeToken {
 
 其他几个 UI 库的 token 接口类型定义文件如下：
 
-`zova-ui-antdv/src/suite-vendor/a-antdv/modules/a-antdv/src/themeToken.ts`
-`zova-ui-element/src/suite-vendor/a-element/modules/a-element/src/themeToken.ts`
-`zova-ui-quasar/src/suite-vendor/a-quasar/modules/a-quasar/src/themeToken.ts`
-`zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/a-vuetify/src/themeToken.ts`
+- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/a-antdv/src/themeToken.ts`
+- element: `zova-ui-element/src/suite-vendor/a-element/modules/a-element/src/themeToken.ts`
+- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/a-quasar/src/themeToken.ts`
+- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/a-vuetify/src/themeToken.ts`
 
 ## 提供token值
 
