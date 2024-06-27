@@ -1,8 +1,8 @@
-export * from '../bean/store.theme.js';
-import { StoreTheme } from '../bean/store.theme.js';
+export * from '../bean/bean.theme.js';
+import { BeanTheme } from '../bean/bean.theme.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-style.store.theme': StoreTheme;
+    'a-style.bean.theme': BeanTheme;
   }
 }

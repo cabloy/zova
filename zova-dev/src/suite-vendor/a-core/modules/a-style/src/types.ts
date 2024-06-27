@@ -1,11 +1,11 @@
 import { style } from 'typestyle';
 import 'zova';
-import { StoreTheme } from './bean/store.theme.js';
+import { BeanTheme } from './bean/bean.theme.js';
 import { IBeanRecord } from 'zova';
 declare module 'zova' {
   export interface BeanBase {
     $style: typeof style;
-    $theme: StoreTheme;
+    $theme: BeanTheme;
   }
 }
 

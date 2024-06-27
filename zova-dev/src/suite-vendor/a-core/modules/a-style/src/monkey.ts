@@ -1,18 +1,18 @@
 import { style } from 'typestyle';
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
-import { StoreTheme } from './bean/store.theme.js';
+import { BeanTheme } from './bean/bean.theme.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  private _storeTheme: StoreTheme;
-  private _storeStyleDefault: any;
+  private _beanTheme: BeanTheme;
+  private _beanStyleDefault: any;
 
   async appInitialize(bean: BeanContainer) {
     // theme
-    this._storeTheme = await bean._getBean(StoreTheme, true);
+    this._beanTheme = await bean._getBean(BeanTheme, true);
     // style default
     const scope: ScopeModule = await bean.getScope(__ThisModule__);
-    this._storeStyleDefault = await bean._getBean(scope.config.defaultStyle, true);
+    this._beanStyleDefault = await bean._getBean(scope.config.defaultStyle, true);
   }
   async appInitialized(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
@@ -30,21 +30,21 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       enumerable: false,
       configurable: true,
       get() {
-        return self._storeStyleDefault;
+        return self._beanStyleDefault;
       },
     });
     bean.defineProperty(beanInstance, '$theme', {
       enumerable: false,
       configurable: true,
       get() {
-        return self._storeTheme;
+        return self._beanTheme;
       },
     });
     bean.defineProperty(beanInstance, '$token', {
       enumerable: false,
       configurable: true,
       get() {
-        return useComputed(() => self._storeTheme.token);
+        return useComputed(() => self._beanTheme.token);
       },
     });
   }
