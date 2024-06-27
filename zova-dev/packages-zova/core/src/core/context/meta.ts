@@ -18,4 +18,9 @@ export class CtxMeta extends BeanSimple {
     this.state = this.bean._newBeanSimple(CtxState, true);
     this.component = this.bean._newBeanSimple(CtxComponent, false);
   }
+
+  /** @internal */
+  public dispose() {
+    this.component.dispose();
+  }
 }

@@ -24,4 +24,11 @@ export class CtxComponent extends BeanSimple {
       return render.render();
     };
   }
+
+  /** @internal */
+  public dispose() {
+    const instance = Cast(this.ctx.instance);
+    instance.render = this._bean_render_original;
+    this._bean_render_original = null;
+  }
 }
