@@ -19,6 +19,8 @@ export default (app: ZovaApplication) => {
 };
 ```
 
+- For the usage of `$api`, see: [API](../../techniques/api/introduction.md)
+
 `src/suite/a-home/modules/home-layout/src/api/service/index.ts`
 
 ```typescript
