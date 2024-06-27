@@ -84,6 +84,6 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     // token
     const token: ThemeToken = dark ? themeDark : themeLight;
-    return { token, handler: 'a-vuetify.tool.themeHandler' };
+    return { token };
   }
 }

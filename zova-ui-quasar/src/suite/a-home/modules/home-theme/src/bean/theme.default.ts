@@ -20,6 +20,6 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
         warning: '#F2C037',
       },
     };
-    return { token, handler: 'a-quasar.tool.themeHandler' };
+    return { token };
   }
 }

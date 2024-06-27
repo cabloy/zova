@@ -7,11 +7,15 @@ import { DisplaySymbol } from 'vuetify/lib/composables/display.mjs';
 import { IconSymbol } from 'vuetify/lib/composables/icons.mjs';
 import { LocaleSymbol } from 'vuetify/lib/composables/locale.mjs';
 import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
+import { ScopeModuleAStyle } from 'zova-module-a-style';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize(_bean: BeanContainer) {
+  async appInitialize(bean: BeanContainer) {
+    // defaultThemeHandler
+    const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
+    scopeStyle.config.defaultThemeHandler = 'a-vuetify.tool.themeHandler';
     // icon
-    const patchIcon = await this.bean._newBean(PatchIcon, false);
+    const patchIcon = await bean._newBean(PatchIcon, false);
     await patchIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}
