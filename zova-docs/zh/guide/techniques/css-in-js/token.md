@@ -41,3 +41,29 @@ export interface ThemeToken {
 在 Zova 中，具体的 token 值都是由不同的 theme 来提供，参见：[$theme](./theme.md)
 
 ## 使用token
+
+Zova 在 BeanBase 基类中注入了`$token`对象，从而可以在任何 bean 实例中通过`this.$token`直接访问 token 数据
+
+```typescript
+export class RenderTest extends BeanRenderBase {
+  buttonPrimary: string;
+
+  protected async __init__() {
+    this.buttonPrimary = useComputed(() => {
+      return this.$style({
+        color: this.$token.color.primary,
+        borderColor: this.$token.var.borderColor,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <div>{this.$token.color.primary}</div>
+        <button class={this.buttonPrimary}>Button</button>
+      </div>
+    );
+  }
+}
+```
