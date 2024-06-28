@@ -70,7 +70,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     this._name = name || this.scope.config.defaultTheme;
   }
 
-  async setDark(mode: ThemeDarkMode) {
+  async setDark(mode?: ThemeDarkMode) {
     await this._setDark(mode);
     await this.applyTheme();
   }
