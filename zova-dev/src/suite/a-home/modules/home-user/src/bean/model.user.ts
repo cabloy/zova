@@ -22,7 +22,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   }
 
   login() {
-    return this.$useMutation<ServiceUserLoginResult, ServiceUserLoginParams>({
+    return this.$useMutationExisting<ServiceUserLoginResult, ServiceUserLoginParams>({
       mutationKey: ['login'],
       mutationFn: async params => {
         return this.scope.service.user.login(params);
@@ -37,7 +37,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   }
 
   logout() {
-    return this.$useMutation<void, void>({
+    return this.$useMutationExisting<void, void>({
       mutationKey: ['logout'],
       mutationFn: async () => {
         return this.scope.service.user.logout();
@@ -51,14 +51,14 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
     });
   }
 
+  getJwtAuthorization() {
+    if (!this.jwt) return '';
+    return this.jwt.expireTime - Date.now() > 120 * 1000 ? this.jwt.accessToken : this.jwt.refreshToken;
+  }
+
   private _setUser(data: ServiceUserLoginResult) {
     this.user = data.user;
     this.jwt = data.jwt;
     this.token = this.getJwtAuthorization();
-  }
-
-  getJwtAuthorization() {
-    if (!this.jwt) return '';
-    return this.jwt.expireTime - Date.now() > 120 * 1000 ? this.jwt.accessToken : this.jwt.refreshToken;
   }
 }
