@@ -26,9 +26,9 @@ importers:
       zova:
         specifier: ^5.0.114
         version: 5.0.114(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
-      zova-module-a-data:
+      zova-module-a-model:
         specifier: ^5.0.8
-        version: 5.0.8(vue@3.4.29(typescript@5.4.5))
+        version: 5.0.9(vue@3.4.29(typescript@5.4.5))
       zova-module-a-pinia:
         specifier: ^5.0.20
         version: 5.0.20(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
@@ -2409,9 +2409,6 @@ packages:
   zova-module-a-core@5.0.40:
     resolution: {integrity: sha512-uzPcjz61nDbQZm50DpJbCXdKIJ2zBMwF4wjxAFX6UoK/AaW0SdoOdIpJzWTfYCnmImJwKhKaGnS53k5IyP5H4A==}
 
-  zova-module-a-data@5.0.8:
-    resolution: {integrity: sha512-Bo7FBQ+JGz6xPXeeg/HFBlDgqWXXvi0mueVMLGjcNcVhNZTjLaoW5q+bWr+oLDaEB+RKNUUo98ewFI9ti8RJ2A==}
-
   zova-module-a-model@5.0.9:
     resolution: {integrity: sha512-/nb041FtS70Xzbww/DU69gVzP1FWXqvxfxxqGi9oN6unr3/4AXPOpUkKaEMgVFGnqxDFA4TvdO+ulh8hFPjfow==}
 
@@ -4670,17 +4667,6 @@ snapshots:
       - typescript
 
   zova-module-a-core@5.0.40: {}
-
-  zova-module-a-data@5.0.8(vue@3.4.29(typescript@5.4.5)):
-    dependencies:
-      '@tanstack/query-persist-client-core': 5.45.0
-      '@tanstack/vue-query': 5.45.0(vue@3.4.29(typescript@5.4.5))
-      '@types/js-cookie': 3.0.6
-      js-cookie: 3.0.5
-      localforage: 1.10.0
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
 
   zova-module-a-model@5.0.9(vue@3.4.29(typescript@5.4.5)):
     dependencies:
