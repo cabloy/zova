@@ -53,4 +53,31 @@ export class BeanModelUseQueryExisting<TScopeModule = unknown> extends BeanModel
     }
     return this[SymbolUseQueries][queryHash];
   }
+
+  $useQueryLocalExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocalExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocalExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
+  $useQueryLocalExisting(options, queryClient) {
+    const queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
+    const queryHash = hashKey(queryKey);
+    if (!this[SymbolUseQueries][queryHash]) {
+      this[SymbolUseQueries][queryHash] = this.$useQueryLocal(options, queryClient);
+    }
+    return this[SymbolUseQueries][queryHash];
+  }
 }
