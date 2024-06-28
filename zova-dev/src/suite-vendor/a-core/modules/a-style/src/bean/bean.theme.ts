@@ -1,16 +1,17 @@
-import { Bean, BeanBase, Cast, IBeanRecord } from 'zova';
+import { Bean, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
+import { BeanModelBase } from 'zova-module-a-model';
 
 export type ThemeDarkMode = 'auto' | boolean;
 
 @Bean({ containerScope: 'app' })
-export class BeanTheme extends BeanBase<ScopeModule> {
-  private _name: string;
-  public get name(): string {
+export class BeanTheme extends BeanModelBase<ScopeModule> {
+  private _name: keyof IBeanRecord;
+  public get name(): keyof IBeanRecord {
     return this._name;
   }
-  public set name(value: string) {
+  public set name(value: keyof IBeanRecord) {
     this.setTheme(value as any);
   }
   private _dark: boolean;
@@ -29,8 +30,17 @@ export class BeanTheme extends BeanBase<ScopeModule> {
   private _onMediaDarkChange?;
 
   protected async __init__() {
-    await this._setDark('auto');
-    await this._setTheme();
+    this._name = this.$useQueryCookie({
+      queryKey: ['themename'],
+    });
+    this._dark = this.$useQueryCookie({
+      queryKey: ['themedark'],
+    });
+    this._darkMode = this.$useQueryCookie({
+      queryKey: ['themedarkmode'],
+    });
+    await this._setDark(this._darkMode);
+    await this._setTheme(this._name);
     await this.applyTheme();
   }
 
@@ -63,7 +73,8 @@ export class BeanTheme extends BeanBase<ScopeModule> {
     await this.applyTheme();
   }
 
-  async _setDark(mode: ThemeDarkMode) {
+  async _setDark(mode?: ThemeDarkMode) {
+    if (mode === undefined) mode = 'auto';
     this._darkMode = mode;
     if (mode === 'auto') {
       this._listenMediaDarkChange(true);
