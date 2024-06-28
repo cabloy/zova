@@ -3,7 +3,7 @@ import { CliCreateProject } from './bean/cli.create.project.js';
 import { CliCreateComponent } from './bean/cli.create.component.js';
 import { CliCreateBean } from './bean/cli.create.bean.js';
 import { CliCreateStore } from './bean/cli.create.store.js';
-import { CliCreateData } from './bean/cli.create.data.js';
+import { CliCreateModel } from './bean/cli.create.model.js';
 import { CliCreateStyle } from './bean/cli.create.style.js';
 import { CliCreateTheme } from './bean/cli.create.theme.js';
 import { CliCreateTool } from './bean/cli.create.tool.js';
@@ -22,7 +22,7 @@ export const beans = {
   'create.component': CliCreateComponent,
   'create.bean': CliCreateBean,
   'create.store': CliCreateStore,
-  'create.data': CliCreateData,
+  'create.model': CliCreateModel,
   'create.style': CliCreateStyle,
   'create.theme': CliCreateTheme,
   'create.tool': CliCreateTool,

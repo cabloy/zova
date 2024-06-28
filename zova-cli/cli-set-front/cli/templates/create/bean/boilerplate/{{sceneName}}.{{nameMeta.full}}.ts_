@@ -1,8 +1,8 @@
-import { <%=argv.sceneName==='data'?'':'BeanBase, '%><%=argv.sceneNameCapitalize%> } from 'zova';<%-argv.sceneName==='data'?"\nimport { BeanDataBase } from 'zova-module-a-data';":''%>
+import { <%=argv.sceneName==='model'?'':'BeanBase, '%><%=argv.sceneNameCapitalize%> } from 'zova';<%-argv.sceneName==='model'?"\nimport { BeanModelBase } from 'zova-module-a-model';":''%>
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length)%>resource/this.js';
 
 @<%=argv.sceneNameCapitalize%>()
-export class <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> extends <%=argv.sceneName==='data'?'BeanDataBase':'BeanBase'%><ScopeModule> {
+export class <%=argv.sceneNameCapitalize%><%=argv.nameMeta.fullCapitalize%> extends <%=argv.sceneName==='model'?'BeanModelBase':'BeanBase'%><ScopeModule> {
   protected async __init__() {}
 
   protected __dispose__() {}

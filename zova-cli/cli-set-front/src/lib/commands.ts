@@ -3,7 +3,7 @@ import createProject from './command/create.project.js';
 import createComponent from './command/create.component.js';
 import createBean from './command/create.bean.js';
 import createStore from './command/create.store.js';
-import createData from './command/create.data.js';
+import createModel from './command/create.model.js';
 import createStyle from './command/create.style.js';
 import createTheme from './command/create.theme.js';
 import createTool from './command/create.tool.js';
@@ -25,7 +25,7 @@ export const commands = {
     component: createComponent,
     bean: createBean,
     store: createStore,
-    data: createData,
+    model: createModel,
     style: createStyle,
     theme: createTheme,
     tool: createTool,
