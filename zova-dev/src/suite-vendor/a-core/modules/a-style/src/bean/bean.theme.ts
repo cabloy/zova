@@ -38,6 +38,14 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     });
     this._darkMode = this.$useQueryCookie({
       queryKey: ['themedarkmode'],
+      meta: {
+        persister: {
+          deserialize: value => {
+            value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
+            return this.$deserializeCookie(value);
+          },
+        },
+      },
     });
     await this._setDark(this._darkMode);
     await this._setTheme(this._name);
