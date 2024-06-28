@@ -44,6 +44,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
       },
       onSuccess: () => {
         // clear
+        this.$clear(); // not await
         this._setUser({});
         // page: login
         this.$router.replace('/home/user/login');

@@ -9,6 +9,7 @@ import {
   SetDataOptions,
   Updater,
 } from '@tanstack/vue-query';
+import localforage from 'localforage';
 import { MaybeRefDeep, NoUnknown } from '../../common/types.js';
 import { Cast } from 'zova';
 import { BeanModelCookie } from './bean.model.cookie.js';
@@ -67,5 +68,14 @@ export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TSco
   $setQueryDataDirect(queryKey: QueryKey, value: any) {
     const query = this.$queryFind({ queryKey, exact: true });
     query?.setData(value);
+  }
+
+  async $clear() {
+    const queries = this.$queryClient.getQueryCache().getAll();
+    for (const query of queries) {
+      query?.setData(undefined);
+    }
+    // remove all db cache
+    await localforage.clear();
   }
 }
