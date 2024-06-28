@@ -37,6 +37,7 @@ export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TSco
       if (persisterSave) {
         this.$persisterRemove(queryKey);
       }
+      this.$setQueryDataDirect(queryKey, data);
     } else {
       if (persisterSave) {
         this.$persisterSave(queryKey);
@@ -61,5 +62,10 @@ export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TSco
     const queryKey = this._forceQueryKeyPrefix(Cast(filters).queryKey);
     filters = { ...filters, queryKey };
     return this.$queryClient.invalidateQueries(filters, options);
+  }
+
+  $setQueryDataDirect(queryKey: QueryKey, value: any) {
+    const query = this.$queryFind({ queryKey, exact: true });
+    query?.setData(value);
   }
 }
