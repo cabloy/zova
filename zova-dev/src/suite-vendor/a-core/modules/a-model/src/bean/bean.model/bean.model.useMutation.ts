@@ -9,12 +9,12 @@ import {
 } from '@tanstack/vue-query';
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
-import { BeanModelUseQueryExisting } from './bean.model.useQueryExisting.js';
 import { Cast } from 'zova';
+import { BeanModelUseQueryComputed } from './bean.model.useQueryComputed.js';
 
 const SymbolUseMutations = Symbol('SymbolUseMutations');
 
-export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQueryExisting<TScopeModule> {
+export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQueryComputed<TScopeModule> {
   private [SymbolUseMutations]: Record<string, unknown> = {};
 
   $useMutation<TData = unknown, TVariables = void, TContext = unknown>(
