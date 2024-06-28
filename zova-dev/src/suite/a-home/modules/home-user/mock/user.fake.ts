@@ -23,4 +23,14 @@ export default defineFakeRoute([
       };
     },
   },
+  {
+    url: '/home/user/logout',
+    method: 'post',
+    response: _req => {
+      return {
+        code: 0,
+        message: 'Success',
+      };
+    },
+  },
 ]);
