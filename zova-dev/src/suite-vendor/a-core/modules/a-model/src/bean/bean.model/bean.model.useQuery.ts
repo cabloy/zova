@@ -71,7 +71,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     return useComputed({
       get() {
         const query = self.$useQueryExisting(options, queryClient) as any;
-        if (query.data.value === undefined) {
+        if (query.data === undefined) {
           const data = self.$persisterLoad(queryKey);
           if (data !== undefined) {
             self.$setQueryData(queryKey, data);
@@ -133,7 +133,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     return useComputed({
       get() {
         const query = self.$useQueryExisting(options, queryClient) as any;
-        if (query.data.value === undefined) {
+        if (query.data === undefined) {
           const data = self.$persisterLoad(queryKey);
           if (data !== undefined) {
             self.$setQueryData(queryKey, data);

@@ -32,7 +32,7 @@ export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQu
   ): UnwrapNestedRefs<UseMutationReturnType<TData, DefaultError, TVariables, TContext>> {
     let mutationKey: MutationKey = Cast(mutationOptions).mutationKey;
     if (!mutationKey || mutationKey.length === 0) throw new Error('should specify mutationKey');
-    mutationKey = this.self._forceQueryKeyPrefix();
+    mutationKey = this.self._forceQueryKeyPrefix(mutationKey);
     const mutationHash = hashKey(mutationKey);
     if (!this[SymbolUseMutations][mutationHash]) {
       this[SymbolUseMutations][mutationHash] = this.$useMutation(mutationOptions, queryClient);
