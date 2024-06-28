@@ -1,5 +1,5 @@
 import { Model } from 'zova';
-import { BeanDataBase } from 'zova-module-a-data';
+import { BeanDataBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 
 export interface User {

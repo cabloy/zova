@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-data",
+  "name": "zova-module-a-model",
   "version": "5.0.8",
-  "title": "a-data",
+  "title": "a-model",
   "zovaModule": {
     "capabilities": {
       "monkey": true

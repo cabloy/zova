@@ -19,14 +19,14 @@ export interface ScopeModuleAData
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-data': ScopeModuleAData;
+    'a-model': ScopeModuleAData;
   }
 
   export interface IBeanScopeConfig {
-    'a-data': ReturnType<typeof config>;
+    'a-model': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {
-    'a-data': (typeof locales)[TypeLocaleBase];
+    'a-model': (typeof locales)[TypeLocaleBase];
   }
 }

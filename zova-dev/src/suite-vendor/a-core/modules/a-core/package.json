@@ -5,7 +5,7 @@
   "zovaModule": {
     "dependencies": {
       "a-router": "5.0.0",
-      "a-data": "5.0.0",
+      "a-model": "5.0.0",
       "a-style": "5.0.0"
     }
   },

@@ -1,6 +1,6 @@
 import { Model } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { BeanDataBase, DataMutation } from 'zova-module-a-data';
+import { BeanDataBase, DataMutation } from 'zova-module-a-model';
 import {
   ServiceTodoDeleteParams,
   ServiceTodoGetParams,
