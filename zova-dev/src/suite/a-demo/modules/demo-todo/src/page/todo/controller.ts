@@ -26,16 +26,16 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
       title: this.newTitle,
       done: false,
     };
-    await this.$$modelTodo.insert.mutateAsync(todo);
+    await this.$$modelTodo.insert().mutateAsync(todo);
     this.newTitle = '';
   }
 
   async completeTodo(item: ServiceTodoEntity) {
     const todo = { ...item, title: `${item.title}!`, done: true };
-    await this.$$modelTodo.update.mutateAsync(todo);
+    await this.$$modelTodo.update().mutateAsync(todo);
   }
 
   async deleteTodo(item: ServiceTodoEntity) {
-    await this.$$modelTodo.delete.mutateAsync({ id: item.id });
+    await this.$$modelTodo.delete().mutateAsync({ id: item.id });
   }
 }
