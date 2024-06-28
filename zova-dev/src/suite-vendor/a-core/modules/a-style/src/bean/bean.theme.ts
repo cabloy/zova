@@ -11,9 +11,6 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   public get name(): keyof IBeanRecord {
     return this._name;
   }
-  public set name(value: keyof IBeanRecord) {
-    this.setTheme(value as any);
-  }
   private _dark: boolean;
   public get dark(): boolean {
     return this._dark;
@@ -21,9 +18,6 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   private _darkMode: ThemeDarkMode; // auto/true/false
   public get darkMode(): ThemeDarkMode {
     return this._darkMode;
-  }
-  public set darkMode(value: ThemeDarkMode) {
-    this.setDark(value);
   }
   token: unknown;
   private _mediaDark?: MediaQueryList;
