@@ -12,7 +12,7 @@ export interface BeanApi extends AxiosInstance {}
 @Bean()
 export class BeanApi extends BeanBase {
   @Use('home-user.model.userInfo')
-  $$userInfo: ModelUserInfo;
+  $$modelUserInfo: ModelUserInfo;
 
   private [SymbolApi]: AxiosInstance;
 
@@ -31,7 +31,7 @@ export class BeanApi extends BeanBase {
     api.interceptors.request.use(
       config => {
         if (this.app.config.base.jwt) {
-          config.headers.Authorization = `Bearer ${this.$$userInfo.getJwtAuthorization()}`;
+          config.headers.Authorization = `Bearer ${this.$$modelUserInfo.getJwtAuthorization()}`;
         }
         return config;
       },
