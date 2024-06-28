@@ -212,6 +212,16 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
           this.$setQueryData(queryKey, data, false);
         }
       }
+      if (query.data === undefined) {
+        let defaultData = options.meta?.defaultData;
+        if (typeof defaultData === 'function') {
+          defaultData = defaultData();
+        }
+        if (defaultData !== undefined) {
+          // need not persister save
+          this.$setQueryData(queryKey, defaultData, false);
+        }
+      }
     }
     return query.data;
   }
