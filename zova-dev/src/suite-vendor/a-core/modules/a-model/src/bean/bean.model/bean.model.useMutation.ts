@@ -10,11 +10,11 @@ import {
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
 import { Cast } from 'zova';
-import { BeanModelUseQueryExisting } from './bean.model.useQueryExisting.js';
+import { BeanModelUseQuery } from './bean.model.useQuery.js';
 
 const SymbolUseMutations = Symbol('SymbolUseMutations');
 
-export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQueryExisting<TScopeModule> {
+export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQuery<TScopeModule> {
   private [SymbolUseMutations]: Record<string, unknown> = {};
 
   $useMutation<TData = unknown, TVariables = void, TContext = unknown>(

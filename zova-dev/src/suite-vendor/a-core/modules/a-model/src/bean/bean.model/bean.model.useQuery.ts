@@ -7,13 +7,18 @@ import {
   UseQueryDefinedReturnType,
   UseQueryOptions,
   Query,
+  hashKey,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 import { useComputed } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
 import { BeanModelQuery } from './bean.model.query.js';
 
+const SymbolUseQueries = Symbol('SymbolUseQueries');
+
 export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TScopeModule> {
+  private [SymbolUseQueries]: Record<string, unknown> = {};
+
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(
     options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient?: QueryClient,
@@ -65,7 +70,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQuery(options, queryClient) as any;
+        const query = self.$useQueryExisting(options, queryClient) as any;
         if (query.data.value === undefined) {
           const data = self.$persisterLoad(queryKey);
           if (data !== undefined) {
@@ -75,7 +80,9 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         return query.data;
       },
       set(value) {
+        const query = self.$useQueryExisting(options, queryClient) as any;
         self.$setQueryData(queryKey, value, true);
+        return query;
       },
     });
   }
@@ -125,7 +132,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQuery(options, queryClient) as any;
+        const query = self.$useQueryExisting(options, queryClient) as any;
         if (query.data.value === undefined) {
           const data = self.$persisterLoad(queryKey);
           if (data !== undefined) {
@@ -135,7 +142,9 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         return query.data;
       },
       set(value) {
+        const query = self.$useQueryExisting(options, queryClient) as any;
         self.$setQueryData(queryKey, value, true);
+        return query;
       },
     });
   }
@@ -170,12 +179,50 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQuery(options, queryClient) as any;
+        const query = self.$useQueryExisting(options, queryClient) as any;
         return query.data;
       },
       set(value) {
+        const query = self.$useQueryExisting(options, queryClient) as any;
         self.$setQueryData(queryKey, value, false);
+        return query;
       },
     });
+  }
+
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: UndefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: DefinedInitialQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryDefinedReturnType<TData, TError>>;
+  $useQueryExisting<
+    TQueryFnData = unknown,
+    TError = DefaultError,
+    TData = TQueryFnData,
+    TQueryKey extends QueryKey = QueryKey,
+  >(
+    options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseQueryReturnType<TData, TError>>;
+  $useQueryExisting(options, queryClient) {
+    const queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
+    const queryHash = hashKey(queryKey);
+    if (!this[SymbolUseQueries][queryHash]) {
+      this[SymbolUseQueries][queryHash] = this.$useQuery(options, queryClient);
+    }
+    return this[SymbolUseQueries][queryHash];
   }
 }
