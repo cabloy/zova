@@ -12,11 +12,11 @@ import {
 import { UnwrapNestedRefs } from 'vue';
 import { useComputed } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
-import { BeanDataQuery } from './bean.model.query.js';
+import { BeanModelQuery } from './bean.model.query.js';
 
 const SymbolUseQueries = Symbol('SymbolUseQueries');
 
-export class BeanDataUseQuery<TScopeModule = unknown> extends BeanDataQuery<TScopeModule> {
+export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TScopeModule> {
   [SymbolUseQueries]: Record<string, unknown> = {};
 
   $useQuery<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey>(

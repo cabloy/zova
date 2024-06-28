@@ -9,7 +9,7 @@ import { BeanDataUseQuery } from './bean.model.useQuery.js';
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
 
-export class BeanDataUseMutation<TScopeModule = unknown> extends BeanDataUseQuery<TScopeModule> {
+export class BeanModelUseMutation<TScopeModule = unknown> extends BeanDataUseQuery<TScopeModule> {
   $useMutation<TData = unknown, TVariables = void, TContext = unknown>(
     mutationOptions: MaybeRefDeep<MutationObserverOptions<TData, DefaultError, TVariables, TContext>>,
     queryClient?: QueryClient,

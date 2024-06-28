@@ -6,7 +6,7 @@ import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
 import { BeanDataLast } from './bean.model.last.js';
 
-export class BeanDataPersister<TScopeModule = unknown> extends BeanDataLast<TScopeModule> {
+export class BeanModelPersister<TScopeModule = unknown> extends BeanDataLast<TScopeModule> {
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
     const query = this.self.$queryFind({ queryKey });
     if (!query) return undefined;
