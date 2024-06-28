@@ -32,9 +32,9 @@ importers:
       zova:
         specifier: workspace:^
         version: link:packages-zova/zova
-      zova-module-a-data:
+      zova-module-a-model:
         specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-data
+        version: link:src/suite-vendor/a-core/modules/a-model
       zova-module-a-pinia:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-pinia
@@ -240,9 +240,9 @@ importers:
       zova-module-a-core:
         specifier: ^5.0.39
         version: link:modules/a-core
-      zova-module-a-data:
+      zova-module-a-model:
         specifier: ^5.0.8
-        version: link:modules/a-data
+        version: link:modules/a-model
       zova-module-a-pinia:
         specifier: ^5.0.20
         version: link:modules/a-pinia
@@ -255,7 +255,7 @@ importers:
 
   src/suite-vendor/a-core/modules/a-core: {}
 
-  src/suite-vendor/a-core/modules/a-data:
+  src/suite-vendor/a-core/modules/a-model:
     dependencies:
       '@tanstack/query-persist-client-core':
         specifier: ^5.45.0

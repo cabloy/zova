@@ -4,9 +4,9 @@ import { components } from './components.js';
 import { services } from '../api/service/index.js';
 
 @Scope()
-export class ScopeModuleAData extends BeanScopeBase {}
+export class ScopeModuleAModel extends BeanScopeBase {}
 
-export interface ScopeModuleAData
+export interface ScopeModuleAModel
   extends TypeModuleResource<
     typeof components,
     typeof config,
@@ -19,7 +19,7 @@ export interface ScopeModuleAData
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-model': ScopeModuleAData;
+    'a-model': ScopeModuleAModel;
   }
 
   export interface IBeanScopeConfig {
