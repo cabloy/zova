@@ -17,9 +17,9 @@ Zova 在 BeanBase 基类中注入了`$theme`对象，从而可以在任何 bean 
 
 | 名称     | 访问性 | 说明                          |
 | -------- | ------ | ----------------------------- |
-| name     | 读写   | 主题名称                      |
+| name     | 只读   | 主题名称                      |
 | dark     | 只读   | 当前明暗状态                  |
-| darkMode | 读写   | 当前明暗模式：auto/true/false |
+| darkMode | 只读   | 当前明暗模式：auto/true/false |
 | token    | 读写   | 当前主题提供的token值         |
 
 - $theme 方法
