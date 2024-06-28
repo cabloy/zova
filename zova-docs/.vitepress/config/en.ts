@@ -118,7 +118,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         },
         {
           text: 'CSS-in-JS: Style & Theme',
-          base: '/zh/guide/techniques/css-in-js/',
+          base: '/guide/techniques/css-in-js/',
           items: [
             { text: 'Introduction', link: 'introduction' },
             { text: '$style', link: 'style' },
@@ -128,8 +128,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
-          text: 'Unified Data Source',
-          base: '/zh/guide/techniques/data/',
+          text: 'Model: Unified Data Source',
+          base: '/guide/techniques/model/',
           items: [
             { text: 'Introduction', link: 'introduction' },
             { text: 'Data Query', link: 'query' },

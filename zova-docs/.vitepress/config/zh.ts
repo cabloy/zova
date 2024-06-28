@@ -128,8 +128,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
-          text: '统一数据源',
-          base: '/zh/guide/techniques/data/',
+          text: 'Model: 统一数据源',
+          base: '/zh/guide/techniques/model/',
           items: [
             { text: '简介', link: 'introduction' },
             { text: '数据获取', link: 'query' },
