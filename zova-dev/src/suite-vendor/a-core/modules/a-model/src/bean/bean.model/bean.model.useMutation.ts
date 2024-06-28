@@ -5,7 +5,7 @@ import {
   UseMutationReturnType,
   useMutation,
 } from '@tanstack/vue-query';
-import { BeanDataUseQuery } from './bean.data.useQuery.js';
+import { BeanDataUseQuery } from './bean.model.useQuery.js';
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
 

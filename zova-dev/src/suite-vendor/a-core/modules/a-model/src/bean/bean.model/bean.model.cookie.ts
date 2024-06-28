@@ -1,5 +1,5 @@
 import { Query } from '@tanstack/vue-query';
-import { BeanDataPersister } from './bean.data.persister.js';
+import { BeanDataPersister } from './bean.model.persister.js';
 
 export class BeanDataCookie<TScopeModule = unknown> extends BeanDataPersister<TScopeModule> {
   $serializeCookie(obj?: Query) {

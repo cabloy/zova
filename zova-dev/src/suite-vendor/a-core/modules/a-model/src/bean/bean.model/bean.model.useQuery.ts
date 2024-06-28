@@ -12,7 +12,7 @@ import {
 import { UnwrapNestedRefs } from 'vue';
 import { useComputed } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
-import { BeanDataQuery } from './bean.data.query.js';
+import { BeanDataQuery } from './bean.model.query.js';
 
 const SymbolUseQueries = Symbol('SymbolUseQueries');
 
