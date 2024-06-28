@@ -52,7 +52,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   }
 
   getJwtAuthorization() {
-    if (!this.jwt) return '';
+    if (!this.jwt) return undefined;
     return this.jwt.expireTime - Date.now() > 120 * 1000 ? this.jwt.accessToken : this.jwt.refreshToken;
   }
 
