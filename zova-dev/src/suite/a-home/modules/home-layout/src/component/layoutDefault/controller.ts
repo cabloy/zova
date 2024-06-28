@@ -1,5 +1,5 @@
 import { BeanControllerBase, Local, Use } from 'zova';
-import { ModelMenu } from '../../bean/data.menu.js';
+import { ModelMenu } from '../../bean/model.menu.js';
 
 export interface Props {}
 
