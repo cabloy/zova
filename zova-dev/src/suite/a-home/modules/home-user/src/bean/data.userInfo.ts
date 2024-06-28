@@ -1,5 +1,5 @@
 import { Model } from 'zova';
-import { BeanDataBase } from 'zova-module-a-model';
+import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 
 export interface User {
@@ -19,7 +19,7 @@ export interface UserInfoData {
 }
 
 @Model()
-export class ModelUserInfo extends BeanDataBase<ScopeModule> {
+export class ModelUserInfo extends BeanModelBase<ScopeModule> {
   user?: User;
   jwt?: JWT;
   token?: string;
