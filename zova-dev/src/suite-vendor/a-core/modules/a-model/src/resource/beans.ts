@@ -1,4 +1,4 @@
-export * from '../bean/virtual.data.js';
+export * from '../bean/virtual.model.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {}
