@@ -5,6 +5,9 @@
   "zovaModule": {
     "capabilities": {
       "monkey": true
+    },
+    "dependencies": {
+      "a-model": "5.0.0"
     }
   },
   "type": "module",

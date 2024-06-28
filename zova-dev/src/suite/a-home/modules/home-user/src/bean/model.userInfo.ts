@@ -1,28 +1,15 @@
 import { Model } from 'zova';
-import { BeanModelBase } from 'zova-module-a-model';
+import { BeanModelBase, DataMutation } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
-
-export interface User {
-  username?: string;
-  avatar?: string;
-}
-
-export interface JWT {
-  accessToken: string;
-  refreshToken: string;
-  expireTime: number;
-}
-
-export interface UserInfoData {
-  user?: User;
-  jwt?: JWT;
-}
+import { ServiceUserEntity, ServiceUserJWT, ServiceUserLoginParams, ServiceUserLoginResult } from '../api/index.js';
 
 @Model()
 export class ModelUserInfo extends BeanModelBase<ScopeModule> {
-  user?: User;
-  jwt?: JWT;
+  user?: ServiceUserEntity;
+  jwt?: ServiceUserJWT;
   token?: string;
+
+  login: DataMutation<ServiceUserLoginResult, ServiceUserLoginParams>;
 
   protected async __init__() {
     this.user = this.$useQueryLocal({
@@ -34,16 +21,27 @@ export class ModelUserInfo extends BeanModelBase<ScopeModule> {
     this.token = this.$useQueryCookie({
       queryKey: ['token'],
     });
+    this.login = this.$useMutation<ServiceUserLoginResult, ServiceUserLoginParams>({
+      mutationFn: async params => {
+        return this.scope.service.user.login(params);
+      },
+      onSuccess: data => {
+        // save
+        this._setUserInfo(data);
+        // home
+        this.$router.replace('/');
+      },
+    });
   }
 
-  setUserInfo(data: UserInfoData) {
+  private _setUserInfo(data: ServiceUserLoginResult) {
     this.user = data.user;
     this.jwt = data.jwt;
     this.token = this.getJwtAuthorization();
   }
 
   logout() {
-    this.setUserInfo({});
+    this._setUserInfo({});
     this.$router.replace('/home/user/login');
   }
 
