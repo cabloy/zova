@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.data',
+  bean: 'create.model',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Data Bean',
-    usage: 'zova :create:data dataName [--module=]',
+    title: 'Cli: Create Model Bean',
+    usage: 'zova :create:Model modelName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        dataName: {
+        modelName: {
           type: 'input',
-          message: 'dataName',
+          message: 'modelName',
           initial: {
             expression: 'context.argv._[0]',
           },
