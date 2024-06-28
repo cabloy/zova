@@ -10,8 +10,8 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <div>Current: {this.$$dataTodo.get(this.currentTodo)?.data?.title}</div>
-        <div>{this.$$dataTodo.get(this.currentTodo)?.error?.message}</div>
+        <div>Current: {this.$$modelTodo.get(this.currentTodo)?.data?.title}</div>
+        <div>{this.$$modelTodo.get(this.currentTodo)?.error?.message}</div>
         <form>
           <input v-model={this.newTitle}></input>
           <button
@@ -32,7 +32,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
             </tr>
           </thead>
           <tbody>
-            {this.$$dataTodo.select().data?.map(item => {
+            {this.$$modelTodo.select().data?.map(item => {
               return (
                 <tr>
                   <td>

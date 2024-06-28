@@ -1,6 +1,6 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { DataUserInfo, UserInfoData } from '../../bean/data.userInfo.js';
+import { ModelUserInfo, UserInfoData } from '../../bean/data.userInfo.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
@@ -13,7 +13,7 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageLogin extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
-  $$userInfo: DataUserInfo;
+  $$userInfo: ModelUserInfo;
 
   user = {
     username: 'admin',

@@ -1,4 +1,4 @@
-import { Data } from 'zova';
+import { Model } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { BeanDataBase, DataMutation } from 'zova-module-a-data';
 import {
@@ -8,8 +8,8 @@ import {
   ServiceTodoUpdateParams,
 } from '../api/index.js';
 
-@Data()
-export class DataTodo extends BeanDataBase<ScopeModule> {
+@Model()
+export class ModelTodo extends BeanDataBase<ScopeModule> {
   insert: DataMutation<void, ServiceTodoIntertParams>;
   update: DataMutation<void, ServiceTodoUpdateParams>;
   delete: DataMutation<void, ServiceTodoDeleteParams>;

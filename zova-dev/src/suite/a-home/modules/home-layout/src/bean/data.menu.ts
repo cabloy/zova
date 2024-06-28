@@ -1,9 +1,9 @@
-import { Data } from 'zova';
+import { Model } from 'zova';
 import { BeanDataBase } from 'zova-module-a-data';
 import { ScopeModule } from '../resource/this.js';
 
-@Data()
-export class DataMenu extends BeanDataBase<ScopeModule> {
+@Model()
+export class ModelMenu extends BeanDataBase<ScopeModule> {
   select() {
     return this.$useQueryExisting({
       queryKey: ['select'],

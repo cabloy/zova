@@ -1,6 +1,6 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { DataTodo } from '../../bean/data.todo.js';
+import { ModelTodo } from '../../bean/data.todo.js';
 import { ServiceTodoEntity, ServiceTodoGetParams } from '../../api/index.js';
 
 export const ParamsSchema = zz.object({});
@@ -14,7 +14,7 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   @Use()
-  $$dataTodo: DataTodo;
+  $$modelTodo: ModelTodo;
   newTitle: string;
   currentTodo?: ServiceTodoGetParams;
 
@@ -26,16 +26,16 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
       title: this.newTitle,
       done: false,
     };
-    await this.$$dataTodo.insert.mutateAsync(todo);
+    await this.$$modelTodo.insert.mutateAsync(todo);
     this.newTitle = '';
   }
 
   async completeTodo(item: ServiceTodoEntity) {
     const todo = { ...item, title: `${item.title}!`, done: true };
-    await this.$$dataTodo.update.mutateAsync(todo);
+    await this.$$modelTodo.update.mutateAsync(todo);
   }
 
   async deleteTodo(item: ServiceTodoEntity) {
-    await this.$$dataTodo.delete.mutateAsync({ id: item.id });
+    await this.$$modelTodo.delete.mutateAsync({ id: item.id });
   }
 }
