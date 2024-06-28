@@ -2,7 +2,7 @@ import { /*template,*/ types as t, type PluginPass } from '@babel/core';
 import type { NodePath, Visitor } from '@babel/traverse';
 import { parseInfoFromPath } from '@cabloy/module-info';
 
-const __Decorator_Supported = ['Bean', 'Local', 'Scope', 'Store', 'Data', 'Style', 'Theme', 'Tool', 'Virtual'];
+const __Decorator_Supported = ['Bean', 'Local', 'Scope', 'Store', 'Data', 'Model', 'Style', 'Theme', 'Tool', 'Virtual'];
 
 export default function () {
   const visitor: Visitor<PluginPass> = {

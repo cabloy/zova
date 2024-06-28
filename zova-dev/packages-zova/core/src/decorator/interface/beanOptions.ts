@@ -3,8 +3,8 @@ import { Constructable } from '../index.js';
 import { ContainerScope } from '../index.js';
 
 export type TypeDecoratorBeanOptionsSceneBase = 'local' | 'aop' | 'virtual' | 'scope' | TypeDecoratorBeanOptionsScene;
-// containerScope: store(app) data(new)
-export type TypeDecoratorBeanOptionsScene = 'bean' | 'store' | 'data' | 'style' | 'theme' | 'tool'; // | 'ui' | 'event';
+// containerScope: store(app) model(ctx)
+export type TypeDecoratorBeanOptionsScene = 'bean' | 'store' | 'model' | 'style' | 'theme' | 'tool'; // | 'ui' | 'event';
 
 export interface IDecoratorBeanOptionsBase<T = unknown> {
   /**
@@ -55,7 +55,7 @@ export interface IDecoratorStoreOptions {
   markReactive?: boolean;
 }
 
-export interface IDecoratorDataOptions {
+export interface IDecoratorModelOptions {
   scene?: TypeDecoratorBeanOptionsScene;
   name?: string;
   markReactive?: boolean;

@@ -1,14 +1,14 @@
 import { appResource } from '../../core/resource.js';
 import { Cast } from '../../types/utils/cast.js';
-import { Constructable, IDecoratorDataOptions } from '../index.js';
+import { Constructable, IDecoratorModelOptions } from '../index.js';
 
-export function Data<T>(options?: IDecoratorDataOptions): ClassDecorator {
+export function Model<T>(options?: IDecoratorModelOptions): ClassDecorator {
   return function (target) {
     if (!options) options = {};
     // add
     appResource.addBean({
       module: Cast(options).module,
-      scene: options.scene || 'data',
+      scene: options.scene || 'model',
       name: options.name,
       containerScope: 'ctx',
       markReactive: options.markReactive,
