@@ -1,4 +1,4 @@
-import { Model, useComputed } from 'zova';
+import { Model } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 import { ServiceUserEntity, ServiceUserJWT, ServiceUserLoginParams, ServiceUserLoginResult } from '../api/index.js';
@@ -12,20 +12,14 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   protected async __init__() {
     await super.__init__();
 
-    this.user = useComputed(() => {
-      return this.$useQueryLocalExisting({
-        queryKey: ['user'],
-      });
+    this.user = this.$useQueryLocalComputed({
+      queryKey: ['user'],
     });
-    this.jwt = useComputed(() => {
-      return this.$useQueryLocalExisting({
-        queryKey: ['jwt'],
-      });
+    this.jwt = this.$useQueryLocalComputed({
+      queryKey: ['jwt'],
     });
-    this.token = useComputed(() => {
-      return this.$useQueryCookieExisting({
-        queryKey: ['token'],
-      });
+    this.token = this.$useQueryCookieComputed({
+      queryKey: ['token'],
     });
   }
 
