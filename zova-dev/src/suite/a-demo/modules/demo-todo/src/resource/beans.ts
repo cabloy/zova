@@ -1,5 +1,5 @@
-export * from '../bean/data.todo.js';
-import { ModelTodo } from '../bean/data.todo.js';
+export * from '../bean/model.todo.js';
+import { ModelTodo } from '../bean/model.todo.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {

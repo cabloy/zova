@@ -4,9 +4,9 @@ import { Query, QueryKey } from '@tanstack/vue-query';
 import { cookieStorage } from '../../common/cookieStorage.js';
 import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
-import { BeanDataLast } from './bean.model.last.js';
+import { BeanModelLast } from './bean.model.last.js';
 
-export class BeanModelPersister<TScopeModule = unknown> extends BeanDataLast<TScopeModule> {
+export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TScopeModule> {
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
     const query = this.self.$queryFind({ queryKey });
     if (!query) return undefined;

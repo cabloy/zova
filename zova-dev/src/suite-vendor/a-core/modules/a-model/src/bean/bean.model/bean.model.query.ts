@@ -11,9 +11,9 @@ import {
 } from '@tanstack/vue-query';
 import { MaybeRefDeep, NoUnknown } from '../../common/types.js';
 import { Cast } from 'zova';
-import { BeanDataCookie } from './bean.model.cookie.js';
+import { BeanModelCookie } from './bean.model.cookie.js';
 
-export class BeanModelQuery<TScopeModule = unknown> extends BeanDataCookie<TScopeModule> {
+export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TScopeModule> {
   $setQueryData<
     TQueryFnData,
     TTaggedQueryKey extends QueryKey,
