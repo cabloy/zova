@@ -5,11 +5,11 @@ import {
   UseMutationReturnType,
   useMutation,
 } from '@tanstack/vue-query';
-import { BeanModelUseQuery } from './bean.model.useQuery.js';
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
+import { BeanModelUseQueryExisting } from './bean.model.useQueryExisting.js';
 
-export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQuery<TScopeModule> {
+export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQueryExisting<TScopeModule> {
   $useMutation<TData = unknown, TVariables = void, TContext = unknown>(
     mutationOptions: MaybeRefDeep<MutationObserverOptions<TData, DefaultError, TVariables, TContext>>,
     queryClient?: QueryClient,
