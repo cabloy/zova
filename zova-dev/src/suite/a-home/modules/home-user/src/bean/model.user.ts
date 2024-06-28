@@ -10,6 +10,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   token?: string;
 
   login: DataMutation<ServiceUserLoginResult, ServiceUserLoginParams>;
+  logout: DataMutation<void, void>;
 
   protected async __init__() {
     this.user = this.$useQueryLocal({
@@ -28,8 +29,19 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
       onSuccess: data => {
         // save
         this._setUser(data);
-        // home
+        // page: home
         this.$router.replace('/');
+      },
+    });
+    this.logout = this.$useMutation<void, void>({
+      mutationFn: async () => {
+        return this.scope.service.user.logout();
+      },
+      onSuccess: () => {
+        // clear
+        this._setUser({});
+        // page: login
+        this.$router.replace('/home/user/login');
       },
     });
   }
@@ -38,11 +50,6 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
     this.user = data.user;
     this.jwt = data.jwt;
     this.token = this.getJwtAuthorization();
-  }
-
-  logout() {
-    this._setUser({});
-    this.$router.replace('/home/user/login');
   }
 
   getJwtAuthorization() {

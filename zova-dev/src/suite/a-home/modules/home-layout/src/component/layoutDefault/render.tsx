@@ -40,6 +40,13 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return (
       <div>
         <div>{this._renderMenu()}</div>
+        <button
+          onClick={() => {
+            this.$$modelUser.logout.mutate();
+          }}
+        >
+          Logout
+        </button>
         <div>
           <router-view />
         </div>
