@@ -70,14 +70,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        if (query.data === undefined) {
-          const data = self.$persisterLoad(queryKey);
-          if (data !== undefined) {
-            self.$setQueryData(queryKey, data);
-          }
-        }
-        return query.data;
+        return self._handleSyncDataGet(options, queryClient, true);
       },
       set(value) {
         const query = self.$useQueryExisting(options, queryClient) as any;
@@ -132,14 +125,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        if (query.data === undefined) {
-          const data = self.$persisterLoad(queryKey);
-          if (data !== undefined) {
-            self.$setQueryData(queryKey, data);
-          }
-        }
-        return query.data;
+        return self._handleSyncDataGet(options, queryClient, true);
       },
       set(value) {
         const query = self.$useQueryExisting(options, queryClient) as any;
@@ -179,8 +165,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const self = this;
     return useComputed({
       get() {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        return query.data;
+        return self._handleSyncDataGet(options, queryClient, false);
       },
       set(value) {
         const query = self.$useQueryExisting(options, queryClient) as any;
@@ -224,5 +209,19 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       this[SymbolUseQueries][queryHash] = this.$useQuery(options, queryClient);
     }
     return this[SymbolUseQueries][queryHash];
+  }
+
+  private _handleSyncDataGet(options, queryClient, persister) {
+    const queryKey = options.queryKey;
+    const query = this.$useQueryExisting(options, queryClient) as any;
+    if (query.data === undefined) {
+      if (persister) {
+        const data = this.$persisterLoad(queryKey);
+        if (data !== undefined) {
+          this.$setQueryData(queryKey, data, false);
+        }
+      }
+    }
+    return query.data;
   }
 }
