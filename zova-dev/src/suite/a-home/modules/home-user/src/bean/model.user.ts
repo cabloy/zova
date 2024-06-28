@@ -4,7 +4,7 @@ import { ScopeModule } from '../resource/this.js';
 import { ServiceUserEntity, ServiceUserJWT, ServiceUserLoginParams, ServiceUserLoginResult } from '../api/index.js';
 
 @Model()
-export class ModelUserInfo extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase<ScopeModule> {
   user?: ServiceUserEntity;
   jwt?: ServiceUserJWT;
   token?: string;
@@ -27,21 +27,21 @@ export class ModelUserInfo extends BeanModelBase<ScopeModule> {
       },
       onSuccess: data => {
         // save
-        this._setUserInfo(data);
+        this._setUser(data);
         // home
         this.$router.replace('/');
       },
     });
   }
 
-  private _setUserInfo(data: ServiceUserLoginResult) {
+  private _setUser(data: ServiceUserLoginResult) {
     this.user = data.user;
     this.jwt = data.jwt;
     this.token = this.getJwtAuthorization();
   }
 
   logout() {
-    this._setUserInfo({});
+    this._setUser({});
     this.$router.replace('/home/user/login');
   }
 
