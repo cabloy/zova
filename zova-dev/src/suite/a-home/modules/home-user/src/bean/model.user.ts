@@ -12,13 +12,13 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   protected async __init__() {
     await super.__init__();
 
-    this.user = this.$useQueryLocalComputed({
+    this.user = this.$useQueryLocal({
       queryKey: ['user'],
     });
-    this.jwt = this.$useQueryLocalComputed({
+    this.jwt = this.$useQueryLocal({
       queryKey: ['jwt'],
     });
-    this.token = this.$useQueryCookieComputed({
+    this.token = this.$useQueryCookie({
       queryKey: ['token'],
     });
   }

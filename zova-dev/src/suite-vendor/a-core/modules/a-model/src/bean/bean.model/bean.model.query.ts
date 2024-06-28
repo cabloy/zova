@@ -37,7 +37,6 @@ export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TSco
       if (persisterSave) {
         this.$persisterRemove(queryKey);
       }
-      this.$queryClient.removeQueries({ queryKey, exact: true });
     } else {
       if (persisterSave) {
         this.$persisterSave(queryKey);
