@@ -42,7 +42,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
         <div>{this._renderMenu()}</div>
         <button
           onClick={() => {
-            this.$$modelUser.logout.mutate();
+            this.$$modelUser.logout().mutate();
           }}
         >
           Logout

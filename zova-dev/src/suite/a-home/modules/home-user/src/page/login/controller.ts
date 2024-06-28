@@ -22,6 +22,6 @@ export class ControllerPageLogin extends BeanControllerPageBase<ScopeModule, Que
   };
 
   async login() {
-    await this.$$modelUser.login.mutateAsync(this.user);
+    await this.$$modelUser.login().mutateAsync(this.user);
   }
 }

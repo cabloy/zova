@@ -1,5 +1,5 @@
 import { Model } from 'zova';
-import { BeanModelBase, DataMutation } from 'zova-module-a-model';
+import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 import { ServiceUserEntity, ServiceUserJWT, ServiceUserLoginParams, ServiceUserLoginResult } from '../api/index.js';
 
@@ -8,9 +8,6 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   user?: ServiceUserEntity;
   jwt?: ServiceUserJWT;
   token?: string;
-
-  login: DataMutation<ServiceUserLoginResult, ServiceUserLoginParams>;
-  logout: DataMutation<void, void>;
 
   protected async __init__() {
     this.user = this.$useQueryLocal({
@@ -22,7 +19,11 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
     this.token = this.$useQueryCookie({
       queryKey: ['token'],
     });
-    this.login = this.$useMutation<ServiceUserLoginResult, ServiceUserLoginParams>({
+  }
+
+  login() {
+    return this.$useMutation<ServiceUserLoginResult, ServiceUserLoginParams>({
+      mutationKey: ['login'],
       mutationFn: async params => {
         return this.scope.service.user.login(params);
       },
@@ -33,7 +34,11 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
         this.$router.replace('/');
       },
     });
-    this.logout = this.$useMutation<void, void>({
+  }
+
+  logout() {
+    return this.$useMutation<void, void>({
+      mutationKey: ['logout'],
       mutationFn: async () => {
         return this.scope.service.user.logout();
       },
