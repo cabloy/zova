@@ -70,6 +70,24 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     }
   }
 
+  $persisterRemove(queryKey: QueryKey) {
+    const query = this.self.$queryFind({ queryKey });
+    if (!query) return;
+    const options = this._adjustPersisterOptions(query.meta?.persister);
+    if (!options) return;
+    const storage = this._getPersisterStorage(options);
+    if (!storage) return;
+    const storageKey = this._getPersisterStorageKey(options, query);
+    if (options.sync === true) {
+      storage.removeItem(storageKey);
+    } else {
+      // Persist if we have storage defined, we use timeout to get proper state to be persisted
+      setTimeout(() => {
+        storage.removeItem(storageKey);
+      }, 0);
+    }
+  }
+
   protected _createPersister(options?: QueryMetaPersister | boolean) {
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;

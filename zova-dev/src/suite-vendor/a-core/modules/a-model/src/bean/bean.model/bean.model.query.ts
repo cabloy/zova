@@ -33,8 +33,15 @@ export class BeanModelQuery<TScopeModule = unknown> extends BeanModelCookie<TSco
   $setQueryData(queryKey, updater, persisterSave, options) {
     queryKey = this._forceQueryKeyPrefix(queryKey);
     const data = this.$queryClient.setQueryData(queryKey, updater, options);
-    if (persisterSave) {
-      this.$persisterSave(queryKey);
+    if (data === undefined) {
+      if (persisterSave) {
+        this.$persisterRemove(queryKey);
+      }
+      this.$queryClient.removeQueries({ queryKey, exact: true });
+    } else {
+      if (persisterSave) {
+        this.$persisterSave(queryKey);
+      }
     }
     return data;
   }
