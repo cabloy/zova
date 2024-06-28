@@ -16,8 +16,6 @@ const SymbolUseQueries = Symbol('SymbolUseQueries');
 export class BeanModelUseQueryExisting<TScopeModule = unknown> extends BeanModelUseQuery<TScopeModule> {
   private [SymbolUseQueries]: Record<string, unknown> = {};
 
-  protected async __init__() {}
-
   $useQueryExisting<
     TQueryFnData = unknown,
     TError = DefaultError,

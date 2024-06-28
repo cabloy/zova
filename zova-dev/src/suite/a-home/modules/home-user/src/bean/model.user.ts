@@ -10,8 +10,6 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
   token?: string;
 
   protected async __init__() {
-    await super.__init__();
-
     this.user = this.$useQueryLocal({
       queryKey: ['user'],
     });
