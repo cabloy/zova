@@ -23,7 +23,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <ElRadioGroup
             modelValue={this.$theme.darkMode}
             onUpdate:modelValue={event => {
-              this.$theme.setDark(event);
+              this.$theme.setDark(event as any);
             }}
           >
             <ElRadio value={false}>Light</ElRadio>
