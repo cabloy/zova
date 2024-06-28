@@ -66,16 +66,13 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         persister: { storage: 'local', sync: true },
       },
     });
-    const queryKey = options.queryKey;
     const self = this;
     return useComputed({
       get() {
         return self._handleSyncDataGet(options, queryClient, true);
       },
       set(value) {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        self.$setQueryData(queryKey, value, true);
-        return query;
+        self._handleSyncDataSet(options, queryClient, true, value);
       },
     });
   }
@@ -121,16 +118,13 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         },
       },
     );
-    const queryKey = options.queryKey;
     const self = this;
     return useComputed({
       get() {
         return self._handleSyncDataGet(options, queryClient, true);
       },
       set(value) {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        self.$setQueryData(queryKey, value, true);
-        return query;
+        self._handleSyncDataSet(options, queryClient, true, value);
       },
     });
   }
@@ -161,16 +155,13 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         persister: false,
       },
     });
-    const queryKey = options.queryKey;
     const self = this;
     return useComputed({
       get() {
         return self._handleSyncDataGet(options, queryClient, false);
       },
       set(value) {
-        const query = self.$useQueryExisting(options, queryClient) as any;
-        self.$setQueryData(queryKey, value, false);
-        return query;
+        self._handleSyncDataSet(options, queryClient, false, value);
       },
     });
   }
@@ -213,7 +204,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
 
   private _handleSyncDataGet(options, queryClient, persister) {
     const queryKey = options.queryKey;
-    const query = this.$useQueryExisting(options, queryClient) as any;
+    const query = this.$useQueryExisting(options, queryClient);
     if (query.data === undefined) {
       if (persister) {
         const data = this.$persisterLoad(queryKey);
@@ -223,5 +214,12 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       }
     }
     return query.data;
+  }
+
+  private _handleSyncDataSet(options, queryClient, persister, value) {
+    const queryKey = options.queryKey;
+    const query = this.$useQueryExisting(options, queryClient);
+    this.$setQueryData(queryKey, value, persister);
+    return query;
   }
 }
