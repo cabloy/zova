@@ -1,8 +1,8 @@
-export * from '../bean/data.menu.js';
-import { DataMenu } from '../bean/data.menu.js';
+export * from '../bean/model.menu.js';
+import { ModelMenu } from '../bean/model.menu.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'home-layout.data.menu': DataMenu;
+    'home-layout.model.menu': ModelMenu;
   }
 }

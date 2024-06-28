@@ -1,5 +1,5 @@
 import { BeanControllerBase, Local, Use } from 'zova';
-import { DataMenu } from '../../bean/data.menu.js';
+import { ModelMenu } from '../../bean/model.menu.js';
 
 export interface Props {}
 
@@ -12,7 +12,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   static $propsDefault = {};
 
   @Use()
-  $$dataMenu: DataMenu;
+  $$modelMenu: ModelMenu;
 
   leftDrawerOpen: boolean = false;
 

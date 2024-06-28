@@ -40,7 +40,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     );
   }
   _renderMenu() {
-    const queryMenus = this.$$dataMenu.select();
+    const queryMenus = this.$$modelMenu.select();
     if (queryMenus.isLoading || !queryMenus.data) return;
     const domItems: JSX.Element[] = [];
     for (const item of queryMenus.data) {

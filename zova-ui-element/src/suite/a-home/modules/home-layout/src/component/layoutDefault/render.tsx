@@ -72,7 +72,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return domItems;
   }
   _renderMenu() {
-    const queryMenus = this.$$dataMenu.select();
+    const queryMenus = this.$$modelMenu.select();
     if (queryMenus.isLoading) return;
     const domItems = this._renderMenuItems(queryMenus.data, []);
     return (
