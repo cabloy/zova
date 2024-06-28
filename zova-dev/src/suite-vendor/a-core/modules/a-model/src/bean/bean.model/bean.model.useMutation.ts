@@ -1,15 +1,22 @@
 import {
   DefaultError,
+  MutationKey,
   MutationObserverOptions,
   QueryClient,
   UseMutationReturnType,
+  hashKey,
   useMutation,
 } from '@tanstack/vue-query';
 import { MaybeRefDeep } from '../../common/types.js';
 import { UnwrapNestedRefs } from 'vue';
 import { BeanModelUseQueryExisting } from './bean.model.useQueryExisting.js';
+import { Cast } from 'zova';
+
+const SymbolUseMutations = Symbol('SymbolUseMutations');
 
 export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQueryExisting<TScopeModule> {
+  private [SymbolUseMutations]: Record<string, unknown> = {};
+
   $useMutation<TData = unknown, TVariables = void, TContext = unknown>(
     mutationOptions: MaybeRefDeep<MutationObserverOptions<TData, DefaultError, TVariables, TContext>>,
     queryClient?: QueryClient,
@@ -17,5 +24,21 @@ export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQu
     return this.ctx.meta.util.instanceScope(() => {
       return useMutation(mutationOptions, queryClient) as any;
     });
+  }
+
+  $useMutationExisting<TData = unknown, TVariables = void, TContext = unknown>(
+    mutationOptions: MaybeRefDeep<MutationObserverOptions<TData, DefaultError, TVariables, TContext>>,
+    queryClient?: QueryClient,
+  ): UnwrapNestedRefs<UseMutationReturnType<TData, DefaultError, TVariables, TContext>> {
+    let mutationKey: MutationKey = Cast(mutationOptions).mutationKey;
+    if (!mutationKey || mutationKey.length === 0) throw new Error('should specify mutationKey');
+    mutationKey = this.self._forceQueryKeyPrefix();
+    const mutationHash = hashKey(mutationKey);
+    if (!this[SymbolUseMutations][mutationHash]) {
+      this[SymbolUseMutations][mutationHash] = this.$useMutation(mutationOptions, queryClient);
+    }
+    return this[SymbolUseMutations][mutationHash] as UnwrapNestedRefs<
+      UseMutationReturnType<TData, DefaultError, TVariables, TContext>
+    >;
   }
 }
