@@ -26,6 +26,9 @@ export class ModelTodo {
 - queryFn
   - Required
   - 在合适的时机调用此函数获取服务端数据
+- meta
+  - Optional
+  - 扩展参数
 
 ### Returns
 
@@ -92,13 +95,12 @@ this.$invalidateQueries({ queryKey: ['get', params.id] });
 创建基于 localstorage 的 Query 对象
 
 ```typescript
-export class ModelTodo {
-  select() {
-    return this.$useQueryExisting({
-      queryKey: ['select'],
-      queryFn: async () => {
-        return this.scope.service.todo.select();
-      },
+export class ModelUser extends BeanModelBase<ScopeModule> {
+  user?: ServiceUserEntity;
+
+  protected async __init__() {
+    this.user = this.$useQueryLocal({
+      queryKey: ['user'],
     });
   }
 }
@@ -108,12 +110,6 @@ export class ModelTodo {
 
 - queryKey
   - Required
-  - 确保本地缓存的唯一性
-  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`a-demo.model.todo`，那么完整的 queryKey 就是`['a-demo.model.todo', 'select']`
-- queryFn
-  - Required
-  - 在合适的时机调用此函数获取服务端数据
-
-### Returns
-
-- 参见: [tanstack: useQuery](https://tanstack.com/query/latest/docs/framework/vue/reference/useQuery)
+- meta
+  - Optional
+  - 扩展参数
