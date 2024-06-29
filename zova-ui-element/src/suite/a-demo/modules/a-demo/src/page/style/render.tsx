@@ -20,12 +20,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         </ElButton>
         <hr></hr>
         <div>
-          <ElRadioGroup
-            modelValue={this.$theme.darkMode}
-            onUpdate:modelValue={event => {
-              this.$theme.setDark(event as any);
-            }}
-          >
+          <ElRadioGroup v-model={this.$theme.darkMode}>
             <ElRadio value={false}>Light</ElRadio>
             <ElRadio value={true}>Dark</ElRadio>
             <ElRadio value={'auto'}>Auto</ElRadio>
@@ -34,12 +29,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         <hr></hr>
         <div>
           <div style={{ color: this.$token['color-primary'] }}>theme: {this.$theme.name}</div>
-          <ElRadioGroup
-            modelValue={this.$theme.name}
-            onUpdate:modelValue={event => {
-              this.$theme.setTheme(event as any);
-            }}
-          >
+          <ElRadioGroup v-model={this.$theme.name}>
             <ElRadio value={getBeanName('home-theme.theme.default')}>Default</ElRadio>
             <ElRadio value={getBeanName('a-demo.theme.orange')}>Orange</ElRadio>
           </ElRadioGroup>
