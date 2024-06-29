@@ -120,7 +120,7 @@ export class ModelTodo {
 - Invoke `$useMutationExisting` to create a Mutation object
 - Pass in `mutationKey` to ensure the uniqueness of the local cache
 - Pass in `mutationFn` to perform the mutation operation
-- Listen to the `onSuccess` method, when the data is created successfully, set the `select` query to invalid to re-fetch the data
+- Listen to the `onSuccess` method, when the data is created successfully, set the `select` query to invalid in order to re-fetch the data
 
 ### How to use
 
@@ -164,7 +164,7 @@ export class ModelTodo {
 - Invoke `$useMutationExisting` to create a Mutation object
 - Pass in `mutationKey` to ensure the uniqueness of the local cache
 - Pass in `mutationFn` to perform the mutation operation
-- Listen to the `onSuccess` method, when the data is created successfully, set the `select` and `get` queries to invalid to re-fetch the data
+- Listen to the `onSuccess` method, when the data is created successfully, set the `select` and `get` queries to invalid in order to re-fetch the data
 
 ### How to use
 
