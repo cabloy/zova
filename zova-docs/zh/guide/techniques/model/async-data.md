@@ -57,15 +57,6 @@ export class RenderTodo {
 
 ```typescript
 export class ModelTodo {
-  select() {
-    return this.$useQueryExisting({
-      queryKey: ['select'],
-      queryFn: async () => {
-        return this.scope.service.todo.select();
-      },
-    });
-  }
-
   get(params?: ServiceTodoGetParams) {
     if (!params) return undefined;
     return this.$useQueryExisting({
