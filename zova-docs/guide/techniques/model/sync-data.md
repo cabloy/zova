@@ -1,12 +1,12 @@
 # Sync Data
 
-Zova uses the data management mechanism of TanStack Query to realize the management of synchronized data, so that we can write and read data synchronously in cookies and localstorage.
+Zova uses the data management mechanism of TanStack Query to realize the management of synchronized data, so that we can write and read data synchronously in cookies and localstorage
 
 Below, we demonstrate how to manage user data in Model
 
 - For complete code examples, see:
-- [home-user](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite/a-home/modules/home-user/src/bean/model.user.ts)
-- [a-style](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite-vendor/a-core/modules/a-style/src/bean/bean.theme .ts)
+  - [home-user](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite/a-home/modules/home-user/src/bean/model.user.ts)
+  - [a-style](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite-vendor/a-core/modules/a-style/src/bean/bean.theme.ts)
 
 ## Create Model Bean
 
