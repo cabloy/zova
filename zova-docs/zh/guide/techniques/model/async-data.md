@@ -82,10 +82,11 @@ export class ModelTodo {
 export class RenderTodo {
   render() {
     const params = { id: '1' };
+    const todo = this.$$modelTodo.get(params);
     return (
       <div>
-        <div>todo title: {this.$$modelTodo.get(params)?.data?.title}</div>
-        <div>{this.$$modelTodo.get(params)?.error?.message}</div>
+        <div>todo title: {todo?.data?.title}</div>
+        <div>{todo?.error?.message}</div>
       </div>
     );
   }
@@ -96,4 +97,4 @@ export class RenderTodo {
   - 重复调用此方法返回的是同一个 Query 对象
 - 直接使用 Query 对象中的状态和数据
 
-## 数据更新
+## 数据更新：insert
