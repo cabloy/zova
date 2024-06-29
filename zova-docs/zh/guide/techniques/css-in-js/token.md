@@ -1,6 +1,6 @@
 # $token
 
-`token`是用于构建样式的最基本单元，Zova 提供了与 UI 库无关的 token 定义与使用机制
+`Token`是用于构建样式的最基本单元，Zova 提供了与 UI 库无关的 token 定义与使用机制
 
 ## 定义token接口类型
 

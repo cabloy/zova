@@ -1,12 +1,12 @@
 # $token
 
-`token`是用于构建样式的最基本单元，Zova 提供了与 UI 库无关的 token 定义与使用机制
+`Token` is the most basic unit for building styles. Zova provides a token definition and usage mechanism that is independent of UI libraries
 
-## 定义token接口类型
+## Define token interface type
 
-首先，需要定义一个 token 接口类型，该类型是后续所有工作的基础，也只需要定义一次。不同的 UI 库都有自己的样式实现方式，因此需要为每一个 UI 库定制不同的 token 接口类型
+First, you need to define a token interface type, which is the basis for all subsequent work and only needs to be defined once. Different UI libraries have their own style implementations, so different token interface types need to be customized for each UI library
 
-下面是 Zova 开发测试时所使用的 token 接口类型定义：
+The following is the token interface type definition used by Zova when developing and testing:
 
 `zova-dev/src/suite-vendor/a-devui/modules/a-devui/src/themeToken.ts`
 
@@ -27,22 +27,22 @@ export interface ThemeToken {
 }
 ```
 
-- `ThemeToken`接口定义的内部成员结构没有任何限制，完全根据 UI 库的特点和业务需求而定义
+- The internal member structure defined by the `ThemeToken` interface has no restrictions and is completely defined based on the characteristics of the UI library and business needs
 
-其他几个 UI 库的 token 接口类型定义文件如下：
+The token interface type definition files of several other UI libraries are as follows:
 
 - antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/a-antdv/src/themeToken.ts`
 - element: `zova-ui-element/src/suite-vendor/a-element/modules/a-element/src/themeToken.ts`
 - quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/a-quasar/src/themeToken.ts`
 - vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/a-vuetify/src/themeToken.ts`
 
-## 提供token值
+## Provide token value
 
-在 Zova 中，具体的 token 值都是由不同的 theme 来提供，参见：[$theme](./theme.md)
+In Zova, specific token values ​​are provided by different themes, see: [$theme](./theme.md)
 
-## 使用token
+## Use token
 
-Zova 在 BeanBase 基类中注入了`$token`对象，从而可以在任何 bean 实例中通过`this.$token`直接访问 token 数据
+Zova injects a `$token` object into the `BeanBase` base class so that token data can be directly accessed through `this.$token` in any bean instance
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
