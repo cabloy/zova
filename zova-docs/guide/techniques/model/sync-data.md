@@ -21,18 +21,17 @@ $ zova :create:model user --module=a-demo
 ```typescript
 import { Model } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
-import { ScopeModule } from '../resource/this.js';
 
 @Model()
-export class ModelUser extends BeanModelBase<ScopeModule> {}
+export class ModelUser extends BeanModelBase {}
 ```
 
-- Use @Model decorator
-- Inherited from base class BeanModelBase
+- Use `@Model` decorator
+- Inherited from base class `BeanModelBase`
 
 ## localstorage
 
-The following demonstrates storing user information in localstorage, and the data will be retained when the page is refreshed.
+The following demonstrates storing user information in localstorage, and the data will be retained when the page is refreshed
 
 ### How to define
 
@@ -52,7 +51,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 - Call $useQueryLocal to create a Query object
 - Pass in queryKey to ensure the uniqueness of the local cache
 
-### how to use
+### How to use
 
 Read and set data directly like regular variables
 
@@ -83,7 +82,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 - Call $useQueryCookie to create a Query object
 - Pass in queryKey to ensure the uniqueness of the local cache
 
-### how to use
+### How to use
 
 Read and set data directly like regular variables
 
