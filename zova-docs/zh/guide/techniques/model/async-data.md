@@ -1,6 +1,6 @@
 # 异步数据
 
-下面，我们演示如何在 Model 中实现 CRUD 功能
+TanStack Query 的核心是对服务端数据进行管理。下面，我们演示如何在 Model 中实现 CRUD 功能
 
 - 完整代码示例，请参见：[demo-todo](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite/a-demo/modules/demo-todo/src/bean/model.todo.ts)
 
