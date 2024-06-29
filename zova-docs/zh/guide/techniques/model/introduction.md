@@ -34,10 +34,9 @@ $ zova :create:model todo --module=a-demo
 ```typescript
 import { Model } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
-import { ScopeModule } from '../resource/this.js';
 
 @Model()
-export class ModelTodo extends BeanModelBase<ScopeModule> {}
+export class ModelTodo extends BeanModelBase {}
 ```
 
 - 使用@Model 装饰器
