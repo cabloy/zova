@@ -132,8 +132,9 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/guide/techniques/model/',
           items: [
             { text: 'Introduction', link: 'introduction' },
-            { text: 'Data Query', link: 'query' },
-            { text: 'Data Mutation', link: 'mutation' },
+            { text: 'Async Data', link: 'async-data' },
+            { text: 'Sync Data', link: 'sync-data' },
+            { text: 'API', link: 'api' },
           ],
         },
         {

@@ -132,8 +132,9 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/zh/guide/techniques/model/',
           items: [
             { text: '简介', link: 'introduction' },
-            { text: '数据获取', link: 'query' },
-            { text: '数据变更', link: 'mutation' },
+            { text: '异步数据', link: 'async-data' },
+            { text: '同步数据', link: 'sync-data' },
+            { text: 'API', link: 'api' },
           ],
         },
         {
