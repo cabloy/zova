@@ -2,7 +2,7 @@ import { Bean, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
-import { watch, watchEffect } from 'vue';
+import { watch } from 'vue';
 
 export type ThemeDarkMode = 'auto' | boolean;
 
@@ -55,10 +55,10 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       },
     );
 
-    watchEffect(() => {
-      console.log('sssss', Date.now());
+    watch([() => this.name, () => this._dark], () => {
       this._applyTheme();
     });
+    await this._applyTheme();
   }
 
   test() {
