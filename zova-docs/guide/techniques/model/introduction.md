@@ -18,7 +18,7 @@ The core of TanStack Query is to manage server-side data. Here are the capabilit
 
 Zova provides some extension capabilities based on TanStack Query:
 
-1. `Support synchronized data`: Zova borrows the data management mechanism of TanStack Query to realize the management of synchronized data, such as cookies and localstorage
+1. `Support synchronized data`: Zova uses the data management mechanism of TanStack Query to realize the management of synchronized data, such as cookies and localstorage
 2. `Automatic namespace isolation`: Zova manages data through Model Beans. The Bean instance itself has a unique identifier and can be used as a namespace for data to avoid data conflicts
 
 ## Create Model Bean

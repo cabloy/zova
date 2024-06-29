@@ -1,6 +1,6 @@
 # 同步数据
 
-Zova 借用 TanStack Query 的数据管理机制，实现了对同步数据的管理，从而方面我们在 cookie 和 localstorage 中同步写入和读取数据
+Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的管理，从而方面我们在 cookie 和 localstorage 中同步写入和读取数据
 
 下面，我们演示如何在 Model 中管理用户的数据
 

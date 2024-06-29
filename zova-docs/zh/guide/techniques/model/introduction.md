@@ -18,7 +18,7 @@ TanStack Query 的核心是对服务端数据进行管理，这里列举 TanStac
 
 Zova 在 TanStack Query 的基础上提供了一些扩展能力：
 
-1. `支持同步数据`：Zova 借用 TanStack Query 的数据管理机制，实现了对同步数据的管理，如 cookie、localstorage
+1. `支持同步数据`：Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的管理，如 cookie、localstorage
 2. `自动命名空间隔离`：Zova 通过 Model Bean 来管理数据。而 Bean 实例本身有唯一的标识，可以作为数据的命名空间，避免数据冲突
 
 ## 创建Model Bean
