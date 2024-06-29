@@ -61,15 +61,6 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     await this._applyTheme();
   }
 
-  test() {
-    this.name =
-      this.name === ('home-theme.theme.default' as any)
-        ? ('a-demo.theme.orange' as any)
-        : ('home-theme.theme.default' as any);
-    this._dark = !this._dark;
-    this.darkMode = this._dark;
-  }
-
   protected __dispose__() {
     this._listenMediaDarkChange(false);
   }
