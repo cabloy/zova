@@ -60,7 +60,16 @@ export class ModelTodo {
 - mutationFn
   - Required
   - 用于执行变更操作
+- onSuccess
+  - Optional
+  - 变更操作成功时调用
+- onError
+  - Optional
+  - 变更操作失败时调用
+- onSettled
+  - Optional
+  - 变更操作成功或失败均调用
 
 ### Returns
 
-- 参见: [tanstack: useQuery](https://tanstack.com/query/latest/docs/framework/vue/reference/useQuery)
+- 参见: [tanstack: useMutation](https://tanstack.com/query/latest/docs/framework/vue/reference/useMutation)
