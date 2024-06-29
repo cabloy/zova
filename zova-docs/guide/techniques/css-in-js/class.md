@@ -1,22 +1,22 @@
 # $class
 
-## 全局样式
+## Global style
 
-可以基于业务需求创建若干个全局样式 Bean，在全局 Bean 中预先生成若干个样式变量，从而可以在任何 bean 实例中注入使用
+Several global style beans can be created based on business needs, and several style variables are pre-generated in the global beans, so that they can be injected and used in any bean instance
 
-### Cli命令
+### Cli command
 
-可以通过 Cli 命令创建全局样式 Bean。比如，在 a-demo 模块中创建一个全局 Bean `myStyle`
+Global style beans can be created through Cli commands. For example, create a global Bean `myStyle` in the `a-demo` module
 
 ```bash
 $ zova :create:style myStyle --module=a-demo
 ```
 
-- 该指令会自动创建一个 Bean 文件：`a-demo/src/bean/style.myStyle.ts`
+- This command will automatically create a Bean file: `a-demo/src/bean/style.myStyle.ts`
 
-### 缺省全局样式
+### Default global style
 
-Zova 在模块`home-style`中提供了一个全局样式 Bean，我们可以直接在这里提供一些全局样式
+Zova provides a global style Bean in the module `home-style`. We can provide some global styles directly here
 
 `src/suite/a-home/modules/home-style/src/bean/style.default.ts`
 
@@ -37,10 +37,10 @@ export class StyleDefault extends BeanBase<ScopeModule> {
 }
 ```
 
-- `this.textCenter`是静态样式
-- `this.buttonPrimary`是动态样式
+- `this.textCenter` is a static style
+- `this.buttonPrimary` is a dynamic style
 
-### 使用缺省全局样式
+### Use default global style bean
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
@@ -55,11 +55,11 @@ export class RenderTest extends BeanRenderBase {
 }
 ```
 
-- 使用@Use 注入 Bean 实例，传入 Bean 标识：`home-style.style.default`
+- Use `@Use` to inject the Bean instance and pass in the Bean identifier: `home-style.style.default`
 
 ## $class
 
-由于缺省全局样式将在不同的 bean 实例中大量使用。为了简化代码，Zova 在 BeanBase 基类中注入了`$class`对象，从而可以在任何 bean 实例中通过`this.$class`直接访问全局样式
+Since the default global style bean will be used extensively across different bean instances. To simplify the code, Zova injects a `$class` object into the `BeanBase` base class, so that global styles can be directly accessed through `this.$class` in any bean instance
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
