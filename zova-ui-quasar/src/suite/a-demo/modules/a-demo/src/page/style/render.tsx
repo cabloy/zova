@@ -24,24 +24,13 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
             options={this.themeDarkOptions}
             type="radio"
             inline
-            modelValue={this.$theme.darkMode}
-            onUpdate:modelValue={event => {
-              this.$theme.setDark(event);
-            }}
+            v-model={this.$theme.darkMode}
           ></QOptionGroup>
         </div>
         <hr></hr>
         <div>
           <div style={{ color: this.$token.color.primary }}>theme: {this.$theme.name}</div>
-          <QOptionGroup
-            options={this.themeNameOptions}
-            type="radio"
-            inline
-            modelValue={this.$theme.name}
-            onUpdate:modelValue={event => {
-              this.$theme.setTheme(event);
-            }}
-          ></QOptionGroup>
+          <QOptionGroup options={this.themeNameOptions} type="radio" inline v-model={this.$theme.name}></QOptionGroup>
         </div>
       </QPage>
     );
