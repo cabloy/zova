@@ -43,7 +43,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
                   const target = e.target as HTMLSelectElement;
                   const value = target.value;
                   const darkMode = value === 'auto' ? value : value === 'true' ? true : false;
-                  await this.$theme.setDark(darkMode);
+                  this.$theme.darkMode = darkMode;
                 }}
               >
                 <option value={false} selected={this.$theme.darkMode === false}>
@@ -63,7 +63,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
               <select
                 onChange={async e => {
                   const target = e.target as HTMLSelectElement;
-                  await this.$theme.setTheme(target.value as any);
+                  this.$theme.name = target.value as any;
                 }}
               >
                 <option
