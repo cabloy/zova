@@ -36,8 +36,8 @@ $ npm run dev
 - [Route Query](https://zova.js.org/guide/techniques/router/route-query.html): Routes with TS types
 - [Mock](https://zova.js.org/guide/techniques/mock/introduction.html): More convenient Mock Mechanism
 - [Icon](https://zova.js.org/guide/techniques/icon/icon-engine.html): UI library-independent icon engine
-- [CSS-in-JS: Style & Theme](https://zova.js.org/guide/techniques/css-in-js/introduction.html): More flexible style engine
-- [Model: Unified Data Source](https://zova.js.org/guide/techniques/model/introduction.html): Data management strategy based on Tanstack Query
+- [CSS-in-JS: Style & Theme](https://zova.js.org/guide/techniques/css-in-js/introduction.html): More flexible style engine based on [TypeStyle](https://github.com/typestyle/typestyle)
+- [Model: Unified Data Source](https://zova.js.org/guide/techniques/model/introduction.html): Data management strategy based on [Tanstack Query](https://tanstack.com/query/latest/docs/framework/vue/overview)
 - [Env](https://zova.js.org/guide/techniques/env/introduction.html): Env file loading strategy based on multi-dimensional variables
 
 ## Stay In Touch
