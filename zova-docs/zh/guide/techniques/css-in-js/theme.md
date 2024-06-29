@@ -17,17 +17,15 @@ Zova 在 BeanBase 基类中注入了`$theme`对象，从而可以在任何 bean 
 
 | 名称     | 访问性 | 说明                          |
 | -------- | ------ | ----------------------------- |
-| name     | 只读   | 主题名称                      |
+| name     | 读写   | 主题名称                      |
+| darkMode | 读写   | 当前明暗模式：auto/true/false |
 | dark     | 只读   | 当前明暗状态                  |
-| darkMode | 只读   | 当前明暗模式：auto/true/false |
 | token    | 读写   | 当前主题提供的token值         |
 
 - $theme 方法
 
 | 名称       | 说明         |
 | ---------- | ------------ |
-| setTheme   | 设置主题     |
-| setDark    | 设置明暗模式 |
 | toggleDark | 切换明暗模式 |
 
 ## 缺省主题
@@ -117,11 +115,10 @@ export class RenderTest extends BeanRenderBase {
         <div>dark: {String(this.$theme.dark)}</div>
         <div>dark mode: {String(this.$theme.darkMode)}</div>
         <button onClick={() => {
-            const themeName =
+            this.$theme.name =
               this.$theme.name === 'home-theme.theme.default'
                 ? 'a-demo.theme.orange'
                 : 'home-theme.theme.default';
-            this.$theme.setTheme(themeName);
           }}
         >
           Toggle Theme
