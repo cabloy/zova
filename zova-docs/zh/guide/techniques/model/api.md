@@ -137,3 +137,34 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 - meta
   - Optional
   - 扩展参数
+
+## Query Meta
+
+在创建 Query 对象时，可以传入 meta 扩展参数
+
+比如，我们可以把当前主题的`darkMode`属性存入 cookie。darkMode 的类型是`true | false | 'auto'`，但是在存入 cookie 时类型均是字符串，那么在下次从 cookie 取值时就需要进行转换操作
+
+```typescript
+darkMode: ThemeDarkMode; // auto/true/false
+
+protected async __init__() {
+  this.darkMode = this.$useQueryCookie({
+    queryKey: ['themedarkmode'],
+    meta: {
+      persister: {
+        deserialize: value => {
+          value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
+          return this.$deserializeCookie(value);
+        },
+      },
+      defaultData: 'auto',
+    },
+  });
+}
+```
+
+- meta.persister
+  - serialize：自定义序列化方法
+  - deserialize：自定义反序列化方法
+- meta.defaultData
+  - 提供缺省值，只针对同步数据有效
