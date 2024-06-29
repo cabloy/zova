@@ -4,7 +4,9 @@ Zova 借用 TanStack Query 的数据管理机制，实现了对同步数据的�
 
 下面，我们演示如何在 Model 中管理用户的数据
 
-- 完整代码示例，请参见：[home-user](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite/a-home/modules/home-user/src/bean/model.user.ts)
+- 完整代码示例，请参见：
+  - [home-user](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite/a-home/modules/home-user/src/bean/model.user.ts)
+  - [a-style](https://github.com/cabloy/zova/blob/main/zova-dev/src/suite-vendor/a-core/modules/a-style/src/bean/bean.theme.ts)
 
 ## 创建Model Bean
 

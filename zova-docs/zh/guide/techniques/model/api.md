@@ -30,3 +30,37 @@ export class ModelTodo {
 ### Returns
 
 - 参见: [tanstack: useQuery](https://tanstack.com/query/latest/docs/framework/vue/reference/useQuery)
+
+## $useMutationExisting
+
+创建 Mutation 对象，如果已经存在则直接返回
+
+```typescript
+export class ModelTodo {
+  insert() {
+    return this.$useMutationExisting<void, ServiceTodoIntertParams>({
+      mutationKey: ['insert'],
+      mutationFn: async params => {
+        return this.scope.service.todo.insert(params);
+      },
+      onSuccess: () => {
+        this.$invalidateQueries({ queryKey: ['select'] });
+      },
+    });
+  }
+}
+```
+
+### Options
+
+- mutationKey
+  - Required
+  - 确保本地缓存的唯一性
+  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`a-demo.model.todo`，那么完整的 queryKey 就是`['a-demo.model.todo', 'insert']`
+- mutationFn
+  - Required
+  - 用于执行变更操作
+
+### Returns
+
+- 参见: [tanstack: useQuery](https://tanstack.com/query/latest/docs/framework/vue/reference/useQuery)

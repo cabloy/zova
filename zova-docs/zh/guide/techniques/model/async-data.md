@@ -97,7 +97,7 @@ export class RenderTodo {
   - 重复调用此方法返回的是同一个 Query 对象
 - 直接使用 Query 对象中的状态和数据
 
-## 数据更新：insert
+## 数据变更：insert
 
 ### 如何定义
 
@@ -119,7 +119,7 @@ export class ModelTodo {
 
 - 调用$useMutationExisting 创建 Mutation 对象
 - 传入 mutationKey，确保本地缓存的唯一性
-- 传入 mutationFn，用于执行更新操作
+- 传入 mutationFn，用于执行变更操作
 - 响应 onSuccess 方法，当数据创建成功后，将`select` query 设为无效，以便重新获取数据
 
 ### 如何使用
@@ -140,7 +140,7 @@ async addTodo() {
   - 重复调用此方法返回的是同一个 Mutation 对象
 - 直接使用 Mutation 对象的方法 mutateAsync 完成异步操作
 
-## 数据更新：update
+## 数据变更：update
 
 ### 如何定义
 
@@ -163,7 +163,7 @@ export class ModelTodo {
 
 - 调用$useMutationExisting 创建 Mutation 对象
 - 传入 mutationKey，确保本地缓存的唯一性
-- 传入 mutationFn，用于执行更新操作
+- 传入 mutationFn，用于执行变更操作
 - 响应 onSuccess 方法，当数据创建成功后，将`select`和`get` query 设为无效，以便重新获取数据
 
 ### 如何使用
@@ -180,7 +180,7 @@ async completeTodo(item: ServiceTodoEntity) {
   - 重复调用此方法返回的是同一个 Mutation 对象
 - 直接使用 Mutation 对象的方法 mutateAsync 完成异步操作
 
-## 数据更新：delete
+## 数据变更：delete
 
 ### 如何定义
 
@@ -203,7 +203,7 @@ export class ModelTodo {
 
 - 调用$useMutationExisting 创建 Mutation 对象
 - 传入 mutationKey，确保本地缓存的唯一性
-- 传入 mutationFn，用于执行更新操作
+- 传入 mutationFn，用于执行变更操作
 - 响应 onSuccess 方法，当数据创建成功后，将`select`和`get` query 设为无效，以便重新获取数据
 
 ### 如何使用
