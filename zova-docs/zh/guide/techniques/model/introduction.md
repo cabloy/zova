@@ -28,3 +28,17 @@ Zova 在 TanStack Query 的基础上提供了一些扩展能力：
 ```bash
 $ zova :create:model todo --module=a-demo
 ```
+
+`src/bean/model.todo.ts`
+
+```typescript
+import { Model } from 'zova';
+import { BeanModelBase } from 'zova-module-a-model';
+import { ScopeModule } from '../resource/this.js';
+
+@Model()
+export class ModelTodo extends BeanModelBase<ScopeModule> {}
+```
+
+- 使用@Model 装饰器
+- 继承自基类 BeanModelBase

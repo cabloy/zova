@@ -1,0 +1,54 @@
+# 异步数据
+
+下面，我们演示如何在 Model 中实现 CRUD 功能
+
+## 数据获取：select
+
+### 如何定义
+
+```typescript
+export class ModelTodo {
+  select() {
+    return this.$useQueryExisting({
+      queryKey: ['select'],
+      queryFn: async () => {
+        return this.scope.service.todo.select();
+      },
+    });
+  }
+}
+```
+
+- 调用$useQueryExisting 创建 Query 对象
+- 传入 queryKey，确保本地缓存的唯一性
+- 传入 queryFn，在何时的时机调用此函数获取服务端数据
+  - service.todo.select：参见[Api服务](../../essentials/scope/service.md)
+
+### 如何使用
+
+```typescript
+export class RenderTodo {
+  @Use()
+  $$modelTodo: ModelTodo;
+
+  render() {
+    return (
+      <div>
+        <div>isLoading: {this.$$modelTodo.select().isLoading}</div>
+        <div>
+          {this.$$modelTodo.select().data?.map(item => {
+            return <div>{item.title}</div>;
+          })}
+        </div>
+      </div>
+    );
+  }
+}
+```
+
+- 注入 Model Bean 实例：$$modelTodo
+- 调用$$modelTodo.select()获取 Query 对象
+  - 重复调用此方法返回的是同一个 Query 对象
+- 直接使用 Query 对象中的状态和数据
+
+## 数据更新
