@@ -1,12 +1,12 @@
 # $style
 
-Zova 提供了一个核心模块 a-style，该模块基于[TypeStyle](https://github.com/typestyle/typestyle)提供了 css-in-js 能力
+Zova provides a core module `a-style`, which provides `css-in-js` capabilities based on [TypeStyle](https://github.com/typestyle/typestyle)
 
-Zova 在 BeanBase 基类中注入了`$style`方法，从而可以在任何 bean 实例中通过`this.$style`访问 css-in-js 的能力
+Zova has injected the `$style` method in the `BeanBase` base class so that css-in-js capabilities can be accessed in any bean instance through `this.$style`
 
-## Scope样式
+## Scope style
 
-- 基本原理：`this.$style`采用 hash 算法，通过传入的样式参数生成唯一的 className，从而避免命名冲突。为了方便排查问题，在开发阶段为生成的 className 自动添加模块名称前缀
+- Basic principle: `this.$style` uses a hash algorithm to generate a unique className through the passed style parameters, thereby avoiding naming conflicts. In order to facilitate troubleshooting, the module name prefix is ​​automatically added to the generated className during the development stage
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
@@ -24,12 +24,12 @@ export class RenderTest extends BeanRenderBase {
 }
 ```
 
-- 通过`this.$style`生成 className，并赋值给`this.textCenter`
-- 在渲染代码中直接使用`this.textCenter`
+- Generate className through `this.$style` and assign it to `this.textCenter`
+- Use `this.textCenter` directly in rendering code
 
-## 动态样式
+## Dynamic style
 
-可以采用计算属性来创建动态样式
+Computed properties can be used to create dynamic styles
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
@@ -50,5 +50,5 @@ export class RenderTest extends BeanRenderBase {
 }
 ```
 
-- 使用`useComputed`创建计算属性
-- 根据`this.active`的变化生成不同的 className
+- Use `useComputed` to create a computed property
+- Generate different classNames based on the changed value of `this.active`
