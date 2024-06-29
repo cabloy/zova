@@ -1,41 +1,41 @@
 # $theme
 
-Zova 提供了与 UI 库无关的 theme 定义与使用机制，并且提供开箱即用的 theme 切换能力
+Zova provides a theme definition and usage mechanism that is independent of UI libraries, and provides out-of-the-box theme switching capabilities
 
-## 两个维度
+## Two dimensions
 
-Zova 提供了两个维度的主题切换能力：
+Zova provides two dimensions of theme switching capabilities:
 
-- 明暗模式：提供`明色/暗色/自动`三种模式的切换
-- 品牌风格：提供品牌风格的切换，一般以品牌色切换为主，当然还可以包含其他样式的定制
+- `Light/dark mode`: Provides switching between three modes: `light/dark/auto`
+- `Brand style`: Provides brand style switching, generally focusing on brand color switching, of course, it can also include other styles of customization
 
 ## $theme
 
-Zova 在 BeanBase 基类中注入了`$theme`对象，从而可以在任何 bean 实例中通过`this.$theme`对 theme 进行操作
+Zova injects the `$theme` object into the `BeanBase` base class, so that theme can be operated on any bean instance through `this.$theme`
 
-- $theme 属性
+- $theme properties
 
-| 名称     | 访问性 | 说明                          |
-| -------- | ------ | ----------------------------- |
-| name     | 读写   | 主题名称                      |
-| darkMode | 读写   | 当前明暗模式：auto/true/false |
-| dark     | 只读   | 当前明暗状态                  |
-| token    | 读写   | 当前主题提供的token值         |
+| Name     | Accessibility | Description                            |
+| -------- | ------------- | -------------------------------------- |
+| name     | read-write    | Theme name                             |
+| darkMode | read-write    | The current dark mode: auto/true/false |
+| dark     | read-only     | The current dark status: true/false    |
+| token    | read-write    | Token values of the current theme      |
 
-- $theme 方法
+- $theme methods
 
-| 名称       | 说明         |
-| ---------- | ------------ |
-| toggleDark | 切换明暗模式 |
+| Name       | Description                         |
+| ---------- | ----------------------------------- |
+| toggleDark | Switch between light and dark modes |
 
-## 缺省主题
+## Default theme
 
-每一个 UI 库都提供了一个缺省主题 Bean。通过主题 Bean 可以提供以下能力：
+Every UI library provides a default theme bean. Theme beans provide the following capabilities:
 
-1. 提供 token 值：在 token 值中可以配置不同的主题色，也可以提供更多的定制样式
-2. 可以通过代码进行更深度的主题定制
+1. Provide token values: Different theme colors can be configured in the token values, and more customized styles can also be provided
+2. More in-depth theme customization can be done through code
 
-下面是 Zova 开发测试时所使用的缺省主题 Bean：
+The following is the default theme bean used by Zova when developing/tests:
 
 `zova-dev/src/suite/a-home/modules/home-theme/src/bean/theme.default.ts`
 
@@ -61,24 +61,24 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
 }
 ```
 
-- 主题 Bean 实现了 ThemeBase 接口
-- 只需提供 apply 方法。在进行主题切换时，会自动调用 apply 方法
+- Theme Bean implements the `ThemeBase` interface
+- Just provide the `apply` method. When switching themes, the `apply` method will be automatically invoked
 
-## 自定义主题
+## Custom theme
 
-那么，接下来，就可以参照缺省主题 Bean 来创建一个新的主题 Bean
+Then, next, you can create a new theme bean by referring to the default theme bean
 
-### Cli命令
+### Cli command
 
-可以通过 Cli 命令创建主题 Bean。比如，在 a-demo 模块中创建一个主题 Bean `orange`
+Theme beans can be created through Cli commands. For example, create a theme Bean `orange` in the `a-demo` module
 
 ```bash
 $ zova :create:theme orange --module=a-demo
 ```
 
-- 该指令会自动创建一个 Bean 文件：`a-demo/src/bean/theme.orange.ts`，对应的 Bean 标识是：`a-demo.theme.orange`
+- This command will automatically create a Bean file: `a-demo/src/bean/theme.orange.ts`, and the corresponding Bean identifier is: `a-demo.theme.orange`
 
-### 定制apply方法
+### Custom apply method
 
 ```typescript
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
@@ -102,9 +102,9 @@ export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
 }
 ```
 
-### 切换主题
+### Switch theme
 
-接下来就可以在代码中动态切换主题
+Next, you can dynamically switch the theme in the code
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
