@@ -113,3 +113,27 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 - meta
   - Optional
   - 扩展参数
+
+## $useQueryCookie
+
+创建基于 cookie 的 Query 对象
+
+```typescript
+export class ModelUser extends BeanModelBase<ScopeModule> {
+  token?: string;
+
+  protected async __init__() {
+    this.token = this.$useQueryCookie({
+      queryKey: ['token'],
+    });
+  }
+}
+```
+
+### Options
+
+- queryKey
+  - Required
+- meta
+  - Optional
+  - 扩展参数
