@@ -53,6 +53,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '模块', link: 'module' },
             { text: '套件', link: 'suite' },
             { text: '目录结构', link: 'directory-structure' },
+            { text: 'package.json', link: 'package' },
           ],
         },
         {

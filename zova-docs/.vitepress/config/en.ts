@@ -53,6 +53,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Module', link: 'module' },
             { text: 'Suite', link: 'suite' },
             { text: 'Directory Structure', link: 'directory-structure' },
+            { text: 'package.json', link: 'package' },
           ],
         },
         {
