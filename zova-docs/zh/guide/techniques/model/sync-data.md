@@ -45,6 +45,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
       queryKey: ['user'],
     });
   }
+}
 ```
 
 - 与`异步数据`定义不同，同步数据直接在初始化方法`__init__`中定义
@@ -75,6 +76,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
       queryKey: ['token'],
     });
   }
+}
 ```
 
 - 与`异步数据`定义不同，同步数据直接在初始化方法`__init__`中定义
