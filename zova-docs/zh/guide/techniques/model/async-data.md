@@ -51,4 +51,56 @@ export class RenderTodo {
   - 重复调用此方法返回的是同一个 Query 对象
 - 直接使用 Query 对象中的状态和数据
 
+## 数据获取：get
+
+### 如何定义
+
+```typescript
+export class ModelTodo {
+  select() {
+    return this.$useQueryExisting({
+      queryKey: ['select'],
+      queryFn: async () => {
+        return this.scope.service.todo.select();
+      },
+    });
+  }
+
+  get(params?: ServiceTodoGetParams) {
+    if (!params) return undefined;
+    return this.$useQueryExisting({
+      queryKey: ['get', params.id],
+      queryFn: async () => {
+        return this.scope.service.todo.get(params);
+      },
+    });
+  }
+}
+```
+
+- 调用$useQueryExisting 创建 Query 对象
+- 传入 queryKey，确保本地缓存的唯一性
+  - 由于是单条数据，需要指定条目的关键字段值
+- 传入 queryFn，在何时的时机调用此函数获取服务端数据
+
+### 如何使用
+
+```typescript
+export class RenderTodo {
+  render() {
+    const params = { id: '1' };
+    return (
+      <div>
+        <div>todo title: {this.$$modelTodo.get(params)?.data?.title}</div>
+        <div>{this.$$modelTodo.get(params)?.error?.message}</div>
+      </div>
+    );
+  }
+}
+```
+
+- 调用$$modelTodo.get()获取 Query 对象
+  - 重复调用此方法返回的是同一个 Query 对象
+- 直接使用 Query 对象中的状态和数据
+
 ## 数据更新
