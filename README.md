@@ -30,15 +30,15 @@ $ npm run dev
 
 ## Features
 
-- The basis for building large business systems: [Modularization system](https://zova.js.org/guide/essentials/modularization/module.html)
-- The basis for business abstraction and modeling: [IOC control inversion](https://zova.js.org/guide/essentials/ioc/introduction.html)
+- The basis for building large business systems: [Modularization](https://zova.js.org/guide/essentials/modularization/module.html)
+- The basis for business abstraction and modeling: [IOC](https://zova.js.org/guide/essentials/ioc/introduction.html)
 - Access strategy based on dependency lookup: [Module Scope](https://zova.js.org/guide/essentials/scope/introduction.html)
 - Routes with TS types: [Route Query](https://zova.js.org/guide/techniques/router/route-query.html)
 - More convenient Mock Mechanism: [Mock](https://zova.js.org/guide/techniques/mock/introduction.html)
-- UI library-independent icon engine: [icon](https://zova.js.org/guide/techniques/icon/icon-engine.html)
+- UI library-independent icon engine: [Icon](https://zova.js.org/guide/techniques/icon/icon-engine.html)
 - More flexible style engine: [CSS-in-JS: Style & Theme](https://zova.js.org/guide/techniques/css-in-js/introduction.html)
 - Data management strategy based on Tanstack Query: [Model: Unified Data Source](https://zova.js.org/guide/techniques/model/introduction.html)
-- Env file loading strategy based on multi-dimensional variables: [Env environment variables](https://zova.js.org/guide/techniques/env/introduction.html)
+- Env file loading strategy based on multi-dimensional variables: [Env](https://zova.js.org/guide/techniques/env/introduction.html)
 
 ## Stay In Touch
 
