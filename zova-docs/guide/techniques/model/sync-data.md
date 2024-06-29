@@ -47,9 +47,9 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 }
 ```
 
-- Unlike `asynchronous data` definition, synchronous data is defined directly in the initialization method `__init__`
-- Call $useQueryLocal to create a Query object
-- Pass in queryKey to ensure the uniqueness of the local cache
+- Unlike `async data` definition, `sync data` is defined directly in the initialization method `__init__`
+- Invoke `$useQueryLocal` to create a Query object
+- Pass in `queryKey` to ensure the uniqueness of the local cache
 
 ### How to use
 
@@ -78,9 +78,9 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 }
 ```
 
-- Unlike `asynchronous data` definition, synchronous data is defined directly in the initialization method `__init__`
-- Call $useQueryCookie to create a Query object
-- Pass in queryKey to ensure the uniqueness of the local cache
+- Unlike `async data` definition, `sync data` is defined directly in the initialization method `__init__`
+- Invoke `$useQueryCookie` to create a Query object
+- Pass in `queryKey` to ensure the uniqueness of the local cache
 
 ### How to use
 
