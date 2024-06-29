@@ -23,7 +23,7 @@ export class ModelTodo {
 
 - 调用$useQueryExisting 创建 Query 对象
 - 传入 queryKey，确保本地缓存的唯一性
-- 传入 queryFn，在何时的时机调用此函数获取服务端数据
+- 传入 queryFn，在合适的时机调用此函数获取服务端数据
   - service.todo.select：参见[Api服务](../../essentials/scope/service.md)
 
 ### 如何使用
@@ -74,7 +74,7 @@ export class ModelTodo {
 - 调用$useQueryExisting 创建 Query 对象
 - 传入 queryKey，确保本地缓存的唯一性
   - 由于是单条数据，需要指定条目的关键字段值
-- 传入 queryFn，在何时的时机调用此函数获取服务端数据
+- 传入 queryFn，在合适的时机调用此函数获取服务端数据
 
 ### 如何使用
 
