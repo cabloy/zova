@@ -42,6 +42,12 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     this._dark = this.$useQueryCookie({
       queryKey: ['themedark'],
       meta: {
+        persister: {
+          deserialize: value => {
+            value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
+            return this.$deserializeCookie(value);
+          },
+        },
         defaultData: () => {
           return this._getDarkFromDarkMode(this.darkMode);
         },

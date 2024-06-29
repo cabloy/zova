@@ -20,12 +20,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         </Button>
         <hr></hr>
         <div>
-          <RadioGroup
-            value={this.$theme.darkMode}
-            onUpdate:value={event => {
-              this.$theme.setDark(event);
-            }}
-          >
+          <RadioGroup v-model:value={this.$theme.darkMode}>
             <Radio value={false}>Light</Radio>
             <Radio value={true}>Dark</Radio>
             <Radio value={'auto'}>Auto</Radio>
@@ -34,12 +29,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         <hr></hr>
         <div>
           <div style={{ color: this.$token.colorPrimary }}>theme: {this.$theme.name}</div>
-          <RadioGroup
-            value={this.$theme.name}
-            onUpdate:value={event => {
-              this.$theme.setTheme(event);
-            }}
-          >
+          <RadioGroup v-model:value={this.$theme.name}>
             <Radio value={getBeanName('home-theme.theme.default')}>Default</Radio>
             <Radio value={getBeanName('a-demo.theme.orange')}>Orange</Radio>
           </RadioGroup>
