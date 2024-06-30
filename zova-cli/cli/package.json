@@ -1,6 +1,6 @@
 {
   "name": "zova-cli",
-  "version": "1.1.110",
+  "version": "1.1.111",
   "description": "zova cli",
   "publishConfig": {
     "access": "public"
