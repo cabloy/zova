@@ -5,6 +5,7 @@
 创建 Query 对象，如果已经存在则直接返回
 
 ```typescript
+@Model()
 export class ModelTodo {
   select() {
     return this.$useQueryExisting({
@@ -39,6 +40,7 @@ export class ModelTodo {
 创建 Mutation 对象，如果已经存在则直接返回
 
 ```typescript
+@Model()
 export class ModelTodo {
   insert() {
     return this.$useMutationExisting<void, ServiceTodoIntertParams>({

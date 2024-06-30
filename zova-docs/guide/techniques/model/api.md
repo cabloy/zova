@@ -5,6 +5,7 @@
 Create a Query object and return it directly if it already exists
 
 ```typescript
+@Model()
 export class ModelTodo {
   select() {
     return this.$useQueryExisting({
@@ -39,6 +40,7 @@ export class ModelTodo {
 Create a Mutation object and return it directly if it already exists
 
 ```typescript
+@Model()
 export class ModelTodo {
   insert() {
     return this.$useMutationExisting<void, ServiceTodoIntertParams>({

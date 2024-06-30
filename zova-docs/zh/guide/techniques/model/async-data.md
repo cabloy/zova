@@ -9,6 +9,7 @@ TanStack Query 的核心是对服务端数据进行管理。下面，我们演�
 ### 如何定义
 
 ```typescript
+@Model()
 export class ModelTodo {
   select() {
     return this.$useQueryExisting({
@@ -58,6 +59,7 @@ export class RenderTodo {
 ### 如何定义
 
 ```typescript
+@Model()
 export class ModelTodo {
   get(params?: ServiceTodoGetParams) {
     if (!params) return undefined;
@@ -102,6 +104,7 @@ export class RenderTodo {
 ### 如何定义
 
 ```typescript
+@Model()
 export class ModelTodo {
   insert() {
     return this.$useMutationExisting<void, ServiceTodoIntertParams>({
@@ -145,6 +148,7 @@ async addTodo() {
 ### 如何定义
 
 ```typescript
+@Model()
 export class ModelTodo {
   update() {
     return this.$useMutationExisting<void, ServiceTodoUpdateParams>({
@@ -185,6 +189,7 @@ async completeTodo(item: ServiceTodoEntity) {
 ### 如何定义
 
 ```typescript
+@Model()
 export class ModelTodo {
   delete() {
     return this.$useMutationExisting<void, ServiceTodoDeleteParams>({
