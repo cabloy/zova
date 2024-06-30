@@ -14,10 +14,12 @@ import {
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
+import { ScopeModule, __ThisModule__ } from './resource/this.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
-  private _beanRouter: BeanRouter;
   private _moduleSelf: IModule;
+  private _beanRouter: BeanRouter;
+  private _beanComponentDefault: any;
 
   constructor(moduleSelf: IModule) {
     super();
@@ -33,16 +35,27 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
 
   async appInitialize(_bean: BeanContainer) {}
   async appInitialized(bean: BeanContainer) {
+    // component default
+    const scope: ScopeModule = await bean.getScope(__ThisModule__);
+    this._beanComponentDefault = await bean.getScope(scope.config.defaultComponent);
     // emit event
     const router = bean.inject('a-router:router');
     await this.app.meta.event.emit('a-router:routerGuards', router);
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
+    const self = this;
     bean.defineProperty(beanInstance, '$router', {
       enumerable: false,
       configurable: true,
       get() {
         return bean.inject('a-router:router');
+      },
+    });
+    bean.defineProperty(beanInstance, '$component', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return self._beanComponentDefault.component;
       },
     });
   }
