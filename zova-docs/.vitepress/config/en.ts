@@ -61,8 +61,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/guide/essentials/ioc/',
           items: [
             { text: 'Introduction', link: 'introduction' },
-            { text: 'Local Bean', link: 'local-bean' },
-            { text: 'Store Bean', link: 'store-bean' },
+            { text: 'Anonymous Bean', link: 'anonymous-bean' },
+            { text: 'Named Bean', link: 'named-bean' },
             { text: 'BeanBase', link: 'bean-base' },
             { text: 'Lifecycle', link: 'lifecycle' },
           ],

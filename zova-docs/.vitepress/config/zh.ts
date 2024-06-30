@@ -61,8 +61,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/zh/guide/essentials/ioc/',
           items: [
             { text: '简介', link: 'introduction' },
-            { text: 'Local Bean', link: 'local-bean' },
-            { text: 'Store Bean', link: 'store-bean' },
+            { text: '匿名Bean', link: 'anonymous-bean' },
+            { text: '具名bean', link: 'named-bean' },
             { text: 'BeanBase基类', link: 'bean-base' },
             { text: '生命周期', link: 'lifecycle' },
           ],
