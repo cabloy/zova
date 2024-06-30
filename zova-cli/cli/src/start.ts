@@ -3,6 +3,7 @@ import { ICommandArgv } from './types/argv.js';
 import { BeanCli } from './lib/bean.cli.js';
 import { CliCommand } from './lib/cli.js';
 import { collectCommands } from './lib/commands.js';
+import { checkForUpdates } from './utils.js';
 const DISPATCH = Symbol.for('eb:Command#dispatch');
 const PARSE = Symbol.for('eb:Command#parse');
 
@@ -13,6 +14,8 @@ export class ZovaCommand extends CommonBin {
   }
 
   async [DISPATCH]() {
+    // checkForUpdates
+    checkForUpdates('zova-cli');
     // collectCommands
     await collectCommands();
     // cli
