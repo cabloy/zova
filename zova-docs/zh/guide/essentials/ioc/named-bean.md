@@ -45,7 +45,7 @@ export class StoreUserInfo {}
 
 比如，前面创建的 store bean `userInfo`，对应的标识为：`a-demo.store.userInfo`，其中`a-demo`是`userInfo`所归属的模块名称
 
-## 派生清单
+## 装饰器清单
 
 为了方便使用，并且简化代码，Zova 提供了几个派生的`具名Bean`:
 

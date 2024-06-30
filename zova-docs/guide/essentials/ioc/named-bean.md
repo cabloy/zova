@@ -1,129 +1,59 @@
-# Store Bean
+# Named Bean: General
 
-Through store bean, we can define a global state object and use it in any module. Therefore, it is no longer necessary to use `pinia`. If you want to use the existing `pinia store`, see: [Pinia](../../vue/pinia.md)
+Except for `@Local`, the classes decorated by the other decorator functions are `named beans`. Zova provides a naming convention for such beans, which can avoid naming conflicts and facilitate cross-module usage
 
-## Create Store Bean: userInfo
+In essence, we only need to define all `named beans` through a general decorator function `@Bean`. Other decorator functions are derived from `@Bean` to provide different default parameters
 
-Let's first create a store bean `userInfo`. The code skeleton for store bean can be created using the cli command:
+## @Bean
 
-```bash
-$ zova :create:store userInfo --module=a-demo
-```
-
-`src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
+For example, to define a store bean `userInfo`, there are two ways:
 
 ```typescript
 @Store()
 export class StoreUserInfo {}
 ```
 
-- `Store` is a decorator function. The class decorated with `Store` will automatically be registered in the bean container
-
-## Add reactive codes
-
-We add a reactive property `user` in `userInfo` and perform asynchronous initialization
-
-```typescript{1-4,7-23}
-interface User {
-  name: string;
-  age: number;
-}
-
-export class StoreUserInfo {
-  user: User;
-
-  protected async __init__() {
-    this.user = await this.loadUser();
-  }
-
-  private async loadUser(): Promise<User> {
-    return new Promise(resolve => {
-      window.setTimeout(() => {
-        resolve({ name: 'tom', age: 18 });
-      }, 500);
-    });
-  }
-
-  public async reloadUser() {
-    this.user = await this.loadUser();
-  }
-}
+```typescript
+@Bean({ scene: 'store', name: 'userInfo', containerScope: 'app' })
+export class StoreUserInfo {}
 ```
 
-## Use Store Bean
+- scene
+  - Optional
+  - Default: `bean`
+  - Bean scene value, used to classify beans
+- name
+  - Optional
+  - Default: automatically resolved from class name
+  - Bean name
+- containerScope
+  - Optional
+  - Default: `ctx`
+  - When injecting this bean into other bean instances, if containerScope is not explicitly specified, the value specified here is used
 
-Next, create local bean `testC` using the cli command:
-
-```bash
-$ zova :create:local testC --module=a-demo
-```
-
-Then inject `userInfo` directly into `testC` and access the properties and methods of `userInfo`
-
-`src/suite/a-demo/modules/a-demo/src/testC.ts`
-
-```typescript{1,4-5,8-9}
-import { StoreUserInfo } from './bean/store.userInfo.js';
-
-export class TestC {
-  @Use()
-  $$userInfo: StoreUserInfo;
-
-  protected async __init__() {
-    console.log(this.$$userInfo.user);
-    await this.$$userInfo.reloadUser();
-  }
-}
-```
-
-- By the property decorated with `Use`, the system will automatically look up or create an instance in the app bean container, and then inject it into `testC`
-- Set the type of `$$userInfo` to `StoreUserInfo`, the app bean container will find the class and create an instance based on this type
-
-## Use Store Bean Cross-Module
-
-What we just demonstrated was using store beans within the current module. Now let's take a look at how to use them cross-module
-
-### Bean Identifier
+## Bean Identifier
 
 In Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
 
-Therefore, when using store beans cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
+Therefore, when using `named bean` cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
 
-The system will automatically assign an identifier to each store bean as the following format:
-
-```bash
-{moduleName}.store.{beanName}
-```
-
-For example, the previously created `userInfo` corresponds to the identifier `a-demo.store.userInfo`, where `a-demo` is the module name which `userInfo` belongs to
-
-### Use Store Bean
-
-Next, create a module `a-demo2` using the cli command, and create a local bean `testD` at the same time:
+The system will automatically assign an identifier to each `named bean` as the following format:
 
 ```bash
-$ zova :create:module a-demo2 --template=basic --suite=a-demo
-$ pnpm install --force
-$ zova :create:local testD --module=a-demo2
+{moduleName}.{scene}.{name}
 ```
 
-Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`
+For example, the previously created store bean `userInfo` corresponds to the identifier `a-demo.store.userInfo`, where `a-demo` is the module name which `userInfo` belongs to
 
-`src/suite/a-demo/modules/a-demo2/src/testD.ts`
+## Decorator list
 
-```typescript{1,4-5,8-9}
-import type { StoreUserInfo } from 'zova-module-a-demo';
+For ease of use and to simplify the code, Zova provides several derived `named beans`:
 
-export class TestD {
-  @Use('a-demo.store.userInfo')
-  $$userInfo: StoreUserInfo;
-
-  protected async __init__() {
-    console.log(this.$$userInfo.user);
-    await this.$$userInfo.reloadUser();
-  }
-}
-```
-
-- Import the type of class `StoreUserInfo` from the module of `zova-module-a-demo`
-- Pass the identifier of the store bean to the `Use` decorator function, which in this case is `a-demo.store.userInfo`. The system will automatically look up or create an instance in the app bean container using the bean identifier, and then inject it into `testD`
+| Name   | Description                                                          | scene | default containerScope |
+| ------ | -------------------------------------------------------------------- | ----- | ---------------------- |
+| @Bean  | General decorator                                                    | bean  | ctx                    |
+| @Model | [Model: Unified Data Source](../../techniques/model/introduction.md) | model | ctx                    |
+| @Store | [Global state object](./store-bean.md)                               | store | app                    |
+| @Style | [Global style](../../techniques/css-in-js/class.md)                  | style | app                    |
+| @Theme | [Theme](../../techniques/css-in-js/theme.md)                         | theme | app                    |
+| @Tool  | Tool Bean                                                            | tool  | app                    |
