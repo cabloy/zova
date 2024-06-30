@@ -10,29 +10,36 @@ export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 export class RenderLayoutDefault extends BeanRenderBase {
   _renderMenuItem(item: ServiceMenuEntity) {
     if (item.separator) {
-      return <div class="menu-separator"> - - - </div>;
+      return <li></li>;
     }
     if (item.folder) {
-      return <div class="menu-folder">{item.title}</div>;
+      return (
+        <li>
+          <h2 class="menu-title">{item.title}</h2>
+          <ul>{this._renderMenuItems(item.children)}</ul>
+        </li>
+      );
     }
     return (
-      <EssentialLink
-        key={item.title}
-        title={item.title}
-        caption={item.caption}
-        icon={item.icon}
-        href={item.href}
-        to={item.to}
-      />
+      <li key={item.title}>
+        <EssentialLink title={item.title} caption={item.caption} icon={item.icon} href={item.href} to={item.to} />
+      </li>
     );
   }
+
+  _renderMenuItems(items?: ServiceMenuEntity[]) {
+    if (!items) return;
+    const domItems: JSX.Element[] = [];
+    for (const item of items) {
+      domItems.push(this._renderMenuItem(item));
+    }
+    return items;
+  }
+
   _renderMenu() {
     const queryMenus = this.$$modelMenu.select();
     if (queryMenus.isLoading || !queryMenus.data) return;
-    const domItems: JSX.Element[] = [];
-    for (const item of queryMenus.data) {
-      domItems.push(this._renderMenuItem(item));
-    }
+    const domItems = this._renderMenuItems(queryMenus.data);
     return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
   }
 
@@ -72,13 +79,17 @@ export class RenderLayoutDefault extends BeanRenderBase {
     );
   }
 
+  _renderContent() {
+    return <router-view />;
+  }
+
   render() {
     return (
       <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           {this._renderHeader()}
-          <router-view />
+          {this._renderContent()}
         </div>
         {this._renderSidebar()}
       </div>
