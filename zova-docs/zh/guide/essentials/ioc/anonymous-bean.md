@@ -1,4 +1,6 @@
-# Local Bean
+# 匿名bean（local bean）
+
+使用`@Local`装饰的 class 就是`匿名bean`，因此也称之为`local bean`。此类 bean 仅在模块内部使用，不存在命名冲突的问题，定义和使用都很便捷
 
 在[页面组件](../component/page.md)中，我们通过一个 cli 命令创建了一个页面组件`counter`。现在，我们把其中关于 count 状态的逻辑抽离出来，放入一个 local bean 当中，演示逻辑复用的效果
 
