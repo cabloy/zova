@@ -33,7 +33,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     for (const item of items) {
       domItems.push(this._renderMenuItem(item));
     }
-    return items;
+    return domItems;
   }
 
   _renderMenu() {

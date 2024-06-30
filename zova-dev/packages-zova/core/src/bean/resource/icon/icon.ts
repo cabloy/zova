@@ -89,6 +89,7 @@ export class AppIcon extends BeanSimple {
       domContainer.style.position = 'absolute';
       domContainer.style.width = '0';
       domContainer.style.height = '0';
+      domContainer.style.display = 'none';
       domContainer.id = 'zova-svg-container';
       document.body.appendChild(domContainer);
     }
