@@ -40,6 +40,7 @@ The following is the default theme bean used by Zova when developing/tests:
 `zova-dev/src/suite/a-home/modules/home-theme/src/bean/theme.default.ts`
 
 ```typescript
+@Theme()
 export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
@@ -81,6 +82,7 @@ $ zova :create:theme orange --module=a-demo
 ### Custom apply method
 
 ```typescript
+@Theme()
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {

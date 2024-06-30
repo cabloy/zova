@@ -40,6 +40,7 @@ Zova 在 BeanBase 基类中注入了`$theme`对象，从而可以在任何 bean 
 `zova-dev/src/suite/a-home/modules/home-theme/src/bean/theme.default.ts`
 
 ```typescript
+@Theme()
 export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
@@ -81,6 +82,7 @@ $ zova :create:theme orange --module=a-demo
 ### 定制apply方法
 
 ```typescript
+@Theme()
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
   async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
     const token: ThemeToken = {
