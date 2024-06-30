@@ -36,8 +36,6 @@ Zova 为 Vue3 引入了以下鲜明特征：
 
 ## 演示：不用`ref/reactive`，不用`ref.value`
 
-[![Edit zhennann/zova-demo-codesandbox/main](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/zhennann/zova-demo-codesandbox2/main?checkout=true&embed=1&file=%2Fsrc%2Fsuite%2Fa-demo%2Fmodules%2Fa-demo%2Fsrc%2Fpage%2Fcounter%2Fcontroller.ts)
-
 ### 1. 定义响应式状态
 
 在组件中定义一个响应式变量`count`，并且添加两个方法修改变量的值
@@ -75,8 +73,6 @@ export class RenderCounter {
 ```
 
 ## 演示：依赖注入
-
-[![Edit zhennann/zova-demo-codesandbox/main](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/zhennann/zova-demo-codesandbox2/main?checkout=true&embed=1&file=%2Fsrc%2Fsuite%2Fa-demo%2Fmodules%2Fa-demo%2Fsrc%2Fpage%2Fcounter2%2Fcontroller.ts)
 
 ### 1. 逻辑抽离
 
