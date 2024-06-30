@@ -21,6 +21,7 @@ Zova provides a global style Bean in the module `home-style`. We can provide som
 `src/suite/a-home/modules/home-style/src/bean/style.default.ts`
 
 ```typescript
+@Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
   textCenter: string;
   buttonPrimary: string;

@@ -21,6 +21,7 @@ Zova 在模块`home-style`中提供了一个全局样式 Bean，我们可以直�
 `src/suite/a-home/modules/home-style/src/bean/style.default.ts`
 
 ```typescript
+@Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
   textCenter: string;
   buttonPrimary: string;

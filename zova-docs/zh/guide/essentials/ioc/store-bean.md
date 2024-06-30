@@ -27,12 +27,13 @@ export class StoreUserInfo {}
 
 我们在`userInfo`中添加一个响应式属性`user`，并且进行异步初始化
 
-```typescript{1-4,7-23}
+```typescript{1-4,8-24}
 interface User {
   name: string;
   age: number;
 }
 
+@Store()
 export class StoreUserInfo {
   user: User;
 
