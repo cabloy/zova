@@ -1,5 +1,6 @@
 import 'vue';
 import 'vue/jsx-runtime';
+import '@vue/runtime-dom';
 
 declare module 'vue' {
   export interface ComponentCustomOptions {
@@ -20,5 +21,17 @@ declare module 'vue/jsx-runtime' {
       class?: unknown;
       style?: unknown;
     }
+  }
+}
+
+declare module '@vue/runtime-dom' {
+  export interface LabelHTMLAttributes {
+    htmlFor?: string;
+  }
+
+  export interface SVGAttributes {
+    strokeLinecap?: string;
+    strokeLinejoin?: string;
+    strokeWidth?: string;
   }
 }
