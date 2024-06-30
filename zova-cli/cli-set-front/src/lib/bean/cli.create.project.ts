@@ -42,6 +42,8 @@ export class CliCreateProject extends BeanCliBase {
     // download boilerplate
     const templateDir = await this.downloadBoilerplate(packageName);
     fse.copySync(templateDir, targetDir);
+    // remove LICENSE
+    fse.removeSync(path.join(targetDir, 'LICENSE'));
     // // render project boilerplate
     // await this.template.renderBoilerplateAndSnippets({
     //   targetDir,
