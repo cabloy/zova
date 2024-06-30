@@ -1,6 +1,6 @@
 # Pinia
 
-Zova recommends using [store bean](../essentials/ioc/named-bean.md) to create global state objects. Of course, you can also use the existing `pinia store`
+Zova recommends using [store bean](../essentials/ioc/store-bean.md) to create global state objects. Of course, you can also use the existing `pinia store`
 
 ## Basic idea
 

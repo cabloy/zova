@@ -62,7 +62,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: '简介', link: 'introduction' },
             { text: '匿名Bean', link: 'anonymous-bean' },
-            { text: '具名bean', link: 'named-bean' },
+            { text: '具名Bean: Store', link: 'store-bean' },
+            { text: '具名Bean: 通用', link: 'named-bean' },
             { text: 'BeanBase基类', link: 'bean-base' },
             { text: '生命周期', link: 'lifecycle' },
           ],

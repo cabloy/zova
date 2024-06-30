@@ -62,7 +62,8 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Introduction', link: 'introduction' },
             { text: 'Anonymous Bean', link: 'anonymous-bean' },
-            { text: 'Named Bean', link: 'named-bean' },
+            { text: 'Named Bean: Store', link: 'store-bean' },
+            { text: 'Named Bean: General', link: 'named-bean' },
             { text: 'BeanBase', link: 'bean-base' },
             { text: 'Lifecycle', link: 'lifecycle' },
           ],
