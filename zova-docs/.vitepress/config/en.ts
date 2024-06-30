@@ -64,6 +64,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Anonymous Bean', link: 'anonymous-bean' },
             { text: 'Named Bean: Store', link: 'store-bean' },
             { text: 'Named Bean: General', link: 'named-bean' },
+            { text: 'Inject', link: 'inject' },
             { text: 'BeanBase', link: 'bean-base' },
             { text: 'Lifecycle', link: 'lifecycle' },
           ],
