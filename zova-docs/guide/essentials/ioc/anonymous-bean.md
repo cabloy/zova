@@ -1,4 +1,6 @@
-# Local Bean
+# Anonymous bean (Local Bean)
+
+The class decorated with `@Local` is an `anonymous bean`, so it is also called a `local bean`. This type of bean is only used within the module, there is no naming conflict, and it is easy to define and use
 
 In [page component](../component/page.md), we created a page component `counter` through a cli command. Now, we pull out the logic of the `count` state, put it in a local bean to demonstrate the effect of logic reuse
 
