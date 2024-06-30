@@ -33,7 +33,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     for (const item of queryMenus.data) {
       domItems.push(this._renderMenuItem(item));
     }
-    return <div class="menu-list">{domItems}</div>;
+    return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
   }
 
   _renderHeader() {
@@ -51,15 +51,11 @@ export class RenderLayoutDefault extends BeanRenderBase {
             </svg>
           </label>
         </div>
-        <div class="mx-2 flex-1 px-2">Navbar Title</div>
+        <div class="mx-2 flex-1 px-2">Zova</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
-            {/* Navbar menu content here */}
             <li>
-              <a>Navbar Item 1</a>
-            </li>
-            <li>
-              <a>Navbar Item 2</a>
+              <a>userName</a>
             </li>
           </ul>
         </div>
@@ -71,14 +67,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return (
       <div class="drawer-side">
         <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-        <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+        {this._renderMenu()}
       </div>
     );
   }
