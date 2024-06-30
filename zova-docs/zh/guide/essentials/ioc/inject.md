@@ -43,4 +43,4 @@ export interface IDecoratorUseOptions {
 
 ## UseComposable
 
-通过`@UseScope`注入 Vue Composables 函数，参见：[Composables](../../vue/composables.md)
+通过`@UseComposable`注入 Vue Composables 函数，参见：[Composables](../../vue/composables.md)
