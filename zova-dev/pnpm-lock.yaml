@@ -319,6 +319,9 @@ importers:
       zova-module-home-api:
         specifier: workspace:^
         version: link:modules/home-api
+      zova-module-home-component:
+        specifier: workspace:^
+        version: link:modules/home-component
       zova-module-home-icon:
         specifier: workspace:^
         version: link:modules/home-icon
@@ -348,6 +351,8 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.7.2
+
+  src/suite/a-home/modules/home-component: {}
 
   src/suite/a-home/modules/home-icon: {}
 

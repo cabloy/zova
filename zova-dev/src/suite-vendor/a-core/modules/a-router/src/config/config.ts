@@ -1,5 +1,7 @@
-import { ZovaApplication } from 'zova';
+import { IBeanScopeRecord, ZovaApplication } from 'zova';
 
 export const config = (_app: ZovaApplication) => {
-  return {};
+  return {
+    defaultComponent: 'home-component' as keyof IBeanScopeRecord,
+  };
 };
