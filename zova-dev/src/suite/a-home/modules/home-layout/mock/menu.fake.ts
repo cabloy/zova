@@ -8,46 +8,70 @@ const __MenuData = [
     to: '/a/home/home',
   },
   {
-    title: 'Github',
-    caption: 'github.com/cabloy',
-    icon: ':social:github',
-    href: 'https://github.com/cabloy',
+    folder: true,
+    title: 'Basic',
+    children: [
+      {
+        title: 'State',
+        caption: 'ref, computed',
+        icon: '',
+        to: '/a/demo/state',
+      },
+      {
+        title: 'Component',
+        caption: 'props, emits, slots',
+        icon: '',
+        to: '/a/demo/component',
+      },
+      {
+        title: 'Locale',
+        caption: '',
+        icon: '',
+        to: '/a/demo/locale',
+      },
+      {
+        title: 'Style',
+        caption: 'Style & Theme',
+        icon: '',
+        to: '/a/demo/style',
+      },
+      {
+        title: 'Pinia',
+        caption: '',
+        icon: '',
+        to: '/a/demo/pinia',
+      },
+    ],
   },
   {
-    title: 'State',
-    caption: 'ref, computed',
-    icon: '',
-    to: '/a/demo/state',
+    folder: true,
+    title: 'Business',
+    children: [
+      {
+        title: 'Todo',
+        caption: '',
+        icon: '',
+        to: '/demo/todo/todo',
+      },
+    ],
   },
   {
-    title: 'Component',
-    caption: 'props, emits, slots',
-    icon: '',
-    to: '/a/demo/component',
-  },
-  {
-    title: 'Locale',
-    caption: '',
-    icon: '',
-    to: '/a/demo/locale',
-  },
-  {
-    title: 'Style',
-    caption: '',
-    icon: '',
-    to: '/a/demo/style',
-  },
-  {
-    title: 'Pinia',
-    caption: '',
-    icon: '',
-    to: '/a/demo/pinia',
-  },
-  {
-    title: 'Todo',
-    caption: '',
-    icon: '',
-    to: '/demo/todo/todo',
+    folder: true,
+    title: 'Zova',
+    children: [
+      {
+        title: 'Docs',
+        caption: 'zova.js.org',
+        icon: ':social:school',
+        href: 'https://zova.js.org',
+      },
+      {
+        title: 'Github',
+        caption: 'github.com/cabloy',
+        icon: ':social:github',
+        href: 'https://github.com/cabloy/zova',
+      },
+    ],
   },
 ];
 

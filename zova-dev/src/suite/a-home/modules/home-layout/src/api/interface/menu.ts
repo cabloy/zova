@@ -6,4 +6,5 @@ export interface ServiceMenuEntity {
   to?: string;
   folder?: boolean;
   separator?: boolean;
+  children?: ServiceMenuEntity[];
 }
