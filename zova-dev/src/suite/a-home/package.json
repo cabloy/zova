@@ -14,6 +14,7 @@
     "zova-module-home-api": "workspace:^",
     "zova-module-home-style": "workspace:^",
     "zova-module-home-theme": "workspace:^",
-    "zova-module-home-user": "workspace:^"
+    "zova-module-home-user": "workspace:^",
+    "zova-module-home-component": "workspace:^"
   }
 }
