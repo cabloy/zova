@@ -37,10 +37,10 @@ export interface IDecoratorUseOptions {
 
 - `Special injection rule`: If no injection parameters are specified and the type of the bean class is not specified, then the `variable name` is used directly to find the existing bean instance in the bean container
 
-## UseScope
+## @UseScope
 
 Inject the module's Scope object through the `@UseScope` decorator function, see: [Module Scope](../scope/introduction.md)
 
-## UseComposable
+## @UseComposable
 
 Inject the Vue Composables through the `@UseComposable` decorator function, see: [Composables](../../vue/composables.md)

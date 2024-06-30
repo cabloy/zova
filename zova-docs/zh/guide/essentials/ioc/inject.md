@@ -37,10 +37,10 @@ export interface IDecoratorUseOptions {
 
 - `特殊注入规则`：如果没有指定任何注入参数，而且也没有指定 Bean Class 的类型，那么就直接使用`变量名`在 bean 容器中查找已存在的 bean 实例
 
-## UseScope
+## @UseScope
 
 通过`@UseScope`装饰器函数注入模块的 Scope 对象，参见：[模块Scope](../scope/introduction.md)
 
-## UseComposable
+## @UseComposable
 
 通过`@UseComposable`装饰器函数注入 Vue Composables，参见：[Composables](../../vue/composables.md)
