@@ -15,6 +15,7 @@ import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
+import { markRaw } from 'vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
   private _moduleSelf: IModule;
@@ -55,7 +56,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       enumerable: false,
       configurable: true,
       get() {
-        return self._beanComponentDefault.component;
+        return markRaw(self._beanComponentDefault.component);
       },
     });
   }

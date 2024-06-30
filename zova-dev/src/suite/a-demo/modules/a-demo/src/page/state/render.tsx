@@ -7,12 +7,12 @@ export interface RenderState extends ControllerPageState {}
 export class RenderState extends BeanRenderBase {
   render() {
     return (
-      <div>
+      <this.$component.page>
         <div>count(ref): {this.count}</div>
         <div>count(computed): {this.count2}</div>
         <button onClick={() => this.increment()}>Increment</button>
         <button onClick={() => this.decrement()}>Decrement</button>
-      </div>
+      </this.$component.page>
     );
   }
 }
