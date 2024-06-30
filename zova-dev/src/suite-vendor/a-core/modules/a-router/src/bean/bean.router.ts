@@ -109,10 +109,14 @@ export class BeanRouter extends BeanBase {
         // donothing
         return;
       }
-      const module = this.app.meta.module.get(moduleInfo.relativeName);
+      const moduleName = moduleInfo.relativeName;
+      // check if exists
+      if (!this.app.meta.module.exists(moduleName)) return '/404';
+      // check if loaded
+      const module = this.app.meta.module.get(moduleName, false);
       if (module) return;
       // use module
-      await this.app.meta.module.use(fullPath);
+      await this.app.meta.module.use(moduleName);
       // redirect again
       return fullPath;
     });
