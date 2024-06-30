@@ -1,6 +1,6 @@
 # Composables
 
-Zova recommends using [local bean](../essentials/ioc/local-bean.md) and [store bean](../essentials/ioc/store-bean.md) to encapsulate and reuse logic. There are a lot of useful composables in the Vue ecosystem, such as [VueUse](https://vueuse.org/), which can be used directly in Zova
+Zova recommends using [anonymous bean](../essentials/ioc/anonymous-bean.md) and [named bean](../essentials/ioc/named-bean.md) to encapsulate and reuse logic. There are a lot of useful composables in the Vue ecosystem, such as [VueUse](https://vueuse.org/), which can be used directly in Zova
 
 The following takes `mouse tracker` as an example to demonstrate how to use Composables
 
