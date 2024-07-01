@@ -10,20 +10,21 @@ export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
+    const titleLocale = item.title === 'Home' ? this.scope.locale.Home() : item.title;
     if (item.separator) {
       return <li></li>;
     }
     if (item.folder) {
       return (
         <li>
-          <h2 class="menu-title">{item.title}</h2>
+          <h2 class="menu-title">{titleLocale}</h2>
           <ul>{this._renderMenuItems(item.children)}</ul>
         </li>
       );
     }
     return (
       <li key={item.title}>
-        <EssentialLink title={item.title} caption={item.caption} icon={item.icon} href={item.href} to={item.to} />
+        <EssentialLink title={titleLocale} caption={item.caption} icon={item.icon} href={item.href} to={item.to} />
       </li>
     );
   }

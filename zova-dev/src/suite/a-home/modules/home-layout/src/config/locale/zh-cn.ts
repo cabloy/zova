@@ -1,4 +1,5 @@
 export default {
+  Home: '首页',
   Logout: '退出登录',
   LanguageEnglish: '英语',
   LanguageChinese: '简体中文',
