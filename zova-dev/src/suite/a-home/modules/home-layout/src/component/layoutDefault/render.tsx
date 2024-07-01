@@ -86,6 +86,42 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     );
   }
 
+  _renderThemeName() {
+    const themes = [
+      {
+        name: 'home-theme.theme.default',
+        title: this.scope.locale.ThemeDefault(),
+      },
+      {
+        name: 'a-demo.theme.orange',
+        title: this.scope.locale.ThemeOrange(),
+      },
+    ];
+    return (
+      <li>
+        <details>
+          <summary>{iconh(':outline:theme-outline')}</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            {themes.map(item => {
+              return (
+                <li class={this.$theme.name === item.name ? 'disabled' : ''}>
+                  <a
+                    onClick={() => {
+                      this.$theme.name = item.name as any;
+                    }}
+                  >
+                    {iconh(this.$theme.name === item.name ? '::done' : '::none')}
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </details>
+      </li>
+    );
+  }
+
   _renderUser() {
     return (
       <li>
@@ -129,6 +165,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
             {this._renderThemeDark()}
+            {this._renderThemeName()}
             {this._renderUser()}
           </ul>
         </div>
