@@ -2,6 +2,7 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../resource/this.js';
 import { NSControllerCard } from '../../resource/components.js';
+import { nextTick } from 'vue';
 
 export interface RenderComponent extends ControllerPageComponent {}
 
@@ -39,8 +40,12 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
           type="text"
           class="input input-bordered w-full max-w-xs"
           ref={ref => {
-            this.inputRef = ref as any;
-            this.inputRef?.focus();
+            if (this.inputRef !== ref) {
+              this.inputRef = ref as any;
+              nextTick(() => {
+                this.inputRef?.focus();
+              });
+            }
           }}
           value={this.resetTime.toString()}
         ></input>
