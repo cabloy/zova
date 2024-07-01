@@ -53,3 +53,19 @@ export class RenderComponent {
   }
 }
 ```
+
+## $component
+
+为了简化代码，Zova 提供了`home-component`模块，可以将常用的组件放入`home-component`模块。 然后，Zova 在 BeanBase 基类中注入了`$component`对象，从而可以在任何 bean 实例中通过`this.$component`直接访问`home-component`模块中定义的组件
+
+```typescript
+export class RenderState {
+  render() {
+    return (
+      <this.$component.page>
+        <div>Hello Zova</div>
+      </this.$component.page>
+    );
+  }
+}
+```

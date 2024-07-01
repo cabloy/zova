@@ -53,3 +53,19 @@ export class RenderComponent {
   }
 }
 ```
+
+## $component
+
+To simplify the code, Zova provides the `home-component` module, into which commonly used components can be placed. Then, Zova injects the `$component` object into the `BeanBase` base class, so that the components defined in the `home-component` module can be directly accessed through `this.$component` in any bean instance
+
+```typescript
+export class RenderState {
+  render() {
+    return (
+      <this.$component.page>
+        <div>Hello Zova</div>
+      </this.$component.page>
+    );
+  }
+}
+```
