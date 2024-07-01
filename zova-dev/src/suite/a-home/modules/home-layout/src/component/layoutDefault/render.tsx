@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, ZovaIcon, iconh } from 'zova';
+import { BeanRenderBase, Local, iconh } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
