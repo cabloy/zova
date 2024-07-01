@@ -93,10 +93,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.93
+        specifier: ^5.0.95
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.115
+        specifier: ^1.0.117
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -175,7 +175,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.93
+        specifier: ^5.0.95
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -205,9 +205,15 @@ importers:
       '@cabloy/vue-runtime-core':
         specifier: ^3.4.32
         version: 3.4.32
+      '@types/js-cookie':
+        specifier: ^3.0.6
+        version: 3.0.6
       '@vue/reactivity':
         specifier: ^3.4.27
         version: 3.4.29
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -221,10 +227,10 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.93
+        specifier: ^5.0.95
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.67
+        specifier: ^5.0.68
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -250,7 +256,7 @@ importers:
         specifier: ^5.0.20
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.43
+        specifier: ^5.0.44
         version: link:modules/a-router
       zova-module-a-style:
         specifier: ^5.0.21
@@ -293,7 +299,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-a-devui:
-        specifier: ^5.0.8
+        specifier: ^5.0.9
         version: link:modules/a-devui
 
   src/suite-vendor/a-devui/modules/a-devui: {}

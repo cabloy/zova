@@ -9,6 +9,7 @@ import { AppComponent } from '../component/component.js';
 import { AppLocale } from '../component/locale.js';
 import { AppModule } from '../component/module.js';
 import { AppUtil } from './util.js';
+import { AppCookie } from '../component/cookie.js';
 
 export class AppMeta extends BeanSimple {
   module: AppModule;
@@ -18,7 +19,9 @@ export class AppMeta extends BeanSimple {
   error: AppError;
   event: AppEvent;
   icon: AppIcon;
+  cookie: AppCookie;
   text: IModuleLocaleText;
+
   /** @internal */
   public appMonkey?: IMonkeyApp & IMonkeySystem & IMonkeyController;
 
@@ -30,6 +33,7 @@ export class AppMeta extends BeanSimple {
     this.error = this.app.bean._newBeanSimple(AppError, false);
     this.event = this.app.bean._newBeanSimple(AppEvent, false);
     this.icon = this.app.bean._newBeanSimple(AppIcon, false);
+    this.cookie = this.app.bean._newBeanSimple(AppCookie, false);
     this.text = this.locale.createLocaleText();
   }
 

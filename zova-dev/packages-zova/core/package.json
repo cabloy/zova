@@ -46,6 +46,8 @@
     "@cabloy/vue-reactivity": "^3.4.32",
     "@cabloy/vue-runtime-core": "^3.4.32",
     "@vue/reactivity": "^3.4.27",
+    "@types/js-cookie": "^3.0.6",
+    "js-cookie": "^3.0.5",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.4.27",
     "zod": "^3.23.8"
