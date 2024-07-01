@@ -95,6 +95,7 @@ declare module 'zova' {
     '::message': true;
     '::module': true;
     '::more-horiz': true;
+    '::none': true;
     '::notebook': true;
     '::open-in-new': true;
     '::open-with': true;

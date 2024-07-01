@@ -50,30 +50,33 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         <details>
           <summary>{iconh('::dark-theme')}</summary>
           <ul class="bg-base-100 rounded-t-none p-2">
-            <li>
+            <li class={this.$theme.darkMode === false ? 'disabled' : ''}>
               <a
                 onClick={() => {
                   this.$theme.darkMode = false;
                 }}
               >
+                {iconh(this.$theme.darkMode === false ? '::done' : '::none')}
                 {this.scope.locale.ThemeLight()}
               </a>
             </li>
-            <li>
+            <li class={this.$theme.darkMode === true ? 'disabled' : ''}>
               <a
                 onClick={() => {
                   this.$theme.darkMode = true;
                 }}
               >
+                {iconh(this.$theme.darkMode === true ? '::done' : '::none')}
                 {this.scope.locale.ThemeDark()}
               </a>
             </li>
-            <li>
+            <li class={this.$theme.darkMode === 'auto' ? 'disabled' : ''}>
               <a
                 onClick={() => {
                   this.$theme.darkMode = 'auto';
                 }}
               >
+                {iconh(this.$theme.darkMode === 'auto' ? '::done' : '::none')}
                 {this.scope.locale.ThemeAuto()}
               </a>
             </li>
