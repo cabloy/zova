@@ -51,6 +51,7 @@ declare module 'zova' {
     '::construction': true;
     '::copyright': true;
     '::cross-circle': true;
+    '::dark-theme': true;
     '::dashboard': true;
     '::database': true;
     '::delete-forever': true;
