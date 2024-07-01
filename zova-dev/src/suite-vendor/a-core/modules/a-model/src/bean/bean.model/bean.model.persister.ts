@@ -1,7 +1,6 @@
 import { QueryMetaPersister } from '../../types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { Query, QueryKey } from '@tanstack/vue-query';
-import { cookieStorage } from '../../common/cookieStorage.js';
 import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
 import { BeanModelLast } from './bean.model.last.js';
@@ -125,7 +124,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
   protected _getPersisterStorage(options?: QueryMetaPersister | boolean) {
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;
-    if (options.storage === 'cookie') return cookieStorage;
+    if (options.storage === 'cookie') return this.app.meta.cookie;
     if (options.storage === 'local') return localStorage;
     if (options.storage === 'db') return localforage;
   }
