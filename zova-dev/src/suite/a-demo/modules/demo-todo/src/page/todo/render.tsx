@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, iconh } from 'zova';
+import { BeanRenderBase, Local } from 'zova';
 import type { StyleTodo } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
 import { withModifiers } from 'vue';
