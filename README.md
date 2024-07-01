@@ -15,18 +15,23 @@ Zova is a vue3 framework with ioc container. With the support of ioc container, 
 [download-image]: https://img.shields.io/npm/dm/zova?color=orange&label=npm%20downloads
 [download-url]: https://npmjs.com/package/zova
 
+## With UI libraries
+
+Zova can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box, including:
+
+- antdv
+- element-plus
+- quasar
+- vuetify
+
+## Preview
+
+- [vue3 + ts + tsx + tailwindcss + daisyui](https://zova.js.org/zova-demo/)
+
 ## Documentation
 
 - [Get Started](https://zova.js.org/guide/start/introduction.html)
 - [Why Vue3+IOC?](https://zova.js.org/guide/start/why.html)
-
-## How to do
-
-```bash
-$ npm run init
-$ cd ./zova-dev
-$ npm run dev
-```
 
 ## Features
 
@@ -39,6 +44,14 @@ $ npm run dev
 - [CSS-in-JS: Style & Theme](https://zova.js.org/guide/techniques/css-in-js/introduction.html): More flexible style engine based on [TypeStyle](https://github.com/typestyle/typestyle)
 - [Model: Unified Data Source](https://zova.js.org/guide/techniques/model/introduction.html): Data management strategy based on [Tanstack Query](https://tanstack.com/query/latest/docs/framework/vue/overview)
 - [Env](https://zova.js.org/guide/techniques/env/introduction.html): Env file loading strategy based on multi-dimensional variables
+
+## How to do
+
+```bash
+$ npm run init
+$ cd ./zova-dev
+$ npm run dev
+```
 
 ## Stay In Touch
 
