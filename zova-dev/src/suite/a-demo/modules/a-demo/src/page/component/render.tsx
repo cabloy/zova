@@ -36,12 +36,13 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
         ></this.scope.component.card>
         <label>Input: </label>
         <input
+          type="text"
+          class="input input-bordered w-full max-w-xs"
           ref={ref => {
             this.inputRef = ref as any;
             this.inputRef?.focus();
           }}
           value={this.resetTime.toString()}
-          style={{ width: '450px' }}
         ></input>
       </this.$component.page>
     );

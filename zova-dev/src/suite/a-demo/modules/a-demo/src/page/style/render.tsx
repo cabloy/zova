@@ -17,12 +17,13 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   }
   render() {
     return (
-      <div>
+      <this.$component.page>
         <hr></hr>
         <div class={this.textColor}>Hello World</div>
         {this.renderHello}
         {this.renderHello2}
         <button
+          class="btn btn-primary"
           onClick={() => {
             this.active = !this.active;
           }}
@@ -39,6 +40,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
             <div>dark mode: {String(this.$theme.darkMode)}</div>
             <div>
               <select
+                class="select select-bordered w-full max-w-xs"
                 onChange={async e => {
                   const target = e.target as HTMLSelectElement;
                   const value = target.value;
@@ -61,6 +63,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
             <div style={{ color: this.$token.color.primary }}>theme: {this.$theme.name}</div>
             <div>
               <select
+                class="select select-bordered w-full max-w-xs"
                 onChange={async e => {
                   const target = e.target as HTMLSelectElement;
                   this.$theme.name = target.value as any;
@@ -82,7 +85,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
             </div>
           </div>
         </div>
-      </div>
+      </this.$component.page>
     );
   }
 }
