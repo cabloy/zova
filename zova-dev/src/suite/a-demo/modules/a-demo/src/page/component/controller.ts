@@ -10,7 +10,7 @@ export class ControllerPageComponent extends BeanControllerPageBase<ScopeModule>
 
   protected async __init__() {
     onControllerMounted(() => {
-      this.inputRef?.focus();
+      // this.inputRef?.focus();
     });
   }
 }
