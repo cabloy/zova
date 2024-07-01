@@ -1,13 +1,14 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, Local, ZovaIcon, iconh } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
+import { ScopeModule } from '../../resource/this.js';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
-export class RenderLayoutDefault extends BeanRenderBase {
+export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
     if (item.separator) {
       return <li></li>;
@@ -65,7 +66,23 @@ export class RenderLayoutDefault extends BeanRenderBase {
               <a>userName</a>
             </li>
             <li>
-              <a>userName</a>
+              <details>
+                <summary>
+                  {this.$$modelUser.user?.username}
+                  {iconh(this.$$modelUser.user?.avatar as any)}
+                </summary>
+                <ul class="bg-base-100 rounded-t-none p-2">
+                  <li>
+                    <a
+                      onClick={() => {
+                        this.$$modelUser.logout().mutate();
+                      }}
+                    >
+                      {this.scope.locale.Logout()}
+                    </a>
+                  </li>
+                </ul>
+              </details>
             </li>
           </ul>
         </div>
