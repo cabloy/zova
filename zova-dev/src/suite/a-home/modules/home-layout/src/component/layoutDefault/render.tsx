@@ -64,6 +64,9 @@ export class RenderLayoutDefault extends BeanRenderBase {
             <li>
               <a>userName</a>
             </li>
+            <li>
+              <a>userName</a>
+            </li>
           </ul>
         </div>
       </div>
