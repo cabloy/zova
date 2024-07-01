@@ -44,6 +44,42 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
   }
 
+  _renderLocale() {
+    const locales = [
+      {
+        name: 'en-us',
+        title: this.scope.locale.LanguageEnglish(),
+      },
+      {
+        name: 'zh-cn',
+        title: this.scope.locale.LanguageChinese(),
+      },
+    ];
+    return (
+      <li>
+        <details>
+          <summary>{iconh('::language')}</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            {locales.map(item => {
+              return (
+                <li key={item.name} class={this.app.meta.locale.current === item.name ? 'disabled' : ''}>
+                  <a
+                    onClick={() => {
+                      this.app.meta.locale.current = item.name as any;
+                    }}
+                  >
+                    {iconh(this.app.meta.locale.current === item.name ? '::done' : '::none')}
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </details>
+      </li>
+    );
+  }
+
   _renderThemeDark() {
     const themes = [
       {
@@ -162,6 +198,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         <div class="mx-2 flex-1 px-2">Zova</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
+            {this._renderLocale()}
             {this._renderThemeDark()}
             {this._renderThemeName()}
             {this._renderUser()}
