@@ -12,7 +12,6 @@ export const configDefault = {
   meta: {},
   env: {},
   base: {
-    locale: 'en-us',
     jwt: false,
   },
   api: {
@@ -22,15 +21,18 @@ export const configDefault = {
   icon: {
     defaultModule: 'home-icon',
   },
+  locale: {
+    default: 'en-us',
+    items: {
+      'en-us': 'English',
+      'zh-cn': 'Chinese',
+    },
+  },
   layout: {
     component: {
       default: 'home-layout:layoutDefault',
       empty: 'home-layout:layoutEmpty',
     },
-  },
-  locales: {
-    'en-us': 'English',
-    'zh-cn': 'Chinese',
   },
   modules: {},
 };
@@ -39,7 +41,6 @@ export type ZovaConfig = {
   meta: ZovaConfigMeta;
   env: ZovaConfigEnv;
   base: {
-    locale: keyof ILocalInfos;
     jwt: boolean;
   };
   api: {
@@ -49,13 +50,16 @@ export type ZovaConfig = {
   icon: {
     defaultModule: keyof IBeanScopeRecord;
   };
+  locale: {
+    default: keyof ILocalInfos;
+    items: Record<keyof ILocalInfos, string>;
+  };
   layout: {
     component: {
       default: keyof IComponentLayoutRecord;
       empty: keyof IComponentLayoutRecord;
     };
   };
-  locales: Record<keyof ILocalInfos, string>;
   modules: IBeanScopeConfig;
 };
 

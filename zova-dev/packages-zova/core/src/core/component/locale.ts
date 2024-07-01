@@ -16,7 +16,7 @@ export class AppLocale extends BeanSimple {
   get current(): keyof ILocalInfos {
     let locale = this[SymbolLocaleCurrent].value;
     if (!locale) locale = this.app.meta.cookie.getItem('locale');
-    if (!locale) locale = this.app.config.base.locale;
+    if (!locale) locale = this.app.config.locale.default;
     return locale as keyof ILocalInfos;
   }
 
