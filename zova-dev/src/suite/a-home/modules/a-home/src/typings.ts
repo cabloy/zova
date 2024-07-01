@@ -6,5 +6,5 @@ export type * as HomeRouter from 'zova-module-home-router';
 export type * as HomeLayout from 'zova-module-home-layout';
 export type * as HomeStyle from 'zova-module-home-style';
 export type * as HomeTheme from 'zova-module-home-theme';
-export type * as HomeUser from 'zova-module-home-user';
 export type * as HomeComponent from 'zova-module-home-component';
+export type * as HomeUser from 'zova-module-home-user';
