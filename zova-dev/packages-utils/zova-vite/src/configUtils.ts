@@ -38,6 +38,7 @@ const __ZovaManualChunkVendors = [
   },
   { match: ['vue-router'], output: 'vue-router' },
   { match: ['pinia'], output: 'pinia' },
+  { match: ['js-cookie'], output: 'js-cookie' },
 ];
 
 export function createConfigUtils(
