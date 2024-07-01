@@ -23,6 +23,7 @@ export const configDefault = {
   },
   locale: {
     default: 'en-us',
+    storeKey: 'locale',
     items: {
       'en-us': 'English',
       'zh-cn': 'Chinese',
@@ -52,6 +53,7 @@ export type ZovaConfig = {
   };
   locale: {
     default: keyof ILocalInfos;
+    storeKey: string;
     items: Record<keyof ILocalInfos, string>;
   };
   layout: {

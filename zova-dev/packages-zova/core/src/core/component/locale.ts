@@ -15,7 +15,7 @@ export class AppLocale extends BeanSimple {
 
   get current(): keyof ILocalInfos {
     let locale = this[SymbolLocaleCurrent].value;
-    if (!locale) locale = this.app.meta.cookie.getItem('locale');
+    if (!locale) locale = this.app.meta.cookie.getItem(this.app.config.locale.storeKey);
     if (!locale) locale = this.app.config.locale.default;
     return locale as keyof ILocalInfos;
   }
@@ -23,7 +23,7 @@ export class AppLocale extends BeanSimple {
   set current(value: keyof ILocalInfos) {
     if (this[SymbolLocaleCurrent].value === value) return;
     this[SymbolLocaleCurrent].value = value;
-    this.app.meta.cookie.setItem('locale', value);
+    this.app.meta.cookie.setItem(this.app.config.locale.storeKey, value);
   }
 
   /** @internal */
