@@ -8,20 +8,36 @@ export interface RenderTodo extends StyleTodo {}
 @Local()
 export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
+    const todoCurrent = this.$$modelTodo.get(this.currentTodo);
     return (
       <div>
-        <div>Current: {this.$$modelTodo.get(this.currentTodo)?.data?.title}</div>
-        <div>{this.$$modelTodo.get(this.currentTodo)?.error?.message}</div>
+        {todoCurrent?.data && (
+          <div role="alert" class="alert alert-success">
+            <span>Current: {todoCurrent?.data?.title}</span>
+          </div>
+        )}
+        {!!todoCurrent?.error && (
+          <div role="alert" class="alert alert-error">
+            <span>{todoCurrent?.error?.message}</span>
+          </div>
+        )}
         <form>
-          <input v-model={this.newTitle}></input>
-          <button
-            type="submit"
-            onClick={withModifiers(() => {
-              this.addTodo();
-            }, ['prevent'])}
-          >
-            Create
-          </button>
+          <div class="card bg-base-100 w-96 shadow-xl">
+            <div class="card-body items-center text-center">
+              <input type="text" class="input input-bordered w-full max-w-xs" v-model={this.newTitle}></input>
+              <div class="card-actions">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  onClick={withModifiers(() => {
+                    this.addTodo();
+                  }, ['prevent'])}
+                >
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
         </form>
         <table class={this.styleTable}>
           <thead>
