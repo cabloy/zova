@@ -63,9 +63,6 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
             <li>
-              <a>userName</a>
-            </li>
-            <li>
               <details>
                 <summary>
                   {this.$$modelUser.user?.username}
