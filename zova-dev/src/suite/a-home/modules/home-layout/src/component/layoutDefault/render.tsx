@@ -44,7 +44,44 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
   }
 
-  _renderThemeDark() {}
+  _renderThemeDark() {
+    return (
+      <li>
+        <details>
+          <summary>{iconh('::dark-theme')}</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li>
+              <a
+                onClick={() => {
+                  this.$theme.darkMode = false;
+                }}
+              >
+                {this.scope.locale.ThemeLight()}
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  this.$theme.darkMode = true;
+                }}
+              >
+                {this.scope.locale.ThemeDark()}
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  this.$theme.darkMode = 'auto';
+                }}
+              >
+                {this.scope.locale.ThemeAuto()}
+              </a>
+            </li>
+          </ul>
+        </details>
+      </li>
+    );
+  }
 
   _renderUser() {
     return (
