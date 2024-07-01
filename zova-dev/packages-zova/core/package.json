@@ -1,6 +1,6 @@
 {
   "name": "zova-core",
-  "version": "5.0.95",
+  "version": "5.0.96",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -45,8 +45,8 @@
     "@cabloy/module-info": "^1.0.19",
     "@cabloy/vue-reactivity": "^3.4.32",
     "@cabloy/vue-runtime-core": "^3.4.32",
-    "@vue/reactivity": "^3.4.27",
     "@types/js-cookie": "^3.0.6",
+    "@vue/reactivity": "^3.4.27",
     "js-cookie": "^3.0.5",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.4.27",
