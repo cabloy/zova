@@ -14,11 +14,11 @@
     },
     "./*": "./*"
   },
-  "description": "",
+  "description": "component",
   "keywords": [
     "Zova Module"
   ],
-  "author": "",
+  "author": "zhennann",
   "files": [
     "mock",
     "dist"
