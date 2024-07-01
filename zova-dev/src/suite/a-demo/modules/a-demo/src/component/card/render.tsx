@@ -17,15 +17,15 @@ export class RenderCard extends BeanRenderBase {
           Reset Time
         </button>
         <div>
-          <div style={{ backgroundColor: 'teal' }}>
+          <div class="bg-teal-600">
             <div>Slot: {this.$slots.header?.()}</div>
             <div>Prop: {this.$props.header}</div>
           </div>
-          <div style={{ backgroundColor: 'orange' }}>
+          <div class="bg-teal-800">
             <div>Slot: {this.$slots.default?.()}</div>
             <div>Prop: {this.$props.content}</div>
           </div>
-          <div style={{ backgroundColor: 'green' }}>
+          <div class="bg-teal-900">
             <div>Slot: {this.$slots.footer?.()}</div>
             <div>Prop: {this.$props.footer}</div>
           </div>
