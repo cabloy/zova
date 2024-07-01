@@ -23,6 +23,7 @@ Zova can be used with any UI library and comes with built-in project templates f
 - element-plus
 - quasar
 - vuetify
+- empty： Other UI libraries can be used based on this empty template
 
 ## Preview
 

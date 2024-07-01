@@ -23,6 +23,7 @@ Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模�
 - element-plus
 - quasar
 - vuetify
+- empty：可以在此基础上使用其他 UI 库
 
 ## 在线预览
 
