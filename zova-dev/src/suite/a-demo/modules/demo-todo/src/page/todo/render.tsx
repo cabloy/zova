@@ -22,20 +22,18 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
           </div>
         )}
         <form>
-          <div class="card bg-base-100 w-96 shadow-xl">
-            <div class="card-body items-center text-center">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body flex-row">
               <input type="text" class="input input-bordered w-full max-w-xs" v-model={this.newTitle}></input>
-              <div class="card-actions">
-                <button
-                  class="btn btn-primary"
-                  type="submit"
-                  onClick={withModifiers(() => {
-                    this.addTodo();
-                  }, ['prevent'])}
-                >
-                  Create
-                </button>
-              </div>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                onClick={withModifiers(() => {
+                  this.addTodo();
+                }, ['prevent'])}
+              >
+                Create
+              </button>
             </div>
           </div>
         </form>
