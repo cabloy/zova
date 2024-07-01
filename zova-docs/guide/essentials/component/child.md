@@ -267,3 +267,7 @@ export class RenderComponent {
 ## How to refer to child component instance?
 
 In Zova, `Template Ref` is not used to refer to child component instances, but directly refers to the `controller bean` corresponding to the child component. See: [Controller Ref](../../vue/refs.md#controller-ref)
+
+## Using child components through module scope
+
+In Zova, in addition to the general usage of importing child components, you can also use child components directly through the module scope object, see: [Vue Child Component](../scope/component.md)
