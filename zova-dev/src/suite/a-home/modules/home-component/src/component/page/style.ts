@@ -10,7 +10,7 @@ export class StylePage extends BeanStyleBase<ScopeModule> {
 
   protected async __init__() {
     this.stylePage = this.$style({
-      padding: '8px',
+      padding: '16px',
     });
   }
 }

@@ -9,6 +9,7 @@ export class RenderCard extends BeanRenderBase {
     return (
       <div>
         <button
+          class="btn btn-primary"
           onClick={() => {
             this.$emit('reset', new Date());
           }}
