@@ -267,3 +267,7 @@ export class RenderComponent {
 ## 如何引用子组件实例
 
 在 Zova 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`controller bean`，参见：[Controller Ref](../../vue/refs.md#controller-ref)
+
+## 基于模块Scope使用子组件
+
+在 Zova 中，除了一般的导入组件的使用方式之外，还可以基于模块 Scope 对象来直接使用子组件，参见：[Vue子组件](http://localhost:5173/zh/guide/essentials/scope/component.html)
