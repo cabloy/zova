@@ -44,9 +44,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: pnpm install # or pnpm install / yarn install / bun install
+        run: npm run init
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+      - name: Build with zova-demo
+        run: npm run build:githubpages
+        working-directory: zova-dev
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
