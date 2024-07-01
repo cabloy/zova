@@ -10,7 +10,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     const todoCurrent = this.$$modelTodo.get(this.currentTodo);
     return (
-      <div>
+      <this.$component.page>
         {todoCurrent?.data && (
           <div role="alert" class="alert alert-success">
             <span>Current: {todoCurrent?.data?.title}</span>
@@ -39,53 +39,58 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
             </div>
           </div>
         </form>
-        <table class={this.styleTable}>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Done</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.$$modelTodo.select().data?.map(item => {
-              return (
-                <tr>
-                  <td>
-                    <a
-                      href="#"
-                      onClick={withModifiers(() => {
-                        this.currentTodo = { id: item.id };
-                      }, ['prevent'])}
-                    >
-                      {item.title}
-                    </a>
-                  </td>
-                  <td>{item.done && iconh('::checkbox-checked')}</td>
-                  <td>
-                    <button
-                      onClick={() => {
-                        this.deleteTodo(item);
-                      }}
-                    >
-                      Delete
-                    </button>
-                    {!item.done && (
+        <div class="overflow-x-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Done</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.$$modelTodo.select().data?.map(item => {
+                return (
+                  <tr>
+                    <td>
+                      <a
+                        class="link link-primary"
+                        href="#"
+                        onClick={withModifiers(() => {
+                          this.currentTodo = { id: item.id };
+                        }, ['prevent'])}
+                      >
+                        {item.title}
+                      </a>
+                    </td>
+                    <td>{item.done && <input type="checkbox" checked={true} class="checkbox checkbox-success" />}</td>
+                    <td>
                       <button
+                        class="btn btn-error btn-sm"
                         onClick={() => {
-                          this.completeTodo(item);
+                          this.deleteTodo(item);
                         }}
                       >
-                        Complete
+                        Delete
                       </button>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                      {!item.done && (
+                        <button
+                          class="btn btn-success btn-sm"
+                          onClick={() => {
+                            this.completeTodo(item);
+                          }}
+                        >
+                          Complete
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </this.$component.page>
     );
   }
 }
