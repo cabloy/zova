@@ -90,26 +90,15 @@ export class RenderLayoutDefault extends BeanRenderBase {
         <div class="drawer-content">
           {this._renderHeader()}
           {this._renderContent()}
+          <button
+            onClick={() => {
+              this.$$modelUser.logout().mutate();
+            }}
+          >
+            Logout
+          </button>
         </div>
         {this._renderSidebar()}
-      </div>
-    );
-  }
-
-  render1() {
-    return (
-      <div>
-        <div>{this._renderMenu()}</div>
-        <button
-          onClick={() => {
-            this.$$modelUser.logout().mutate();
-          }}
-        >
-          Logout
-        </button>
-        <div>
-          <router-view />
-        </div>
       </div>
     );
   }
