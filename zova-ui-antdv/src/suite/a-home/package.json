@@ -11,6 +11,7 @@
     "zova-module-home-pagesystem": "workspace:^",
     "zova-module-home-layout": "workspace:^",
     "zova-module-home-router": "workspace:^",
-    "zova-module-home-api": "workspace:^"
+    "zova-module-home-api": "workspace:^",
+    "zova-module-home-component": "workspace:^"
   }
 }
