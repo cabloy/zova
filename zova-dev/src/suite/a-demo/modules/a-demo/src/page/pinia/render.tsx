@@ -8,18 +8,19 @@ export interface RenderPinia extends StylePinia {}
 export class RenderPinia extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div>
+      <this.$component.page>
         <div>count: {this.$$counter.count}</div>
         <div>doubleCount: {this.$$counter.doubleCount}</div>
         <div>name: {this.$$counter.name}</div>
         <button
+          class="btn btn-primary"
           onClick={() => {
             this.$$counter.increment();
           }}
         >
           Increment
         </button>
-      </div>
+      </this.$component.page>
     );
   }
 }
