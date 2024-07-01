@@ -8,11 +8,12 @@ export interface RenderLocale extends ControllerPageLocale {}
 export class RenderLocale extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div>
+      <this.$component.page>
         <div>
           {this.app.meta.locale.current}: {this.scope.locale.HelloWorld()}
         </div>
         <button
+          class="btn btn-primary"
           onClick={() => {
             if (this.app.meta.locale.current === 'en-us') {
               this.app.meta.locale.current = 'zh-cn';
@@ -23,7 +24,7 @@ export class RenderLocale extends BeanRenderBase<ScopeModule> {
         >
           {this.scope.locale.ChangeLanguage()}
         </button>
-      </div>
+      </this.$component.page>
     );
   }
 }
