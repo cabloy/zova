@@ -14,11 +14,16 @@ export class AppLocale extends BeanSimple {
   public localeModules: TypeModuleResourceLocaleModules = {};
 
   get current(): keyof ILocalInfos {
-    return (this[SymbolLocaleCurrent].value || this.app.config.base.locale) as keyof ILocalInfos;
+    let locale = this[SymbolLocaleCurrent].value;
+    if (!locale) locale = this.app.meta.cookie.getItem('locale');
+    if (!locale) locale = this.app.config.base.locale;
+    return locale as keyof ILocalInfos;
   }
 
   set current(value: keyof ILocalInfos) {
+    if (this[SymbolLocaleCurrent].value === value) return;
     this[SymbolLocaleCurrent].value = value;
+    this.app.meta.cookie.setItem('locale', value);
   }
 
   /** @internal */
