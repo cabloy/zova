@@ -20,27 +20,32 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
       },
     };
     return (
-      <div>
-        <this.scope.component.card
-          onControllerRef={ref => {
-            this.cardRef = ref;
-            console.log('cardRef.$props: ', this.cardRef?.$props);
-          }}
-          header="header"
-          content={this.resetTime.toString()}
-          footer="footer"
-          onReset={time => {
-            this.resetTime = time;
-          }}
-          v-slots={slots}
-        ></this.scope.component.card>
-        <input
-          ref={ref => {
-            this.inputRef = ref as any;
-            this.inputRef?.focus();
-          }}
-        ></input>
-      </div>
+      <this.$component.page>
+        <div>
+          <this.scope.component.card
+            onControllerRef={ref => {
+              this.cardRef = ref;
+              console.log('cardRef.$props: ', this.cardRef?.$props);
+            }}
+            header="header"
+            content={this.resetTime.toString()}
+            footer="footer"
+            onReset={time => {
+              this.resetTime = time;
+            }}
+            v-slots={slots}
+          ></this.scope.component.card>
+          <label>Input: </label>
+          <input
+            ref={ref => {
+              this.inputRef = ref as any;
+              this.inputRef?.focus();
+            }}
+            value={this.resetTime.toString()}
+            style={{ width: '450px' }}
+          ></input>
+        </div>
+      </this.$component.page>
     );
   }
 }
