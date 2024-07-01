@@ -48,7 +48,7 @@ const __MenuData = [
     title: 'Business',
     children: [
       {
-        title: 'Todo',
+        title: 'Todo: CRUD',
         caption: '',
         icon: '',
         to: '/demo/todo/todo',
