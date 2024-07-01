@@ -45,41 +45,39 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   }
 
   _renderThemeDark() {
+    const themes = [
+      {
+        mode: false,
+        title: this.scope.locale.ThemeLight(),
+      },
+      {
+        mode: true,
+        title: this.scope.locale.ThemeDark(),
+      },
+      {
+        mode: 'auto',
+        title: this.scope.locale.ThemeAuto(),
+      },
+    ];
     return (
       <li>
         <details>
           <summary>{iconh('::dark-theme')}</summary>
           <ul class="bg-base-100 rounded-t-none p-2">
-            <li class={this.$theme.darkMode === false ? 'disabled' : ''}>
-              <a
-                onClick={() => {
-                  this.$theme.darkMode = false;
-                }}
-              >
-                {iconh(this.$theme.darkMode === false ? '::done' : '::none')}
-                {this.scope.locale.ThemeLight()}
-              </a>
-            </li>
-            <li class={this.$theme.darkMode === true ? 'disabled' : ''}>
-              <a
-                onClick={() => {
-                  this.$theme.darkMode = true;
-                }}
-              >
-                {iconh(this.$theme.darkMode === true ? '::done' : '::none')}
-                {this.scope.locale.ThemeDark()}
-              </a>
-            </li>
-            <li class={this.$theme.darkMode === 'auto' ? 'disabled' : ''}>
-              <a
-                onClick={() => {
-                  this.$theme.darkMode = 'auto';
-                }}
-              >
-                {iconh(this.$theme.darkMode === 'auto' ? '::done' : '::none')}
-                {this.scope.locale.ThemeAuto()}
-              </a>
-            </li>
+            {themes.map(item => {
+              return (
+                <li key={item.mode.toString()} class={this.$theme.darkMode === item.mode ? 'disabled' : ''}>
+                  <a
+                    onClick={() => {
+                      this.$theme.darkMode = item.mode as any;
+                    }}
+                  >
+                    {iconh(this.$theme.darkMode === item.mode ? '::done' : '::none')}
+                    {item.title}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </details>
       </li>
@@ -104,7 +102,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
           <ul class="bg-base-100 rounded-t-none p-2">
             {themes.map(item => {
               return (
-                <li class={this.$theme.name === item.name ? 'disabled' : ''}>
+                <li key={item.name} class={this.$theme.name === item.name ? 'disabled' : ''}>
                   <a
                     onClick={() => {
                       this.$theme.name = item.name as any;
