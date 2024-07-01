@@ -15,18 +15,23 @@ Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，�
 [download-image]: https://img.shields.io/npm/dm/zova?color=orange&label=npm%20downloads
 [download-url]: https://npmjs.com/package/zova
 
+## 与UI库的配合
+
+Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：
+
+- antdv
+- element-plus
+- quasar
+- vuetify
+
+## 在线预览
+
+- [vue3 + ts + tsx + tailwindcss + daisyui](https://zova.js.org/zova-demo/)
+
 ## 文档
 
 - [快速开始](https://zova.js.org/zh/guide/start/introduction.html)
 - [为什么需要Vue3+IOC?](https://zova.js.org/zh/guide/start/why.html)
-
-## 如何做
-
-```bash
-$ npm run init
-$ cd ./zova-dev
-$ npm run dev
-```
 
 ## 特性
 
@@ -39,6 +44,14 @@ $ npm run dev
 - [CSS-in-JS: 样式&主题](https://zova.js.org/zh/guide/techniques/css-in-js/introduction.html)：基于[TypeStyle](https://github.com/typestyle/typestyle)的更加灵活的样式引擎
 - [Model: 统一数据源](https://zova.js.org/zh/guide/techniques/model/introduction.html)：基于[Tanstack Query](https://tanstack.com/query/latest/docs/framework/vue/overview)的数据管理策略
 - [Env环境变量](https://zova.js.org/zh/guide/techniques/env/introduction.html)：基于多维变量的 Env 文件加载策略
+
+## 如何做
+
+```bash
+$ npm run init
+$ cd ./zova-dev
+$ npm run dev
+```
 
 ## 联系方式
 
