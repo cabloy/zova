@@ -61,7 +61,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       <li>
         <details>
           <summary>{iconh('::language')}</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
+          <ul class="bg-base-100 rounded-t-none p-2 w-48">
             {locales.map(item => {
               return (
                 <li key={item.name} class={this.app.meta.locale.current === item.name ? 'disabled' : ''}>
@@ -101,7 +101,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       <li>
         <details>
           <summary>{iconh('::dark-theme')}</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
+          <ul class="bg-base-100 rounded-t-none p-2 w-48">
             {themes.map(item => {
               return (
                 <li key={item.mode.toString()} class={this.$theme.darkMode === item.mode ? 'disabled' : ''}>
@@ -137,7 +137,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       <li>
         <details>
           <summary>{iconh(':outline:theme-outline')}</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
+          <ul class="bg-base-100 rounded-t-none p-2 w-48">
             {themes.map(item => {
               return (
                 <li key={item.name} class={this.$theme.name === item.name ? 'disabled' : ''}>
@@ -166,7 +166,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             {this.$$modelUser.user?.username}
             {iconh(this.$$modelUser.user?.avatar as any)}
           </summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
+          <ul class="bg-base-100 rounded-t-none p-2 w-32">
             <li>
               <a
                 onClick={() => {
