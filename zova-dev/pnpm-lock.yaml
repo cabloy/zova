@@ -47,6 +47,9 @@ importers:
       zova-module-a-style:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
+      zova-module-a-tabs:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-core/modules/a-tabs
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.10
@@ -93,10 +96,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.96
+        specifier: ^5.0.97
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.118
+        specifier: ^1.0.119
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -175,7 +178,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.96
+        specifier: ^5.0.97
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -227,7 +230,7 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.96
+        specifier: ^5.0.97
         version: link:../core
       zova-suite-a-core:
         specifier: ^5.0.69
@@ -263,6 +266,9 @@ importers:
       zova-module-a-style:
         specifier: ^5.0.21
         version: link:modules/a-style
+      zova-module-a-tabs:
+        specifier: ^5.0.0
+        version: link:modules/a-tabs
 
   src/suite-vendor/a-core/modules/a-core: {}
 
@@ -291,6 +297,8 @@ importers:
         version: 4.3.3(vue@3.4.29(typescript@5.4.5))
 
   src/suite-vendor/a-core/modules/a-style: {}
+
+  src/suite-vendor/a-core/modules/a-tabs: {}
 
   src/suite-vendor/a-devui:
     dependencies:
