@@ -41,7 +41,8 @@
     "zova-module-a-pinia": "workspace:^",
     "zova-module-a-router": "workspace:^",
     "zova-module-a-model": "workspace:^",
-    "zova-module-a-style": "workspace:^"
+    "zova-module-a-style": "workspace:^",
+    "zova-module-a-tabs": "workspace:^"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
