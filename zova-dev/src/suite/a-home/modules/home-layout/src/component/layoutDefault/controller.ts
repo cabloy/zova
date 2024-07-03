@@ -1,7 +1,8 @@
-import { BeanControllerBase, Local, Use } from 'zova';
+import { BeanControllerBase, Local, Use, UseScope } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
+import type { ScopeModuleATabs } from 'zova-module-a-tabs';
 
 export interface Props {}
 
@@ -18,6 +19,9 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
 
   @Use()
   $$modelUser: ModelUser;
+
+  @UseScope('a-tabs')
+  $$scopeModuleATabs: ScopeModuleATabs;
 
   leftDrawerOpen: boolean = false;
 

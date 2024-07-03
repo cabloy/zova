@@ -4,7 +4,6 @@ import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule } from '../../resource/this.js';
-import { KeepAlive, Transition } from 'vue';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
@@ -220,18 +219,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   }
 
   _renderContent() {
-    const slots = {
-      default(Component) {
-        return (
-          <Transition>
-            <KeepAlive>
-              <Component.Component></Component.Component>
-            </KeepAlive>
-          </Transition>
-        );
-      },
-    };
-    return <router-view v-slots={slots}></router-view>;
+    return <this.$$scopeModuleATabs.component.routerViewTabs></this.$$scopeModuleATabs.component.routerViewTabs>;
   }
 
   render() {
