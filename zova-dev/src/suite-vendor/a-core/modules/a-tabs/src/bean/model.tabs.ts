@@ -91,9 +91,9 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   updateTab(tab: RouterTab) {
-    const [index] = this.findTab(tab.key);
+    const [index, tabOld] = this.findTab(tab.key);
     if (index === -1) return;
-    const tabNew = { ...tab, updatedAt: Date.now() };
+    const tabNew = { ...tabOld, ...tab, updatedAt: Date.now() };
     const tabsNew = this.tabs.slice(0, -1);
     tabsNew.splice(index, 1, tabNew);
     this.tabs = tabsNew;
