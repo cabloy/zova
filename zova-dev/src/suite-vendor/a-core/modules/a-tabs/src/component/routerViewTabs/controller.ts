@@ -1,9 +1,9 @@
-import { BeanControllerBase, Local, Use } from 'zova';
+import { BeanControllerBase, Local } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { ModelTabs } from '../../bean/model.tabs.js';
 
 export interface Props {
-  name?: string;
+  scene?: string;
 }
 
 export type Emits = {};
@@ -12,14 +12,13 @@ export interface Slots {}
 
 @Local()
 export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
-  static $propsDefault = {
-    name: '',
-  };
+  static $propsDefault = {};
 
-  @Use()
   $$modelTabs: ModelTabs;
 
-  protected async __init__() {}
+  protected async __init__() {
+    this.$$modelTabs = await this.bean._getBeanSelector(ModelTabs, true, this.$props.scene);
+  }
 
   protected __dispose__() {}
 }

@@ -1,7 +1,7 @@
 import { BeanRenderBase, Cast, Local } from 'zova';
 import type { StyleRouterViewTabs } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
-import { ComponentInternalInstance, KeepAlive, Transition } from 'vue';
+import { ComponentInternalInstance, KeepAlive, Transition, nextTick } from 'vue';
 import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
 
 export interface RenderRouterViewTabs extends StyleRouterViewTabs {}
@@ -39,7 +39,9 @@ export class RenderRouterViewTabs extends BeanRenderBase<ScopeModule> {
     // icon
     const icon = this._handleRouteProp(component.route, 'icon');
     // add tab
-    this.$$modelTabs.addTab({ key, title, icon });
+    nextTick(() => {
+      this.$$modelTabs.addTab({ key, title, icon });
+    });
   }
   render() {
     const slots = {
