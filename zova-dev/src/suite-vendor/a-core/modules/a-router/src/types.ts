@@ -6,12 +6,20 @@ export type Lazy<T> = () => Promise<T>;
 export type IModuleRouteComponent = RouteComponent | Lazy<RouteComponent>;
 export type IModuleRoute = RouteRecordRaw;
 
+export interface RouteMetaTab {
+  name?: string;
+  key?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+  title?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+  icon?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+}
+
 import 'vue-router';
 declare module 'vue-router' {
   interface RouteMeta {
     absolute?: boolean;
     layout?: keyof IComponentLayoutRecord | 'empty' | 'default' | false | IModuleRouteComponent;
     requiresAuth?: boolean;
+    tab?: RouteMetaTab;
   }
 }
 
