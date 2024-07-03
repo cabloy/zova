@@ -2,6 +2,10 @@
 
 In Zova, the actual business code development is done in modules. As a relatively independent business unit, the module contains various types of resources: `Config`, `Constant`, `Locale I18n`, `Error exception`, `Component`, `Api Service`, etc. In order to uniformly manage these resources and facilitate the definition and use of resources, Zova provides the `Scope` object
 
+## Why is Zova's IOC container code more concise?
+
+The reason is to prioritize the use of the `dependency lookup` strategy, resulting in fewer decorator functions and fewer type annotations. Accessing module's resources by the `Scope` object is one of the mechanisms for implementing `dependency lookup` strategies
+
 ## How to obtain Scope Instance?
 
 All beans inherit from the base class `BeanBase`, and `BeanBase` supports passing in the generic parameter `ScopeModule`. When the generic parameter `ScopeModule` is passed in, the `Scope` instance of the module to which the current bean belongs can be directly obtained
