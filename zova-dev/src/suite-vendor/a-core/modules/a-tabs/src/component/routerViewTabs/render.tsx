@@ -13,7 +13,7 @@ export interface RouterViewSlotParams {
 
 @Local()
 export class RenderRouterViewTabs extends BeanRenderBase<ScopeModule> {
-  _handleName(component: RouterViewSlotParams) {
+  _handleComponentName(component: RouterViewSlotParams) {
     let name = component.Component.type.name;
     if (name) return name;
     name = component.route.meta.tab?.name || component.route.name?.toString() || component.route.path;
@@ -21,11 +21,25 @@ export class RenderRouterViewTabs extends BeanRenderBase<ScopeModule> {
     return name;
   }
 
+  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key' | 'title' | 'icon') {
+    let value = route.meta.tab?.[prop];
+    if (typeof value === 'function') {
+      value = value(route);
+    }
+    return value;
+  }
+
   _handleComponent(component: RouterViewSlotParams) {
     // name
-    const name = this._handleName(component);
-    console.log(component);
-    console.log(name);
+    const name = this._handleComponentName(component);
+    // key
+    const key = this._handleRouteProp(component.route, 'key') || name;
+    // title
+    const title = this._handleRouteProp(component.route, 'title');
+    // icon
+    const icon = this._handleRouteProp(component.route, 'icon');
+    // add tab
+    this.$$modelTabs.addTab({ key, title, icon });
   }
   render() {
     const slots = {
