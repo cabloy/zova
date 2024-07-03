@@ -66,13 +66,37 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
         this.tabs = tabsNew;
       }
     } else {
-      const tabNew = { ...tabOld!, updatedAt: Date.now() };
-      const tabsNew = this.tabs.slice(0, -1);
-      tabsNew.splice(index, 1, tabNew);
-      this.tabs = tabsNew;
+      this.updateTab(tabOld!);
     }
     // current
     this.tabCurrentKey = tab.key;
+  }
+
+  deleteTab(tab: RouterTab) {
+    // tabs
+    const [index] = this.findTab(tab.key);
+    if (index === -1) return;
+    // current
+    if (index === this.tabCurrentIndex) {
+      // prev/next
+      this.tabCurrentIndex = index - 1 > -1 ? index - 1 : index + 1 < this.tabs.length ? index + 1 : -1;
+      if (this.tabCurrentIndex > -1) {
+        this.updateTab(this.tabs[this.tabCurrentIndex]);
+      }
+    }
+    // tabs
+    const tabsNew = this.tabs.slice(0, -1);
+    tabsNew.splice(index, 1);
+    this.tabs = tabsNew;
+  }
+
+  updateTab(tab: RouterTab) {
+    const [index] = this.findTab(tab.key);
+    if (index === -1) return;
+    const tabNew = { ...tab, updatedAt: Date.now() };
+    const tabsNew = this.tabs.slice(0, -1);
+    tabsNew.splice(index, 1, tabNew);
+    this.tabs = tabsNew;
   }
 
   findTab(key?: string): [number, RouterTab | undefined] {
