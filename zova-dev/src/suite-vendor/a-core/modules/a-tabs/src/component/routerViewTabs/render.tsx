@@ -38,19 +38,22 @@ export class RenderRouterViewTabs extends BeanRenderBase<ScopeModule> {
     const title = this._handleRouteProp(component.route, 'title');
     // icon
     const icon = this._handleRouteProp(component.route, 'icon');
+    // tab
+    const tab = { key, title, icon };
     // add tab
     nextTick(() => {
-      this.$$modelTabs.addTab({ key, title, icon });
+      this.$$modelTabs.addTab(tab);
     });
+    return tab;
   }
   render() {
     const slots = {
       default: component => {
-        this._handleComponent(component);
+        const tab = this._handleComponent(component);
         return (
           <Transition>
             <KeepAlive>
-              <component.Component></component.Component>
+              <component.Component key={tab.key}></component.Component>
             </KeepAlive>
           </Transition>
         );
