@@ -93,10 +93,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.95
+        specifier: ^5.0.96
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.117
+        specifier: ^1.0.118
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -175,7 +175,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.95
+        specifier: ^5.0.96
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -227,10 +227,10 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.95
+        specifier: ^5.0.96
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.68
+        specifier: ^5.0.69
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -244,13 +244,15 @@ importers:
 
   src/module/test-task2: {}
 
+  src/module/test-todo: {}
+
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
         specifier: ^5.0.40
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.12
+        specifier: ^5.0.13
         version: link:modules/a-model
       zova-module-a-pinia:
         specifier: ^5.0.20
@@ -272,12 +274,6 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.45.0(vue@3.4.29(typescript@5.4.5))
-      '@types/js-cookie':
-        specifier: ^3.0.6
-        version: 3.0.6
-      js-cookie:
-        specifier: ^3.0.5
-        version: 3.0.5
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
