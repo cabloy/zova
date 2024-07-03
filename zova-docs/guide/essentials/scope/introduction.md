@@ -1,6 +1,6 @@
 # Module Scope
 
-In Zova, the actual business code development is done in modules. As a relatively independent business unit, the module contains various types of resources: `Config`, `Constant`, `Locale I18n`, `Error exception`, `Component`, etc. In order to uniformly manage these resources and facilitate the definition and use of resources, Zova provides the `Scope` object
+In Zova, the actual business code development is done in modules. As a relatively independent business unit, the module contains various types of resources: `Config`, `Constant`, `Locale I18n`, `Error exception`, `Component`, `Api Service`, etc. In order to uniformly manage these resources and facilitate the definition and use of resources, Zova provides the `Scope` object
 
 ## How to obtain Scope Instance?
 
