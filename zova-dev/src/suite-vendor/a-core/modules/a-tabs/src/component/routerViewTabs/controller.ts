@@ -1,5 +1,6 @@
-import { BeanControllerBase, Local } from 'zova';
+import { BeanControllerBase, Local, Use } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
+import { ModelTabs } from '../../bean/model.tabs.js';
 
 export interface Props {
   name?: string;
@@ -14,6 +15,9 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
   static $propsDefault = {
     name: '',
   };
+
+  @Use()
+  $$modelTabs: ModelTabs;
 
   protected async __init__() {}
 
