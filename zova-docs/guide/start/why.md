@@ -85,6 +85,10 @@ In fact, the coding styles of Zova and Java are significantly different, which i
 1. `Fewer decorator functions`: Zova adopts a strategy that combines dependency injection and dependency lookup, giving priority to dependency lookup, thus significantly reducing the use of decorator functions
 2. `Fewer type annotations`: Zova gives priority to using dependency lookup to achieve a development experience of `Type programming without type`, which means that we can enjoy the many benefits of type programming without the need to annotate types, thus keeping our code concise and elegant, significantly improving development efficiency, and ensuring code quality
 
+- For detailed solutions, see:
+  - [IOC: BeanBase](../essentials/ioc/bean-base.md)
+  - [Module Scope](../essentials/scope/introduction.md)
+
 ### Some people say that the technology trend of the front-end is that `composition better than inheritance`, so it is inappropriate to introduce IOC
 
 In fact, in essence, the core architectural concept of the IOC container is composition. Through the hosting of the IOC container, these bean instances can be composited more freely and flexibly, and can share states and logic more conveniently
