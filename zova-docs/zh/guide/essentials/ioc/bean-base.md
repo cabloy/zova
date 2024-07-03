@@ -6,33 +6,47 @@
 
 ## 内置成员
 
-| 名称    | 说明                                        |
-| ------- | ------------------------------------------- |
-| app     | 全局 App 对象                               |
-| ctx     | 当前 bean 实例所归属的 Context 对象         |
-| bean    | 当前 bean 实例所归属的 bean 容器            |
-| scope   | 当前 bean 实例所归属模块的 Scope 对象       |
-| $el     | 当前 bean 实例所归属 Vue 组件的 dom element |
-| $text   | I18n 语言资源翻译函数                       |
-| $event  | 全局事件对象                                |
-| $params |                                             |
-| $query  |                                             |
+| 名称   | 说明                                        |
+| ------ | ------------------------------------------- |
+| app    | 全局 App 对象                               |
+| ctx    | 当前 bean 实例所归属的 Context 对象         |
+| bean   | 当前 bean 实例所归属的 bean 容器            |
+| scope  | 当前 bean 实例所归属模块的 Scope 对象       |
+| $el    | 当前 bean 实例所归属 Vue 组件的 dom element |
+| $text  | I18n 语言资源翻译函数                       |
+| $event | 全局事件对象                                |
+
+## 页面组件
+
+| 名称    | 说明                   |
+| ------- | ---------------------- |
+| $params | params参数，支持类型化 |
+| $query  | query参数，支持类型化  |
+
+## 子组件
+
+| 名称   | 说明  |
+| ------ | ----- |
+| $props | props |
+| $emit  | emit  |
+| $slots | slots |
+| $attrs | attrs |
 
 ## 扩展成员
 
 当创建好一个项目时，项目中就会存在一些模块，为我们进一步开发提供了基础能力
 
-| 名称         | 说明                             |
-| ------------ | -------------------------------- |
-| $api         | 由模块`home-api`提供的api对象    |
-| $class       |                                  |
-| $component   |                                  |
-| $pinia       |                                  |
-| $queryClient |                                  |
-| $router      | 由模块`a-router`提供的router对象 |
-| $style       |                                  |
-| $theme       |                                  |
-| $token       |                                  |
+| 名称                                                    | 说明                                 |
+| ------------------------------------------------------- | ------------------------------------ |
+| [$api](../../techniques/api/introduction.md)            | 由模块`home-api`提供的api对象        |
+| [$class](../../techniques/css-in-js/class.md)           | 由模块`home-style`提供的全局样式对象 |
+| [$component](../scope/component.md)                     | 由模块`home-component`提供的全局组件 |
+| [$pinia](../../vue/pinia.md)                            | 由模块`a-pinia`提供的pinia对象       |
+| [$queryClient](../../techniques/model/introduction.md)  | 由模块`a-model`提供的queryClient对象 |
+| [$router](../../techniques/router/navigation-guards.md) | 由模块`a-router`提供的router对象     |
+| [$style](../../techniques/css-in-js/style.md)           | 由模块`a-style`提供的style方法       |
+| [$theme](../../techniques/css-in-js/theme.md)           | 由模块`a-style`提供的theme对象       |
+| [$token](../../techniques/css-in-js/token.md)           | 由模块`a-style`提供的token对象       |
 
 Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用。不同的 UI 库也会根据自身需要向`BeanBase`基类注入对象
 
