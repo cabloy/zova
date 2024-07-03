@@ -1,11 +1,11 @@
 import { Model, useComputed } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
-import { RouteMeta } from 'vue-router';
 
 export interface RouterTab {
   key: string;
-  meta: RouteMeta;
+  title: string;
+  icon?: string;
   updatedAt?: number;
 }
 
@@ -53,8 +53,8 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     });
   }
 
-  addTab(key: string, tab: RouterTab) {
-    const [index] = this.findTab(key);
+  addTab(tab: RouterTab) {
+    const [index] = this.findTab(tab.key);
     if (index === -1) {
       const tabNew = { ...tab, updatedAt: Date.now() };
       if (this.tabCurrentIndex === -1) {
