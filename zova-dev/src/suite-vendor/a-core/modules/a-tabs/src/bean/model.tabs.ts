@@ -1,5 +1,5 @@
 import { Model, useComputed } from 'zova';
-import { BeanModelBase } from 'zova-module-a-model';
+import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 
 export interface RouterTab {
@@ -7,6 +7,10 @@ export interface RouterTab {
   title?: string;
   icon?: string;
   updatedAt?: number;
+}
+
+export interface ModelTabsInitParams {
+  scene?: string;
 }
 
 @Model()
@@ -21,16 +25,14 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     // scene
     this.scene = scene || '';
     // tabs
+    const queryOptions: UseQueryOptions<RouterTab[]> = {
+      queryKey: [this.scene, 'tabs'],
+      meta: { defaultData: [] },
+    };
     if (this.scope.config.persister) {
-      this.tabs = this.$useQueryLocal({
-        queryKey: [this.scene, 'tabs'],
-        meta: { defaultData: [] },
-      });
+      this.tabs = this.$useQueryLocal(queryOptions);
     } else {
-      this.tabs = this.$useQueryMem({
-        queryKey: [this.scene, 'tabs'],
-        meta: { defaultData: [] },
-      });
+      this.tabs = this.$useQueryMem(queryOptions);
     }
     // tabCurrentKey
     if (this.scope.config.persister) {

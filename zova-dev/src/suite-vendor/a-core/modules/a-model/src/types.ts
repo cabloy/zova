@@ -14,6 +14,8 @@ declare module '@tanstack/vue-query' {
   }
 }
 
+export type { UseQueryOptions } from '@tanstack/vue-query';
+
 export interface MyQueryMeta extends Record<string, unknown> {
   defaultData?: (() => any) | any;
   ssr?: QueryMetaSSR;
