@@ -229,7 +229,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       const domTab = (
         <a
           role="tab"
-          class={className}
+          class={`${className} ${this.styleTab}`}
           onClick={() => {
             if (tab.fullPath) {
               this.$router.push(tab.fullPath);
@@ -238,7 +238,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         >
           {tab.title}
           <ZovaIcon
-            class="hover:bg-slate-400 rounded"
+            class="tab-close hidden hover:bg-slate-400 rounded"
             name={icon('::close')}
             width="16"
             height="16"
