@@ -224,9 +224,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     const domTabs: JSX.Element[] = [];
     for (const tab of this.routerViewTabsRef.$$modelTabs.tabs) {
       const className =
-        tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey
-          ? 'tab tab-active text-primary [--tab-bg:yellow] [--tab-border-color:orange]'
-          : 'tab';
+        tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
       const domTab = (
         <a role="tab" class={className}>
           {tab.title}
