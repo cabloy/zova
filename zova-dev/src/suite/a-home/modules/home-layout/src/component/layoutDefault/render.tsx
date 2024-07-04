@@ -225,6 +225,9 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         scene={tabsOptions.scene}
         max={tabsOptions.max}
         persister={tabsOptions.persister}
+        onControllerRef={ref => {
+          this.routerViewTabsRef = ref;
+        }}
       ></this.$$scopeModuleATabs.component.routerViewTabs>
     );
   }

@@ -2,7 +2,7 @@ import { BeanControllerBase, Local, Use, UseScope } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
-import type { ScopeModuleATabs } from 'zova-module-a-tabs';
+import type { NSControllerRouterViewTabs, ScopeModuleATabs } from 'zova-module-a-tabs';
 
 export interface Props {}
 
@@ -22,6 +22,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
 
   @UseScope('a-tabs')
   $$scopeModuleATabs: ScopeModuleATabs;
+
+  routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
 
   leftDrawerOpen: boolean = false;
 
