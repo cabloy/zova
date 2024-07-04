@@ -83,9 +83,9 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     // current
     if (index === this.tabCurrentIndex) {
       // prev/next
-      this.tabCurrentIndex = index - 1 > -1 ? index - 1 : index + 1 < this.tabs.length ? index + 1 : -1;
-      if (this.tabCurrentIndex > -1) {
-        this.updateTab(this.tabs[this.tabCurrentIndex]);
+      const tabCurrentIndex = index - 1 > -1 ? index - 1 : index + 1 < this.tabs.length ? index + 1 : -1;
+      if (tabCurrentIndex > -1) {
+        this.activeTab(this.tabs[tabCurrentIndex]);
       }
     }
     // tabs
@@ -101,6 +101,12 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const tabsNew = this.tabs.slice();
     tabsNew.splice(index, 1, tabNew);
     this.tabs = tabsNew;
+  }
+
+  activeTab(tab: RouterTab) {
+    this.updateTab(tab);
+    this.tabCurrentKey = tab.key;
+    this.$router.push(tab.fullPath);
   }
 
   findTab(key?: string): [number, RouterTab | undefined] {

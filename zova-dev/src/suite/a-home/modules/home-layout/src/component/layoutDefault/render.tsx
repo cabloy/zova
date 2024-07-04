@@ -242,7 +242,9 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             name={icon('::close')}
             width="16"
             height="16"
-            onClick={withModifiers(() => {}, ['stop'])}
+            onClick={withModifiers(() => {
+              this.routerViewTabsRef.$$modelTabs.deleteTab(tab);
+            }, ['stop'])}
           ></ZovaIcon>
         </a>
       );
