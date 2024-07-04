@@ -1,9 +1,7 @@
-import { BeanControllerBase, Local } from 'zova';
+import { BeanControllerBase, Local, PropsBase } from 'zova';
 import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
 
-export interface Props {
-  name?: string;
-}
+export interface Props extends PropsBase<Controller<%=argv.nameMeta.fullCapitalize%>, Slots> {}
 
 export type Emits = {};
 
@@ -11,9 +9,7 @@ export interface Slots {}
 
 @Local()
 export class Controller<%=argv.nameMeta.fullCapitalize%> extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
-  static $propsDefault = {
-    name: '',
-  };
+  static $propsDefault = {};
 
   protected async __init__() {}
 
