@@ -1,14 +1,14 @@
-import { BeanControllerBase, EmitsBase, Local } from 'zova';
+import { BeanControllerBase, Local, PropsBase } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { ModelTabs, ModelTabsOptions } from '../../bean/model.tabs.js';
 
-export interface Props {
+export interface Props extends PropsBase<ControllerRouterViewTabs> {
   scene?: string;
   max?: number;
   persister?: boolean;
 }
 
-export type Emits = {} & EmitsBase<ControllerRouterViewTabs>;
+export type Emits = {};
 
 export interface Slots {}
 

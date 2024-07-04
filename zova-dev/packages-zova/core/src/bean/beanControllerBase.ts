@@ -9,9 +9,9 @@ type DefineModelOptions<T = any> = {
   set?: (v: T) => any;
 };
 
-export type EmitsBase<T> = {
-  (e: 'controllerRef', ref: T): void;
-};
+export interface PropsBase<T> {
+  controllerRef?: (ref: T) => void;
+}
 
 export class BeanControllerBase<
   TScopeModule = unknown,
