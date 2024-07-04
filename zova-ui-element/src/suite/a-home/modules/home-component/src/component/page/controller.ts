@@ -2,9 +2,7 @@ import { BeanControllerBase, Local } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface Props {
-  name?: string;
-}
+export interface Props {}
 
 export type Emits = {};
 
@@ -14,9 +12,7 @@ export interface Slots {
 
 @Local()
 export class ControllerPage extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
-  static $propsDefault = {
-    name: '',
-  };
+  static $propsDefault = {};
 
   protected async __init__() {}
 
