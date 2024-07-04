@@ -31,7 +31,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       queryKey: [this.tabsOptions.scene, 'tabs'],
       meta: { defaultData: [] },
     };
-    if (this.scope.config.persister) {
+    if (this.tabsOptions.persister) {
       this.tabs = this.$useQueryLocal(queryOptionsTabs);
     } else {
       this.tabs = this.$useQueryMem(queryOptionsTabs);
@@ -40,7 +40,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const queryOptionsTabCurrentKey: UseQueryOptions<string> = {
       queryKey: [this.tabsOptions.scene, 'tabCurrentKey'],
     };
-    if (this.scope.config.persister) {
+    if (this.tabsOptions.persister) {
       this.tabCurrentKey = this.$useQueryLocal(queryOptionsTabCurrentKey);
     } else {
       this.tabCurrentKey = this.$useQueryMem(queryOptionsTabCurrentKey);
