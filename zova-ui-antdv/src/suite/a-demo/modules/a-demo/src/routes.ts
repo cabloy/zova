@@ -4,7 +4,7 @@ import State from './page/state/index.vue';
 import { IModuleRoute } from 'zova-module-a-router';
 
 export const routes: IModuleRoute[] = [
-  { path: 'state', component: State, meta: { tab: { title: 'State' } } },
-  { path: 'component', component: Component, meta: { tab: { title: 'Component' } } },
-  { path: 'style', component: Style, meta: { tab: { title: 'Style' } } },
+  { path: 'state', component: State },
+  { path: 'component', component: Component },
+  { path: 'style', component: Style },
 ];
