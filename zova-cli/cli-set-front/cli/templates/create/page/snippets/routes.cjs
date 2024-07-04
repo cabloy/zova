@@ -1,6 +1,5 @@
 const __snippet_declare = "import <%=argv.nameMeta.fullCapitalize%> from './page/<%=argv.pageName%>/index.vue';\n";
-const __snippet_body =
-  "{ path: '<%=argv.pageName%>', component: <%=argv.nameMeta.fullCapitalize%>, meta: { tab: { title: '' } } },";
+const __snippet_body = "{ path: '<%=argv.pageName%>', component: <%=argv.nameMeta.fullCapitalize%> },";
 
 module.exports = {
   file: 'src/routes.ts',
