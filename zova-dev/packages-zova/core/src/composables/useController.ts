@@ -86,7 +86,7 @@ async function _useController(
   // dispose
   onBeforeUnmount(() => {
     // undefined better than null
-    ctx.instance.emit('controllerRef', undefined);
+    setControllerRef(ctx, false);
     if (ctx.bean !== ctx.app.bean) {
       ctx.bean.dispose();
     }
@@ -107,10 +107,17 @@ async function _useController(
   ctx.meta.util.instanceScope(() => {
     queuePostFlushCb(() => {
       ctx.meta.state.mounted.touch();
-      const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier);
-      // instanceScope useless for emit, because emiter and receiver not the same instance
-      ctx.instance.emit('controllerRef', controller);
+      setControllerRef(ctx, true);
     });
   });
   //});
+}
+
+function setControllerRef(ctx: ZovaContext, on: boolean) {
+  const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier) as any;
+  if (!controller) return;
+  // instanceScope useless for emit, because emiter and receiver not the same instance
+  if (controller.$props?.controllerRef) {
+    controller.$props.controllerRef(on ? controller : undefined);
+  }
 }

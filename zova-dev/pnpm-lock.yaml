@@ -130,11 +130,11 @@ importers:
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.24.7)(vite@5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1))
       '@cabloy/vue-reactivity':
-        specifier: ^3.4.33
-        version: 3.4.33
+        specifier: ^3.4.34
+        version: 3.4.34
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.33
-        version: 3.4.33
+        specifier: ^3.4.34
+        version: 3.4.34
       '@faker-js/faker':
         specifier: ^8.4.1
         version: 8.4.1
@@ -203,11 +203,11 @@ importers:
         specifier: ^1.0.19
         version: 1.0.19
       '@cabloy/vue-reactivity':
-        specifier: ^3.4.33
-        version: 3.4.33
+        specifier: ^3.4.34
+        version: 3.4.34
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.33
-        version: 3.4.33
+        specifier: ^3.4.34
+        version: 3.4.34
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
@@ -574,11 +574,11 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-reactivity@3.4.33':
-    resolution: {integrity: sha512-zNGfK3GyUnCSqz8k/HwW4ZGhwPiaNb2KHmt15IfOIz+Wb7nzrErjxdkMtEbsCPpc+mxrtYTrgzYDcWz6e/up1w==}
+  '@cabloy/vue-reactivity@3.4.34':
+    resolution: {integrity: sha512-ymgzC2+a43eu6f0lcNS0LUuyekYZfacph/xhYbXE96Ap7uPi8uBWo/XM5bQmH7yzq/ILK/FPG90QdJJQLtYPnQ==}
 
-  '@cabloy/vue-runtime-core@3.4.33':
-    resolution: {integrity: sha512-3HfmnxW1C8hEkE6o/bFFFOAmhMnVvxYlAVeuUrMiAMERx2xWaxEFC88H+JgXhkRGHGHJ8G365DqxM6jnOgF+IA==}
+  '@cabloy/vue-runtime-core@3.4.34':
+    resolution: {integrity: sha512-AxZYPXT96ACC5wi5c9ka+okj6CtFPb7RJO7bQqt5IhzPBQ0Lqq/xWGNFpJ2gXA6FA+I4nAcVV5fRLIl4Q1aHwA==}
 
   '@es-joy/jsdoccomment@0.43.1':
     resolution: {integrity: sha512-I238eDtOolvCuvtxrnqtlBaw0BwdQuYqK7eA6XIonicMdOOOb75mqdIzkGDUbS04+1Di007rgm9snFRNeVrOog==}
@@ -3055,13 +3055,13 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
 
-  '@cabloy/vue-reactivity@3.4.33':
+  '@cabloy/vue-reactivity@3.4.34':
     dependencies:
       '@vue/shared': 3.4.31
 
-  '@cabloy/vue-runtime-core@3.4.33':
+  '@cabloy/vue-runtime-core@3.4.34':
     dependencies:
-      '@vue/reactivity': '@cabloy/vue-reactivity@3.4.33'
+      '@vue/reactivity': '@cabloy/vue-reactivity@3.4.34'
       '@vue/shared': 3.4.31
 
   '@es-joy/jsdoccomment@0.43.1':
@@ -3653,7 +3653,7 @@ snapshots:
     dependencies:
       '@volar/language-core': 2.3.0
       '@vue/compiler-dom': 3.4.29
-      '@vue/shared': 3.4.29
+      '@vue/shared': 3.4.31
       computeds: 0.0.1
       minimatch: 9.0.4
       path-browserify: 1.0.1
