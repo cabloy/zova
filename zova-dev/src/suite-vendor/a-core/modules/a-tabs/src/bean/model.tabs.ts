@@ -1,7 +1,6 @@
 import { Model, useComputed } from 'zova';
 import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
-import { nextTick } from 'vue';
 
 export interface RouterTab {
   key: string;
