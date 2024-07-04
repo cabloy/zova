@@ -18,6 +18,7 @@ declare module 'vue/jsx-runtime' {
     export interface IntrinsicAttributes {
       class?: unknown;
       style?: unknown;
+      onClick?: (e: MouseEvent) => void;
     }
   }
 }

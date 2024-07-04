@@ -1,9 +1,10 @@
-import { BeanRenderBase, Local, iconh } from 'zova';
+import { BeanRenderBase, Local, ZovaIcon, icon, iconh } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule } from '../../resource/this.js';
+import { withModifiers } from 'vue';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
@@ -226,8 +227,26 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       const className =
         tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
       const domTab = (
-        <a role="tab" class={className}>
+        <a
+          role="tab"
+          class={className}
+          onClick={() => {
+            console.log('click');
+            if (tab.fullPath) {
+              this.$router.push(tab.fullPath);
+            }
+          }}
+        >
           {tab.title}
+          <ZovaIcon
+            class="hover:bg-slate-400"
+            name={icon('::close')}
+            width="16"
+            height="16"
+            onClick={withModifiers(() => {
+              console.log('icon');
+            }, ['stop'])}
+          ></ZovaIcon>
         </a>
       );
       domTabs.push(domTab);
