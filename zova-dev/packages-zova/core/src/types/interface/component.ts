@@ -9,9 +9,7 @@ declare module 'vue' {
     };
   }
 
-  export interface AllowedComponentProps {
-    onControllerRef?(controller: any): void; // not use unknown
-  }
+  export interface AllowedComponentProps {}
 }
 
 declare module 'vue/jsx-runtime' {
