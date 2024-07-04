@@ -226,7 +226,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         max={tabsOptions.max}
         persister={tabsOptions.persister}
         controllerRef={ref => {
-          console.log(ref.$$modelTabs);
+          console.log(ref?.$$modelTabs);
           this.routerViewTabsRef = ref;
         }}
       ></this.$$scopeModuleATabs.component.routerViewTabs>
