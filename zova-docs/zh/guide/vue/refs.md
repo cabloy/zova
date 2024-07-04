@@ -96,9 +96,9 @@ export class ControllerPageComponent {
 }
 ```
 
-### 2. onControllerRef
+### 2. controllerRef
 
-然后监听子组件的`onControllerRef`事件获取到`controller bean`实例的引用值：
+然后设置子组件的`controllerRef`属性获取到`controller bean`实例的引用值：
 
 ```typescript
 import Card from '../../component/card/index.vue';
@@ -108,7 +108,7 @@ export class RenderComponent {
     return (
       <div>
         <Card
-          onControllerRef={ref => {
+          controllerRef={ref => {
             this.cardRef = ref;
           }}
         ></Card>

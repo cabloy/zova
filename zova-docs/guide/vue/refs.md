@@ -96,9 +96,9 @@ export class ControllerPageComponent {
 }
 ```
 
-### 2. onControllerRef
+### 2. controllerRef
 
-Then listen to the `onControllerRef` event of the child component to obtain the ref value of the `controller bean` instance:
+Then set the `controllerRef` prop of the child component to obtain the ref value of the `controller bean` instance:
 
 ```typescript
 import Card from '../../component/card/index.vue';
@@ -108,7 +108,7 @@ export class RenderComponent {
     return (
       <div>
         <Card
-          onControllerRef={ref => {
+          controllerRef={ref => {
             this.cardRef = ref;
           }}
         ></Card>
