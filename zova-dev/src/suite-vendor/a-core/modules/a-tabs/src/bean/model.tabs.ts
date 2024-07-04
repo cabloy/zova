@@ -113,7 +113,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     if (!options) options = {};
     options.scene = options.scene ?? '';
     options.max = options.max ?? -1;
-    options.persister = options.persister !== false;
+    options.persister = !!options.persister;
     return options;
   }
 }
