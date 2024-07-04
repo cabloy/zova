@@ -9,40 +9,41 @@ export interface RouterTab {
   updatedAt?: number;
 }
 
-export interface ModelTabsInitParams {
+export interface ModelTabsOptions {
   scene?: string;
+  max?: number;
+  persister?: boolean;
 }
 
 @Model()
 export class ModelTabs extends BeanModelBase<ScopeModule> {
-  scene: string;
+  tabsOptions: ModelTabsOptions;
   tabs: RouterTab[];
   tabCurrentKey?: string;
   tabCurrentIndex: number;
   tabCurrent?: RouterTab;
 
-  protected async __init__(scene?: string) {
-    // scene
-    this.scene = scene || '';
+  protected async __init__(options?: ModelTabsOptions) {
+    // options
+    this.tabsOptions = this._prepareTabsOptions(options);
     // tabs
-    const queryOptions: UseQueryOptions<RouterTab[]> = {
-      queryKey: [this.scene, 'tabs'],
+    const queryOptionsTabs: UseQueryOptions<RouterTab[]> = {
+      queryKey: [this.tabsOptions.scene, 'tabs'],
       meta: { defaultData: [] },
     };
     if (this.scope.config.persister) {
-      this.tabs = this.$useQueryLocal(queryOptions);
+      this.tabs = this.$useQueryLocal(queryOptionsTabs);
     } else {
-      this.tabs = this.$useQueryMem(queryOptions);
+      this.tabs = this.$useQueryMem(queryOptionsTabs);
     }
     // tabCurrentKey
+    const queryOptionsTabCurrentKey: UseQueryOptions<string> = {
+      queryKey: [this.tabsOptions.scene, 'tabCurrentKey'],
+    };
     if (this.scope.config.persister) {
-      this.tabCurrentKey = this.$useQueryLocal({
-        queryKey: [this.scene, 'tabCurrentKey'],
-      });
+      this.tabCurrentKey = this.$useQueryLocal(queryOptionsTabCurrentKey);
     } else {
-      this.tabCurrentKey = this.$useQueryMem({
-        queryKey: [this.scene, 'tabCurrentKey'],
-      });
+      this.tabCurrentKey = this.$useQueryMem(queryOptionsTabCurrentKey);
     }
     // computed
     this.tabCurrentIndex = useComputed(() => {
@@ -106,5 +107,13 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const index = this.tabs.findIndex(item => item.key === key);
     if (index === -1) return [index, undefined];
     return [index, this.tabs[index]];
+  }
+
+  _prepareTabsOptions(options?: ModelTabsOptions) {
+    if (!options) options = {};
+    options.scene = options.scene ?? '';
+    options.max = options.max ?? -1;
+    options.persister = options.persister !== false;
+    return options;
   }
 }
