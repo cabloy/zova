@@ -1,6 +1,7 @@
 import { Model, useComputed } from 'zova';
 import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
+import { nextTick } from 'vue';
 
 export interface RouterTab {
   key: string;
@@ -76,7 +77,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     this.tabCurrentKey = tab.key;
   }
 
-  deleteTab(tab: RouterTab) {
+  async deleteTab(tab: RouterTab) {
     // tabs
     const [index] = this.findTab(tab.key);
     if (index === -1) return;
@@ -85,7 +86,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       // prev/next
       const tabCurrentIndex = index - 1 > -1 ? index - 1 : index + 1 < this.tabs.length ? index + 1 : -1;
       if (tabCurrentIndex > -1) {
-        this.activeTab(this.tabs[tabCurrentIndex]);
+        await this.activeTab(this.tabs[tabCurrentIndex]);
       }
     }
     // tabs
@@ -103,10 +104,10 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     this.tabs = tabsNew;
   }
 
-  activeTab(tab: RouterTab) {
+  async activeTab(tab: RouterTab) {
     this.updateTab(tab);
     this.tabCurrentKey = tab.key;
-    this.$router.push(tab.fullPath);
+    await this.$router.push(tab.fullPath);
   }
 
   findTab(key?: string): [number, RouterTab | undefined] {
