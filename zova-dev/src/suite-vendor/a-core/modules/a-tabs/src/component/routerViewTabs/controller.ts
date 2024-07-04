@@ -4,6 +4,7 @@ import { ModelTabs, ModelTabsOptions } from '../../bean/model.tabs.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
 import { nextTick } from 'vue';
+import * as ModuleInfo from '@cabloy/module-info';
 
 export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
   scene?: string;
@@ -46,13 +47,20 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     return value;
   }
 
+  _handleRouteTitle(route: RouteLocationNormalizedLoaded) {
+    const title = this._handleRouteProp(route, 'title') || '';
+    const moduleInfo = ModuleInfo.parseInfo(route.fullPath);
+    if (!moduleInfo) return title;
+    return this.app.meta.locale.getText(moduleInfo.relativeName, undefined, title);
+  }
+
   _handleComponent(component: RouterViewSlotParams) {
     // name
     const name = this._handleComponentName(component);
     // key
     const key = this._handleRouteProp(component.route, 'key') || name;
     // title
-    const title = this._handleRouteProp(component.route, 'title');
+    const title = this._handleRouteTitle(component.route);
     // icon
     const icon = this._handleRouteProp(component.route, 'icon');
     // tab
