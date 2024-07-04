@@ -64,7 +64,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       if (this.tabCurrentIndex === -1) {
         this.tabs = [...this.tabs, tabNew];
       } else {
-        const tabsNew = this.tabs.slice(0, -1);
+        const tabsNew = this.tabs.slice();
         tabsNew.splice(this.tabCurrentIndex + 1, 0, tabNew);
         this.tabs = tabsNew;
       }
@@ -88,7 +88,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       }
     }
     // tabs
-    const tabsNew = this.tabs.slice(0, -1);
+    const tabsNew = this.tabs.slice();
     tabsNew.splice(index, 1);
     this.tabs = tabsNew;
   }
@@ -97,7 +97,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const [index, tabOld] = this.findTab(tab.key);
     if (index === -1) return;
     const tabNew = { ...tabOld, ...tab, updatedAt: Date.now() };
-    const tabsNew = this.tabs.slice(0, -1);
+    const tabsNew = this.tabs.slice();
     tabsNew.splice(index, 1, tabNew);
     this.tabs = tabsNew;
   }
