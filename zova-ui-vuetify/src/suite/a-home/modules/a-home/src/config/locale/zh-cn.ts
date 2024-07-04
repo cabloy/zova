@@ -1,1 +1,3 @@
-export default {};
+export default {
+  Home: '首页',
+};
