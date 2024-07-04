@@ -231,9 +231,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
           role="tab"
           class={`${className} ${this.styleTab}`}
           onClick={() => {
-            if (tab.fullPath) {
-              this.$router.push(tab.fullPath);
-            }
+            this.routerViewTabsRef.$$modelTabs.activeTab(tab);
           }}
         >
           {tab.title}
