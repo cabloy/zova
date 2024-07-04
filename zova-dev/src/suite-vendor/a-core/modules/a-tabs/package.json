@@ -1,6 +1,6 @@
 {
   "name": "zova-module-a-tabs",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "title": "a-tabs",
   "type": "module",
   "exports": {
@@ -23,6 +23,5 @@
     "mock",
     "dist"
   ],
-  "scripts": {},
-  "dependencies": {}
+  "scripts": {}
 }
