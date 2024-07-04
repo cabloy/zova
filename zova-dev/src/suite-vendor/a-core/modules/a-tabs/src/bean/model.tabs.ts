@@ -4,9 +4,7 @@ import { ScopeModule } from '../resource/this.js';
 
 export interface RouterTab {
   key: string;
-  fullPath: string;
-  title?: string;
-  icon?: string;
+  keepalive?: boolean;
   updatedAt?: number;
 }
 
@@ -106,7 +104,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   async activeTab(tab: RouterTab) {
     this.updateTab(tab);
     this.tabCurrentKey = tab.key;
-    await this.$router.push(tab.fullPath);
+    await this.$router.push(tab.key);
   }
 
   findTab(key?: string): [number, RouterTab | undefined] {
