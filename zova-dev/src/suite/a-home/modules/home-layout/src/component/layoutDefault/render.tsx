@@ -1,12 +1,12 @@
 import { BeanRenderBase, Local, ZovaIcon, icon, iconh } from 'zova';
-import type { ControllerLayoutDefault } from './controller.js';
+import type { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule } from '../../resource/this.js';
 import { withModifiers } from 'vue';
 
-export interface RenderLayoutDefault extends ControllerLayoutDefault {}
+export interface RenderLayoutDefault extends StyleLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
@@ -231,7 +231,6 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
           role="tab"
           class={className}
           onClick={() => {
-            console.log('click');
             if (tab.fullPath) {
               this.$router.push(tab.fullPath);
             }
@@ -239,13 +238,11 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         >
           {tab.title}
           <ZovaIcon
-            class="hover:bg-slate-400"
+            class="hover:bg-slate-400 rounded"
             name={icon('::close')}
             width="16"
             height="16"
-            onClick={withModifiers(() => {
-              console.log('icon');
-            }, ['stop'])}
+            onClick={withModifiers(() => {}, ['stop'])}
           ></ZovaIcon>
         </a>
       );
