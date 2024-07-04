@@ -22,7 +22,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
     return (
       <div>
         <this.scope.component.card
-          onControllerRef={ref => {
+          controllerRef={ref => {
             this.cardRef = ref;
           }}
           header="header"
