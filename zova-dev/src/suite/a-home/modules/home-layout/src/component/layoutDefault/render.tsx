@@ -226,6 +226,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     for (const tab of this.routerViewTabsRef.$$modelTabs.tabs) {
       const className =
         tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
+      const menuItem = this.$$modelMenu.findMenuItem(tab.key);
       const domTab = (
         <a
           role="tab"
@@ -234,8 +235,8 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             this.routerViewTabsRef.$$modelTabs.activeTab(tab);
           }}
         >
-          {!!tab.icon && <ZovaIcon name={tab.icon} width="24" height="24"></ZovaIcon>}
-          {tab.title}
+          {!!menuItem?.icon && <ZovaIcon name={menuItem?.icon} width="24" height="24"></ZovaIcon>}
+          {menuItem?.title}
           <ZovaIcon
             class="tab-close hidden hover:bg-slate-400 rounded"
             name={icon('::close')}
@@ -265,7 +266,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         persister={tabsOptions.persister}
         getAffixTabs={() => {
           if (!this.$$modelMenu.select().data) return;
-          return [];
+          return [{ key: '/a/home/home', affix: true }];
         }}
         controllerRef={ref => {
           this.routerViewTabsRef = ref;

@@ -1,6 +1,7 @@
 import { Model } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
+import { ServiceMenuEntity } from '../api/interface/menu.js';
 
 @Model()
 export class ModelMenu extends BeanModelBase<ScopeModule> {
@@ -22,5 +23,23 @@ export class ModelMenu extends BeanModelBase<ScopeModule> {
         });
       },
     });
+  }
+
+  findMenuItem(fullPath: string): ServiceMenuEntity | undefined {
+    const menu = this.select().data;
+    if (!menu) return;
+    return this._findMenuItem(fullPath, menu);
+  }
+
+  _findMenuItem(fullPath: string, items: ServiceMenuEntity[]): ServiceMenuEntity | undefined {
+    for (const item of items) {
+      let menuItem;
+      if (item.children) {
+        menuItem = this._findMenuItem(fullPath, item.children);
+      } else {
+        menuItem = item.to === fullPath ? item : undefined;
+      }
+      if (menuItem) return menuItem;
+    }
   }
 }

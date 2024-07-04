@@ -58,6 +58,12 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   addTab(tab: RouterTab) {
+    this._addTab(tab);
+    // current
+    this.tabCurrentKey = tab.key;
+  }
+
+  _addTab(tab: RouterTab) {
     // tabs
     const [index] = this.findTab(tab.key);
     if (index === -1) {
@@ -72,8 +78,33 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     } else {
       this.updateTab(tab);
     }
-    // current
-    this.tabCurrentKey = tab.key;
+  }
+
+  async addAffixTabs(affixTabs?: RouterTab[]) {
+    // record old affixTabs
+    const oldTabs: RouterTab[] = [];
+    for (const tab of this.tabs) {
+      if (!tab.affix) continue;
+      if (!affixTabs || affixTabs.findIndex(item => item.key === tab.key) === -1) {
+        oldTabs.push(tab);
+      }
+    }
+    // add new affixTabs
+    if (affixTabs) {
+      for (const tab of affixTabs) {
+        this._addTab(tab);
+      }
+    }
+    // delete old affixTabs
+    for (const tab of oldTabs) {
+      await this.deleteTab(tab);
+    }
+    // sort
+    const tabsNew = this.tabs.slice();
+    tabsNew.sort((a, b) => {
+      return Number(!!b.affix) - Number(!!a.affix);
+    });
+    this.tabs = tabsNew;
   }
 
   async deleteTab(tab: RouterTab) {

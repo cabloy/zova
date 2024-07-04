@@ -34,7 +34,7 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     watch(
       this.$props.getAffixTabs,
       value => {
-        console.log(value);
+        this.$$modelTabs.addAffixTabs(value);
       },
       { immediate: true },
     );
