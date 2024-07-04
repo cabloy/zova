@@ -1,7 +1,7 @@
-import { BeanControllerBase, Local } from 'zova';
+import { BeanControllerBase, Local, PropsBase } from 'zova';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface Props {
+export interface Props extends PropsBase<ControllerCard, Slots> {
   header?: string;
   content?: string;
   footer?: string;

@@ -1,6 +1,6 @@
-import { BeanControllerBase, Local } from 'zova';
+import { BeanControllerBase, Local, PropsBase } from 'zova';
 
-export interface Props {}
+export interface Props extends PropsBase<ControllerLayoutEmpty, Slots> {}
 
 export type Emits = {};
 

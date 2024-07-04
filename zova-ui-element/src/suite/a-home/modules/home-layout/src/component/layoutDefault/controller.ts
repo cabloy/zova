@@ -1,7 +1,7 @@
-import { BeanControllerBase, Local, Use } from 'zova';
+import { BeanControllerBase, Local, Use, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 
-export interface Props {}
+export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
 export type Emits = {};
 
