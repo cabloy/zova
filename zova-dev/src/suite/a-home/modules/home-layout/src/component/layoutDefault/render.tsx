@@ -196,7 +196,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             </svg>
           </label>
         </div>
-        <div class="mx-2 flex-1 px-2">Zova</div>
+        <div class="mx-2 flex-1 px-2">{this._renderTabs()}</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
             {this._renderLocale()}
@@ -218,6 +218,25 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     );
   }
 
+  _renderTabs() {
+    if (!this.routerViewTabsRef) return;
+
+    const domTabs: JSX.Element[] = [];
+    for (const tab of this.routerViewTabsRef.$$modelTabs.tabs) {
+      const domTab = (
+        <a role="tab" class="tab">
+          {tab.title}
+        </a>
+      );
+      domTabs.push(domTab);
+    }
+    return (
+      <div role="tablist" class="tabs tabs-lifted">
+        {domTabs}
+      </div>
+    );
+  }
+
   _renderContent() {
     const tabsOptions = this.scope.config.tabs;
     return (
@@ -226,7 +245,6 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         max={tabsOptions.max}
         persister={tabsOptions.persister}
         controllerRef={ref => {
-          console.log(ref?.$$modelTabs);
           this.routerViewTabsRef = ref;
         }}
       ></this.$$scopeModuleATabs.component.routerViewTabs>

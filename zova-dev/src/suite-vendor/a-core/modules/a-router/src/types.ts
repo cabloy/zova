@@ -1,4 +1,4 @@
-import { IComponentLayoutRecord, TypePageSchemas } from 'zova';
+import { IComponentLayoutRecord, IIconRecord, TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 
@@ -10,7 +10,7 @@ export interface RouteMetaTab {
   name?: string;
   key?: ((route: RouteLocationNormalizedLoaded) => string) | string;
   title?: ((route: RouteLocationNormalizedLoaded) => string) | string;
-  icon?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+  icon?: ((route: RouteLocationNormalizedLoaded) => keyof IIconRecord) | keyof IIconRecord;
 }
 
 import 'vue-router';
