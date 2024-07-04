@@ -234,6 +234,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             this.routerViewTabsRef.$$modelTabs.activeTab(tab);
           }}
         >
+          {!!tab.icon && <ZovaIcon name={tab.icon} width="24" height="24"></ZovaIcon>}
           {tab.title}
           <ZovaIcon
             class="tab-close hidden hover:bg-slate-400 rounded"
