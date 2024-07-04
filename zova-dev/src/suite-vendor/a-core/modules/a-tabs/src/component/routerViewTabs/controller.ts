@@ -1,14 +1,15 @@
 import { BeanControllerBase, Cast, Local, PropsBase } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { ModelTabs, ModelTabsOptions } from '../../bean/model.tabs.js';
+import { ModelTabs, ModelTabsOptions, RouterTab } from '../../bean/model.tabs.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
-import { nextTick } from 'vue';
+import { nextTick, watch } from 'vue';
 
 export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
   scene?: string;
   max?: number;
   persister?: boolean;
+  getAffixTabs: () => RouterTab[] | undefined;
 }
 
 export type Emits = {};
@@ -28,6 +29,15 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
       persister: this.$props.persister,
     };
     this.$$modelTabs = await this.bean._newBean(ModelTabs, true, tabsOptions);
+
+    // watch
+    watch(
+      this.$props.getAffixTabs,
+      value => {
+        console.log(value);
+      },
+      { immediate: true },
+    );
   }
 
   _handleComponentName(component: RouterViewSlotParams) {
@@ -56,7 +66,7 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     // key
     const keepalive = this._handleRouteProp(component.route, 'keepalive');
     // tab
-    const tab = { key: component.route.fullPath, keepalive };
+    const tab = { key: component.route.fullPath, name, keepalive };
     // add tab
     nextTick(() => {
       this.$$modelTabs.addTab(tab);

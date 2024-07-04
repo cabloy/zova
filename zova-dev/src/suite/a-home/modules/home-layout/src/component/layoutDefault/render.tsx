@@ -3,7 +3,7 @@ import type { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule, __ThisModule__ } from '../../resource/this.js';
 import { withModifiers } from 'vue';
 
 export interface RenderLayoutDefault extends StyleLayoutDefault {}
@@ -11,7 +11,7 @@ export interface RenderLayoutDefault extends StyleLayoutDefault {}
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
-    const titleLocale = item.title === 'Home' ? this.scope.locale.Home() : item.title;
+    const titleLocale = this.app.meta.locale.getText(__ThisModule__, undefined, item.title);
     if (item.separator) {
       return <li></li>;
     }
@@ -263,6 +263,10 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         scene={tabsOptions.scene}
         max={tabsOptions.max}
         persister={tabsOptions.persister}
+        getAffixTabs={() => {
+          if (!this.$$modelMenu.select().data) return;
+          return [];
+        }}
         controllerRef={ref => {
           this.routerViewTabsRef = ref;
         }}
