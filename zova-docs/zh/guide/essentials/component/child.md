@@ -233,25 +233,23 @@ export class RenderCard {
 
 ```typescript{2,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as ControllerCard from '../../component/card/controller.js';
 
 export class RenderComponent {
   render() {
-    const slots: ControllerCard.Slots = {
-      header: () => {
-        return <div>this is a header slot from parent</div>;
-      },
-      default: () => {
-        return <div>this is a default slot from parent</div>;
-      },
-      footer: () => {
-        return <div>this is a footer slot from parent</div>;
-      },
-    };
     return (
       <div>
         <Card
-          v-slots={slots}
+          slots={{
+            header: () => {
+              return <div>this is a header slot from parent</div>;
+            },
+            default: () => {
+              return <div>this is a default slot from parent</div>;
+            },
+            footer: () => {
+              return <div>this is a footer slot from parent</div>;
+            },
+          }}
         ></Card>
       </div>
     );
@@ -259,10 +257,7 @@ export class RenderComponent {
 }
 ```
 
-- 从`index.vue`导入子组件`Card`
-- 从`controller.ts`导入类型命名空间`ControllerCard`
-- 定义对象`slots`，为 slots 提供对应的渲染函数。可以使用 `ControllerCard.Slots`来约束类型，并且提供智能提示
-- 将定义好的对象`slots`通过`v-slots`传给子组件`Card`即可
+- 从`index.vue`导入子组件`Card`，然后直接给 Card 的 slots 属性传值即可
 
 ## 如何引用子组件实例
 

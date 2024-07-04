@@ -233,25 +233,23 @@ Next, use the child component inside the parent component:
 
 ```typescript{1,6-16,20}
 import Card from '../../component/card/index.vue';
-import * as ControllerCard from '../../component/card/controller.js';
 
 export class RenderComponent {
   render() {
-    const slots: ControllerCard.Slots = {
-      header: () => {
-        return <div>this is a header slot from parent</div>;
-      },
-      default: () => {
-        return <div>this is a default slot from parent</div>;
-      },
-      footer: () => {
-        return <div>this is a footer slot from parent</div>;
-      },
-    };
     return (
       <div>
         <Card
-          v-slots={slots}
+          slots={{
+            header: () => {
+              return <div>this is a header slot from parent</div>;
+            },
+            default: () => {
+              return <div>this is a default slot from parent</div>;
+            },
+            footer: () => {
+              return <div>this is a footer slot from parent</div>;
+            },
+          }}
         ></Card>
       </div>
     );
@@ -259,10 +257,7 @@ export class RenderComponent {
 }
 ```
 
-- Import the child component `Card` from `index.vue`
-- Import the type namespace `ControllerCard` from `controller.ts`
-- Define the object `slots` and provide corresponding rendering functions for slots. You can use `ControllerCard.Slots` to constrain types of slots
-- Pass the defined object `slots` to the child component `Card` through `v-slots`
+- Import the child component `Card` from `index.vue`, and then directly pass the value to the `slots` prop of Card
 
 ## How to refer to child component instance?
 
