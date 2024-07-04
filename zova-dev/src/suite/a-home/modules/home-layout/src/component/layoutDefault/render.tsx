@@ -219,7 +219,14 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   }
 
   _renderContent() {
-    return <this.$$scopeModuleATabs.component.routerViewTabs></this.$$scopeModuleATabs.component.routerViewTabs>;
+    const tabsOptions = this.scope.config.tabs;
+    return (
+      <this.$$scopeModuleATabs.component.routerViewTabs
+        scene={tabsOptions.scene}
+        max={tabsOptions.max}
+        persister={tabsOptions.persister}
+      ></this.$$scopeModuleATabs.component.routerViewTabs>
+    );
   }
 
   render() {
