@@ -64,7 +64,7 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     // icon
     const icon = this._handleRouteProp(component.route, 'icon');
     // tab
-    const tab = { key, title, icon };
+    const tab = { key, fullPath: component.route.fullPath, title, icon };
     // add tab
     nextTick(() => {
       this.$$modelTabs.addTab(tab);

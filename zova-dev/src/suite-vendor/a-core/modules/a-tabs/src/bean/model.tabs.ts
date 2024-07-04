@@ -4,6 +4,7 @@ import { ScopeModule } from '../resource/this.js';
 
 export interface RouterTab {
   key: string;
+  fullPath: string;
   title?: string;
   icon?: string;
   updatedAt?: number;
