@@ -54,5 +54,6 @@
     "semver": "^7.6.2",
     "urllib": "^3.24.0",
     "zova-cli-set-front": "^1.1.108"
-  }
+  },
+  "gitHead": "cf9cb9ce71dc675ccc3f1beab4a2dec3849a8005"
 }
