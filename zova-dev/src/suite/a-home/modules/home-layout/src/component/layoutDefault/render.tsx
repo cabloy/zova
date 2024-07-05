@@ -238,15 +238,17 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         >
           {!!menuItem?.icon && <ZovaIcon name={menuItem?.icon} width="24" height="24"></ZovaIcon>}
           {titleLocal}
-          <ZovaIcon
-            class="tab-close hidden hover:bg-slate-400 rounded"
-            name={icon('::close')}
-            width="16"
-            height="16"
-            onClick={withModifiers(() => {
-              this.routerViewTabsRef.$$modelTabs.deleteTab(tab);
-            }, ['stop'])}
-          ></ZovaIcon>
+          {!tab.affix && (
+            <ZovaIcon
+              class="tab-close hidden hover:bg-slate-400 rounded"
+              name={icon('::close')}
+              width="16"
+              height="16"
+              onClick={withModifiers(() => {
+                this.routerViewTabsRef.$$modelTabs.deleteTab(tab);
+              }, ['stop'])}
+            ></ZovaIcon>
+          )}
         </a>
       );
       domTabs.push(domTab);
