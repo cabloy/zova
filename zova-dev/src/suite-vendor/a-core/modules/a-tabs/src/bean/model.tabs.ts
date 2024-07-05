@@ -23,6 +23,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   tabCurrentKey?: string;
   tabCurrentIndex: number;
   tabCurrent?: RouterTab;
+  keepaliveExclude: string[];
 
   protected async __init__(options?: ModelTabsOptions) {
     // options
@@ -54,6 +55,9 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     this.tabCurrent = useComputed(() => {
       const [, tab] = this.findTab(this.tabCurrentKey);
       return tab;
+    });
+    this.keepaliveExclude = useComputed(() => {
+      return this._getKeepaliveExclude();
     });
   }
 
@@ -154,5 +158,15 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     options.max = options.max ?? -1;
     options.persister = !!options.persister;
     return options;
+  }
+
+  _getKeepaliveExclude() {
+    const exclude: string[] = [];
+    for (const tab of this.tabs) {
+      if (tab.keepalive === false && tab.name) {
+        exclude.push(tab.name);
+      }
+    }
+    return exclude;
   }
 }
