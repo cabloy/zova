@@ -2,6 +2,7 @@ import { markRaw, useModel } from 'vue';
 import { BeanBase } from './beanBase.js';
 import { IControllerData } from './type.js';
 import { Cast } from '../types/utils/cast.js';
+import { useRef } from '../vue/ref.js';
 
 type Data = Record<string, unknown>;
 
@@ -31,7 +32,15 @@ export class BeanControllerBase<
     this.$props = controllerData.props as Props;
     this.$emit = controllerData.context.emit as Emits;
     this.$attrs = (controllerData.context.attrs ? markRaw(controllerData.context.attrs) : undefined) as Data;
-    this.$slots = Object.assign({}, Cast(this.$props).slots, controllerData.context.slots) as Slots;
+    this.$slots = useRef(() => {
+      const propSlots = Cast(this.$props).slots;
+      const contextSlots = controllerData.context.slots;
+      if (!propSlots) {
+        return contextSlots ? markRaw(contextSlots) : undefined;
+      } else {
+        return contextSlots ? Object.assign({}, propSlots, contextSlots) : propSlots;
+      }
+    });
     this.app.meta.module._monkeyModuleSync('controllerDataInit', undefined, controllerData, this);
   }
 
