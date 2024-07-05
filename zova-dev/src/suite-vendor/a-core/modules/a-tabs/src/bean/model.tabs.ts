@@ -23,7 +23,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   tabCurrentKey?: string;
   tabCurrentIndex: number;
   tabCurrent?: RouterTab;
-  keepaliveExclude: string[];
+  keepaliveInclude: string[];
 
   protected async __init__(options?: ModelTabsOptions) {
     // options
@@ -56,8 +56,8 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       const [, tab] = this.findTab(this.tabCurrentKey);
       return tab;
     });
-    this.keepaliveExclude = useComputed(() => {
-      return this._getKeepaliveExclude();
+    this.keepaliveInclude = useComputed(() => {
+      return this._getKeepaliveInclude();
     });
   }
 
@@ -169,7 +169,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     }
   }
 
-  _prepareTabsOptions(options?: ModelTabsOptions) {
+  private _prepareTabsOptions(options?: ModelTabsOptions) {
     if (!options) options = {};
     options.scene = options.scene ?? '';
     options.max = options.max ?? -1;
@@ -177,13 +177,13 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     return options;
   }
 
-  _getKeepaliveExclude() {
-    const exclude: string[] = [];
+  private _getKeepaliveInclude() {
+    const include: string[] = [];
     for (const tab of this.tabs) {
-      if (tab.keepalive === false && tab.name) {
-        exclude.push(tab.name);
+      if (tab.keepalive !== false && tab.name) {
+        include.push(tab.name);
       }
     }
-    return exclude;
+    return include;
   }
 }
