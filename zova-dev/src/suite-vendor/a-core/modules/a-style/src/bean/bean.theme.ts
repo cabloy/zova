@@ -64,6 +64,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     watch([() => this.name, () => this._dark], () => {
       this._applyTheme();
     });
+    // not use watch.immediate for await done
     await this._applyTheme();
   }
 
