@@ -79,6 +79,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
         tabsNew.splice(this.tabCurrentIndex + 1, 0, tabNew);
         this.tabs = tabsNew;
       }
+      this.pruneTabs();
     } else {
       this.updateTab(tab);
     }
@@ -150,6 +151,22 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const index = this.tabs.findIndex(item => item.key === key);
     if (index === -1) return [index, undefined];
     return [index, this.tabs[index]];
+  }
+
+  async pruneTabs() {
+    if (!this.tabsOptions.max || this.tabsOptions.max <= 0) return;
+    while (this.tabs.length > this.tabsOptions.max) {
+      let key: string | undefined;
+      let updatedAt = Date.now();
+      for (const tab of this.tabs) {
+        if (!tab.affix && tab.updatedAt! < updatedAt) {
+          key = tab.key;
+          updatedAt = tab.updatedAt!;
+        }
+      }
+      if (!key) break;
+      await this.deleteTab({ key });
+    }
   }
 
   _prepareTabsOptions(options?: ModelTabsOptions) {
