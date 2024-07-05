@@ -14,7 +14,7 @@ declare module 'vue-router' {
     requiresAuth?: boolean;
     name?: string;
     key?: ((route: RouteLocationNormalizedLoaded) => string) | string;
-    keepalive?: ((route: RouteLocationNormalizedLoaded) => boolean) | boolean;
+    keepAlive?: ((route: RouteLocationNormalizedLoaded) => boolean) | boolean;
   }
 }
 

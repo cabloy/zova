@@ -5,7 +5,7 @@ import { ScopeModule } from '../resource/this.js';
 export interface RouterTab {
   key: string;
   name?: string;
-  keepalive?: boolean;
+  keepAlive?: boolean;
   affix?: boolean;
   updatedAt?: number;
 }
@@ -23,7 +23,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   tabCurrentKey?: string;
   tabCurrentIndex: number;
   tabCurrent?: RouterTab;
-  keepaliveInclude: string[];
+  keepAliveInclude: string[];
 
   protected async __init__(options?: ModelTabsOptions) {
     // options
@@ -56,8 +56,8 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       const [, tab] = this.findTab(this.tabCurrentKey);
       return tab;
     });
-    this.keepaliveInclude = useComputed(() => {
-      return this._getKeepaliveInclude();
+    this.keepAliveInclude = useComputed(() => {
+      return this._getKeepAliveInclude();
     });
   }
 
@@ -177,10 +177,10 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     return options;
   }
 
-  private _getKeepaliveInclude() {
+  private _getKeepAliveInclude() {
     const include: string[] = [];
     for (const tab of this.tabs) {
-      if (tab.keepalive !== false && tab.name) {
+      if (tab.keepAlive !== false && tab.name) {
         include.push(tab.name);
       }
     }

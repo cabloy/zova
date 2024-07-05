@@ -49,8 +49,8 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
   }
 
   _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key'): string;
-  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'keepalive'): boolean;
-  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key' | 'keepalive') {
+  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'keepAlive'): boolean;
+  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key' | 'keepAlive') {
     let value = route.meta[prop];
     if (typeof value === 'function') {
       value = value(route);
@@ -64,9 +64,9 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     // key
     const key = this._handleRouteProp(component.route, 'key') || name;
     // key
-    const keepalive = this._handleRouteProp(component.route, 'keepalive');
+    const keepAlive = this._handleRouteProp(component.route, 'keepAlive');
     // tab
-    const tab = { key: component.route.fullPath, name, keepalive };
+    const tab = { key: component.route.fullPath, name, keepAlive };
     // add tab
     nextTick(() => {
       this.$$modelTabs.addTab(tab);

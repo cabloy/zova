@@ -19,7 +19,7 @@ export class RenderRouterViewTabs extends BeanRenderBase<ScopeModule> {
         const { key } = this._handleComponent(component);
         return (
           <Transition>
-            <KeepAlive include={this.$$modelTabs.keepaliveInclude}>
+            <KeepAlive include={this.$$modelTabs.keepAliveInclude}>
               <component.Component key={key}></component.Component>
             </KeepAlive>
           </Transition>
