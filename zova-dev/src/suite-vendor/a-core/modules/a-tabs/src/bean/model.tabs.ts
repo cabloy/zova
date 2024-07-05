@@ -81,19 +81,20 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   async addAffixTabs(affixTabs?: RouterTab[]) {
+    if (!affixTabs) {
+      // donothing
+      return;
+    }
     // record old affixTabs
     const oldTabs: RouterTab[] = [];
     for (const tab of this.tabs) {
-      if (!tab.affix) continue;
-      if (!affixTabs || affixTabs.findIndex(item => item.key === tab.key) === -1) {
+      if (tab.affix && affixTabs.findIndex(item => item.key === tab.key) === -1) {
         oldTabs.push(tab);
       }
     }
     // add new affixTabs
-    if (affixTabs) {
-      for (const tab of affixTabs) {
-        this._addTab(tab);
-      }
+    for (const tab of affixTabs) {
+      this._addTab(tab);
     }
     // delete old affixTabs
     for (const tab of oldTabs) {
