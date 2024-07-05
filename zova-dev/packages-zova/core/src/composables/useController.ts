@@ -88,7 +88,7 @@ async function _useController(
     // undefined better than null
     setControllerRef(ctx, false);
     if (ctx.bean !== ctx.app.bean) {
-      ctx.bean.dispose();
+      ctx.bean?.dispose();
     }
   });
   onUnmounted(() => {
@@ -114,7 +114,7 @@ async function _useController(
 }
 
 function setControllerRef(ctx: ZovaContext, on: boolean) {
-  const controller = ctx.bean._getBeanSyncOnly(BeanControllerIdentifier) as any;
+  const controller = ctx.bean?._getBeanSyncOnly(BeanControllerIdentifier) as any;
   if (!controller) return;
   // instanceScope useless for emit, because emiter and receiver not the same instance
   if (controller.$props?.controllerRef) {
