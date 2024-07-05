@@ -227,6 +227,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       const className =
         tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
       const menuItem = this.$$modelMenu.findMenuItem(tab.key);
+      const titleLocal = this.app.meta.locale.getText(__ThisModule__, undefined, menuItem?.title || '');
       const domTab = (
         <a
           role="tab"
@@ -236,7 +237,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
           }}
         >
           {!!menuItem?.icon && <ZovaIcon name={menuItem?.icon} width="24" height="24"></ZovaIcon>}
-          {menuItem?.title}
+          {titleLocal}
           <ZovaIcon
             class="tab-close hidden hover:bg-slate-400 rounded"
             name={icon('::close')}
