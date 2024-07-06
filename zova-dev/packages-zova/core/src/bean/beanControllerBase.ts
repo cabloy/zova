@@ -1,4 +1,4 @@
-import { markRaw, useModel } from 'vue';
+import { useModel } from 'vue';
 import { BeanBase } from './beanBase.js';
 import { IControllerData } from './type.js';
 import { Cast } from '../types/utils/cast.js';
