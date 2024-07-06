@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-zova",
-  "version": "1.1.109",
+  "version": "1.1.110",
   "description": "Quasar ext of zova",
   "author": "zhennann",
   "type": "module",
@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "vite": "^5.2.10",
-    "zova-core": "^5.0.101",
-    "zova-vite": "^1.0.123"
+    "zova-core": "^5.0.102",
+    "zova-vite": "^1.0.124"
   },
   "gitHead": "cf9cb9ce71dc675ccc3f1beab4a2dec3849a8005"
 }
