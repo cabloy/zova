@@ -85,13 +85,15 @@ async function _useController(
   }
   // dispose
   onBeforeUnmount(() => {
+    if (!ctx.bean) return;
     // undefined better than null
     setControllerRef(ctx, false);
     if (ctx.bean !== ctx.app.bean) {
-      ctx.bean?.dispose();
+      ctx.bean.dispose();
     }
   });
   onUnmounted(() => {
+    if (!ctx.bean) return;
     ctx.dispose();
   });
   // controller
