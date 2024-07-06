@@ -10,7 +10,7 @@ import {
   hashKey,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
-import { useComputed, useCustomRef } from 'zova';
+import { useCustomRef } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
 import { BeanModelQuery } from './bean.model.query.js';
 
@@ -67,7 +67,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       },
     });
     const self = this;
-    return useCustomRef((_track, _trigger) => {
+    return useCustomRef(() => {
       return {
         get() {
           return self._handleSyncDataGet(options, queryClient, true);
@@ -129,14 +129,24 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       },
     );
     const self = this;
-    return useComputed({
-      get() {
-        return self._handleSyncDataGet(options, queryClient, true);
-      },
-      set(value) {
-        self._handleSyncDataSet(options, queryClient, true, value);
-      },
+    return useCustomRef(() => {
+      return {
+        get() {
+          return self._handleSyncDataGet(options, queryClient, true);
+        },
+        set(value) {
+          self._handleSyncDataSet(options, queryClient, true, value);
+        },
+      };
     });
+    // return useComputed({
+    //   get() {
+    //     return self._handleSyncDataGet(options, queryClient, true);
+    //   },
+    //   set(value) {
+    //     self._handleSyncDataSet(options, queryClient, true, value);
+    //   },
+    // });
   }
 
   $useQueryMem<
@@ -166,14 +176,24 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       },
     });
     const self = this;
-    return useComputed({
-      get() {
-        return self._handleSyncDataGet(options, queryClient, false);
-      },
-      set(value) {
-        self._handleSyncDataSet(options, queryClient, false, value);
-      },
+    return useCustomRef(() => {
+      return {
+        get() {
+          return self._handleSyncDataGet(options, queryClient, false);
+        },
+        set(value) {
+          self._handleSyncDataSet(options, queryClient, false, value);
+        },
+      };
     });
+    // return useComputed({
+    //   get() {
+    //     return self._handleSyncDataGet(options, queryClient, false);
+    //   },
+    //   set(value) {
+    //     self._handleSyncDataSet(options, queryClient, false, value);
+    //   },
+    // });
   }
 
   $useQueryExisting<
