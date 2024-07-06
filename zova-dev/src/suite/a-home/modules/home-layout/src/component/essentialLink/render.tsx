@@ -9,7 +9,10 @@ export class RenderEssentialLink extends BeanRenderBase {
   _renderLink() {
     const domContent = [
       <ZovaIcon name={this.$props.icon} height={24} width={24}></ZovaIcon>,
-      <span>{this.$props.title}</span>,
+      <div>
+        <div>{this.$props.title}</div>
+        {this.$props.caption && <div class="text-gray-400">{this.$props.caption}</div>}
+      </div>,
     ];
     if (this.$props.href) {
       return (
