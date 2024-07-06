@@ -30,7 +30,7 @@ const __MenuData = [
         to: '/a/demo/locale',
       },
       {
-        title: 'Style',
+        title: 'Style & Theme',
         caption: 'Style & Theme',
         icon: '',
         to: '/a/demo/style',
