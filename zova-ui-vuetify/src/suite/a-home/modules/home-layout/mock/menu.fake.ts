@@ -27,7 +27,7 @@ const __MenuData = [
     to: '/a/demo/component',
   },
   {
-    title: 'Style & Theme',
+    title: 'CSS-in-JS',
     caption: 'Style & Theme',
     icon: '',
     to: '/a/demo/style',
