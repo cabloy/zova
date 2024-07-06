@@ -31,7 +31,7 @@ export class BeanControllerBase<
   public __initControllerData(controllerData: IControllerData) {
     this.$props = controllerData.props as Props;
     this.$emit = controllerData.context.emit as Emits;
-    this.$attrs = (controllerData.context.attrs ? markRaw(controllerData.context.attrs) : undefined) as Data;
+    this.$attrs = controllerData.context.attrs as Data;
     this.$slots = useRef(() => {
       const propSlots = Cast(this.$props).slots;
       const contextSlots = controllerData.context.slots;
