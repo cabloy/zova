@@ -36,7 +36,7 @@ export class BeanControllerBase<
       const propSlots = Cast(this.$props).slots;
       const contextSlots = controllerData.context.slots;
       if (!propSlots) {
-        return contextSlots ? markRaw(contextSlots) : undefined;
+        return contextSlots;
       } else {
         return contextSlots ? Object.assign({}, propSlots, contextSlots) : propSlots;
       }
