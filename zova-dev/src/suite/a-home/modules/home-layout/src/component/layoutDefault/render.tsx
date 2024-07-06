@@ -227,9 +227,11 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       const className =
         tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
       const menuItem = this.$$modelMenu.findMenuItem(tab.key);
+      if (!menuItem) continue;
       const titleLocal = this.app.meta.locale.getText(__ThisModule__, undefined, menuItem?.title || '');
       const domTab = (
         <a
+          key={tab.key}
           role="tab"
           class={`${className} ${this.styleTab}`}
           onClick={() => {
