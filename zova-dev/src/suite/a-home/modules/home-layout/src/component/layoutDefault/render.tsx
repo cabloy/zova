@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, iconh } from 'zova';
+import { BeanRenderBase, Local } from 'zova';
 import type { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
@@ -45,30 +45,6 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
   }
 
-  _renderUser() {
-    return (
-      <li>
-        <details>
-          <summary>
-            {this.$$modelUser.user?.username}
-            {iconh(this.$$modelUser.user?.avatar as any)}
-          </summary>
-          <ul class="bg-base-100 rounded-t-none p-2 w-32">
-            <li>
-              <a
-                onClick={() => {
-                  this.$$modelUser.logout().mutate();
-                }}
-              >
-                {this.scope.locale.Logout()}
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
-    );
-  }
-
   _renderHeader() {
     return (
       <div class="navbar bg-base-300 w-full">
@@ -90,7 +66,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             {this.$$renderLocale._renderLocale()}
             {this.$$renderTheme._renderThemeDark()}
             {this.$$renderTheme._renderThemeName()}
-            {this._renderUser()}
+            {this.$$renderUser._renderUser()}
           </ul>
         </div>
       </div>

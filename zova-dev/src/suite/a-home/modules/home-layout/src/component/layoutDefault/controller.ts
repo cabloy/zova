@@ -6,6 +6,7 @@ import type { NSControllerRouterViewTabs, ScopeModuleATabs } from 'zova-module-a
 import { RenderTabs } from './renderTabs.jsx';
 import { RenderTheme } from './renderTheme.jsx';
 import { RenderLocale } from './renderLocale.jsx';
+import { RenderUser } from './renderUser.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -31,6 +32,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$renderTheme: RenderTheme;
   @Use()
   $$renderLocale: RenderLocale;
+  @Use()
+  $$renderUser: RenderUser;
 
   routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
   leftDrawerOpen: boolean = false;
