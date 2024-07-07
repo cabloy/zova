@@ -4,6 +4,7 @@ import { ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
 import type { NSControllerRouterViewTabs, ScopeModuleATabs } from 'zova-module-a-tabs';
 import { RenderTabs } from './renderTabs.jsx';
+import { RenderTheme } from './renderTheme.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -20,15 +21,15 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
 
   @Use()
   $$modelMenu: ModelMenu;
-
   @Use()
   $$modelUser: ModelUser;
 
   @Use()
   $$renderTabs: RenderTabs;
+  @Use()
+  $$renderTheme: RenderTheme;
 
   routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
-
   leftDrawerOpen: boolean = false;
 
   protected async __init__() {}
