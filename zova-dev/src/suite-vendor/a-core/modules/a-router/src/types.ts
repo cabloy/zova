@@ -13,7 +13,8 @@ declare module 'vue-router' {
     layout?: keyof IComponentLayoutRecord | 'empty' | 'default' | false | IModuleRouteComponent;
     requiresAuth?: boolean;
     name?: string;
-    key?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+    componentKey?: ((route: RouteLocationNormalizedLoaded) => string) | string;
+    tabKey?: ((route: RouteLocationNormalizedLoaded) => string) | string;
     keepAlive?: ((route: RouteLocationNormalizedLoaded) => boolean) | boolean;
   }
 }

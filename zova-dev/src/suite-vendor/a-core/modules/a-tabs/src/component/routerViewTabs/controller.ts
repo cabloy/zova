@@ -42,9 +42,9 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     return name;
   }
 
-  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key'): string;
+  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'componentKey' | 'tabKey'): string;
   _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'keepAlive'): boolean;
-  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop: 'key' | 'keepAlive') {
+  _handleRouteProp(route: RouteLocationNormalizedLoaded, prop) {
     let value = route.meta[prop];
     if (typeof value === 'function') {
       value = value(route);
@@ -55,9 +55,9 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
   _handleComponent(component: RouterViewSlotParams) {
     // name
     const name = this._handleComponentName(component);
-    // key
-    const key = this._handleRouteProp(component.route, 'key') || name;
-    // key
+    // componentKey
+    const componentKey = this._handleRouteProp(component.route, 'componentKey') || name;
+    // keepAlive
     const keepAlive = this._handleRouteProp(component.route, 'keepAlive');
     // tab
     const tab = { key: component.route.fullPath, name, keepAlive };
@@ -65,6 +65,6 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     nextTick(() => {
       this.$$modelTabs.addTab(tab);
     });
-    return { key };
+    return { componentKey };
   }
 }
