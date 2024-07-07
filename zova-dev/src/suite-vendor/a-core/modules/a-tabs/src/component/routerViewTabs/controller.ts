@@ -60,7 +60,7 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     // componentKey
     const componentKey = this._handleRouteProp(component.route, 'componentKey') || name;
     // tabKey
-    const tabKey = this._handleRouteProp(component.route, 'tabKey') || fullPath;
+    const tabKey = this._handleRouteProp(component.route, 'tabKey') || componentKey;
     // keepAlive
     const keepAlive = this._handleRouteProp(component.route, 'keepAlive');
     // tab

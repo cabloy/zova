@@ -3,7 +3,7 @@ export interface ServiceMenuEntity {
   caption?: string;
   icon?: string;
   href?: string;
-  to?: string;
+  to?: { name?: string } | string;
   folder?: boolean;
   separator?: boolean;
   children?: ServiceMenuEntity[];
