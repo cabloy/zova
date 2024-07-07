@@ -1,6 +1,6 @@
 import { BeanControllerBase, Cast, Local, PropsBase } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { ModelTabs, ModelTabsOptions, RouterTab, RouteTabInfo } from '../../bean/model.tabs.js';
+import { ModelTabs, ModelTabsOptions, RouteTab, RouteTabInfo } from '../../bean/model.tabs.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
 import { nextTick } from 'vue';
@@ -9,8 +9,8 @@ export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
   scene?: string;
   max?: number;
   persister?: boolean;
-  getAffixTabs: () => RouterTab[] | undefined;
-  getTabInfo: (tab: RouterTab) => Promise<RouteTabInfo | undefined>;
+  getAffixTabs: () => RouteTab[] | undefined;
+  getTabInfo: (tab: RouteTab) => Promise<RouteTabInfo | undefined>;
 }
 
 export type Emits = {};
