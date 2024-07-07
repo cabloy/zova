@@ -89,7 +89,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   async _addTab(tab: RouterTab): Promise<boolean> {
-    // must await before findTab
+    // must perform await before findTab
     const tabInfo = await this.tabsOptions.getTabInfo(tab);
     if (!tabInfo) return false;
     // tabs
