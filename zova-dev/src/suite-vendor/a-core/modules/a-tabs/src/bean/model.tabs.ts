@@ -1,6 +1,12 @@
 import { Model, useComputed } from 'zova';
 import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
+import { watch } from 'vue';
+
+export interface RouterTabInfo {
+  title?: string;
+  icon?: string;
+}
 
 export interface RouterTab {
   key: string;
@@ -8,12 +14,15 @@ export interface RouterTab {
   keepAlive?: boolean;
   affix?: boolean;
   updatedAt?: number;
+  info?: RouterTabInfo;
 }
 
 export interface ModelTabsOptions {
   scene?: string;
   max?: number;
   persister?: boolean;
+  getAffixTabs: () => RouterTab[] | undefined;
+  getTabInfo: (tab: RouterTab) => RouterTabInfo | undefined;
 }
 
 @Model()
@@ -25,7 +34,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   tabCurrent?: RouterTab;
   keepAliveInclude: string[];
 
-  protected async __init__(options?: ModelTabsOptions) {
+  protected async __init__(options: ModelTabsOptions) {
     // options
     this.tabsOptions = this._prepareTabsOptions(options);
     // tabs
@@ -59,6 +68,14 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     this.keepAliveInclude = useComputed(() => {
       return this._getKeepAliveInclude();
     });
+    // watch
+    watch(
+      this.tabsOptions.getAffixTabs,
+      value => {
+        this.addAffixTabs(value);
+      },
+      { immediate: true },
+    );
   }
 
   addTab(tab: RouterTab) {
@@ -169,8 +186,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     }
   }
 
-  private _prepareTabsOptions(options?: ModelTabsOptions) {
-    if (!options) options = {};
+  private _prepareTabsOptions(options: ModelTabsOptions) {
     options.scene = options.scene ?? '';
     options.max = options.max ?? -1;
     options.persister = !!options.persister;

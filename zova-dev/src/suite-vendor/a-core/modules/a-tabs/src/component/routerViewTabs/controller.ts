@@ -1,15 +1,16 @@
 import { BeanControllerBase, Cast, Local, PropsBase } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { ModelTabs, ModelTabsOptions, RouterTab } from '../../bean/model.tabs.js';
+import { ModelTabs, ModelTabsOptions, RouterTab, RouterTabInfo } from '../../bean/model.tabs.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
-import { nextTick, watch } from 'vue';
+import { nextTick } from 'vue';
 
 export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
   scene?: string;
   max?: number;
   persister?: boolean;
   getAffixTabs: () => RouterTab[] | undefined;
+  getTabInfo: (tab: RouterTab) => RouterTabInfo | undefined;
 }
 
 export type Emits = {};
@@ -27,17 +28,10 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
       scene: this.$props.scene,
       max: this.$props.max,
       persister: this.$props.persister,
+      getAffixTabs: this.$props.getAffixTabs,
+      getTabInfo: this.$props.getTabInfo,
     };
     this.$$modelTabs = await this.bean._newBean(ModelTabs, true, tabsOptions);
-
-    // watch
-    watch(
-      this.$props.getAffixTabs,
-      value => {
-        this.$$modelTabs.addAffixTabs(value);
-      },
-      { immediate: true },
-    );
   }
 
   _handleComponentName(component: RouterViewSlotParams) {

@@ -62,6 +62,9 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
           if (!this.$$modelMenu.select().data) return;
           return [{ key: '/a/home/home', affix: true }];
         }}
+        getTabInfo={_tab => {
+          return undefined;
+        }}
         controllerRef={ref => {
           this.routerViewTabsRef = ref;
         }}
