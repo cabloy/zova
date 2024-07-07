@@ -13,6 +13,6 @@ export const routes: IModuleRoute[] = [
   { path: 'locale', component: Locale },
   { path: 'style', component: Style },
   { path: 'pinia', component: Pinia },
-  { path: 'routeQuery', component: RouteQuery },
+  { path: 'routeQuery', component: RouteQuery, meta: { tabKey: route => route.path } },
   { path: 'routeParams', component: RouteParams },
 ];

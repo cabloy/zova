@@ -10,6 +10,7 @@ export interface RouterTabInfo {
 
 export interface RouterTab {
   key: string;
+  fullPath?: string;
   name?: string;
   keepAlive?: boolean;
   affix?: boolean;
@@ -88,11 +89,12 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   async _addTab(tab: RouterTab): Promise<boolean> {
+    // must await before findTab
+    const tabInfo = await this.tabsOptions.getTabInfo(tab);
+    if (!tabInfo) return false;
     // tabs
     const [index] = this.findTab(tab.key);
     if (index === -1) {
-      const tabInfo = await this.tabsOptions.getTabInfo(tab);
-      if (!tabInfo) return false;
       const tabNew = { ...tab, updatedAt: Date.now(), info: tabInfo };
       if (this.tabCurrentIndex === -1) {
         this.tabs = [...this.tabs, tabNew];
@@ -136,7 +138,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     this.tabs = tabsNew;
   }
 
-  async deleteTab(tab: RouterTab) {
+  async deleteTab(tab: Pick<RouterTab, 'key'>) {
     // tabs
     const [index] = this.findTab(tab.key);
     if (index === -1) return;
@@ -166,7 +168,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   async activeTab(tab: RouterTab) {
     this.updateTab(tab);
     this.tabCurrentKey = tab.key;
-    await this.$router.push(tab.key);
+    await this.$router.push(tab.fullPath || tab.key);
   }
 
   findTab(key?: string): [number, RouterTab | undefined] {
