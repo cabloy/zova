@@ -65,11 +65,12 @@ export class BeanRouter extends BeanBase {
     });
   }
 
-  public checkPathValid(path?: string): boolean {
-    if (!path) return false;
-    const moduleInfo = ModuleInfo.parseInfo(path);
-    if (!moduleInfo) return true;
-    return this.app.meta.module.exists(moduleInfo.relativeName);
+  public checkPathValid(to?: { name?: string; path?: string } | string): boolean {
+    const _path = to && typeof to === 'object' ? to.name ?? to.path : to;
+    if (!_path) return true;
+    const moduleName = ModuleInfo.parseName(_path);
+    if (!moduleName) return true;
+    return this.app.meta.module.exists(moduleName);
   }
 
   private _resolveNameOrPath(query, fn) {
