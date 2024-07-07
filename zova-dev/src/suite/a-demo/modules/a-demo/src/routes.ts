@@ -1,3 +1,5 @@
+import RouteParams from './page/routeParams/index.vue';
+import RouteQuery from './page/routeQuery/index.vue';
 import Pinia from './page/pinia/index.vue';
 import Style from './page/style/index.vue';
 import Locale from './page/locale/index.vue';
@@ -11,4 +13,6 @@ export const routes: IModuleRoute[] = [
   { path: 'locale', component: Locale },
   { path: 'style', component: Style },
   { path: 'pinia', component: Pinia },
+  { path: 'routeQuery', component: RouteQuery },
+  { path: 'routeParams', component: RouteParams },
 ];
