@@ -29,6 +29,7 @@ export async function generateZovaViteMeta(
   const alias = {
     '@vue/runtime-core': '@cabloy/vue-runtime-core',
     '@vue/reactivity': '@cabloy/vue-reactivity',
+    'vue-router': '@cabloy/vue-router',
   };
   // viteConfig
   const viteConfig = {

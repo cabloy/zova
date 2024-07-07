@@ -5,7 +5,7 @@ export interface Props extends PropsBase<ControllerEssentialLink, Slots> {
   caption?: string;
   icon?: string;
   href?: string;
-  to?: string;
+  to?: { name: string } | string;
 }
 
 export type Emits = {};

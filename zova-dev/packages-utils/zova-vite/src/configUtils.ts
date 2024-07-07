@@ -36,7 +36,7 @@ const __ZovaManualChunkVendors = [
     match: ['reflect-metadata', '@cabloy', 'zova', 'zova-core', 'packages-zova/core'],
     output: 'zova',
   },
-  { match: ['vue-router'], output: 'vue-router' },
+  { match: ['vue-router', '@cabloy/vue-router'], output: 'vue-router' },
   { match: ['pinia'], output: 'pinia' },
   { match: ['js-cookie'], output: 'js-cookie' },
 ];

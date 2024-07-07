@@ -96,10 +96,10 @@ importers:
         specifier: ^5.2.10
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.100
+        specifier: ^5.0.102
         version: link:../../packages-zova/core
       zova-vite:
-        specifier: ^1.0.122
+        specifier: ^1.0.124
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -132,6 +132,9 @@ importers:
       '@cabloy/vue-reactivity':
         specifier: ^3.4.34
         version: 3.4.34
+      '@cabloy/vue-router':
+        specifier: ^4.4.1
+        version: 4.4.1(vue@3.4.29(typescript@5.4.5))
       '@cabloy/vue-runtime-core':
         specifier: ^3.4.34
         version: 3.4.34
@@ -178,7 +181,7 @@ importers:
         specifier: ^5.2.11
         version: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-core:
-        specifier: ^5.0.100
+        specifier: ^5.0.102
         version: link:../../packages-zova/core
     devDependencies:
       '@types/fs-extra':
@@ -205,6 +208,9 @@ importers:
       '@cabloy/vue-reactivity':
         specifier: ^3.4.34
         version: 3.4.34
+      '@cabloy/vue-router':
+        specifier: ^4.4.1
+        version: 4.4.1(vue@3.4.29(typescript@5.4.5))
       '@cabloy/vue-runtime-core':
         specifier: ^3.4.34
         version: 3.4.34
@@ -230,10 +236,10 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.100
+        specifier: ^5.0.102
         version: link:../core
       zova-suite-a-core:
-        specifier: ^5.0.75
+        specifier: ^5.0.77
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -255,19 +261,19 @@ importers:
         specifier: ^5.0.42
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.15
+        specifier: ^5.0.16
         version: link:modules/a-model
       zova-module-a-pinia:
         specifier: ^5.0.20
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.48
+        specifier: ^5.0.49
         version: link:modules/a-router
       zova-module-a-style:
         specifier: ^5.0.22
         version: link:modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.6
+        specifier: ^5.0.7
         version: link:modules/a-tabs
 
   src/suite-vendor/a-core/modules/a-core: {}
@@ -576,6 +582,11 @@ packages:
 
   '@cabloy/vue-reactivity@3.4.34':
     resolution: {integrity: sha512-ymgzC2+a43eu6f0lcNS0LUuyekYZfacph/xhYbXE96Ap7uPi8uBWo/XM5bQmH7yzq/ILK/FPG90QdJJQLtYPnQ==}
+
+  '@cabloy/vue-router@4.4.1':
+    resolution: {integrity: sha512-t2Za+mz0e1Sr1W8Z/H8q497OrwdzPgxmPcG98uasYV6NX/AtKYimngfZMpTHCes/cZe5s2njNe6ypa+UgL9Jpg==}
+    peerDependencies:
+      vue: ^3.2.0
 
   '@cabloy/vue-runtime-core@3.4.34':
     resolution: {integrity: sha512-AxZYPXT96ACC5wi5c9ka+okj6CtFPb7RJO7bQqt5IhzPBQ0Lqq/xWGNFpJ2gXA6FA+I4nAcVV5fRLIl4Q1aHwA==}
@@ -3058,6 +3069,11 @@ snapshots:
   '@cabloy/vue-reactivity@3.4.34':
     dependencies:
       '@vue/shared': 3.4.31
+
+  '@cabloy/vue-router@4.4.1(vue@3.4.29(typescript@5.4.5))':
+    dependencies:
+      '@vue/devtools-api': 6.6.3
+      vue: 3.4.29(typescript@5.4.5)
 
   '@cabloy/vue-runtime-core@3.4.34':
     dependencies:
