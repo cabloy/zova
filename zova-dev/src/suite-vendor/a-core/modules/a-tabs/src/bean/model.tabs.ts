@@ -3,19 +3,19 @@ import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 import { watch } from 'vue';
 
-export interface RouterTabInfo {
+export interface RouteTabInfo {
   title?: string;
   icon?: string;
 }
 
-export interface RouterTab {
+export interface RouteTab {
   key: string;
   fullPath?: string;
   name?: string;
   keepAlive?: boolean;
   affix?: boolean;
   updatedAt?: number;
-  info?: RouterTabInfo;
+  info?: RouteTabInfo;
 }
 
 export interface ModelTabsOptions {
@@ -23,7 +23,7 @@ export interface ModelTabsOptions {
   max?: number;
   persister?: boolean;
   getAffixTabs: () => RouterTab[] | undefined;
-  getTabInfo: (tab: RouterTab) => Promise<RouterTabInfo | undefined>;
+  getTabInfo: (tab: RouterTab) => Promise<RouteTabInfo | undefined>;
 }
 
 @Model()
