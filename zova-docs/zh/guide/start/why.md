@@ -71,7 +71,7 @@ Zova 提供了分层的 IOC 容器，具体而言，提供了两类 IOC 容器�
 
 ## 额外好处
 
-基于 Vue3 强大而且灵活的响应式 API，IOC 容器在创建 Class 实例时自动包裹一层 reactive，那么就可以收到如下好处：
+基于 Vue3 强大而且灵活的响应式系统，IOC 容器在创建 Class 实例时自动包裹一层 reactive，那么就可以收到如下好处：
 
 1. `不用ref/reactive`：有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`
 2. `不用ref.value`：因为不用`ref`，自然也就不用再写大量的`ref.value`

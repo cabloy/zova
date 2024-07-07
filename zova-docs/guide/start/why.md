@@ -71,7 +71,7 @@ As shown in the figure, a Vue component corresponds to an IOC container, and 6 C
 
 ## Additional benefits
 
-Based on Vue3's powerful and flexible reactive API, the IOC container automatically wraps a layer of reactive when creating a Class instance, so you can get the following benefits:
+Based on Vue3's powerful and flexible reactive system, the IOC container automatically wraps a layer of reactive when creating a Class instance, so you can get the following benefits:
 
 1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
 2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`
