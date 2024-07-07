@@ -1,10 +1,9 @@
-import { BeanRenderBase, Local, ZovaIcon, icon, iconh } from 'zova';
+import { BeanRenderBase, Local, iconh } from 'zova';
 import type { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule, __ThisModule__ } from '../../resource/this.js';
-import { withModifiers } from 'vue';
 
 export interface RenderLayoutDefault extends StyleLayoutDefault {}
 
@@ -197,7 +196,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
             </svg>
           </label>
         </div>
-        <div class="mx-2 flex-1 px-2">{this._renderTabs()}</div>
+        <div class="mx-2 flex-1 px-2">{this.$$renderTabs._renderTabs()}</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
             {this._renderLocale()}
@@ -219,74 +218,13 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     );
   }
 
-  _renderTabs() {
-    if (!this.routerViewTabsRef) return;
-
-    const domTabs: JSX.Element[] = [];
-    for (const tab of this.routerViewTabsRef.$$modelTabs.tabs) {
-      const className =
-        tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
-      const menuItem = this.$$modelMenu.findMenuItem(tab.key);
-      if (!menuItem) continue;
-      const titleLocal = this.app.meta.locale.getText(__ThisModule__, undefined, menuItem?.title || '');
-      const domTab = (
-        <a
-          key={tab.key}
-          role="tab"
-          class={`${className} ${this.styleTab}`}
-          onClick={() => {
-            this.routerViewTabsRef.$$modelTabs.activeTab(tab);
-          }}
-        >
-          {!!menuItem?.icon && <ZovaIcon name={menuItem?.icon} width="24" height="24"></ZovaIcon>}
-          {titleLocal}
-          {!tab.affix && (
-            <ZovaIcon
-              class="tab-close hidden hover:bg-slate-400 rounded"
-              name={icon('::close')}
-              width="16"
-              height="16"
-              onClick={withModifiers(() => {
-                this.routerViewTabsRef.$$modelTabs.deleteTab(tab);
-              }, ['stop'])}
-            ></ZovaIcon>
-          )}
-        </a>
-      );
-      domTabs.push(domTab);
-    }
-    return (
-      <div role="tablist" class="tabs tabs-lifted">
-        {domTabs}
-      </div>
-    );
-  }
-
-  _renderContent() {
-    const tabsOptions = this.scope.config.tabs;
-    return (
-      <this.$$scopeModuleATabs.component.routerViewTabs
-        scene={tabsOptions.scene}
-        max={tabsOptions.max}
-        persister={tabsOptions.persister}
-        getAffixTabs={() => {
-          if (!this.$$modelMenu.select().data) return;
-          return [{ key: '/a/home/home', affix: true }];
-        }}
-        controllerRef={ref => {
-          this.routerViewTabsRef = ref;
-        }}
-      ></this.$$scopeModuleATabs.component.routerViewTabs>
-    );
-  }
-
   render() {
     return (
       <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           {this._renderHeader()}
-          {this._renderContent()}
+          {this.$$renderTabs._renderContent()}
         </div>
         {this._renderSidebar()}
       </div>

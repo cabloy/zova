@@ -3,6 +3,7 @@ import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
 import type { NSControllerRouterViewTabs, ScopeModuleATabs } from 'zova-module-a-tabs';
+import { RenderTabs } from './renderTabs.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -14,14 +15,17 @@ export interface Slots {}
 export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
+  @UseScope('a-tabs')
+  $$scopeModuleATabs: ScopeModuleATabs;
+
   @Use()
   $$modelMenu: ModelMenu;
 
   @Use()
   $$modelUser: ModelUser;
 
-  @UseScope('a-tabs')
-  $$scopeModuleATabs: ScopeModuleATabs;
+  @Use()
+  $$renderTabs: RenderTabs;
 
   routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
 
