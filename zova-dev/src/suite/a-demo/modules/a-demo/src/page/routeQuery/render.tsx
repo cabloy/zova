@@ -20,12 +20,12 @@ export class RenderRouteQuery extends BeanRenderBase<ScopeModule> {
             </thead>
             <tbody>
               <tr>
-                <td>this.$query.name</td>
+                <td>$query.name</td>
                 <td>{this.$query.name}</td>
                 <td>{typeof this.$query.name}</td>
               </tr>
               <tr>
-                <td>this.$query.age</td>
+                <td>$query.age</td>
                 <td>{this.$query.age}</td>
                 <td>{typeof this.$query.age}</td>
               </tr>
