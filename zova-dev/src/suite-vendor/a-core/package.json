@@ -1,6 +1,6 @@
 {
   "name": "zova-suite-a-core",
-  "version": "5.0.77",
+  "version": "5.0.78",
   "title": "a-core",
   "type": "module",
   "description": "core",
@@ -10,9 +10,9 @@
     "zova-module-a-core": "^5.0.42",
     "zova-module-a-model": "^5.0.16",
     "zova-module-a-pinia": "^5.0.20",
-    "zova-module-a-router": "^5.0.49",
+    "zova-module-a-router": "^5.0.50",
     "zova-module-a-style": "^5.0.22",
-    "zova-module-a-tabs": "^5.0.7"
+    "zova-module-a-tabs": "^5.0.8"
   },
   "gitHead": "cf9cb9ce71dc675ccc3f1beab4a2dec3849a8005"
 }
