@@ -10,7 +10,7 @@ export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
   max?: number;
   persister?: boolean;
   getAffixTabs: () => RouterTab[] | undefined;
-  getTabInfo: (tab: RouterTab) => RouterTabInfo | undefined;
+  getTabInfo: (tab: RouterTab) => Promise<RouterTabInfo | undefined>;
 }
 
 export type Emits = {};

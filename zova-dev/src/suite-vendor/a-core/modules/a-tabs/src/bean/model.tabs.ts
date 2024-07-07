@@ -22,7 +22,7 @@ export interface ModelTabsOptions {
   max?: number;
   persister?: boolean;
   getAffixTabs: () => RouterTab[] | undefined;
-  getTabInfo: (tab: RouterTab) => RouterTabInfo | undefined;
+  getTabInfo: (tab: RouterTab) => Promise<RouterTabInfo | undefined>;
 }
 
 @Model()
@@ -78,17 +78,22 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     );
   }
 
-  addTab(tab: RouterTab) {
-    this._addTab(tab);
-    // current
-    this.tabCurrentKey = tab.key;
+  async addTab(tab: RouterTab): Promise<boolean> {
+    const res = await this._addTab(tab);
+    if (res) {
+      // current
+      this.tabCurrentKey = tab.key;
+    }
+    return res;
   }
 
-  _addTab(tab: RouterTab) {
+  async _addTab(tab: RouterTab): Promise<boolean> {
     // tabs
     const [index] = this.findTab(tab.key);
     if (index === -1) {
-      const tabNew = { ...tab, updatedAt: Date.now() };
+      const tabInfo = await this.tabsOptions.getTabInfo(tab);
+      if (!tabInfo) return false;
+      const tabNew = { ...tab, updatedAt: Date.now(), info: tabInfo };
       if (this.tabCurrentIndex === -1) {
         this.tabs = [...this.tabs, tabNew];
       } else {
@@ -100,6 +105,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     } else {
       this.updateTab(tab);
     }
+    return true;
   }
 
   async addAffixTabs(affixTabs?: RouterTab[]) {
@@ -116,7 +122,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     }
     // add new affixTabs
     for (const tab of affixTabs) {
-      this._addTab(tab);
+      await this._addTab(tab);
     }
     // delete old affixTabs
     for (const tab of oldTabs) {
