@@ -1,50 +1,11 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleLayoutDefault } from './style.js';
-import { JSX } from 'vue/jsx-runtime';
-import EssentialLink from '../essentialLink/index.vue';
-import { ServiceMenuEntity } from '../../api/index.js';
-import { ScopeModule, __ThisModule__ } from '../../resource/this.js';
+import { ScopeModule } from '../../resource/this.js';
 
 export interface RenderLayoutDefault extends StyleLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
-  _renderMenuItem(item: ServiceMenuEntity) {
-    const titleLocale = this.app.meta.locale.getText(__ThisModule__, undefined, item.title);
-    if (item.separator) {
-      return <li></li>;
-    }
-    if (item.folder) {
-      return (
-        <li>
-          <h2 class="menu-title">{titleLocale}</h2>
-          <ul>{this._renderMenuItems(item.children)}</ul>
-        </li>
-      );
-    }
-    return (
-      <li key={item.title}>
-        <EssentialLink title={titleLocale} caption={item.caption} icon={item.icon} href={item.href} to={item.to} />
-      </li>
-    );
-  }
-
-  _renderMenuItems(items?: ServiceMenuEntity[]) {
-    if (!items) return;
-    const domItems: JSX.Element[] = [];
-    for (const item of items) {
-      domItems.push(this._renderMenuItem(item));
-    }
-    return domItems;
-  }
-
-  _renderMenu() {
-    const queryMenus = this.$$modelMenu.select();
-    if (queryMenus.isLoading || !queryMenus.data) return;
-    const domItems = this._renderMenuItems(queryMenus.data);
-    return <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">{domItems}</ul>;
-  }
-
   _renderHeader() {
     return (
       <div class="navbar bg-base-300 w-full">
@@ -77,7 +38,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
     return (
       <div class="drawer-side">
         <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-        {this._renderMenu()}
+        {this.$$renderMenu._renderMenu()}
       </div>
     );
   }
