@@ -8,7 +8,7 @@ import * as NSControllerPageStyle from '../page/style/controller.js';
 import * as NSControllerPagePinia from '../page/pinia/controller.js';
 import * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
-// import { TypePageParamsQuery } from 'zova';
+import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
@@ -19,7 +19,10 @@ declare module 'zova' {
     '/a/demo/routeParams': NSControllerPageRouteParams.QueryInput;
   }
   export interface IPageNameRecord {
-    // 'a-demo:page-name': TypePageParamsQuery<NSControllerPagePageName.QueryInput, NSControllerPagePageName.ParamsInput>;
+    'a-demo:routeParams': TypePageParamsQuery<
+      NSControllerPageRouteParams.QueryInput,
+      NSControllerPageRouteParams.ParamsInput
+    >;
   }
 }
 
@@ -42,8 +45,8 @@ export const pagePathSchemas = {
 };
 
 export const pageNameSchemas = {
-  // 'a-demo:page-name': {
-  //   params: NSControllerPagePageName.ParamsSchema,
-  //   query: NSControllerPagePageName.QuerySchema,
-  // },
+  'a-demo:routeParams': {
+    params: NSControllerPageRouteParams.ParamsSchema,
+    query: NSControllerPageRouteParams.QuerySchema,
+  },
 };

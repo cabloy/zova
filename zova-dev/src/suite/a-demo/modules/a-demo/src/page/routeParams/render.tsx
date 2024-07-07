@@ -9,7 +9,7 @@ export class RenderRouteParams extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <this.$component.page>
-        <div>to be done</div>
+        <div>{this.$params.id}</div>
       </this.$component.page>
     );
   }

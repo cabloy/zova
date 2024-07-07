@@ -14,5 +14,5 @@ export const routes: IModuleRoute[] = [
   { path: 'style', component: Style },
   { path: 'pinia', component: Pinia },
   { path: 'routeQuery', component: RouteQuery, meta: { tabKey: route => route.path } },
-  { path: 'routeParams', component: RouteParams },
+  { name: 'routeParams', path: 'routeParams/:id?', component: RouteParams },
 ];
