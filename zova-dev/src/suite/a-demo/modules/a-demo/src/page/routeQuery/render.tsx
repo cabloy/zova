@@ -7,6 +7,10 @@ export interface RenderRouteQuery extends StyleRouteQuery {}
 @Local()
 export class RenderRouteQuery extends BeanRenderBase<ScopeModule> {
   render() {
-    return <div>to be done</div>;
+    return (
+      <this.$component.page>
+        <div>to be done</div>
+      </this.$component.page>
+    );
   }
 }
