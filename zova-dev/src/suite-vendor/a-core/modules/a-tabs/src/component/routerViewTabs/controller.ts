@@ -57,10 +57,12 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
     const name = this._handleComponentName(component);
     // componentKey
     const componentKey = this._handleRouteProp(component.route, 'componentKey') || name;
+    // tabKey
+    const tabKey = this._handleRouteProp(component.route, 'tabKey') || component.route.fullPath;
     // keepAlive
     const keepAlive = this._handleRouteProp(component.route, 'keepAlive');
     // tab
-    const tab = { key: component.route.fullPath, name, keepAlive };
+    const tab = { key: tabKey, name, keepAlive };
     // add tab
     nextTick(() => {
       this.$$modelTabs.addTab(tab);
