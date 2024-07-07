@@ -63,8 +63,12 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
           return [{ key: '/a/home/home', affix: true }];
         }}
         getTabInfo={async tab => {
-          if (!this.$$modelMenu.select().data) {
-            await this.$$modelMenu.select().suspense();
+          const queryMenu = this.$$modelMenu.select();
+          if (!queryMenu.data && !queryMenu.isError) {
+            await queryMenu.suspense();
+          }
+          if (queryMenu.isError) {
+            throw queryMenu.error;
           }
           const menuItem = this.$$modelMenu.findMenuItem(tab.key);
           if (!menuItem) return undefined;
