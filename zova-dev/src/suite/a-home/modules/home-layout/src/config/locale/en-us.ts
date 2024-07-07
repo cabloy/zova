@@ -8,4 +8,13 @@ export default {
   ThemeAuto: 'Auto',
   ThemeDefault: 'Default',
   ThemeOrange: 'Orange',
+  Basic: 'Basic',
+  Business: 'Business',
+  State: 'State',
+  Component: 'Component',
+  'Route Query': 'Route Query',
+  'Route Params': 'Route Params',
+  Locale: 'Locale',
+  'Todo: CRUD': 'Todo: CRUD',
+  Docs: 'Docs',
 };

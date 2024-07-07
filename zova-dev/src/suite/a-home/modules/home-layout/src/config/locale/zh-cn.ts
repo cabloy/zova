@@ -8,4 +8,13 @@ export default {
   ThemeAuto: '自动',
   ThemeDefault: '默认',
   ThemeOrange: '橘色',
+  Basic: '基础',
+  Business: '业务',
+  State: '状态',
+  Component: '组件',
+  'Route Query': '路由Query',
+  'Route Params': '路由Params',
+  Locale: '本地化',
+  'Todo: CRUD': 'Todo: 增删改查',
+  Docs: '文档',
 };
