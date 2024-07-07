@@ -133,8 +133,8 @@ importers:
         specifier: ^3.4.34
         version: 3.4.34
       '@cabloy/vue-router':
-        specifier: ^4.4.1
-        version: 4.4.1(vue@3.4.29(typescript@5.4.5))
+        specifier: ^4.4.2
+        version: 4.4.2(vue@3.4.29(typescript@5.4.5))
       '@cabloy/vue-runtime-core':
         specifier: ^3.4.34
         version: 3.4.34
@@ -209,8 +209,8 @@ importers:
         specifier: ^3.4.34
         version: 3.4.34
       '@cabloy/vue-router':
-        specifier: ^4.4.1
-        version: 4.4.1(vue@3.4.29(typescript@5.4.5))
+        specifier: ^4.4.2
+        version: 4.4.2(vue@3.4.29(typescript@5.4.5))
       '@cabloy/vue-runtime-core':
         specifier: ^3.4.34
         version: 3.4.34
@@ -583,8 +583,8 @@ packages:
   '@cabloy/vue-reactivity@3.4.34':
     resolution: {integrity: sha512-ymgzC2+a43eu6f0lcNS0LUuyekYZfacph/xhYbXE96Ap7uPi8uBWo/XM5bQmH7yzq/ILK/FPG90QdJJQLtYPnQ==}
 
-  '@cabloy/vue-router@4.4.1':
-    resolution: {integrity: sha512-t2Za+mz0e1Sr1W8Z/H8q497OrwdzPgxmPcG98uasYV6NX/AtKYimngfZMpTHCes/cZe5s2njNe6ypa+UgL9Jpg==}
+  '@cabloy/vue-router@4.4.2':
+    resolution: {integrity: sha512-C6SE4XGz1jbWHkZiJOgklisWW4K1dR+Vrvqa7vOeGfI0U4JdTl23cjKlUSRjDhbwZOvU/tC4q5pv3GLkGQHeNQ==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -3070,7 +3070,7 @@ snapshots:
     dependencies:
       '@vue/shared': 3.4.31
 
-  '@cabloy/vue-router@4.4.1(vue@3.4.29(typescript@5.4.5))':
+  '@cabloy/vue-router@4.4.2(vue@3.4.29(typescript@5.4.5))':
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.29(typescript@5.4.5)
