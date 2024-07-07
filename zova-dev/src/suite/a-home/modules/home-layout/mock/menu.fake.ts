@@ -24,8 +24,20 @@ const __MenuData = [
         to: '/a/demo/component',
       },
       {
+        title: 'Route Query',
+        caption: 'Typesafe',
+        icon: '',
+        to: '/a/demo/routeQuery',
+      },
+      {
+        title: 'Route Params',
+        caption: 'Typesafe',
+        icon: '',
+        to: '/a/demo/routeParams',
+      },
+      {
         title: 'Locale',
-        caption: '',
+        caption: 'I18n',
         icon: '',
         to: '/a/demo/locale',
       },
