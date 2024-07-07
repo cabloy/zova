@@ -45,7 +45,7 @@ This container is bound to a `Vue component instance`. The advantage of providin
 
 ### 1. Solve the drawbacks to mixins
 
-Users who have used Vue2 may be familiar with `mixins`. `Component instance containers` solve all the drawbacks to mixins:
+Users who have used Vue2 may be familiar with `mixins`. `IOC container` can solve all the drawbacks to mixins:
 
 1. Unclear source of properties: In IOC, Class performs its own duties, and it is easy to trace the source of `this` and locate its source
 2. Namespace collisions: In IOC, Class instances have their own variable names, so there is no hidden danger of naming conflicts
@@ -71,7 +71,7 @@ As shown in the figure, a Vue component corresponds to an IOC container, and 6 C
 
 ## Additional benefits
 
-Introducing the IOC container and implementing all services through Class, you can implement reactive based on Class instances. Then, you can receive the following benefits:
+Based on Vue3's powerful and flexible reactive API, the IOC container automatically wraps a layer of reactive when creating a Class instance, so you can get the following benefits:
 
 1. `No ref/reactive`: With the support of ioc container, defining reactive states no longer needs `ref/reactive`
 2. `No ref.value`: Without `ref`, naturally there is no need to write a lot of `ref.value`
