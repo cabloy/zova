@@ -30,6 +30,12 @@ const __MenuData = [
         to: '/a/demo/routeQuery',
       },
       {
+        title: 'Route Query2',
+        caption: 'boolean, json, array',
+        icon: '',
+        to: '/a/demo/routeQuery2',
+      },
+      {
         title: 'Route Params',
         caption: 'Typesafe',
         icon: '',

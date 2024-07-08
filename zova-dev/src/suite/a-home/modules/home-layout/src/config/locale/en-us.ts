@@ -13,6 +13,7 @@ export default {
   State: 'State',
   Component: 'Component',
   'Route Query': 'Route Query',
+  'Route Query2': 'Route Query(2)',
   'Route Params': 'Route Params',
   Locale: 'Locale',
   'Todo: CRUD': 'Todo: CRUD',

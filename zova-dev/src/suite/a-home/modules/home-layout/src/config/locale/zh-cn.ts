@@ -13,6 +13,7 @@ export default {
   State: '状态',
   Component: '组件',
   'Route Query': '路由Query',
+  'Route Query2': '路由Query(2)',
   'Route Params': '路由Params',
   Locale: '本地化',
   'Todo: CRUD': 'Todo: 增删改查',
