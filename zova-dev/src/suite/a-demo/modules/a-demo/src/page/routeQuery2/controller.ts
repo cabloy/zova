@@ -5,7 +5,23 @@ export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
 export type ParamsOutput = zz.output<typeof ParamsSchema>;
 
-export const QuerySchema = zz.object({});
+export const QuerySchema = zz.object({
+  private: zz.boolean().optional(),
+  user: zz
+    .object({
+      name: zz.string(),
+      age: zz.number(),
+    })
+    .optional(),
+  todos: zz
+    .array(
+      zz.object({
+        title: zz.string(),
+        done: zz.boolean(),
+      }),
+    )
+    .optional(),
+});
 export type QueryInput = zz.input<typeof QuerySchema>;
 export type QueryOutput = zz.output<typeof QuerySchema>;
 
