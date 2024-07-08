@@ -254,6 +254,8 @@ importers:
         specifier: ^5.45.0
         version: 5.50.1(vue@3.4.31(typescript@5.5.3))
 
+  src/module/test-ioc: {}
+
   src/module/test-task2: {}
 
   src/module/test-todo: {}
