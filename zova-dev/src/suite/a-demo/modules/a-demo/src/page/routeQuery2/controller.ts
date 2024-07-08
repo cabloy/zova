@@ -27,7 +27,10 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 
 @Local()
 export class ControllerPageRouteQuery2 extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
-  protected async __init__() {}
-
-  protected __dispose__() {}
+  togglePrivate() {
+    const _private = this.$query.private ? false : true;
+    const query = { ...this.$query, private: _private };
+    const url = this.$router.resolvePath('/a/demo/routeQuery2', query);
+    this.$router.push(url);
+  }
 }
