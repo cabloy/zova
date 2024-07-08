@@ -1,3 +1,4 @@
+import RouteQuery2 from './page/routeQuery2/index.vue';
 import RouteParams from './page/routeParams/index.vue';
 import RouteQuery from './page/routeQuery/index.vue';
 import Pinia from './page/pinia/index.vue';
@@ -15,4 +16,5 @@ export const routes: IModuleRoute[] = [
   { path: 'pinia', component: Pinia },
   { path: 'routeQuery', component: RouteQuery },
   { name: 'routeParams', path: 'routeParams/:id?', component: RouteParams },
+  { path: 'routeQuery2', component: RouteQuery2 },
 ];

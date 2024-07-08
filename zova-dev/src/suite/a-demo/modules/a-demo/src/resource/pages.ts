@@ -1,3 +1,4 @@
+export * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
 export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 export * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 export * as NSControllerPagePinia from '../page/pinia/controller.js';
@@ -8,6 +9,7 @@ import * as NSControllerPageStyle from '../page/style/controller.js';
 import * as NSControllerPagePinia from '../page/pinia/controller.js';
 import * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
+import * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
 import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
@@ -17,6 +19,7 @@ declare module 'zova' {
     '/a/demo/pinia': NSControllerPagePinia.QueryInput;
     '/a/demo/routeQuery': NSControllerPageRouteQuery.QueryInput;
     '/a/demo/routeParams': NSControllerPageRouteParams.QueryInput;
+    '/a/demo/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
   }
   export interface IPageNameRecord {
     'a-demo:routeParams': TypePageParamsQuery<
@@ -41,6 +44,9 @@ export const pagePathSchemas = {
   },
   '/a/demo/routeParams': {
     query: NSControllerPageRouteParams.QuerySchema,
+  },
+  '/a/demo/routeQuery2': {
+    query: NSControllerPageRouteQuery2.QuerySchema,
   },
 };
 
