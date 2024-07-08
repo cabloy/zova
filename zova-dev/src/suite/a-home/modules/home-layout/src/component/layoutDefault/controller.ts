@@ -8,6 +8,7 @@ import { RenderTheme } from './renderTheme.jsx';
 import { RenderLocale } from './renderLocale.jsx';
 import { RenderUser } from './renderUser.jsx';
 import { RenderSidebar } from './renderSidebar.jsx';
+import { RenderHeader } from './renderHeader.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -35,6 +36,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$renderLocale: RenderLocale;
   @Use()
   $$renderUser: RenderUser;
+  @Use()
+  $$renderHeader: RenderHeader;
   @Use()
   $$renderSidebar: RenderSidebar;
 
