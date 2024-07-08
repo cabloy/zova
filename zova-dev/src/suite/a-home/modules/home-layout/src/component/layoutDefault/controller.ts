@@ -7,7 +7,7 @@ import { RenderTabs } from './renderTabs.jsx';
 import { RenderTheme } from './renderTheme.jsx';
 import { RenderLocale } from './renderLocale.jsx';
 import { RenderUser } from './renderUser.jsx';
-import { RenderMenu } from './renderMenu.jsx';
+import { RenderSidebar } from './renderSidebar.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -36,7 +36,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   @Use()
   $$renderUser: RenderUser;
   @Use()
-  $$renderMenu: RenderMenu;
+  $$renderSidebar: RenderSidebar;
 
   routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
   leftDrawerOpen: boolean = false;

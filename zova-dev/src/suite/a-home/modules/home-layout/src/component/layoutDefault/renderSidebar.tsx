@@ -5,10 +5,19 @@ import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { JSX } from 'vue/jsx-runtime';
 
-export interface RenderMenu extends StyleLayoutDefault {}
+export interface RenderSidebar extends StyleLayoutDefault {}
 
 @Local()
-export class RenderMenu extends BeanRenderBase<ScopeModule> {
+export class RenderSidebar extends BeanRenderBase<ScopeModule> {
+  _renderSidebar() {
+    return (
+      <div class="drawer-side">
+        <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+        {this._renderMenu()}
+      </div>
+    );
+  }
+
   _renderMenuItem(item: ServiceMenuEntity) {
     const titleLocale = this.app.meta.locale.getText(__ThisModule__, undefined, item.title);
     if (item.separator) {
