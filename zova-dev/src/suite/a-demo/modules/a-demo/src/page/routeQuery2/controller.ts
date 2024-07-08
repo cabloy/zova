@@ -6,6 +6,7 @@ export type ParamsInput = zz.input<typeof ParamsSchema>;
 export type ParamsOutput = zz.output<typeof ParamsSchema>;
 
 export const QuerySchema = zz.object({
+  tabName: zz.string().optional().default('boolean'),
   private: zz.boolean().optional(),
   user: zz
     .json({
@@ -46,6 +47,14 @@ export class ControllerPageRouteQuery2 extends BeanControllerPageBase<ScopeModul
       (this.$query.todos?.length ?? 0) % 2 === 0 ? { title: 'Running', done: false } : { title: 'Eating', done: true };
     const todos = this.$query.todos ? [todo].concat(this.$query.todos) : [todo];
     const query = { ...this.$query, todos };
+    const url = this.$router.resolvePath('/a/demo/routeQuery2', query);
+    this.$router.push(url);
+  }
+
+  toggleTab(event, tabName: string) {
+    const checked = event.target.checked;
+    if (!checked) return;
+    const query = { ...this.$query, tabName };
     const url = this.$router.resolvePath('/a/demo/routeQuery2', query);
     this.$router.push(url);
   }
