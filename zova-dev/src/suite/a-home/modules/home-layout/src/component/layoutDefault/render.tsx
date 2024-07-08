@@ -12,7 +12,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           {this.$$renderHeader._renderHeader()}
-          {this.$$renderTabs._renderContent()}
+          {this.$$renderContent._renderContent()}
         </div>
         {this.$$renderSidebar._renderSidebar()}
       </div>

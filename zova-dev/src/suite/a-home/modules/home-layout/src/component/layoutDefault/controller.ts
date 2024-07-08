@@ -9,6 +9,7 @@ import { RenderLocale } from './renderLocale.jsx';
 import { RenderUser } from './renderUser.jsx';
 import { RenderSidebar } from './renderSidebar.jsx';
 import { RenderHeader } from './renderHeader.jsx';
+import { RenderContent } from './renderContent.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -29,6 +30,12 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$modelUser: ModelUser;
 
   @Use()
+  $$renderHeader: RenderHeader;
+  @Use()
+  $$renderContent: RenderContent;
+  @Use()
+  $$renderSidebar: RenderSidebar;
+  @Use()
   $$renderTabs: RenderTabs;
   @Use()
   $$renderTheme: RenderTheme;
@@ -36,10 +43,6 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$renderLocale: RenderLocale;
   @Use()
   $$renderUser: RenderUser;
-  @Use()
-  $$renderHeader: RenderHeader;
-  @Use()
-  $$renderSidebar: RenderSidebar;
 
   routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
   leftDrawerOpen: boolean = false;

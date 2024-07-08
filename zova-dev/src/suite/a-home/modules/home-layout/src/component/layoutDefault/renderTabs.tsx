@@ -51,7 +51,7 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
     );
   }
 
-  _renderContent() {
+  _renderRouterViewTabs() {
     const tabsOptions = this.scope.config.tabs;
     return (
       <this.$$scopeModuleATabs.component.routerViewTabs
