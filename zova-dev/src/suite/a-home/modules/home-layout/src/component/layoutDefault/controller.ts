@@ -10,6 +10,7 @@ import { RenderUser } from './renderUser.jsx';
 import { RenderSidebar } from './renderSidebar.jsx';
 import { RenderHeader } from './renderHeader.jsx';
 import { RenderContent } from './renderContent.jsx';
+import { RenderMenu } from './renderMenu.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -35,6 +36,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$renderContent: RenderContent;
   @Use()
   $$renderSidebar: RenderSidebar;
+  @Use()
+  $$renderMenu: RenderMenu;
   @Use()
   $$renderTabs: RenderTabs;
   @Use()
