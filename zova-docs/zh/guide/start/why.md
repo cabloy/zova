@@ -41,7 +41,11 @@ Zova 提供了分层的 IOC 容器，具体而言，提供了两类 IOC 容器�
 
 该容器与`Vue组件实例`绑定。提供组件实例级别容器的好处就是，在这个容器中的所有 Class 实例都可以在组件实例范围之内共享数据和逻辑
 
-## 和 Mixins 的对比 ​
+## 和 Mixins 的对比
+
+下面是基于 IOC 容器的源码案例，可以与 Mixins 做对照分析：
+
+- [布局组件](https://github.com/cabloy/zova/tree/main/zova-dev/src/suite/a-home/modules/home-layout/src/component/layoutDefault)
 
 ### 1. 解决mixins的短板
 

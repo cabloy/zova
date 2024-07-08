@@ -43,6 +43,10 @@ This container is bound to a `Vue component instance`. The advantage of providin
 
 ## vs. Mixins ​
 
+The following is a source code example based on the IOC container, which can be compared with Mixins:
+
+- [Layout Component](https://github.com/cabloy/zova/tree/main/zova-dev/src/suite/a-home/modules/home-layout/src/component/layoutDefault)
+
 ### 1. Solve the drawbacks to mixins
 
 Users who have used Vue2 may be familiar with `mixins`. `IOC container` can solve all the drawbacks to mixins:
