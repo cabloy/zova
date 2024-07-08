@@ -66,7 +66,14 @@ export class RenderRouteQuery2 extends BeanRenderBase<ScopeModule> {
                 </tbody>
               </table>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+                <button
+                  class="btn btn-primary"
+                  onClick={() => {
+                    this.toggleUser();
+                  }}
+                >
+                  Go to current page with different user value
+                </button>
               </div>
             </div>
           </div>
@@ -85,14 +92,23 @@ export class RenderRouteQuery2 extends BeanRenderBase<ScopeModule> {
                     return (
                       <tr>
                         <td>{item.title}</td>
-                        <td>{item.done}</td>
+                        <td>
+                          <input type="checkbox" checked={item.done} class="checkbox checkbox-success" />
+                        </td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
+                <button
+                  class="btn btn-primary"
+                  onClick={() => {
+                    this.toggleTodos();
+                  }}
+                >
+                  Go to current page with different todos value
+                </button>
               </div>
             </div>
           </div>
