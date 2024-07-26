@@ -93,7 +93,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     const tabInfo = await this.tabsOptions.getTabInfo(tab);
     if (!tabInfo) return false;
     // tabs
-    const [index] = this.findTab(tab.key);
+    const [index, tabOld] = this.findTab(tab.key);
     if (index === -1) {
       const tabNew = { ...tab, updatedAt: Date.now(), info: tabInfo };
       if (this.tabCurrentIndex === -1) {
@@ -105,7 +105,9 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       }
       this.pruneTabs();
     } else {
-      this.updateTab(tab);
+      if (this._checkIfTabChanged(tabOld!, tab)) {
+        this.updateTab(tab);
+      }
     }
     return true;
   }
@@ -192,6 +194,13 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       if (!key) break;
       await this.deleteTab({ key });
     }
+  }
+
+  private _checkIfTabChanged(tabOld: RouteTab, tabNew: RouteTab) {
+    for (const key in tabNew) {
+      if (tabNew[key] !== tabOld[key]) return true;
+    }
+    return false;
   }
 
   private _prepareTabsOptions(options: ModelTabsOptions) {
