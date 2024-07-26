@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-antdv",
-  "version": "5.0.198",
+  "version": "5.0.199",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -36,12 +36,12 @@
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
     "zod": "^3.23.8",
-    "zova": "^5.0.137",
+    "zova": "^5.0.138",
     "zova-module-a-model": "^5.0.16",
     "zova-module-a-pinia": "^5.0.20",
     "zova-module-a-router": "^5.0.50",
     "zova-module-a-style": "^5.0.22",
-    "zova-module-a-tabs": "^5.0.9"
+    "zova-module-a-tabs": "^5.0.10"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
