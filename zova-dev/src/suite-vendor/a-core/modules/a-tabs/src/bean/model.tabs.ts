@@ -196,6 +196,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     }
   }
 
+  // special for _addTab
   private _checkIfTabChanged(tabOld: RouteTab, tabNew: RouteTab) {
     for (const key in tabNew) {
       if (tabNew[key] !== tabOld[key]) return true;
