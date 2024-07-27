@@ -173,6 +173,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '常见问题', link: 'resources/faq' },
         { text: '视频', link: 'resources/videos' },
+        { text: '文章', link: 'resources/articles' },
       ],
     },
     { text: '致谢', link: 'others/thanks' },
