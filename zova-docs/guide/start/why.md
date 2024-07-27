@@ -1,10 +1,18 @@
 # Why Vue3+IOC
 
-Vue3 is already very powerful and flexible, why should IOC containers be introduced? IOC containers are inseparable from Class, so let’s start with Class
+## Preface
+
+Vue3 is already very powerful and flexible, why should IOC containers be introduced?
+
+For large projects, it is often encountered that a business component includes a lot of states and logic, and these states and logic may refer to each other.
+If it is placed in a sfc file, it will be lengthy and difficult to maintain.
+In vue2, it can be split into multiple mixins, but mixins have no types, so there are many disadvantages.
+In vue3, it can be split into multiple composables, but it is not convenient to share states and logic between multiple composables.
+In this scenario, using IOC container is a better choice.
 
 ## Application scenarios of Class
 
-When mentioning Class, everyone will definitely think that this is a code paradigm that Vue officially no longer recommends. In fact, to be more precise, Vue officially does not recommend defining Vue components based on Class. As the picture shows:
+IOC containers are inseparable from Class, so let’s start with Class. When mentioning Class, everyone will definitely think that this is a code paradigm that Vue officially no longer recommends. In fact, to be more precise, Vue officially does not recommend defining Vue components based on Class. As the picture shows:
 
 ![](../../assets/img/vue-class-component-deprecated.png)
 

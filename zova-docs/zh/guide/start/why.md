@@ -1,10 +1,18 @@
 # 为什么需要Vue3+IOC
 
-Vue3 已经非常强大和灵活了，为什么还要引入 IOC 容器呢？IOC 容器离不开 Class，那么我们就从 Class 谈起
+## 前言
+
+Vue3 已经非常强大和灵活了，为什么还要引入 IOC 容器呢？
+
+对于大型项目，经常会遇到一个业务组件包括大量状态和逻辑，而且这些状态和逻辑可能会相互引用。
+如果放在一个 sfc 文件中显得冗长，不好维护。
+在 vue2 中可以拆分为多个 mixins，但是 mixins 没有类型，所以有许多缺点。
+在 vue3 中可以拆分为多个 composables，但是在多个 composables 之间共享状态和逻辑不太方便。
+在这种场景下，采用 IOC 容器就是更好的选择。
 
 ## Class的应用场景
 
-一提起 Class，大家一定会想到这是 Vue 官方不再推荐的代码范式。其实，更确切的说，Vue 官方是不推荐基于 Class 来定义 Vue 组件。如图所示：
+IOC 容器离不开 Class，那么我们就从 Class 谈起。一提起 Class，大家一定会想到这是 Vue 官方不再推荐的代码范式。其实，更确切的说，Vue 官方是不推荐基于 Class 来定义 Vue 组件。如图所示：
 
 ![](../../../assets/img/vue-class-component-deprecated.png)
 
