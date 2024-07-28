@@ -54,6 +54,46 @@ $ cd ./zova-dev
 $ npm run dev
 ```
 
+## How to do: ui-antdv
+
+```bash
+$ cd zova-ui-antdv
+$ pnpm install
+$ npm run dev
+```
+
+## How to do: ui-element
+
+```bash
+$ cd zova-ui-element
+$ pnpm install
+$ npm run dev
+```
+
+## How to do: ui-quasar
+
+```bash
+$ cd zova-ui-quasar
+$ pnpm install
+$ npm run dev
+```
+
+## How to do: ui-vuetify
+
+```bash
+$ cd zova-ui-vuetify
+$ pnpm install
+$ npm run dev
+```
+
+## How to do: ui-empty
+
+```bash
+$ cd zova-ui-empty
+$ pnpm install
+$ npm run dev
+```
+
 ## Stay In Touch
 
 - [Twitter](https://twitter.com/zhennann2024)
