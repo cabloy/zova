@@ -54,6 +54,46 @@ $ cd ./zova-dev
 $ npm run dev
 ```
 
+## 如何做: ui-antdv
+
+```bash
+$ cd zova-ui-antdv
+$ pnpm install
+$ npm run dev
+```
+
+## 如何做: ui-element
+
+```bash
+$ cd zova-ui-element
+$ pnpm install
+$ npm run dev
+```
+
+## 如何做: ui-quasar
+
+```bash
+$ cd zova-ui-quasar
+$ pnpm install
+$ npm run dev
+```
+
+## 如何做: ui-vuetify
+
+```bash
+$ cd zova-ui-vuetify
+$ pnpm install
+$ npm run dev
+```
+
+## 如何做: ui-empty
+
+```bash
+$ cd zova-ui-empty
+$ pnpm install
+$ npm run dev
+```
+
 ## 联系方式
 
 - [Twitter](https://twitter.com/zhennann2024)
