@@ -1,6 +1,6 @@
 import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
 
-const todos = [
+let todos = [
   { id: 'xxx', title: 'Coding', done: false },
   { id: 'yyy', title: 'Running', done: true },
 ];
@@ -34,7 +34,7 @@ export default defineFakeRoute([
     url: '/demo/todo/insert',
     method: 'post',
     response: req => {
-      todos.unshift(req.body as any);
+      todos = [req.body as any].concat(todos);
       return {
         code: 0,
         message: 'Success',
@@ -45,6 +45,7 @@ export default defineFakeRoute([
     url: '/demo/todo/update',
     method: 'post',
     response: req => {
+      todos = todos.concat();
       const index = todos.findIndex(item => item.id === req.body.id);
       if (index > -1) {
         todos.splice(index, 1, req.body as any);
@@ -59,6 +60,7 @@ export default defineFakeRoute([
     url: '/demo/todo/delete',
     method: 'post',
     response: req => {
+      todos = todos.concat();
       const index = todos.findIndex(item => item.id === req.body.id);
       if (index > -1) {
         todos.splice(index, 1);
