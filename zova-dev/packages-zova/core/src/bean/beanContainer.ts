@@ -499,6 +499,12 @@ export class BeanContainer {
     targetBeanFullName: string | undefined,
     useOptions: IDecoratorUseOptionsBase,
   ) {
+    // 0. host/skipSelf
+    if (useOptions.containerScope === 'host') {
+      return this._getBeanFromHost(this, targetBeanComposable, targetBeanFullName, useOptions);
+    } else if (useOptions.containerScope === 'skipSelf') {
+      return this._getBeanFromHost(this.parent, targetBeanComposable, targetBeanFullName, useOptions);
+    }
     // 1. use name
     if (useOptions.name) {
       return this[BeanContainerInstances][useOptions.name];
@@ -559,16 +565,29 @@ export class BeanContainer {
         markReactive,
         selector,
       );
-    } else if (containerScope === 'host') {
-      targetInstance = this._getBeanFromHost(this);
-    } else if (containerScope === 'skipSelf') {
-      targetInstance = this._getBeanFromHost(this.parent);
     }
     return targetInstance;
   }
 
-  private _getBeanFromHost(beanContainerStart: BeanContainer | null) {
-    if (!beanContainerStart) return undefined;
+  private _getBeanFromHost(
+    beanContainerStart: BeanContainer | null,
+    targetBeanComposable: Functionable | undefined,
+    targetBeanFullName: string | undefined,
+    useOptions: IDecoratorUseOptionsBase,
+  ) {
+    const beanContainerParent = beanContainerStart;
+    while (true) {
+      if (!beanContainerParent) return undefined;
+      // 1. use name
+      if (useOptions.name) {
+        return this[BeanContainerInstances][useOptions.name];
+      }
+      // 2. use prop
+      if (!targetBeanComposable && !targetBeanFullName) {
+        return this[BeanContainerInstances][useOptions.prop];
+      }
+      // 3.
+    }
   }
 
   private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
