@@ -17,9 +17,9 @@ export interface ZovaConfigEnv {
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NODE_ENV: string;
+      NODE_ENV: 'development' | 'production';
       META_FLAVOR: 'app' | 'web' | string;
-      META_MODE: 'development' | 'production' | string;
+      META_MODE: 'development' | 'production';
       META_APP_MODE: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
       APP_SERVER: string | undefined;
       APP_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;

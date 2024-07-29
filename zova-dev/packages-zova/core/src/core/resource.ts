@@ -22,6 +22,11 @@ export class AppResource extends BeanSimple {
   addUse(target: object, options: IDecoratorUseOptionsBase) {
     const uses = appMetadata.getOwnMetadataMap(DecoratorUse, target);
     uses[options.prop] = options;
+    if (process.env.NODE_ENV === 'development') {
+      if (typeof options.prop === 'string' && !options.prop.startsWith('$$')) {
+        console.error(`inject prop name should start with $$: ${options.prop}`);
+      }
+    }
   }
 
   getUses(target: object): Record<MetadataKey, IDecoratorUseOptionsBase> | undefined {
