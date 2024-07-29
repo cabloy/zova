@@ -1,4 +1,4 @@
-import { App, markRaw, ref } from 'vue';
+import { App, markRaw } from 'vue';
 import { BeanContainer } from '../../bean/beanContainer.js';
 import { AppMeta } from './meta.js';
 import { PluginZovaOptions } from '../../types/interface/pluginZova.js';
@@ -8,7 +8,7 @@ import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
 
 export class ZovaApplication {
-  private updateCounter = ref(0);
+  private reloadDelayTimer: number = 0;
   vue: App;
   bean: BeanContainer;
   meta: AppMeta;
@@ -24,7 +24,7 @@ export class ZovaApplication {
     ctxRoot.app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
     Cast(ctxRoot.instance.appContext).reload = () => {
-      this.updateCounter.value++;
+      this.reload(true);
     };
   }
 
@@ -48,6 +48,24 @@ export class ZovaApplication {
     await this.meta.module._monkeyModule('appInitialize', undefined, this.bean);
     // monkey: appInitialized
     await this.meta.module._monkeyModule('appInitialized', undefined, this.bean);
+  }
+
+  public reload(delay?: boolean) {
+    if (!delay) {
+      window.location.reload();
+      return;
+    }
+    this.reloadCancel();
+    this.reloadDelayTimer = window.setTimeout(() => {
+      this.reload();
+    }, 100);
+  }
+
+  public reloadCancel() {
+    if (this.reloadDelayTimer !== 0) {
+      window.clearTimeout(this.reloadDelayTimer);
+      this.reloadDelayTimer = 0;
+    }
   }
 }
 
