@@ -20,6 +20,7 @@ export interface RouteTab {
 
 export interface ModelTabsOptions {
   scene?: string;
+  /** -1: infinite 0: Affix Only  */
   max?: number;
   persister?: boolean;
   getAffixTabs: () => RouteTab[] | undefined;
@@ -181,7 +182,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   async pruneTabs() {
-    if (!this.tabsOptions.max || this.tabsOptions.max <= 0) return;
+    if (this.tabsOptions.max === undefined || this.tabsOptions.max === -1) return;
     while (this.tabs.length > this.tabsOptions.max) {
       let key: string | undefined;
       let updatedAt = Date.now();
