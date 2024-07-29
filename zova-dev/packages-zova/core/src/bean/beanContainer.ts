@@ -192,10 +192,11 @@ export class BeanContainer {
     markReactive?: boolean,
     selector?: string,
   ): Promise<T> {
-    return await this._getBeanSelectorInner(null, undefined, beanFullName, markReactive, selector);
+    return await this._getBeanSelectorInner(true, null, undefined, beanFullName, markReactive, selector);
   }
 
   async _getBeanSelectorInner<T>(
+    newBeanForce: boolean,
     recordProp: MetadataKey | null,
     beanComposable: Functionable | undefined,
     beanFullName: Constructable<T> | string | undefined,
@@ -212,7 +213,7 @@ export class BeanContainer {
     //   not use !selector which maybe is 0
     const isSelectorValid = !this.app.meta.util.isNullOrEmptyString(selector);
     const key = !isSelectorValid ? fullName : `${fullName}#${selector}`;
-    if (this[BeanContainerInstances][key] === undefined) {
+    if (this[BeanContainerInstances][key] === undefined && newBeanForce) {
       if (isSelectorValid) {
         await this._newBeanInner(true, recordProp, null, beanComposable, fullName, markReactive, selector);
       } else {
@@ -501,9 +502,9 @@ export class BeanContainer {
   ) {
     // 0. host/skipSelf
     if (useOptions.containerScope === 'host') {
-      return this._getBeanFromHost(this, targetBeanComposable, targetBeanFullName, useOptions);
+      return await this._getBeanFromHost(this, targetBeanComposable, targetBeanFullName, useOptions);
     } else if (useOptions.containerScope === 'skipSelf') {
-      return this._getBeanFromHost(this.parent, targetBeanComposable, targetBeanFullName, useOptions);
+      return await this._getBeanFromHost(this.parent, targetBeanComposable, targetBeanFullName, useOptions);
     }
     // 1. use name
     if (useOptions.name) {
@@ -539,6 +540,7 @@ export class BeanContainer {
     let targetInstance;
     if (containerScope === 'app') {
       targetInstance = await this.app.bean._getBeanSelectorInner(
+        true,
         null,
         targetBeanComposable,
         targetBeanFullName,
@@ -548,6 +550,7 @@ export class BeanContainer {
       await this._injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, targetBeanFullName, targetInstance);
     } else if (containerScope === 'ctx') {
       targetInstance = await this._getBeanSelectorInner(
+        true,
         recordProp,
         targetBeanComposable,
         targetBeanFullName,
@@ -569,35 +572,65 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private _getBeanFromHost(
+  private async _getBeanFromHost(
     beanContainerStart: BeanContainer | null,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
     useOptions: IDecoratorUseOptionsBase,
   ) {
-    const beanContainerParent = beanContainerStart;
+    let beanContainerParent = beanContainerStart;
     while (true) {
-      if (!beanContainerParent) return undefined;
-      // 1. use name
-      if (useOptions.name) {
-        return this[BeanContainerInstances][useOptions.name];
-      }
-      // 2. use prop
-      if (!targetBeanComposable && !targetBeanFullName) {
-        return this[BeanContainerInstances][useOptions.prop];
-      }
-      // 3.
+      if (!beanContainerParent) return null;
+      const beanInstance = await this._getBeanFromHostInner(
+        beanContainerParent,
+        targetBeanComposable,
+        targetBeanFullName,
+        useOptions,
+      );
+      // null is valid value
+      if (beanInstance !== undefined) return beanInstance;
+      beanContainerParent = beanContainerParent.parent;
     }
   }
 
+  private async _getBeanFromHostInner(
+    beanContainerParent: BeanContainer,
+    targetBeanComposable: Functionable | undefined,
+    targetBeanFullName: string | undefined,
+    useOptions: IDecoratorUseOptionsBase,
+  ) {
+    // 1. use name
+    if (useOptions.name) {
+      return beanContainerParent[BeanContainerInstances][useOptions.name];
+    }
+    // 2. use prop
+    if (!targetBeanComposable && !targetBeanFullName) {
+      return beanContainerParent[BeanContainerInstances][useOptions.prop];
+    }
+    // 3. targetBeanFullName
+    const targetInstance = await beanContainerParent._getBeanSelectorInner(
+      false,
+      null,
+      targetBeanComposable,
+      targetBeanFullName,
+      undefined,
+      useOptions.selector,
+    );
+    // 4. record prop
+    if (targetInstance !== undefined) {
+      this.__recordProp(useOptions.prop, undefined, targetInstance, false);
+    }
+    return targetInstance;
+  }
+
   private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
-    if (!targetInstance) return;
+    if (targetInstance === undefined) return;
     // only when ctx bean
     if (!this.ctx) return;
     // record prop
     this.__recordProp(recordProp, undefined, targetInstance, false);
     // force init
-    if (!targetBeanComposable) {
+    if (!targetBeanComposable && targetInstance) {
       await targetInstance[SymbolInited].wait();
     }
   }
@@ -841,10 +874,10 @@ export class BeanContainer {
   }
 
   private __recordProp(recordProp, fullName: string | undefined, beanInstance, throwError: boolean) {
-    if (this[BeanContainerInstances][recordProp] && throwError) {
+    if (this[BeanContainerInstances][recordProp] !== undefined && throwError) {
       throw new Error(`prop exsits: ${recordProp.toString()}, ${fullName}`);
     }
-    if (!this[BeanContainerInstances][recordProp]) {
+    if (this[BeanContainerInstances][recordProp] === undefined) {
       this[BeanContainerInstances][recordProp] = beanInstance;
     }
   }
