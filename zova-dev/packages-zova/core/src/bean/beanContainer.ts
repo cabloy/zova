@@ -12,7 +12,8 @@ import { Cast } from '../types/utils/cast.js';
 import { IInjectRecord } from '../types/interface/inject.js';
 import { SymbolBeanFullName, SymbolInited } from './beanBaseSimple.js';
 
-const ProxyMagic = Symbol.for('Bean#ProxyMagic');
+const SymbolBeanContainerParent = Symbol('Bean#BeanContainerParent');
+const SymbolProxyMagic = Symbol('Bean#ProxyMagic');
 export const BeanContainerInstances = Symbol('Bean#Instances');
 
 export interface BeanContainer extends IBeanRecord {}
@@ -58,6 +59,24 @@ export class BeanContainer {
       }
     }
     this[BeanContainerInstances] = shallowReactive({});
+    this[SymbolBeanContainerParent] = undefined;
+  }
+
+  get parent(): BeanContainer | null {
+    if (this[SymbolBeanContainerParent] === undefined) {
+      this[SymbolBeanContainerParent] = this._getParent();
+    }
+    return this[SymbolBeanContainerParent];
+  }
+
+  private _getParent(): BeanContainer | null {
+    let parent = this.ctx?.instance?.parent;
+    while (true) {
+      if (!parent) return null;
+      const beanContainerParent = parent.zova?.bean;
+      if (beanContainerParent) return beanContainerParent;
+      parent = parent.parent;
+    }
   }
 
   runWithInstanceScopeOrAppContext(fn, tracking?: boolean) {
@@ -540,8 +559,16 @@ export class BeanContainer {
         markReactive,
         selector,
       );
+    } else if (containerScope === 'host') {
+      targetInstance = this._getBeanFromHost(this);
+    } else if (containerScope === 'skipSelf') {
+      targetInstance = this._getBeanFromHost(this.parent);
     }
     return targetInstance;
+  }
+
+  private _getBeanFromHost(beanContainerStart: BeanContainer | null) {
+    if (!beanContainerStart) return undefined;
   }
 
   private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
@@ -734,7 +761,7 @@ export class BeanContainer {
     }
     // magic self
     if (__hasMagicMothod(beanInstance)) {
-      chains.push(ProxyMagic);
+      chains.push(SymbolProxyMagic);
     }
     // hold
     host.__aopChains__ = chains;
@@ -757,7 +784,7 @@ export class BeanContainer {
     const _aopChains = this._getAopChains(beanFullName);
     const chains: [MetadataKey, string][] = [];
     for (const aopKey of _aopChains) {
-      if (aopKey === ProxyMagic) {
+      if (aopKey === SymbolProxyMagic) {
         chains.push([aopKey, methodName]);
       } else {
         const aop: any = this._getBeanSyncOnly(aopKey as string);
@@ -774,8 +801,8 @@ export class BeanContainer {
 
   private __composeForPropAdapter = (_context, chain) => {
     const [aopKey, methodName] = chain;
-    // ProxyMagic
-    if (aopKey === ProxyMagic) return null;
+    // SymbolProxyMagic
+    if (aopKey === SymbolProxyMagic) return null;
     // chain
     const aop = this._getBeanSyncOnly(aopKey);
     if (!aop) throw new Error(`aop not found: ${chain}`);
