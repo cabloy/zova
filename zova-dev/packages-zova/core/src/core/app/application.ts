@@ -24,7 +24,7 @@ export class ZovaApplication {
     ctxRoot.app = this;
     this.meta = this.bean._newBeanSimple(AppMeta, false);
     Cast(ctxRoot.instance.appContext).reload = () => {
-      this.reload(true);
+      this.reloadDelay();
     };
   }
 
@@ -50,21 +50,21 @@ export class ZovaApplication {
     await this.meta.module._monkeyModule('appInitialized', undefined, this.bean);
   }
 
-  public reload(delay?: boolean) {
-    if (!delay) {
-      window.location.reload();
-      return;
-    }
-    this.reloadCancel();
-    this.reloadDelayTimer = window.setTimeout(() => {
-      this.reload();
-    }, 100);
+  public reload() {
+    window.location.reload();
   }
 
-  public reloadCancel() {
-    if (this.reloadDelayTimer !== 0) {
-      window.clearTimeout(this.reloadDelayTimer);
-      this.reloadDelayTimer = 0;
+  public reloadDelay(cancel?: boolean) {
+    if (cancel) {
+      if (this.reloadDelayTimer !== 0) {
+        window.clearTimeout(this.reloadDelayTimer);
+        this.reloadDelayTimer = 0;
+      }
+    } else {
+      this.reloadDelay(true);
+      this.reloadDelayTimer = window.setTimeout(() => {
+        this.reload();
+      }, 100);
     }
   }
 }
