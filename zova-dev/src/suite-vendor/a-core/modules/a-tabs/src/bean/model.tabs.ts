@@ -93,6 +93,8 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     // must perform await before findTab
     const tabInfo = await this.tabsOptions.getTabInfo(tab);
     if (!tabInfo) return false;
+    // max
+    if (this.tabsOptions.max === 0 && !tab.affix) return false;
     // tabs
     const [index, tabOld] = this.findTab(tab.key);
     if (index === -1) {
