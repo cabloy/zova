@@ -25,7 +25,7 @@ Zova can be used with any UI library and comes with built-in project templates f
 - vuetify
 - empty： Other UI libraries can be used based on this empty template
 
-## Preview
+## Demo online
 
 - [vue3 + ts + tsx + tailwindcss + daisyui](https://zova.js.org/zova-demo/)
 
