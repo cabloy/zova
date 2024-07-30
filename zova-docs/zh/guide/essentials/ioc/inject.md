@@ -30,7 +30,7 @@ export interface IDecoratorUseOptions {
 - name
   - Optional
   - 通过变量名注入
-- containerScope：`app/ctx/new`
+- containerScope：`app/ctx/new/host/skipSelf`
 
   - Optional
   - 缺省值：使用 Bean 在定义时指定的值
