@@ -1,5 +1,4 @@
 !.gitignore
-!.npmrc
 
 .DS_Store
 .thumbs.db
