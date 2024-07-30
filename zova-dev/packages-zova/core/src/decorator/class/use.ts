@@ -19,5 +19,16 @@ export function Use(options?: IDecoratorUseOptions | string): PropertyDecorator 
       prop,
       beanClass,
     });
+    // chech beanClass
+    if (process.env.NODE_ENV === 'development') {
+      if (options.beanFullName || options.name) {
+        const beanFullName = appResource.getBeanFullName(beanClass);
+        if (beanFullName) {
+          console.error(
+            `inject class should be imported by type, such as: import { type ${appResource._fixClassName(beanClass.name)} } from 'xxx'`,
+          );
+        }
+      }
+    }
   };
 }
