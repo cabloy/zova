@@ -2,7 +2,7 @@ import { BeanControllerBase, Local, Use, UseScope, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
-import type { NSControllerRouterViewTabs, ScopeModuleATabs } from 'zova-module-a-tabs';
+import type { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
 import { RenderTabs } from './renderTabs.jsx';
 import { RenderTheme } from './renderTheme.jsx';
 import { RenderLocale } from './renderLocale.jsx';
@@ -29,6 +29,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$modelMenu: ModelMenu;
   @Use()
   $$modelUser: ModelUser;
+  @Use('a-tabs.model.tabs')
+  $$modelTabs: ModelTabs;
 
   @Use()
   $$renderHeader: RenderHeader;
@@ -47,10 +49,33 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   @Use()
   $$renderUser: RenderUser;
 
-  routerViewTabsRef: NSControllerRouterViewTabs.ControllerRouterViewTabs;
   leftDrawerOpen: boolean = false;
 
-  protected async __init__() {}
+  protected async __init__() {
+    const configTabs = this.scope.config.tabs;
+    const tabsOptions: ModelTabsOptions = {
+      scene: configTabs.scene,
+      max: configTabs.max,
+      persister: configTabs.persister,
+      getAffixTabs: () => {
+        if (!this.$$modelMenu.select().data) return;
+        return [{ key: '/a/home/home', affix: true }];
+      },
+      getTabInfo: async tab => {
+        const queryMenu = this.$$modelMenu.select();
+        if (!queryMenu.data && !queryMenu.isError) {
+          await queryMenu.suspense();
+        }
+        if (queryMenu.isError) {
+          throw queryMenu.error;
+        }
+        const menuItem = this.$$modelMenu.findMenuItem(tab.key);
+        if (!menuItem) return undefined;
+        return { title: menuItem.title, icon: menuItem.icon };
+      },
+    };
+    await this.$$modelTabs.initialize(tabsOptions);
+  }
 
   toggleLeftDrawer() {
     this.leftDrawerOpen = !this.leftDrawerOpen;

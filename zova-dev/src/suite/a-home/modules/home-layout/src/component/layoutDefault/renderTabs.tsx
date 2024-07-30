@@ -9,12 +9,9 @@ export interface RenderTabs extends StyleLayoutDefault {}
 @Local()
 export class RenderTabs extends BeanRenderBase<ScopeModule> {
   _renderTabs() {
-    if (!this.routerViewTabsRef) return;
-
     const domTabs: JSX.Element[] = [];
-    for (const tab of this.routerViewTabsRef.$$modelTabs.tabs) {
-      const className =
-        tab.key === this.routerViewTabsRef.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
+    for (const tab of this.$$modelTabs.tabs) {
+      const className = tab.key === this.$$modelTabs.tabCurrentKey ? 'tab tab-active text-primary' : 'tab';
       const menuItem = this.$$modelMenu.findMenuItem(tab.key);
       if (!menuItem) continue;
       const titleLocal = this.app.meta.locale.getText(__ThisModule__, undefined, menuItem?.title || '');
@@ -24,7 +21,7 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
           role="tab"
           class={`${className} ${this.styleTab}`}
           onClick={() => {
-            this.routerViewTabsRef.$$modelTabs.activeTab(tab);
+            this.$$modelTabs.activeTab(tab);
           }}
         >
           {!!menuItem?.icon && <ZovaIcon name={menuItem?.icon} width="24" height="24"></ZovaIcon>}
@@ -36,7 +33,7 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
               width="16"
               height="16"
               onClick={withModifiers(() => {
-                this.routerViewTabsRef.$$modelTabs.deleteTab(tab);
+                this.$$modelTabs.deleteTab(tab);
               }, ['stop'])}
             ></ZovaIcon>
           )}
@@ -73,9 +70,6 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
           const menuItem = this.$$modelMenu.findMenuItem(tab.key);
           if (!menuItem) return undefined;
           return { title: menuItem.title, icon: menuItem.icon };
-        }}
-        controllerRef={ref => {
-          this.routerViewTabsRef = ref;
         }}
       ></this.$$scopeModuleATabs.component.routerViewTabs>
     );

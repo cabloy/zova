@@ -1,17 +1,11 @@
-import { BeanControllerBase, Cast, Local, PropsBase } from 'zova';
+import { BeanControllerBase, Cast, Local, PropsBase, Use } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
-import { ModelTabs, ModelTabsOptions, RouteTab, RouteTabInfo } from '../../bean/model.tabs.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
 import { nextTick } from 'vue';
+import { ModelTabs } from '../../bean/model.tabs.js';
 
-export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {
-  scene?: string;
-  max?: number;
-  persister?: boolean;
-  getAffixTabs: () => RouteTab[] | undefined;
-  getTabInfo: (tab: RouteTab) => Promise<RouteTabInfo | undefined>;
-}
+export interface Props extends PropsBase<ControllerRouterViewTabs, Slots> {}
 
 export type Emits = {};
 
@@ -21,18 +15,8 @@ export interface Slots {}
 export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
+  @Use({ containerScope: 'skipSelf' })
   $$modelTabs: ModelTabs;
-
-  protected async __init__() {
-    const tabsOptions: ModelTabsOptions = {
-      scene: this.$props.scene,
-      max: this.$props.max,
-      persister: this.$props.persister,
-      getAffixTabs: this.$props.getAffixTabs,
-      getTabInfo: this.$props.getTabInfo,
-    };
-    this.$$modelTabs = await this.bean._newBean(ModelTabs, true, tabsOptions);
-  }
 
   _handleComponentName(component: RouterViewSlotParams) {
     let name = component.Component.type.name;

@@ -36,7 +36,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   tabCurrent?: RouteTab;
   keepAliveInclude: string[];
 
-  protected async __init__(options: ModelTabsOptions) {
+  async initialize(options: ModelTabsOptions) {
     // options
     this.tabsOptions = this._prepareTabsOptions(options);
     // tabs
