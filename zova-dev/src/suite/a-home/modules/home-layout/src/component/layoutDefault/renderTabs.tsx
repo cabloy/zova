@@ -49,29 +49,6 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
   }
 
   _renderRouterViewTabs() {
-    const tabsOptions = this.scope.config.tabs;
-    return (
-      <this.$$scopeModuleATabs.component.routerViewTabs
-        scene={tabsOptions.scene}
-        max={tabsOptions.max}
-        persister={tabsOptions.persister}
-        getAffixTabs={() => {
-          if (!this.$$modelMenu.select().data) return;
-          return [{ key: '/a/home/home', affix: true }];
-        }}
-        getTabInfo={async tab => {
-          const queryMenu = this.$$modelMenu.select();
-          if (!queryMenu.data && !queryMenu.isError) {
-            await queryMenu.suspense();
-          }
-          if (queryMenu.isError) {
-            throw queryMenu.error;
-          }
-          const menuItem = this.$$modelMenu.findMenuItem(tab.key);
-          if (!menuItem) return undefined;
-          return { title: menuItem.title, icon: menuItem.icon };
-        }}
-      ></this.$$scopeModuleATabs.component.routerViewTabs>
-    );
+    return <this.$$scopeModuleATabs.component.routerViewTabs></this.$$scopeModuleATabs.component.routerViewTabs>;
   }
 }
