@@ -502,9 +502,9 @@ export class BeanContainer {
   ) {
     // 0. host/skipSelf
     if (useOptions.containerScope === 'host') {
-      return await this._getBeanFromHost(this, targetBeanComposable, targetBeanFullName, useOptions);
+      return await this._getBeanFromHost(true, this, targetBeanComposable, targetBeanFullName, useOptions);
     } else if (useOptions.containerScope === 'skipSelf') {
-      return await this._getBeanFromHost(this.parent, targetBeanComposable, targetBeanFullName, useOptions);
+      return await this._getBeanFromHost(true, this.parent, targetBeanComposable, targetBeanFullName, useOptions);
     }
     // 1. use name
     if (useOptions.name) {
@@ -573,6 +573,7 @@ export class BeanContainer {
   }
 
   private async _getBeanFromHost(
+    recordProp: boolean,
     beanContainerStart: BeanContainer | null,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
@@ -590,7 +591,9 @@ export class BeanContainer {
       // null is valid value
       if (beanInstance !== undefined) {
         // record prop
-        this.__recordProp(useOptions.prop, undefined, beanInstance, false);
+        if (recordProp) {
+          this.__recordProp(useOptions.prop, undefined, beanInstance, false);
+        }
         return beanInstance;
       }
       beanContainerParent = beanContainerParent.parent;
