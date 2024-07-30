@@ -108,7 +108,7 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       }
       this.pruneTabs();
     } else {
-      if (this._checkIfTabChanged(tabOld!, tab)) {
+      if (this._checkIfTabNeedUpdate(tabOld!, tab)) {
         this.updateTab(tab);
       }
     }
@@ -200,10 +200,14 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
   }
 
   // special for _addTab
-  private _checkIfTabChanged(tabOld: RouteTab, tabNew: RouteTab) {
+  private _checkIfTabNeedUpdate(tabOld: RouteTab, tabNew: RouteTab) {
     for (const key in tabNew) {
       if (tabNew[key] !== tabOld[key]) return true;
     }
+    const recentTabIndex = this.tabs.findIndex(
+      item => item.key !== tabOld.key && (item.updatedAt ?? 0) > (tabOld.updatedAt ?? 0),
+    );
+    if (recentTabIndex > -1) return true;
     return false;
   }
 
