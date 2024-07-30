@@ -588,7 +588,11 @@ export class BeanContainer {
         useOptions,
       );
       // null is valid value
-      if (beanInstance !== undefined) return beanInstance;
+      if (beanInstance !== undefined) {
+        // record prop
+        this.__recordProp(useOptions.prop, undefined, beanInstance, false);
+        return beanInstance;
+      }
       beanContainerParent = beanContainerParent.parent;
     }
   }
@@ -608,7 +612,7 @@ export class BeanContainer {
       return beanContainerParent[BeanContainerInstances][useOptions.prop];
     }
     // 3. targetBeanFullName
-    const targetInstance = await beanContainerParent._getBeanSelectorInner(
+    return await beanContainerParent._getBeanSelectorInner(
       false,
       null,
       targetBeanComposable,
@@ -616,11 +620,6 @@ export class BeanContainer {
       undefined,
       useOptions.selector,
     );
-    // 4. record prop
-    if (targetInstance !== undefined) {
-      this.__recordProp(useOptions.prop, undefined, targetInstance, false);
-    }
-    return targetInstance;
   }
 
   private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
