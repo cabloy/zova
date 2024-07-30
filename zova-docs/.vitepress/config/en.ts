@@ -65,6 +65,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Named Bean: Store', link: 'store-bean' },
             { text: 'Named Bean: General', link: 'named-bean' },
             { text: 'Inject', link: 'inject' },
+            { text: 'Inject(API)', link: 'inject-api' },
             { text: 'BeanBase', link: 'bean-base' },
             { text: 'Lifecycle', link: 'lifecycle' },
           ],
