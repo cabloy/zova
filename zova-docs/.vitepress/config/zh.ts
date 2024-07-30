@@ -163,6 +163,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Pinia', link: 'vue/pinia' },
         { text: 'Composables', link: 'vue/composables' },
+        { text: 'Provide/Inject', link: 'vue/provide-inject' },
         { text: 'Refs', link: 'vue/refs' },
         { text: 'v-model', link: 'vue/v-model' },
         { text: 'Others', link: 'vue/others' },
