@@ -25,7 +25,7 @@ export function Use(options?: IDecoratorUseOptions | string): PropertyDecorator 
         const beanFullName = appResource.getBeanFullName(beanClass);
         if (beanFullName) {
           console.error(
-            `inject class should be imported by type, such as: import { type ${appResource._fixClassName(beanClass.name)} } from 'xxx'`,
+            `inject class should be imported by type, such as: import type { ${appResource._fixClassName(beanClass.name)} } from 'xxx'`,
           );
         }
       }
