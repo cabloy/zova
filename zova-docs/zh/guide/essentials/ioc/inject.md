@@ -78,7 +78,7 @@ Zova 提供了以下几种注入范围：`app/ctx/new/host/skipSelf`
 ```typescript
 // in module: test-module1
 @Store()
-export class StoreCounter {}
+class StoreCounter {}
 ```
 
 ```typescript
@@ -100,7 +100,7 @@ class Test {
 ```typescript
 // in module: a-tabs
 @Model()
-export class ModelTabs {}
+class ModelTabs {}
 ```
 
 ```typescript
@@ -122,7 +122,7 @@ class RenderTodo {
 ```typescript
 // in module: a-tabs
 @Model()
-export class ModelTabs {}
+class ModelTabs {}
 ```
 
 ```typescript
@@ -137,6 +137,37 @@ class RenderTodo {
 
 - 由于指定 containerScope 选项为 new，因此通过 Bean 标识`a-tabs.model.tabs`直接创建新的 bean 实例
 
+## 层级注入
+
+注入范围 containerScope 除了支持`app/ctx/new`，还支持层级注入：`host/skipSelf`
+
 ### 4. host
 
+如果注入范围是 host，那么就在当前组件实例 ioc 容器和所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
+
+```typescript
+// in parent component
+import type { ModelTabs } from 'zova-module-a-tabs';
+
+class Parent {
+  @Use('a-tabs.model.tabs')
+  $$modelTabs: ModelTabs;
+}
+```
+
+```typescript
+// in child component: test-module2
+import type { ModelTabs } from 'zova-module-a-tabs';
+
+class Child {
+  @Use({ containerScope: 'host' })
+  $$modelTabs: ModelTabs;
+}
+```
+
+- 由于父组件已经注入了 ModelTabs 的 bean 实例，因此子组件可以直接查找并注入
+- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/变量名/属性名`
+
 ### 5. skipSelf
+
+如果注入范围是 skipSelf，那么就在所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
