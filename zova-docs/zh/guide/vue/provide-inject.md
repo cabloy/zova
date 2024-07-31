@@ -1,4 +1,4 @@
-## Provide/Inject
+# Provide/Inject
 
 Zova 推荐使用[ioc: 层级注入](../essentials/ioc/inject.md#hierarchical-injection)来代替 Vue3 的依赖注入机制。当然，Zova 也支持 Vue3 的依赖注入机制，从而兼容现有 Vue3 生态
 
