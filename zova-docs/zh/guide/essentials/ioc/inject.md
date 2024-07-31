@@ -67,7 +67,7 @@ class ControllerTodo {
 
 ## 注入范围
 
-`匿名bean`的注入范围都是`ctx`，`具名bean`可以在定义时指定注入范围，不同的场景(scene)有不同的注入范围。 此外，在实际注入时，还可以在@Use 中通过`containerScope`选项覆盖默认的注入范围
+`匿名bean`的默认注入范围都是`ctx`，`具名bean`可以在定义时指定默认注入范围，不同的场景(scene)有不同的默认注入范围。 此外，在实际注入时，还可以在@Use 中通过`containerScope`选项覆盖默认的注入范围
 
 Zova 提供了以下几种注入范围：`app/ctx/new/host/skipSelf`
 
