@@ -67,7 +67,7 @@ class ControllerTodo {
 
 ## 注入范围(containerScope)
 
-`匿名bean`的注入范围都是`ctx`，`具名bean`可以在定义时指定注入范围，不同的 scene 有不同的注入范围。 此外，在实际注入时，还可以在@Use 中通过 containerScope 选项覆盖默认的注入范围
+`匿名bean`的注入范围都是`ctx`，`具名bean`可以在定义时指定注入范围，不同的场景(scene)有不同的注入范围。 此外，在实际注入时，还可以在@Use 中通过 containerScope 选项覆盖默认的注入范围
 
 Zova 提供了以下几种注入范围：`app/ctx/new/host/skipSelf`
 
@@ -107,7 +107,7 @@ class ModelTabs {}
 // in module: test-module2
 import type { ModelTabs } from 'zova-module-a-tabs';
 
-class RenderTodo {
+class ControllerTodo {
   @Use('a-tabs.model.tabs')
   $$modelTabs: ModelTabs;
 }
@@ -129,7 +129,7 @@ class ModelTabs {}
 // in module: test-module2
 import type { ModelTabs } from 'zova-module-a-tabs';
 
-class RenderTodo {
+class ControllerTodo {
   @Use({ beanFullName: 'a-tabs.model.tabs', containerScope: 'new' })
   $$modelTabs: ModelTabs;
 }
