@@ -13,7 +13,7 @@ Zova 提供了以下几种注入机制：
 ```typescript
 import { ModelTodo } from '../../bean/model.todo.js';
 
-class RenderTodo extends BeanRenderBase<ScopeModule> {
+class ControllerTodo {
   @Use()
   $$modelTodo: ModelTodo;
 }
@@ -26,7 +26,7 @@ class RenderTodo extends BeanRenderBase<ScopeModule> {
 ```typescript
 import type { ModelTabs } from 'zova-module-a-tabs';
 
-class RenderTodo extends BeanRenderBase<ScopeModule> {
+class ControllerLayout {
   @Use('a-tabs.model.tabs')
   $$modelTabs: ModelTabs;
 }
@@ -42,7 +42,7 @@ class RenderTodo extends BeanRenderBase<ScopeModule> {
 ```typescript
 import type { ModelTodo } from '../../bean/model.todo.js';
 
-class RenderTodo extends BeanRenderBase<ScopeModule> {
+class ControllerTodo {
   @Use({ name: '$$modelTodo' })
   $$modelTodo: ModelTodo;
 }
@@ -57,7 +57,7 @@ class RenderTodo extends BeanRenderBase<ScopeModule> {
 ```typescript
 import type { ModelTodo } from '../../bean/model.todo.js';
 
-class RenderTodo extends BeanRenderBase<ScopeModule> {
+class ControllerTodo {
   @Use()
   $$modelTodo: ModelTodo;
 }
