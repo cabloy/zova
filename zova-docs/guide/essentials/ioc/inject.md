@@ -65,7 +65,7 @@ class ControllerTodo {
 
 - Lookup and inject the bean instance by the property name `$$modelTodo`. Generally speaking, you should ensure that the Bean instance has been injected in the ioc container in advance, otherwise a null value will be returned
 
-## Injection scope(containerScope)
+## Injection scope
 
 The injection scope of `anonymous bean` is `ctx`, and the injection scope of `named bean` can be specified when defining it. Different scenes have different injection scopes. In addition, when injecting, you can also override the default injection scope through the `containerScope` option in @Use
 
