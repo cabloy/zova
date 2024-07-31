@@ -44,6 +44,7 @@ import 'zova-module-test-module1';
 class Child {
   protected async __init__() {
     const fruit = this.bean.inject('test-module1:fruit');
+    const fruit2 = this.bean.inject('test-module1:fruit', 'pear');
   }
 }
 ```
