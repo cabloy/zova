@@ -137,13 +137,13 @@ class ControllerLayout {
 
 - Since the `containerScope` option is specified as `new`, a new bean instance will be directly created through the bean identifier `a-tabs.model.tabs`
 
-## 层级注入
+## Hierarchical injection
 
-注入范围 containerScope 除了支持`app/ctx/new`，还支持层级注入：`host/skipSelf`
+Injection scope supports not only `app/ctx/new`, but also `host/skipSelf` which is called `hierarchical injection`
 
 ### 4. host
 
-如果注入范围是 host，那么就在当前组件实例的 ioc 容器以及所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
+If the injection scope is `host`, the bean instance will be lookuped in the ioc container of the current component instance and all parent containers in turn. If it does not exist, a null value is returned
 
 ```typescript
 // in parent component
@@ -165,9 +165,9 @@ class Child {
 }
 ```
 
-- 由于父组件已经注入了 ModelTabs 的 bean 实例，因此子组件可以直接查找并注入
-- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/变量名/属性名`
+- Since the parent component has already injected the `ModelTabs` bean instance, the child component can directly lookup and inject it
+- `Hierarchical injection` also supports all injection mechanisms: `Bean Class/Bean identifier/Registration name/Property name`
 
 ### 5. skipSelf
 
-如果注入范围是 skipSelf，那么就在所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
+If the injection scope is `skipSelf`, then lookup the bean instance in all parent containers in turn. If it does not exist, a null value is returned
