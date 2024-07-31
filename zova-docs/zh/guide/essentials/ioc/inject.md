@@ -95,7 +95,7 @@ class Test {
 
 ### 2. ctx
 
-如果注入范围是 ctx，那么就在组件实例 ioc 容器中注入 bean 实例
+如果注入范围是 ctx，那么就在当前组件实例的 ioc 容器中注入 bean 实例
 
 ```typescript
 // in module: a-tabs
@@ -113,7 +113,7 @@ class ControllerTodo {
 }
 ```
 
-- Model 的注入范围默认是 ctx，因此通过 Bean 标识`a-tabs.model.tabs`在当前组件实例 ioc 容器中查找并注入 bean 实例
+- Model 的注入范围默认是 ctx，因此通过 Bean 标识`a-tabs.model.tabs`在当前组件实例的 ioc 容器中查找并注入 bean 实例
 
 ### 3. new
 
@@ -143,7 +143,7 @@ class ControllerTodo {
 
 ### 4. host
 
-如果注入范围是 host，那么就在当前组件实例 ioc 容器和所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
+如果注入范围是 host，那么就在当前组件实例的 ioc 容器以及所有父容器中依次查找并注入 bean 实例，如果不存在则返回空值
 
 ```typescript
 // in parent component
@@ -156,7 +156,7 @@ class Parent {
 ```
 
 ```typescript
-// in child component: test-module2
+// in child component
 import type { ModelTabs } from 'zova-module-a-tabs';
 
 class Child {
