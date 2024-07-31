@@ -137,7 +137,7 @@ class ControllerLayout {
 
 - Since the `containerScope` option is specified as `new`, a new bean instance will be directly created through the bean identifier `a-tabs.model.tabs`
 
-## Hierarchical injection
+## Hierarchical injection {#hierarchical-injection}
 
 Injection scope supports not only `app/ctx/new`, but also `host/skipSelf` which is called `hierarchical injection`
 

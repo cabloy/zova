@@ -137,7 +137,7 @@ class ControllerLayout {
 
 - 由于指定 containerScope 选项为 new，因此通过 Bean 标识`a-tabs.model.tabs`直接创建新的 bean 实例
 
-## 层级注入
+## 层级注入 {#hierarchical-injection}
 
 注入范围 containerScope 除了支持`app/ctx/new`，还支持层级注入：`host/skipSelf`
 
