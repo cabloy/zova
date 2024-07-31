@@ -19,7 +19,7 @@ There are two types of beans in Zova:
 
 ## Injection Scope
 
-In Zova, `Named Bean` has three injection scopes:
+Zova provides the following injection scopes:
 
 1. `app`: Inject in the app container
 
@@ -29,7 +29,7 @@ In Zova, `Named Bean` has three injection scopes:
 
 ## Hierarchical injection
 
-In Zova, `Named Bean` also supports hierarchical injection:
+Injection scope also supports hierarchical injection:
 
 1. `host`: the bean instance will be lookuped in the ioc container of the current component instance and all parent containers in turn
 2. `skipSelf`: lookup the bean instance in all parent containers in turn
