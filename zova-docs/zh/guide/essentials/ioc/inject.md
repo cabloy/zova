@@ -21,7 +21,7 @@ class ControllerTodo {
 
 ### 2. Bean标识
 
-通过`Bean标识`在 ioc 容器中查找并注入 Bean 实例，如果不存在则自动创建。这种机制一般用于`跨模块注入`
+通过`Bean标识`在 ioc 容器中查找并注入 Bean 实例，如果不存在则自动创建。这种机制一般用于`跨模块注入`和`层级注入`
 
 ```typescript
 import type { ModelTabs } from 'zova-module-a-tabs';
@@ -35,9 +35,9 @@ class ControllerLayout {
 - 通过`a-tabs.model.tabs`查找并注入 Bean 实例
 - 因此，只需导入 ModelTabs 的 type 类型，从而保持模块之间的松耦合关系
 
-### 3. 变量名
+### 3. 注册名
 
-通过`变量名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`
+通过`注册名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`
 
 ```typescript
 import type { ModelTodo } from '../../bean/model.todo.js';
@@ -48,7 +48,7 @@ class ControllerTodo {
 }
 ```
 
-- 通过变量名`$$modelTodo`查找并注入 Bean 实例。一般而言，应该确保在 ioc 容器中已经事先注入过 Bean 实例，否则就会返回空值
+- 通过注册名`$$modelTodo`查找并注入 Bean 实例。一般而言，应该确保在 ioc 容器中已经事先注入过 Bean 实例，否则就会返回空值
 
 ### 4. 属性名
 
@@ -107,7 +107,7 @@ class ModelTabs {}
 // in module: test-module2
 import type { ModelTabs } from 'zova-module-a-tabs';
 
-class ControllerTodo {
+class ControllerLayout {
   @Use('a-tabs.model.tabs')
   $$modelTabs: ModelTabs;
 }
@@ -129,7 +129,7 @@ class ModelTabs {}
 // in module: test-module2
 import type { ModelTabs } from 'zova-module-a-tabs';
 
-class ControllerTodo {
+class ControllerLayout {
   @Use({ beanFullName: 'a-tabs.model.tabs', containerScope: 'new' })
   $$modelTabs: ModelTabs;
 }
@@ -166,7 +166,7 @@ class Child {
 ```
 
 - 由于父组件已经注入了 ModelTabs 的 bean 实例，因此子组件可以直接查找并注入
-- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/变量名/属性名`
+- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/注册名/属性名`
 
 ### 5. skipSelf
 
