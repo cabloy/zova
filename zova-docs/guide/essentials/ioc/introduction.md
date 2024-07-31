@@ -2,12 +2,12 @@
 
 We know that `IOC`(Inversion of Control) is an effective architectural design for system decoupling, and is also a supporting tool for the development of large-scale business systems
 
-## Bean Containers
+## IOC Containers
 
-`Bean containers` are the basic component for implementing `IOC`, and there are two types of bean containers in Zova:
+There are two types of ioc containers in Zova:
 
-1. `app bean container`: During system initialization, a unique global bean container will be automatically created
-2. `ctx bean container`: When creating Vue component instances, the system will create a bean container for each of them
+1. `global ioc container`(referred to as app container): During system initialization, a unique global bean container will be automatically created. Bean instances created in this container are all singleton mode
+2. `component instance ioc container`(referred to as ctx container): When creating Vue component instances, the system will create a bean container for each of them. Bean instances created in this container can share data and logic within the scope of the component instance
 
 ## Bean Types
 
@@ -21,8 +21,15 @@ There are two types of beans in Zova:
 
 In Zova, `Named Bean` has three injection scopes:
 
-1. `app`: Inject in the app bean container
+1. `app`: Inject in the app container
 
-2. `ctx`: Inject in the ctx bean container to which the current Vue component instance belongs
+2. `ctx`: Inject in the ctx container
 
 3. `new`: Always create a new bean instance
+
+## Hierarchical injection
+
+In Zova, `Named Bean` also supports hierarchical injection:
+
+1. `host`: the bean instance will be lookuped in the ioc container of the current component instance and all parent containers in turn
+2. `skipSelf`: lookup the bean instance in all parent containers in turn
