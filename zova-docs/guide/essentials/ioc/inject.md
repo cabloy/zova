@@ -50,9 +50,9 @@ class ControllerTodo {
 
 - Lookup and inject the bean instance by the registration name `$$modelTodo`. Generally speaking, you should ensure that the bean instance has been injected in the ioc container in advance, otherwise a null value will be returned
 
-### 4. Property name
+### 4. Variable name
 
-Lookup and inject the bean instance in the ioc container by the `property name`, and return a null value if not exist. This mechanism is generally used for `same module injection` and `hierarchical injection`
+Lookup and inject the bean instance in the ioc container by the `variable name`, and return a null value if not exist. This mechanism is generally used for `same module injection` and `hierarchical injection`
 
 ```typescript
 import type { ModelTodo } from '../../bean/model.todo.js';
@@ -63,7 +63,7 @@ class ControllerTodo {
 }
 ```
 
-- Lookup and inject the bean instance by the property name `$$modelTodo`. Generally speaking, you should ensure that the Bean instance has been injected in the ioc container in advance, otherwise a null value will be returned
+- Lookup and inject the bean instance by the variable name `$$modelTodo`. Generally speaking, you should ensure that the Bean instance has been injected in the ioc container in advance, otherwise a null value will be returned
 
 ## Injection scope
 
@@ -166,7 +166,7 @@ class Child {
 ```
 
 - Since the parent component has already injected the `ModelTabs` bean instance, the child component can directly lookup and inject it
-- `Hierarchical injection` also supports all injection mechanisms: `Bean Class/Bean identifier/Registration name/Property name`
+- `Hierarchical injection` also supports all injection mechanisms: `Bean Class/Bean identifier/Registration name/Variable name`
 
 ### 5. skipSelf
 

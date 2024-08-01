@@ -50,9 +50,9 @@ class ControllerTodo {
 
 - 通过注册名`$$modelTodo`查找并注入 Bean 实例。一般而言，应该确保在 ioc 容器中已经事先注入过 Bean 实例，否则就会返回空值
 
-### 4. 属性名
+### 4. 变量名
 
-通过`属性名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`
+通过`变量名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`
 
 ```typescript
 import type { ModelTodo } from '../../bean/model.todo.js';
@@ -63,7 +63,7 @@ class ControllerTodo {
 }
 ```
 
-- 通过属性名`$$modelTodo`查找并注入 Bean 实例。一般而言，应该确保在 ioc 容器中已经事先注入过 Bean 实例，否则就会返回空值
+- 通过变量名`$$modelTodo`查找并注入 Bean 实例。一般而言，应该确保在 ioc 容器中已经事先注入过 Bean 实例，否则就会返回空值
 
 ## 注入范围
 
@@ -166,7 +166,7 @@ class Child {
 ```
 
 - 由于父组件已经注入了 ModelTabs 的 bean 实例，因此子组件可以直接查找并注入
-- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/注册名/属性名`
+- `层级注入`同样支持所有注入机制：`Bean Class/Bean标识/注册名/变量名`
 
 ### 5. skipSelf
 
