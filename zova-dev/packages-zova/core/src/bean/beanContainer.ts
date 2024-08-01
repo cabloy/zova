@@ -1,6 +1,11 @@
 import { isClass } from '../utils/isClass.js';
 import { AppUtil, ZovaApplication, ZovaContext } from '../core/index.js';
-import { Constructable, Functionable, IDecoratorUseOptionsBase } from '../decorator/index.js';
+import {
+  Constructable,
+  Functionable,
+  IDecoratorBeanOptionsBase,
+  IDecoratorUseOptionsBase,
+} from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
 import { MetadataKey } from '../core/metadata.js';
 import { IBeanRecord, IBeanScopeRecord, IControllerData, TypeBeanScopeRecordKeys } from './type.js';
@@ -501,9 +506,9 @@ export class BeanContainer {
     useOptions: IDecoratorUseOptionsBase,
   ) {
     // 0. host/skipSelf
-    if (useOptions.containerScope === 'host') {
+    if (useOptions.injectionScope === 'host') {
       return await this._getBeanFromHost(true, this, targetBeanComposable, targetBeanFullName, useOptions);
-    } else if (useOptions.containerScope === 'skipSelf') {
+    } else if (useOptions.injectionScope === 'skipSelf') {
       return await this._getBeanFromHost(true, this.parent, targetBeanComposable, targetBeanFullName, useOptions);
     }
     // 1. use name
@@ -515,7 +520,7 @@ export class BeanContainer {
       return this[BeanContainerInstances][useOptions.prop];
     }
     // 3. targetBeanFullName
-    let targetOptions;
+    let targetOptions: Pick<IDecoratorBeanOptionsBase, 'containerScope' | 'markReactive'> | undefined;
     if (targetBeanComposable) {
       targetOptions = {
         containerScope: undefined,
@@ -527,10 +532,10 @@ export class BeanContainer {
         throw new Error(`not found bean class: ${targetBeanFullName}`);
       }
     }
-    // options: containerScope
-    const containerScope = useOptions.containerScope ?? targetOptions.containerScope ?? 'ctx';
+    // options: injectionScope
+    const injectionScope = useOptions.injectionScope ?? targetOptions!.containerScope ?? 'ctx';
     // options: markReactive: default is true
-    const markReactive = useOptions.markReactive ?? targetOptions.markReactive ?? true;
+    const markReactive = useOptions.markReactive ?? targetOptions!.markReactive ?? true;
     // options: selector: maybe empty string
     const selector = useOptions.selector;
     // recordProp
@@ -538,7 +543,7 @@ export class BeanContainer {
     const recordProp = useOptions.prop;
     // targetInstance
     let targetInstance;
-    if (containerScope === 'app') {
+    if (injectionScope === 'app') {
       targetInstance = await this.app.bean._getBeanSelectorInner(
         true,
         null,
@@ -548,7 +553,7 @@ export class BeanContainer {
         selector,
       );
       await this._injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, targetBeanFullName, targetInstance);
-    } else if (containerScope === 'ctx') {
+    } else if (injectionScope === 'ctx') {
       targetInstance = await this._getBeanSelectorInner(
         true,
         recordProp,
@@ -557,7 +562,7 @@ export class BeanContainer {
         markReactive,
         selector,
       );
-    } else if (containerScope === 'new') {
+    } else if (injectionScope === 'new') {
       // not record prop
       targetInstance = await this._newBeanInner(
         false,
