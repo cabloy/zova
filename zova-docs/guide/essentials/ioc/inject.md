@@ -67,7 +67,7 @@ class ControllerTodo {
 
 ## Injection scope
 
-The default injection scope of `anonymous bean` is `ctx`, and the default injection scope of `named bean` can be specified when defining it. Different scenes have different default injection scopes. In addition, when injecting, you can also override the default injection scope through the `containerScope` option in @Use
+The default injection scope of `anonymous bean` is `ctx`, and the default injection scope of `named bean` can be specified when defining it. Different scenes have different default injection scopes. In addition, when injecting, you can also override the default injection scope through the `injectionScope` option in @Use
 
 Zova provides the following injection scopes: `app/ctx/new/host/skipSelf`
 
@@ -130,12 +130,12 @@ class ModelTabs {}
 import type { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use({ beanFullName: 'a-tabs.model.tabs', containerScope: 'new' })
+  @Use({ beanFullName: 'a-tabs.model.tabs', injectionScope: 'new' })
   $$modelTabs: ModelTabs;
 }
 ```
 
-- Since the `containerScope` option is specified as `new`, a new bean instance will be directly created through the bean identifier `a-tabs.model.tabs`
+- Since the `injectionScope` option is specified as `new`, a new bean instance will be directly created through the bean identifier `a-tabs.model.tabs`
 
 ## Hierarchical injection {#hierarchical-injection}
 
@@ -160,7 +160,7 @@ class Parent {
 import type { ModelTabs } from 'zova-module-a-tabs';
 
 class Child {
-  @Use({ containerScope: 'host' })
+  @Use({ injectionScope: 'host' })
   $$modelTabs: ModelTabs;
 }
 ```

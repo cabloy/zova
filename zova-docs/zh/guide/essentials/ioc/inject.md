@@ -67,7 +67,7 @@ class ControllerTodo {
 
 ## 注入范围
 
-`匿名bean`的默认注入范围都是`ctx`，`具名bean`可以在定义时指定默认注入范围，不同的场景(scene)有不同的默认注入范围。 此外，在实际注入时，还可以在@Use 中通过`containerScope`选项覆盖默认的注入范围
+`匿名bean`的默认注入范围都是`ctx`，`具名bean`可以在定义时指定默认注入范围，不同的场景(scene)有不同的默认注入范围。 此外，在实际注入时，还可以在@Use 中通过`injectionScope`选项覆盖默认的注入范围
 
 Zova 提供了以下几种注入范围：`app/ctx/new/host/skipSelf`
 
@@ -130,12 +130,12 @@ class ModelTabs {}
 import type { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use({ beanFullName: 'a-tabs.model.tabs', containerScope: 'new' })
+  @Use({ beanFullName: 'a-tabs.model.tabs', injectionScope: 'new' })
   $$modelTabs: ModelTabs;
 }
 ```
 
-- 由于指定 containerScope 选项为 new，因此通过 Bean 标识`a-tabs.model.tabs`直接创建新的 bean 实例
+- 由于指定 injectionScope 选项为 new，因此通过 Bean 标识`a-tabs.model.tabs`直接创建新的 bean 实例
 
 ## 层级注入 {#hierarchical-injection}
 
@@ -160,7 +160,7 @@ class Parent {
 import type { ModelTabs } from 'zova-module-a-tabs';
 
 class Child {
-  @Use({ containerScope: 'host' })
+  @Use({ injectionScope: 'host' })
   $$modelTabs: ModelTabs;
 }
 ```

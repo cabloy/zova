@@ -20,7 +20,7 @@ export declare function Use<T extends keyof IBeanRecord>(beanFullName?: T): Prop
 export interface IDecoratorUseOptions {
   beanFullName?: keyof IBeanRecord;
   name?: string;
-  containerScope?: ContainerScope;
+  injectionScope?: InjectionScope;
 }
 ```
 
@@ -30,7 +30,7 @@ export interface IDecoratorUseOptions {
 - name
   - Optional
   - Inject through variable name
-- containerScope：`app/ctx/new/host/skipSelf`
+- injectionScope: `app/ctx/new/host/skipSelf`
 
   - Optional
   - Default: Use the value specified when the bean is defined
