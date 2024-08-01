@@ -10,7 +10,7 @@ Let's first create a child component `card` using a cli command:
 $ zova :create:component card --module=a-demo
 ```
 
-This command will create a directory `src/component/card`. In Zova, a child component will be splited to three files located in that directory:
+This command will create a directory `src/component/card`. In Zova, a child component will be splited to four files located in that directory:
 
 ```
 src
@@ -18,14 +18,16 @@ src
    └─ card
       ├─ index.vue
       ├─ controller.ts
-      └─ render.tsx
+      ├─ render.tsx
+      └─ style.ts
 ```
 
-| Name          | Description                 |
-| ------------- | --------------------------- |
-| index.vue     | define vue component        |
-| controller.ts | local bean for logic codes  |
-| render.tsx    | local bean for render codes |
+| Name          | Description                     |
+| ------------- | ------------------------------- |
+| index.vue     | define vue component            |
+| controller.ts | local bean for business logic   |
+| render.tsx    | local bean for component render |
+| style.ts      | local bean for component style  |
 
 ## Props
 

@@ -28,7 +28,7 @@ export const routes: IModuleRoute[] = [
 
 ### Directory
 
-In Zova, a page component will be splited to three files:
+In Zova, a page component will be splited to four files:
 
 `src/suite/a-demo/modules/a-demo/src/page/counter`
 
@@ -38,31 +38,30 @@ src
    └─ counter
       ├─ index.vue
       ├─ controller.ts
-      └─ render.tsx
+      ├─ render.tsx
+      └─ style.ts
 ```
 
-| Name          | Description                 |
-| ------------- | --------------------------- |
-| index.vue     | define vue component        |
-| controller.ts | local bean for logic codes  |
-| render.tsx    | local bean for render codes |
+| Name          | Description                   |
+| ------------- | ----------------------------- |
+| index.vue     | define vue component          |
+| controller.ts | local bean for business logic |
+| render.tsx    | local bean for page render    |
+| style.ts      | local bean for page style     |
 
 ## index.vue
 
 ```vue
-<template>
-  <template></template>
-</template>
-
 <script setup lang="ts">
 import { useControllerPage } from 'zova';
 import { ControllerPageCounter } from './controller.js';
 import { RenderCounter } from './render.jsx';
-useControllerPage(ControllerPageCounter, RenderCounter);
+import { StyleCounter } from './style.js';
+useControllerPage(ControllerPageCounter, RenderCounter, StyleCounter);
 </script>
 ```
 
-1. Just import and use the `controller` bean and `render` bean in `index.vue` as well
+1. Just import and use the `controller` bean, `render` bean and `style` bean in `index.vue` as well
 
 ## controller.ts
 
@@ -105,3 +104,13 @@ export class RenderCounter {
 1. Define `render` as a local bean using `@Local` to register it in the ioc container
 2. Write rendering logic using the `tsx` syntax in the `render` method
 3. Directly obtain the value of `count` by vanilla javascript
+
+## style.ts
+
+```typescript
+@Local()
+export class StyleCounter {}
+```
+
+1. Define `style` as a local bean using `@Local` to register it in the ioc container
+2. Support powerful `css-in-js` capabilities, see: [CSS-in-JS: Style & Theme](../../techniques/css-in-js/introduction.md)

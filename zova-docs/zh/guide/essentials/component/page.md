@@ -28,7 +28,7 @@ export const routes: IModuleRoute[] = [
 
 ### 目录
 
-在 Zova 中，一个页面组件被切分为三个文件:
+在 Zova 中，一个页面组件被切分为四个文件:
 
 `src/suite/a-demo/modules/a-demo/src/page/counter`
 
@@ -38,31 +38,30 @@ src
    └─ counter
       ├─ index.vue
       ├─ controller.ts
-      └─ render.tsx
+      ├─ render.tsx
+      └─ style.ts
 ```
 
 | 名称          | 说明                      |
 | ------------- | ------------------------- |
 | index.vue     | 用于定义vue组件           |
-| controller.ts | 用于代码逻辑的 local bean |
-| render.tsx    | 用于渲染逻辑的 local bean |
+| controller.ts | 用于业务逻辑的 local bean |
+| render.tsx    | 用于页面渲染的 local bean |
+| style.ts      | 用于页面样式的 local bean |
 
 ## index.vue
 
 ```vue
-<template>
-  <template></template>
-</template>
-
 <script setup lang="ts">
 import { useControllerPage } from 'zova';
 import { ControllerPageCounter } from './controller.js';
 import { RenderCounter } from './render.jsx';
-useControllerPage(ControllerPageCounter, RenderCounter);
+import { StyleCounter } from './style.js';
+useControllerPage(ControllerPageCounter, RenderCounter, StyleCounter);
 </script>
 ```
 
-1. 只需在`index.vue`中引入`controller`bean 和`render`bean 即可
+1. 只需在`index.vue`中引入`controller`bean、`render`bean 和`style`bean 即可
 
 ## controller.ts
 
@@ -105,3 +104,13 @@ export class RenderCounter {
 1. 使用`@Local`将`render`定义为 local bean，从而注册在 IOC 容器中
 2. 在`render`方法中使用`tsx`语法书写渲染逻辑
 3. 直接用原生 js 代码来获取`count`的值
+
+## style.ts
+
+```typescript
+@Local()
+export class StyleCounter {}
+```
+
+1. 使用`@Local`将`style`定义为 local bean，从而注册在 IOC 容器中
+2. 支持强大的 css-in-js 能力，参见：[CSS-in-JS: Style & Theme](../../techniques/css-in-js/introduction.md)

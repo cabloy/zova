@@ -10,7 +10,7 @@
 $ zova :create:component card --module=a-demo
 ```
 
-该命令会创建一个目录`src/component/card`。在 Zova 中，一个子组件被切分为三个文件，位于刚才创建的目录中：
+该命令会创建一个目录`src/component/card`。在 Zova 中，一个子组件被切分为四个文件，位于刚才创建的目录中：
 
 ```
 src
@@ -18,14 +18,16 @@ src
    └─ card
       ├─ index.vue
       ├─ controller.ts
-      └─ render.tsx
+      ├─ render.tsx
+      └─ style.ts
 ```
 
 | 名称          | 说明                      |
 | ------------- | ------------------------- |
 | index.vue     | 用于定义vue组件           |
-| controller.ts | 用于代码逻辑的 local bean |
-| render.tsx    | 用于渲染逻辑的 local bean |
+| controller.ts | 用于业务逻辑的 local bean |
+| render.tsx    | 用于组件渲染的 local bean |
+| style.ts      | 用于组件样式的 local bean |
 
 ## Props
 
