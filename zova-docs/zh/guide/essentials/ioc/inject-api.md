@@ -29,7 +29,7 @@ export interface IDecoratorUseOptions {
   - 通过 Bean 标识注入
 - name
   - Optional
-  - 通过变量名注入
+  - 通过注册名注入
 - injectionScope: `app/ctx/new/host/skipSelf`
 
   - Optional
