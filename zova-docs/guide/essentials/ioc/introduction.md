@@ -9,13 +9,15 @@ There are two types of ioc containers in Zova:
 1. `global ioc container`(referred to as app container): During system initialization, a unique global bean container will be automatically created. Bean instances created in this container are all singleton mode
 2. `component instance ioc container`(referred to as ctx container): When creating Vue component instances, the system will create a bean container for each of them. Bean instances created in this container can share data and logic within the scope of the component instance
 
-## Bean Types
+## Bean Class
 
-There are two types of beans in Zova:
+Zova adopts a modular system, and Bean Classes are provided by different modules. When using the Bean Class inside the same module, you can directly locate it based on the `Class type`. When using across modules, you can locate it based on the `Bean identifier` instead of the `Class type/file path`, which is conducive to achieving loose coupling between modules
+
+Therefore, Zova provides two types of Bean Classes:
 
 1. `Anonymous bean`: The class decorated with `@Local` is an `anonymous bean`. This type of bean is only used within the module, there is no naming conflict, and it is easy to define and use
 
-2. `Named bean`: Except for `@Local`, the classes decorated by the other decorator functions are `named beans`. Zova provides a naming convention for such beans, which can avoid naming conflicts and facilitate cross-module usage
+2. `Named bean`: Except for `@Local`, the classes decorated by the other decorator functions are `named beans`. Zova provides a unified naming convention for such beans, which can avoid naming conflicts and facilitate cross-module usage
 
 ## Injection Scope
 
