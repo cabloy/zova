@@ -5,5 +5,6 @@
   "type": "module",
   "description": "<%=argv.description%>",
   "author": "<%=argv.author%>",
+  "files": [],
   "dependencies": {}
 }

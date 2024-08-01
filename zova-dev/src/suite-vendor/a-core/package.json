@@ -6,6 +6,7 @@
   "description": "core",
   "author": "zhennann",
   "license": "MIT",
+  "files": [],
   "dependencies": {
     "zova-module-a-core": "^5.0.42",
     "zova-module-a-model": "^5.0.16",
