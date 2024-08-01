@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-vuetify",
-  "version": "5.0.208",
+  "version": "5.0.209",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
