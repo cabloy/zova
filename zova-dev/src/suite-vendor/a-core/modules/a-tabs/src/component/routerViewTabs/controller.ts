@@ -15,7 +15,7 @@ export interface Slots {}
 export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
-  @Use({ containerScope: 'skipSelf' })
+  @Use({ injectionScope: 'skipSelf' })
   $$modelTabs: ModelTabs;
 
   _handleComponentName(component: RouterViewSlotParams) {
