@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.204",
+  "version": "5.0.205",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
