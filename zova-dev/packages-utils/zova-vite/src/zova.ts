@@ -95,8 +95,9 @@ export async function generateZovaViteMeta(
   }
 
   function __getConfigBuild() {
+    const outDir = process.env.VITE_BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`;
     const build = {
-      outDir: process.env.VITE_BUILD_OUTDIR || 'dist',
+      outDir,
       rollupOptions: {
         output: {
           manualChunks: id => {

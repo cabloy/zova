@@ -64,7 +64,7 @@ export function createConfigUtils(
     const meta = getEnvMeta(configMeta);
     const envDir = path.join(configOptions.appDir, 'env');
     const envs = dotenv.loadEnvs(meta, envDir, '.env');
-    return Object.assign(
+    const res = Object.assign(
       {
         NODE_ENV: meta.mode,
       },
@@ -75,6 +75,10 @@ export function createConfigUtils(
         META_APP_MODE: meta.appMode,
       },
     );
+    for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE']) {
+      process.env[key] = res[key];
+    }
+    return res;
   }
 
   async function __loadModulesMeta() {
