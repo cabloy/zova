@@ -1,1 +1,1 @@
-export type ContainerScope = 'app' | 'ctx' | 'new' | 'host' | 'skipSelf';
+export type ContainerScope = 'app' | 'ctx' | 'new';
