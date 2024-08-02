@@ -14,7 +14,8 @@
     "./*": "./*"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "author": "zhennann",
   "license": "MIT",
