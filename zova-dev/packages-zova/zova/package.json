@@ -1,6 +1,6 @@
 {
   "name": "zova",
-  "version": "5.0.149",
+  "version": "5.0.150",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -38,7 +38,7 @@
     "prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "zova-core": "^5.0.111",
+    "zova-core": "^5.0.112",
     "zova-suite-a-core": "^5.0.88"
   },
   "gitHead": "5ef20255490ff9e872fda616f17f50eb03be1815"
