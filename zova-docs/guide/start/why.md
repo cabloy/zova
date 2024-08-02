@@ -8,7 +8,9 @@ For large projects, it is often encountered that a business component includes a
 If it is placed in a sfc file, it will be lengthy and difficult to maintain.
 In vue2, it can be split into multiple mixins, but mixins have no types, so there are many disadvantages.
 In vue3, it can be split into multiple composables, but it is not convenient to share states and logic between multiple composables.
-In this scenario, using IOC container is a better choice.
+In this scenario, using IOC container is a better choice
+
+The IOC container is like a key that opens the door to business engineering for us, allowing us to explore more engineering designs and capabilities
 
 ## Application scenarios of Class
 
