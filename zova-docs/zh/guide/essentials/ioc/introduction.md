@@ -11,7 +11,7 @@
 
 ## Bean Class
 
-Zova 采用模块化体系，Bean Class 都由不同的模块提供。使用模块内部的 Bean Class 时可以直接基于`Class类型`定位。在跨模块使用时可以基于`Bean标识`定位，而不是基于`Class类型/文件路径`定位，这样有利于实现模块之间的松耦合
+Zova 采用模块化体系，Bean Class 都由不同的模块提供。注入模块内部的 Bean 时可以直接基于`Class类型`解析。在跨模块注入时可以基于`Bean标识`解析，而不是基于`Class类型/文件路径`解析，这样有利于实现模块之间的松耦合
 
 因此，Zova 提供了两类 Bean Class：
 

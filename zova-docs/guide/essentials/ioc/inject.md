@@ -2,9 +2,16 @@
 
 Zova injects Bean instances through `@Use` decorator function
 
-## Injection mechanism
+## Resolution rules
 
-Zova provides the following injection mechanisms:
+Zova adopts a modular system, and Bean Classes are provided by different modules. When using the Bean Class inside the same module, you can directly resolve it based on `Class type`. When using cross-module, you can resolve it based on `Bean identifier` instead of `Class type/file path`, which is conducive to achieving loose coupling between modules
+
+Therefore, Zova provides the following resolution rules:
+
+- Bean Class
+- Bean identifier
+- Registration name
+- Variable name
 
 ### 1. Bean Class
 
@@ -166,7 +173,7 @@ class Child {
 ```
 
 - Since the parent component has already injected the `ModelTabs` bean instance, the child component can directly lookup and inject it
-- `Hierarchical injection` also supports all injection mechanisms: `Bean Class/Bean identifier/Registration name/Variable name`
+- `Hierarchical injection` also supports all resolution rules
 
 ### 5. skipSelf
 

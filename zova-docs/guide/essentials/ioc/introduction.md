@@ -11,7 +11,7 @@ There are two types of ioc containers in Zova:
 
 ## Bean Class
 
-Zova adopts a modular system, and Bean Classes are provided by different modules. When using the Bean Class inside the same module, you can directly locate it based on `Class type`. When using cross-module, you can locate it based on `Bean identifier` instead of `Class type/file path`, which is conducive to achieving loose coupling between modules
+Zova adopts a modular system, and Bean Classes are provided by different modules. When using the Bean Class inside the same module, you can directly resolve it based on `Class type`. When using cross-module, you can resolve it based on `Bean identifier` instead of `Class type/file path`, which is conducive to achieving loose coupling between modules
 
 Therefore, Zova provides two types of Bean Classes:
 
