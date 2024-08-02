@@ -25,7 +25,8 @@ export async function checkForUpdates(packageName: string) {
 }
 
 export async function getPackageInfo(packageName: string) {
-  const result = await urllib.request(`https://registry.npmjs.org/${packageName}/latest`, {
+  const registry = process.env.npm_config_registry || 'https://registry.npmjs.org/';
+  const result = await urllib.request(`${registry}${packageName}/latest`, {
     dataType: 'json',
     followRedirect: true,
     maxRedirects: 5,
