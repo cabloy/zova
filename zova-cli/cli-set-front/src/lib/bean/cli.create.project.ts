@@ -17,12 +17,10 @@ declare module 'zova-cli' {
 
 export class CliCreateProject extends BeanCliBase {
   httpClient: typeof urllib;
-  registryUrl: string;
 
   constructor(options: CmdOptions) {
     super(options);
     this.httpClient = urllib;
-    this.registryUrl = 'https://registry.npmjs.org';
   }
 
   async execute() {
@@ -84,7 +82,8 @@ export class CliCreateProject extends BeanCliBase {
   async getPackageInfo(packageName: string, withFallback: boolean) {
     await this.console.log(`fetching npm info of ${packageName}`);
     try {
-      const result = await this.curl(`${this.registryUrl}/${packageName}/latest`, {
+      const registry = await this.helper.getRegistry();
+      const result = await this.curl(`${registry}${packageName}/latest`, {
         dataType: 'json',
         followRedirect: true,
         maxRedirects: 5,

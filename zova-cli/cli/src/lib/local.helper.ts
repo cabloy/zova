@@ -7,6 +7,7 @@ import { ProcessHelper } from '@cabloy/process-helper';
 import { commandsConfig } from '../config.js';
 import { BeanCliBase } from './bean.cli.base.js';
 import { NameMeta } from '../types/helper.js';
+import { getRegistry } from '../registry.js';
 
 export class LocalHelper {
   cli: BeanCliBase;
@@ -156,5 +157,8 @@ export class LocalHelper {
   }
   async gitCommit({ cwd, message }: any) {
     return await this.ProcessHelper.gitCommit({ cwd, message });
+  }
+  async getRegistry() {
+    return await getRegistry();
   }
 }

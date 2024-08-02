@@ -2,8 +2,7 @@ import urllib from 'urllib';
 import semver from 'semver';
 import chalk from 'chalk';
 import boxen from 'boxen';
-import NPMConfig from '@npmcli/config';
-import { shorthands, definitions, flatten } from '@npmcli/config/lib/definitions';
+import { getRegistry } from './registry.js';
 
 const boxenOptions = { padding: 1, margin: 1, align: 'center', borderColor: 'yellow', borderStyle: 'round' };
 
@@ -27,9 +26,7 @@ export async function checkForUpdates(packageName: string) {
 }
 
 export async function getPackageInfo(packageName: string) {
-  const npmConfig = new NPMConfig({ npmPath: '', definitions, shorthands, flatten });
-  await npmConfig.load();
-  const registry = npmConfig.get('registry') || 'https://registry.npmjs.org/';
+  const registry = await getRegistry();
   const result = await urllib.request(`${registry}${packageName}/latest`, {
     dataType: 'json',
     followRedirect: true,
