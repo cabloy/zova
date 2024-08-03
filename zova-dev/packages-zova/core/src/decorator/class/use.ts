@@ -21,11 +21,16 @@ export function Use(options?: IDecoratorUseOptions | string): PropertyDecorator 
     });
     // chech beanClass
     if (process.env.NODE_ENV === 'development') {
-      const beanFullName = appResource.getBeanFullName(beanClass);
-      if (beanFullName) {
-        console.error(
-          `inject class should be imported by type, such as: import type { ${appResource._fixClassName(beanClass.name)} } from 'xxx'`,
-        );
+      const moduleSource = appResource._getModuleName(beanClass);
+      if (moduleSource) {
+        window.setTimeout(() => {
+          const moduleTarget = appResource._getModuleName(target.constructor as any);
+          if (moduleSource !== moduleTarget) {
+            console.error(
+              `inject class should be imported by type, such as: import type { ${appResource._fixClassName(beanClass.name)} } from 'xxx'`,
+            );
+          }
+        }, 0);
       }
     }
   };
