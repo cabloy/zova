@@ -62,6 +62,7 @@ useControllerPage(ControllerPageCounter, RenderCounter, StyleCounter);
 ```
 
 1. Just import and use the `controller` bean, `render` bean and `style` bean in `index.vue` as well
+2. `useControllerPage` will automatically introduce an IOC container and inject the required bean instances into the container
 
 ## controller.ts
 
@@ -114,3 +115,7 @@ export class StyleCounter {}
 
 1. Define `style` as a local bean using `@Local` to register it in the ioc container
 2. Support powerful `css-in-js` capabilities, see: [CSS-in-JS: Style & Theme](../../techniques/css-in-js/introduction.md)
+
+## Progressive development
+
+Zova adheres to the concept of progressive development. If the logic of some Vue components is relatively simple, or if you want to use the old Vue component code, you can directly use SFC development as usual without introducing an IOC container

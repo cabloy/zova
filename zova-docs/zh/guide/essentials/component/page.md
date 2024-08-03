@@ -62,6 +62,7 @@ useControllerPage(ControllerPageCounter, RenderCounter, StyleCounter);
 ```
 
 1. 只需在`index.vue`中引入`controller`bean、`render`bean 和`style`bean 即可
+2. useControllerPage 会自动引入一个 IOC 容器，并在容器中注入所需要的 bean 实例
 
 ## controller.ts
 
@@ -114,3 +115,7 @@ export class StyleCounter {}
 
 1. 使用`@Local`将`style`定义为 local bean，从而注册在 IOC 容器中
 2. 支持强大的 css-in-js 能力，参见：[CSS-in-JS: Style & Theme](../../techniques/css-in-js/introduction.md)
+
+## 渐进式开发
+
+Zova 奉行渐进式开发的理念。如果某些 Vue 组件逻辑比较简单，或者想利用旧的 Vue 组件代码，那么直接像通常一样使用 SFC 开发即可，不必引入 IOC 容器
