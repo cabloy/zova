@@ -162,13 +162,12 @@ export class AppResource extends BeanSimple {
     return moduleBelong;
   }
 
-  _getModuleBelong<T>(A: Constructable<T>): string;
-  _getModuleBelong<K extends keyof IBeanRecord>(beanFullName: K): string;
-  _getModuleBelong(beanFullName: string): string;
-  _getModuleBelong<T>(beanFullName: Constructable<T> | string): string {
+  _getModuleBelong<T>(A: Constructable<T>): string | undefined;
+  _getModuleBelong<K extends keyof IBeanRecord>(beanFullName: K): string | undefined;
+  _getModuleBelong(beanFullName: string): string | undefined;
+  _getModuleBelong<T>(beanFullName: Constructable<T> | string): string | undefined {
     const beanOptions = this.getBean(beanFullName as any);
-    if (!beanOptions || !beanOptions.moduleBelong) throw new Error(`not found module belong: ${beanFullName}`);
-    return beanOptions.moduleBelong;
+    return beanOptions?.moduleBelong;
   }
 
   _getModuleName<T>(A: Constructable<T>): string | undefined;

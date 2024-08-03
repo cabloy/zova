@@ -24,7 +24,10 @@ export class BeanBaseSimple extends BeanSimple {
   }
 
   protected get [SymbolModuleBelong]() {
-    return this[SymbolModuleBelongInner] || appResource._getModuleBelong(this[SymbolBeanFullName]);
+    if (this[SymbolModuleBelongInner]) return this[SymbolModuleBelongInner];
+    const moduleBelong = appResource._getModuleBelong(this[SymbolBeanFullName]);
+    if (!moduleBelong) throw new Error(`not found module belong: ${this[SymbolBeanFullName]}`);
+    return moduleBelong;
   }
 
   protected get [SymbolModuleName]() {
