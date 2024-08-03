@@ -171,13 +171,12 @@ export class AppResource extends BeanSimple {
     return beanOptions.moduleBelong;
   }
 
-  _getModuleName<T>(A: Constructable<T>): string;
-  _getModuleName<K extends keyof IBeanRecord>(beanFullName: K): string;
-  _getModuleName(beanFullName: string): string;
-  _getModuleName<T>(beanFullName: Constructable<T> | string): string {
+  _getModuleName<T>(A: Constructable<T>): string | undefined;
+  _getModuleName<K extends keyof IBeanRecord>(beanFullName: K): string | undefined;
+  _getModuleName(beanFullName: string): string | undefined;
+  _getModuleName<T>(beanFullName: Constructable<T> | string): string | undefined {
     const beanOptions = this.getBean(beanFullName as any);
-    if (!beanOptions || !beanOptions.module) throw new Error(`not found module name: ${beanFullName}`);
-    return beanOptions.module;
+    return beanOptions?.module;
   }
 
   findAopsMatched(_beanFullName: string): any[] {

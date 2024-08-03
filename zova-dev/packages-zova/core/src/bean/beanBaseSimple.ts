@@ -28,6 +28,8 @@ export class BeanBaseSimple extends BeanSimple {
   }
 
   protected get [SymbolModuleName]() {
-    return appResource._getModuleName(this[SymbolBeanFullName]);
+    const moduleName = appResource._getModuleName(this[SymbolBeanFullName]);
+    if (!moduleName) throw new Error(`not found module name: ${this[SymbolBeanFullName]}`);
+    return moduleName;
   }
 }
