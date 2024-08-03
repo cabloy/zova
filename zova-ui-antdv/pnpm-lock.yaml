@@ -24,8 +24,8 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
       zova:
-        specifier: ^5.0.148
-        version: 5.0.148(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+        specifier: ^5.0.151
+        version: 5.0.151(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
       zova-module-a-model:
         specifier: ^5.0.16
         version: 5.0.16(vue@3.4.29(typescript@5.4.5))
@@ -64,8 +64,8 @@ importers:
         specifier: ^2.0.21
         version: 2.0.21(typescript@5.4.5)
       zova-vite:
-        specifier: ^1.0.133
-        version: 1.0.133(@babel/core@7.24.7)(@babel/traverse@7.24.7)(sass@1.77.5)(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+        specifier: ^1.0.136
+        version: 1.0.136(@babel/core@7.24.7)(@babel/traverse@7.24.7)(sass@1.77.5)(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
 
   src/suite-vendor/a-antdv:
     dependencies:
@@ -2419,8 +2419,8 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
-  zova-core@5.0.110:
-    resolution: {integrity: sha512-7B0wyliqhRmjAIZxGwQy0TWrlRKf5amXUtk4MGd8IbosyXxBbYy8Th1cqWZMYOlniwMr32zG3ozbaze0w0rayw==}
+  zova-core@5.0.113:
+    resolution: {integrity: sha512-2iKdzdbQ1ZbySjXdxZzQ3NP9FHCh4EMm2ZBU6AhgKqeV8337ImcPOnnHGVl0QF2DxZ+Y84vnoeKXGQrBKKJgEg==}
 
   zova-module-a-core@5.0.42:
     resolution: {integrity: sha512-OB34tqJrXARqWDhjRjHVDV1AAFZ6AKMkuzBtkQtkLA4Vy5Rxx3bLsz+p7jCAIgbx68ApmuMzcrqc8PSK8tov8A==}
@@ -2443,11 +2443,11 @@ packages:
   zova-suite-a-core@5.0.88:
     resolution: {integrity: sha512-vwFUcigVCgTwGbS38tMgl0IkvBYvsVlr7Kr2H9IFdst50pxYZcKTD0ARn+pZFo3kw8auoAmwtzd/wvGBErIEMQ==}
 
-  zova-vite@1.0.133:
-    resolution: {integrity: sha512-bulOQcu7LlNDOBKr9xZfkN+aH89Enirk0/KXvv5Lc+M8k83FbyBBDl1uq0K7OhsRwAeKlOBKTnghjS0twRyLHg==}
+  zova-vite@1.0.136:
+    resolution: {integrity: sha512-eJRuv8Sj16SQmJ+oe/Frecl1MV+IvufSy+QTXM42B5tvuJAWbzvS8HRabsfiJXnbYFjEL+NhXjA77d7QUR0QuA==}
 
-  zova@5.0.148:
-    resolution: {integrity: sha512-2T5WyZ2pwqOoi05MK2SiXVXrnIJL4lGR2z/Ci6FEQ8d+pQDWsfgPowch+Z7IGrO44BL3gFHxo133088G1vKYBg==}
+  zova@5.0.151:
+    resolution: {integrity: sha512-ZAX0JoxqAM8H2Su0zj4zVhO2GC3mbsb+rtAw1PBxw2UDtlCJ/uxj+Ez6LCLGjBV8nrQQBIormrpX5CpgV7Kvcw==}
 
 snapshots:
 
@@ -4676,7 +4676,7 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zova-core@5.0.110(typescript@5.4.5):
+  zova-core@5.0.113(typescript@5.4.5):
     dependencies:
       '@cabloy/compose': 1.0.2
       '@cabloy/extend': 3.0.5
@@ -4737,7 +4737,7 @@ snapshots:
       - typescript
       - vue
 
-  zova-vite@1.0.133(@babel/core@7.24.7)(@babel/traverse@7.24.7)(sass@1.77.5)(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
+  zova-vite@1.0.136(@babel/core@7.24.7)(@babel/traverse@7.24.7)(sass@1.77.5)(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.7(@babel/core@7.24.7)
       '@babel/plugin-transform-class-properties': 7.24.7(@babel/core@7.24.7)
@@ -4763,7 +4763,7 @@ snapshots:
       terser: 5.31.1
       tmp: 0.2.3
       vite: 5.3.1(@types/node@20.14.2)(sass@1.77.5)(terser@5.31.1)
-      zova-core: 5.0.110(typescript@5.4.5)
+      zova-core: 5.0.113(typescript@5.4.5)
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'
@@ -4777,9 +4777,9 @@ snapshots:
       - typescript
       - vue
 
-  zova@5.0.148(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
+  zova@5.0.151(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
     dependencies:
-      zova-core: 5.0.110(typescript@5.4.5)
+      zova-core: 5.0.113(typescript@5.4.5)
       zova-suite-a-core: 5.0.88(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
     transitivePeerDependencies:
       - '@vue/composition-api'
