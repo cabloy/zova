@@ -7,6 +7,8 @@
 | `__init__`    | 在创建bean实例时执行的初始化方法，并且支持异步 |
 | `__dispose__` | 在bean实例销毁时执行的销毁方法                 |
 
+- Zova 提供了两个代码片段，你可以通过输入`init`和`dispose`快速添加相应的生命周期方法
+
 ## 举例：computed计算属性
 
 ```typescript

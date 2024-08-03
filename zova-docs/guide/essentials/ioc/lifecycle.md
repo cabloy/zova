@@ -7,6 +7,8 @@ All beans can provide two lifecycle methods
 | `__init__`    | The initialization method executed when creating a bean instance, and supports asynchrony |
 | `__dispose__` | The dispose method executed during bean instance destruction                              |
 
+- Zova provides two code snippets, you can quickly add corresponding lifecycle methods by entering `init` or `dispose`
+
 ## For Example: computed
 
 ```typescript
