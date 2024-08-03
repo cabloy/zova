@@ -31,8 +31,8 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.11",
-    "quasar": "~2.15.4",
+    "@quasar/extras": "^1.16.12",
+    "quasar": "^2.16.6",
     "typestyle": "^2.4.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
@@ -46,13 +46,13 @@
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.10",
-    "@quasar/app-vite": "2.0.0-beta.11",
-    "@quasar/vite-plugin": "~1.6.0",
+    "@quasar/app-vite": "^2.0.0-beta.15",
+    "@quasar/vite-plugin": "^1.7.0",
     "@types/node": "^20.14.2",
     "autoprefixer": "^10.4.19",
     "quasar-app-extension-zova": "^1.1.122",
     "typescript": "^5.4.5",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.0.29"
   },
   "license": "MIT",
   "gitHead": "5ef20255490ff9e872fda616f17f50eb03be1815"
