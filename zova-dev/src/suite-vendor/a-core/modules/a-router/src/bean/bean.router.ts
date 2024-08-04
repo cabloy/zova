@@ -118,11 +118,20 @@ export class BeanRouter extends BeanBase {
         const configRoute = this._findConfigRoute(match?.name, match?.path);
         const alias = configRoute?.alias;
         if (alias) {
-          return {
-            path: Array.isArray(alias) ? alias[0] : alias,
-            params: to.params,
-            query: to.query,
-          };
+          if (match?.name) {
+            // @ts-ignore ignore
+            const routeAlias = this.resolveName(`$alias:${match?.name}`, {
+              params: to.params,
+              query: to.query,
+            });
+            return routeAlias.substring('/__alias__'.length);
+          } else {
+            return {
+              path: Array.isArray(alias) ? alias[0] : alias,
+              params: to.params,
+              query: to.query,
+            };
+          }
         }
       }
       const matchNameOrPath = this.getRealRouteName(match?.name) || match?.path;
@@ -176,6 +185,11 @@ export class BeanRouter extends BeanBase {
     const configRoute = name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
     if (configRoute) {
       route = this.app.meta.util.extend({}, route, configRoute);
+    }
+    // name alias
+    if (name && configRoute?.alias) {
+      // add extra route
+      this.router.addRoute({ name: `$alias:${name}`, path: `/__alias__${configRoute?.alias}`, redirect: '' });
     }
     // name
     if (!name) {
