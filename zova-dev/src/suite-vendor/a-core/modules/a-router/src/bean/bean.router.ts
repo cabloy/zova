@@ -239,7 +239,7 @@ export class BeanRouter extends BeanBase {
     const routesName = this.app.config.routes.name;
     for (const key in routesName) {
       const route = routesName[key];
-      this._loadConfigRoute({ ...route, name: key });
+      this._loadConfigRoute({ ...route, path: route.path || route.alias, name: key });
     }
   }
 
