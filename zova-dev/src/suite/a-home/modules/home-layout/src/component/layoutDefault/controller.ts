@@ -59,7 +59,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
       persister: configTabs.persister,
       getAffixTabs: () => {
         if (!this.$$modelMenu.select().data) return;
-        return [{ key: '/a/home/home', affix: true }];
+        return [{ key: '/', affix: true }];
       },
       getTabInfo: async tab => {
         const queryMenu = this.$$modelMenu.select();
