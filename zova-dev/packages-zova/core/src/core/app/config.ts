@@ -36,6 +36,10 @@ export const configDefault = {
       empty: 'home-layout:layoutEmpty',
     },
   },
+  routes: {
+    path: {},
+    name: {},
+  },
   modules: {},
 };
 

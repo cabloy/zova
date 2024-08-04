@@ -22,21 +22,26 @@ export class BeanRouter extends BeanBase {
   }
 
   protected async __init__(router?: Router) {
-    if (!router) {
+    if (router) {
+      this[SymbolRouter] = router;
+    } else {
       // app router
       router = this.bean.inject('a-router:appRouter');
       if (!router) {
         throw new Error('Should provide router');
       }
+      this[SymbolRouter] = router;
+      // provide
       this.app.vue.provide('a-router:router', this);
       this.bean.provide('a-router:router', this);
+      // config.routes
+      this._loadConfigRoutes();
       // event
       this.eventRouterGuards = this.app.meta.event.on('a-router:routerGuards', async (context, next) => {
         this._routerGuards(context.data);
         await next();
       });
     }
-    this[SymbolRouter] = router;
   }
 
   protected __dispose__() {
@@ -183,6 +188,23 @@ export class BeanRouter extends BeanBase {
     }
     // add
     this.router.addRoute(routeData);
+  }
+
+  private _loadConfigRoutes() {
+    const routesPath = this.app.config.routes.path;
+    for (const key in routesPath) {
+      const route = routesPath[key];
+      this._loadConfigRoute({ ...route, path: key, name: `$:${key}` });
+    }
+    const routesName = this.app.config.routes.name;
+    for (const key in routesName) {
+      const route = routesName[key];
+      this._loadConfigRoute({ ...route, name: key });
+    }
+  }
+
+  private _loadConfigRoute(route: IModuleRoute) {
+    this.router.addRoute(route);
   }
 
   getRealRouteName(name?: string | symbol): string | undefined {
