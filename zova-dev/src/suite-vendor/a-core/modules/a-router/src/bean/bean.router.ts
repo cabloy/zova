@@ -125,9 +125,9 @@ export class BeanRouter extends BeanBase {
           };
         }
       }
-      const matchPath = match?.path;
+      const matchNameOrPath = this.getRealRouteName(match?.name) || match?.path;
       // module info
-      const moduleInfo = ModuleInfo.parseInfo(matchPath);
+      const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(matchNameOrPath));
       if (!moduleInfo) {
         // donothing
         return;

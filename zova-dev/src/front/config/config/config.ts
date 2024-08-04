@@ -16,7 +16,9 @@ export default function (_meta: ZovaConfigMeta) {
       '/a/home/home': { alias: '/' },
       '/demo/todo/todo': { alias: '/todo' },
     },
-    name: {},
+    name: {
+      'demo-todo:item': { alias: '/todo/:id' },
+    },
   };
 
   // module config
