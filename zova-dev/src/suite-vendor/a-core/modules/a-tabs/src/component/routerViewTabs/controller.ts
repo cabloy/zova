@@ -21,7 +21,7 @@ export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Pr
   _handleComponentName(component: RouterViewSlotParams) {
     let name = component.Component.type.name;
     if (name) return name;
-    name = component.route.meta.name || component.route.name?.toString() || component.route.path;
+    name = component.route.meta.name || this.$router.getRealRouteName(component.route.name) || component.route.path;
     Cast(component.Component.type).name = name;
     return name;
   }
