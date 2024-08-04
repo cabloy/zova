@@ -7,7 +7,7 @@ import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
     '/demo/todo/todo': NSControllerPageTodo.QueryInput;
-    '/demo/todo/item': NSControllerPageItem.QueryInput;
+    //'/demo/todo/item': NSControllerPageItem.QueryInput;
   }
   export interface IPageNameRecord {
     'demo-todo:item': TypePageParamsQuery<NSControllerPageItem.QueryInput, NSControllerPageItem.ParamsInput>;
