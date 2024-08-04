@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleHome } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
+import { QPage } from 'quasar';
 
 export interface RenderHome extends StyleHome {}
 
