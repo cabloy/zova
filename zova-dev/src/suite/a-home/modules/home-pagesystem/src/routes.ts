@@ -7,7 +7,6 @@ export const routes: IModuleRoute[] = [
     redirect: '/a/home/home',
     meta: {
       absolute: true,
-      requiresAuth: false,
     },
   },
   {
