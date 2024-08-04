@@ -10,6 +10,14 @@ export default function (_meta: ZovaConfigMeta) {
     layout: {},
   };
 
+  // routes
+  config.routes = {
+    path: {
+      '/a/home/home': { alias: '/' },
+    },
+    name: {},
+  };
+
   // module config
   config.modules = {};
 
