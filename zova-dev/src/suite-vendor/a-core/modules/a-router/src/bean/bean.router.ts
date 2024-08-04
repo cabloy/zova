@@ -113,7 +113,17 @@ export class BeanRouter extends BeanBase {
       if (match) {
         match = match.aliasOf;
       } else {
-        match = to.matched[0];
+        match = to.matched[to.matched.length - 1];
+        // alias
+        const configRoute = this._findConfigRoute(match?.name, match?.path);
+        const alias = configRoute?.alias;
+        if (alias) {
+          return {
+            path: Array.isArray(alias) ? alias[0] : alias,
+            params: to.params,
+            query: to.query,
+          };
+        }
       }
       const matchPath = match?.path;
       // module info
@@ -217,6 +227,11 @@ export class BeanRouter extends BeanBase {
       const route = routesName[key];
       this._loadConfigRoute({ ...route, name: key });
     }
+  }
+
+  private _findConfigRoute(name: string | symbol | undefined, path: string | undefined): IModuleRoute | undefined {
+    name = this.getRealRouteName(name);
+    return name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
   }
 
   private _loadConfigRoute(route: IModuleRoute) {
