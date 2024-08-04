@@ -6,6 +6,7 @@ import {
   PowerPartial,
   IComponentLayoutRecord,
   IBeanScopeRecord,
+  ZovaConfigRoutes,
 } from '../../index.js';
 
 export const configDefault = {
@@ -62,6 +63,7 @@ export type ZovaConfig = {
       empty: keyof IComponentLayoutRecord;
     };
   };
+  routes: ZovaConfigRoutes;
   modules: IBeanScopeConfig;
 };
 

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+export interface ZovaConfigRoutes {}
 export interface IPagePathRecord {}
 export interface IPageNameRecord {}
 

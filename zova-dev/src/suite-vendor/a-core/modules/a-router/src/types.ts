@@ -1,4 +1,4 @@
-import { IComponentLayoutRecord, TypePageSchemas } from 'zova';
+import { IComponentLayoutRecord, IPageNameRecord, IPagePathRecord, TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 
@@ -35,5 +35,10 @@ declare module 'zova' {
   export interface IModuleResource {
     pagePathSchemas?: TypePageSchemas;
     pageNameSchemas?: TypePageSchemas;
+  }
+
+  export interface ZovaConfigRoutes {
+    path: Record<keyof IPagePathRecord, IModuleRoute>;
+    name: Record<keyof IPageNameRecord, IModuleRoute>;
   }
 }
