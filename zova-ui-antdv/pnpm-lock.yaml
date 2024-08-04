@@ -24,8 +24,8 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
       zova:
-        specifier: ^5.0.152
-        version: 5.0.152(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+        specifier: ^5.0.153
+        version: 5.0.153(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
       zova-module-a-model:
         specifier: ^5.0.16
         version: 5.0.16(vue@3.4.29(typescript@5.4.5))
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.0.20
         version: 5.0.20(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
       zova-module-a-router:
-        specifier: ^5.0.51
-        version: 5.0.51(vue@3.4.29(typescript@5.4.5))
+        specifier: ^5.0.52
+        version: 5.0.52(vue@3.4.29(typescript@5.4.5))
       zova-module-a-style:
         specifier: ^5.0.22
         version: 5.0.22
@@ -2431,8 +2431,8 @@ packages:
   zova-module-a-pinia@5.0.20:
     resolution: {integrity: sha512-6P7lPJb0REqGkatnXYTcCy8N9Ec7tCSC/tOKJ3FGBJE94rannEVCej9S4MW0toukbTsKtQpKydU8KG0wn5+WVg==}
 
-  zova-module-a-router@5.0.51:
-    resolution: {integrity: sha512-KPnswuS5NPZ1bVzg/D24Y6ks1gIeygXG0FTKFqQVjjonwI3QTpOeCzChYs5E0Fq01mbmacIFNcRGl65tYJ/6WQ==}
+  zova-module-a-router@5.0.52:
+    resolution: {integrity: sha512-cUL7mF1YA+dlzhegbOXEQCosQU7+eFgKnlE0y3yc9TbV7+hNNnVxWhu1lfe/QTTildtPCx0P/oRymg4/2wcY0g==}
 
   zova-module-a-style@5.0.22:
     resolution: {integrity: sha512-THLg3AvGwv82Xzmv7Rrc2eXnVQoWWSZJjFfrDdtzSCS96F1e6vFc6PJqA81eobKpwoW13FG4JRZZWHwfqBvdEg==}
@@ -2440,14 +2440,14 @@ packages:
   zova-module-a-tabs@5.0.18:
     resolution: {integrity: sha512-O/m52RQL+BuKf0KVemXfojP77iN6XGMWjdQjTnobflEnB5u9EM04Ay8oIt8JOfY0OQD6qpzk9OG0dlmtqfE5QQ==}
 
-  zova-suite-a-core@5.0.89:
-    resolution: {integrity: sha512-ca0HGehEHJi7NBbFXXfF0++a2FTFJ0D7aoOeJcXylTLPYg7PjHOb47vNB0/dla+i+4CJRD/QAi5Gb18L62vZsQ==}
+  zova-suite-a-core@5.0.90:
+    resolution: {integrity: sha512-k0Nz80PyxtLF0/tjBQ+wmY0qczH9bWI3FGKGZKT4RiW9S9JAh3zfg6dcIVOJTpNcXr8hSprbvU+2/N+qIkX7Vw==}
 
   zova-vite@1.0.137:
     resolution: {integrity: sha512-OiqgX0LhkN7qUEef57IX+nXD2sWmbGV7IX0HAU2dgUyKmBXznwuugLIaisu5MUJzE2UQ7rShuKWO7UpiXIr5wg==}
 
-  zova@5.0.152:
-    resolution: {integrity: sha512-RI2DuFqHprSyD7j0GyXWXKMcjOL9ViXVxyQ/ykpl1nAEKnKPoXA6icZes68+ia2NUzSBU659W2WRCVgpyAN7UA==}
+  zova@5.0.153:
+    resolution: {integrity: sha512-/qC+KVHVYIP6am3/GZMUReVGEA0nm2Kb7XHXWa70YZKrCGZcUe61mJGSVGge35/vK1LtlmuV/rEjXnU2164+ww==}
 
 snapshots:
 
@@ -4713,7 +4713,7 @@ snapshots:
       - typescript
       - vue
 
-  zova-module-a-router@5.0.51(vue@3.4.29(typescript@5.4.5)):
+  zova-module-a-router@5.0.52(vue@3.4.29(typescript@5.4.5)):
     dependencies:
       vue-router: 4.3.3(vue@3.4.29(typescript@5.4.5))
     transitivePeerDependencies:
@@ -4723,12 +4723,12 @@ snapshots:
 
   zova-module-a-tabs@5.0.18: {}
 
-  zova-suite-a-core@5.0.89(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
+  zova-suite-a-core@5.0.90(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
     dependencies:
       zova-module-a-core: 5.0.42
       zova-module-a-model: 5.0.16(vue@3.4.29(typescript@5.4.5))
       zova-module-a-pinia: 5.0.20(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
-      zova-module-a-router: 5.0.51(vue@3.4.29(typescript@5.4.5))
+      zova-module-a-router: 5.0.52(vue@3.4.29(typescript@5.4.5))
       zova-module-a-style: 5.0.22
       zova-module-a-tabs: 5.0.18
     transitivePeerDependencies:
@@ -4776,10 +4776,10 @@ snapshots:
       - typescript
       - vue
 
-  zova@5.0.152(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
+  zova@5.0.153(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)):
     dependencies:
       zova-core: 5.0.114(typescript@5.4.5)
-      zova-suite-a-core: 5.0.89(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+      zova-suite-a-core: 5.0.90(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - typescript
