@@ -5,7 +5,7 @@ const __MenuData = [
     title: 'Home',
     caption: '',
     icon: '::home',
-    to: '/a/home/home',
+    to: '/',
   },
   {
     folder: true,
