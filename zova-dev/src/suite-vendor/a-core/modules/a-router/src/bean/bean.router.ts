@@ -124,10 +124,7 @@ export class BeanRouter extends BeanBase {
       }
       const moduleName = moduleInfo.relativeName;
       // check if exists
-      if (!this.app.meta.module.exists(moduleName)) {
-        // donothing
-        return;
-      }
+      if (!this.app.meta.module.exists(moduleName)) return '/404';
       // check if loaded
       const module = this.app.meta.module.get(moduleName, false);
       if (module) return;
