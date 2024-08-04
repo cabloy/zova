@@ -108,24 +108,33 @@ export class BeanRouter extends BeanBase {
 
   private _routerGuards(router: BeanRouter) {
     router.beforeEach(async to => {
-      // fullPath
-      const fullPath = to.fullPath;
+      // match path
+      let match = to.matched.find(item => item.aliasOf);
+      if (match) {
+        match = match.aliasOf;
+      } else {
+        match = to.matched[0];
+      }
+      const matchPath = match?.path;
       // module info
-      const moduleInfo = ModuleInfo.parseInfo(fullPath);
+      const moduleInfo = ModuleInfo.parseInfo(matchPath);
       if (!moduleInfo) {
         // donothing
         return;
       }
       const moduleName = moduleInfo.relativeName;
       // check if exists
-      if (!this.app.meta.module.exists(moduleName)) return '/404';
+      if (!this.app.meta.module.exists(moduleName)) {
+        // donothing
+        return;
+      }
       // check if loaded
       const module = this.app.meta.module.get(moduleName, false);
       if (module) return;
       // use module
       await this.app.meta.module.use(moduleName);
       // redirect again
-      return fullPath;
+      return to.fullPath;
     });
   }
 
@@ -138,28 +147,35 @@ export class BeanRouter extends BeanBase {
   }
 
   private _registerRoute(module: IModule, route: IModuleRoute) {
-    // meta
-    const meta = route.meta;
     // path
     let path: string | undefined;
     if (route.path) {
-      if (meta?.absolute === true) {
+      if (route.meta?.absolute === true) {
         path = route.path;
       } else {
         path = `/${module.info.pid}/${module.info.name}/${route.path}`;
       }
     }
     // name
-    let name: string;
+    let name: string | undefined;
     if (route.name) {
-      if (meta?.absolute === true) {
+      if (route.meta?.absolute === true) {
         name = String(route.name);
       } else {
         name = `${module.info.relativeName}:${String(route.name)}`;
       }
-    } else {
+    }
+    // config route
+    const configRoute = name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
+    if (configRoute) {
+      route = this.app.meta.util.extend({}, route, configRoute);
+    }
+    // name
+    if (!name) {
       name = `$:${path}`;
     }
+    // meta
+    const meta = route.meta;
     // component
     const component = route.component;
     // layout / routeData
@@ -183,8 +199,11 @@ export class BeanRouter extends BeanBase {
       };
     }
     // force delete
-    if (this.router.hasRoute(routeNameParent || name)) {
-      this.router.removeRoute(routeNameParent || name);
+    if (this.router.hasRoute(routeNameParent)) {
+      this.router.removeRoute(routeNameParent);
+    }
+    if (this.router.hasRoute(name)) {
+      this.router.removeRoute(name);
     }
     // add
     this.router.addRoute(routeData);
