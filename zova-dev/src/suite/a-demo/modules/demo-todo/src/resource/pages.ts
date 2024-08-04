@@ -18,9 +18,9 @@ export const pagePathSchemas = {
   '/demo/todo/todo': {
     query: NSControllerPageTodo.QuerySchema,
   },
-  '/demo/todo/item': {
-    query: NSControllerPageItem.QuerySchema,
-  },
+  // '/demo/todo/item': {
+  //   query: NSControllerPageItem.QuerySchema,
+  // },
 };
 
 export const pageNameSchemas = {
