@@ -118,7 +118,11 @@ export class BeanRouter extends BeanBase {
         const configRoute = this._findConfigRoute(match?.name, match?.path);
         const alias = configRoute?.alias;
         if (alias) {
-          if (match?.name) {
+          // force load module
+          const resLoadModule = await this._forceLoadModule(match?.name, match?.path);
+          if (resLoadModule && resLoadModule !== true) return resLoadModule;
+          if (resLoadModule === false) return to.fullPath;
+          if (this.getRealRouteName(match?.name)) {
             // @ts-ignore ignore
             const routeAlias = this.resolveName(`$alias:${match?.name}`, {
               params: to.params,
@@ -134,21 +138,10 @@ export class BeanRouter extends BeanBase {
           }
         }
       }
-      const matchNameOrPath = this.getRealRouteName(match?.name) || match?.path;
-      // module info
-      const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(matchNameOrPath));
-      if (!moduleInfo) {
-        // donothing
-        return;
-      }
-      const moduleName = moduleInfo.relativeName;
-      // check if exists
-      if (!this.app.meta.module.exists(moduleName)) return '/404';
-      // check if loaded
-      const module = this.app.meta.module.get(moduleName, false);
-      if (module) return;
-      // use module
-      await this.app.meta.module.use(moduleName);
+      // force load module
+      const resLoadModule = await this._forceLoadModule(match?.name, match?.path);
+      if (resLoadModule === true) return;
+      if (resLoadModule) return resLoadModule;
       // redirect again
       return to.fullPath;
     });
@@ -241,6 +234,29 @@ export class BeanRouter extends BeanBase {
       const route = routesName[key];
       this._loadConfigRoute({ ...route, path: route.path || route.alias, name: key });
     }
+  }
+
+  private async _forceLoadModule(
+    name: string | symbol | undefined,
+    path: string | undefined,
+  ): Promise<string | boolean | undefined> {
+    const nameOrPath = this.getRealRouteName(name) || path;
+    // module info
+    const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(nameOrPath));
+    if (!moduleInfo) {
+      // donothing
+      return true;
+    }
+    const moduleName = moduleInfo.relativeName;
+    // check if exists
+    if (!this.app.meta.module.exists(moduleName)) return '/404';
+    // check if loaded
+    const module = this.app.meta.module.get(moduleName, false);
+    if (module) return true;
+    // use module
+    await this.app.meta.module.use(moduleName);
+    // means need load
+    return false;
   }
 
   private _findConfigRoute(name: string | symbol | undefined, path: string | undefined): IModuleRoute | undefined {
