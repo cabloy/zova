@@ -236,6 +236,19 @@ export class BeanRouter extends BeanBase {
     }
   }
 
+  private _loadConfigRoute(route: IModuleRoute) {
+    this.router.addRoute(route);
+  }
+
+  private _findConfigRoute(name: string | symbol | undefined, path: string | undefined): IModuleRoute | undefined {
+    name = this.getRealRouteName(name);
+    return name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
+  }
+
+  getRealRouteName(name?: string | symbol): string | undefined {
+    return getRealRouteName(name);
+  }
+
   private async _forceLoadModule(
     name: string | symbol | undefined,
     path: string | undefined,
@@ -257,18 +270,5 @@ export class BeanRouter extends BeanBase {
     await this.app.meta.module.use(moduleName);
     // means need load
     return false;
-  }
-
-  private _findConfigRoute(name: string | symbol | undefined, path: string | undefined): IModuleRoute | undefined {
-    name = this.getRealRouteName(name);
-    return name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
-  }
-
-  private _loadConfigRoute(route: IModuleRoute) {
-    this.router.addRoute(route);
-  }
-
-  getRealRouteName(name?: string | symbol): string | undefined {
-    return getRealRouteName(name);
   }
 }
