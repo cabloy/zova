@@ -1,10 +1,11 @@
 import { BeanRenderBase, Local } from 'zova';
-import type { ControllerPageHome } from './controller.js';
+import type { StyleHome } from './style.js';
+import { ScopeModule } from '../../resource/this.js';
 
-export interface RenderHome extends ControllerPageHome {}
+export interface RenderHome extends StyleHome {}
 
 @Local()
-export class RenderHome extends BeanRenderBase {
+export class RenderHome extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div class="text-center">
