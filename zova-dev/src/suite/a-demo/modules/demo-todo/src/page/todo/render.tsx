@@ -2,6 +2,7 @@ import { BeanRenderBase, Local } from 'zova';
 import type { StyleTodo } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
 import { withModifiers } from 'vue';
+import { RouterLink } from 'vue-router';
 
 export interface RenderTodo extends StyleTodo {}
 
@@ -13,7 +14,12 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
       <this.$component.page>
         {todoCurrent?.data && (
           <div role="alert" class="alert alert-success">
-            <span>Current: {todoCurrent?.data?.title}</span>
+            <div>
+              Current:{' '}
+              <RouterLink to={this.$router.resolveName('demo-todo:item', { params: { id: todoCurrent?.data?.id } })}>
+                {todoCurrent?.data?.title}
+              </RouterLink>
+            </div>
           </div>
         )}
         {!!todoCurrent?.error && (
