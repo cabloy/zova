@@ -124,7 +124,7 @@ export class BeanRouter extends BeanBase {
               params: to.params,
               query: to.query,
             });
-            return routeAlias.substring('/__alias__'.length);
+            return routeAlias.startsWith('/__alias__') ? routeAlias.substring('/__alias__'.length) : routeAlias;
           } else {
             return {
               path: Array.isArray(alias) ? alias[0] : alias,
