@@ -2,6 +2,7 @@ import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, TypeEv
 import { Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
+import { getRealRouteName } from '../utils.js';
 
 const SymbolRouter = Symbol('SymbolRouter');
 
@@ -134,15 +135,6 @@ export class BeanRouter extends BeanBase {
   private _registerRoute(module: IModule, route: IModuleRoute) {
     // meta
     const meta = route.meta;
-    // name
-    let name: string | undefined;
-    if (route.name) {
-      if (meta?.absolute === true) {
-        name = String(route.name);
-      } else {
-        name = `${module.info.relativeName}:${String(route.name)}`;
-      }
-    }
     // path
     let path: string | undefined;
     if (route.path) {
@@ -152,11 +144,23 @@ export class BeanRouter extends BeanBase {
         path = `/${module.info.pid}/${module.info.name}/${route.path}`;
       }
     }
+    // name
+    let name: string;
+    if (route.name) {
+      if (meta?.absolute === true) {
+        name = String(route.name);
+      } else {
+        name = `${module.info.relativeName}:${String(route.name)}`;
+      }
+    } else {
+      name = `$:${path}`;
+    }
     // component
     const component = route.component;
     // layout / routeData
     let layout = meta?.layout;
     let routeData;
+    let routeNameParent;
     if (layout === false) {
       routeData = { ...route, name, path, component, meta };
     } else {
@@ -165,13 +169,23 @@ export class BeanRouter extends BeanBase {
       } else if (layout === 'empty') {
         layout = this.app.config.layout.component.empty;
       }
+      routeNameParent = `$:${name}`;
       routeData = {
+        name: routeNameParent,
         path,
         component: this.createAsyncComponent(layout as any),
         children: [{ ...route, name, path: '', component, meta }],
       };
     }
+    // force delete
+    if (this.router.hasRoute(routeNameParent || name)) {
+      this.router.removeRoute(routeNameParent || name);
+    }
     // add
     this.router.addRoute(routeData);
+  }
+
+  getRealRouteName(name?: string | symbol): string | undefined {
+    return getRealRouteName(name);
   }
 }

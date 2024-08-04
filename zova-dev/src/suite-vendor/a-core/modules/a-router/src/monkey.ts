@@ -16,6 +16,7 @@ import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
 import { markRaw } from 'vue';
+import { getRealRouteName } from './utils.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
   private _moduleSelf: IModule;
@@ -78,7 +79,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     if (!(controller instanceof BeanControllerPageBase)) return;
     const route = controllerData.context.route;
     if (!route) return;
-    const schemaKey = String(route.name || route.path);
+    const routeName = getRealRouteName(route.name);
+    const schemaKey = routeName || String(route.path);
     let schemas: TypePageSchema | undefined;
     const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(schemaKey));
     if (!moduleInfo) {
@@ -86,7 +88,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       return;
     }
     const module = this.app.meta.module.get(moduleInfo.relativeName)!;
-    if (route.name) {
+    if (routeName) {
       schemas = module.resource.pageNameSchemas?.[schemaKey];
     } else {
       schemas = module.resource.pagePathSchemas?.[schemaKey];
