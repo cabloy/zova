@@ -8,6 +8,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     this.app.meta.$api = (await bean._getBean('home-api.bean.api', false)) as BeanApi;
   }
   async appInitialized(_bean: BeanContainer) {}
+  async appReady(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
     bean.defineProperty(beanInstance, '$api', {

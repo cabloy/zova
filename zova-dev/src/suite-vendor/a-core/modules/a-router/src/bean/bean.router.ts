@@ -1,5 +1,5 @@
 import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, TypeEventOff } from 'zova';
-import { Router } from 'vue-router';
+import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
 import { getRealRouteName } from '../utils.js';
@@ -26,12 +26,15 @@ export class BeanRouter extends BeanBase {
       this[SymbolRouter] = router;
     } else {
       // app router
-      router = this.bean.inject('a-router:appRouter');
-      if (!router) {
-        throw new Error('Should provide router');
-      }
+      router = this._createRouter();
+      // router = this.bean.inject('a-router:appRouter');
+      // if (!router) {
+      //   throw new Error('Should provide router');
+      // }
       this[SymbolRouter] = router;
       // provide
+      this.app.vue.provide('a-router:appRouter', router);
+      this.bean.provide('a-router:appRouter', router);
       this.app.vue.provide('a-router:router', this);
       this.bean.provide('a-router:router', this);
       // config.routes
@@ -48,6 +51,20 @@ export class BeanRouter extends BeanBase {
     if (this.eventRouterGuards) {
       this.eventRouterGuards();
     }
+  }
+
+  private _createRouter() {
+    const createHistory = this.app.config.env.appServer
+      ? createMemoryHistory
+      : this.app.config.env.appRouterMode === 'history'
+        ? createWebHistory
+        : createWebHashHistory;
+
+    return createRouter({
+      scrollBehavior: () => ({ left: 0, top: 0 }),
+      routes: [],
+      history: createHistory(this.app.config.env.appRouterBase),
+    });
   }
 
   public createAsyncComponent(component: string | IModuleRouteComponent) {

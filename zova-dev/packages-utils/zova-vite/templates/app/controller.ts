@@ -21,13 +21,14 @@ export class ControllerPageApp extends BeanControllerPageBase {
 
   protected async initApp(app: App) {
     // router
-    const router = this.onCreateRouter();
-    app.provide('a-router:appRouter', router);
-    this.bean.provide('a-router:appRouter', router);
+    //const router = this.onCreateRouter();
+    //app.provide('a-router:appRouter', router);
+    //this.bean.provide('a-router:appRouter', router);
     // install
     await PluginZova.install(app, this.ctx, { modulesMeta, AppMonkey, locales, config });
-    // use router
-    app.use(router);
+    // // use router
+    // const router = this.bean.inject('a-router:appRouter');
+    // app.use(router);
   }
 
   protected async updateApp(app: ZovaApplication) {

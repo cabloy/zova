@@ -11,6 +11,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     this.storage = await bean._newBean(Storage, false);
   }
   async appInitialized(_bean: BeanContainer) {}
+  async appReady(_bean: BeanContainer) {}
 
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$queryClient', {
