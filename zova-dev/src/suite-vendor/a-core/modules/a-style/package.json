@@ -37,5 +37,5 @@
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
   },
-  "gitHead": "19504afb5d86e9c8a3ab865099813a2cef2493bb"
+  "gitHead": "1215d0a8748f399e519227d3676e764a2f813340"
 }
