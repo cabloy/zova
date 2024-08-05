@@ -25,7 +25,7 @@ config.routes = {
 };
 ```
 
-| 名称        | 说明                 |
-| ----------- | -------------------- |
-| routes.path | 对路由Query设置别名  |
-| routes.name | 对路由Params设置别名 |
+| 名称        | 说明                   |
+| ----------- | ---------------------- |
+| routes.path | 为`路由Query`设置别名  |
+| routes.name | 为`路由Params`设置别名 |
