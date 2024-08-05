@@ -46,7 +46,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   }
   async appReady(bean: BeanContainer) {
     // use router
-    const router = bean.inject('a-router:appRouter');
+    const router = bean.inject('a-router:router');
     this.app.vue.use(router);
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {

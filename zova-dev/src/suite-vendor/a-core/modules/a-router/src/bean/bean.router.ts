@@ -27,14 +27,8 @@ export class BeanRouter extends BeanBase {
     } else {
       // app router
       router = this._createRouter();
-      // router = this.bean.inject('a-router:appRouter');
-      // if (!router) {
-      //   throw new Error('Should provide router');
-      // }
       this[SymbolRouter] = router;
       // provide
-      this.app.vue.provide('a-router:appRouter', router);
-      this.bean.provide('a-router:appRouter', router);
       this.app.vue.provide('a-router:router', this);
       this.bean.provide('a-router:router', this);
       // config.routes
