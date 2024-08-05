@@ -130,10 +130,6 @@ export async function generateEntryFiles(
       const fileDest = path.join(pathDest, file);
       fse.copyFileSync(fileSrc, fileDest);
     }
-    // router.ts
-    const fileSrc = new URL('../templates/router.ts', import.meta.url);
-    const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'router.ts');
-    fse.copyFileSync(fileSrc, fileDest);
   }
 
   async function __generateModulesMeta() {
