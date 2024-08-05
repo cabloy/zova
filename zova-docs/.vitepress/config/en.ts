@@ -94,6 +94,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           base: '/guide/techniques/router/',
           items: [
             { text: 'Route Fields', link: 'route-fields' },
+            { text: 'Route Alias', link: 'route-alias' },
             { text: 'Navigation Guards', link: 'navigation-guards' },
             { text: 'Route Query', link: 'route-query' },
             { text: 'Route Params', link: 'route-params' },

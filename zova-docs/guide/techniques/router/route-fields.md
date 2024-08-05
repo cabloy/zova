@@ -9,6 +9,7 @@ In [Page Component](../../essentials/component/page.md), we create a page compon
 | path      | route's path           |
 | name      | route's name           |
 | component | route's page component |
+| alias     | route's alias          |
 | meta      | route's meta fields    |
 
 - meta

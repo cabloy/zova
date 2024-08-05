@@ -9,6 +9,7 @@
 | path      | 路由路径   |
 | name      | 路由名称   |
 | component | 页面组件   |
+| alias     | 路由别名   |
 | meta      | 路由元数据 |
 
 - meta
