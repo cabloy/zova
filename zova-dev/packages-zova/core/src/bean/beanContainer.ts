@@ -200,6 +200,24 @@ export class BeanContainer {
     return await this._getBeanSelectorInner(true, null, undefined, beanFullName, markReactive, selector);
   }
 
+  _getBeanSelectorInnerSync<T>(
+    beanComposable: Functionable | undefined,
+    beanFullName: Constructable<T> | string | undefined,
+    selector?: string,
+  ): T {
+    // fullName
+    const fullName = this._getBeanFullNameByComposableOrClassSync(beanComposable, beanFullName);
+    if (!fullName) {
+      // not found
+      return null!;
+    }
+    // same as _getBean if selector is undefined/null/'', as as to get the same bean instance
+    //   not use !selector which maybe is 0
+    const isSelectorValid = !this.app.meta.util.isNullOrEmptyString(selector);
+    const key = !isSelectorValid ? fullName : `${fullName}#${selector}`;
+    return this[BeanContainerInstances][key] as T;
+  }
+
   async _getBeanSelectorInner<T>(
     newBeanForce: boolean,
     recordProp: MetadataKey | null,
@@ -326,6 +344,20 @@ export class BeanContainer {
     );
   }
 
+  private _getBeanFullNameByComposableOrClassSync(beanComposable: Functionable | undefined, beanFullName: any) {
+    // bean composable
+    if (beanComposable) {
+      return appResource.getBeanFullNameOfComposable(beanComposable);
+    }
+    // bean options
+    const beanOptions = this._getBeanOptionsForceSync(beanFullName);
+    if (!beanOptions) {
+      // not found
+      return undefined;
+    }
+    return beanOptions.beanFullName;
+  }
+
   private async _getBeanFullNameByComposableOrClass(beanComposable: Functionable | undefined, beanFullName: any) {
     // bean composable
     if (beanComposable) {
@@ -338,6 +370,10 @@ export class BeanContainer {
       return undefined;
     }
     return beanOptions.beanFullName;
+  }
+
+  private _getBeanOptionsForceSync(beanFullName: any) {
+    return appResource.getBean(beanFullName);
   }
 
   private async _getBeanOptionsForce(beanFullName: any) {
@@ -507,9 +543,9 @@ export class BeanContainer {
   ) {
     // 0. host/skipSelf
     if (useOptions.injectionScope === 'host') {
-      return await this._getBeanFromHost(true, this, targetBeanComposable, targetBeanFullName, useOptions);
+      return this._getBeanFromHost(true, this, targetBeanComposable, targetBeanFullName, useOptions);
     } else if (useOptions.injectionScope === 'skipSelf') {
-      return await this._getBeanFromHost(true, this.parent, targetBeanComposable, targetBeanFullName, useOptions);
+      return this._getBeanFromHost(true, this.parent, targetBeanComposable, targetBeanFullName, useOptions);
     }
     // 1. use name
     if (useOptions.name) {
@@ -577,7 +613,7 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private async _getBeanFromHost(
+  private _getBeanFromHost(
     recordProp: boolean,
     beanContainerStart: BeanContainer | null,
     targetBeanComposable: Functionable | undefined,
@@ -587,7 +623,7 @@ export class BeanContainer {
     let beanContainerParent = beanContainerStart;
     while (true) {
       if (!beanContainerParent) return null;
-      const beanInstance = await this._getBeanFromHostInner(
+      const beanInstance = this._getBeanFromHostInner(
         beanContainerParent,
         targetBeanComposable,
         targetBeanFullName,
@@ -605,7 +641,7 @@ export class BeanContainer {
     }
   }
 
-  private async _getBeanFromHostInner(
+  private _getBeanFromHostInner(
     beanContainerParent: BeanContainer,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
@@ -620,14 +656,7 @@ export class BeanContainer {
       return beanContainerParent[BeanContainerInstances][useOptions.prop];
     }
     // 3. targetBeanFullName
-    return await beanContainerParent._getBeanSelectorInner(
-      false,
-      null,
-      targetBeanComposable,
-      targetBeanFullName,
-      undefined,
-      useOptions.selector,
-    );
+    return beanContainerParent._getBeanSelectorInnerSync(targetBeanComposable, targetBeanFullName, useOptions.selector);
   }
 
   private async _injectBeanInstanceProp_appBean(recordProp, targetBeanComposable, _targetBeanFullName, targetInstance) {
