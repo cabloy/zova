@@ -21,16 +21,10 @@ export class BeanRouter extends BeanBase {
     return this[SymbolRouter] && this[SymbolRouter][prop];
   }
 
-  protected async __init__(router?: Router) {
-    if (router) {
-      this[SymbolRouter] = router;
-    } else {
-      // app router
-      router = this._createRouter();
-      this[SymbolRouter] = router;
-      // provide
-      this.app.vue.provide('a-router:router', this);
-      this.bean.provide('a-router:router', this);
+  public async initialize(mainRouter?: boolean) {
+    // create router
+    this[SymbolRouter] = this._createRouter();
+    if (mainRouter) {
       // config.routes
       this._loadConfigRoutes();
       // event
@@ -38,6 +32,9 @@ export class BeanRouter extends BeanBase {
         this._routerGuards(context.data);
         await next();
       });
+    } else {
+      // emit event
+      await this.app.meta.event.emit('a-router:routerGuards', this);
     }
   }
 

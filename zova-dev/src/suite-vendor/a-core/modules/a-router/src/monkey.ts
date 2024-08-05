@@ -31,6 +31,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
   async getBeanRouter() {
     if (!this._beanRouter) {
       this._beanRouter = (await this.bean._getBean('a-router.bean.router', false)) as BeanRouter;
+      await this._beanRouter.initialize(true);
     }
     return this._beanRouter;
   }
@@ -41,13 +42,11 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     const scope: ScopeModule = await bean.getScope(__ThisModule__);
     this._beanComponentDefault = await bean.getScope(scope.config.defaultComponent);
     // emit event
-    const router = bean.inject('a-router:router');
-    await this.app.meta.event.emit('a-router:routerGuards', router);
+    await this.app.meta.event.emit('a-router:routerGuards', this._beanRouter);
   }
-  async appReady(bean: BeanContainer) {
+  async appReady(_bean: BeanContainer) {
     // use router
-    const router = bean.inject('a-router:router');
-    this.app.vue.use(router);
+    this.app.vue.use(this._beanRouter);
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
