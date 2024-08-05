@@ -1,12 +1,12 @@
 {
   "name": "zova-suite-a-devui",
-  "version": "5.0.10",
+  "version": "5.0.11",
   "title": "a-devui",
   "type": "module",
   "description": "devui",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-devui": "^5.0.10"
+    "zova-module-a-devui": "^5.0.11"
   },
   "gitHead": "1215d0a8748f399e519227d3676e764a2f813340"
 }
