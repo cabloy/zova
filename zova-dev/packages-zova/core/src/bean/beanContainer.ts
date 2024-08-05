@@ -542,10 +542,8 @@ export class BeanContainer {
     useOptions: IDecoratorUseOptionsBase,
   ) {
     // 0. host/skipSelf
-    if (useOptions.injectionScope === 'host') {
-      return this._getBeanFromHost(true, this, targetBeanComposable, targetBeanFullName, useOptions);
-    } else if (useOptions.injectionScope === 'skipSelf') {
-      return this._getBeanFromHost(true, this.parent, targetBeanComposable, targetBeanFullName, useOptions);
+    if (useOptions.injectionScope && ['host', 'skipSelf'].includes(useOptions.injectionScope)) {
+      return this._getBeanFromHost(true, targetBeanComposable, targetBeanFullName, useOptions);
     }
     // 1. use name
     if (useOptions.name) {
@@ -615,12 +613,16 @@ export class BeanContainer {
 
   private _getBeanFromHost(
     recordProp: boolean,
-    beanContainerStart: BeanContainer | null,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
     useOptions: IDecoratorUseOptionsBase,
   ) {
-    let beanContainerParent = beanContainerStart;
+    let beanContainerParent;
+    if (!useOptions.injectionScope || useOptions.injectionScope === 'host') {
+      beanContainerParent = this;
+    } else if (useOptions.injectionScope === 'skipSelf') {
+      beanContainerParent = this.parent;
+    }
     while (true) {
       if (!beanContainerParent) return null;
       const beanInstance = this._getBeanFromHostInner(
