@@ -12,6 +12,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     await patchIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}
+  async appReady(_bean: BeanContainer) {}
   async beanInit(_bean: BeanContainer, _beanInstance: BeanBase) {}
   async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
