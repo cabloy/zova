@@ -54,7 +54,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       enumerable: false,
       configurable: true,
       get() {
-        return bean.inject('a-router:router');
+        return bean._getBeanFromHost('a-router.bean.router');
       },
     });
     bean.defineProperty(beanInstance, '$component', {

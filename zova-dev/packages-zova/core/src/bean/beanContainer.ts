@@ -4,6 +4,7 @@ import {
   Constructable,
   Functionable,
   IDecoratorBeanOptionsBase,
+  IDecoratorUseOptions,
   IDecoratorUseOptionsBase,
 } from '../decorator/index.js';
 import { appResource } from '../core/resource.js';
@@ -543,7 +544,13 @@ export class BeanContainer {
   ) {
     // 0. host/skipSelf
     if (useOptions.injectionScope && ['host', 'skipSelf'].includes(useOptions.injectionScope)) {
-      return this._getBeanFromHost(true, targetBeanComposable, targetBeanFullName, useOptions);
+      return this._getBeanFromHostInner(
+        true,
+        useOptions.prop,
+        targetBeanComposable,
+        targetBeanFullName,
+        useOptions as IDecoratorUseOptions,
+      );
     }
     // 1. use name
     if (useOptions.name) {
@@ -611,11 +618,28 @@ export class BeanContainer {
     return targetInstance;
   }
 
-  private _getBeanFromHost(
-    recordProp: boolean,
+  public _getBeanFromHost<T = unknown>(useOptions: IDecoratorUseOptions): T;
+  public _getBeanFromHost<K extends keyof IBeanRecord>(
+    beanFullName: K,
+    useOptions?: IDecoratorUseOptions,
+  ): IBeanRecord[K] | undefined;
+  public _getBeanFromHost(beanFullName?: string | IDecoratorUseOptions, useOptions?: IDecoratorUseOptions) {
+    if (typeof beanFullName !== 'string') {
+      beanFullName = undefined;
+      useOptions = beanFullName;
+    }
+    if (!useOptions) {
+      useOptions = {};
+    }
+    return this._getBeanFromHostInner(false, undefined, undefined, beanFullName, useOptions);
+  }
+
+  public _getBeanFromHostInner(
+    record: boolean,
+    recordProp: MetadataKey | undefined,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
-    useOptions: IDecoratorUseOptionsBase,
+    useOptions: IDecoratorUseOptions,
   ) {
     let beanContainerParent;
     if (!useOptions.injectionScope || useOptions.injectionScope === 'host') {
@@ -625,7 +649,8 @@ export class BeanContainer {
     }
     while (true) {
       if (!beanContainerParent) return null;
-      const beanInstance = this._getBeanFromHostInner(
+      const beanInstance = this._getBeanFromHostInner2(
+        recordProp,
         beanContainerParent,
         targetBeanComposable,
         targetBeanFullName,
@@ -634,8 +659,8 @@ export class BeanContainer {
       // null is valid value
       if (beanInstance !== undefined) {
         // record prop
-        if (recordProp) {
-          this.__recordProp(useOptions.prop, undefined, beanInstance, false);
+        if (record) {
+          this.__recordProp(recordProp, undefined, beanInstance, false);
         }
         return beanInstance;
       }
@@ -643,11 +668,12 @@ export class BeanContainer {
     }
   }
 
-  private _getBeanFromHostInner(
+  private _getBeanFromHostInner2(
+    recordProp: MetadataKey | undefined,
     beanContainerParent: BeanContainer,
     targetBeanComposable: Functionable | undefined,
     targetBeanFullName: string | undefined,
-    useOptions: IDecoratorUseOptionsBase,
+    useOptions: IDecoratorUseOptions,
   ) {
     // 1. use name
     if (useOptions.name) {
@@ -655,7 +681,7 @@ export class BeanContainer {
     }
     // 2. use prop
     if (!targetBeanComposable && !targetBeanFullName) {
-      return beanContainerParent[BeanContainerInstances][useOptions.prop];
+      return beanContainerParent[BeanContainerInstances][recordProp!];
     }
     // 3. targetBeanFullName
     return beanContainerParent._getBeanSelectorInnerSync(targetBeanComposable, targetBeanFullName, useOptions.selector);
