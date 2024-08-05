@@ -19,6 +19,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     await patchIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}
+  async appReady(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$vuetify', {
       enumerable: false,
