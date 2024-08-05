@@ -9,6 +9,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     scopeStyle.config.defaultThemeHandler = 'a-antdv.tool.themeHandler';
   }
   async appInitialized(_bean: BeanContainer) {}
+  async appReady(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$antdv', {
       enumerable: false,
