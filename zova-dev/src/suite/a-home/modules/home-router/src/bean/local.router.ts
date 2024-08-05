@@ -4,7 +4,7 @@ import { BeanRouter, BeanRouterBase } from 'zova-module-a-router';
 import type { ModelUser } from 'zova-module-home-user';
 
 @Local()
-export class Router extends BeanRouterBase<ScopeModule> {
+export class LocalRouter extends BeanRouterBase<ScopeModule> {
   @Use('home-user.model.user')
   $$modelUser: ModelUser;
 

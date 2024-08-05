@@ -1,12 +1,12 @@
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
-import { Router } from './local/router.js';
+import { LocalRouter } from './bean/local.router.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  router: Router;
+  router: LocalRouter;
 
   async appInitialize(bean: BeanContainer) {
     // router
-    this.router = await bean._newBean(Router, false);
+    this.router = await bean._newBean(LocalRouter, false);
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}
