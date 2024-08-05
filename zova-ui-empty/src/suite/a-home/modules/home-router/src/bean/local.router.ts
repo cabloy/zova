@@ -3,7 +3,7 @@ import { ScopeModule } from '../resource/this.js';
 import { BeanRouter, BeanRouterBase } from 'zova-module-a-router';
 
 @Local()
-export class Router extends BeanRouterBase<ScopeModule> {
+export class LocalRouter extends BeanRouterBase<ScopeModule> {
   protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async _to => {
       //console.log(to);
