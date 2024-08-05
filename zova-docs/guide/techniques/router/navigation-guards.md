@@ -4,12 +4,12 @@ Zova provides a module `home-router`. We can add navigation guards to this modul
 
 ## onRouterGuards
 
-The module `home-router` provides a `Router` bean, just add custom logic directly in the `onRouterGuards` method as well
+The module `home-router` provides a `LocalRouter` bean, just add custom logic directly in the `onRouterGuards` method as well
 
-`src/suite/a-home/modules/home-router/src/local/router.ts`
+`src/suite/a-home/modules/home-router/src/bean/local.router.ts`
 
 ```typescript
-export class Router {
+export class LocalRouter {
   protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async to => {
       console.log(to);

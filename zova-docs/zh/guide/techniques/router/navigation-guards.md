@@ -4,12 +4,12 @@ Zova 提供了一个模块`home-router`，我们可以在这个模块中添加`�
 
 ## onRouterGuards
 
-模块`home-router`提供了一个`Router` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
+模块`home-router`提供了一个`LocalRouter` bean，直接在`onRouterGuards`方法中添加自定义逻辑即可
 
-`src/suite/a-home/modules/home-router/src/local/router.ts`
+`src/suite/a-home/modules/home-router/src/bean/local.router.ts`
 
 ```typescript
-export class Router {
+export class LocalRouter {
   protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async to => {
       console.log(to);
