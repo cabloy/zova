@@ -1,4 +1,4 @@
-import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord, TypeEventOff } from 'zova';
+import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord } from 'zova';
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
@@ -11,7 +11,6 @@ export interface BeanRouter extends Router {}
 @Bean()
 export class BeanRouter extends BeanBase {
   [SymbolRouter]: Router;
-  eventRouterGuards: TypeEventOff;
 
   get router(): Router {
     return this[SymbolRouter];
@@ -27,20 +26,9 @@ export class BeanRouter extends BeanBase {
     if (mainRouter) {
       // config.routes
       this._loadConfigRoutes();
-      // event
-      this.eventRouterGuards = this.app.meta.event.on('a-router:routerGuards', async (context, next) => {
-        this._routerGuards(context.data);
-        await next();
-      });
     } else {
       // emit event
       await this.app.meta.event.emit('a-router:routerGuards', this);
-    }
-  }
-
-  protected __dispose__() {
-    if (this.eventRouterGuards) {
-      this.eventRouterGuards();
     }
   }
 
@@ -112,47 +100,6 @@ export class BeanRouter extends BeanBase {
     if (!query2str) return fullPath;
     const join = Object.keys(query1).length > 0 ? '&' : '?';
     return `${fullPath}${join}${query2str}`;
-  }
-
-  private _routerGuards(router: BeanRouter) {
-    router.beforeEach(async to => {
-      // match path
-      let match = to.matched.find(item => item.aliasOf);
-      if (match) {
-        match = match.aliasOf;
-      } else {
-        match = to.matched[to.matched.length - 1];
-        // alias
-        const configRoute = this._findConfigRoute(match?.name, match?.path);
-        const alias = configRoute?.alias;
-        if (alias) {
-          // force load module
-          const resLoadModule = await this._forceLoadModule(match?.name, match?.path);
-          if (resLoadModule && resLoadModule !== true) return resLoadModule;
-          if (resLoadModule === false) return to.fullPath;
-          if (this.getRealRouteName(match?.name)) {
-            // @ts-ignore ignore
-            const routeAlias = this.resolveName(`$alias:${match?.name}`, {
-              params: to.params,
-              query: to.query,
-            });
-            return routeAlias.startsWith('/__alias__') ? routeAlias.substring('/__alias__'.length) : routeAlias;
-          } else {
-            return {
-              path: Array.isArray(alias) ? alias[0] : alias,
-              params: to.params,
-              query: to.query,
-            };
-          }
-        }
-      }
-      // force load module
-      const resLoadModule = await this._forceLoadModule(match?.name, match?.path);
-      if (resLoadModule === true) return;
-      if (resLoadModule) return resLoadModule;
-      // redirect again
-      return to.fullPath;
-    });
   }
 
   /** @internal */
@@ -248,7 +195,8 @@ export class BeanRouter extends BeanBase {
     this.router.addRoute(route);
   }
 
-  private _findConfigRoute(
+  /** @internal */
+  public _findConfigRoute(
     name: string | symbol | null | undefined,
     path: string | undefined,
   ): IModuleRoute | undefined {
@@ -258,28 +206,5 @@ export class BeanRouter extends BeanBase {
 
   getRealRouteName(name?: string | symbol | null): string | undefined {
     return getRealRouteName(name);
-  }
-
-  private async _forceLoadModule(
-    name: string | symbol | null | undefined,
-    path: string | undefined,
-  ): Promise<string | boolean | undefined> {
-    const nameOrPath = this.getRealRouteName(name) || path;
-    // module info
-    const moduleInfo = ModuleInfo.parseInfo(ModuleInfo.parseName(nameOrPath));
-    if (!moduleInfo) {
-      // donothing
-      return true;
-    }
-    const moduleName = moduleInfo.relativeName;
-    // check if exists
-    if (!this.app.meta.module.exists(moduleName)) return '/404';
-    // check if loaded
-    const module = this.app.meta.module.get(moduleName, false);
-    if (module) return true;
-    // use module
-    await this.app.meta.module.use(moduleName);
-    // means need load
-    return false;
   }
 }

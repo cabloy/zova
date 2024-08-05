@@ -17,11 +17,13 @@ import { BeanRouter } from './bean/bean.router.js';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
 import { markRaw } from 'vue';
 import { getRealRouteName } from './utils.js';
+import { LocalRouter } from './bean/local.router.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
   private _moduleSelf: IModule;
   private _beanRouter: BeanRouter;
   private _beanComponentDefault: any;
+  localRouter: LocalRouter;
 
   constructor(moduleSelf: IModule) {
     super();
@@ -36,7 +38,10 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     return this._beanRouter;
   }
 
-  async appInitialize(_bean: BeanContainer) {}
+  async appInitialize(bean: BeanContainer) {
+    // router
+    this.localRouter = await bean._newBean(LocalRouter, false);
+  }
   async appInitialized(bean: BeanContainer) {
     // component default
     const scope: ScopeModule = await bean.getScope(__ThisModule__);
