@@ -50,6 +50,12 @@ export const routes: IModuleRoute[] = [
 
 `component` is a page component, supporting `synchronous components` and `asynchronous components`. Generally speaking, just provide a `synchronization component` as well. Because in Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
 
+## alias
+
+Specify an `alias` for the route. However We cannot specify the route alias in the module's route record, but must specify it in the global config
+
+- See: [Route Alias](./route-alias.md)
+
 ## meta.absolute
 
 `absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, two absolute routes are defined in the module `home-pagesystem`:
