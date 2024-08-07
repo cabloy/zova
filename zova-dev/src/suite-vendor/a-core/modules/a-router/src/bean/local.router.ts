@@ -27,7 +27,7 @@ export class LocalRouter extends BeanRouterBase<ScopeModule> {
           if (resLoadModule === false) return to.fullPath;
           if (this.$$router.getRealRouteName(match?.name)) {
             // @ts-ignore ignore
-            const routeAlias = this.resolveName(`$alias:${match?.name}`, {
+            const routeAlias = this.$$router.resolveName(`$alias:${match?.name}`, {
               params: to.params,
               query: to.query,
             });
