@@ -30,7 +30,7 @@ declare global {
       APP_VERSION: string | undefined;
       DEV_SERVER_HOST: string | undefined;
       DEV_SERVER_PORT: string | undefined;
-      // Compatible with quasar
+      // compatible with quasar
       // @ts-ignore ignore
       DEV: boolean;
       // @ts-ignore ignore
