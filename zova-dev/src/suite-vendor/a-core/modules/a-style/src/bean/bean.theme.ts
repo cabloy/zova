@@ -101,6 +101,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   }
 
   _listenMediaDarkChange(listen: boolean) {
+    if (process.env.SERVER) return;
     if (listen) {
       if (!this._mediaDark) {
         this._mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
