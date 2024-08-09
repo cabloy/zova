@@ -119,9 +119,12 @@ export class AppModule extends BeanSimple {
     // check
     if (this.modules[moduleName]) {
       const module = this.modules[moduleName];
+      // should check state, otherwise infinite loop
+      if (module[SymbolInstalled].state) return;
+      // wait
       await module[SymbolInstalled].wait();
-      // should not perform this action, otherwise infinite loop
-      // await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
+      // scope: should after [SymbolInstalled].touch
+      await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
       return;
     }
     // clone for ssr
