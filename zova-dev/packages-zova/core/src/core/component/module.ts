@@ -111,15 +111,18 @@ export class AppModule extends BeanSimple {
     }
   }
 
-  private async _install(moduleName: string, module: IModule) {
-    if (!module[SymbolInstalled]) {
-      module[SymbolInstalled] = StateLock.create();
-    }
+  private async _install(moduleName: string, moduleMeta: IModule) {
     // check
     if (this.modules[moduleName]) {
+      const module = this.modules[moduleName];
       await module[SymbolInstalled].wait();
+      // scope: should after [SymbolInstalled].touch
+      await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
       return;
     }
+    // clone for ssr
+    const module = Object.assign({}, moduleMeta);
+    module[SymbolInstalled] = StateLock.create();
     // record
     this.modules[moduleName] = module;
     // install
