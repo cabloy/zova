@@ -45,7 +45,7 @@
     "zova-module-a-tabs": "^5.0.18"
   },
   "devDependencies": {
-    "@cabloy/lint": "^4.0.10",
+    "@cabloy/lint": "^4.0.11",
     "@quasar/app-vite": "^2.0.0-beta.15",
     "@quasar/vite-plugin": "^1.7.0",
     "@types/node": "^20.14.2",
