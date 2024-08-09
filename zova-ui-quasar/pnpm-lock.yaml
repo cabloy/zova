@@ -18,63 +18,89 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       quasar:
-        specifier: ^2.16.6
+        specifier: ^2.16.8
         version: 2.16.8
       typestyle:
         specifier: ^2.4.0
         version: 2.4.0
       vue:
-        specifier: ^3.4.29
+        specifier: ^3.4.37
         version: 3.4.37(typescript@5.5.4)
       vue-router:
-        specifier: ^4.3.3
+        specifier: ^4.4.3
         version: 4.4.3(vue@3.4.37(typescript@5.5.4))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
       zova:
-        specifier: ^5.0.157
+        specifier: workspace:^
         version: link:packages-zova/zova
       zova-module-a-model:
-        specifier: ^5.0.18
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.22
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-pinia
       zova-module-a-router:
         specifier: link:../zova-dev/src/suite-vendor/a-core/modules/a-router
         version: link:../zova-dev/src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.24
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.18
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-tabs
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.11
         version: 4.0.11(typescript@5.5.4)
       '@quasar/app-vite':
-        specifier: ^2.0.0-beta.12
+        specifier: 2.0.0-beta.18
         version: 2.0.0-beta.18(@types/node@20.14.14)(eslint@8.57.0)(quasar@2.16.8)(rollup@4.20.0)(terser@5.31.5)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))
       '@quasar/vite-plugin':
         specifier: ^1.7.0
         version: 1.7.0(@vitejs/plugin-vue@5.1.2(vite@5.4.0(@types/node@20.14.14)(sass@1.77.8)(terser@5.31.5))(vue@3.4.37(typescript@5.5.4)))(quasar@2.16.8)(vite@5.4.0(@types/node@20.14.14)(sass@1.77.8)(terser@5.31.5))(vue@3.4.37(typescript@5.5.4))
       '@types/node':
-        specifier: ^20.14.2
+        specifier: ^20.14.14
         version: 20.14.14
       autoprefixer:
-        specifier: ^10.4.19
+        specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.41)
       quasar-app-extension-zova:
-        specifier: ^1.1.125
+        specifier: workspace:^
         version: link:packages-utils/quasar-app-extension-zova
       typescript:
-        specifier: ^5.4.5
+        specifier: ^5.5.4
         version: 5.5.4
       vue-tsc:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
+
+  packages-utils/babel-plugin-zova-bean-module: {}
+
+  packages-utils/last-word: {}
+
+  packages-utils/quasar-app-extension-zova: {}
+
+  packages-utils/zova-vite: {}
+
+  packages-zova/core: {}
+
+  packages-zova/zova: {}
+
+  src/suite-vendor/a-core: {}
+
+  src/suite-vendor/a-core/modules/a-core: {}
+
+  src/suite-vendor/a-core/modules/a-model: {}
+
+  src/suite-vendor/a-core/modules/a-pinia: {}
+
+  src/suite-vendor/a-core/modules/a-router: {}
+
+  src/suite-vendor/a-core/modules/a-style: {}
+
+  src/suite-vendor/a-core/modules/a-tabs: {}
 
   src/suite-vendor/a-quasar:
     dependencies:
