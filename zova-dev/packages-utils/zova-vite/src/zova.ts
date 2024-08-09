@@ -27,11 +27,10 @@ export async function generateZovaViteMeta(
   // vitePlugins
   const vitePlugins = generateVitePlugins(configOptions);
   // alias
-  const require = createRequire(import.meta.url);
   const alias = {
-    '@vue/runtime-core': require.resolve('@cabloy/vue-runtime-core'),
-    '@vue/reactivity': require.resolve('@cabloy/vue-reactivity'),
-    'vue-router': require.resolve('@cabloy/vue-router'),
+    '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
+    '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
+    'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
   };
   // viteConfig
   const viteConfig = {
@@ -56,6 +55,16 @@ export async function generateZovaViteMeta(
   };
 
   //////////////////////////////
+
+  function __getAbsolutePathOfModule(id) {
+    const require = createRequire(import.meta.url);
+    let modulePath = require.resolve(id);
+    const pos = modulePath.lastIndexOf('index.js');
+    if (pos > -1) {
+      modulePath = modulePath.substring(0, modulePath.length - 'index.js'.length - 1);
+    }
+    return modulePath;
+  }
 
   function __getConfigServer() {
     // proxy
