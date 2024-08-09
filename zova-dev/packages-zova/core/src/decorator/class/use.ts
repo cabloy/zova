@@ -20,7 +20,7 @@ export function Use(options?: IDecoratorUseOptions | string): PropertyDecorator 
       beanClass,
     });
     // chech beanClass
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.CLIENT && process.env.NODE_ENV === 'development') {
       const moduleSource = appResource._getModuleName(beanClass);
       if (moduleSource) {
         window.setTimeout(() => {
