@@ -82,7 +82,11 @@ export class AppModule extends BeanSimple {
       const info = module.info;
       if (info.capabilities?.monkey || info.capabilities?.sync) {
         const moduleResource = module.resource as any;
-        promises.push(moduleResource());
+        if (typeof moduleResource === 'function') {
+          promises.push(moduleResource());
+        } else {
+          promises.push(moduleResource);
+        }
         moduleNames.push(moduleName);
       }
     }
@@ -116,8 +120,8 @@ export class AppModule extends BeanSimple {
     if (this.modules[moduleName]) {
       const module = this.modules[moduleName];
       await module[SymbolInstalled].wait();
-      // scope: should after [SymbolInstalled].touch
-      await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
+      // should not perform this action, otherwise infinite loop
+      // await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
       return;
     }
     // clone for ssr
