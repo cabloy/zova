@@ -35,6 +35,9 @@ importers:
       zova:
         specifier: ^5.0.157
         version: 5.0.157(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
+      zova-core:
+        specifier: link:../zova-dev/packages-zova/core
+        version: link:../zova-dev/packages-zova/core
       zova-module-a-model:
         specifier: ^5.0.18
         version: 5.0.18(vue@3.4.29(typescript@5.4.5))
@@ -42,8 +45,8 @@ importers:
         specifier: ^5.0.22
         version: 5.0.22(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5))
       zova-module-a-router:
-        specifier: ^5.0.56
-        version: 5.0.56(vue@3.4.29(typescript@5.4.5))
+        specifier: link:../zova-dev/src/suite-vendor/a-core/modules/a-router
+        version: link:../zova-dev/src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
         specifier: ^5.0.24
         version: 5.0.24
