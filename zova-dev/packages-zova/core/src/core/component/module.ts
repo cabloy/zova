@@ -113,7 +113,7 @@ export class AppModule extends BeanSimple {
     }
   }
 
-  private async _install(moduleName: string, moduleMeta: IModule) {
+  private async _install(moduleName: string, moduleRepo: IModule) {
     // check
     if (this.modules[moduleName]) {
       const module = this.modules[moduleName];
@@ -126,23 +126,23 @@ export class AppModule extends BeanSimple {
       return;
     }
     // clone for ssr
-    const module = Object.assign({}, moduleMeta);
+    const module = Object.assign({}, moduleRepo);
     module[SymbolInstalled] = StateLock.create();
     // record
     this.modules[moduleName] = module;
     // install
-    await this._installInner(moduleName, module);
+    await this._installInner(moduleName, module, moduleRepo);
     // installed
     module[SymbolInstalled].touch();
     // scope: should after [SymbolInstalled].touch
     await this.app.bean._getBean(`${moduleName}.scope.module` as any, false);
   }
 
-  private async _installInner(_moduleName: string, module: IModule) {
+  private async _installInner(_moduleName: string, module: IModule, moduleRepo: IModule) {
     // load
-    if (typeof module.resource === 'function') {
-      const moduleResource = module.resource as any;
-      module.resource = await moduleResource();
+    if (typeof moduleRepo.resource === 'function') {
+      const moduleResource = moduleRepo.resource as any;
+      module.resource = moduleRepo.resource = await moduleResource();
     }
     // main / monkey
     if (module.resource.Main) {
@@ -218,14 +218,15 @@ export class AppModule extends BeanSimple {
     for (const key of this.modulesMeta.moduleNames) {
       const moduleMonkey: IModule = this.modulesMeta.modules[key];
       if (moduleMonkey.info.capabilities?.monkey) {
-        if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
+        const module = this.modules[key];
+        if (module && module.monkeyInstance && module.monkeyInstance[monkeyName]) {
           await this.app.vue.runWithContext(async () => {
             if (moduleTarget === undefined) {
               // @ts-ignore ignore
-              await moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
+              await module.monkeyInstance[monkeyName](...monkeyData);
             } else {
               // @ts-ignore ignore
-              await moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
+              await module.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
             }
           });
         }
