@@ -84,10 +84,8 @@ export class AppModule extends BeanSimple {
         const moduleResource = module.resource as any;
         if (typeof moduleResource === 'function') {
           promises.push(moduleResource());
-        } else {
-          promises.push(moduleResource);
+          moduleNames.push(moduleName);
         }
-        moduleNames.push(moduleName);
       }
     }
     const modulesResource = await Promise.all(promises);
