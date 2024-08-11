@@ -3,6 +3,7 @@ import { BeanBaseSimple, SymbolModuleBelong } from './beanBaseSimple.js';
 import { IBeanScopeRecord, TypeBeanScopeRecordKeys } from './type.js';
 import { AppEvent } from '../core/component/event.js';
 import { IModuleLocaleText } from './resource/index.js';
+import { SSRContext } from 'vue/server-renderer';
 
 const SymbolText = Symbol('SymbolText');
 
@@ -23,6 +24,10 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
 
   protected get $event(): AppEvent {
     return this.app.meta.event;
+  }
+
+  protected get $ssr(): SSRContext {
+    return this.app.meta.ssr;
   }
 
   // need not
