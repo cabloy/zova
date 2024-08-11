@@ -94,11 +94,20 @@ export function createConfigUtils(
     __modulesMeta = await glob({
       projectMode: 'zova',
       projectPath: configOptions.appDir,
-      disabledModules: process.env.PROJECT_DISABLED_MODULES,
+      disabledModules: __getDisabledModules(),
       disabledSuites: process.env.PROJECT_DISABLED_SUITES,
       log: true,
     });
     return __modulesMeta;
+  }
+
+  function __getDisabledModules() {
+    let modules: string[] | string = process.env.PROJECT_DISABLED_MODULES ?? '';
+    if (!Array.isArray(modules)) modules = modules ? modules.split(',') : [];
+    if (process.env.PINIA_ENABLED === 'false') {
+      modules.push('a-pinia');
+    }
+    return modules;
   }
 
   function __configManualChunk_adjustId(id: string) {
