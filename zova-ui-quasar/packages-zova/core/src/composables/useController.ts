@@ -91,19 +91,21 @@ async function _useController(
   if (ctx.app) {
     ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
   }
-  // dispose
-  onBeforeUnmount(() => {
-    if (!ctx.bean) return;
-    // undefined better than null
-    setControllerRef(ctx, false);
-    if (ctx.bean !== ctx.app.bean) {
-      ctx.bean.dispose();
-    }
-  });
-  onUnmounted(() => {
-    if (!ctx.bean) return;
-    ctx.dispose();
-  });
+  if (process.env.CLIENT) {
+    // dispose
+    onBeforeUnmount(() => {
+      if (!ctx.bean) return;
+      // undefined better than null
+      setControllerRef(ctx, false);
+      if (ctx.bean !== ctx.app.bean) {
+        ctx.bean.dispose();
+      }
+    });
+    onUnmounted(() => {
+      if (!ctx.bean) return;
+      ctx.dispose();
+    });
+  }
 
   async function __load() {
     // controller
@@ -131,6 +133,8 @@ async function _useController(
       });
     }
   }
+
+  // load
   if (process.env.SERVER) {
     onServerPrefetch(() => {
       return __load();
