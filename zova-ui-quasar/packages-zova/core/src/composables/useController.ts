@@ -1,4 +1,12 @@
-import { getCurrentInstance, onBeforeUnmount, onUnmounted, queuePostFlushCb, useAttrs, useSlots } from 'vue';
+import {
+  getCurrentInstance,
+  onBeforeUnmount,
+  onServerPrefetch,
+  onUnmounted,
+  queuePostFlushCb,
+  useAttrs,
+  useSlots,
+} from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { ZovaContext } from '../core/context/index.js';
 import {
@@ -96,23 +104,41 @@ async function _useController(
     if (!ctx.bean) return;
     ctx.dispose();
   });
-  // controller
-  //onMounted(async () => {
-  await ctx.bean._newBeanInner(true, BeanControllerIdentifier, controllerData, undefined, controllerBeanFullName, true);
-  if (styleBeanFullName) {
-    await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
+
+  async function __load() {
+    // controller
+    await ctx.bean._newBeanInner(
+      true,
+      BeanControllerIdentifier,
+      controllerData,
+      undefined,
+      controllerBeanFullName,
+      true,
+    );
+    if (styleBeanFullName) {
+      await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
+    }
+    if (renderBeanFullName) {
+      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
+    }
+    ctx.meta.state.inited.touch();
+    if (process.env.CLIENT) {
+      ctx.meta.util.instanceScope(() => {
+        queuePostFlushCb(() => {
+          ctx.meta.state.mounted.touch();
+          setControllerRef(ctx, true);
+        });
+      });
+    }
   }
-  if (renderBeanFullName) {
-    await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
-  }
-  ctx.meta.state.inited.touch();
-  ctx.meta.util.instanceScope(() => {
-    queuePostFlushCb(() => {
-      ctx.meta.state.mounted.touch();
-      setControllerRef(ctx, true);
+  console.log(import.meta.env.SSR, import.meta.env.SERVER, process.env.SERVER, process.env.CLIENT);
+  if (process.env.SERVER) {
+    onServerPrefetch(() => {
+      return __load();
     });
-  });
-  //});
+  } else {
+    __load();
+  }
 }
 
 function setControllerRef(ctx: ZovaContext, on: boolean) {
