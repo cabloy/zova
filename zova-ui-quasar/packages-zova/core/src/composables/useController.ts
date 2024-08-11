@@ -131,7 +131,6 @@ async function _useController(
       });
     }
   }
-  console.log(import.meta.env.SSR, import.meta.env.SERVER, process.env.SERVER, process.env.CLIENT);
   if (process.env.SERVER) {
     onServerPrefetch(() => {
       return __load();
