@@ -1,0 +1,58 @@
+{
+  "name": "zova-core",
+  "version": "5.0.116",
+  "description": "A vue3 framework with ioc",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "ioc",
+    "zova"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/zova.git"
+  },
+  "homepage": "https://github.com/cabloy/zova#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/zova/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "dependencies": {
+    "@cabloy/compose": "^1.0.2",
+    "@cabloy/extend": "^3.0.5",
+    "@cabloy/last-word": "^1.0.13",
+    "@cabloy/localeutil": "^1.0.4",
+    "@cabloy/module-info": "^1.0.20",
+    "@cabloy/vue-reactivity": "^3.4.35",
+    "@cabloy/vue-router": "^4.4.6",
+    "@cabloy/vue-runtime-core": "^3.4.35",
+    "@types/js-cookie": "^3.0.6",
+    "@vue/reactivity": "^3.4.27",
+    "js-cookie": "^3.0.5",
+    "reflect-metadata": "^0.2.2",
+    "vue": "^3.4.27",
+    "zod": "^3.23.8"
+  },
+  "gitHead": "1215d0a8748f399e519227d3676e764a2f813340"
+}

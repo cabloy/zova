@@ -1,0 +1,59 @@
+{
+  "name": "zova-module-a-model",
+  "version": "5.0.18",
+  "title": "a-model",
+  "zovaModule": {
+    "capabilities": {
+      "monkey": true
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "@tanstack"
+          ],
+          "output": "tanstack"
+        },
+        {
+          "match": [
+            "localforage"
+          ],
+          "output": "localforage"
+        }
+      ]
+    }
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "core",
+  "keywords": [
+    "Zova Module"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "dependencies": {
+    "@tanstack/query-persist-client-core": "^5.45.0",
+    "@tanstack/vue-query": "^5.45.0",
+    "localforage": "^1.10.0"
+  },
+  "gitHead": "1215d0a8748f399e519227d3676e764a2f813340"
+}

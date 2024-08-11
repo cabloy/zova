@@ -1,0 +1,27 @@
+import { PluginZovaModulesMeta } from 'zova';
+<%
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getPascalFromSnake(input){
+  return input.split("-").map(capitalizeFirstLetter).join("")
+}
+
+function getCamelFromSnake(input){
+  const toReturn = getPascalFromSnake(input);
+  return toReturn.charAt(0).toLowerCase() + toReturn.slice(1);
+}
+%>
+const modules = {};
+
+<% for (const relativeName in modules) {
+    const module=modules[relativeName];
+    const importName=getCamelFromSnake(relativeName);
+    const importClause=`modules['${module.info.relativeName}'] = { resource: () => import('${module.info.fullName}'), info: ${JSON.stringify(module.info,null,2)}};\n`;
+    print(importClause);
+}%>
+<%
+const clause=`export const modulesMeta = { modules, moduleNames: ${JSON.stringify(moduleNames)} } as PluginZovaModulesMeta;`;
+%>
+<%=clause%>

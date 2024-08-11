@@ -42,7 +42,7 @@
     "zova": "workspace:^",
     "zova-module-a-model": "workspace:^",
     "zova-module-a-pinia": "workspace:^",
-    "zova-module-a-router": "link:../zova-dev/src/suite-vendor/a-core/modules/a-router",
+    "zova-module-a-router": "workspace:^",
     "zova-module-a-style": "workspace:^",
     "zova-module-a-tabs": "workspace:^",
     "zova-module-a-core": "workspace:^"
