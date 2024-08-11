@@ -28,9 +28,9 @@ export async function generateZovaViteMeta(
   const vitePlugins = generateVitePlugins(configOptions);
   // alias
   const alias = {
-    // '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
-    // '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
-    // 'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
+    '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
+    '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
+    'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
   };
   // viteConfig
   const viteConfig = {
