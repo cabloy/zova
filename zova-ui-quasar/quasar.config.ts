@@ -119,7 +119,7 @@ export default configure(_ctx => {
       // manualStoreSerialization: true,
       // manualStoreSsrContextInjection: true,
       // manualStoreHydration: true,
-      // manualPostHydrationTrigger: true,
+      manualPostHydrationTrigger: true,
 
       pwa: false,
 

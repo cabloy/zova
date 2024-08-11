@@ -10,6 +10,7 @@ import { AppLocale } from '../component/locale.js';
 import { AppModule } from '../component/module.js';
 import { AppUtil } from './util.js';
 import { AppCookie } from '../component/cookie.js';
+import { AppSSR } from '../component/ssr.js';
 
 export class AppMeta extends BeanSimple {
   module: AppModule;
@@ -20,6 +21,7 @@ export class AppMeta extends BeanSimple {
   event: AppEvent;
   icon: AppIcon;
   cookie: AppCookie;
+  ssr: AppSSR;
   text: IModuleLocaleText;
 
   /** @internal */
@@ -34,6 +36,7 @@ export class AppMeta extends BeanSimple {
     this.event = this.app.bean._newBeanSimple(AppEvent, false);
     this.icon = this.app.bean._newBeanSimple(AppIcon, false);
     this.cookie = this.app.bean._newBeanSimple(AppCookie, false);
+    this.ssr = this.app.bean._newBeanSimple(AppSSR, false);
     this.text = this.locale.createLocaleText();
   }
 

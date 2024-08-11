@@ -38,6 +38,8 @@ export class ZovaApplication {
     await this.meta.locale.initialize(locales);
     // errors
     await this.meta.error.initialize();
+    // ssr
+    await this.meta.ssr.initialize();
     // config
     this.config = this.meta.util.extend({}, configDefault, config);
     // constant
