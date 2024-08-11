@@ -5,6 +5,7 @@ import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
 import { CommonServerOptions } from 'vite';
 import { createRequire } from 'node:module';
+import moduleAlias from 'module-alias';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
@@ -28,11 +29,13 @@ export async function generateZovaViteMeta(
   const vitePlugins = generateVitePlugins(configOptions);
   // alias
   const alias = {
-    vue: __getAbsolutePathOfModule('@cabloy/vue'),
     '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
     '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
     'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
   };
+  for (const key in alias) {
+    moduleAlias.addAlias(key, alias[key]);
+  }
   // viteConfig
   const viteConfig = {
     root: configOptions.appDir,
