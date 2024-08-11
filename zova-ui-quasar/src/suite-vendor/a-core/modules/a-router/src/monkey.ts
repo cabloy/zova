@@ -54,12 +54,15 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     this.app.vue.use(this._beanRouter);
     // ssr
     if (process.env.SERVER) {
+      let ssrContext;
       this.ctx.meta.util.instanceScope(() => {
-        const ssrContext = useSSRContext();
+        ssrContext = useSSRContext();
         console.log('-----: ', (<any>ssrContext)._meta.htmlAttrs);
       });
+      const url = ssrContext.req.url;
       // push
-      //this._beanRouter.push(useSSRContext.req);
+      this._beanRouter.push(url);
+      await this._beanRouter.isReady();
     }
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
