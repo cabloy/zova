@@ -2,6 +2,12 @@
   "name": "zova-module-a-ssr",
   "version": "5.0.0",
   "title": "a-ssr",
+  "zovaModule": {
+    "capabilities": {
+      "monkey": true
+    },
+    "dependencies": {}
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -14,15 +20,20 @@
     },
     "./*": "./*"
   },
-  "description": "",
+  "description": "ssr",
   "keywords": [
     "Zova Module"
   ],
   "author": "zhennann",
+  "license": "MIT",
   "files": [
-    "mock",
-    "dist"
+    "dist",
+    "src"
   ],
-  "scripts": {},
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
   "dependencies": {}
 }
