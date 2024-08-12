@@ -7,13 +7,14 @@ const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 
-export class AppSSR extends BeanSimple {
+export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
   private [SymbolOnHydrateds]: Functionable[];
 
-  /** @internal */
-  public async initialize() {
+  private _counter: number = 0;
+
+  protected __init__() {
     if (process.env.SERVER) {
       this[SymbolIsRuntimeSsrPreHydration].value = true;
     } else if (process.env.CLIENT && document.body.getAttribute('data-server-rendered') !== null) {
@@ -42,9 +43,21 @@ export class AppSSR extends BeanSimple {
     this[SymbolOnHydrateds].push(fn);
   }
 
-  hydrated() {
+  private _hydrated() {
     if (!this.isRuntimeSsrPreHydration) return;
     this[SymbolOnHydrateds].forEach(fn => fn());
     this.isRuntimeSsrPreHydration = false;
+  }
+
+  /** @internal */
+  public _hydratingInc() {
+    ++this._counter;
+  }
+
+  /** @internal */
+  public _hydratingDec() {
+    if (--this._counter === 0) {
+      this._hydrated();
+    }
   }
 }

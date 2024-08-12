@@ -55,10 +55,10 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     // ssr
     if (process.env.SERVER) {
       // push
-      const url = this.app.meta.ssr.context.req.url;
+      const url = this.ctx.meta.ssr.context.req.url;
       this._beanRouter.push(url);
       await this._beanRouter.isReady();
-    } else if (process.env.CLIENT && this.app.meta.ssr.isRuntimeSsrPreHydration) {
+    } else if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
       await this._beanRouter.isReady();
     }
   }

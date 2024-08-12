@@ -14,11 +14,13 @@ export class ZovaApplication {
   meta: AppMeta;
   config: ZovaConfig;
   constant: ZovaConstant;
+  ctx: ZovaContext;
 
   constructor(vue: App, ctxRoot: ZovaContext) {
     markRaw(this);
     vue.zova = this;
     this.vue = vue;
+    this.ctx = ctxRoot;
     this.bean = ctxRoot.bean;
     Cast(this.bean).app = this;
     ctxRoot.app = this;
@@ -38,8 +40,6 @@ export class ZovaApplication {
     await this.meta.locale.initialize(locales);
     // errors
     await this.meta.error.initialize();
-    // ssr
-    await this.meta.ssr.initialize();
     // config
     this.config = this.meta.util.extend({}, configDefault, config);
     // constant

@@ -27,7 +27,7 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   }
 
   protected get $ssr(): SSRContext {
-    return this.app.meta.ssr;
+    return this.ctx.meta.ssr;
   }
 
   // need not
