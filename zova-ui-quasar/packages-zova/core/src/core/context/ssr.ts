@@ -10,7 +10,7 @@ const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
-  private [SymbolOnHydrateds]: Functionable[];
+  private [SymbolOnHydrateds]: Functionable[] = [];
 
   private _counter: number = 0;
 

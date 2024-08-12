@@ -1,6 +1,5 @@
-import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
+import { BeanBase, BeanContainer, BeanSimple, Cast, IMonkeySystem } from 'zova';
 import { PatchIcon } from './patch/icon.js';
-import useQuasar from 'quasar/src/composables/use-quasar/use-quasar.js';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
@@ -11,15 +10,22 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     // icon
     const patchIcon = await bean._newBean(PatchIcon, false);
     await patchIcon.initialize();
+    // ssr hydrated
+    if (process.env.CLIENT) {
+      this.ctx.meta.ssr.onHydrated(() => {
+        Cast(this.app.vue.config.globalProperties.$q).onSSRHydrated();
+      });
+    }
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
+    const self = this;
     bean.defineProperty(beanInstance, '$q', {
       enumerable: false,
       configurable: true,
       get() {
-        return useQuasar();
+        return self.app.vue.config.globalProperties.$q;
       },
     });
   }
