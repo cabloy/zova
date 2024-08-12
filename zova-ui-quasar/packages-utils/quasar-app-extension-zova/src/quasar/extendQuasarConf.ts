@@ -39,6 +39,8 @@ export function extendQuasarConf(context: ConfigContext) {
       return [item[1], item[2], item[3]];
     });
     conf.build.vitePlugins = (conf.build.vitePlugins || []).concat(vitePlugins);
+    // build: distDir
+    conf.build.distDir = zovaViteMeta.viteConfig.build.outDir;
     // devServer
     conf.devServer = mergeConfig(conf.devServer, zovaViteMeta.viteConfig.server);
   };

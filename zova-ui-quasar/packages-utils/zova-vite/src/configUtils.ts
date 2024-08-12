@@ -74,17 +74,20 @@ export function createConfigUtils(
         META_MODE: meta.mode,
         META_APP_MODE: meta.appMode,
       },
+      // compatible with quasar
+      {
+        DEV: meta.mode === 'development',
+        PROD: meta.mode === 'production',
+        SSR: meta.appMode === 'ssr',
+        // DEBUGGING: meta.mode === 'development',
+        // CLIENT: envs!.APP_SERVER === 'true',
+        // SERVER: envs!.APP_SERVER !== 'true',
+        // MODE: meta.appMode,
+      },
     );
-    for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE']) {
+    for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE', 'DEV', 'PROD', 'SSR']) {
       process.env[key] = res[key];
     }
-    // compatible with quasar
-    process.env.DEV = process.env.NODE_ENV === 'development';
-    process.env.PROD = process.env.NODE_ENV === 'production';
-    process.env.DEBUGGING = process.env.DEV;
-    process.env.CLIENT = process.env.APP_SERVER === 'true';
-    process.env.SERVER = !process.env.CLIENT;
-    process.env.MODE = process.env.META_APP_MODE;
     // ok
     return res;
   }
