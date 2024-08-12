@@ -4,6 +4,7 @@ import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
 import { CommonServerOptions } from 'vite';
+import path from 'node:path';
 import { createRequire } from 'node:module';
 import moduleAlias from 'module-alias';
 
@@ -110,7 +111,10 @@ export async function generateZovaViteMeta(
   }
 
   function __getConfigBuild() {
-    const outDir = process.env.VITE_BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`;
+    const outDir = path.join(
+      configOptions.appDir,
+      process.env.VITE_BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`,
+    );
     const build = {
       outDir,
       rollupOptions: {
