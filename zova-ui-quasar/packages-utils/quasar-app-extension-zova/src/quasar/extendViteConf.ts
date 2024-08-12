@@ -2,6 +2,8 @@ import { ZovaViteConfigResult } from 'zova-vite';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';
 
+const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
+
 export function extendViteConf(context: ConfigContext) {
   return function extendViteConf(conf, opts) {
     const zovaViteMeta = context.zovaViteMeta as ZovaViteConfigResult;
@@ -23,6 +25,14 @@ export function extendViteConf(context: ConfigContext) {
           port: 24679,
         },
       });
+    }
+    // assetsInlineLimit
+    if (opts.isServer) {
+      conf.build.assetsInlineLimit = (filePath: string) => {
+        if (__SvgIconPattern.test(filePath)) {
+          return Infinity;
+        }
+      };
     }
   };
 }
