@@ -73,7 +73,11 @@ export class AppIcon extends BeanSimple {
     const groupUrl = icons[groupName];
     if (!groupUrl) return;
     // fetch
-    const res = await fetch(groupUrl);
+    let res;
+    if (process.env.SERVER && process.env.DEV) {
+    } else {
+      res = await fetch(groupUrl);
+    }
     if (!res.ok) return;
     const svg = await res.text();
     return svg;
