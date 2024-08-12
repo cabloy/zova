@@ -13,7 +13,7 @@ export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
+    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}`;
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     this._addInterceptors(this[SymbolApi]);
   }
