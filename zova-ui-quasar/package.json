@@ -40,19 +40,19 @@
     "vue-router": "^4.4.3",
     "zod": "^3.23.8",
     "zova": "workspace:^",
+    "zova-module-a-core": "workspace:^",
     "zova-module-a-model": "workspace:^",
     "zova-module-a-pinia": "workspace:^",
     "zova-module-a-router": "workspace:^",
     "zova-module-a-ssr": "workspace:^",
     "zova-module-a-style": "workspace:^",
-    "zova-module-a-tabs": "workspace:^",
-    "zova-module-a-core": "workspace:^"
+    "zova-module-a-tabs": "workspace:^"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.11",
     "@quasar/app-vite": "2.0.0-beta.18",
     "@quasar/vite-plugin": "^1.7.0",
-    "@types/node": "^20.14.14",
+    "@types/node": "^20.14.15",
     "autoprefixer": "^10.4.20",
     "quasar-app-extension-zova": "workspace:^",
     "typescript": "^5.5.4",
