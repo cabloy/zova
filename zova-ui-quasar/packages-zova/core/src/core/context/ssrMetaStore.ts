@@ -3,6 +3,60 @@ import { extend } from '@cabloy/extend';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
 
+export class CtxSSRMetaStore extends BeanSimple {
+  private _updateId: number = 0;
+  private _currentClientMeta?: SSRMetaOptions;
+  private _clientList: SSRMetaOptionsWrapper[];
+
+  protected __init__() {
+    if (process.env.SERVER) {
+      const ssrContext = this.ctx.meta.ssr.context;
+      ssrContext.__qMetaList = [];
+      ssrContext.onRendered(() => {
+        injectServerMeta(ssrContext);
+      });
+    }
+    if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
+      this._currentClientMeta = this.ctx.meta.ssr.state.meta;
+    }
+  }
+
+  planClientUpdate() {
+    if (this._updateId !== 0) {
+      clearTimeout(this._updateId);
+    }
+    this._updateId = window.setTimeout(() => {
+      this._updateId = 0;
+      this._updateClientMeta();
+    }, 50);
+  }
+
+  private _updateClientMeta() {
+    const data: SSRMetaOptions = {
+      title: '',
+      titleTemplate: undefined,
+      meta: {},
+      link: {},
+      script: {},
+      htmlAttr: {},
+      bodyAttr: {},
+    };
+
+    for (let i = 0; i < this._clientList.length; i++) {
+      const { active, val } = this._clientList[i];
+
+      if (active === true) {
+        extend(true, data, val);
+      }
+    }
+
+    normalize(data);
+
+    apply(diff(this._currentClientMeta, data));
+    this._currentClientMeta = data;
+  }
+}
+
 function normalize(meta) {
   if (meta.title) {
     meta.title = meta.titleTemplate ? meta.titleTemplate(meta.title) : meta.title;
@@ -211,47 +265,4 @@ function injectServerMeta(ssrContext: SSRContext) {
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
     `<script${nonce} id="qmeta-init">window.__Q_META__=${delete data.noscript && JSON.stringify(data)}</script>`;
-}
-
-export class CtxSSRMetaStore extends BeanSimple {
-  private _updateId: number = 0;
-  private _currentClientMeta?: SSRMetaOptions;
-  private _clientList: SSRMetaOptionsWrapper[];
-
-  protected __init__() {}
-
-  planClientUpdate() {
-    if (this._updateId !== 0) {
-      clearTimeout(this._updateId);
-    }
-    this._updateId = window.setTimeout(() => {
-      this._updateId = 0;
-      this._updateClientMeta();
-    }, 50);
-  }
-
-  private _updateClientMeta() {
-    const data: SSRMetaOptions = {
-      title: '',
-      titleTemplate: undefined,
-      meta: {},
-      link: {},
-      script: {},
-      htmlAttr: {},
-      bodyAttr: {},
-    };
-
-    for (let i = 0; i < this._clientList.length; i++) {
-      const { active, val } = this._clientList[i];
-
-      if (active === true) {
-        extend(true, data, val);
-      }
-    }
-
-    normalize(data);
-
-    apply(diff(this._currentClientMeta, data));
-    this._currentClientMeta = data;
-  }
 }

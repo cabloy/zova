@@ -53,9 +53,9 @@ export class CtxSSR extends BeanSimple {
     if (!this[SymbolSSRContext]) {
       this.ctx.meta.util.instanceScope(() => {
         this[SymbolSSRContext] = useSSRContext()!;
-        this[SymbolSSRContext].onRendered(() => {
-          this._onRendered();
-        });
+        this[SymbolSSRContext].rendered = () => {
+          this._onRenderedLast();
+        };
       });
     }
     return this[SymbolSSRContext];
@@ -70,8 +70,8 @@ export class CtxSSR extends BeanSimple {
     return this[SymbolSSRState];
   }
 
-  private _onRendered() {
-    console.log('onRendered');
+  private _onRenderedLast() {
+    console.log('onRenderedLast');
   }
 
   onHydrated(fn: Functionable) {

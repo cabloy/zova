@@ -12,6 +12,7 @@ export interface SSRContext {
    * Example: ssrContext.onRendered(() => { ... })
    */
   onRendered: (fn: () => void) => void;
+  rendered: () => void;
   __qMetaList: SSRMetaOptions[];
 }
 
@@ -24,7 +25,9 @@ export interface SSRContextMeta {
   bodyTags: string;
 }
 
-export interface SSRContextState {}
+export interface SSRContextState {
+  meta?: SSRMetaOptions;
+}
 
 // from: quasar/dist/types/meta.d.ts
 // Cannot use `Record<string, string>` as TS would error out about `template` signature
