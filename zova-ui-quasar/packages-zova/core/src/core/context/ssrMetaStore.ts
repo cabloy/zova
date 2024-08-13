@@ -242,8 +242,6 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   normalize(data);
 
-  const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
-
   const ctx = ssrContext._meta;
 
   const htmlAttr = Object.keys(data.htmlAttr!).filter(htmlFilter);
