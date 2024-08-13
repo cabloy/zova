@@ -4,8 +4,7 @@
 
 Vue3 is already very powerful and flexible, why should IOC containers be introduced?
 
-For large projects, it is often encountered that a business component includes a lot of states and logic, and these states and logic may refer to each other.
-If it is placed in a sfc file, it will be lengthy and difficult to maintain.
+For large projects, it is often encountered that a business component includes a lot of states and logic. Putting it in a vue sfc file makes the code lengthy and difficult to maintain. Since these states and logic are intertwined and referenced with each other, it is not easy to split subcomponents or extract composables. However, for the convenience of reading and maintenance, you want to split the code into multiple files. What should you do?
 In vue2, it can be split into multiple mixins, but mixins have no types, so there are many disadvantages.
 In vue3, it can be split into multiple composables, but it is not convenient to share states and logic between multiple composables.
 In this scenario, using IOC container is a better choice
