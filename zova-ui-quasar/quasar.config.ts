@@ -116,9 +116,9 @@ export default configure(_ctx => {
       // extendPackageJson (json) {},
       // extendSSRWebserverConf (esbuildConf) {},
 
-      // manualStoreSerialization: true,
-      // manualStoreSsrContextInjection: true,
-      // manualStoreHydration: true,
+      manualStoreSerialization: true,
+      manualStoreSsrContextInjection: true,
+      manualStoreHydration: true,
       manualPostHydrationTrigger: true,
 
       pwa: false,

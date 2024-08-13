@@ -1,24 +1,34 @@
 import { Ref, ref, useSSRContext } from 'vue';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import { SSRContext } from 'vue/server-renderer';
 import { Functionable } from '../../decorator/index.js';
+import { SSRContext, SSRState } from '../../types/interface/ssr.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
+const SymbolSSRState = Symbol('SymbolSSRState');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
+  private [SymbolSSRState]: SSRState;
   private [SymbolOnHydrateds]: Functionable[] = [];
 
   private _counter: number = 0;
 
   protected __init__() {
+    // SymbolIsRuntimeSsrPreHydration
     if (process.env.SERVER) {
       this[SymbolIsRuntimeSsrPreHydration].value = true;
     } else if (process.env.CLIENT && document.body.getAttribute('data-server-rendered') !== null) {
       this[SymbolIsRuntimeSsrPreHydration].value = true;
+    }
+    // SymbolSSRState
+    if (process.env.CLIENT) {
+      if (Cast(window).__INITIAL_STATE__) {
+      } else {
+        this[SymbolSSRState] = {};
+      }
     }
   }
 
@@ -31,12 +41,22 @@ export class CtxSSR extends BeanSimple {
   }
 
   get context() {
+    if (process.env.CLIENT) throw new Error('cannot called in client');
     if (!this[SymbolSSRContext]) {
       this.ctx.meta.util.instanceScope(() => {
         this[SymbolSSRContext] = useSSRContext()!;
       });
     }
     return this[SymbolSSRContext];
+  }
+
+  get state() {
+    if (!this[SymbolSSRState]) {
+      if (process.env.SERVER) {
+        this[SymbolSSRState] = this.context.state;
+      }
+    }
+    return this[SymbolSSRState];
   }
 
   onHydrated(fn: Functionable) {
