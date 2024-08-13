@@ -8,7 +8,7 @@ import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
 
 export class ZovaApplication {
-  private reloadDelayTimer: number = 0;
+  private _reloadDelayTimer: number = 0;
   vue: App;
   bean: BeanContainer;
   meta: AppMeta;
@@ -60,13 +60,13 @@ export class ZovaApplication {
 
   public reloadDelay(cancel?: boolean) {
     if (cancel) {
-      if (this.reloadDelayTimer !== 0) {
-        window.clearTimeout(this.reloadDelayTimer);
-        this.reloadDelayTimer = 0;
+      if (this._reloadDelayTimer !== 0) {
+        window.clearTimeout(this._reloadDelayTimer);
+        this._reloadDelayTimer = 0;
       }
     } else {
       this.reloadDelay(true);
-      this.reloadDelayTimer = window.setTimeout(() => {
+      this._reloadDelayTimer = window.setTimeout(() => {
         this.reload();
       }, 100);
     }

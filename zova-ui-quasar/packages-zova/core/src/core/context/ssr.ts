@@ -4,7 +4,7 @@ import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
 import { SSRContext, SSRContextState } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
-import { CtxSSRStore } from './ssrStore.js';
+import { CtxSSRMetaStore } from './ssrMetaStore.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
@@ -19,7 +19,7 @@ export class CtxSSR extends BeanSimple {
 
   private _hydratingCounter: number = 0;
 
-  public store: CtxSSRStore;
+  public metaStore: CtxSSRMetaStore;
 
   protected __init__() {
     // SymbolIsRuntimeSsrPreHydration
@@ -36,6 +36,8 @@ export class CtxSSR extends BeanSimple {
         this[SymbolSSRState] = {};
       }
     }
+    // metaStore
+    this.metaStore = this.bean._newBeanSimple(CtxSSRMetaStore, false);
   }
 
   get isRuntimeSsrPreHydration() {

@@ -28,14 +28,14 @@ export interface SSRContextState {}
 // from: quasar/dist/types/meta.d.ts
 // Cannot use `Record<string, string>` as TS would error out about `template` signature
 // See: https://basarat.gitbook.io/typescript/type-system/index-signatures#all-members-must-conform-to-the-string-index-signature
-type MetaTagOptions = Record<string, any> & {
+type SSRMetaTagOptions = Record<string, any> & {
   template?: (attributeValue: string) => string;
 };
 
-export interface MetaOptions {
+export interface SSRMetaOptions {
   title?: string;
   titleTemplate?(title: string): string;
-  meta?: { [name: string]: MetaTagOptions };
+  meta?: { [name: string]: SSRMetaTagOptions };
   link?: { [name: string]: Record<string, string> };
   script?: { [name: string]: Record<string, string> };
   htmlAttr?: { [name: string]: string | undefined };
