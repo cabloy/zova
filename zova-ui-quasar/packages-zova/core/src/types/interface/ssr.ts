@@ -25,9 +25,7 @@ export interface SSRContextMeta {
   bodyTags: string;
 }
 
-export interface SSRContextState {
-  meta?: SSRMetaOptions;
-}
+export interface SSRContextState {}
 
 // from: quasar/dist/types/meta.d.ts
 // Cannot use `Record<string, string>` as TS would error out about `template` signature

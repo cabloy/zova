@@ -1,7 +1,7 @@
 // from: quasar/ui/src/plugins/Meta.js
 import { extend } from '@cabloy/extend';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import { SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
+import { Cast, SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
 
 export class CtxSSRMetaStore extends BeanSimple {
   private _updateId: number = 0;
@@ -13,11 +13,12 @@ export class CtxSSRMetaStore extends BeanSimple {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
       ssrContext.onRendered(() => {
-        this.ctx.meta.ssr.context.state.meta = injectServerMeta(ssrContext);
+        injectServerMeta(ssrContext);
       });
     }
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
-      this._currentClientMeta = this.ctx.meta.ssr.state.meta;
+      this._currentClientMeta = Cast(window).__Q_META__;
+      document.getElementById('qmeta-init')?.remove();
     }
   }
 
@@ -242,6 +243,8 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   normalize(data);
 
+  const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
+
   const ctx = ssrContext._meta;
 
   const htmlAttr = Object.keys(data.htmlAttr!).filter(htmlFilter);
@@ -258,10 +261,9 @@ function injectServerMeta(ssrContext: SSRContext) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + bodyAttr.map(getAttr(data.bodyAttr)).join(' ');
   }
 
-  ctx.bodyTags += Object.keys(data.noscript!)
-    .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
-    .join('');
-
-  delete data.noscript;
-  return data;
+  ctx.bodyTags +=
+    Object.keys(data.noscript!)
+      .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
+      .join('') +
+    `<script${nonce} id="qmeta-init">window.__Q_META__=${delete data.noscript && JSON.stringify(data)}</script>`;
 }
