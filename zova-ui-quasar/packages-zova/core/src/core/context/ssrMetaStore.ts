@@ -1,5 +1,6 @@
 // from: quasar/ui/src/plugins/Meta.js
 import { extend } from '@cabloy/extend';
+import * as devalue from 'devalue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Cast, SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
 
@@ -12,14 +13,21 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
-      ssrContext.onRendered(() => {
-        injectServerMeta(ssrContext);
-      });
+      ssrContext.rendered = () => {
+        this._onRenderedLast();
+      };
     }
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
       this._currentClientMeta = Cast(window).__Q_META__;
-      document.getElementById('qmeta-init')?.remove();
+      document.getElementById('ssr-meta-init')?.remove();
     }
+  }
+
+  private _onRenderedLast() {
+    const ssrContext = this.ctx.meta.ssr.context;
+    injectContextState(ssrContext);
+    injectServerMeta(ssrContext);
+    console.log('onRenderedLast');
   }
 
   planClientUpdate() {
@@ -261,9 +269,19 @@ function injectServerMeta(ssrContext: SSRContext) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + bodyAttr.map(getAttr(data.bodyAttr)).join(' ');
   }
 
-  ctx.bodyTags +=
+  data.title = '\'"`';
+  (<any>data).aa = new Date();
+  ctx.headTags +=
     Object.keys(data.noscript!)
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
-    `<script${nonce} id="qmeta-init">window.__Q_META__=${delete data.noscript && JSON.stringify(data)}</script>`;
+    `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.noscript && devalue.uneval(data)}</script>`;
+}
+
+function injectContextState(ssrContext: SSRContext) {
+  const ctx = ssrContext._meta;
+
+  const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
+
+  ctx.headTags += `<script${nonce} id="ssr-state-init">window.__INITIAL_STATE__=${devalue.uneval(ssrContext.state)}</script>`;
 }

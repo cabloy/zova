@@ -1,5 +1,4 @@
 import { Ref, ref, useSSRContext } from 'vue';
-import * as devalue from 'devalue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
@@ -33,7 +32,8 @@ export class CtxSSR extends BeanSimple {
     // SymbolSSRState
     if (process.env.CLIENT) {
       if (Cast(window).__INITIAL_STATE__) {
-        this[SymbolSSRState] = devalue.parse(Cast(window).__INITIAL_STATE__);
+        this[SymbolSSRState] = Cast(window).__INITIAL_STATE__;
+        document.getElementById('ssr-state-init')?.remove();
       } else {
         this[SymbolSSRState] = {};
       }
@@ -80,13 +80,7 @@ export class CtxSSR extends BeanSimple {
       bodyAttrs: 'data-server-rendered',
       bodyTags: '',
     });
-    ssrContext.rendered = () => {
-      this._onRenderedLast();
-    };
-  }
-
-  private _onRenderedLast() {
-    console.log('onRenderedLast');
+    ssrContext.state = ssrContext.state || {};
   }
 
   onHydrated(fn: Functionable) {
