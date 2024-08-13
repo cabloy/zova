@@ -12,6 +12,7 @@ export interface SSRContext {
    * Example: ssrContext.onRendered(() => { ... })
    */
   onRendered: (fn: () => void) => void;
+  __qMetaList: SSRMetaOptions[];
 }
 
 export interface SSRContextMeta {
@@ -41,4 +42,9 @@ export interface SSRMetaOptions {
   htmlAttr?: { [name: string]: string | undefined };
   bodyAttr?: { [name: string]: string | undefined };
   noscript?: { [name: string]: string };
+}
+
+export interface SSRMetaOptionsWrapper {
+  active: boolean;
+  val: SSRMetaOptions;
 }
