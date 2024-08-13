@@ -22,6 +22,7 @@ export class CtxMeta extends BeanSimple {
     this.component = this.bean._newBeanSimple(CtxComponent, false);
     if (!this.app) {
       this.ssr = this.bean._newBeanSimple(CtxSSR, false);
+      this.ssr.initialize();
     } else {
       this.ssr = this.app.ctx.meta.ssr;
     }

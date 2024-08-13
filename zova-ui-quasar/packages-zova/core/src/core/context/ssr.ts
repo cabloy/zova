@@ -21,7 +21,8 @@ export class CtxSSR extends BeanSimple {
 
   public metaStore: CtxSSRMetaStore;
 
-  protected __init__() {
+  /** @internal */
+  public initialize() {
     // SymbolIsRuntimeSsrPreHydration
     if (process.env.SERVER) {
       this[SymbolIsRuntimeSsrPreHydration].value = true;
