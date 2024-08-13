@@ -81,10 +81,6 @@ export function createConfigUtils(
     // compatible with quasar
     process.env.DEV = process.env.NODE_ENV === 'development';
     process.env.PROD = process.env.NODE_ENV === 'production';
-    process.env.DEBUGGING = process.env.DEV;
-    process.env.CLIENT = process.env.APP_SERVER === 'true';
-    process.env.SERVER = !process.env.CLIENT;
-    process.env.MODE = process.env.META_APP_MODE;
     // ok
     return res;
   }

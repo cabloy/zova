@@ -5,7 +5,6 @@ export interface ZovaConfigMeta {
 }
 
 export interface ZovaConfigEnv {
-  appServer: boolean;
   appRouterMode: 'hash' | 'history' | 'abstract' | undefined;
   appRouterBase: string | undefined;
   appPublicPath: string | undefined;
@@ -21,7 +20,6 @@ declare global {
       META_FLAVOR: 'app' | 'web' | string;
       META_MODE: 'development' | 'production';
       META_APP_MODE: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
-      APP_SERVER: string | undefined;
       APP_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;
       APP_ROUTER_BASE: string | undefined;
       APP_PUBLIC_PATH: string | undefined;

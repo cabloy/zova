@@ -33,7 +33,7 @@ export class BeanRouter extends BeanBase {
   }
 
   private _createRouter() {
-    const createHistory = this.app.config.env.appServer
+    const createHistory = process.env.SERVER
       ? createMemoryHistory
       : this.app.config.env.appRouterMode === 'history'
         ? createWebHistory

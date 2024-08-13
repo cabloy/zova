@@ -97,7 +97,6 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 
 | 名称            | 说明                                                                                     |
 | --------------- | ---------------------------------------------------------------------------------------- |
-| APP_SERVER      | 是否在`server`端运行                                                                     |
 | APP_ROUTER_MODE | [Vue Router: History Modes](https://router.vuejs.org/guide/essentials/history-mode.html) |
 | APP_ROUTER_BASE | [Vue Router: base](https://router.vuejs.org/api/interfaces/RouterHistory.html#base)      |
 | APP_PUBLIC_PATH | [Vite: Public Base Path](https://vitejs.dev/guide/build.html#public-base-path)           |

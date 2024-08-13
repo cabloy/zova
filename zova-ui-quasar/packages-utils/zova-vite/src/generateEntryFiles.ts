@@ -45,7 +45,6 @@ export async function generateEntryFiles(
     const target = {
       meta: targetMeta,
       env: {
-        appServer: process.env.APP_SERVER === 'true',
         appRouterMode: process.env.APP_ROUTER_MODE,
         appRouterBase: process.env.APP_ROUTER_BASE,
         appPublicPath: process.env.APP_PUBLIC_PATH,

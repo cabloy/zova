@@ -66,7 +66,6 @@ export class StoreApi {
 | META_MODE       | meta.mode         |
 | META_FLAVOR     | meta.flavor       |
 | META_APP_MODE   | meta.appMode      |
-| APP_SERVER      | env.appServer     |
 | APP_ROUTER_MODE | env.appRouterMode |
 | APP_ROUTER_BASE | env.appRouterBase |
 | APP_PUBLIC_PATH | env.appPublicPath |
