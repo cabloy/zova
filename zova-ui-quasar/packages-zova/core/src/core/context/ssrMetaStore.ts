@@ -260,9 +260,7 @@ function injectServerMeta(ssrContext: SSRContext) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + bodyAttr.map(getAttr(data.bodyAttr)).join(' ');
   }
 
-  ctx.bodyTags +=
-    Object.keys(data.noscript!)
-      .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
-      .join('') +
-    `<script${nonce} id="qmeta-init">window.__Q_META__=${delete data.noscript && JSON.stringify(data)}</script>`;
+  ctx.bodyTags += Object.keys(data.noscript!)
+    .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
+    .join('');
 }
