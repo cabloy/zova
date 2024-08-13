@@ -13,7 +13,7 @@ export class CtxSSRMetaStore extends BeanSimple {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
       ssrContext.onRendered(() => {
-        injectServerMeta(ssrContext);
+        this.ctx.meta.ssr.context.state.meta = injectServerMeta(ssrContext);
       });
     }
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
@@ -261,4 +261,7 @@ function injectServerMeta(ssrContext: SSRContext) {
   ctx.bodyTags += Object.keys(data.noscript!)
     .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
     .join('');
+
+  delete data.noscript;
+  return data;
 }
