@@ -1,7 +1,9 @@
 import { Ref, ref, useSSRContext } from 'vue';
+import * as devalue from 'devalue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
 import { SSRContext, SSRState } from '../../types/interface/ssr.js';
+import { Cast } from '../../types/utils/cast.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
@@ -26,6 +28,7 @@ export class CtxSSR extends BeanSimple {
     // SymbolSSRState
     if (process.env.CLIENT) {
       if (Cast(window).__INITIAL_STATE__) {
+        this[SymbolSSRState] = devalue.parse(Cast(window).__INITIAL_STATE__);
       } else {
         this[SymbolSSRState] = {};
       }
@@ -45,6 +48,9 @@ export class CtxSSR extends BeanSimple {
     if (!this[SymbolSSRContext]) {
       this.ctx.meta.util.instanceScope(() => {
         this[SymbolSSRContext] = useSSRContext()!;
+        this[SymbolSSRContext].onRendered(() => {
+          this._onRendered();
+        });
       });
     }
     return this[SymbolSSRContext];
@@ -57,6 +63,10 @@ export class CtxSSR extends BeanSimple {
       }
     }
     return this[SymbolSSRState];
+  }
+
+  private _onRendered() {
+    console.log('onRendered');
   }
 
   onHydrated(fn: Functionable) {
