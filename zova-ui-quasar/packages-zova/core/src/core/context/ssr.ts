@@ -2,8 +2,9 @@ import { Ref, ref, useSSRContext } from 'vue';
 import * as devalue from 'devalue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
-import { SSRContext, SSRState } from '../../types/interface/ssr.js';
+import { SSRContext, SSRContextState } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
+import { CtxSSRStore } from './ssrStore.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
@@ -13,10 +14,12 @@ const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
-  private [SymbolSSRState]: SSRState;
+  private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
 
-  private _counter: number = 0;
+  private _hydratingCounter: number = 0;
+
+  public store: CtxSSRStore;
 
   protected __init__() {
     // SymbolIsRuntimeSsrPreHydration
@@ -89,12 +92,12 @@ export class CtxSSR extends BeanSimple {
 
   /** @internal */
   public _hydratingInc() {
-    ++this._counter;
+    ++this._hydratingCounter;
   }
 
   /** @internal */
   public _hydratingDec() {
-    if (--this._counter === 0) {
+    if (--this._hydratingCounter === 0) {
       this._hydrated();
     }
   }

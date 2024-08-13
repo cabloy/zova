@@ -15,7 +15,8 @@ export class CtxMeta extends BeanSimple {
     return this.ctx.instance.vnode.el!;
   }
 
-  protected __init__() {
+  /** @internal */
+  public initialize() {
     this.util = this.bean._newBeanSimple(CtxUtil, false);
     this.state = this.bean._newBeanSimple(CtxState, true);
     this.component = this.bean._newBeanSimple(CtxComponent, false);
