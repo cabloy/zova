@@ -73,6 +73,14 @@ export class CtxSSR extends BeanSimple {
     this[SymbolOnHydrateds].push(fn);
   }
 
+  handleDirectOrOnHydrated(fn: Functionable) {
+    if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
+      this.onHydrated(fn);
+    } else {
+      return fn();
+    }
+  }
+
   private _hydrated() {
     if (!this.isRuntimeSsrPreHydration) return;
     this[SymbolOnHydrateds].forEach(fn => fn());

@@ -65,7 +65,9 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       this._applyTheme();
     });
     // not use watch.immediate for await done
-    await this._applyTheme();
+    await this.ctx.meta.ssr.handleDirectOrOnHydrated(() => {
+      return this._applyTheme();
+    });
   }
 
   protected __dispose__() {
