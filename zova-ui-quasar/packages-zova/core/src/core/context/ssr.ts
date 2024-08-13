@@ -1,5 +1,6 @@
 import { Ref, ref, useSSRContext } from 'vue';
 import * as devalue from 'devalue';
+import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
 import { SSRContext, SSRContextState } from '../../types/interface/ssr.js';
@@ -54,9 +55,7 @@ export class CtxSSR extends BeanSimple {
     if (!this[SymbolSSRContext]) {
       this.ctx.meta.util.instanceScope(() => {
         this[SymbolSSRContext] = useSSRContext()!;
-        this[SymbolSSRContext].rendered = () => {
-          this._onRenderedLast();
-        };
+        this._initContext();
       });
     }
     return this[SymbolSSRContext];
@@ -69,6 +68,21 @@ export class CtxSSR extends BeanSimple {
       }
     }
     return this[SymbolSSRState];
+  }
+
+  private _initContext() {
+    const ssrContext = this[SymbolSSRContext];
+    ssrContext._meta = defu(ssrContext._meta, {
+      htmlAttrs: '',
+      headTags: '',
+      endingHeadTags: '',
+      bodyClasses: '',
+      bodyAttrs: 'data-server-rendered',
+      bodyTags: '',
+    });
+    ssrContext.rendered = () => {
+      this._onRenderedLast();
+    };
   }
 
   private _onRenderedLast() {
