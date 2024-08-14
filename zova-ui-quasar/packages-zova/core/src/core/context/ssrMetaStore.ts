@@ -27,7 +27,6 @@ export class CtxSSRMetaStore extends BeanSimple {
     const ssrContext = this.ctx.meta.ssr.context;
     injectContextState(ssrContext);
     injectServerMeta(ssrContext);
-    console.log('onRenderedLast');
   }
 
   planClientUpdate() {
