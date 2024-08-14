@@ -25,18 +25,24 @@ export function useMeta(ctx: ZovaContext, metaOptions) {
     ctx.meta.ssr.metaStore.planClientUpdate();
 
     onActivated(() => {
-      meta.active = true;
-      ctx.meta.ssr.metaStore.planClientUpdate();
+      try {
+        meta.active = true;
+        ctx.meta.ssr.metaStore.planClientUpdate();
+      } catch (_err) {}
     });
 
     onDeactivated(() => {
-      meta.active = false;
-      ctx.meta.ssr.metaStore.planClientUpdate();
+      try {
+        meta.active = false;
+        ctx.meta.ssr.metaStore.planClientUpdate();
+      } catch (_err) {}
     });
 
     onUnmounted(() => {
-      ctx.meta.ssr.metaStore.removeMetaOptions(meta);
-      ctx.meta.ssr.metaStore.planClientUpdate();
+      try {
+        ctx.meta.ssr.metaStore.removeMetaOptions(meta);
+        ctx.meta.ssr.metaStore.planClientUpdate();
+      } catch (_err) {}
     });
   }
 }

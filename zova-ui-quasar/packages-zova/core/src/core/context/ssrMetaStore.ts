@@ -7,7 +7,7 @@ import { Cast, SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../t
 export class CtxSSRMetaStore extends BeanSimple {
   private _updateId: number = 0;
   private _currentClientMeta?: SSRMetaOptions;
-  private _clientList: SSRMetaOptionsWrapper[];
+  private _clientList: SSRMetaOptionsWrapper[] = [];
 
   protected __init__() {
     if (process.env.SERVER) {
