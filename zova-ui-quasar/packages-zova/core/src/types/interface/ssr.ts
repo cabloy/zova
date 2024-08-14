@@ -47,5 +47,5 @@ export interface SSRMetaOptions {
 
 export interface SSRMetaOptionsWrapper {
   active: boolean;
-  val: SSRMetaOptions;
+  val?: SSRMetaOptions;
 }

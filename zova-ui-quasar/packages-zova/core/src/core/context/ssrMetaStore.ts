@@ -29,6 +29,14 @@ export class CtxSSRMetaStore extends BeanSimple {
     injectServerMeta(ssrContext);
   }
 
+  addMetaOptions(metaOptionsWrapper: SSRMetaOptionsWrapper) {
+    this._clientList.push(metaOptionsWrapper);
+  }
+
+  removeMetaOptions(metaOptionsWrapper: SSRMetaOptionsWrapper) {
+    this._clientList.splice(this._clientList.indexOf(metaOptionsWrapper), 1);
+  }
+
   planClientUpdate() {
     if (this._updateId !== 0) {
       clearTimeout(this._updateId);
