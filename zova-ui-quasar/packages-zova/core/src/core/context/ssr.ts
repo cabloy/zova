@@ -40,6 +40,10 @@ export class CtxSSR extends BeanSimple {
     }
     // metaStore
     this.metaStore = this.bean._newBeanSimple(CtxSSRMetaStore, false);
+    //
+    if (process.env.CLIENT && this.isRuntimeSsrPreHydration) {
+      document.body.style.display = 'block';
+    }
   }
 
   get isRuntimeSsrPreHydration() {
@@ -80,6 +84,9 @@ export class CtxSSR extends BeanSimple {
       bodyAttrs: 'data-server-rendered',
       bodyTags: '',
     });
+    if (process.env.SERVER) {
+      ssrContext._meta.bodyAttrs += ' style="display:none"';
+    }
     ssrContext.state = ssrContext.state || {};
   }
 
