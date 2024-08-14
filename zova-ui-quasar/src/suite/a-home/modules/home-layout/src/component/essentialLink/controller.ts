@@ -1,7 +1,7 @@
 import { BeanControllerBase, Local, PropsBase } from 'zova';
 
 export interface Props extends PropsBase<ControllerEssentialLink, Slots> {
-  title: string;
+  title?: string;
   caption?: string;
   icon?: string;
   href?: string;
