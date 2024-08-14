@@ -11,7 +11,6 @@ const XMLNS_LINK = 'http://www.w3.org/1999/xlink';
 export class AppIconBase extends BeanSimple {
   protected _iconSymbols: TypeIconSymbols = reactive({});
   protected _iconMoudles: TypeIconModules = {};
-  //private _iconSSR: Record<string, Record<string, string>> = {};
 
   protected get self() {
     return Cast<AppIcon>(this);
@@ -93,12 +92,13 @@ export class AppIconBase extends BeanSimple {
     return svg;
   }
 
-  private _injectIcon(meta: IIconMeta) {
+  private _injectIcon(meta: IIconMeta): string {
+    if (process.env.SERVER) {
+      return this.self._injectIconSSR(meta);
+    }
+    //
     const iconModule = this._getIconModule(meta.module);
     const iconGroup = iconModule[meta.group];
-    if (process.env.SERVER) {
-      return meta.symbolId;
-    }
     // inject container
     let domContainer = document.getElementById('zova-svg-container');
     if (!domContainer) {
@@ -129,14 +129,19 @@ export class AppIconBase extends BeanSimple {
     // inject icon
     const domIcon = document.getElementById(meta.symbolId) as unknown as SVGElement;
     if (!domIcon) {
-      const symbolPattern = new RegExp(`<symbol.*?id="${meta.symbolId}".*?>.*?</symbol>`);
-      const matched = symbolPattern.exec(iconGroup.svg || '');
-      if (matched) {
-        domGroup.insertAdjacentHTML('beforeend', matched[0]);
+      const iconContent = this._extractIconContent(iconGroup.svg, meta.symbolId);
+      if (iconContent) {
+        domGroup.insertAdjacentHTML('beforeend', iconContent);
       }
     }
     // ok
     return meta.symbolId;
+  }
+
+  protected _extractIconContent(svg: string | undefined, symbolId: string) {
+    const symbolPattern = new RegExp(`<symbol.*?id="${symbolId}".*?>.*?</symbol>`);
+    const matched = symbolPattern.exec(svg || '');
+    return matched && matched[0];
   }
 
   protected _getIconModule(moduleName: string) {
