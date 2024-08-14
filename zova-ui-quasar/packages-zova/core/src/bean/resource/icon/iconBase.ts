@@ -29,6 +29,10 @@ export class AppIconBase extends BeanSimple {
     // check if exists
     if (this._iconSymbols[meta.fullName]) return iconOk;
     // check if dom exists
+    if (process.env.CLIENT) {
+      const domIcon = document.getElementById(meta.symbolId) as unknown as SVGElement;
+      if (domIcon) return iconOk;
+    }
     // check if exists
     if (this._iconSymbols[meta.fullName] === undefined) {
       this.parseIconInfo(iconName);
