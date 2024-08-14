@@ -24,12 +24,18 @@ export class AppIconBase extends BeanSimple {
     if (!meta) return undefined;
     // empty
     const iconEmpty = { meta, symbolId: '' };
+    // ok
+    const iconOk = { meta, symbolId: meta.symbolId };
+    // check if exists
+    if (this._iconSymbols[meta.fullName]) return iconOk;
+    // check if dom exists
     // check if exists
     if (this._iconSymbols[meta.fullName] === undefined) {
       this.parseIconInfo(iconName);
       return iconEmpty;
+    } else if (this._iconSymbols[meta.fullName] === '') {
+      return iconEmpty;
     }
-    return { meta, symbolId: meta.symbolId };
   }
 
   async parseIconInfo(iconName?: string): Promise<IIconInfo | undefined> {
