@@ -1,8 +1,8 @@
-import { BeanBase, Cast, getZovaIcon, Local } from 'zova';
+import { BeanBase, Cast, getZovaIcon, Local, useApp } from 'zova';
 import { Platform, QIcon, Quasar } from 'quasar';
 import { ScopeModule } from '../resource/this.js';
 
-import { h, computed } from 'vue';
+import { h, computed, onServerPrefetch } from 'vue';
 import useSize from 'quasar/src/composables/private.use-size/use-size.js';
 import { hSlot, hMergeSlot } from 'quasar/src/utils/private.render/render.js';
 
@@ -54,6 +54,15 @@ export class PatchIcon extends BeanBase<ScopeModule> {
 
   private _patchSetup() {
     QIcon.setup = function (props, { slots }) {
+      onServerPrefetch(async () => {
+        const icon = props.name;
+        if (icon === 'none' || !icon) {
+          return;
+        }
+        const app = useApp();
+        await app.meta.icon.parseIconInfo(icon);
+      });
+
       const sizeStyle = useSize(props);
 
       const classes = computed(
