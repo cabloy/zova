@@ -13,10 +13,10 @@ Pinia 模块默认是禁用的。这样，如果项目中没有使用 pinia stor
 在项目根目录新建文件`env/.env.mine`:
 
 ```txt
-PROJECT_DISABLED_MODULES =
+PINIA_ENABLED = true
 ```
 
-- 将`PROJECT_DISABLED_MODULES`设置为空，Pinia 模块就自动启用了
+- 将`PINIA_ENABLED`设置为 true，Pinia 模块就自动启用了
 
 ## 2. 创建pinia store
 

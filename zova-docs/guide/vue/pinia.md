@@ -13,11 +13,10 @@ The Pinia module is disabled by default. In this way, if the pinia store is not 
 Create a new file `env/.env.mine` in the project root directory:
 
 ```txt
-PROJECT_DISABLED_MODULES =
+PINIA_ENABLED = true
 ```
 
-- 将`PROJECT_DISABLED_MODULES`设置为空，Pinia 模块就自动激活了
-- Set `PROJECT_DISABLED_MODULES` to empty, and the Pinia module will be automatically enabled
+- Set `PINIA_ENABLED` to true, and the Pinia module will be automatically enabled
 
 ## 2. Create a pinia store
 
