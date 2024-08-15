@@ -59,13 +59,28 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryLocal(options, queryClient) {
-    options = this.app.meta.util.extend({}, options, {
-      enabled: false,
-      staleTime: Infinity,
-      meta: {
-        persister: { storage: 'local', sync: true },
+    options = this.app.meta.util.extend(
+      {
+        meta: {
+          persister: {
+            serialize: (obj?: Query) => {
+              return this.$serializeLocal(obj);
+            },
+            deserialize: (value?: string) => {
+              return this.$deserializeLocal(value);
+            },
+          },
+        },
       },
-    });
+      options,
+      {
+        enabled: false,
+        staleTime: Infinity,
+        meta: {
+          persister: { storage: 'local', sync: true },
+        },
+      },
+    );
     const self = this;
     return useCustomRef(() => {
       return {

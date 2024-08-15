@@ -117,7 +117,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
   }
 
   protected _getPersisterStorageKey(options: QueryMetaPersister, query: Query) {
-    if (options.storage === 'cookie') return String(query.queryKey[query.queryKey.length - 1]);
+    if (['cookie', 'local'].includes(options.storage!)) return String(query.queryKey[query.queryKey.length - 1]);
     return `${options.prefix}-${query.queryHash}`;
   }
 
