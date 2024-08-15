@@ -20,7 +20,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
         this.ctx.meta.ssr.context._meta.bodyTags += `<script>
-  var __prefersColorSchemeDark=!!window.matchMedia('(prefers-color-scheme: dark)').matches;     
+  var __prefersColorSchemeDark=localStorage.getItem('themedark')||window.matchMedia('(prefers-color-scheme: dark)').matches;     
   if(__prefersColorSchemeDark){
     document.body.classList.remove('body--light')
     document.body.classList.add('body--dark')
