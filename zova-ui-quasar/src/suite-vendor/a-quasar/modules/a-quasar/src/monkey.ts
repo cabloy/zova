@@ -16,6 +16,22 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
         Cast(this.app.vue.config.globalProperties.$q).onSSRHydrated();
       });
     }
+    // ssr theme
+    if (process.env.SERVER) {
+      this.ctx.meta.ssr.context.onRendered(() => {
+        this.ctx.meta.ssr.context._meta.bodyTags += `<script>
+  var __prefersColorSchemeDark=!!window.matchMedia('(prefers-color-scheme: dark)').matches;     
+  if(__prefersColorSchemeDark){
+    document.body.classList.remove('body--light')
+    document.body.classList.add('body--dark')
+  }else{
+    document.body.classList.remove('body--dark')
+    document.body.classList.add('body--light') 
+  }
+  document.currentScript.remove();
+</script>"`;
+      });
+    }
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}

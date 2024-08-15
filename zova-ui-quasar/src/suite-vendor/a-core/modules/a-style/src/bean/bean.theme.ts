@@ -21,13 +21,13 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   private _onMediaDarkChange?;
 
   protected async __init__() {
-    this.name = this.$useQueryCookie({
+    this.name = this.$useQueryLocal({
       queryKey: ['themename'],
       meta: {
         defaultData: this.scope.config.defaultTheme,
       },
     });
-    this.darkMode = this.$useQueryCookie({
+    this.darkMode = this.$useQueryLocal({
       queryKey: ['themedarkmode'],
       meta: {
         persister: {
@@ -39,7 +39,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
         defaultData: 'auto',
       },
     });
-    this._dark = this.$useQueryCookie({
+    this._dark = this.$useQueryLocal({
       queryKey: ['themedark'],
       meta: {
         persister: {
