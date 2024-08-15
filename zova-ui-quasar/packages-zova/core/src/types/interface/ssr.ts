@@ -1,3 +1,5 @@
+import { ComponentInternalInstance, VNode } from 'vue';
+
 export interface SSRContext {
   _meta: SSRContextMeta;
   state: SSRContextState;
@@ -49,3 +51,11 @@ export interface SSRMetaOptionsWrapper {
   active: boolean;
   val?: SSRMetaOptions;
 }
+
+export type OnHydratePropHasMismatch = (
+  el: Element,
+  key: string,
+  clientValue: any,
+  vnode: VNode,
+  instance: ComponentInternalInstance | null,
+) => any;

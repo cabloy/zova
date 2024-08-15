@@ -1,8 +1,8 @@
-import { Ref, ref, useSSRContext } from 'vue';
+import { ComponentInternalInstance, Ref, ref, useSSRContext, VNode } from 'vue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
-import { SSRContext, SSRContextState } from '../../types/interface/ssr.js';
+import { OnHydratePropHasMismatch, SSRContext, SSRContextState } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
 
@@ -10,12 +10,14 @@ const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
 const SymbolSSRState = Symbol('SymbolSSRState');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
+const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatches');
 
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
   private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
+  private [SymbolOnHydratePropHasMismatches]: Functionable[] = [];
 
   private _hydratingCounter: number = 0;
 
@@ -94,6 +96,10 @@ export class CtxSSR extends BeanSimple {
     this[SymbolOnHydrateds].push(fn);
   }
 
+  onHydratePropHasMismatch(fn: OnHydratePropHasMismatch) {
+    this[SymbolOnHydratePropHasMismatches].push(fn);
+  }
+
   handleDirectOrOnHydrated(fn: Functionable) {
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
       this.onHydrated(fn);
@@ -106,6 +112,20 @@ export class CtxSSR extends BeanSimple {
     if (!this.isRuntimeSsrPreHydration) return;
     this[SymbolOnHydrateds].forEach(fn => fn());
     this.isRuntimeSsrPreHydration = false;
+  }
+
+  /** @internal */
+  public _hydratePropHasMismatch(
+    el: Element,
+    key: string,
+    clientValue: any,
+    vnode: VNode,
+    instance: ComponentInternalInstance | null,
+  ): boolean | undefined {
+    for (const fn of this[SymbolOnHydratePropHasMismatches]) {
+      clientValue = fn(el, key, clientValue, vnode, instance);
+    }
+    return clientValue;
   }
 
   /** @internal */
