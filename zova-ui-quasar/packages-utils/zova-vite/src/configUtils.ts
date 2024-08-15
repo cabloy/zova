@@ -54,6 +54,7 @@ export function createConfigUtils(
   let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   let __zovaManualChunkVendors_runtime_modulesBefore: ZovaViteConfigChunkVendor[];
   let __modulesMeta: Awaited<ReturnType<typeof glob>>;
+  let __chunkNameHashes: {};
   return {
     loadEnvs: __loadEnvs,
     loadModulesMeta: __loadModulesMeta,
@@ -141,7 +142,10 @@ export function createConfigUtils(
   }
 
   function _configManualChunk_Obfuscation(output: string) {
-    return 'Chunk-' + crypto.createHash('sha1').update(output).digest('hex').slice(0, 6);
+    if (!__chunkNameHashes[output]) {
+      __chunkNameHashes[output] = 'Chunk-' + crypto.createHash('sha1').update(output).digest('hex').slice(0, 6);
+    }
+    return __chunkNameHashes[output];
   }
 
   function __configManualChunk(id: string) {
