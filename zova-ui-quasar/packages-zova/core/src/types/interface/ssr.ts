@@ -52,10 +52,15 @@ export interface SSRMetaOptionsWrapper {
   val?: SSRMetaOptions;
 }
 
+export interface OnHydratePropHasMismatchResult {
+  ignore?: boolean;
+  clientValue?: any;
+}
+
 export type OnHydratePropHasMismatch = (
   el: Element,
   key: string,
   clientValue: any,
   vnode: VNode,
   instance: ComponentInternalInstance | null,
-) => any;
+) => OnHydratePropHasMismatchResult;

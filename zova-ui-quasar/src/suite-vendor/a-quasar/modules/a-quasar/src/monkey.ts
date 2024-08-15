@@ -1,7 +1,6 @@
 import { BeanBase, BeanContainer, BeanSimple, Cast, IMonkeySystem } from 'zova';
 import { PatchIcon } from './patch/icon.js';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
-import { normalizeClass } from 'vue';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize(bean: BeanContainer) {
@@ -15,17 +14,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     if (process.env.CLIENT) {
       this.ctx.meta.ssr.onHydrated(() => {
         Cast(this.app.vue.config.globalProperties.$q).onSSRHydrated();
-      });
-      this.ctx.meta.ssr.onHydratePropHasMismatch((_el, key, clientValue, _vnode, _instance) => {
-        if (key !== 'class') return clientValue;
-        clientValue = normalizeClass(clientValue);
-        if (!clientValue) return clientValue;
-        return clientValue
-          .split(' ')
-          .filter(item => {
-            return item.indexOf('dark') === -1;
-          })
-          .join(' ');
       });
     }
     // ssr theme

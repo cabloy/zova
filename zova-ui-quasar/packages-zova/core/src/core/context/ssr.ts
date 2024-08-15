@@ -1,8 +1,13 @@
-import { ComponentInternalInstance, Ref, ref, useSSRContext, VNode } from 'vue';
+import { ComponentInternalInstance, normalizeClass, Ref, ref, useSSRContext, VNode } from 'vue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
-import { OnHydratePropHasMismatch, SSRContext, SSRContextState } from '../../types/interface/ssr.js';
+import {
+  OnHydratePropHasMismatch,
+  OnHydratePropHasMismatchResult,
+  SSRContext,
+  SSRContextState,
+} from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
 
@@ -17,7 +22,7 @@ export class CtxSSR extends BeanSimple {
   private [SymbolSSRContext]: SSRContext;
   private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
-  private [SymbolOnHydratePropHasMismatches]: Functionable[] = [];
+  private [SymbolOnHydratePropHasMismatches]: OnHydratePropHasMismatch[] = [];
 
   private _hydratingCounter: number = 0;
 
@@ -40,9 +45,18 @@ export class CtxSSR extends BeanSimple {
         this[SymbolSSRState] = {};
       }
     }
+    // onHydratePropHasMismatch
+    if (process.env.CLIENT && this.isRuntimeSsrPreHydration) {
+      this.onHydratePropHasMismatch((el, key, clientValue, _vnode, _instance) => {
+        if (key !== 'class') return { clientValue };
+        const expected = normalizeClass(clientValue);
+        el.setAttribute('class', expected);
+        return { ignore: true };
+      });
+    }
     // metaStore
     this.metaStore = this.bean._newBeanSimple(CtxSSRMetaStore, false);
-    //
+    // fix: flash on page load
     if (process.env.DEV && process.env.CLIENT && this.isRuntimeSsrPreHydration) {
       document.body.style.display = 'block';
     }
@@ -121,11 +135,13 @@ export class CtxSSR extends BeanSimple {
     clientValue: any,
     vnode: VNode,
     instance: ComponentInternalInstance | null,
-  ): boolean | undefined {
+  ): OnHydratePropHasMismatchResult {
     for (const fn of this[SymbolOnHydratePropHasMismatches]) {
-      clientValue = fn(el, key, clientValue, vnode, instance);
+      const res = fn(el, key, clientValue, vnode, instance);
+      if (res.ignore) return res;
+      clientValue = res.clientValue;
     }
-    return clientValue;
+    return { ignore: false, clientValue };
   }
 
   /** @internal */
