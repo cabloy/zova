@@ -8,8 +8,8 @@ export class RenderState extends BeanRenderBase {
   render() {
     return (
       <this.$component.page>
-        <div>count(ref): {this.count}</div>
-        <div>count(computed): {this.count2}</div>
+        <div>{`count(ref): ${this.count}`}</div>
+        <div>{`count(computed): ${this.count2}`}</div>
         <button class="btn btn-primary" onClick={() => this.increment()}>
           Increment
         </button>
