@@ -18,10 +18,6 @@ const __ModuleLibs = [
 const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
-    match: [/\.zova\/config\.ts/],
-    output: '-zova-config',
-  },
-  {
     match: [
       'vue/dist',
       '@vue/runtime-dom/dist',
@@ -54,7 +50,7 @@ export function createConfigUtils(
   let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   let __zovaManualChunkVendors_runtime_modulesBefore: ZovaViteConfigChunkVendor[];
   let __modulesMeta: Awaited<ReturnType<typeof glob>>;
-  let __chunkNameHashes: {};
+  const __chunkNameHashes: Record<string, string> = {};
   return {
     loadEnvs: __loadEnvs,
     loadModulesMeta: __loadModulesMeta,
@@ -193,6 +189,12 @@ export function createConfigUtils(
       vendors.push({
         match: [`~${getMockPath(configOptions, true)}`],
         output: '-zova-mock',
+      });
+    }
+    if (process.env.BUILD_CHUNK_OBFUSCATION === 'false') {
+      vendors.push({
+        match: [/\.zova\/config\.ts/],
+        output: '-zova-config',
       });
     }
     return vendors;
