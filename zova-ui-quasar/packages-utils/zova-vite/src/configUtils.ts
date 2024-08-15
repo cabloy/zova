@@ -5,6 +5,7 @@ import * as dotenv from '@cabloy/dotenv';
 import { getEnvMeta, getMockPath } from './utils.js';
 import { glob } from '@cabloy/module-glob';
 import { IBundleVendor } from '@cabloy/module-info';
+import crypto from 'node:crypto';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -56,7 +57,7 @@ export function createConfigUtils(
   return {
     loadEnvs: __loadEnvs,
     loadModulesMeta: __loadModulesMeta,
-    configManualChunk: __configManualChunk,
+    configManualChunk: __configManualChunkWrapper,
   };
 
   //////////////////////////////
@@ -129,6 +130,18 @@ export function createConfigUtils(
       id = id.substring(index + 'node_modules'.length);
     }
     return id;
+  }
+
+  function __configManualChunkWrapper(id: string) {
+    let output = __configManualChunk(id);
+    if (output && process.env.BUILD_CHUNK_OBFUSCATION === 'true') {
+      output = _configManualChunk_Obfuscation(output);
+    }
+    return output;
+  }
+
+  function _configManualChunk_Obfuscation(output: string) {
+    return 'Chunk-' + crypto.createHash('sha1').update(output).digest('hex').slice(0, 6);
   }
 
   function __configManualChunk(id: string) {
