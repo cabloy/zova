@@ -69,8 +69,10 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 
   _patchStyle(beanInstance: BeanBase, props, ...args) {
-    if (props && typeof props === 'object') {
-      props = Object.assign({ $debugName: beanInstance[SymbolModuleName] }, props);
+    if (process.env.dev) {
+      if (props && typeof props === 'object') {
+        props = Object.assign({ $debugName: beanInstance[SymbolModuleName] }, props);
+      }
     }
     if (this._styleInstance) {
       return this._styleInstance.style(props, ...args);
