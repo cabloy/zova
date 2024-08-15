@@ -1,15 +1,15 @@
 import { Query } from '@tanstack/vue-query';
-import { BeanModelLocal } from './bean.model.local.js';
+import { BeanModelPersister } from './bean.model.persister.js';
 
-export class BeanModelCookie<TScopeModule = unknown> extends BeanModelLocal<TScopeModule> {
-  $serializeCookie(obj?: Query) {
-    return String(obj?.state?.data ?? '');
+export class BeanModelLocal<TScopeModule = unknown> extends BeanModelPersister<TScopeModule> {
+  $serializeLocal(obj?: Query) {
+    return JSON.stringify(obj?.state?.data);
   }
 
-  $deserializeCookie(value?: string) {
+  $deserializeLocal(value?: string) {
     return {
       state: {
-        data: value,
+        data: value ? JSON.parse(value) : undefined,
         dataUpdateCount: 0,
         dataUpdatedAt: Date.now(),
         error: null,
