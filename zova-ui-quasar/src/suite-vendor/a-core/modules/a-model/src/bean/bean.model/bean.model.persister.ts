@@ -124,6 +124,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
   protected _getPersisterStorage(options?: QueryMetaPersister | boolean) {
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;
+    if (process.env.SERVER) return undefined;
     if (options.storage === 'cookie') return this.app.meta.cookie;
     if (options.storage === 'local') return localStorage;
     if (options.storage === 'db') return localforage;
