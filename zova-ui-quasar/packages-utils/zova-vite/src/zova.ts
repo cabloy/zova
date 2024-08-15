@@ -111,10 +111,7 @@ export async function generateZovaViteMeta(
   }
 
   function __getConfigBuild() {
-    const outDir = path.join(
-      configOptions.appDir,
-      process.env.VITE_BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`,
-    );
+    const outDir = path.join(configOptions.appDir, process.env.BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`);
     const build = {
       outDir,
       rollupOptions: {
