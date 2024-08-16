@@ -1,4 +1,4 @@
-import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
+import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 export default defineFakeRoute([
   {

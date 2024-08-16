@@ -11,7 +11,7 @@ Zova 基于[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plug
 `src/suite/a-home/modules/home-layout/mock/menu.fake.ts`
 
 ```typescript
-import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
+import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 export default defineFakeRoute([
   {

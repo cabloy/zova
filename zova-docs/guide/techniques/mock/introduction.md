@@ -11,7 +11,7 @@ For example, the module `home-layout` needs to get the menu through the API: `/h
 `src/suite/a-home/modules/home-layout/mock/menu.fake.ts`
 
 ```typescript
-import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
+import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 export default defineFakeRoute([
   {

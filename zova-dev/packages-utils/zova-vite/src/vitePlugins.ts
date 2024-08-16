@@ -1,7 +1,7 @@
 import babel from '@cabloy/vite-plugin-babel';
 // import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
-import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
+import { vitePluginFakeServer } from 'vite-plugin-fake-server-turbo';
 import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
 import { getMockPath } from './utils.js';
 
