@@ -25,7 +25,6 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   protected async __init__() {
     // belowBreakpoint
     this.belowBreakpoint = useComputed(() => {
-      console.log(this.$q.screen.width);
       return this.$q.screen.width <= this.scope.config.layout.breakpoint;
     });
     // leftDrawerOpen
