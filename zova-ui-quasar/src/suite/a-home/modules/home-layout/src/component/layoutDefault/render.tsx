@@ -15,11 +15,12 @@ import {
 } from 'quasar';
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/index.js';
+import { ScopeModule } from '../../resource/this.js';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
-export class RenderLayoutDefault extends BeanRenderBase {
+export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
     if (item.separator) {
       return <QSeparator spaced></QSeparator>;
@@ -61,7 +62,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
           </QToolbar>
         </QHeader>
 
-        <QDrawer v-model={this.leftDrawerOpen} show-if-above bordered>
+        <QDrawer v-model={this.leftDrawerOpen} breakpoint={this.scope.config.layout.breakpoint} bordered>
           {this._renderMenu()}
         </QDrawer>
 

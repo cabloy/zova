@@ -1,11 +1,11 @@
-import { ReturnTypeComposable } from 'zova';
-import useQuasar from 'quasar/src/composables/use-quasar/use-quasar.js';
+import { UnwrapNestedRefs } from 'vue';
+import { QVueGlobals } from 'quasar';
 import { ThemeToken } from './themeToken.js';
 
 import 'zova';
 declare module 'zova' {
   export interface BeanBase {
-    $q: ReturnTypeComposable<typeof useQuasar>;
+    $q: UnwrapNestedRefs<QVueGlobals>;
     $token: ThemeToken;
   }
 }

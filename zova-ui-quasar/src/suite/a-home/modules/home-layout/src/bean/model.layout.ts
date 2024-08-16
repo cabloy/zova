@@ -4,7 +4,14 @@ import { ScopeModule } from '../resource/this.js';
 
 @Model()
 export class ModelLayout extends BeanModelBase<ScopeModule> {
-  protected async __init__() {}
+  leftDrawerOpenPC: boolean;
 
-  protected __dispose__() {}
+  protected async __init__() {
+    this.leftDrawerOpenPC = this.$useQueryLocal({
+      queryKey: ['leftDrawerOpenPC'],
+      meta: {
+        defaultData: this.scope.config.layout.leftDrawerOpenPC,
+      },
+    });
+  }
 }
