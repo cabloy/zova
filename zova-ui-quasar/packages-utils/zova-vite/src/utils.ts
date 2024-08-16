@@ -1,7 +1,5 @@
 import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
-import path from 'node:path';
-import { ZovaViteConfigOptions } from './types.js';
 
 export function getFlavor(offset: number = 2): string {
   return getEnvFromCli('FLAVOR', 'flavor', 'app', offset);
@@ -30,9 +28,4 @@ export function getEnvFromCli(
     value = defaultValue;
   }
   return value;
-}
-
-export function getMockPath(configOptions: ZovaViteConfigOptions, relative?: boolean) {
-  if (relative) return path.join(configOptions.runtimeDir, 'mock');
-  return path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
 }
