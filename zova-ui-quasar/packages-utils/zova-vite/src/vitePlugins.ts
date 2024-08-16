@@ -1,12 +1,11 @@
 import babel from '@cabloy/vite-plugin-babel';
 // import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
-import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
+import { vitePluginFakeServer } from 'vite-plugin-fake-server-turbo';
 import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
-import { getMockPath } from './utils.js';
 import { glob } from '@cabloy/module-glob';
-//import path from 'node:path';
-//import fse from 'fs-extra';
+import path from 'node:path';
+import fse from 'fs-extra';
 
 export function generateVitePlugins(
   configOptions: ZovaViteConfigOptions,
@@ -63,7 +62,8 @@ export function generateVitePlugins(
   }
 
   function __getVitePluginMock(configOptions: ZovaViteConfigOptions, _modulesMeta: Awaited<ReturnType<typeof glob>>) {
-    const include = getMockPath(configOptions, true);
+    const include = [];
+    __prepareMockIncludes(include, configOptions, modulesMeta);
     const logger = process.env.MOCK_LOGGER === 'true';
     const basename = process.env.MOCK_BASE_NAME || '';
     const build =
@@ -93,23 +93,23 @@ export function generateVitePlugins(
     ] as ZovaVitePlugin;
   }
 
-  // function __prepareMockIncludes(
-  //   includes: string[],
-  //   configOptions: ZovaViteConfigOptions,
-  //   modulesMeta: Awaited<ReturnType<typeof glob>>,
-  // ) {
-  //   // modules
-  //   const { modules } = modulesMeta;
-  //   // loop
-  //   for (const moduleName in modules) {
-  //     const module = modules[moduleName];
-  //     const mockPath = path.join(module.root, 'mock');
-  //     if (fse.existsSync(mockPath)) {
-  //       const relativePath = path.relative(configOptions.appDir, mockPath);
-  //       includes.push(`${relativePath}/**/*.mock.ts`);
-  //     }
-  //   }
-  // }
+  function __prepareMockIncludes(
+    includes: string[],
+    _configOptions: ZovaViteConfigOptions,
+    modulesMeta: Awaited<ReturnType<typeof glob>>,
+  ) {
+    // modules
+    const { modules } = modulesMeta;
+    // loop
+    for (const moduleName in modules) {
+      const module = modules[moduleName];
+      const mockPath = path.join(module.root, 'mock');
+      if (fse.existsSync(mockPath)) {
+        const relativePath = path.relative(configOptions.appDir, mockPath);
+        includes.push(relativePath);
+      }
+    }
+  }
 
   // function __getVitePluginChecker(configOptions: ZovaViteConfigOptions) {
   //   const tsconfigPath = path.join(configOptions.appDir, 'tsconfig.vue-tsc.json');
