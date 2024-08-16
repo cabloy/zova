@@ -8,7 +8,7 @@ import chalk from 'chalk';
 import { extend } from '@cabloy/extend';
 import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
-import { getEnvMeta, getMockPath } from './utils.js';
+import { getEnvMeta } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
@@ -24,8 +24,6 @@ export async function generateEntryFiles(
   await __generateModulesMeta();
   // app component
   await __generateAppComponent();
-  // mock files
-  await __generateMockFiles();
 
   //////////////////////////////
 
@@ -95,27 +93,6 @@ export async function generateEntryFiles(
       entryPoints: [fileSrc],
       outfile: fileDest,
     };
-  }
-
-  async function __generateMockFiles() {
-    // clear dest
-    const pathDest = getMockPath(configOptions);
-    if (fse.existsSync(pathDest)) {
-      await fse.emptyDir(pathDest);
-      await fse.rmdir(pathDest);
-    }
-    // check enabled
-    if (process.env.MOCK_ENABLED !== 'true') return;
-    await fse.ensureDir(pathDest);
-    // modules
-    const { modules } = modulesMeta;
-    // loop
-    for (const moduleName in modules) {
-      const module = modules[moduleName];
-      const mockPath = path.join(module.root, 'mock');
-      if (!fse.existsSync(mockPath)) continue;
-      await fse.copy(mockPath, path.join(pathDest, moduleName));
-    }
   }
 
   async function __generateAppComponent() {
