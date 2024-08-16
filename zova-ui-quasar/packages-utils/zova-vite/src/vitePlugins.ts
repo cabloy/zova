@@ -1,7 +1,7 @@
 import babel from '@cabloy/vite-plugin-babel';
 // import vitePluginChecker from 'vite-plugin-checker';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
-import { vitePluginFakeServer } from '@zhennann/vite-plugin-fake-server';
+import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
 import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
 import { getMockPath } from './utils.js';
 
@@ -69,8 +69,8 @@ export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
         : false;
     const cors = process.env.MOCK_BUILD_CORS === 'true';
     return [
-      'vite-plugin-fake-server',
-      vitePluginFakeServer,
+      'vite-plugin-mock-dev-server',
+      mockDevServerPlugin,
       {
         include,
         exclude: ['_*'],
