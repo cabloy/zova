@@ -1,4 +1,12 @@
-import { ComponentInternalInstance, normalizeClass, Ref, ref, useSSRContext, VNode } from 'vue';
+import {
+  ComponentInternalInstance,
+  ComponentPublicInstance,
+  normalizeClass,
+  Ref,
+  ref,
+  useSSRContext,
+  VNode,
+} from 'vue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
@@ -16,6 +24,8 @@ const SymbolSSRContext = Symbol('SymbolSSRContext');
 const SymbolSSRState = Symbol('SymbolSSRState');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatches');
+const SymbolInstances = Symbol('SymbolInstances');
+const SymbolHydratingCounter = Symbol('SymbolHydratingCounter');
 
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
@@ -23,8 +33,9 @@ export class CtxSSR extends BeanSimple {
   private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
   private [SymbolOnHydratePropHasMismatches]: OnHydratePropHasMismatch[] = [];
+  private [SymbolInstances]: ComponentPublicInstance[] = [];
 
-  private _hydratingCounter: number = 0;
+  private [SymbolHydratingCounter]: number = 0;
 
   public metaStore: CtxSSRMetaStore;
 
@@ -148,12 +159,12 @@ export class CtxSSR extends BeanSimple {
 
   /** @internal */
   public _hydratingInc() {
-    ++this._hydratingCounter;
+    ++this[SymbolHydratingCounter];
   }
 
   /** @internal */
   public _hydratingDec() {
-    if (--this._hydratingCounter === 0) {
+    if (--this[SymbolHydratingCounter] === 0) {
       this._hydrated();
     }
   }
