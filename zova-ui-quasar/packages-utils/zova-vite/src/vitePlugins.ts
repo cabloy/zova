@@ -61,9 +61,9 @@ export function generateVitePlugins(
     ] as ZovaVitePlugin;
   }
 
-  function __getVitePluginMock(_configOptions: ZovaViteConfigOptions, modulesMeta: Awaited<ReturnType<typeof glob>>) {
+  function __getVitePluginMock(configOptions: ZovaViteConfigOptions, modulesMeta: Awaited<ReturnType<typeof glob>>) {
     const include: string[] = [];
-    __prepareMockIncludes(include, modulesMeta);
+    __prepareMockIncludes(include, configOptions, modulesMeta);
     const log =
       process.env.MOCK_LOG === 'true' ? true : process.env.MOCK_LOG === 'false' ? false : process.env.MOCK_LOG;
     const build =
@@ -78,6 +78,7 @@ export function generateVitePlugins(
       'vite-plugin-mock-dev-server',
       mockDevServerPlugin,
       {
+        cwd: configOptions.appDir,
         include,
         exclude: ['_*'],
         reload: true,
@@ -89,7 +90,11 @@ export function generateVitePlugins(
     ] as ZovaVitePlugin;
   }
 
-  function __prepareMockIncludes(includes: string[], modulesMeta: Awaited<ReturnType<typeof glob>>) {
+  function __prepareMockIncludes(
+    includes: string[],
+    configOptions: ZovaViteConfigOptions,
+    modulesMeta: Awaited<ReturnType<typeof glob>>,
+  ) {
     // modules
     const { modules } = modulesMeta;
     // loop
@@ -97,7 +102,8 @@ export function generateVitePlugins(
       const module = modules[moduleName];
       const mockPath = path.join(module.root, 'mock');
       if (fse.existsSync(mockPath)) {
-        includes.push(`${mockPath}/**/*.mock.ts`);
+        const relativePath = path.relative(configOptions.appDir, mockPath);
+        includes.push(`${relativePath}/**/*.mock.ts`);
       }
     }
   }
