@@ -1,4 +1,4 @@
-import { defineFakeRoute } from '@zhennann/vite-plugin-fake-server/client';
+import { defineMock } from 'vite-plugin-mock-dev-server';
 
 const __MenuData = [
   {
@@ -57,11 +57,11 @@ const __MenuData = [
   },
 ];
 
-export default defineFakeRoute([
+export default defineMock([
   {
-    url: '/home/layout/menu/select',
-    method: 'get',
-    response: () => {
+    url: '/api/home/layout/menu/select',
+    method: 'GET',
+    body: () => {
       return {
         code: 0,
         message: 'Success',

@@ -3,14 +3,19 @@ import babel from '@cabloy/vite-plugin-babel';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
 import { ZovaViteConfigOptions, ZovaVitePlugin } from './types.js';
-import { getMockPath } from './utils.js';
+import { glob } from '@cabloy/module-glob';
+import path from 'node:path';
+import fse from 'fs-extra';
 
-export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
+export function generateVitePlugins(
+  configOptions: ZovaViteConfigOptions,
+  modulesMeta: Awaited<ReturnType<typeof glob>>,
+) {
   const vitePlugins: ZovaVitePlugin[] = [];
   vitePlugins.push(__getVitePluginTs());
   vitePlugins.push(__getVitePluginTsx());
   if (process.env.MOCK_ENABLED === 'true') {
-    vitePlugins.push(__getVitePluginMock(configOptions));
+    vitePlugins.push(__getVitePluginMock(configOptions, modulesMeta));
   }
   // vitePlugins.push(__getVitePluginChecker(configOptions));
   return vitePlugins;
@@ -56,15 +61,16 @@ export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
     ] as ZovaVitePlugin;
   }
 
-  function __getVitePluginMock(configOptions: ZovaViteConfigOptions) {
-    const include = getMockPath(configOptions, true);
-    const logger = process.env.MOCK_LOGGER === 'true';
-    const basename = process.env.MOCK_BASE_NAME || '';
+  function __getVitePluginMock(_configOptions: ZovaViteConfigOptions, modulesMeta: Awaited<ReturnType<typeof glob>>) {
+    const include: string[] = [];
+    __prepareMockIncludes(include, modulesMeta);
+    const log =
+      process.env.MOCK_LOG === 'true' ? true : process.env.MOCK_LOG === 'false' ? false : process.env.MOCK_LOG;
     const build =
       process.env.MOCK_BUILD === 'true'
         ? {
-            port: Number(process.env.MOCK_BUILD_PORT || 8888),
-            outDir: process.env.MOCK_BUILD_OUTPUT || 'distMockServer',
+            serverPort: Number(process.env.MOCK_BUILD_PORT || 8888),
+            dist: process.env.MOCK_BUILD_OUTPUT || 'distMockServer',
           }
         : false;
     const cors = process.env.MOCK_BUILD_CORS === 'true';
@@ -74,17 +80,26 @@ export function generateVitePlugins(configOptions: ZovaViteConfigOptions) {
       {
         include,
         exclude: ['_*'],
-        infixName: 'fake',
-        watch: true,
-        logger,
-        basename,
-        enableDev: !build,
-        enableProd: !build,
+        reload: true,
+        log,
         build,
         cors,
       },
       undefined,
     ] as ZovaVitePlugin;
+  }
+
+  function __prepareMockIncludes(includes: string[], modulesMeta: Awaited<ReturnType<typeof glob>>) {
+    // modules
+    const { modules } = modulesMeta;
+    // loop
+    for (const moduleName in modules) {
+      const module = modules[moduleName];
+      const mockPath = path.join(module.root, 'mock');
+      if (fse.existsSync(mockPath)) {
+        includes.push(`${mockPath}/**/*.mock.ts`);
+      }
+    }
   }
 
   // function __getVitePluginChecker(configOptions: ZovaViteConfigOptions) {

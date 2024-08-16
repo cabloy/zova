@@ -39,8 +39,7 @@ Mock can be configured through `.env` file
 
 ```txt
 MOCK_ENABLED = true
-MOCK_LOGGER = false
-MOCK_BASE_NAME = $API_PREFIX
+MOCK_LOG = false
 MOCK_BUILD = false
 MOCK_BUILD_PORT = 8888
 MOCK_BUILD_OUTPUT = distMockServer
@@ -50,8 +49,7 @@ MOCK_BUILD_CORS = true
 | Name              | Description                                                 |
 | ----------------- | ----------------------------------------------------------- |
 | MOCK_ENABLED      | Whether to enable mock                                      |
-| MOCK_LOGGER       | Whether to enable logger                                    |
-| MOCK_BASE_NAME    | URL prefix, default is `/api`                               |
+| MOCK_LOG          | Whether to enable log                                       |
 | MOCK_BUILD        | Whether to generate an independently deployable fake server |
 | MOCK_BUILD_PORT   | The port of fake server                                     |
 | MOCK_BUILD_OUTPUT | The output directory of fake server                         |

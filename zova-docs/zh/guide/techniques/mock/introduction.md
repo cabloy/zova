@@ -39,8 +39,7 @@ export default defineFakeRoute([
 
 ```txt
 MOCK_ENABLED = true
-MOCK_LOGGER = false
-MOCK_BASE_NAME = $API_PREFIX
+MOCK_LOG = false
 MOCK_BUILD = false
 MOCK_BUILD_PORT = 8888
 MOCK_BUILD_OUTPUT = distMockServer
@@ -50,8 +49,7 @@ MOCK_BUILD_CORS = true
 | 名称              | 说明                         |
 | ----------------- | ---------------------------- |
 | MOCK_ENABLED      | 是否启用mock                 |
-| MOCK_LOGGER       | 是否启用logger               |
-| MOCK_BASE_NAME    | url前缀，默认是`/api`        |
+| MOCK_LOG          | 是否启用log                  |
 | MOCK_BUILD        | 是否生成独立可部署的fake服务 |
 | MOCK_BUILD_PORT   | fake服务的端口号             |
 | MOCK_BUILD_OUTPUT | fake服务的输出目录           |

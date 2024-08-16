@@ -27,7 +27,7 @@ export async function generateZovaViteMeta(
   // build
   const build = __getConfigBuild();
   // vitePlugins
-  const vitePlugins = generateVitePlugins(configOptions);
+  const vitePlugins = generateVitePlugins(configOptions, modulesMeta);
   // alias
   const alias = {
     '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
