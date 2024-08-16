@@ -1,12 +1,4 @@
-import {
-  ComponentInternalInstance,
-  ComponentPublicInstance,
-  normalizeClass,
-  Ref,
-  ref,
-  useSSRContext,
-  VNode,
-} from 'vue';
+import { ComponentInternalInstance, normalizeClass, Ref, ref, useSSRContext, VNode } from 'vue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
@@ -33,7 +25,7 @@ export class CtxSSR extends BeanSimple {
   private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
   private [SymbolOnHydratePropHasMismatches]: OnHydratePropHasMismatch[] = [];
-  private [SymbolInstances]: ComponentPublicInstance[] = [];
+  private [SymbolInstances]: ComponentInternalInstance[] = [];
 
   private [SymbolHydratingCounter]: number = 0;
 
@@ -135,10 +127,20 @@ export class CtxSSR extends BeanSimple {
 
   private _hydrated() {
     if (!this.isRuntimeSsrPreHydration) return;
+    // should be first
+    this.isRuntimeSsrPreHydration = false;
+    //
+    this[SymbolInstances].forEach(instance => {
+      if (!instance.isUnmounted && instance.zova) {
+        instance.update();
+      }
+    });
+    this[SymbolInstances] = [];
+    //
     this[SymbolOnHydrateds].forEach(fn => fn());
     this[SymbolOnHydrateds] = [];
+    //
     this[SymbolOnHydratePropHasMismatches] = [];
-    this.isRuntimeSsrPreHydration = false;
   }
 
   /** @internal */
@@ -167,5 +169,14 @@ export class CtxSSR extends BeanSimple {
     if (--this[SymbolHydratingCounter] === 0) {
       this._hydrated();
     }
+  }
+
+  /** @internal */
+  public _hydratingInstanceRecord(instance: ComponentInternalInstance) {
+    if (this[SymbolInstances].indexOf(instance) === -1) {
+      this[SymbolInstances].push(instance);
+      return true;
+    }
+    return false;
   }
 }

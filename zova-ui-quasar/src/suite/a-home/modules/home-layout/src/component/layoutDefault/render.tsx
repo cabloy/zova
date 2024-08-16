@@ -57,7 +57,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
 
             <QToolbarTitle> Quasar App </QToolbarTitle>
 
-            <div>Quasar v{this.$q.version}</div>
+            <div>{`Quasar v${this.$q.version}`}</div>
           </QToolbar>
         </QHeader>
 
