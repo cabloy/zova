@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local, Use, PropsBase, useComputed } from 'zova';
+import { BeanControllerBase, Local, Use, PropsBase, useComputed, useCustomRef } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelLayout } from '../../bean/model.layout.js';
 import { ScopeModule } from '../../resource/this.js';
@@ -18,7 +18,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   @Use()
   $$modelLayout: ModelLayout;
 
-  leftDrawerOpen: boolean = false;
+  leftDrawerOpen: boolean;
   leftDrawerOpenMobile: boolean = false;
   belowBreakpoint: boolean;
 
@@ -29,13 +29,16 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
       return this.$q.screen.width <= this.scope.config.layout.breakpoint;
     });
     // leftDrawerOpen
-    this.leftDrawerOpen = useComputed({
-      get: () => {
-        return this.belowBreakpoint ? this.leftDrawerOpenMobile : this.$$modelLayout.leftDrawerOpenPC;
-      },
-      set: value => {
-        this.belowBreakpoint ? (this.leftDrawerOpenMobile = value) : (this.$$modelLayout.leftDrawerOpenPC = value);
-      },
+    this.leftDrawerOpen = useCustomRef(() => {
+      const self = this;
+      return {
+        get() {
+          return self.belowBreakpoint ? self.leftDrawerOpenMobile : self.$$modelLayout.leftDrawerOpenPC;
+        },
+        set(value) {
+          self.belowBreakpoint ? (self.leftDrawerOpenMobile = value) : (self.$$modelLayout.leftDrawerOpenPC = value);
+        },
+      };
     });
     // menu
     const queryMenus = this.$$modelMenu.select();
