@@ -16,7 +16,11 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
 
   leftDrawerOpen: boolean = false;
 
-  protected async __init__() {}
+  protected async __init__() {
+    const queryMenus = this.$$modelMenu.select();
+    await queryMenus.suspense();
+    if (queryMenus.error) throw queryMenus.error;
+  }
 
   toggleLeftDrawer() {
     this.leftDrawerOpen = !this.leftDrawerOpen;
