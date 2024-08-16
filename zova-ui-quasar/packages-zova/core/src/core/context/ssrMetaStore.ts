@@ -15,6 +15,7 @@ export class CtxSSRMetaStore extends BeanSimple {
       ssrContext.__qMetaList = [];
       ssrContext.rendered = () => {
         this._onRenderedLast();
+        ssrContext.rendered = () => {};
       };
     }
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {

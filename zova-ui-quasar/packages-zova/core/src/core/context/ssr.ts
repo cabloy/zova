@@ -125,6 +125,8 @@ export class CtxSSR extends BeanSimple {
   private _hydrated() {
     if (!this.isRuntimeSsrPreHydration) return;
     this[SymbolOnHydrateds].forEach(fn => fn());
+    this[SymbolOnHydrateds] = [];
+    this[SymbolOnHydratePropHasMismatches] = [];
     this.isRuntimeSsrPreHydration = false;
   }
 
