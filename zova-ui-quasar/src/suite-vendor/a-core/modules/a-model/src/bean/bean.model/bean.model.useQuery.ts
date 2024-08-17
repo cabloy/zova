@@ -36,6 +36,14 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const persister = this._createPersister(options.meta?.persister);
     options = { ...options, queryKey, persister };
     return this.ctx.meta.util.instanceScope(() => {
+      const sync = typeof options.meta?.persister === 'object' && options.meta?.persister?.sync;
+      if (sync !== true) {
+        const staleTime = options.staleTime;
+        options.staleTime = () => {
+          if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) return Infinity;
+          return staleTime;
+        };
+      }
       return useQuery(options, queryClient);
     });
   }
