@@ -53,6 +53,9 @@ export type ZovaConfig = {
     baseURL: string;
     prefix: string;
   };
+  ssr: {
+    cookie: boolean;
+  };
   icon: {
     defaultModule: keyof IBeanScopeRecord;
   };
