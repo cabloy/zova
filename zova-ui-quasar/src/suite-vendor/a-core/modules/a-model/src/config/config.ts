@@ -12,7 +12,11 @@ const defaultOptions: DefaultOptions = {
   dehydrate: {
     shouldDehydrateQuery(query) {
       if (query.meta?.ssr?.dehydrate === false) return false;
+      if (typeof query.meta?.persister === 'object' && query.meta?.persister?.sync) return false;
       return defaultShouldDehydrateQuery(query);
+    },
+    shouldDehydrateMutation(_mutation) {
+      return false;
     },
   },
 };
