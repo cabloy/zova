@@ -19,18 +19,21 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     // ssr theme
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
-        this.ctx.meta.ssr.context._meta.bodyTags += `<script>
-  var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
-  __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;      
-  var __prefersColorSchemeDark=__prefersColorSchemeDarkLocal??window.matchMedia('(prefers-color-scheme: dark)').matches;     
-  if(__prefersColorSchemeDark){
-    document.body.classList.remove('body--light');
-    document.body.classList.add('body--dark');
-  }else{
-    document.body.classList.remove('body--dark');
-    document.body.classList.add('body--light');
-  }
-  document.currentScript.remove();
+        this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
+  document.addEventListener("DOMContentLoaded", () => {
+    var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
+    __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;      
+    var __prefersColorSchemeDark=__prefersColorSchemeDarkLocal??window.matchMedia('(prefers-color-scheme: dark)').matches;     
+    if(__prefersColorSchemeDark){
+      document.body.classList.remove('body--light');
+      document.body.classList.add('body--dark');
+    }else{
+      document.body.classList.remove('body--dark');
+      document.body.classList.add('body--light');
+    }
+    document.querySelector('#__prefersColorSchemeDarkJS').remove();
+    window.__prefersColorSchemeDark=__prefersColorSchemeDark;
+  });
 </script>`;
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   document.addEventListener("DOMContentLoaded", () => {
@@ -46,13 +49,18 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       var __domHeader=document.querySelector('#q-app>.q-layout>.q-header');
       var __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
       var __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
+      // width
       __domHeader.style.left='300px';
       __domDrawer.style.transform='unset !important';
       __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
       __domPageContainer.style.paddingLeft='300px';
+      // dark
+      if(window.__prefersColorSchemeDark){
+      __domDrawer.classList.add('q-drawer--dark','q-dark');
+      }
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
-  });     
+  });
 </script>`;
       });
     }
