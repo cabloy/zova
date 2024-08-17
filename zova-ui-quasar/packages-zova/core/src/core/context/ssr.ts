@@ -140,7 +140,7 @@ export class CtxSSR extends BeanSimple {
     //
     if (expected === undefined) return { clientValue };
     //
-    const serverFirst = el.getAttribute('data-server-props-first');
+    const serverFirst = el.getAttribute('data-hydrate-props-server-first');
     if (serverFirst === null) {
       el.setAttribute(key, expected);
     }
