@@ -134,12 +134,16 @@ export class CtxSSR extends BeanSimple {
     let expected: string | undefined = undefined;
     if (key === 'class') {
       expected = normalizeClass(clientValue);
-      el.setAttribute('class', expected);
     } else if (key === 'style') {
       expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
-      el.setAttribute('style', expected);
     }
+    //
     if (expected === undefined) return { clientValue };
+    //
+    const serverFirst = el.getAttribute('data-server-props-first');
+    if (serverFirst === null) {
+      el.setAttribute(key, expected);
+    }
     return { ignore: true };
   }
 
