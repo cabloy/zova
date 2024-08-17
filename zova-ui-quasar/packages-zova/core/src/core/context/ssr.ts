@@ -1,4 +1,4 @@
-import { ComponentInternalInstance, normalizeClass, Ref, ref, useSSRContext, VNode } from 'vue';
+import { ComponentInternalInstance, normalizeClass, normalizeStyle, Ref, ref, useSSRContext, VNode } from 'vue';
 import { defu } from 'defu';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Functionable } from '../../decorator/index.js';
@@ -10,13 +10,14 @@ import {
 } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
+import { isString, stringifyStyle } from '@vue/shared';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
 const SymbolSSRState = Symbol('SymbolSSRState');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatches');
-const SymbolInstances = Symbol('SymbolInstances');
+const SymbolInstanceUpdates = Symbol('SymbolInstanceUpdates');
 const SymbolHydratingCounter = Symbol('SymbolHydratingCounter');
 
 export class CtxSSR extends BeanSimple {
@@ -25,7 +26,7 @@ export class CtxSSR extends BeanSimple {
   private [SymbolSSRState]: SSRContextState;
   private [SymbolOnHydrateds]: Functionable[] = [];
   private [SymbolOnHydratePropHasMismatches]: OnHydratePropHasMismatch[] = [];
-  private [SymbolInstances]: ComponentInternalInstance[] = [];
+  private [SymbolInstanceUpdates]: ComponentInternalInstance[] = [];
 
   private [SymbolHydratingCounter]: number = 0;
 
@@ -129,9 +130,16 @@ export class CtxSSR extends BeanSimple {
     _vnode: VNode,
     _instance: ComponentInternalInstance | null,
   ): OnHydratePropHasMismatchResult {
-    if (key !== 'class') return { clientValue };
-    const expected = normalizeClass(clientValue);
-    el.setAttribute('class', expected);
+    // expected
+    let expected: string | undefined = undefined;
+    if (key === 'class') {
+      expected = normalizeClass(clientValue);
+      el.setAttribute('class', expected);
+    } else if (key === 'style') {
+      expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
+      el.setAttribute('style', expected);
+    }
+    if (expected === undefined) return { clientValue };
     return { ignore: true };
   }
 
@@ -140,12 +148,12 @@ export class CtxSSR extends BeanSimple {
     // should be first
     this.isRuntimeSsrPreHydration = false;
     //
-    this[SymbolInstances].forEach(instance => {
+    this[SymbolInstanceUpdates].forEach(instance => {
       if (!instance.isUnmounted && instance.zova) {
         instance.update();
       }
     });
-    this[SymbolInstances] = [];
+    this[SymbolInstanceUpdates] = [];
     //
     this[SymbolOnHydrateds].forEach(fn => fn());
     this[SymbolOnHydrateds] = [];
@@ -183,8 +191,8 @@ export class CtxSSR extends BeanSimple {
 
   /** @internal */
   public _hydratingInstanceRecord(instance: ComponentInternalInstance) {
-    if (this[SymbolInstances].indexOf(instance) === -1) {
-      this[SymbolInstances].push(instance);
+    if (this[SymbolInstanceUpdates].indexOf(instance) === -1) {
+      this[SymbolInstanceUpdates].push(instance);
       return true;
     }
     return false;

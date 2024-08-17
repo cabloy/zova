@@ -229,6 +229,9 @@ importers:
       '@vue/reactivity':
         specifier: ^3.4.27
         version: 3.4.38
+      '@vue/shared':
+        specifier: ^3.4.38
+        version: 3.4.38
       defu:
         specifier: ^6.1.4
         version: 6.1.4
