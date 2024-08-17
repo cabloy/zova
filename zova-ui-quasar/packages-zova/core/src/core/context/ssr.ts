@@ -50,11 +50,8 @@ export class CtxSSR extends BeanSimple {
     }
     // onHydratePropHasMismatch
     if (process.env.CLIENT && this.isRuntimeSsrPreHydration) {
-      this.onHydratePropHasMismatch((el, key, clientValue, _vnode, _instance) => {
-        if (key !== 'class') return { clientValue };
-        const expected = normalizeClass(clientValue);
-        el.setAttribute('class', expected);
-        return { ignore: true };
+      this.onHydratePropHasMismatch((el, key, clientValue, vnode, instance) => {
+        return this._onHydratePropHasMismatchDefault(el, key, clientValue, vnode, instance);
       });
     }
     // metaStore
@@ -123,6 +120,19 @@ export class CtxSSR extends BeanSimple {
     } else {
       return fn();
     }
+  }
+
+  private _onHydratePropHasMismatchDefault(
+    el: Element,
+    key: string,
+    clientValue: any,
+    _vnode: VNode,
+    _instance: ComponentInternalInstance | null,
+  ): OnHydratePropHasMismatchResult {
+    if (key !== 'class') return { clientValue };
+    const expected = normalizeClass(clientValue);
+    el.setAttribute('class', expected);
+    return { ignore: true };
   }
 
   private _hydrated() {
