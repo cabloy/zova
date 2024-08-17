@@ -21,7 +21,9 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   private _onMediaDarkChange?;
 
   protected async __init__() {
-    this.name = this.$useQueryLocal({
+    // support admin
+    const useQueryMethod = this.app.config.ssr.cookie ? '$useQueryCookie' : '$useQueryLocal';
+    this.name = this[useQueryMethod]({
       queryKey: ['themename'],
       meta: {
         defaultData: this.scope.config.defaultTheme,
