@@ -33,9 +33,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   document.currentScript.remove();
 </script>`;
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
-  window.onload=function(){
-  //debugger;
-    var __belowBreakpoint=document.body.offsetWidth <= 1023;
+  document.addEventListener("DOMContentLoaded", () => {
+    var __belowBreakpoint=document.documentElement.clientWidth <= 1023;
     var __leftDrawerOpen;
     if(__belowBreakpoint){
       __leftDrawerOpen=false;
@@ -57,7 +56,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       __domPageContainer.setAttribute('data-hydrate-props-server-first','');
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
-  };      
+  });     
 </script>`;
       });
     }
