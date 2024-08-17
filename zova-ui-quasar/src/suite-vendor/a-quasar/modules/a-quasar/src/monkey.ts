@@ -49,7 +49,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       __domHeader.style.left='300px';
       __domHeader.setAttribute('data-hydrate-props-server-first','');
       __domDrawer.style.transform='unset !important';
-      __domDrawer.style.left='0px';
       __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
       __domDrawer.setAttribute('data-hydrate-props-server-first','');
       __domPageContainer.style.paddingLeft='300px'; 
