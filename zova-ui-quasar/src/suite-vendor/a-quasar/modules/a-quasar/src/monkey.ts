@@ -47,12 +47,9 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       var __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
       var __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
       __domHeader.style.left='300px';
-      __domHeader.setAttribute('data-hydrate-props-server-first','');
       __domDrawer.style.transform='unset !important';
       __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
-      __domDrawer.setAttribute('data-hydrate-props-server-first','');
-      __domPageContainer.style.paddingLeft='300px'; 
-      __domPageContainer.setAttribute('data-hydrate-props-server-first','');
+      __domPageContainer.style.paddingLeft='300px';
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
   });     
