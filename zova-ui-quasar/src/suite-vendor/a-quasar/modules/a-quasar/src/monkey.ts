@@ -57,6 +57,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       // dark
       if(window.__prefersColorSchemeDark){
       __domDrawer.classList.add('q-drawer--dark','q-dark');
+      __domDrawer.querySelector('.q-list').classList.add('q-list--dark');
+      __domDrawer.querySelector('.q-separator').classList.add('q-separator--dark');
       }
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
