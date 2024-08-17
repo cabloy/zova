@@ -33,6 +33,8 @@
   "dependencies": {
     "@quasar/extras": "^1.16.12",
     "compression": "^1.7.4",
+    "connect": "latest",
+    "cors": "latest",
     "express": "^4.19.2",
     "quasar": "^2.16.8",
     "typestyle": "^2.4.0",

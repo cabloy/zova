@@ -34,7 +34,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
 </script>`;
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   window.onload=function(){
-  debugger;
+  //debugger;
     var __belowBreakpoint=document.body.offsetWidth <= 1023;
     var __leftDrawerOpen;
     if(__belowBreakpoint){
@@ -49,7 +49,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       var __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
       __domHeader.style.left='300px';
       __domHeader.setAttribute('data-hydrate-props-server-first','');
-      __domDrawer.style.transform='translateX(0px)';
+      __domDrawer.style.transform='unset !important';
       __domDrawer.style.left='0px';
       __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
       __domDrawer.setAttribute('data-hydrate-props-server-first','');

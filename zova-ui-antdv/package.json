@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "ant-design-vue": "^4.2.3",
+    "connect": "latest",
+    "cors": "latest",
     "typestyle": "^2.4.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
