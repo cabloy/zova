@@ -129,7 +129,8 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
               return this.$serializeCookie(obj);
             },
             deserialize: (value?: string) => {
-              return this.$deserializeCookie(value);
+              const cookieType = options.meta.persister.cookieType;
+              return this.$deserializeCookie(this._cookieCoerce(value, cookieType));
             },
           },
         },

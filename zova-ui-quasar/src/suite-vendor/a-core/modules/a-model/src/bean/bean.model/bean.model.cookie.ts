@@ -1,12 +1,13 @@
 import { Query } from '@tanstack/vue-query';
 import { BeanModelLocal } from './bean.model.local.js';
+import { QueryMetaPersisterCookieType } from '../../types.js';
 
 export class BeanModelCookie<TScopeModule = unknown> extends BeanModelLocal<TScopeModule> {
   $serializeCookie(obj?: Query) {
     return String(obj?.state?.data ?? '');
   }
 
-  $deserializeCookie(value?: string) {
+  $deserializeCookie(value?: any) {
     return {
       state: {
         data: value,
@@ -26,5 +27,21 @@ export class BeanModelCookie<TScopeModule = unknown> extends BeanModelLocal<TSco
       queryHash: undefined,
       buster: this._getPersisterBuster(),
     };
+  }
+
+  protected _cookieCoerce(value?: string, cookieType?: QueryMetaPersisterCookieType) {
+    if (value === undefined || value === '') return undefined; // string of '' means should delete the cookie
+    if (!cookieType || cookieType === 'auto') {
+      return value === 'true' ? true : value === 'false' ? false : value;
+    } else if (cookieType === 'boolean') {
+      return value === 'true' ? true : value === 'false' ? false : Boolean(Number(value));
+    } else if (cookieType === 'number') {
+      return Number(value);
+    } else if (cookieType === 'date') {
+      return new Date(value);
+    } else if (cookieType === 'string') {
+      return value;
+    }
+    return value;
   }
 }

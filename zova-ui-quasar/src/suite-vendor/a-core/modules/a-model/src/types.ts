@@ -29,6 +29,8 @@ export interface QueryMetaSSR {
 
 export type QueryMetaPersisterStorage = 'cookie' | 'local' | 'db' | undefined;
 
+export type QueryMetaPersisterCookieType = 'auto' | 'boolean' | 'number' | 'date' | 'string' | undefined;
+
 export interface QueryMetaPersister {
   /** default is false */
   sync?: boolean;
@@ -48,7 +50,7 @@ export interface QueryMetaPersister {
   deserialize?: (cachedString: any) => any;
   prefix?: string;
   buster?: string;
-  cookieType?: 'auto' | 'number' | 'date' | 'string' | undefined;
+  cookieType?: QueryMetaPersisterCookieType;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData | undefined, Error | null>>>;
