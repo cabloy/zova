@@ -1,5 +1,5 @@
 export interface ZovaConfigMeta {
-  flavor: 'app' | 'web' | string;
+  flavor: 'front' | 'admin' | string;
   mode: 'development' | 'production' | string;
   appMode: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
 }
@@ -17,7 +17,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
-      META_FLAVOR: 'app' | 'web' | string;
+      META_FLAVOR: 'front' | 'admin' | string;
       META_MODE: 'development' | 'production';
       META_APP_MODE: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
       APP_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;

@@ -48,6 +48,7 @@ export interface QueryMetaPersister {
   deserialize?: (cachedString: any) => any;
   prefix?: string;
   buster?: string;
+  cookieType?: 'auto' | 'number' | 'date' | 'string' | undefined;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData | undefined, Error | null>>>;
