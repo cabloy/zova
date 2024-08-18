@@ -1,5 +1,6 @@
 import { DefaultOptions, defaultShouldDehydrateQuery, StaleTime } from '@tanstack/vue-query';
 import { ZovaApplication } from 'zova';
+import { MaxAgeTime } from '../types.js';
 
 const defaultOptions: DefaultOptions = {
   queries: {
@@ -23,13 +24,10 @@ const defaultOptions: DefaultOptions = {
 
 export const config = (_app: ZovaApplication) => {
   return {
-    persister: {
-      sync: {
-        maxAge: Infinity,
-      },
-      async: {
-        maxAge: 1000 * 60 * 60 * 24, // 24 hours
-      },
+    maxAge: {
+      cookie: (1000 * 60 * 60 * 24 * 30) as MaxAgeTime, // 30 days,
+      local: Infinity as MaxAgeTime,
+      db: (1000 * 60 * 60 * 24) as MaxAgeTime, // 24 hours
     },
     staleTime: {
       async: 0 as StaleTime,

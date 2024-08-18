@@ -44,13 +44,20 @@ export type QueryMetaPersisterStorage = 'cookie' | 'local' | 'db' | undefined;
 
 export type QueryMetaPersisterCookieType = 'auto' | 'boolean' | 'number' | 'date' | 'string' | undefined;
 
+export type MaxAgeTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+> = StaleTime<TQueryFnData, TError, TData, TQueryKey>;
+
 export interface QueryMetaPersister {
   /** default is false */
   sync?: boolean;
   /** default is db if async, local if sync */
   storage?: QueryMetaPersisterStorage;
   /** default is 24 hours */
-  maxAge?: number;
+  maxAge?: MaxAgeTime;
   /**
    * How to serialize the data to storage.
    * @default `JSON.stringify`
@@ -82,4 +89,16 @@ export function resolveStaleTime<
   query: Query<TQueryFnData, TError, TData, TQueryKey>,
 ): number | undefined {
   return typeof staleTime === 'function' ? staleTime(query) : staleTime;
+}
+
+export function resolveMaxAgeTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+>(
+  maxAge: undefined | MaxAgeTime<TQueryFnData, TError, TData, TQueryKey>,
+  query: Query<TQueryFnData, TError, TData, TQueryKey>,
+): number | undefined {
+  return typeof maxAge === 'function' ? maxAge(query) : maxAge;
 }

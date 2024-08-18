@@ -1,4 +1,4 @@
-import { QueryMetaPersister } from '../../types.js';
+import { QueryMetaPersister, resolveMaxAgeTime } from '../../types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { Query, QueryKey } from '@tanstack/vue-query';
 import localforage from 'localforage';
@@ -21,7 +21,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
-        const expired = queryAge > options.maxAge!;
+        const expired = queryAge > resolveMaxAgeTime(options.maxAge, query)!;
         const busted = persistedQuery.buster !== options.buster;
         if (expired || busted) {
           storage.removeItem(storageKey);
@@ -92,7 +92,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!options) return undefined;
     return experimental_createPersister({
       storage: this._getPersisterStorage(options) as any,
-      maxAge: options.maxAge,
+      maxAge: options.maxAge as number,
       prefix: options.prefix,
       buster: options.buster,
     });
@@ -106,9 +106,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
       options = { ...options };
     }
     options.storage = options.storage ?? (options.sync ? 'local' : 'db');
-    options.maxAge =
-      options.maxAge ??
-      (options.sync ? this.scopeSelf.config.persister.sync.maxAge : this.scopeSelf.config.persister.async.maxAge);
+    options.maxAge = options.maxAge ?? this.scopeSelf.config.maxAge[options.storage];
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
     options.serialize = options.serialize ?? JSON.stringify;
