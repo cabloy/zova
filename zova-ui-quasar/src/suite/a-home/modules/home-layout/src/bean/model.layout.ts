@@ -7,11 +7,13 @@ export class ModelLayout extends BeanModelBase<ScopeModule> {
   leftDrawerOpenPC: boolean;
 
   protected async __init__() {
-    this.leftDrawerOpenPC = this.$useQueryLocal({
-      queryKey: ['leftDrawerOpenPC'],
-      meta: {
-        defaultData: this.scope.config.layout.leftDrawerOpenPC,
-      },
-    });
+    this.leftDrawerOpenPC = !this.app.config.ssr.optimization.bodyHiddenBeforeLoad
+      ? false
+      : this.$useQueryLocal({
+          queryKey: ['leftDrawerOpenPC'],
+          meta: {
+            defaultData: this.scope.config.layout.leftDrawerOpenPC,
+          },
+        });
   }
 }

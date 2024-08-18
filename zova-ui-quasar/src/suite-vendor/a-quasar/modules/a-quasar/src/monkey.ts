@@ -33,7 +33,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     document.querySelector('#__prefersColorSchemeDarkJS').remove();
     window.__prefersColorSchemeDark=__prefersColorSchemeDark;
 </script>`.replaceAll('\n', '');
-        this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
+        if (this.app.config.ssr.optimization.bodyHiddenBeforeLoad) {
+          this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   document.addEventListener("DOMContentLoaded", () => {
     var __belowBreakpoint=document.documentElement.clientWidth <= 1023;
     var __leftDrawerOpen;
@@ -60,6 +61,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     document.querySelector('#__leftDrawerOpenJS').remove();
   });
 </script>`.replaceAll('\n', '');
+        }
       });
     }
   }
