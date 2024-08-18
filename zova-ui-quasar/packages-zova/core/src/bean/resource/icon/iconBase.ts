@@ -150,7 +150,9 @@ export class AppIconBase extends BeanSimple {
 
   protected _extractIconContent(svg: string | undefined, symbolId: string) {
     if (!svg) return undefined;
-    const pos = svg.indexOf(symbolId);
+    let pos = svg.indexOf(`'${symbolId}'`);
+    if (pos === -1) pos = svg.indexOf(`"${symbolId}"`);
+    if (pos === -1) return undefined;
     const posB = svg.indexOf('</symbol>', pos);
     const posA = svg.lastIndexOf('<symbol', pos);
     return svg.substring(posA, posB + '</symbol>'.length);

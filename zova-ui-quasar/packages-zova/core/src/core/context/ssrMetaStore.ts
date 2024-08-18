@@ -13,11 +13,9 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
-      if (process.env.DEV) {
-        ssrContext.__qMetaList.push({
-          bodyStyle: { display: 'none' },
-        });
-      }
+      ssrContext.__qMetaList.push({
+        bodyStyle: { display: 'none' },
+      });
       ssrContext.rendered = () => {
         this._onRenderedLast();
         ssrContext.rendered = () => {};
@@ -308,6 +306,13 @@ function injectServerMeta(ssrContext: SSRContext) {
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
+
+  ctx.bodyTags += `<script id="ssr-document-body-display">
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.style.display = 'block';
+      document.querySelector('#ssr-document-body-display').remove();
+    });
+  </script>`;
 }
 
 function injectContextState(ssrContext: SSRContext) {
