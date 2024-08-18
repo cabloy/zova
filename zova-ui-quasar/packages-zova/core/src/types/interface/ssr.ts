@@ -25,6 +25,7 @@ export interface SSRContextMeta {
   bodyClasses: string;
   bodyAttrs: string;
   bodyTags: string;
+  bodyStyle: { [name: string]: string | undefined };
 }
 
 export interface SSRContextState {}
@@ -44,6 +45,7 @@ export interface SSRMetaOptions {
   script?: { [name: string]: Record<string, string> };
   htmlAttr?: { [name: string]: string | undefined };
   bodyAttr?: { [name: string]: string | undefined };
+  bodyStyle?: { [name: string]: string | undefined };
   noscript?: { [name: string]: string };
 }
 

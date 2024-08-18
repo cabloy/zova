@@ -248,6 +248,7 @@ function injectServerMeta(ssrContext: SSRContext) {
     link: {},
     htmlAttr: {},
     bodyAttr: {},
+    bodyStyle: {},
     noscript: {},
   };
 
@@ -275,6 +276,15 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   if (bodyAttr.length !== 0) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + bodyAttr.map(getAttr(data.bodyAttr)).join(' ');
+  }
+
+  extend(true, ctx.bodyStyle, data.bodyStyle);
+  const bodyStyle = Object.keys(ctx.bodyStyle)
+    .filter(name => !!ctx.bodyStyle[name])
+    .map(name => `${name}=${ctx.bodyStyle[name]}`)
+    .join(';');
+  if (bodyStyle) {
+    ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + `style="${bodyStyle}"`;
   }
 
   data.title = '\'"`';

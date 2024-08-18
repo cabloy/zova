@@ -13,5 +13,11 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
       // dark
       this.$q.dark.set(dark);
     }
+    if (process.env.SERVER) {
+      const style = {};
+      for (const key in token.color) {
+        style[`--q-${key}`] = token.color[key];
+      }
+    }
   }
 }
