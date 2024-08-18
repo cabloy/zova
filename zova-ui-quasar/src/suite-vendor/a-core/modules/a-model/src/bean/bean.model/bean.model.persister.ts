@@ -4,6 +4,7 @@ import { Query, QueryKey } from '@tanstack/vue-query';
 import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
 import { BeanModelLast } from './bean.model.last.js';
+import { CookieWrapper } from '../../common/cookieWrapper.js';
 
 export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TScopeModule> {
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
@@ -11,7 +12,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return undefined;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return undefined;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return undefined;
     const storageKey = this._getPersisterStorageKey(options, query);
     try {
@@ -50,7 +51,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return;
     const storageKey = this._getPersisterStorageKey(options, query);
     const data = options.serialize!({
@@ -74,7 +75,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return;
     const storageKey = this._getPersisterStorageKey(options, query);
     if (options.sync === true) {
@@ -119,12 +120,16 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     return `${options.prefix}-${query.queryHash}`;
   }
 
-  protected _getPersisterStorage(options?: QueryMetaPersister | boolean) {
+  protected _getPersisterStorage(options?: QueryMetaPersister | boolean, query?: Query) {
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;
+    // cookie
+    if (options.storage === 'cookie') return this.bean._newBeanSimple(CookieWrapper, false, query);
+    // check server
     if (process.env.SERVER) return undefined;
-    if (options.storage === 'cookie') return this.app.meta.cookie;
+    // local
     if (options.storage === 'local') return localStorage;
+    // db
     if (options.storage === 'db') return localforage;
   }
 
