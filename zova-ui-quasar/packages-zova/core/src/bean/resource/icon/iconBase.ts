@@ -149,9 +149,14 @@ export class AppIconBase extends BeanSimple {
   }
 
   protected _extractIconContent(svg: string | undefined, symbolId: string) {
-    const symbolPattern = new RegExp(`<symbol.*?id=['"]${symbolId}['"].*?>.*?</symbol>`);
-    const matched = symbolPattern.exec(svg || '');
-    return matched && matched[0];
+    if (!svg) return undefined;
+    const pos = svg.indexOf(symbolId);
+    const posB = svg.indexOf('</symbol>', pos);
+    const posA = svg.lastIndexOf('<symbol', pos);
+    return svg.substring(posA, posB + '</symbol>'.length);
+    //const symbolPattern = new RegExp(`<symbol.*?id=['"]${symbolId}['"].*?>.*?</symbol>`);
+    //const matched = symbolPattern.exec(svg || '');
+    //return matched && matched[0];
   }
 
   protected _getIconModule(moduleName: string) {
