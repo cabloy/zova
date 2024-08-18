@@ -55,6 +55,9 @@ export type ZovaConfig = {
   };
   ssr: {
     cookie: boolean;
+    optimization: {
+      bodyHiddenBeforeLoad: boolean;
+    };
   };
   icon: {
     defaultModule: keyof IBeanScopeRecord;

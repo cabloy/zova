@@ -11,6 +11,9 @@ export default function (_meta: ZovaConfigMeta) {
     },
     ssr: {
       cookie: process.env.SSR_COOKIE === 'true',
+      optimization: {
+        bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD !== 'false',
+      },
     },
     layout: {},
   };
