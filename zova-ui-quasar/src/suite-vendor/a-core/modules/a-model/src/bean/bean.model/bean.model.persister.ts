@@ -107,7 +107,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
       options = { ...options };
     }
     options.storage = options.storage ?? (options.sync ? 'local' : 'db');
-    options.maxAge = options.maxAge ?? this.scopeSelf.config.maxAge[options.storage];
+    options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge[options.storage];
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
     options.serialize = options.serialize ?? JSON.stringify;

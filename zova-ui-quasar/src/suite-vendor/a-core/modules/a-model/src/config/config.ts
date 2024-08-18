@@ -31,9 +31,11 @@ export const config = (_app: ZovaApplication) => {
         db: (1000 * 60 * 60 * 24) as number, // 24 hours
       },
     },
-    staleTime: {
-      async: 0 as StaleTime,
-      ssr: Infinity as StaleTime,
+    query: {
+      staleTime: {
+        async: 0 as StaleTime,
+        ssr: Infinity as StaleTime,
+      },
     },
     queryClientConfig: {
       defaultOptions,

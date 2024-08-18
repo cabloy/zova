@@ -39,12 +39,12 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     // staleTime
     const sync = typeof options.meta?.persister === 'object' && options.meta?.persister?.sync;
     if (sync !== true) {
-      const staleTime = options.staleTime ?? this.scopeSelf.config.staleTime.async;
+      const staleTime = options.staleTime ?? this.scopeSelf.config.query.staleTime.async;
       const queryCache = this.$queryFind({ queryKey });
       const queryCacheExists = queryCache?.state.data !== undefined;
       options.staleTime = query => {
         if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration && queryCacheExists) {
-          return resolveStaleTime(this.scopeSelf.config.staleTime.ssr, query);
+          return resolveStaleTime(this.scopeSelf.config.query.staleTime.ssr, query);
         }
         return resolveStaleTime(staleTime, query);
       };
