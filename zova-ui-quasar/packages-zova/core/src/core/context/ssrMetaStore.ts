@@ -313,7 +313,7 @@ function injectServerMeta(ssrContext: SSRContext) {
         document.body.style.display = 'block';
         document.querySelector('#ssr-document-body-display').remove();
       });
-    </script>`;
+    </script>`.replaceAll('\n', '');
   }
 }
 

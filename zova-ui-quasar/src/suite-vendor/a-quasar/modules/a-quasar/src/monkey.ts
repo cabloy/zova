@@ -34,7 +34,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     document.querySelector('#__prefersColorSchemeDarkJS').remove();
     window.__prefersColorSchemeDark=__prefersColorSchemeDark;
   });
-</script>`;
+</script>`.replaceAll('\n', '');
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   document.addEventListener("DOMContentLoaded", () => {
     var __belowBreakpoint=document.documentElement.clientWidth <= 1023;
@@ -49,12 +49,10 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       var __domHeader=document.querySelector('#q-app>.q-layout>.q-header');
       var __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
       var __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
-      // width
       __domHeader.style.left='300px';
       __domDrawer.style.transform='unset !important';
       __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
       __domPageContainer.style.paddingLeft='300px';
-      // dark
       if(window.__prefersColorSchemeDark){
       __domDrawer.classList.add('q-drawer--dark','q-dark');
       __domDrawer.querySelector('.q-list').classList.add('q-list--dark');
@@ -63,7 +61,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
   });
-</script>`;
+</script>`.replaceAll('\n', '');
       });
     }
   }
