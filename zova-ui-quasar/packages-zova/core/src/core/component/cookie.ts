@@ -6,8 +6,8 @@ export class AppCookie extends BeanSimple {
   getItem(key: string): string | undefined;
   getItem(key?: undefined | null): Record<string, string>;
   getItem(key?: string | undefined | null): Record<string, string> | string | undefined {
-    const cookieSource = process.env.SERVER ? this.ctx.meta.ssr.context.req.headers.get('cookie') : document.cookie;
-    const cookies = cookieSource ? cookieSource.split('; ') : [];
+    const cookieSource = Cast(process.env.SERVER ? this.ctx.meta.ssr.context.req.headers : document);
+    const cookies = cookieSource.cookie ? cookieSource.cookie.split('; ') : [];
     const l = cookies.length;
     let result: Record<string, string> | undefined = key ? undefined : {};
     let i = 0,
@@ -70,18 +70,19 @@ export class AppCookie extends BeanSimple {
       const req = this.ctx.meta.ssr.context.req;
       const res = this.ctx.meta.ssr.context.res;
       const reqAny = Cast(req);
+      const resAny = Cast(res);
       if (reqAny.qCookies) {
         reqAny.qCookies.push(cookie);
       } else {
         reqAny.qCookies = [cookie];
       }
 
-      res.headers.set('Set-Cookie', reqAny.qCookies);
+      resAny.setHeader('Set-Cookie', reqAny.qCookies);
 
       // make temporary update so future get()
       // within same SSR timeframe would return the set value
 
-      let all = req.headers.get('cookie') || '';
+      let all = reqAny.headers.cookie || '';
 
       if (expire !== void 0 && expireValue < 0) {
         const val = this.getItem(key);
@@ -92,7 +93,7 @@ export class AppCookie extends BeanSimple {
         all = all ? `${keyValue}; ${all}` : cookie;
       }
 
-      req.headers.set('cookie', all);
+      reqAny.headers.cookie = all;
     } else {
       document.cookie = cookie;
     }
