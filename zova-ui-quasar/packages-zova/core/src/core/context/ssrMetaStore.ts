@@ -286,7 +286,7 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   const bodyStyle = Object.keys(data.bodyStyle!)
     .filter(name => !!data.bodyStyle![name])
-    .map(name => `${name}=${data.bodyStyle![name]};`)
+    .map(name => `${name}:${data.bodyStyle![name]};`)
     .join('');
   if (bodyStyle) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + `style="${bodyStyle}"`;
