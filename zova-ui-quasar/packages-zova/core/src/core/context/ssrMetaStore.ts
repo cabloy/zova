@@ -307,12 +307,14 @@ function injectServerMeta(ssrContext: SSRContext) {
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
-  ctx.bodyTags += `<script id="ssr-document-body-display">
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.style.display = 'block';
-      document.querySelector('#ssr-document-body-display').remove();
-    });
-  </script>`;
+  if (process.env.PROD) {
+    ctx.bodyTags += `<script id="ssr-document-body-display">
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = 'block';
+        document.querySelector('#ssr-document-body-display').remove();
+      });
+    </script>`;
+  }
 }
 
 function injectContextState(ssrContext: SSRContext) {

@@ -7,6 +7,7 @@ import { setCssVar } from 'quasar';
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
     if (process.env.CLIENT) {
+      // style
       for (const key in token.color) {
         setCssVar(key, token.color[key]);
       }
