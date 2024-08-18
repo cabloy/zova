@@ -13,11 +13,9 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
-      if (process.env.DEV || process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
-        ssrContext.__qMetaList.push({
-          bodyStyle: { display: 'none' },
-        });
-      }
+      ssrContext.__qMetaList.push({
+        bodyStyle: { display: 'none' },
+      });
       ssrContext.rendered = () => {
         this._onRenderedLast();
         ssrContext.rendered = () => {};
@@ -309,13 +307,22 @@ function injectServerMeta(ssrContext: SSRContext) {
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
-  if (process.env.PROD && process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
-    ctx.bodyTags += `<script id="ssr-document-body-display">
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = 'block';
-        document.querySelector('#ssr-document-body-display').remove();
-      });
-    </script>`.replaceAll('\n', '');
+  if (process.env.PROD) {
+    if (process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
+      ctx.bodyTags += `<script id="ssr-document-body-display">
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = 'block';
+          document.querySelector('#ssr-document-body-display').remove();
+        });
+      </script>`.replaceAll('\n', '');
+    } else {
+      ctx.bodyTags += `<script id="ssr-document-body-display">
+        window.setTimeout(()=>{
+          document.body.style.display = 'block';
+          document.querySelector('#ssr-document-body-display').remove();
+        },60);
+      </script>`.replaceAll('\n', '');
+    }
   }
 }
 
