@@ -303,7 +303,7 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   data.title = '\'"`';
 
-  ctx.headTags +=
+  ctx.endingHeadTags +=
     Object.keys(data.noscript!)
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
@@ -315,5 +315,5 @@ function injectContextState(ssrContext: SSRContext) {
 
   const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
 
-  ctx.headTags += `<script${nonce} id="ssr-state-init">window.__INITIAL_STATE__=${devalue.uneval(ssrContext.state)}</script>`;
+  ctx.endingHeadTags += `<script${nonce} id="ssr-state-init">window.__INITIAL_STATE__=${devalue.uneval(ssrContext.state)}</script>`;
 }

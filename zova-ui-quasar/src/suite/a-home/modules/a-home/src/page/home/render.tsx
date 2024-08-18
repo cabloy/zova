@@ -12,7 +12,7 @@ export class RenderHome extends BeanRenderBase<ScopeModule> {
       <QPage>
         <div class="text-center q-pa-md flex flex-center">
           <div>
-            <div style="font-size: 5vh">Hello Zova</div>
+            <div class="text-h3">Hello Zova</div>
 
             <div class="text-h5" style="opacity:.4">
               Less is more, while more is less

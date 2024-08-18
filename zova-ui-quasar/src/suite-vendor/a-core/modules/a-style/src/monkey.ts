@@ -13,7 +13,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       this._styleInstance = createTypeStyle();
       this.ctx.meta.ssr.context.onRendered(() => {
         const styles = this._styleInstance.getStyles();
-        this.ctx.meta.ssr.context._meta.headTags += `<style id="styles-target">${styles}</style>`;
+        this.ctx.meta.ssr.context._meta.endingHeadTags += `<style id="styles-target">${styles}</style>`;
       });
     }
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
