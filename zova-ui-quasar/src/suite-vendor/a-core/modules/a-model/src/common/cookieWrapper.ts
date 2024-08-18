@@ -19,8 +19,9 @@ export class CookieWrapper extends BeanSimple {
   setItem(key: string, value: string): void {
     const configScope = this.bean.scope(__ThisModule__).config;
     const opts: CookieOptions = { ...configScope.persister.cookie.options };
-    const maxAge = resolveMaxAgeTime(this.options.maxAge, this.query);
+    let maxAge = resolveMaxAgeTime(this.options.maxAge, this.query);
     if (maxAge !== undefined) {
+      if (maxAge === Infinity) maxAge = 1000 * 60 * 60 * 24 * 365;
       opts.expires = new Date(Date.now() + maxAge);
     }
     if (!opts.path) {

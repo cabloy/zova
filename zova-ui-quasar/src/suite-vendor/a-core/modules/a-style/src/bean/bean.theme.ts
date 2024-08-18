@@ -26,6 +26,9 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     this.name = this[useQueryMethod]({
       queryKey: ['themename'],
       meta: {
+        persister: {
+          maxAge: this.scope.config.model.themename.persister.maxAge,
+        },
         defaultData: this.scope.config.defaultTheme,
       },
     });
