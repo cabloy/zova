@@ -60,7 +60,7 @@ export class TestA {
 export default function (_meta: ZovaConfigMeta) {
   const config = {};
 
-  // module config
+  // modules
   config.modules = {
     'a-demo': {
       prompt: 'Hello World!!!',

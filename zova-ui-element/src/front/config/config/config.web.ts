@@ -8,7 +8,7 @@ export default function (_meta: ZovaConfigMeta) {
     },
   };
 
-  // module config
+  // modules
   config.modules = {};
 
   return config;

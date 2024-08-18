@@ -23,7 +23,7 @@ export default function (_meta: ZovaConfigMeta) {
     name: {},
   };
 
-  // module config
+  // modules
   config.modules = {};
 
   return config;

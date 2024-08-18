@@ -60,7 +60,7 @@ You can use `project-level` Config to override `module-level` Config
 export default function (_meta: ZovaConfigMeta) {
   const config = {};
 
-  // module config
+  // modules
   config.modules = {
     'a-demo': {
       prompt: 'Hello World!!!',
