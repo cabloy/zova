@@ -22,7 +22,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
-        const expired = queryAge > resolveMaxAgeTime(options.maxAge, query)!;
+        const expired = queryAge > (resolveMaxAgeTime(options.maxAge, query) ?? Infinity);
         const busted = persistedQuery.buster !== options.buster;
         if (expired || busted) {
           storage.removeItem(storageKey);
@@ -124,7 +124,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;
     // cookie
-    if (options.storage === 'cookie') return this.bean._newBeanSimple(CookieWrapper, false, query);
+    if (options.storage === 'cookie') return this.bean._newBeanSimple(CookieWrapper, false, options, query);
     // check server
     if (process.env.SERVER) return undefined;
     // local

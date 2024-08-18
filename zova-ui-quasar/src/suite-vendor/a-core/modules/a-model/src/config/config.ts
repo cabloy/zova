@@ -24,10 +24,12 @@ const defaultOptions: DefaultOptions = {
 
 export const config = (_app: ZovaApplication) => {
   return {
-    maxAge: {
-      cookie: undefined as MaxAgeTime | undefined, // undefined: session cookie
-      local: Infinity as MaxAgeTime,
-      db: (1000 * 60 * 60 * 24) as number, // 24 hours
+    persister: {
+      maxAge: {
+        cookie: undefined as MaxAgeTime | undefined, // undefined: session cookie
+        local: Infinity as MaxAgeTime,
+        db: (1000 * 60 * 60 * 24) as number, // 24 hours
+      },
     },
     staleTime: {
       async: 0 as StaleTime,
