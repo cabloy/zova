@@ -13,6 +13,7 @@ import { UnwrapNestedRefs } from 'vue';
 import { useCustomRef } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
 import { BeanModelQuery } from './bean.model.query.js';
+import { resolveStaleTime } from '../../types.js';
 
 const SymbolUseQueries = Symbol('SymbolUseQueries');
 
@@ -35,15 +36,20 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     const queryKey = this.self._forceQueryKeyPrefix(options.queryKey);
     const persister = this._createPersister(options.meta?.persister);
     options = { ...options, queryKey, persister };
+    // staleTime
+    const sync = typeof options.meta?.persister === 'object' && options.meta?.persister?.sync;
+    if (sync !== true) {
+      const staleTime = options.staleTime ?? this.scopeSelf.config.staleTime.async;
+      const queryCache = this.$queryFind({ queryKey });
+      const queryCacheExists = queryCache?.state.data !== undefined;
+      options.staleTime = query => {
+        if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration && queryCacheExists) {
+          return resolveStaleTime(this.scopeSelf.config.staleTime.ssr, query);
+        }
+        return resolveStaleTime(staleTime, query);
+      };
+    }
     return this.ctx.meta.util.instanceScope(() => {
-      const sync = typeof options.meta?.persister === 'object' && options.meta?.persister?.sync;
-      if (sync !== true) {
-        const staleTime = options.staleTime;
-        options.staleTime = () => {
-          if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) return Infinity;
-          return staleTime;
-        };
-      }
       return useQuery(options, queryClient);
     });
   }

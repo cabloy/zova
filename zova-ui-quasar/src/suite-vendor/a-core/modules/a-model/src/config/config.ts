@@ -1,4 +1,4 @@
-import { DefaultOptions, defaultShouldDehydrateQuery } from '@tanstack/vue-query';
+import { DefaultOptions, defaultShouldDehydrateQuery, StaleTime } from '@tanstack/vue-query';
 import { ZovaApplication } from 'zova';
 
 const defaultOptions: DefaultOptions = {
@@ -30,6 +30,10 @@ export const config = (_app: ZovaApplication) => {
       async: {
         maxAge: 1000 * 60 * 60 * 24, // 24 hours
       },
+    },
+    staleTime: {
+      async: 0 as StaleTime,
+      ssr: Infinity as StaleTime,
     },
     queryClientConfig: {
       defaultOptions,

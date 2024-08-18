@@ -1,5 +1,14 @@
 import 'zova';
-import { DefaultError, DehydratedState, useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
+import {
+  DefaultError,
+  DehydratedState,
+  Query,
+  QueryKey,
+  StaleTime,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 declare module 'zova' {
   export interface BeanBase {
@@ -62,3 +71,15 @@ export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData
 export type DataMutation<TData = unknown, TVariables = void, TContext = unknown> = UnwrapNestedRefs<
   ReturnType<typeof useMutation<TData, DefaultError, TVariables, TContext>>
 >;
+
+export function resolveStaleTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+>(
+  staleTime: undefined | StaleTime<TQueryFnData, TError, TData, TQueryKey>,
+  query: Query<TQueryFnData, TError, TData, TQueryKey>,
+): number | undefined {
+  return typeof staleTime === 'function' ? staleTime(query) : staleTime;
+}
