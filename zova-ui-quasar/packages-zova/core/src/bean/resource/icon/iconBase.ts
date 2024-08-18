@@ -149,7 +149,7 @@ export class AppIconBase extends BeanSimple {
   }
 
   protected _extractIconContent(svg: string | undefined, symbolId: string) {
-    const symbolPattern = new RegExp(`<symbol.*?id="${symbolId}".*?>.*?</symbol>`);
+    const symbolPattern = new RegExp(`<symbol.*?id=['"]${symbolId}['"].*?>.*?</symbol>`);
     const matched = symbolPattern.exec(svg || '');
     return matched && matched[0];
   }
