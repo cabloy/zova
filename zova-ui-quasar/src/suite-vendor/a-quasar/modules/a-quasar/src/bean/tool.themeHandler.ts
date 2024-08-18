@@ -14,11 +14,18 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
       this.$q.dark.set(dark);
     }
     if (process.env.SERVER) {
+      // style
       const bodyStyle = {};
       for (const key in token.color) {
         bodyStyle[`--q-${key}`] = token.color[key];
       }
-      this.$useMeta({ bodyStyle });
+      // dark
+      const bodyClass = {
+        'body--light': !dark,
+        'body--dark': dark,
+      };
+      // meta
+      this.$useMeta({ bodyStyle, bodyClass });
     }
   }
 }

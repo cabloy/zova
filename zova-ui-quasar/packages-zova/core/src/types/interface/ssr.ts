@@ -45,6 +45,7 @@ export interface SSRMetaOptions {
   htmlAttr?: { [name: string]: string | undefined };
   bodyAttr?: { [name: string]: string | undefined };
   bodyStyle?: { [name: string]: string | undefined };
+  bodyClass?: { [name: string]: boolean };
   noscript?: { [name: string]: string };
 }
 

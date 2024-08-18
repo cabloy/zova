@@ -254,6 +254,7 @@ function injectServerMeta(ssrContext: SSRContext) {
     htmlAttr: {},
     bodyAttr: {},
     bodyStyle: {},
+    bodyClass: {},
     noscript: {},
   };
 
@@ -291,13 +292,22 @@ function injectServerMeta(ssrContext: SSRContext) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + `style="${bodyStyle}"`;
   }
 
+  const _bodyClass = ctx.bodyClasses.split(' ').filter(item => !!item);
+  const bodyClass = {};
+  _bodyClass.forEach(item => (bodyClass[item] = true));
+  extend(true, bodyClass, data.bodyClass);
+  ctx.bodyClasses = Object.keys(bodyClass)
+    .filter(name => bodyClass[name])
+    .map(name => name)
+    .join(' ');
+
   data.title = '\'"`';
 
   ctx.headTags +=
     Object.keys(data.noscript!)
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
-    `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.noscript && devalue.uneval(data)}</script>`;
+    `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 }
 
 function injectContextState(ssrContext: SSRContext) {
