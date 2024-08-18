@@ -20,7 +20,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
-  document.addEventListener("DOMContentLoaded", () => {
     var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
     __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;      
     var __prefersColorSchemeDark=__prefersColorSchemeDarkLocal??window.matchMedia('(prefers-color-scheme: dark)').matches;     
@@ -33,7 +32,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     }
     document.querySelector('#__prefersColorSchemeDarkJS').remove();
     window.__prefersColorSchemeDark=__prefersColorSchemeDark;
-  });
 </script>`.replaceAll('\n', '');
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   document.addEventListener("DOMContentLoaded", () => {
