@@ -13,6 +13,11 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
+      if (process.env.DEV) {
+        ssrContext.__qMetaList.push({
+          bodyStyle: { display: 'none' },
+        });
+      }
       ssrContext.rendered = () => {
         this._onRenderedLast();
         ssrContext.rendered = () => {};
@@ -278,22 +283,21 @@ function injectServerMeta(ssrContext: SSRContext) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + bodyAttr.map(getAttr(data.bodyAttr)).join(' ');
   }
 
-  extend(true, ctx.bodyStyle, data.bodyStyle);
-  const bodyStyle = Object.keys(ctx.bodyStyle)
-    .filter(name => !!ctx.bodyStyle[name])
-    .map(name => `${name}=${ctx.bodyStyle[name]}`)
-    .join(';');
+  const bodyStyle = Object.keys(data.bodyStyle!)
+    .filter(name => !!data.bodyStyle![name])
+    .map(name => `${name}=${data.bodyStyle![name]};`)
+    .join('');
   if (bodyStyle) {
     ctx.bodyAttrs += (ctx.bodyAttrs.length !== 0 ? ' ' : '') + `style="${bodyStyle}"`;
   }
 
   data.title = '\'"`';
-  (<any>data).aa = new Date();
+
   ctx.headTags +=
     Object.keys(data.noscript!)
       .map(name => `<noscript data-qmeta="${name}">${data.noscript![name]}</noscript>`)
       .join('') +
-    `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.noscript && devalue.uneval(data)}</script>`;
+    `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.noscript && devalue.uneval(data)}</script>`;
 }
 
 function injectContextState(ssrContext: SSRContext) {

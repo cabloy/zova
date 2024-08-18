@@ -25,7 +25,6 @@ export interface SSRContextMeta {
   bodyClasses: string;
   bodyAttrs: string;
   bodyTags: string;
-  bodyStyle: { [name: string]: string | undefined };
 }
 
 export interface SSRContextState {}

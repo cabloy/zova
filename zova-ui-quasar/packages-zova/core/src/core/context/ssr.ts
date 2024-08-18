@@ -100,11 +100,7 @@ export class CtxSSR extends BeanSimple {
       bodyClasses: '',
       bodyAttrs: 'data-server-rendered',
       bodyTags: '',
-      bodyStyle: {},
     });
-    if (process.env.DEV && process.env.SERVER) {
-      ssrContext._meta.bodyStyle.display = 'none';
-    }
     ssrContext.state = ssrContext.state || {};
   }
 
