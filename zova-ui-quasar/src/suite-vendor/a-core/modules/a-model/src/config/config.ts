@@ -1,5 +1,5 @@
 import { DefaultOptions, defaultShouldDehydrateQuery, StaleTime } from '@tanstack/vue-query';
-import { ZovaApplication } from 'zova';
+import { CookieOptions, ZovaApplication } from 'zova';
 import { MaxAgeTime } from '../types.js';
 
 const defaultOptions: DefaultOptions = {
@@ -29,6 +29,9 @@ export const config = (_app: ZovaApplication) => {
         cookie: undefined as MaxAgeTime | undefined, // undefined: session cookie
         local: Infinity as MaxAgeTime,
         db: (1000 * 60 * 60 * 24) as number, // 24 hours
+      },
+      cookie: {
+        options: {} as Omit<CookieOptions, 'expires'>,
       },
     },
     query: {

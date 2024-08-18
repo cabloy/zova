@@ -1,6 +1,7 @@
 import { Query } from '@tanstack/vue-query';
 import { BeanSimple, CookieOptions } from 'zova';
 import { QueryMetaPersister, resolveMaxAgeTime } from '../types.js';
+import { __ThisModule__ } from '../resource/this.js';
 
 export class CookieWrapper extends BeanSimple {
   options: QueryMetaPersister;
@@ -16,10 +17,14 @@ export class CookieWrapper extends BeanSimple {
   }
 
   setItem(key: string, value: string): void {
-    const opts: CookieOptions = {};
+    const configScope = this.bean.scope(__ThisModule__).config;
+    const opts: CookieOptions = { ...configScope.persister.cookie.options };
     const maxAge = resolveMaxAgeTime(this.options.maxAge, this.query);
     if (maxAge !== undefined) {
       opts.expires = new Date(Date.now() + maxAge);
+    }
+    if (!opts.path) {
+      opts.path = `/${this.app.config.env.appPublicPath || ''}`;
     }
     this.app.meta.cookie.setItem(key, value, opts);
   }
