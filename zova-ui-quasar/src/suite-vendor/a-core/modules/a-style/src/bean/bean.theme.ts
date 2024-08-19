@@ -1,4 +1,4 @@
-import { Bean, Cast, IBeanRecord } from 'zova';
+import { Bean, Cast, IBeanRecord, useComputed } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
@@ -33,24 +33,17 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       },
     });
     this.darkMode = this.$useQueryLocal({
-      queryKey: ['themedarkmode'],
+      queryKey: ['themedark'],
       meta: {
         defaultData: 'auto',
       },
     });
-    this._dark = this.$useQueryLocal({
-      queryKey: ['themedark'],
-      meta: {
-        defaultData: () => {
-          return this._getDarkFromDarkMode(this.darkMode);
-        },
-      },
-    });
+    this._updateDark();
 
     watch(
       () => this.darkMode,
       () => {
-        this._dark = this._getDarkFromDarkMode(this.darkMode);
+        this._updateDark();
       },
     );
 
@@ -63,6 +56,10 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   protected __dispose__() {
     this._listenMediaDarkChange(false);
+  }
+
+  private _updateDark() {
+    this._dark = this._getDarkFromDarkMode(this.darkMode);
   }
 
   async _applyTheme() {
@@ -99,6 +96,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       if (!this._mediaDark) {
         this._mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
         this._onMediaDarkChange = async () => {
+          this._updateDark();
           this._applyTheme();
         };
         this._mediaDark.addEventListener('change', this._onMediaDarkChange);
