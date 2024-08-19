@@ -1,22 +1,7 @@
 import { ZovaConfigMeta, ZovaConfigOptional } from 'zova';
 
 export default function (_meta: ZovaConfigMeta) {
-  const config: ZovaConfigOptional = {
-    base: {
-      jwt: process.env.APP_BASE_JWT !== 'false',
-    },
-    api: {
-      baseURL: process.env.API_BASE_URL,
-      prefix: process.env.API_PREFIX,
-    },
-    ssr: {
-      cookie: process.env.SSR_COOKIE === 'true',
-      optimization: {
-        bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
-      },
-    },
-    layout: {},
-  };
+  const config: ZovaConfigOptional = {};
 
   // routes
   config.routes = {
