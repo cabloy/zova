@@ -5,6 +5,7 @@
  * Docs: https://quasar.dev/app-extensions/development-guide/index-api
  */
 
+import { extendFiles } from './extendFiles.js';
 import { extendQuasarConf } from './extendQuasarConf.js';
 import { extendViteConf } from './extendViteConf.js';
 import { ConfigContext } from './types.js';
@@ -13,6 +14,7 @@ export async function quasar(api) {
   // context
   const context: ConfigContext = { zovaViteMeta: undefined };
   // config
+  api.extendQuasarConf(extendFiles(context));
   api.extendQuasarConf(extendQuasarConf(context));
   api.extendViteConf(extendViteConf(context));
   // before dev
