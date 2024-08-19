@@ -26,13 +26,13 @@ export class LocalSSR extends BeanBase<ScopeModule> {
         if (this.app.config.ssr.optimization.bodyHiddenBeforeLoad) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   document.addEventListener("DOMContentLoaded", () => {
-    var __belowBreakpoint=document.documentElement.clientWidth <= 1023;
+    var __belowBreakpoint=document.documentElement.clientWidth <= ${this.app.config.layout.sidebar.breakpoint};
     var __leftDrawerOpen;
     if(__belowBreakpoint){
       __leftDrawerOpen=false;
     }else{
-      var __leftDrawerOpenPC=localStorage.getItem('leftDrawerOpenPC');
-      __leftDrawerOpen=__leftDrawerOpenPC?JSON.parse(__leftDrawerOpenPC):${this.scope.config.layout.leftDrawerOpenPC};  
+      var __leftDrawerOpenPC=localStorage.getItem('sidebarLeftOpenPC');
+      __leftDrawerOpen=__leftDrawerOpenPC?JSON.parse(__leftDrawerOpenPC):${this.app.config.layout.sidebar.leftOpenPC};  
     }
     if(__leftDrawerOpen){
       var __domHeader=document.querySelector('#q-app>.q-layout>.q-header');

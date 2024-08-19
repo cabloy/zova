@@ -10,7 +10,7 @@ export class ModelLayout extends BeanModelBase<ScopeModule> {
     this.leftDrawerOpenPC = !this.app.config.ssr.optimization.bodyHiddenBeforeLoad
       ? this.app.config.layout.sidebar.leftOpenPC
       : this.$useQueryLocal({
-          queryKey: ['leftDrawerOpenPC'],
+          queryKey: ['sidebarLeftOpenPC'],
           meta: {
             defaultData: this.app.config.layout.sidebar.leftOpenPC,
           },
