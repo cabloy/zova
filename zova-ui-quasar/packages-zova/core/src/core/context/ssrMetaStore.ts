@@ -307,6 +307,13 @@ function injectServerMeta(ssrContext: SSRContext) {
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
+  ctx.endingHeadTags += `<script id="ssr-prefers-color-schema-dark">
+      var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
+      __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;      
+      window.__prefersColorSchemeDark=__prefersColorSchemeDarkLocal??window.matchMedia('(prefers-color-scheme: dark)').matches;     
+      document.querySelector('#ssr-prefers-color-schema-dark').remove();
+  </script>`.replaceAll('\n', '');
+
   if (process.env.PROD) {
     if (process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
       ctx.bodyTags += `<script id="ssr-document-body-display">
