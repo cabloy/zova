@@ -31,7 +31,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
       } else {
         width = this.$q.screen.width || document.documentElement.clientWidth;
       }
-      return width <= this.scope.config.layout.breakpoint;
+      return width <= this.app.config.layout.sidebar.breakpoint;
     });
     // leftDrawerOpen
     this.leftDrawerOpen = useCustomRef(() => {

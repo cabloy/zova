@@ -35,6 +35,10 @@ export const configDefault = {
       default: 'home-layout:layoutDefault',
       empty: 'home-layout:layoutEmpty',
     },
+    sidebar: {
+      leftOpenPC: true,
+      breakpoint: 1023,
+    },
   },
   routes: {
     path: {},
@@ -71,6 +75,10 @@ export type ZovaConfig = {
     component: {
       default: keyof IComponentLayoutRecord;
       empty: keyof IComponentLayoutRecord;
+    };
+    sidebar: {
+      leftOpenPC: boolean;
+      breakpoint: number;
     };
   };
   routes: ZovaConfigRoutes;

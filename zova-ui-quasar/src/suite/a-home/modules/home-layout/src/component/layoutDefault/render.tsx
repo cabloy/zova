@@ -62,7 +62,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
           </QToolbar>
         </QHeader>
 
-        <QDrawer v-model={this.leftDrawerOpen} breakpoint={this.scope.config.layout.breakpoint} bordered>
+        <QDrawer v-model={this.leftDrawerOpen} breakpoint={this.app.config.layout.sidebar.breakpoint} bordered>
           {this._renderMenu()}
         </QDrawer>
 
