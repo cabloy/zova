@@ -308,9 +308,12 @@ function injectServerMeta(ssrContext: SSRContext) {
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
   ctx.endingHeadTags += `<script id="ssr-prefers-color-schema-dark">
-      var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
-      __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;      
-      window.__prefersColorSchemeDark=__prefersColorSchemeDarkLocal??window.matchMedia('(prefers-color-scheme: dark)').matches;     
+      var __prefersColorSchemeDarkLocal=localStorage.getItem('themedarkmode');
+      __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;
+      if(__prefersColorSchemeDarkLocal===null || __prefersColorSchemeDarkLocal==='auto'){
+        __prefersColorSchemeDarkLocal=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      window.__prefersColorSchemeDark=__prefersColorSchemeDarkLocal;
       document.querySelector('#ssr-prefers-color-schema-dark').remove();
   </script>`.replaceAll('\n', '');
 
