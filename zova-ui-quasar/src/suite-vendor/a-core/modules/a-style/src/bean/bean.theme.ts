@@ -1,4 +1,4 @@
-import { Bean, Cast, IBeanRecord, useComputed } from 'zova';
+import { Bean, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
