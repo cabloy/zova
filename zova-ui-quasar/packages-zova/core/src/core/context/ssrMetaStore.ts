@@ -317,10 +317,8 @@ function injectServerMeta(ssrContext: SSRContext) {
       </script>`.replaceAll('\n', '');
     } else {
       ctx.bodyTags += `<script id="ssr-document-body-display">
-        window.setTimeout(()=>{
-          document.body.style.display = 'block';
-          document.querySelector('#ssr-document-body-display').remove();
-        },60);
+        document.body.style.display = 'block';
+        document.querySelector('#ssr-document-body-display').remove();
       </script>`.replaceAll('\n', '');
     }
   }
