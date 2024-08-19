@@ -46,7 +46,7 @@ const ionRE = /^ion-/;
 const faRE = /^(fa-(sharp|solid|regular|light|brands|duotone|thin)|[lf]a[srlbdk]?) /;
 
 @Local()
-export class PatchIcon extends BeanBase<ScopeModule> {
+export class LocalIcon extends BeanBase<ScopeModule> {
   public async initialize() {
     this._patchSetup();
     this._patchIconMap();
