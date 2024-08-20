@@ -65,7 +65,7 @@ importers:
         version: 4.0.11(typescript@5.5.4)
       '@quasar/app-vite':
         specifier: 2.0.0-beta.19
-        version: 2.0.0-beta.19(@types/node@20.14.15)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
+        version: 2.0.0-beta.19(@types/node@20.14.15)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
       '@quasar/vite-plugin':
         specifier: ^1.7.0
         version: 1.7.0(@vitejs/plugin-vue@5.1.2(vite@5.4.1(@types/node@20.14.15)(sass@1.77.8)(terser@5.31.6))(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(vite@5.4.1(@types/node@20.14.15)(sass@1.77.8)(terser@5.31.6))(vue@3.4.38(typescript@5.5.4))
@@ -101,6 +101,9 @@ importers:
 
   packages-utils/quasar-app-extension-zova:
     dependencies:
+      '@quasar/app-vite':
+        specifier: 2.0.0-beta.19
+        version: 2.0.0-beta.19(@types/node@20.14.15)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -4239,7 +4242,7 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@quasar/app-vite@2.0.0-beta.19(@types/node@20.14.15)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))':
+  '@quasar/app-vite@2.0.0-beta.19(@types/node@20.14.15)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))':
     dependencies:
       '@quasar/render-ssr-error': 1.0.3
       '@quasar/ssl-certificate': 1.0.0
@@ -4281,6 +4284,7 @@ snapshots:
       vue-router: 4.4.3(vue@3.4.38(typescript@5.5.4))
       webpack-merge: 6.0.1
     optionalDependencies:
+      eslint: 8.57.0
       pinia: 2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
     transitivePeerDependencies:
       - '@types/node'

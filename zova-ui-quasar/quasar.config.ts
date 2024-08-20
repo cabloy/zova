@@ -11,31 +11,10 @@ export default configure(_ctx => {
       debug: false,
       vendors: [{ match: ['quasar'], output: 'quasar' }],
     },
-    // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
-    // preFetch: true,
-
-    // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
-    // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: [],
-
-    // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
-
-    // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
-      // 'ionicons-v4',
-      // 'mdi-v7',
-      // 'fontawesome-v6',
-      // 'eva-icons',
-      // 'themify',
-      // 'line-awesome',
-      // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
       'roboto-font', // optional, you are not bound to it
-      // 'material-icons', // optional, you are not bound to it
     ],
-
-    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
       target: {
         browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
@@ -100,20 +79,12 @@ export default configure(_ctx => {
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {
-      prodPort: 3000, // The default port that the production server should use
-      // (gets superseded if process.env.PORT is specified at runtime)
-
       middlewares: [
         'render', // keep this as last one
       ],
 
       // extendPackageJson (json) {},
       // extendSSRWebserverConf (esbuildConf) {},
-
-      manualStoreSerialization: true,
-      manualStoreSsrContextInjection: true,
-      manualStoreHydration: true,
-      manualPostHydrationTrigger: true,
 
       pwa: false,
 
