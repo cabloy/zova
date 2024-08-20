@@ -44,6 +44,7 @@ export class CtxSSR extends BeanSimple {
     if (process.env.CLIENT) {
       if (Cast(window).__INITIAL_STATE__) {
         this[SymbolSSRState] = Cast(window).__INITIAL_STATE__;
+        delete Cast(window).__INITIAL_STATE__;
         document.getElementById('ssr-state-init')?.remove();
       } else {
         this[SymbolSSRState] = {};
