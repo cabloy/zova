@@ -3,9 +3,10 @@ import { ZovaConfigMeta } from 'zova-core';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';
 import { QuasarConf } from '@quasar/app-vite/types/configuration/conf.js';
+import { IndexAPI } from '@quasar/app-vite';
 
 export function extendQuasarConf(context: ConfigContext) {
-  return async function extendQuasarConf(conf: QuasarConf, api) {
+  return async function extendQuasarConf(conf: QuasarConf, api: IndexAPI) {
     const appPaths = api.ctx.appPaths;
     const flavor = getFlavor();
     const mode = api.ctx.prod ? 'production' : 'development';
