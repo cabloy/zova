@@ -14,6 +14,8 @@ distMockServer
 
 # zova core related directories
 .zova
+.quasar
+/quasar.config.*.temporary.compiled*
 
 # Cordova related directories and files
 /src-cordova/node_modules
