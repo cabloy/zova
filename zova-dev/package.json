@@ -35,6 +35,7 @@
     "cors": "latest",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.38",
+    "quasar": "^2.16.8",
     "tailwindcss": "^3.4.4",
     "typestyle": "^2.4.0",
     "vue": "^3.4.29",
