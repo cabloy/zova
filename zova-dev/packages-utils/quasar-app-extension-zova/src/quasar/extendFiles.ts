@@ -14,17 +14,10 @@ export function extendFiles(api: IndexAPI) {
   };
 
   async function patchTemplates() {
+    // app.js
+    fse.copyFileSync(resolveTemplatePath('entry/app.js'), api.resolve.cli('templates/entry/app.js'));
     // client-entry.js
-    const clientEntryFile = api.resolve.cli('templates/entry/client-entry.js');
-    const clientEntryContent = (await fse.readFile(clientEntryFile)).toString();
-    if (clientEntryContent.indexOf('quasarUserOptions.config.dark') === -1) {
-      const clientEntryContentNew = clientEntryContent.replace(
-        'async function start',
-        `quasarUserOptions.config.dark = window.__prefersColorSchemeDark
-    async function start`,
-      );
-      await fse.outputFile(clientEntryFile, clientEntryContentNew);
-    }
+    fse.copyFileSync(resolveTemplatePath('entry/client-entry.js'), api.resolve.cli('templates/entry/client-entry.js'));
   }
 
   async function prepareTemplates() {

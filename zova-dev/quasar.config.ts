@@ -11,7 +11,6 @@ export default configure(_ctx => {
       debug: false,
       vendors: [],
     },
-    css: ['app.scss'],
     build: {
       target: {
         browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],

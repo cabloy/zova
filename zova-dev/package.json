@@ -31,8 +31,10 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "autoprefixer": "^10.4.19",
-    "connect": "latest",
-    "cors": "latest",
+    "compression": "^1.7.4",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.38",
     "quasar": "^2.16.8",

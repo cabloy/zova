@@ -31,8 +31,10 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
-    "connect": "latest",
-    "cors": "latest",
+    "compression": "^1.7.4",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "roboto-fontface": "^0.10.0",
     "typestyle": "^2.4.0",
     "vue": "^3.4.30",
