@@ -1,9 +1,22 @@
 import 'zova';
-import { DefaultError, useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
+import {
+  DefaultError,
+  DehydratedState,
+  Query,
+  QueryKey,
+  StaleTime,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
 declare module 'zova' {
   export interface BeanBase {
     $queryClient: ReturnType<typeof useQueryClient>;
+  }
+
+  export interface SSRContextState {
+    query: DehydratedState;
   }
 }
 
@@ -29,13 +42,22 @@ export interface QueryMetaSSR {
 
 export type QueryMetaPersisterStorage = 'cookie' | 'local' | 'db' | undefined;
 
+export type QueryMetaPersisterCookieType = 'auto' | 'boolean' | 'number' | 'date' | 'string' | undefined;
+
+export type MaxAgeTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+> = StaleTime<TQueryFnData, TError, TData, TQueryKey>;
+
 export interface QueryMetaPersister {
   /** default is false */
   sync?: boolean;
   /** default is db if async, local if sync */
   storage?: QueryMetaPersisterStorage;
   /** default is 24 hours */
-  maxAge?: number;
+  maxAge?: MaxAgeTime;
   /**
    * How to serialize the data to storage.
    * @default `JSON.stringify`
@@ -48,6 +70,7 @@ export interface QueryMetaPersister {
   deserialize?: (cachedString: any) => any;
   prefix?: string;
   buster?: string;
+  cookieType?: QueryMetaPersisterCookieType;
 }
 
 export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData | undefined, Error | null>>>;
@@ -55,3 +78,27 @@ export type DataQuery<TData> = UnwrapNestedRefs<ReturnType<typeof useQuery<TData
 export type DataMutation<TData = unknown, TVariables = void, TContext = unknown> = UnwrapNestedRefs<
   ReturnType<typeof useMutation<TData, DefaultError, TVariables, TContext>>
 >;
+
+export function resolveStaleTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+>(
+  staleTime: undefined | StaleTime<TQueryFnData, TError, TData, TQueryKey>,
+  query: Query<TQueryFnData, TError, TData, TQueryKey>,
+): number | undefined {
+  return typeof staleTime === 'function' ? staleTime(query) : staleTime;
+}
+
+export function resolveMaxAgeTime<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+>(
+  maxAge: undefined | MaxAgeTime<TQueryFnData, TError, TData, TQueryKey>,
+  query: Query<TQueryFnData, TError, TData, TQueryKey>,
+): number | undefined {
+  return typeof maxAge === 'function' ? maxAge(query) : maxAge;
+}

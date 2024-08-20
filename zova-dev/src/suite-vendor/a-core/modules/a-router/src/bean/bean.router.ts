@@ -68,7 +68,7 @@ export class BeanRouter extends BeanBase {
   }
 
   public checkPathValid(to?: { name?: string; path?: string } | string): boolean {
-    const _path = to && typeof to === 'object' ? to.name ?? to.path : to;
+    const _path = to && typeof to === 'object' ? (to.name ?? to.path) : to;
     if (!_path) return true;
     const moduleName = ModuleInfo.parseName(_path);
     if (!moduleName) return true;

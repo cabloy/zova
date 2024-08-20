@@ -21,43 +21,29 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   private _onMediaDarkChange?;
 
   protected async __init__() {
-    this.name = this.$useQueryCookie({
+    // support admin
+    const useQueryMethod = this.app.config.ssr.cookie ? '$useQueryCookie' : '$useQueryLocal';
+    this.name = this[useQueryMethod]({
       queryKey: ['themename'],
       meta: {
+        persister: {
+          maxAge: this.scope.config.model.themename.persister.maxAge,
+        },
         defaultData: this.scope.config.defaultTheme,
       },
     });
-    this.darkMode = this.$useQueryCookie({
-      queryKey: ['themedarkmode'],
+    this.darkMode = this.$useQueryLocal({
+      queryKey: ['themedark'],
       meta: {
-        persister: {
-          deserialize: value => {
-            value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
-            return this.$deserializeCookie(value);
-          },
-        },
         defaultData: 'auto',
       },
     });
-    this._dark = this.$useQueryCookie({
-      queryKey: ['themedark'],
-      meta: {
-        persister: {
-          deserialize: value => {
-            value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
-            return this.$deserializeCookie(value);
-          },
-        },
-        defaultData: () => {
-          return this._getDarkFromDarkMode(this.darkMode);
-        },
-      },
-    });
+    this._updateDark();
 
     watch(
       () => this.darkMode,
       () => {
-        this._dark = this._getDarkFromDarkMode(this.darkMode);
+        this._updateDark();
       },
     );
 
@@ -70,6 +56,10 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   protected __dispose__() {
     this._listenMediaDarkChange(false);
+  }
+
+  private _updateDark() {
+    this._dark = this._getDarkFromDarkMode(this.darkMode);
   }
 
   async _applyTheme() {
@@ -106,6 +96,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       if (!this._mediaDark) {
         this._mediaDark = window.matchMedia('(prefers-color-scheme: dark)');
         this._onMediaDarkChange = async () => {
+          this._updateDark();
           this._applyTheme();
         };
         this._mediaDark.addEventListener('change', this._onMediaDarkChange);

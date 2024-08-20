@@ -13,11 +13,17 @@ export const configDefault = {
   meta: {},
   env: {},
   base: {
-    jwt: false,
+    jwt: process.env.APP_BASE_JWT !== 'false',
   },
   api: {
-    baseURL: '',
-    prefix: '',
+    baseURL: process.env.API_BASE_URL,
+    prefix: process.env.API_PREFIX,
+  },
+  ssr: {
+    cookie: process.env.SSR_COOKIE === 'true',
+    optimization: {
+      bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
+    },
   },
   icon: {
     defaultModule: 'home-icon',
@@ -34,6 +40,10 @@ export const configDefault = {
     component: {
       default: 'home-layout:layoutDefault',
       empty: 'home-layout:layoutEmpty',
+    },
+    sidebar: {
+      leftOpenPC: true,
+      breakpoint: 1023,
     },
   },
   routes: {
@@ -53,6 +63,12 @@ export type ZovaConfig = {
     baseURL: string;
     prefix: string;
   };
+  ssr: {
+    cookie: boolean;
+    optimization: {
+      bodyHiddenBeforeLoad: boolean;
+    };
+  };
   icon: {
     defaultModule: keyof IBeanScopeRecord;
   };
@@ -65,6 +81,10 @@ export type ZovaConfig = {
     component: {
       default: keyof IComponentLayoutRecord;
       empty: keyof IComponentLayoutRecord;
+    };
+    sidebar: {
+      leftOpenPC: boolean;
+      breakpoint: number;
     };
   };
   routes: ZovaConfigRoutes;

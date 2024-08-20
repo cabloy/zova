@@ -5,5 +5,12 @@ export const config = (_app: ZovaApplication) => {
     defaultStyle: 'home-style.style.default' as keyof IBeanRecord,
     defaultTheme: 'home-theme.theme.default' as keyof IBeanRecord,
     defaultThemeHandler: '' as keyof IBeanRecord,
+    model: {
+      themename: {
+        persister: {
+          maxAge: Infinity,
+        },
+      },
+    },
   };
 };

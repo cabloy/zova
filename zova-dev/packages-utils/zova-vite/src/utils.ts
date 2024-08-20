@@ -1,14 +1,13 @@
 import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
 import path from 'node:path';
-import { ZovaViteConfigOptions } from './types.js';
 
 export function getFlavor(offset: number = 2): string {
-  return getEnvFromCli('FLAVOR', 'flavor', 'app', offset);
+  return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);
 }
 
 export function getAppMode(offset: number = 2): string {
-  return getEnvFromCli('APPMODE', 'appMode', 'spa', offset);
+  return getEnvFromCli('APPMODE', 'appMode', 'ssr', offset);
 }
 
 export function getEnvMeta(configMeta: ZovaConfigMeta) {
@@ -32,7 +31,6 @@ export function getEnvFromCli(
   return value;
 }
 
-export function getMockPath(configOptions: ZovaViteConfigOptions, relative?: boolean) {
-  if (relative) return path.join(configOptions.runtimeDir, 'mock');
-  return path.join(configOptions.appDir, configOptions.runtimeDir, 'mock');
+export function resolveTemplatePath(file: string) {
+  return new URL(path.join('../templates', file), import.meta.url);
 }

@@ -12,7 +12,7 @@ export type TypeModuleLocales<T> = {
   [prop in string & keyof T]: IModuleLocale;
 };
 
-export type TypeLocaleBase = 'zh-cn';
+export type TypeLocaleBase = 'en-us';
 
 export interface ILocalInfo {}
 export interface ILocalInfos {

@@ -2,9 +2,10 @@ import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigChunkVendor, ZovaViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
-import { getEnvMeta, getMockPath } from './utils.js';
+import { getEnvMeta } from './utils.js';
 import { glob } from '@cabloy/module-glob';
 import { IBundleVendor } from '@cabloy/module-info';
+import crypto from 'node:crypto';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -16,10 +17,6 @@ const __ModuleLibs = [
 
 const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
-  {
-    match: [/\.zova\/config\.ts/],
-    output: '-zova-config',
-  },
   {
     match: [
       'vue/dist',
@@ -38,7 +35,7 @@ const __ZovaManualChunkVendors = [
   },
   { match: ['vue-router', '@cabloy/vue-router'], output: 'vue-router' },
   { match: ['pinia'], output: 'pinia' },
-  { match: ['js-cookie'], output: 'js-cookie' },
+  { match: ['~commonjsHelpers.js'], output: 'commonjsHelper' },
 ];
 
 export function createConfigUtils(
@@ -52,10 +49,11 @@ export function createConfigUtils(
   let __zovaManualChunkVendors_runtime: ZovaViteConfigChunkVendor[];
   let __zovaManualChunkVendors_runtime_modulesBefore: ZovaViteConfigChunkVendor[];
   let __modulesMeta: Awaited<ReturnType<typeof glob>>;
+  const __chunkNameHashes: Record<string, string> = {};
   return {
     loadEnvs: __loadEnvs,
     loadModulesMeta: __loadModulesMeta,
-    configManualChunk: __configManualChunk,
+    configManualChunk: __configManualChunkWrapper,
   };
 
   //////////////////////////////
@@ -74,13 +72,20 @@ export function createConfigUtils(
         META_MODE: meta.mode,
         META_APP_MODE: meta.appMode,
       },
+      // compatible with quasar
+      {
+        DEV: meta.mode === 'development',
+        PROD: meta.mode === 'production',
+        SSR: meta.appMode === 'ssr',
+        // DEBUGGING: meta.mode === 'development',
+        // CLIENT: envs!.APP_SERVER === 'true',
+        // SERVER: envs!.APP_SERVER !== 'true',
+        // MODE: meta.appMode,
+      },
     );
-    for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE']) {
+    for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE', 'DEV', 'PROD', 'SSR']) {
       process.env[key] = res[key];
     }
-    // compatible with quasar
-    process.env.DEV = process.env.NODE_ENV === 'development';
-    process.env.PROD = process.env.NODE_ENV === 'production';
     // ok
     return res;
   }
@@ -90,11 +95,20 @@ export function createConfigUtils(
     __modulesMeta = await glob({
       projectMode: 'zova',
       projectPath: configOptions.appDir,
-      disabledModules: process.env.PROJECT_DISABLED_MODULES,
+      disabledModules: __getDisabledModules(),
       disabledSuites: process.env.PROJECT_DISABLED_SUITES,
       log: true,
     });
     return __modulesMeta;
+  }
+
+  function __getDisabledModules() {
+    let modules: string[] | string = process.env.PROJECT_DISABLED_MODULES ?? '';
+    if (!Array.isArray(modules)) modules = modules ? modules.split(',') : [];
+    if (process.env.PINIA_ENABLED === 'false') {
+      modules.push('a-pinia');
+    }
+    return modules;
   }
 
   function __configManualChunk_adjustId(id: string) {
@@ -112,6 +126,21 @@ export function createConfigUtils(
       id = id.substring(index + 'node_modules'.length);
     }
     return id;
+  }
+
+  function __configManualChunkWrapper(id: string) {
+    let output = __configManualChunk(id);
+    if (output && process.env.BUILD_CHUNK_OBFUSCATION === 'true') {
+      output = _configManualChunk_Obfuscation(output);
+    }
+    return output;
+  }
+
+  function _configManualChunk_Obfuscation(output: string) {
+    if (!__chunkNameHashes[output]) {
+      __chunkNameHashes[output] = 'Chunk-' + crypto.createHash('sha1').update(output).digest('hex').slice(0, 6);
+    }
+    return __chunkNameHashes[output];
   }
 
   function __configManualChunk(id: string) {
@@ -157,8 +186,14 @@ export function createConfigUtils(
     const vendors: any = [];
     if (process.env.MOCK_ENABLED === 'true') {
       vendors.push({
-        match: [`~${getMockPath(configOptions, true)}`],
+        match: [/\.fake\.ts/],
         output: '-zova-mock',
+      });
+    }
+    if (process.env.BUILD_CHUNK_OBFUSCATION === 'false') {
+      vendors.push({
+        match: [/\.zova\/config\.ts/],
+        output: '-zova-config',
       });
     }
     return vendors;

@@ -4,7 +4,9 @@ import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
 import { CommonServerOptions } from 'vite';
+import path from 'node:path';
 import { createRequire } from 'node:module';
+import moduleAlias from 'module-alias';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
@@ -25,13 +27,16 @@ export async function generateZovaViteMeta(
   // build
   const build = __getConfigBuild();
   // vitePlugins
-  const vitePlugins = generateVitePlugins(configOptions);
+  const vitePlugins = generateVitePlugins(configOptions, modulesMeta);
   // alias
   const alias = {
     '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
     '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
     'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
   };
+  for (const key in alias) {
+    moduleAlias.addAlias(key, alias[key]);
+  }
   // viteConfig
   const viteConfig = {
     root: configOptions.appDir,
@@ -106,7 +111,7 @@ export async function generateZovaViteMeta(
   }
 
   function __getConfigBuild() {
-    const outDir = process.env.BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`;
+    const outDir = path.join(configOptions.appDir, process.env.BUILD_OUTDIR || `dist/${process.env.META_APP_MODE}`);
     const build = {
       outDir,
       rollupOptions: {

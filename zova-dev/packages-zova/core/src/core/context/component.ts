@@ -7,10 +7,11 @@ export class CtxComponent extends BeanSimple {
   private _bean_render_original: any;
 
   activate() {
+    const renderMethod = 'render';
     const self = this;
     const instance = Cast(this.ctx.instance);
-    this._bean_render_original = instance.render;
-    instance.render = function (this, ...args) {
+    this._bean_render_original = instance[renderMethod];
+    instance[renderMethod] = function (this, ...args) {
       if (instance.isUnmounted) return;
       if (!self.ctx.meta.state.inited.state) {
         return self._bean_render_original.call(this, ...args);
@@ -23,12 +24,14 @@ export class CtxComponent extends BeanSimple {
       // need not use ctx.meta.util.instanceScope, since ctx.instance = getCurrentInstance()
       return render.render();
     };
+    instance.type.ssrRender = null;
   }
 
   /** @internal */
   public dispose() {
+    const renderMethod = 'render';
     const instance = Cast(this.ctx.instance);
-    instance.render = this._bean_render_original;
+    instance[renderMethod] = this._bean_render_original;
     this._bean_render_original = null;
   }
 }

@@ -1,5 +1,6 @@
-import { DefaultOptions, defaultShouldDehydrateQuery } from '@tanstack/vue-query';
-import { ZovaApplication } from 'zova';
+import { DefaultOptions, defaultShouldDehydrateQuery, StaleTime } from '@tanstack/vue-query';
+import { CookieOptions, ZovaApplication } from 'zova';
+import { MaxAgeTime } from '../types.js';
 
 const defaultOptions: DefaultOptions = {
   queries: {
@@ -12,7 +13,11 @@ const defaultOptions: DefaultOptions = {
   dehydrate: {
     shouldDehydrateQuery(query) {
       if (query.meta?.ssr?.dehydrate === false) return false;
+      if (typeof query.meta?.persister === 'object' && query.meta?.persister?.sync) return false;
       return defaultShouldDehydrateQuery(query);
+    },
+    shouldDehydrateMutation(_mutation) {
+      return false;
     },
   },
 };
@@ -20,11 +25,19 @@ const defaultOptions: DefaultOptions = {
 export const config = (_app: ZovaApplication) => {
   return {
     persister: {
-      sync: {
-        maxAge: Infinity,
+      maxAge: {
+        cookie: undefined as MaxAgeTime | undefined, // undefined: session cookie
+        local: Infinity as MaxAgeTime,
+        db: (1000 * 60 * 60 * 24) as number, // 24 hours
       },
-      async: {
-        maxAge: 1000 * 60 * 60 * 24, // 24 hours
+      cookie: {
+        options: {} as Omit<CookieOptions, 'expires'>,
+      },
+    },
+    query: {
+      staleTime: {
+        async: 0 as StaleTime,
+        ssr: Infinity as StaleTime,
       },
     },
     queryClientConfig: {

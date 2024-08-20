@@ -8,7 +8,7 @@ import chalk from 'chalk';
 import { extend } from '@cabloy/extend';
 import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
-import { getEnvMeta, getMockPath } from './utils.js';
+import { getEnvMeta, resolveTemplatePath } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
@@ -24,8 +24,6 @@ export async function generateEntryFiles(
   await __generateModulesMeta();
   // app component
   await __generateAppComponent();
-  // mock files
-  await __generateMockFiles();
 
   //////////////////////////////
 
@@ -97,27 +95,6 @@ export async function generateEntryFiles(
     };
   }
 
-  async function __generateMockFiles() {
-    // clear dest
-    const pathDest = getMockPath(configOptions);
-    if (fse.existsSync(pathDest)) {
-      await fse.emptyDir(pathDest);
-      await fse.rmdir(pathDest);
-    }
-    // check enabled
-    if (process.env.MOCK_ENABLED !== 'true') return;
-    await fse.ensureDir(pathDest);
-    // modules
-    const { modules } = modulesMeta;
-    // loop
-    for (const moduleName in modules) {
-      const module = modules[moduleName];
-      const mockPath = path.join(module.root, 'mock');
-      if (!fse.existsSync(mockPath)) continue;
-      await fse.copy(mockPath, path.join(pathDest, moduleName));
-    }
-  }
-
   async function __generateAppComponent() {
     // dest
     const pathDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'app');
@@ -125,7 +102,7 @@ export async function generateEntryFiles(
     // src
     const files = ['controller.ts', 'render.tsx'];
     for (const file of files) {
-      const fileSrc = new URL(`../templates/app/${file}`, import.meta.url);
+      const fileSrc = resolveTemplatePath(`app/${file}`);
       const fileDest = path.join(pathDest, file);
       fse.copyFileSync(fileSrc, fileDest);
     }
@@ -136,7 +113,7 @@ export async function generateEntryFiles(
     const { modules, modulesArray } = modulesMeta;
     const moduleNames = modulesArray.map(item => item.info.relativeName);
     // src
-    const fileSrc = new URL('../templates/zova-modules-meta.ejs', import.meta.url);
+    const fileSrc = resolveTemplatePath('zova-modules-meta.ejs');
     const contentSrc = readFileSync(fileSrc, 'utf8');
     const template = compileTemplate(contentSrc);
     // dest

@@ -1,4 +1,12 @@
-import { getCurrentInstance, onBeforeUnmount, onUnmounted, queuePostFlushCb, useAttrs, useSlots } from 'vue';
+import {
+  getCurrentInstance,
+  onBeforeUnmount,
+  onServerPrefetch,
+  onUnmounted,
+  queuePostFlushCb,
+  useAttrs,
+  useSlots,
+} from 'vue';
 import { Constructable } from '../decorator/index.js';
 import { ZovaContext } from '../core/context/index.js';
 import {
@@ -83,36 +91,58 @@ async function _useController(
   if (ctx.app) {
     ctx.app.meta.module._monkeyModuleSync('controllerDataPrepare', undefined, controllerData);
   }
-  // dispose
-  onBeforeUnmount(() => {
-    if (!ctx.bean) return;
-    // undefined better than null
-    setControllerRef(ctx, false);
-    if (ctx.bean !== ctx.app.bean) {
-      ctx.bean.dispose();
-    }
-  });
-  onUnmounted(() => {
-    if (!ctx.bean) return;
-    ctx.dispose();
-  });
-  // controller
-  //onMounted(async () => {
-  await ctx.bean._newBeanInner(true, BeanControllerIdentifier, controllerData, undefined, controllerBeanFullName, true);
-  if (styleBeanFullName) {
-    await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
-  }
-  if (renderBeanFullName) {
-    await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
-  }
-  ctx.meta.state.inited.touch();
-  ctx.meta.util.instanceScope(() => {
-    queuePostFlushCb(() => {
-      ctx.meta.state.mounted.touch();
-      setControllerRef(ctx, true);
+  if (process.env.CLIENT) {
+    // dispose
+    onBeforeUnmount(() => {
+      if (!ctx.bean) return;
+      // undefined better than null
+      setControllerRef(ctx, false);
+      if (ctx.bean !== ctx.app.bean) {
+        ctx.bean.dispose();
+      }
     });
-  });
-  //});
+    onUnmounted(() => {
+      if (!ctx.bean) return;
+      ctx.dispose();
+    });
+  }
+
+  async function __load() {
+    // controller
+    await ctx.bean._newBeanInner(
+      true,
+      BeanControllerIdentifier,
+      controllerData,
+      undefined,
+      controllerBeanFullName,
+      true,
+    );
+    if (styleBeanFullName) {
+      await ctx.bean._newBeanInner(true, BeanStyleIdentifier, undefined, undefined, styleBeanFullName, true);
+    }
+    if (renderBeanFullName) {
+      await ctx.bean._newBeanInner(true, BeanRenderIdentifier, undefined, undefined, renderBeanFullName, true);
+    }
+    // must touch inited on server/client, force router.use effect
+    ctx.meta.state.inited.touch();
+    if (process.env.CLIENT) {
+      ctx.meta.util.instanceScope(() => {
+        queuePostFlushCb(() => {
+          ctx.meta.state.mounted.touch();
+          setControllerRef(ctx, true);
+        });
+      });
+    }
+  }
+
+  // load
+  if (process.env.SERVER) {
+    onServerPrefetch(() => {
+      return __load();
+    });
+  } else {
+    __load();
+  }
 }
 
 function setControllerRef(ctx: ZovaContext, on: boolean) {

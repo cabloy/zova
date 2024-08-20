@@ -29,6 +29,8 @@
     "@cabloy/lint": "^4.0.6"
   },
   "dependencies": {
+    "@quasar/app-vite": "2.0.0-beta.18",
+    "fs-extra": "^11.2.0",
     "vite": "^5.2.10",
     "zova-core": "^5.0.116",
     "zova-vite": "^1.0.139"

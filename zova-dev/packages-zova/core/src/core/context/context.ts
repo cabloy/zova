@@ -18,6 +18,7 @@ export class ZovaContext {
     this.app = instance.appContext.app.zova;
     this.bean = BeanContainer.create(this.app, this);
     this.meta = this.bean._newBeanSimple(CtxMeta, false);
+    this.meta.initialize();
   }
 
   /** @internal */

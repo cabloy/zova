@@ -1,9 +1,10 @@
-import { QueryMetaPersister } from '../../types.js';
+import { QueryMetaPersister, resolveMaxAgeTime } from '../../types.js';
 import { experimental_createPersister } from '@tanstack/query-persist-client-core';
 import { Query, QueryKey } from '@tanstack/vue-query';
 import localforage from 'localforage';
 import { SymbolBeanFullName } from 'zova';
 import { BeanModelLast } from './bean.model.last.js';
+import { CookieWrapper } from '../../common/cookieWrapper.js';
 
 export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TScopeModule> {
   $persisterLoad<T>(queryKey: QueryKey): T | undefined {
@@ -11,7 +12,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return undefined;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return undefined;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return undefined;
     const storageKey = this._getPersisterStorageKey(options, query);
     try {
@@ -21,7 +22,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
-        const expired = queryAge > options.maxAge!;
+        const expired = queryAge > (resolveMaxAgeTime(options.maxAge, query) ?? Infinity);
         const busted = persistedQuery.buster !== options.buster;
         if (expired || busted) {
           storage.removeItem(storageKey);
@@ -50,7 +51,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return;
     const storageKey = this._getPersisterStorageKey(options, query);
     const data = options.serialize!({
@@ -74,7 +75,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!query) return;
     const options = this._adjustPersisterOptions(query.meta?.persister);
     if (!options) return;
-    const storage = this._getPersisterStorage(options);
+    const storage = this._getPersisterStorage(options, query);
     if (!storage) return;
     const storageKey = this._getPersisterStorageKey(options, query);
     if (options.sync === true) {
@@ -92,7 +93,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     if (!options) return undefined;
     return experimental_createPersister({
       storage: this._getPersisterStorage(options) as any,
-      maxAge: options.maxAge,
+      maxAge: options.maxAge as number,
       prefix: options.prefix,
       buster: options.buster,
     });
@@ -106,9 +107,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
       options = { ...options };
     }
     options.storage = options.storage ?? (options.sync ? 'local' : 'db');
-    options.maxAge =
-      options.maxAge ??
-      (options.sync ? this.scopeSelf.config.persister.sync.maxAge : this.scopeSelf.config.persister.async.maxAge);
+    options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge[options.storage];
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
     options.serialize = options.serialize ?? JSON.stringify;
@@ -117,15 +116,20 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
   }
 
   protected _getPersisterStorageKey(options: QueryMetaPersister, query: Query) {
-    if (options.storage === 'cookie') return String(query.queryKey[query.queryKey.length - 1]);
+    if (['cookie', 'local'].includes(options.storage!)) return String(query.queryKey[query.queryKey.length - 1]);
     return `${options.prefix}-${query.queryHash}`;
   }
 
-  protected _getPersisterStorage(options?: QueryMetaPersister | boolean) {
+  protected _getPersisterStorage(options?: QueryMetaPersister | boolean, query?: Query) {
     options = this._adjustPersisterOptions(options);
     if (!options) return undefined;
-    if (options.storage === 'cookie') return this.app.meta.cookie;
+    // cookie
+    if (options.storage === 'cookie') return this.bean._newBeanSimple(CookieWrapper, false, options, query);
+    // check server
+    if (process.env.SERVER) return undefined;
+    // local
     if (options.storage === 'local') return localStorage;
+    // db
     if (options.storage === 'db') return localforage;
   }
 

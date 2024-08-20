@@ -15,7 +15,7 @@ import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 import { ScopeModule, __ThisModule__ } from './resource/this.js';
-import { markRaw, useSSRContext } from 'vue';
+import { markRaw } from 'vue';
 import { getRealRouteName } from './utils.js';
 import { LocalRouter } from './bean/local.router.js';
 
@@ -54,12 +54,12 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     this.app.vue.use(this._beanRouter);
     // ssr
     if (process.env.SERVER) {
-      this.ctx.meta.util.instanceScope(() => {
-        const ssrContext = useSSRContext();
-        console.log('-----: ', (<any>ssrContext)._meta.htmlAttrs);
-      });
       // push
-      //this._beanRouter.push(useSSRContext.req);
+      const url = this.ctx.meta.ssr.context.req.url;
+      this._beanRouter.push(url);
+      await this._beanRouter.isReady();
+    } else if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
+      await this._beanRouter.isReady();
     }
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
