@@ -1,5 +1,6 @@
 import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
+import path from 'node:path';
 
 export function getFlavor(offset: number = 2): string {
   return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);
@@ -28,4 +29,8 @@ export function getEnvFromCli(
     value = defaultValue;
   }
   return value;
+}
+
+export function resolveTemplatePath(file: string) {
+  return new URL(path.join('../templates', file), import.meta.url);
 }

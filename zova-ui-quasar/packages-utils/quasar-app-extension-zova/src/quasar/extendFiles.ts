@@ -2,6 +2,8 @@ import fse from 'fs-extra';
 import { ConfigContext } from './types.js';
 import { QuasarConf } from '@quasar/app-vite/types/configuration/conf.js';
 import { IndexAPI } from '@quasar/app-vite';
+import path from 'node:path';
+import { resolveTemplatePath } from '../../../zova-vite/src/utils.js';
 
 export function extendFiles(_context: ConfigContext) {
   return async function extendFiles(conf: QuasarConf, api: IndexAPI) {
@@ -30,6 +32,9 @@ export function extendFiles(_context: ConfigContext) {
       if (!fse.existsSync(api.resolve.ssr(''))) {
         fse.copySync(api.resolve.cli('templates/ssr/ts'), api.resolve.ssr(''));
         fse.copySync(api.resolve.cli('templates/ssr/ssr-flag.d.ts'), api.resolve.ssr('ssr-flag.d.ts'));
+        if (process.env.META_MODE === 'production') {
+          fse.copyFileSync(resolveTemplatePath('env/.env.ssr.production'), api.resolve.app('env/.env.ssr.production'));
+        }
       }
     }
   }
