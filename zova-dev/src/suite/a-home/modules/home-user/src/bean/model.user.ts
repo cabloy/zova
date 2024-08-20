@@ -19,6 +19,8 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
     this.token = this.$useQueryCookie({
       queryKey: ['token'],
     });
+    console.log('jwt', this.jwt);
+    console.log('token', this.token);
   }
 
   login() {
