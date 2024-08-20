@@ -1,18 +1,19 @@
 import fse from 'fs-extra';
-import { ConfigContext } from './types.js';
-import { QuasarConf } from '@quasar/app-vite/types/configuration/conf.js';
 import { IndexAPI } from '@quasar/app-vite';
 import { resolveTemplatePath } from '../utils.js';
+import { getFlavor } from 'zova-vite';
 
-export function extendFiles(_context: ConfigContext) {
-  return async function extendFiles(conf: QuasarConf, api: IndexAPI) {
+export function extendFiles(api: IndexAPI) {
+  const flavor = getFlavor();
+
+  return async function extendFiles() {
     // patch templates
-    await patchTemplates(conf, api);
+    await patchTemplates();
     // prepare templates
-    await prepareTemplates(conf, api);
+    await prepareTemplates();
   };
 
-  async function patchTemplates(_conf: QuasarConf, api: IndexAPI) {
+  async function patchTemplates() {
     // client-entry.js
     const clientEntryFile = api.resolve.cli('templates/entry/client-entry.js');
     const clientEntryContent = (await fse.readFile(clientEntryFile)).toString();
@@ -26,14 +27,25 @@ export function extendFiles(_context: ConfigContext) {
     }
   }
 
-  async function prepareTemplates(_conf: QuasarConf, api: IndexAPI) {
+  async function prepareTemplates() {
+    // ssr
     if ((<any>api.ctx.mode).ssr) {
+      // prod
       if (api.ctx.prod) {
-        const envSSRDest = api.resolve.app('env/.env.ssr.production');
-        if (!fse.existsSync(envSSRDest)) {
-          fse.copyFileSync(resolveTemplatePath('env/.env.ssr.production'), envSSRDest);
-        }
+        copyTemplateIfNeed(resolveTemplatePath('env/.env.ssr.production'), api.resolve.app('env/.env.ssr.production'));
       }
+      // admin/front
+      if (flavor === 'admin') {
+        copyTemplateIfNeed(resolveTemplatePath('env/.env.ssr.admin'), api.resolve.app('env/.env.ssr.admin'));
+      } else if (flavor === 'front') {
+        copyTemplateIfNeed(resolveTemplatePath('env/.env.ssr.front'), api.resolve.app('env/.env.ssr.front'));
+      }
+    }
+  }
+
+  function copyTemplateIfNeed(fileSrc, fileDest) {
+    if (!fse.existsSync(fileDest)) {
+      fse.copyFileSync(fileSrc, fileDest);
     }
   }
 }

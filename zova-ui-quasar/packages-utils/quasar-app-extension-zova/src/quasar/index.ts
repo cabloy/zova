@@ -12,10 +12,11 @@ import { extendViteConf } from './extendViteConf.js';
 import { ConfigContext } from './types.js';
 
 export async function quasar(api: IndexAPI) {
+  // files
+  await extendFiles(api)();
   // context
   const context: ConfigContext = { zovaViteMeta: undefined };
   // config
-  api.extendQuasarConf(extendFiles(context));
   api.extendQuasarConf(extendQuasarConf(context));
   api.extendViteConf(extendViteConf(context));
   // before dev
