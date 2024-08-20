@@ -42,21 +42,15 @@ export default configure(_ctx => {
         node: 'node20',
       },
 
-      // vueRouterMode: 'hash', // available values: 'hash', 'history'
-      // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '/',
       // analyze: true,
-      // env: {},
-      // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
       // polyfillModulePreload: true,
-      // distDir
 
       // extendViteConf(_viteConf) {},
 
