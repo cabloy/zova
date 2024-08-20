@@ -14,9 +14,14 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
     _names.push(dark ? 'dark' : 'light');
     const themeName = _names.join('-');
     // data-theme
-    const body = window?.document?.documentElement;
-    if (body) {
-      body.setAttribute('data-theme', themeName);
+    if (process.env.CLIENT) {
+      const body = window?.document?.documentElement;
+      if (body) {
+        body.setAttribute('data-theme', themeName);
+      }
+    } else {
+      // meta
+      this.$useMeta({ bodyAttr: { 'data-theme': themeName } });
     }
   }
 }

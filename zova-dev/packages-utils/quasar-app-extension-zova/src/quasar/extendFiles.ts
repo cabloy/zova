@@ -18,6 +18,11 @@ export function extendFiles(api: IndexAPI) {
     fse.copyFileSync(resolveTemplatePath('entry/app.js'), api.resolve.cli('templates/entry/app.js'));
     // client-entry.js
     fse.copyFileSync(resolveTemplatePath('entry/client-entry.js'), api.resolve.cli('templates/entry/client-entry.js'));
+    // server-entry.mjs
+    fse.copyFileSync(
+      resolveTemplatePath('entry/server-entry.mjs'),
+      api.resolve.cli('templates/entry/server-entry.mjs'),
+    );
   }
 
   async function prepareTemplates() {
