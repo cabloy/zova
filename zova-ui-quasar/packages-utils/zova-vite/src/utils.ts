@@ -2,11 +2,11 @@ import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
 
 export function getFlavor(offset: number = 2): string {
-  return getEnvFromCli('FLAVOR', 'flavor', 'app', offset);
+  return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);
 }
 
 export function getAppMode(offset: number = 2): string {
-  return getEnvFromCli('APPMODE', 'appMode', 'spa', offset);
+  return getEnvFromCli('APPMODE', 'appMode', 'ssr', offset);
 }
 
 export function getEnvMeta(configMeta: ZovaConfigMeta) {
