@@ -63,12 +63,18 @@ importers:
       '@cabloy/lint':
         specifier: ^4.0.11
         version: 4.0.11(typescript@5.5.4)
+      '@quasar/app-vite':
+        specifier: 2.0.0-beta.18
+        version: 2.0.0-beta.18(@types/node@20.14.15)(eslint@8.57.0)(pinia@2.2.1(typescript@5.5.4)(vue@3.4.37(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.20.0)(terser@5.31.5)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.37(typescript@5.5.4)))(vue@3.4.37(typescript@5.5.4))
       '@types/node':
         specifier: ^20.14.2
         version: 20.14.15
       '@vitejs/plugin-vue':
         specifier: ^5.0.5
         version: 5.1.2(vite@5.4.0(@types/node@20.14.15)(sass@1.77.8)(terser@5.31.5))(vue@3.4.37(typescript@5.5.4))
+      quasar-app-extension-zova:
+        specifier: workspace:^
+        version: link:packages-utils/quasar-app-extension-zova
       sass:
         specifier: ^1.77.5
         version: 1.77.8
