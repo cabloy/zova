@@ -3,7 +3,6 @@ import { extend } from '@cabloy/extend';
 import * as devalue from 'devalue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Cast, SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
-import { ZovaApplication } from '../app/application.js';
 
 export class CtxSSRMetaStore extends BeanSimple {
   private _updateId: number = 0;
@@ -33,7 +32,7 @@ export class CtxSSRMetaStore extends BeanSimple {
   private _onRenderedLast() {
     const ssrContext = this.ctx.meta.ssr.context;
     injectContextState(ssrContext);
-    injectServerMeta(ssrContext, this.app);
+    injectServerMeta(ssrContext);
   }
 
   addMetaOptions(metaOptionsWrapper: SSRMetaOptionsWrapper) {
@@ -246,7 +245,7 @@ function getHead(meta) {
   return output;
 }
 
-function injectServerMeta(ssrContext: SSRContext, app: ZovaApplication) {
+function injectServerMeta(ssrContext: SSRContext) {
   const data: SSRMetaOptions = {
     title: '',
     titleTemplate: undefined,
@@ -320,7 +319,7 @@ function injectServerMeta(ssrContext: SSRContext, app: ZovaApplication) {
         ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
       window.ssr_local_themedark=ssr_local_themedark;
-      ${app.config.ssr.cookieThemeName ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');"}
+      ${process.env.SSR_COOKIE_THEMENAME === 'true' ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');"}
       document.querySelector('#ssr-prefers-color-schema-dark').remove();
   </script>`.replaceAll('\n', '');
 
