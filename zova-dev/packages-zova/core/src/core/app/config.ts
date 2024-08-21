@@ -20,7 +20,7 @@ export const configDefault = {
     prefix: process.env.API_PREFIX,
   },
   ssr: {
-    cookie: process.env.SSR_COOKIE === 'true',
+    cookieThemeName: process.env.SSR_COOKIE_THEMENAME === 'true',
     optimization: {
       bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
     },
@@ -64,7 +64,7 @@ export type ZovaConfig = {
     prefix: string;
   };
   ssr: {
-    cookie: boolean;
+    cookieThemeName: boolean;
     optimization: {
       bodyHiddenBeforeLoad: boolean;
     };
