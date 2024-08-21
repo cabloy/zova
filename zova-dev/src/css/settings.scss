@@ -17,3 +17,7 @@ body {
 .text-center {
   text-align: center;
 }
+
+ul.menu details > ul {
+  z-index: 1;
+}
