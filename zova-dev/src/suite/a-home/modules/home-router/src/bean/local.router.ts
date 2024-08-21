@@ -10,7 +10,7 @@ export class LocalRouter extends BeanRouterBase<ScopeModule> {
 
   protected onRouterGuards(router: BeanRouter) {
     router.beforeEach(async to => {
-      if (to.meta.requiresAuth !== false && !this.$$modelAuth.jwt) {
+      if (to.meta.requiresAuth !== false && !this.$$modelAuth.isAuthenticated) {
         return '/home/user/login';
       }
     });

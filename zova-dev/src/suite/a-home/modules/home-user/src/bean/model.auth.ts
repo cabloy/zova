@@ -50,14 +50,30 @@ export class ModelAuth extends BeanModelBase<ScopeModule> {
     });
   }
 
-  getJwtAuthorization() {
-    if (!this.jwt) return undefined;
-    return this.jwt.expireTime - Date.now() > 120 * 1000 ? this.jwt.accessToken : this.jwt.refreshToken;
+  get jwtAuthorization() {
+    if (process.env.SERVER) {
+      return this.token;
+    } else {
+      return this._getTokenFromJwt(this.jwt);
+    }
+  }
+
+  get isAuthenticated(): boolean {
+    if (process.env.SERVER) {
+      return !!this.token;
+    } else {
+      return !!this.jwt;
+    }
   }
 
   private _setUser(data: ServiceAuthLoginResult) {
     this.$$modelUser.user = data.user;
     this.jwt = data.jwt;
-    this.token = this.getJwtAuthorization();
+    this.token = this._getTokenFromJwt(this.jwt);
+  }
+
+  private _getTokenFromJwt(jwt?: ServiceAuthJWT) {
+    if (!jwt) return undefined;
+    return jwt.expireTime - Date.now() > 120 * 1000 ? jwt.accessToken : jwt.refreshToken;
   }
 }

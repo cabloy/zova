@@ -17,7 +17,13 @@ export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
+    let baseURL;
+    if (process.env.SERVER) {
+      baseURL = process.env.SSR_API_BASE_URL;
+    } else {
+      baseURL = this.app.config.api.baseURL || '';
+    }
+    baseURL = `${baseURL}${this.app.config.api.prefix || ''}`;
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     this._addInterceptors(this[SymbolApi]);
   }
@@ -31,7 +37,7 @@ export class BeanApi extends BeanBase {
     api.interceptors.request.use(
       config => {
         if (this.app.config.base.jwt) {
-          config.headers.Authorization = `Bearer ${this.$$modelAuth.getJwtAuthorization()}`;
+          config.headers.Authorization = `Bearer ${this.$$modelAuth.jwtAuthorization || ''}`;
         }
         return config;
       },
