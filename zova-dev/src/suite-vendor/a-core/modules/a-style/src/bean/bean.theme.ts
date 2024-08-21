@@ -22,7 +22,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   protected async __init__() {
     // support admin
-    const useQueryMethod = this.app.config.ssr.cookie ? '$useQueryCookie' : '$useQueryLocal';
+    const useQueryMethod = this.app.config.ssr.cookieThemeName ? '$useQueryCookie' : '$useQueryLocal';
     this.name = this[useQueryMethod]({
       queryKey: ['themename'],
       meta: {
