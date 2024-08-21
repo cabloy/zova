@@ -144,19 +144,20 @@ export class CtxSSR extends BeanSimple {
     _instance: ComponentInternalInstance | null,
   ): OnHydratePropHasMismatchResult {
     // expected
+    let ignore = false;
     let expected: string | undefined = undefined;
     if (key === 'class') {
+      ignore = true;
       expected = normalizeClass(clientValue);
     } else if (key === 'style') {
+      ignore = true;
       expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
+    } else if (el.getAttribute(`data-hydrate-ignore-${key}`) !== null) {
+      ignore = true;
+      expected = String(clientValue);
     }
-    //
-    if (expected === undefined) return { clientValue };
-    //
-    const serverFirst = el.getAttribute('data-hydrate-props-server-first');
-    if (serverFirst === null) {
-      el.setAttribute(key, expected);
-    }
+    if (!ignore) return { clientValue };
+    el.setAttribute(key, expected as string);
     return { ignore: true };
   }
 
