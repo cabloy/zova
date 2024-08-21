@@ -15,7 +15,7 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
     const themeName = _names.join('-');
     // data-theme
     if (process.env.CLIENT) {
-      const body = window?.document?.documentElement;
+      const body = window?.document?.body;
       if (body) {
         body.setAttribute('data-theme', themeName);
       }
