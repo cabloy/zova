@@ -11,3 +11,7 @@ export type TypeModuleErrors<T> = {
 };
 
 export type OnErrorHandler = (err: unknown, instance: ComponentPublicInstance | null, info: string) => void;
+
+export interface ErrorSSR extends Error {
+  url?: string;
+}
