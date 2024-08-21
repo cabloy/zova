@@ -1,6 +1,6 @@
 import { BeanControllerBase, Local, Use, UseScope, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
-import type { ModelUser } from 'zova-module-home-user';
+import type { ModelAuth, ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../resource/this.js';
 import type { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
 import { RenderTabs } from './renderTabs.jsx';
@@ -27,6 +27,8 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
 
   @Use()
   $$modelMenu: ModelMenu;
+  @Use('home-user.model.auth')
+  $$modelAuth: ModelAuth;
   @Use('home-user.model.user')
   $$modelUser: ModelUser;
   @Use('a-tabs.model.tabs')

@@ -18,7 +18,7 @@ export class RenderUser extends BeanRenderBase<ScopeModule> {
             <li>
               <a
                 onClick={() => {
-                  this.$$modelUser.logout().mutate();
+                  this.$$modelAuth.logout().mutate();
                 }}
               >
                 {this.scope.locale.Logout()}
