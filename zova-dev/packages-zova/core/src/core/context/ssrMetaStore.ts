@@ -3,6 +3,7 @@ import { extend } from '@cabloy/extend';
 import * as devalue from 'devalue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { Cast, SSRContext, SSRMetaOptions, SSRMetaOptionsWrapper } from '../../types/index.js';
+import { ZovaApplication } from '../app/application.js';
 
 export class CtxSSRMetaStore extends BeanSimple {
   private _updateId: number = 0;
@@ -32,7 +33,7 @@ export class CtxSSRMetaStore extends BeanSimple {
   private _onRenderedLast() {
     const ssrContext = this.ctx.meta.ssr.context;
     injectContextState(ssrContext);
-    injectServerMeta(ssrContext);
+    injectServerMeta(ssrContext, this.app);
   }
 
   addMetaOptions(metaOptionsWrapper: SSRMetaOptionsWrapper) {
@@ -245,7 +246,7 @@ function getHead(meta) {
   return output;
 }
 
-function injectServerMeta(ssrContext: SSRContext) {
+function injectServerMeta(ssrContext: SSRContext, app: ZovaApplication) {
   const data: SSRMetaOptions = {
     title: '',
     titleTemplate: undefined,
@@ -310,12 +311,16 @@ function injectServerMeta(ssrContext: SSRContext) {
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
   ctx.endingHeadTags += `<script id="ssr-prefers-color-schema-dark">
-      var __prefersColorSchemeDarkLocal=localStorage.getItem('themedark');
-      __prefersColorSchemeDarkLocal=__prefersColorSchemeDarkLocal?JSON.parse(__prefersColorSchemeDarkLocal):null;
-      if(__prefersColorSchemeDarkLocal===null || __prefersColorSchemeDarkLocal==='auto'){
-        __prefersColorSchemeDarkLocal=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      window.ssr_load_local=function(key){
+        const __ssr_local=localStorage.getItem(key);
+        return __ssr_local?JSON.parse(__ssr_local):undefined;
+      };
+      const ssr_local_themedark=window.ssr_load_local('themedark');
+      if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
+        ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
-      window.__prefersColorSchemeDark=__prefersColorSchemeDarkLocal;
+      window.ssr_local_themedark=ssr_local_themedark;
+      ${app.config.ssr.cookieThemeName ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');"}
       document.querySelector('#ssr-prefers-color-schema-dark').remove();
   </script>`.replaceAll('\n', '');
 
