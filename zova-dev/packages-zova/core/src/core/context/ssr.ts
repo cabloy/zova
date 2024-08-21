@@ -11,6 +11,7 @@ import {
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
 import { isString, stringifyStyle } from '@vue/shared';
+import { ErrorSSR } from '../../bean/index.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
@@ -119,6 +120,20 @@ export class CtxSSR extends BeanSimple {
     } else {
       return fn();
     }
+  }
+  redirect(url: string): void;
+  redirect(status: number, url: string): void;
+  redirect(status: number | string, url?: string) {
+    let code: number | undefined;
+    if (typeof status === 'string') {
+      url = status;
+    } else {
+      code = status;
+    }
+    const error = new Error() as ErrorSSR;
+    if (code !== undefined) error.code = code;
+    error.url = url;
+    throw error;
   }
 
   private _onHydratePropHasMismatchDefault(
