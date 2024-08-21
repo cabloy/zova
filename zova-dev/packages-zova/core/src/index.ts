@@ -1,4 +1,5 @@
 export * from './bean/index.js';
+export * from './components/index.js';
 export * from './core/index.js';
 export * from './decorator/index.js';
 export * from './composables/index.js';

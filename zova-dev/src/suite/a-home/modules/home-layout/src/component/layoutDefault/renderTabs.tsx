@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, ZovaIcon, icon } from 'zova';
+import { BeanRenderBase, ClientOnly, Local, ZovaIcon, icon } from 'zova';
 import { ScopeModule, __ThisModule__ } from '../../resource/this.js';
 import { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
@@ -42,9 +42,11 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
       domTabs.push(domTab);
     }
     return (
-      <div role="tablist" class="tabs tabs-lifted">
-        {domTabs}
-      </div>
+      <ClientOnly>
+        <div role="tablist" class="tabs tabs-lifted">
+          {domTabs}
+        </div>
+      </ClientOnly>
     );
   }
 

@@ -1,6 +1,7 @@
-import { defineComponent } from 'vue';
+import { defineComponent, onServerPrefetch } from 'vue';
 import { mergeProps, createVNode } from 'vue';
-import { useZovaIcon } from './useZovaIcon.js';
+import { getZovaIcon } from './useZovaIcon.js';
+import { useApp } from '../../../composables/useApp.js';
 
 export const ZovaIcon = defineComponent({
   name: 'ZovaIcon',
@@ -13,12 +14,21 @@ export const ZovaIcon = defineComponent({
     color: String,
   },
   setup(props, _ref2) {
-    const { iconInfo } = useZovaIcon(() => props.name);
+    const app = useApp();
+    onServerPrefetch(async () => {
+      const icon = props.name;
+      if (icon === 'none' || !icon) {
+        return;
+      }
+      await app.meta.icon.parseIconInfo(icon);
+    });
     return () => {
+      // icon info
+      const iconInfo = getZovaIcon(props.name, app);
       // href
       let href = props.href;
       if (!href) {
-        href = `#${iconInfo.value?.symbolId || ''}`;
+        href = `#${iconInfo?.symbolId || ''}`;
       }
       // svgProps
       const svgProps = mergeProps(

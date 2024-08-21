@@ -54,10 +54,16 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   leftDrawerOpen: boolean = false;
 
   protected async __init__() {
+    // tabs
     await this._initTabs();
+    // user
     if (process.env.SERVER) {
       await this.$$modelUser.ensureUser();
     }
+    // menu
+    const queryMenus = this.$$modelMenu.select();
+    await queryMenus.suspense();
+    if (queryMenus.error) throw queryMenus.error;
   }
 
   private async _initTabs() {
