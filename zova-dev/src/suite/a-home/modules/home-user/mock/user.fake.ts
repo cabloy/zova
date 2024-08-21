@@ -38,4 +38,20 @@ export default defineFakeRoute([
       };
     },
   },
+  {
+    url: '/home/user/info',
+    method: 'get',
+    response: req => {
+      const username = (req.headers.authorization || '').split('-')[1];
+      const user = __users.find(item => item.username === username);
+      if (!user) {
+        return { code: 403, message: 'Error' };
+      }
+      return {
+        code: 0,
+        message: 'Success',
+        data: user,
+      };
+    },
+  },
 ]);

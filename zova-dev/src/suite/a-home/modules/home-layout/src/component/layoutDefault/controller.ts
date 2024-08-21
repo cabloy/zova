@@ -54,6 +54,13 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   leftDrawerOpen: boolean = false;
 
   protected async __init__() {
+    await this._initTabs();
+    if (process.env.SERVER) {
+      await this.$$modelUser.ensureUser();
+    }
+  }
+
+  private async _initTabs() {
     const configTabs = this.scope.config.tabs;
     const tabsOptions: ModelTabsOptions = {
       scene: configTabs.scene,

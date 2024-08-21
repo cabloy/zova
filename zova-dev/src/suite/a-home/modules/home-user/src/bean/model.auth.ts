@@ -1,4 +1,4 @@
-import { Model } from 'zova';
+import { Model, Use } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../resource/this.js';
 import { ServiceAuthJWT, ServiceAuthLoginParams, ServiceAuthLoginResult } from '../api/interface/auth.js';
@@ -8,6 +8,7 @@ import { ModelUser } from './model.user.js';
 export class ModelAuth extends BeanModelBase<ScopeModule> {
   jwt?: ServiceAuthJWT;
   token?: string;
+  @Use()
   $$modelUser: ModelUser;
 
   protected async __init__() {

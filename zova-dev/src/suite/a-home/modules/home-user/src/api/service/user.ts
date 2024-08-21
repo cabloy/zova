@@ -1,10 +1,8 @@
 import { ZovaApplication } from 'zova';
-import { ServiceUserLoginParams, ServiceUserLoginResult } from '../interface/user.js';
+import { ServiceUserEntity } from '../interface/user.js';
 
 export default (app: ZovaApplication) => {
   return {
-    login: (params: ServiceUserLoginParams) =>
-      app.meta.$api.post<any, ServiceUserLoginResult, ServiceUserLoginParams>('/home/user/login', params),
-    logout: () => app.meta.$api.post<any, void, void>('/home/user/logout'),
+    getUserInfo: () => app.meta.$api.get<any, ServiceUserEntity>('/home/user/info'),
   };
 };
