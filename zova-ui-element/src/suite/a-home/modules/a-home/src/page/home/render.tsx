@@ -15,11 +15,8 @@ export class RenderHome extends BeanRenderBase<ScopeModule> {
         }}
       >
         <div>
-          <div style="font-size: 5vh">Hello Zova</div>
-
-          <div class="text-h5" style="opacity:.4">
-            Less is more, while more is less
-          </div>
+          <div style="font-size: 36px">Hello Zova</div>
+          <div style="font-size: 24px;opacity:.4">Less is more, while more is less</div>
         </div>
       </div>
     );
