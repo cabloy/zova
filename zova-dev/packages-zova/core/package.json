@@ -45,7 +45,7 @@
     "@cabloy/localeutil": "^1.0.4",
     "@cabloy/module-info": "^1.0.20",
     "@cabloy/vue-reactivity": "^3.4.45",
-    "@cabloy/vue-router": "^4.4.6",
+    "@cabloy/vue-router": "^4.4.7",
     "@cabloy/vue-runtime-core": "^3.4.45",
     "@types/js-cookie": "^3.0.6",
     "@vue/reactivity": "^3.4.27",
