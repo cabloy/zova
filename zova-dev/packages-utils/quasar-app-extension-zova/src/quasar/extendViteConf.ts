@@ -34,5 +34,9 @@ export function extendViteConf(context: ConfigContext) {
         }
       };
     }
+    // env: special for dist files
+    if (opts.isServer) {
+      process.env.SERVER = true;
+    }
   };
 }
