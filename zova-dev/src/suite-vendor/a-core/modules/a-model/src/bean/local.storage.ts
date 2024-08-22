@@ -3,7 +3,7 @@ import { ScopeModule } from '../resource/this.js';
 import { dehydrate, hydrate, QueryClient, VueQueryPlugin, VueQueryPluginOptions } from '@tanstack/vue-query';
 
 @Local()
-export class Storage extends BeanBase<ScopeModule> {
+export class LocalStorage extends BeanBase<ScopeModule> {
   protected async __init__() {
     // options
     let options = this.scope.config.queryClientConfig.defaultOptions;
