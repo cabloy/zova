@@ -1,11 +1,8 @@
 import fse from 'fs-extra';
 import { IndexAPI } from '@quasar/app-vite';
 import { resolveTemplatePath } from '../utils.js';
-import { getFlavor } from 'zova-vite';
 
-export function extendFiles(api: IndexAPI) {
-  const flavor = getFlavor();
-
+export function extendFiles(api: IndexAPI, flavor: string) {
   return async function extendFiles() {
     // patch templates
     await patchTemplates();
