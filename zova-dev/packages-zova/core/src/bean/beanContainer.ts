@@ -452,7 +452,13 @@ export class BeanContainer {
     // app/ctx
     if (beanInstance instanceof BeanSimple) {
       // app
-      (<any>beanInstance).app = this.app;
+      Object.defineProperty(beanInstance, 'app', {
+        enumerable: false,
+        configurable: true,
+        get: () => {
+          return this.ctx.app;
+        },
+      });
       // ctx: always set even if is null, so as to prevent magic method __get__ take effect.
       (<any>beanInstance).ctx = this.ctx;
     }
