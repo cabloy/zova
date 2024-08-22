@@ -55,5 +55,5 @@
     "@tanstack/vue-query": "^5.45.0",
     "localforage": "^1.10.0"
   },
-  "gitHead": "1215d0a8748f399e519227d3676e764a2f813340"
+  "gitHead": "922381c3a09280eee63c506c1868343d1c60af7c"
 }
