@@ -61,6 +61,7 @@
     "@quasar/app-vite": "2.0.0-beta.18",
     "@types/node": "^20.16.1",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
     "quasar-app-extension-zova": "^1.1.132",
     "typescript": "^5.5.4",
     "vue-tsc": "^2.0.29"
