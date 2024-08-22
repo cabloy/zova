@@ -1,6 +1,4 @@
 packages:
-  - 'packages-zova/*'
-  - 'packages-utils/*'
   - 'src/module/*'
   - 'src/module-vendor/*'
   - 'src/suite/*'
