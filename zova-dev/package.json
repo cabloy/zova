@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "zova": "cd ../zova-cli && tsc -b && cd ../zova-dev && node ../zova-cli/cli/dist/bin/zova.js",
-    "dev": "tsc -b && vite",
+    "dev": "npm run dev:ssr:admin",
     "build": "tsc -b && vue-tsc --noEmit --project tsconfig.vue-tsc.json && vite build",
     "preview": "vite preview --outDir=dist/spa",
     "dev:ssr:admin": "tsc -b && quasar dev --mode ssr --flavor admin",
