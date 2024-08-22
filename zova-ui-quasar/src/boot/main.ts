@@ -1,4 +1,4 @@
-import { SSRContext } from 'zova';
+import { Cast, SSRContext } from 'zova';
 import { App } from 'vue';
 import { Quasar } from 'quasar';
 import 'quasar/dist/quasar.sass';
@@ -6,8 +6,8 @@ import 'quasar/dist/quasar.sass';
 export default (app: App, ssrContext: SSRContext) => {
   const quasarUserOptions = {
     config: {
-      dark: window.ssr_local_themedark,
+      dark: process.env.CLIENT ? window.ssr_local_themedark : undefined,
     },
   };
-  (<any>app.use)(Quasar, quasarUserOptions, ssrContext);
+  Cast(app.use)(Quasar, quasarUserOptions, ssrContext);
 };
