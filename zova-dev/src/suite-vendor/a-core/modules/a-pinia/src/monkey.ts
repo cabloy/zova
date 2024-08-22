@@ -1,12 +1,12 @@
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
-import { Pinia } from './local/pinia.js';
+import { LocalPinia } from './bean/local.pinia.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  pinia: Pinia;
+  pinia: LocalPinia;
 
   async appInitialize(bean: BeanContainer) {
     // pinia
-    this.pinia = await bean._newBean(Pinia, false);
+    this.pinia = await bean._newBean(LocalPinia, false);
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}
