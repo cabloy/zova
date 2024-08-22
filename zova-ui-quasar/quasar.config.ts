@@ -33,13 +33,6 @@ export default configure(_ctx => {
       open: false, // opens browser window automatically
     },
 
-    framework: {
-      config: {},
-      components: [],
-      // directives: [],
-      plugins: [],
-    },
-
     animations: [],
 
     ssr: {
