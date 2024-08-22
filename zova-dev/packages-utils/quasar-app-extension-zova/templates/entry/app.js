@@ -66,7 +66,7 @@ export default async function (createAppFn<%= ctx.mode.ssr ? ', ssrContext' : ''
   app.config.performance = true
   <% } %>
 
-  mainFn(<%= ctx.mode.ssr ? 'ssrContext' : '' %>)
+  mainFn(app<%= ctx.mode.ssr ? ', ssrContext' : '' %>)
 
   <% if (ctx.mode.capacitor) { %>
   app.config.globalProperties.$q.capacitor = window.Capacitor
