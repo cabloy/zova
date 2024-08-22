@@ -1,8 +1,13 @@
 import { SSRContext } from 'zova';
+import { App } from 'vue';
 import { Quasar } from 'quasar';
+import 'quasar/dist/quasar.sass';
 
-import '@quasar/extras/roboto-font/roboto-font.css';
-
-import 'src/css/app.scss';
-
-export default (_ssrContext: SSRContext) => {};
+export default (app: App, ssrContext: SSRContext) => {
+  const quasarUserOptions = {
+    config: {
+      dark: window.ssr_local_themedark,
+    },
+  };
+  (<any>app.use)(Quasar, quasarUserOptions, ssrContext);
+};
