@@ -260,14 +260,15 @@ export class AppModule extends BeanSimple {
     for (const key of this.modulesMeta.moduleNames) {
       const moduleMonkey: IModule = this.modulesMeta.modules[key];
       if (moduleMonkey.info.capabilities?.monkey) {
-        if (moduleMonkey.monkeyInstance && moduleMonkey.monkeyInstance[monkeyName]) {
+        const module = this.modules[key];
+        if (module && module.monkeyInstance && module.monkeyInstance[monkeyName]) {
           this.app.vue.runWithContext(() => {
             if (moduleTarget === undefined) {
               // @ts-ignore ignore
-              moduleMonkey.monkeyInstance[monkeyName](...monkeyData);
+              module.monkeyInstance[monkeyName](...monkeyData);
             } else {
               // @ts-ignore ignore
-              moduleMonkey.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
+              module.monkeyInstance[monkeyName](moduleTarget, ...monkeyData);
             }
           });
         }
