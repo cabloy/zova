@@ -27,6 +27,7 @@ export class Storage extends BeanBase<ScopeModule> {
             return false;
           },
         });
+        queryClient.clear();
       });
     }
     // client
