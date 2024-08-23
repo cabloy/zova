@@ -21,9 +21,6 @@ export default configure(_ctx => {
         node: 'node20',
       },
 
-      // analyze: true,
-      // minify: false,
-
       // extendViteConf(_viteConf) {},
       // viteVuePluginOptions: {},
     },
