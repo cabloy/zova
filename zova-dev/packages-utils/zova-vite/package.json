@@ -32,7 +32,7 @@
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.1",
     "@babel/plugin-transform-class-properties": "^7.24.1",
-    "@cabloy/dotenv": "^1.0.1",
+    "@cabloy/dotenv": "^1.0.2",
     "@cabloy/extend": "^3.0.5",
     "@cabloy/module-glob": "^5.0.15",
     "@cabloy/module-info": "^1.0.20",
