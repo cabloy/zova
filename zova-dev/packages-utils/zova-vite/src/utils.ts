@@ -34,3 +34,15 @@ export function getEnvFromCli(
 export function resolveTemplatePath(file: string) {
   return new URL(path.join('../templates', file), import.meta.url);
 }
+
+export function generateConfigDefine(env) {
+  const acc = {};
+  for (const key in env) {
+    const val = env[key];
+    acc[`process.env.${key}`] =
+      val === 'true' || val === 'false'
+        ? val // let's keep it as boolean and not transform it to string
+        : JSON.stringify(env[key]);
+  }
+  return acc;
+}

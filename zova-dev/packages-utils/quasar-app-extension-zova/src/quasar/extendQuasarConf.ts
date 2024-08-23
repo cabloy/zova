@@ -21,6 +21,8 @@ export function extendQuasarConf(context: ConfigContext, flavor: string) {
       zovaManualChunk: (<any>conf).zovaManualChunk,
     };
     // zovaViteMeta
+    context.configMeta = configMeta;
+    context.configOptions = configOptions;
     const zovaViteMeta = (context.zovaViteMeta = await generateZovaViteMeta(configMeta, configOptions));
 
     // boot
@@ -29,7 +31,8 @@ export function extendQuasarConf(context: ConfigContext, flavor: string) {
     // build: alias
     conf.build = mergeConfig(conf.build as unknown as any, {
       alias: zovaViteMeta.viteConfig.resolve.alias,
-      env: zovaViteMeta.env,
+      // not set env here
+      //env: zovaViteMeta.env,
     });
     // build: publicPath
     conf.build.publicPath = process.env.APP_PUBLIC_PATH;

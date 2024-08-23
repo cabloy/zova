@@ -19,7 +19,7 @@ export async function quasar(api: IndexAPI) {
   // files
   await extendFiles(api, flavor)();
   // context
-  const context: ConfigContext = { zovaViteMeta: undefined };
+  const context = { configMeta: undefined, configOptions: undefined, zovaViteMeta: undefined } as ConfigContext;
   // config
   api.extendQuasarConf(extendQuasarConf(context, flavor));
   api.extendViteConf(extendViteConf(context));

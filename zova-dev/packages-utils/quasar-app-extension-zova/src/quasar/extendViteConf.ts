@@ -1,4 +1,4 @@
-import { ZovaViteConfigResult } from 'zova-vite';
+import { generateConfigDefine, ZovaViteConfigResult } from 'zova-vite';
 import { mergeConfig, UserConfig as ViteUserConfig } from 'vite';
 import { ConfigContext } from './types.js';
 
@@ -34,9 +34,34 @@ export function extendViteConf(context: ConfigContext) {
         }
       };
     }
-    // env: special for dist files
-    if (opts.isServer) {
-      process.env.SERVER = true;
+    // env
+    let env;
+    if (opts.isClient) {
+      env = zovaViteMeta.env;
+    } else {
+      // ready for save to disk
+      env = Object.assign({}, zovaViteMeta.env, {
+        SERVER: true,
+        CLIENT: false,
+      });
+      // env: special for dist files
+      process.env.SERVER = env.SERVER;
+      // process.env.CLIENT = env.CLIENT; // should not set if false
+    }
+    // define
+    if (opts.isClient) {
+      const define = generateConfigDefine(env);
+      conf.define = mergeConfig(conf.define || {}, define);
+    } else {
+      // env: special for dist files
+      const define = generateConfigDefine({
+        SERVER: env.SERVER,
+        CLIENT: env.CLIENT,
+        DEV: env.DEV,
+        PROD: env.PROD,
+        SSR: env.SSR,
+      });
+      conf.define = mergeConfig(conf.define || {}, define);
     }
   };
 }

@@ -20,8 +20,6 @@ export async function generateZovaViteMeta(
   const env = configUtils.loadEnvs();
   // modulesMeta
   const modulesMeta = await configUtils.loadModulesMeta();
-  // define
-  const define = __getConfigDefine(env);
   // server
   const server = __getConfigServer();
   // build
@@ -42,7 +40,6 @@ export async function generateZovaViteMeta(
     root: configOptions.appDir,
     base: env.APP_PUBLIC_PATH,
     mode: configMeta.mode,
-    define,
     server,
     build,
     resolve: {
@@ -96,18 +93,6 @@ export async function generateZovaViteMeta(
       server.port = Number(process.env.DEV_SERVER_PORT);
     }
     return server;
-  }
-
-  function __getConfigDefine(env) {
-    const acc = {};
-    for (const key in env) {
-      const val = env[key];
-      acc[`process.env.${key}`] =
-        val === 'true' || val === 'false'
-          ? val // let's keep it as boolean and not transform it to string
-          : JSON.stringify(env[key]);
-    }
-    return acc;
   }
 
   function __getConfigBuild() {
