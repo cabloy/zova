@@ -38,11 +38,7 @@ export function resolveTemplatePath(file: string) {
 export function generateConfigDefine(env) {
   const acc = {};
   for (const key in env) {
-    const val = env[key];
-    acc[`process.env.${key}`] =
-      val === 'true' || val === 'false'
-        ? val // let's keep it as boolean and not transform it to string
-        : JSON.stringify(env[key]);
+    acc[`process.env.${key}`] = JSON.stringify(env[key]);
   }
   return acc;
 }
