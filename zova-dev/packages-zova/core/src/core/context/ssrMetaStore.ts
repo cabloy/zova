@@ -314,7 +314,7 @@ function injectServerMeta(ssrContext: SSRContext) {
         const __ssr_local=localStorage.getItem(key);
         return __ssr_local?JSON.parse(__ssr_local):undefined;
       };
-      const ssr_local_themedark=window.ssr_load_local('themedark');
+      let ssr_local_themedark=window.ssr_load_local('themedark');
       if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
         ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
