@@ -20,6 +20,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
       resolveTemplatePath('entry/server-entry.mjs'),
       api.resolve.cli('templates/entry/server-entry.mjs'),
     );
+    // ssr: middlewares/env.ts
+    fse.copyFileSync(resolveTemplatePath('modes/ssr/middlewares/env.ts'), api.resolve.ssr('middlewares/env.ts'));
   }
 
   async function prepareTemplates() {
