@@ -11,18 +11,13 @@ export default configure(_ctx => {
       debug: false,
       vendors: [],
     },
-    build: {
-      target: {
-        browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
-        node: 'node20',
-      },
 
+    build: {
       // extendViteConf(_viteConf) {},
       // viteVuePluginOptions: {},
     },
 
     devServer: {
-      // https: true
       open: false, // opens browser window automatically
     },
 
@@ -31,8 +26,6 @@ export default configure(_ctx => {
         'env', // keep this as first one
         'render', // keep this as last one
       ],
-      // extendPackageJson (json) {},
-      // extendSSRWebserverConf (esbuildConf) {},
     },
   };
 });
