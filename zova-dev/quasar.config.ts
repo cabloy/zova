@@ -31,6 +31,7 @@ export default configure(_ctx => {
 
     ssr: {
       middlewares: [
+        'env', // keep this as first one
         'render', // keep this as last one
       ],
       // extendPackageJson (json) {},
