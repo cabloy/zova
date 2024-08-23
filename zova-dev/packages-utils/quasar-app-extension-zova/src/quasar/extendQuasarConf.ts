@@ -46,6 +46,8 @@ export function extendQuasarConf(context: ConfigContext, flavor: string) {
     conf.build.vitePlugins = (conf.build.vitePlugins || []).concat(vitePlugins as any);
     // build: distDir
     conf.build.distDir = zovaViteMeta.viteConfig.build.outDir;
+    // build: analyze
+    conf.build.analyze = conf.build.analyze ?? process.env.BUILD_ANALYZE === 'true';
     // devServer
     conf.devServer = mergeConfig(conf.devServer || {}, zovaViteMeta.viteConfig.server);
     // ssr

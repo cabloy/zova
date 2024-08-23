@@ -111,7 +111,7 @@ export async function generateZovaViteMeta(
           return 0;
         }
       },
-      minify: 'terser',
+      minify: process.env.BUILD_MINIFY === 'false' ? false : 'terser',
       terserOptions: {
         keep_classnames: true,
       },
