@@ -12,6 +12,7 @@ import { extendViteConf } from './extendViteConf.js';
 import { ConfigContext } from './types.js';
 import { getFlavor } from 'zova-vite';
 import { printBanner } from './printBanner.js';
+import { extendAfterBuild } from './extendAfterBuild.js';
 
 export async function quasar(api: IndexAPI) {
   // flavor
@@ -30,5 +31,10 @@ export async function quasar(api: IndexAPI) {
   // before build
   api.beforeBuild(async (api, { quasarConf }) => {
     printBanner(context, flavor)(quasarConf, api);
+  });
+  // after build
+  api.afterBuild(async (api, { quasarConf }) => {
+    printBanner(context, flavor)(quasarConf, api);
+    extendAfterBuild(context, flavor)(quasarConf, api);
   });
 }

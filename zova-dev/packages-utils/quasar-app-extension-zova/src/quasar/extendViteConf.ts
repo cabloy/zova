@@ -39,12 +39,11 @@ export function extendViteConf(context: ConfigContext) {
     if (opts.isClient) {
       env = zovaViteMeta.env;
     } else {
-      // ready for save to disk
       env = Object.assign({}, zovaViteMeta.env, {
         SERVER: true,
         CLIENT: false,
       });
-      // env: special for dist files
+      // special for dist files
       process.env.SERVER = env.SERVER;
       // process.env.CLIENT = env.CLIENT; // should not set if false
     }
