@@ -9,49 +9,51 @@ import {
   ZovaConfigRoutes,
 } from '../../index.js';
 
-export const configDefault = {
-  meta: {},
-  env: {},
-  base: {
-    jwt: process.env.APP_BASE_JWT !== 'false',
-  },
-  api: {
-    baseURL: process.env.API_BASE_URL,
-    prefix: process.env.API_PREFIX,
-  },
-  ssr: {
-    cookieThemeName: process.env.SSR_COOKIE_THEMENAME === 'true',
-    optimization: {
-      bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
+export function configDefault() {
+  return {
+    meta: {},
+    env: {},
+    base: {
+      jwt: process.env.APP_BASE_JWT !== 'false',
     },
-  },
-  icon: {
-    defaultModule: 'home-icon',
-  },
-  locale: {
-    default: 'en-us',
-    storeKey: 'locale',
-    items: {
-      'en-us': 'English',
-      'zh-cn': 'Chinese',
+    api: {
+      baseURL: process.env.API_BASE_URL,
+      prefix: process.env.API_PREFIX,
     },
-  },
-  layout: {
-    component: {
-      default: 'home-layout:layoutDefault',
-      empty: 'home-layout:layoutEmpty',
+    ssr: {
+      cookieThemeName: process.env.SSR_COOKIE_THEMENAME === 'true',
+      optimization: {
+        bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
+      },
     },
-    sidebar: {
-      leftOpenPC: true,
-      breakpoint: 1023,
+    icon: {
+      defaultModule: 'home-icon',
     },
-  },
-  routes: {
-    path: {},
-    name: {},
-  },
-  modules: {},
-};
+    locale: {
+      default: 'en-us',
+      storeKey: 'locale',
+      items: {
+        'en-us': 'English',
+        'zh-cn': 'Chinese',
+      },
+    },
+    layout: {
+      component: {
+        default: 'home-layout:layoutDefault',
+        empty: 'home-layout:layoutEmpty',
+      },
+      sidebar: {
+        leftOpenPC: true,
+        breakpoint: 1023,
+      },
+    },
+    routes: {
+      path: {},
+      name: {},
+    },
+    modules: {},
+  };
+}
 
 export type ZovaConfig = {
   meta: ZovaConfigMeta;

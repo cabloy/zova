@@ -41,7 +41,7 @@ export class ZovaApplication {
     // errors
     await this.meta.error.initialize();
     // config
-    this.config = this.meta.util.extend({}, configDefault, config);
+    this.config = this.meta.util.extend({}, configDefault(), config);
     // constant
     this.constant = constantDefault;
     // module
