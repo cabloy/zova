@@ -10,7 +10,7 @@
         "./src/index.ts",
         "./dist/index.d.ts"
       ],
-      "import": "./src/index.ts",
+      "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
@@ -33,6 +33,7 @@
     "chalk": "^3.0.0",
     "fs-extra": "^11.2.0",
     "vite": "^5.2.10",
+    "vite-node": "^2.0.5",
     "zova-shared": "^1.0.2",
     "zova-vite": "^1.0.146"
   },

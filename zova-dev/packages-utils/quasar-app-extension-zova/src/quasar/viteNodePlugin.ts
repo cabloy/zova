@@ -1,10 +1,11 @@
 // from: https://github.com/nuxt/nuxt/blob/main/packages/vite/src/vite-node.ts
 import { Plugin as VitePlugin, ModuleNode } from 'vite';
 import { normalize } from 'node:path';
+import { ViteNode } from './viteNode.js';
 
 export function viteNodePlugin(): VitePlugin {
   function markInvalidate(mod: ModuleNode) {
-    const invalidates = globalThis['__invalidates'];
+    const invalidates = ViteNode.invalidates;
     if (!mod.id) {
       return;
     }
