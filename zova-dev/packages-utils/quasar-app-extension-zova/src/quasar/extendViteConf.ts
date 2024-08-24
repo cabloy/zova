@@ -70,7 +70,7 @@ export function extendViteConf(context: ConfigContext) {
       });
     }
     // invalidates
-    if (opts.isServer) {
+    if (opts.isServer && process.env.SSR_VITE_NODE === 'true') {
       conf.plugins!.push(viteNodePlugin());
     }
   };
