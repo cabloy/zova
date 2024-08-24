@@ -22,6 +22,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     );
     // ssr: middlewares/env.ts
     fse.copyFileSync(resolveTemplatePath('modes/ssr/middlewares/env.ts'), api.resolve.ssr('middlewares/env.ts'));
+    // ssr: ssr-devserver.js
+    await _handleSSRDevServer();
   }
 
   async function prepareTemplates() {
@@ -44,5 +46,35 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     if (!fse.existsSync(fileDest)) {
       fse.copyFileSync(fileSrc, fileDest);
     }
+  }
+
+  // ssr-devserver.js
+  async function _handleSSRDevServer() {
+    const fileSrc = api.resolve.cli('lib/modes/ssr/ssr-devserver.js');
+    const fileSrcBak = api.resolve.cli('lib/modes/ssr/ssr-devserver-bak.js');
+    copyTemplateIfNeed(fileSrc, fileSrcBak);
+    const content = fse.readFileSync(fileSrcBak).toString();
+    const contentNew = content
+      .replace(
+        "import { green } from 'kolorist'",
+        "import { green } from 'kolorist'\nimport { ViteNode } from 'quasar-app-extension-zova'",
+      )
+      .replace(
+        'const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))',
+        `const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))
+    const viteNode = new ViteNode(viteServer, this.#pathMap.serverEntryFile)
+    await viteNode.attachServer()
+    viteNode.createRunner()`,
+      )
+      .replace(
+        'const renderApp = await viteServer.ssrLoadModule(this.#pathMap.serverEntryFile)',
+        `let renderApp;
+        if(process.env.SSR_VITE_NODE === 'true'){
+          renderApp = await viteNode.loadRender();
+        }else{
+          renderApp = await viteServer.ssrLoadModule(this.#pathMap.serverEntryFile)
+        }`,
+      );
+    fse.writeFileSync(fileSrc, contentNew);
   }
 }
