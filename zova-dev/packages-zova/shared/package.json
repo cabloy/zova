@@ -1,6 +1,6 @@
 {
-  "name": "zova-core",
-  "version": "5.0.121",
+  "name": "zova-shared",
+  "version": "1.0.0",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -14,8 +14,7 @@
     "./*": "./*"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "author": "zhennann",
   "license": "MIT",
@@ -38,24 +37,5 @@
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
   },
-  "dependencies": {
-    "@cabloy/compose": "^1.0.2",
-    "@cabloy/extend": "^3.0.5",
-    "@cabloy/last-word": "^1.0.13",
-    "@cabloy/localeutil": "^1.0.4",
-    "@cabloy/module-info": "^1.0.20",
-    "@cabloy/vue-reactivity": "^3.4.45",
-    "@cabloy/vue-router": "^4.4.7",
-    "@cabloy/vue-runtime-core": "^3.4.45",
-    "@types/js-cookie": "^3.0.6",
-    "@vue/reactivity": "^3.4.27",
-    "@vue/shared": "^3.4.38",
-    "defu": "^6.1.4",
-    "devalue": "^5.0.0",
-    "reflect-metadata": "^0.2.2",
-    "vue": "^3.4.27",
-    "zod": "^3.23.8",
-    "zova-shared": "^1.0.0"
-  },
-  "gitHead": "de418f76fa305fe3fc944820a8c17b831a8a31a7"
+  "dependencies": {}
 }

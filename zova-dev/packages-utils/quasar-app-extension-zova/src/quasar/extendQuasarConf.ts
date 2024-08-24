@@ -1,5 +1,5 @@
 import { generateZovaViteMeta } from 'zova-vite';
-import { ZovaConfigMeta } from 'zova-core';
+import { ZovaConfigMeta } from 'zova-shared';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';
 import { QuasarConf } from '@quasar/app-vite/types/configuration/conf.js';

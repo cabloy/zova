@@ -19,21 +19,21 @@ const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
     match: [
-      'vue/dist',
-      '@vue/runtime-dom/dist',
-      '@vue/shared/dist',
-      '@vue/reactivity/dist',
+      'vue',
+      '@vue/runtime-dom',
+      '@vue/shared',
+      '@vue/reactivity',
       'vue/jsx-runtime',
-      '@cabloy/vue-runtime-core/dist',
-      '@cabloy/vue-reactivity/dist',
+      '@cabloy/vue-runtime-core',
+      '@cabloy/vue-reactivity',
     ],
     output: 'vue',
   },
+  { match: ['vue-router', '@cabloy/vue-router'], output: 'vue-router' },
   {
     match: ['reflect-metadata', '@cabloy', 'zova', 'zova-core', 'packages-zova/core'],
     output: 'zova',
   },
-  { match: ['vue-router', '@cabloy/vue-router'], output: 'vue-router' },
   { match: ['pinia'], output: 'pinia' },
   { match: ['~commonjsHelpers.js'], output: 'commonjsHelper' },
 ];

@@ -1,4 +1,4 @@
-import { ZovaConfigMeta } from 'zova-core';
+import { ZovaConfigMeta } from 'zova-shared';
 import { ZovaViteConfigOptions, ZovaViteConfigResult } from 'zova-vite';
 
 export interface ConfigContext {

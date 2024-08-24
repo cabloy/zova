@@ -1,6 +1,6 @@
+import { ZovaConfigMeta } from 'zova-shared';
 import {
   ZovaConfigEnv,
-  ZovaConfigMeta,
   IBeanScopeConfig,
   ILocalInfos,
   PowerPartial,
