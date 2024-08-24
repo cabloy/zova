@@ -1,6 +1,7 @@
 import { generateConfigDefine, ZovaViteConfigResult } from 'zova-vite';
 import { mergeConfig, UserConfig as ViteUserConfig } from 'vite';
 import { ConfigContext } from './types.js';
+import { viteNodePlugin } from './viteNodePlugin.js';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
@@ -67,6 +68,10 @@ export function extendViteConf(context: ConfigContext) {
       conf.ssr = mergeConfig(conf.ssr || {}, {
         noExternal: true,
       });
+    }
+    // invalidates
+    if (opts.isServer) {
+      conf.plugins!.push(viteNodePlugin());
     }
   };
 }
