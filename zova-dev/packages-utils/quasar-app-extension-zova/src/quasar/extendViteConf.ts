@@ -62,5 +62,11 @@ export function extendViteConf(context: ConfigContext) {
       });
       conf.define = mergeConfig(conf.define || {}, define);
     }
+    // ssr
+    if (context.configMeta?.appMode === 'ssr' && context.configMeta.mode === 'production') {
+      conf.ssr = mergeConfig(conf.ssr || {}, {
+        noExternal: true,
+      });
+    }
   };
 }

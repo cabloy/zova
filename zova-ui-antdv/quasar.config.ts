@@ -10,12 +10,17 @@ export default configure(_ctx => {
   return {
     zovaManualChunk: {
       debug: false,
-      vendors: [{ match: ['ant-design-vue'], output: 'ant-design-vue' }],
+      vendors: [
+        { match: ['ant-design-vue'], output: 'ant-design-vue' },
+        { match: ['@ant-design'], output: '@ant-design' },
+      ],
     },
 
     build: {
       extendViteConf(viteConf) {
         viteConf.ssr = mergeConfig(viteConf.ssr || {}, {
+          noExternal: true,
+          //noExternal: ['@ant-design', 'ant-design-vue', 'vue'],
           //noExternal: ['ant-design-vue', 'scroll-into-view-if-needed', 'vue'],
           //noExternal: ['ant-design-vue/es/theme/themes/default/colorAlgorithm.js', '@ctrl/tinycolor'],
         });
