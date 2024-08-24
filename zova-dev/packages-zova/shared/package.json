@@ -1,6 +1,6 @@
 {
   "name": "zova-shared",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -36,6 +36,5 @@
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
     "prepublishOnly": "npm run tsc:publish"
-  },
-  "dependencies": {}
+  }
 }
