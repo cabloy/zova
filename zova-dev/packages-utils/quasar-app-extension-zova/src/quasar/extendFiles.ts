@@ -62,9 +62,12 @@ export function extendFiles(api: IndexAPI, flavor: string) {
       .replace(
         'const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))',
         `const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))
-    const viteNode = new ViteNode(viteServer, this.#pathMap.serverEntryFile)
-    await viteNode.attachServer()
-    viteNode.createRunner()`,
+    let viteNode;
+    if(process.env.SSR_VITE_NODE === 'true'){
+      viteNode = new ViteNode(viteServer, this.#pathMap.serverEntryFile)
+      await viteNode.attachServer()
+      viteNode.createRunner()
+    }`,
       )
       .replace(
         'const renderApp = await viteServer.ssrLoadModule(this.#pathMap.serverEntryFile)',
