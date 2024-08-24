@@ -10,8 +10,8 @@ import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
 import { getEnvMeta, resolveTemplatePath } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
-import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions } from './types.js';
+import { ZovaConfigMeta } from 'zova-shared';
 
 export async function generateEntryFiles(
   configMeta: ZovaConfigMeta,

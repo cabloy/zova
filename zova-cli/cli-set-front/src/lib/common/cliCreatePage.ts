@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import { __ThisSetName__ } from '../this.js';
 import { createConfigUtils } from 'zova-vite';
-import { ZovaConfigMeta } from 'zova-core';
+import { ZovaConfigMeta } from 'zova-shared';
 
 declare module 'zova-cli' {
   interface ICommandArgv {

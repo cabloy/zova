@@ -219,9 +219,9 @@ importers:
       vite-plugin-fake-server-turbo:
         specifier: ^2.1.3
         version: 2.1.3
-      zova-core:
-        specifier: ^5.0.121
-        version: link:../../packages-zova/core
+      zova-shared:
+        specifier: ^1.0.0
+        version: link:../../packages-zova/shared
     devDependencies:
       '@types/fs-extra':
         specifier: ^11.0.4

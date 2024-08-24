@@ -44,7 +44,7 @@
     "svg-baker": "1.7.0",
     "svgo": "^3.2.0",
     "urllib": "^3.24.0",
-    "zova-core": "^5.0.121",
+    "zova-shared": "^1.0.0",
     "zova-vite": "^1.0.145"
   },
   "gitHead": "de418f76fa305fe3fc944820a8c17b831a8a31a7"

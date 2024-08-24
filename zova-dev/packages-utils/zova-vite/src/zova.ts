@@ -1,4 +1,3 @@
-import { ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigOptions, ZovaViteConfigResult } from './types.js';
 import { generateVitePlugins } from './vitePlugins.js';
 import { createConfigUtils } from './configUtils.js';
@@ -7,6 +6,7 @@ import { CommonServerOptions } from 'vite';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import moduleAlias from 'module-alias';
+import { ZovaConfigMeta } from 'zova-shared';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 

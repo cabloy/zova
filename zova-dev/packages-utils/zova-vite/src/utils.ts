@@ -1,6 +1,6 @@
-import { ZovaConfigMeta } from 'zova-core';
 import parseArgs from 'minimist';
 import path from 'node:path';
+import { ZovaConfigMeta } from 'zova-shared';
 
 export function getFlavor(offset: number = 2): string {
   return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);

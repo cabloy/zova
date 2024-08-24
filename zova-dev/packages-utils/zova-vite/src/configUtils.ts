@@ -1,4 +1,3 @@
-import { Cast, ZovaConfigMeta } from 'zova-core';
 import { ZovaViteConfigChunkVendor, ZovaViteConfigOptions } from './types.js';
 import path from 'path';
 import * as dotenv from '@cabloy/dotenv';
@@ -6,6 +5,7 @@ import { getEnvMeta } from './utils.js';
 import { glob } from '@cabloy/module-glob';
 import { IBundleVendor } from '@cabloy/module-info';
 import crypto from 'node:crypto';
+import { ZovaConfigMeta } from 'zova-shared';
 
 const __ModuleLibs = [
   /src\/module\/([^\/]*?)\//,
@@ -84,7 +84,7 @@ export function createConfigUtils(
       },
     );
     for (const key of ['NODE_ENV', 'META_FLAVOR', 'META_MODE', 'META_APP_MODE', 'DEV', 'PROD', 'SSR']) {
-      if (Cast(res[key]) !== false) {
+      if (<any>res[key] !== false) {
         process.env[key] = res[key];
       }
     }
