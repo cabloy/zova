@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-antdv",
-  "version": "5.0.245",
+  "version": "5.0.246",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -62,7 +62,7 @@
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.136",
+    "quasar-app-extension-zova": "^1.1.137",
     "sass": "^1.77.5",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
