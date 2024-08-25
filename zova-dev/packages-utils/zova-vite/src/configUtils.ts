@@ -205,7 +205,7 @@ export function createConfigUtils(
     if (!__zovaManualChunkVendors_runtime) {
       __zovaManualChunkVendors_runtime = _configManualChunk_vendorsDefault()
         .concat(_configManualChunk_vendorsModules() as any)
-        .concat(configOptions.zovaManualChunk.vendors as any);
+        .concat((configOptions.zovaManualChunk?.vendors || []) as any);
     }
     return _configManualChunk_match(id, __zovaManualChunkVendors_runtime);
   }
