@@ -22,6 +22,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   menuTree?: MenuItemGroupType;
 
   activeMenuItemKeys: string[];
+  activeMenuSubKeys: string[];
 
   protected async __init__() {
     const route = useRoute();
@@ -34,7 +35,12 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
     this.activeMenuItemKeys = useComputed(() => {
       const { data } = this.$$modelMenu.select();
       if (!data) return [];
-      return this._calcActiveMenuItemKey(data, route);
+      return this._calcActiveMenuItemKeys(data, route);
+    });
+    this.activeMenuSubKeys = useComputed(() => {
+      const { data } = this.$$modelMenu.select();
+      if (!data) return [];
+      return this._calcActiveMenuSubKeys(data);
     });
     // menu
     const queryMenus = this.$$modelMenu.select();
@@ -61,13 +67,24 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
     }) as MenuItemGroupType;
   }
 
-  private _calcActiveMenuItemKey(menuItemsSrc: ServiceMenuEntity[], route: RouteLocationNormalizedLoaded) {
+  private _calcActiveMenuItemKeys(menuItemsSrc: ServiceMenuEntity[], route: RouteLocationNormalizedLoaded) {
     const tree: Tree<'children'> = {
       key: '',
       children: menuItemsSrc,
     };
     const menuItem = TreeLodash.find(tree, menuItemSrc => {
       return menuItemSrc.to === route.path;
+    });
+    return menuItem ? [menuItem.key] : [];
+  }
+
+  private _calcActiveMenuSubKeys(menuItemsSrc: ServiceMenuEntity[]) {
+    const tree: Tree<'children'> = {
+      key: '',
+      children: menuItemsSrc,
+    };
+    const menuItem = TreeLodash.find(tree, menuItemSrc => {
+      return menuItemSrc.children && !!menuItemSrc.children.find(item => this.activeMenuItemKeys.includes(item.key));
     });
     return menuItem ? [menuItem.key] : [];
   }

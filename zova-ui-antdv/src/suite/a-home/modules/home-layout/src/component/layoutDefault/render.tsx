@@ -53,6 +53,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
         style={{ height: '100%' }}
         items={this.menuTree?.children as any}
         v-model:selectedKeys={this.activeMenuItemKeys}
+        v-model:openKeys={this.activeMenuSubKeys}
         onClick={menuItem => this.onMenuItemClick(menuItem)}
       ></Menu>
     );
