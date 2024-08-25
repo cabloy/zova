@@ -146,7 +146,10 @@ export class CtxSSR extends BeanSimple {
     // expected
     let ignore = false;
     let expected: string | undefined = undefined;
-    if (key === 'class') {
+    if (key === 'id') {
+      ignore = true;
+      expected = String(clientValue);
+    } else if (key === 'class') {
       ignore = true;
       expected = normalizeClass(clientValue);
     } else if (key === 'style') {

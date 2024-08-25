@@ -1,6 +1,6 @@
 import { BeanRenderBase, iconh, Local } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
-import { App, ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
+import { ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/interface/menu.js';
 
