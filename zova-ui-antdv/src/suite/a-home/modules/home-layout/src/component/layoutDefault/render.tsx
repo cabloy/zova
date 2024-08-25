@@ -62,19 +62,17 @@ export class RenderLayoutDefault extends BeanRenderBase {
   render() {
     return (
       <ConfigProvider theme={{ token: this.$token }}>
-        <App>
-          <Layout class="fill-height">
-            <LayoutHeader style={{ color: 'white' }}>
-              <div>Ant Design Vue</div>
-            </LayoutHeader>
+        <Layout class="fill-height">
+          <LayoutHeader style={{ color: 'white' }}>
+            <div>Ant Design Vue</div>
+          </LayoutHeader>
+          <Layout>
+            <LayoutSider>{this._renderMenu()}</LayoutSider>
             <Layout>
-              <LayoutSider>{this._renderMenu()}</LayoutSider>
-              <Layout>
-                <router-view />
-              </Layout>
+              <router-view />
             </Layout>
           </Layout>
-        </App>
+        </Layout>
       </ConfigProvider>
     );
   }
