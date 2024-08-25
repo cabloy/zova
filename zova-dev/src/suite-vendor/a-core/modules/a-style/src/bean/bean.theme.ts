@@ -22,8 +22,8 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   protected async __init__() {
     // support admin
-    const useQueryMethod = this.app.config.ssr.cookieThemeName ? '$useQueryCookie' : '$useQueryLocal';
-    this.name = this[useQueryMethod]({
+    const useQueryMethodThemeName = this.app.config.ssr.cookieThemeName ? '$useQueryCookie' : '$useQueryLocal';
+    this.name = this[useQueryMethodThemeName]({
       queryKey: ['themename'],
       meta: {
         persister: {
@@ -32,10 +32,14 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
         defaultData: this.scope.config.defaultTheme,
       },
     });
-    this.darkMode = this.$useQueryLocal({
+    const useQueryMethodThemeDark = this.app.config.ssr.cookieThemeDark ? '$useQueryCookie' : '$useQueryLocal';
+    this.darkMode = this[useQueryMethodThemeDark]({
       queryKey: ['themedark'],
       meta: {
-        defaultData: 'auto',
+        persister: {
+          maxAge: this.scope.config.model.themename.persister.maxAge,
+        },
+        defaultData: this.app.config.ssr.cookieThemeDark ? true : 'auto',
       },
     });
     this._updateDark();

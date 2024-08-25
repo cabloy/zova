@@ -22,6 +22,7 @@ export function configDefault() {
     },
     ssr: {
       cookieThemeName: process.env.SSR_COOKIE_THEMENAME === 'true',
+      cookieThemeDark: process.env.SSR_COOKIE_THEMEDARK === 'true',
       optimization: {
         bodyHiddenBeforeLoad: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
       },
@@ -67,6 +68,7 @@ export type ZovaConfig = {
   };
   ssr: {
     cookieThemeName: boolean;
+    cookieThemeDark: boolean;
     optimization: {
       bodyHiddenBeforeLoad: boolean;
     };
