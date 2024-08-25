@@ -24,5 +24,7 @@
     "dist"
   ],
   "scripts": {},
-  "dependencies": {}
+  "dependencies": {
+    "tree-lodash": "^0.4.0"
+  }
 }

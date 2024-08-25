@@ -47,7 +47,14 @@ export class RenderLayoutDefault extends BeanRenderBase {
     return domItems;
   }
   _renderMenu() {
-    return <Menu mode="inline" style={{ height: '100%' }} items={this.menuItems}></Menu>;
+    return (
+      <Menu
+        mode="inline"
+        style={{ height: '100%' }}
+        items={this.menuTree?.children as any}
+        onClick={menuItem => this.onMenuItemClick(menuItem)}
+      ></Menu>
+    );
   }
 
   render() {

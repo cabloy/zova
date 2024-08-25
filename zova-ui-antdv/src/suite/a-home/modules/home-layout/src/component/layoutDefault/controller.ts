@@ -2,7 +2,10 @@ import { BeanControllerBase, Local, Use, PropsBase, useComputed, iconh } from 'z
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ItemType } from 'ant-design-vue';
 import { ServiceMenuEntity } from '../../api/interface/menu.js';
-import { SubMenuType } from 'ant-design-vue/es/menu/src/interface.js';
+import { useRoute } from 'vue-router';
+import { map } from 'tree-lodash';
+import { Tree } from 'tree-lodash/dist/esm/types.js';
+import { MenuItemGroupType, MenuItemType } from 'ant-design-vue/es/menu/src/interface.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -17,14 +20,20 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
   @Use()
   $$modelMenu: ModelMenu;
 
-  menuItems?: ItemType[];
+  menuTree?: MenuItemGroupType;
+
+  activeMenuItemKey: string;
 
   protected async __init__() {
-    // menuItems
-    this.menuItems = useComputed(() => {
+    const route = useRoute();
+    // menuTree
+    this.menuTree = useComputed(() => {
       const { data } = this.$$modelMenu.select();
       if (!data) return;
       return this._prepareMenuItems(data);
+    });
+    this.activeMenuItemKey = useComputed(() => {
+      return route.path;
     });
     // menu
     const queryMenus = this.$$modelMenu.select();
@@ -32,24 +41,31 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
     if (queryMenus.error) throw queryMenus.error;
   }
 
-  private _prepareMenuItems(menuItemsSrc: ServiceMenuEntity[], levels: number[] = []): ItemType[] {
-    const menuItems: ItemType[] = [];
-    for (let index = 0; index < menuItemsSrc.length; index++) {
-      const menuItemSrc = menuItemsSrc[index];
+  private _prepareMenuItems(menuItemsSrc: ServiceMenuEntity[]): MenuItemGroupType {
+    const tree: Tree<'children'> = {
+      key: '',
+      children: menuItemsSrc,
+    };
+    return map(tree, (menuItemSrc, meta) => {
+      if (meta.depth === 0) return { key: menuItemSrc.key };
       // key
-      const _levels = levels.concat(index + 1);
-      const key = _levels.join('-');
-      const menuItem: ItemType = {
-        key,
+      const menuItem = {
+        key: menuItemSrc.key,
         icon: () => iconh(menuItemSrc.icon as any),
         label: menuItemSrc.title,
         title: menuItemSrc.title,
+        data: menuItemSrc,
       };
-      if (menuItemSrc.folder) {
-        (<SubMenuType>menuItem).children = this._prepareMenuItems(menuItemSrc.children!, _levels);
-      }
-      menuItems.push(menuItem);
+      return menuItem;
+    }) as MenuItemGroupType;
+  }
+
+  onMenuItemClick(event) {
+    const data: ServiceMenuEntity = event.item.data;
+    if (data.href) {
+      window.open(data.href);
+    } else {
+      this.$router.push(data.to!);
     }
-    return menuItems;
   }
 }
