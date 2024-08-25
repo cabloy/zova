@@ -1,6 +1,6 @@
 {
   "name": "zova-core",
-  "version": "5.0.122",
+  "version": "5.0.123",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -55,7 +55,7 @@
     "reflect-metadata": "^0.2.2",
     "vue": "^3.4.27",
     "zod": "^3.23.8",
-    "zova-shared": "^1.0.2"
+    "zova-shared": "^1.0.3"
   },
   "gitHead": "de418f76fa305fe3fc944820a8c17b831a8a31a7"
 }
