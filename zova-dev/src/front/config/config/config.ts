@@ -7,6 +7,7 @@ export default function (_meta: ZovaConfigMeta) {
   config.routes = {
     path: {
       '/a/home/home': { alias: '/' },
+      '/home/user/login': { alias: '/login' },
       '/demo/todo/todo': { alias: '/todo' },
     },
     name: {

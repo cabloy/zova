@@ -73,8 +73,8 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2
       quasar-app-extension-zova:
-        specifier: ^1.1.141
-        version: 1.1.141(@babel/core@7.25.2)(@babel/traverse@7.25.4)(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
+        specifier: ^1.1.142
+        version: 1.1.142(@babel/core@7.25.2)(@babel/traverse@7.25.4)(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
       sass:
         specifier: ^1.77.5
         version: 1.77.8
@@ -88,8 +88,8 @@ importers:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
       zova-vite:
-        specifier: ^1.0.148
-        version: 1.0.148(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4))
+        specifier: ^1.0.149
+        version: 1.0.149(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4))
 
   src/suite-vendor/a-antdv:
     dependencies:
@@ -2827,8 +2827,8 @@ packages:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
     engines: {node: '>=0.6'}
 
-  quasar-app-extension-zova@1.1.141:
-    resolution: {integrity: sha512-bCewAk/d9fsgsHTp3Pb1Qmxnf2sQ7NCAFJsotTb8Tjg/A5+FrK5cGFcYvReQbdgVlRPJtQZf71jrqZ0Epa/kXQ==}
+  quasar-app-extension-zova@1.1.142:
+    resolution: {integrity: sha512-6grrZLb9NflglW98uEw2Ck+Iz1bnLb+qbSDgYYemIXlpAgdGgTaZDecyFIl6sbHk+ogp10xD+y9POtjb6aOuMg==}
 
   quasar@2.16.9:
     resolution: {integrity: sha512-cAbt5l8hbxf7GQSwtYQ/3TlrbA8cOfjXXbFvikx4amMQEFKVB/vi/PfQMjbdRVcK/zEB6hu1y5OjS/9NlpJc/Q==}
@@ -3494,8 +3494,8 @@ packages:
   zova-suite-a-core@5.0.99:
     resolution: {integrity: sha512-K4LYNAfqmRgi3TF1lzRh+HD7iImBVp7m450qYQecp56IPgF6djIioPHOw+usIZ9hHlA6RfeZ5KY0RiVOYFTuNg==}
 
-  zova-vite@1.0.148:
-    resolution: {integrity: sha512-T2iW3lRMe9IOTWr3+XSdjNHemRqZ1n8wLh+idYaQtQEVF53wnWoOPqtoEVyv3j/EpbWZrrTfHyxLZKu8YBc4Og==}
+  zova-vite@1.0.149:
+    resolution: {integrity: sha512-VF4eP1TrAWKhf2HyQsDbO/RhpwR1rqH1BWufjGHQNiBs66/pLHPyM46QHFiZG5rh2sTACqg59fHOcR1kl5wrDQ==}
 
   zova@5.0.168:
     resolution: {integrity: sha512-VvfOmPz8w7srssb0MVpvBo/mnY6ffWYerIWXzbzo6fxhiaAkrki3QjC46SGe4c6Kqwz5luw22xPsyx5XSXJoNg==}
@@ -6170,7 +6170,7 @@ snapshots:
     dependencies:
       side-channel: 1.0.6
 
-  quasar-app-extension-zova@1.1.141(@babel/core@7.25.2)(@babel/traverse@7.25.4)(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4)):
+  quasar-app-extension-zova@1.1.142(@babel/core@7.25.2)(@babel/traverse@7.25.4)(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4)):
     dependencies:
       '@quasar/app-vite': 2.0.0-beta.18(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
       chalk: 3.0.0
@@ -6178,7 +6178,7 @@ snapshots:
       vite: 5.4.2(@types/node@20.16.1)(sass@1.77.8)(terser@5.31.6)
       vite-node: 2.0.5(@types/node@20.16.1)(sass@1.77.8)(terser@5.31.6)
       zova-shared: 1.0.4
-      zova-vite: 1.0.148(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4))
+      zova-vite: 1.0.149(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4))
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'
@@ -6905,7 +6905,7 @@ snapshots:
       - typescript
       - vue
 
-  zova-vite@1.0.148(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4)):
+  zova-vite@1.0.149(@babel/core@7.25.2)(@babel/traverse@7.25.4)(sass@1.77.8)(vue@3.4.38(typescript@5.5.4)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-class-properties': 7.25.4(@babel/core@7.25.2)

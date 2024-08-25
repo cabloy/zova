@@ -46,7 +46,7 @@ export class ModelAuth extends BeanModelBase<ScopeModule> {
         this.$clear(); // not await
         this._setUser({});
         // page: login
-        this.$router.replace('/home/user/login');
+        this.$router.replace('/login');
       },
     });
   }

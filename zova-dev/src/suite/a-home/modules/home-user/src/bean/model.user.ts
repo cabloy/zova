@@ -26,7 +26,7 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
       const queryUser = this.getUserInfo();
       await queryUser.suspense();
       if (queryUser.isError) {
-        this.$ssr.redirect('/home/user/login');
+        this.$ssr.redirect('/login');
       }
       this.user = queryUser.data;
     }
