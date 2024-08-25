@@ -13,13 +13,7 @@ export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    let baseURL;
-    if (process.env.SERVER) {
-      baseURL = process.env.SSR_API_BASE_URL;
-    } else {
-      baseURL = this.app.config.api.baseURL || '';
-    }
-    baseURL = `${baseURL}${this.app.config.api.prefix || ''}`;
+    const baseURL = this.app.meta.util.getApiBaseURL();
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     this._addInterceptors(this[SymbolApi]);
   }

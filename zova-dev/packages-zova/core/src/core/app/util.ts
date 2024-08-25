@@ -28,4 +28,15 @@ export class AppUtil extends BeanSimple {
   extend(...args) {
     return extend(true, ...args);
   }
+
+  getApiBaseURL() {
+    let baseURL;
+    if (process.env.SERVER) {
+      baseURL = process.env.SSR_API_BASE_URL;
+    } else {
+      baseURL = this.app.config.api.baseURL || '';
+    }
+    baseURL = `${baseURL}${this.app.config.api.prefix || ''}`;
+    return baseURL;
+  }
 }
