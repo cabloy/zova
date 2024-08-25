@@ -50,8 +50,11 @@ export function extendQuasarConf(context: ConfigContext, flavor: string) {
     conf.build.analyze = conf.build.analyze ?? process.env.BUILD_ANALYZE === 'true';
     // devServer
     conf.devServer = mergeConfig(conf.devServer || {}, zovaViteMeta.viteConfig.server);
+    // ssr: middlewares
+    const ssrMiddlewares = ['env'].concat(conf.ssr?.middlewares || []).concat('render');
     // ssr
     conf.ssr = mergeConfig(conf.ssr || {}, {
+      middlewares: ssrMiddlewares,
       prodPort: Number(process.env.SSR_PROD_PORT),
       manualStoreSerialization: true,
       manualStoreSsrContextInjection: true,

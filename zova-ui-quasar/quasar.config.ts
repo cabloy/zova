@@ -22,12 +22,7 @@ export default configure(_ctx => {
 
     animations: [],
 
-    ssr: {
-      middlewares: [
-        'env', // keep this as first one
-        'render', // keep this as last one
-      ],
-    },
+    ssr: {},
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-pwa/configuring-pwa
     pwa: {
