@@ -1,11 +1,10 @@
 import { BeanControllerBase, Local, Use, PropsBase, useComputed, iconh } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
-import { ItemType } from 'ant-design-vue';
 import { ServiceMenuEntity } from '../../api/interface/menu.js';
-import { useRoute } from 'vue-router';
-import { map } from 'tree-lodash';
+import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
+import * as TreeLodash from 'tree-lodash';
 import { Tree } from 'tree-lodash/dist/esm/types.js';
-import { MenuItemGroupType, MenuItemType } from 'ant-design-vue/es/menu/src/interface.js';
+import { MenuItemGroupType } from 'ant-design-vue/es/menu/src/interface.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -22,7 +21,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
 
   menuTree?: MenuItemGroupType;
 
-  activeMenuItemKey: string;
+  activeMenuItemKeys: string[];
 
   protected async __init__() {
     const route = useRoute();
@@ -32,8 +31,10 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
       if (!data) return;
       return this._prepareMenuItems(data);
     });
-    this.activeMenuItemKey = useComputed(() => {
-      return route.path;
+    this.activeMenuItemKeys = useComputed(() => {
+      const { data } = this.$$modelMenu.select();
+      if (!data) return [];
+      return this._calcActiveMenuItemKey(data, route);
     });
     // menu
     const queryMenus = this.$$modelMenu.select();
@@ -46,7 +47,7 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
       key: '',
       children: menuItemsSrc,
     };
-    return map(tree, (menuItemSrc, meta) => {
+    return TreeLodash.map(tree, (menuItemSrc, meta) => {
       if (meta.depth === 0) return { key: menuItemSrc.key };
       // key
       const menuItem = {
@@ -58,6 +59,17 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
       };
       return menuItem;
     }) as MenuItemGroupType;
+  }
+
+  private _calcActiveMenuItemKey(menuItemsSrc: ServiceMenuEntity[], route: RouteLocationNormalizedLoaded) {
+    const tree: Tree<'children'> = {
+      key: '',
+      children: menuItemsSrc,
+    };
+    const menuItem = TreeLodash.find(tree, menuItemSrc => {
+      return menuItemSrc.to === route.path;
+    });
+    return menuItem ? [menuItem.key] : [];
   }
 
   onMenuItemClick(event) {
