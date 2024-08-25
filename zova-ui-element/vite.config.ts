@@ -26,7 +26,6 @@ export default defineConfig(async ({ mode }) => {
     runtimeDir: '.zova',
     zovaManualChunk: {
       debug: false,
-      vendors: [{ match: ['element-plus'], output: 'element-plus' }],
     },
   };
   // zovaViteMeta

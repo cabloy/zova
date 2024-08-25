@@ -7,14 +7,6 @@ import { configure } from 'quasar/wrappers';
 
 export default configure(_ctx => {
   return {
-    zovaManualChunk: {
-      debug: false,
-      vendors: [
-        { match: ['ant-design-vue'], output: 'ant-design-vue' },
-        { match: ['@ant-design'], output: '@ant-design' },
-      ],
-    },
-
     build: {
       // extendViteConf(_viteConf) {},
       // viteVuePluginOptions: {},

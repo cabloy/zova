@@ -8,6 +8,22 @@
     },
     "dependencies": {
       "a-core": "5.0.0"
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "ant-design-vue"
+          ],
+          "output": "ant-design-vue"
+        },
+        {
+          "match": [
+            "@ant-design"
+          ],
+          "output": "@ant-design"
+        }
+      ]
     }
   },
   "type": "module",

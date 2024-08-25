@@ -7,10 +7,6 @@ import { configure } from 'quasar/wrappers';
 
 export default configure(_ctx => {
   return {
-    zovaManualChunk: {
-      debug: false,
-      vendors: [{ match: ['quasar'], output: 'quasar' }],
-    },
     css: ['app.scss'],
     extras: [
       'roboto-font', // optional, you are not bound to it

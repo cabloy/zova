@@ -8,6 +8,16 @@
     },
     "dependencies": {
       "a-core": "5.0.0"
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "quasar"
+          ],
+          "output": "quasar"
+        }
+      ]
     }
   },
   "type": "module",

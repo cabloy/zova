@@ -22,7 +22,6 @@ export default defineConfig(async ({ mode }) => {
     runtimeDir: '.zova',
     zovaManualChunk: {
       debug: false,
-      vendors: [{ match: ['vuetify'], output: 'vuetify' }],
     },
   };
   // zovaViteMeta
