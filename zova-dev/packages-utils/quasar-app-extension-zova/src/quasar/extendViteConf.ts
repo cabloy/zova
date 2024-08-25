@@ -69,9 +69,14 @@ export function extendViteConf(context: ConfigContext) {
         noExternal: true,
       });
     }
-    // invalidates
+    // ssr: vite-node
     if (opts.isServer && context.configMeta?.mode === 'development' && process.env.SSR_VITE_NODE === 'true') {
+      // invalidates
       conf.plugins!.push(viteNodePlugin());
+      // optimizeDeps
+      conf.optimizeDeps = mergeConfig(conf.optimizeDeps || {}, {
+        noDiscovery: true,
+      });
     }
   };
 }
