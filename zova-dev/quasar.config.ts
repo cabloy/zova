@@ -15,7 +15,5 @@ export default configure(_ctx => {
     devServer: {
       open: false, // opens browser window automatically
     },
-
-    ssr: {},
   };
 });
