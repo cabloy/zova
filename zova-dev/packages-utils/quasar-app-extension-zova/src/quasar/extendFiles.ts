@@ -60,9 +60,13 @@ export function extendFiles(api: IndexAPI, flavor: string) {
         "import { green } from 'kolorist'\nimport { ViteNode } from 'quasar-app-extension-zova'",
       )
       .replace(
+        "const autoRemove = 'document.currentScript.remove()'",
+        `const autoRemove = 'document.currentScript.remove()'
+        let viteNode`,
+      )
+      .replace(
         'const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))',
         `const viteServer = this.#viteServer = await createServer(await quasarSsrConfig.viteServer(quasarConf))
-    let viteNode;
     if(process.env.SSR_VITE_NODE === 'true'){
       viteNode = new ViteNode(viteServer, this.#pathMap.serverEntryFile)
       await viteNode.attachServer()
@@ -77,6 +81,14 @@ export function extendFiles(api: IndexAPI, flavor: string) {
         }else{
           renderApp = await viteServer.ssrLoadModule(this.#pathMap.serverEntryFile)
         }`,
+      )
+      .replace(
+        'await viteServer.ssrLoadModule(serverEntry)',
+        `if (process.env.SSR_VITE_NODE === 'true') {
+      await viteNode.loadRender();
+    } else {
+      await viteServer.ssrLoadModule(serverEntry)
+    }`,
       );
     fse.writeFileSync(fileSrc, contentNew);
   }
