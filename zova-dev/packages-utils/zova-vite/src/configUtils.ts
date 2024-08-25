@@ -157,7 +157,7 @@ export function createConfigUtils(
     output = _configManualChunk_vendors(id);
     if (output) return output;
     // default
-    if (configOptions.zovaManualChunk.debug) {
+    if (configOptions.zovaManualChunk?.debug) {
       console.log(id);
     }
     return null;
