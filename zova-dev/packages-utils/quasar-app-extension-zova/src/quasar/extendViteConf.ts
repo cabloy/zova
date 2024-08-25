@@ -1,5 +1,5 @@
 import { generateConfigDefine, ZovaViteConfigResult } from 'zova-vite';
-import { mergeConfig, UserConfig as ViteUserConfig } from 'vite';
+import { mergeConfig, UserConfig as ViteUserConfig, createLogger } from 'vite';
 import { ConfigContext } from './types.js';
 import { viteNodePlugin } from './viteNodePlugin.js';
 
@@ -77,6 +77,14 @@ export function extendViteConf(context: ConfigContext) {
       conf.optimizeDeps = mergeConfig(conf.optimizeDeps || {}, {
         noDiscovery: true,
       });
+      // logger
+      const logger = createLogger();
+      const loggerWarn = logger.warn;
+      logger.warn = (msg, options) => {
+        if (msg.includes('Failed to load source map')) return;
+        loggerWarn(msg, options);
+      };
+      conf.customLogger = logger;
     }
   };
 }
