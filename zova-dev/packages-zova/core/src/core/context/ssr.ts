@@ -21,7 +21,7 @@ const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatche
 const SymbolInstanceUpdates = Symbol('SymbolInstanceUpdates');
 const SymbolHydratingCounter = Symbol('SymbolHydratingCounter');
 
-const __IgnoreKeys: string[] = ['id', 'checked'];
+const __IgnoreKeys: string[] = ['id', 'checked', 'selected', 'disabled'];
 
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
