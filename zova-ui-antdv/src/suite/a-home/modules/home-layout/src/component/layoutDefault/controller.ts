@@ -42,10 +42,10 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
       if (!data) return [];
       return this._calcActiveMenuSubKeys(data);
     });
-    // menu
-    const queryMenus = this.$$modelMenu.select();
-    await queryMenus.suspense();
-    if (queryMenus.error) throw queryMenus.error;
+    // // menu
+    // const queryMenus = this.$$modelMenu.select();
+    // await queryMenus.suspense();
+    // if (queryMenus.error) throw queryMenus.error;
   }
 
   private _prepareMenuItems(menuItemsSrc: ServiceMenuEntity[]): MenuItemGroupType {
