@@ -67,6 +67,14 @@ export function extendViteConf(context: ConfigContext) {
     if (context.configMeta?.appMode === 'ssr' && context.configMeta.mode === 'production') {
       conf.ssr = mergeConfig(conf.ssr || {}, {
         noExternal: true,
+        external: [
+          'vue',
+          'pinia',
+          '@vue/runtime-core',
+          '@vue/reactivity',
+          '@cabloy/vue-reactivity',
+          '@cabloy/vue-runtime-core',
+        ],
       });
     }
     // ssr: vite-node

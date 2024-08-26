@@ -4,9 +4,8 @@ import { createConfigUtils } from './configUtils.js';
 import { generateEntryFiles } from './generateEntryFiles.js';
 import { CommonServerOptions } from 'vite';
 import path from 'node:path';
-import { createRequire } from 'node:module';
-import moduleAlias from 'module-alias';
 import { ZovaConfigMeta } from 'zova-shared';
+import { setModuleAlias } from './utils.js';
 
 const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
 
@@ -27,14 +26,7 @@ export async function generateZovaViteMeta(
   // vitePlugins
   const vitePlugins = generateVitePlugins(configOptions, modulesMeta);
   // alias
-  const alias = {
-    '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
-    '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
-    'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
-  };
-  for (const key in alias) {
-    moduleAlias.addAlias(key, alias[key]);
-  }
+  const alias = setModuleAlias();
   // viteConfig
   const viteConfig = {
     root: configOptions.appDir,
@@ -57,16 +49,6 @@ export async function generateZovaViteMeta(
   };
 
   //////////////////////////////
-
-  function __getAbsolutePathOfModule(id) {
-    const require = createRequire(import.meta.url);
-    let modulePath = require.resolve(id);
-    const pos = modulePath.lastIndexOf('index.js');
-    if (pos > -1) {
-      modulePath = modulePath.substring(0, modulePath.length - 'index.js'.length - 1);
-    }
-    return modulePath;
-  }
 
   function __getConfigServer() {
     // proxy
