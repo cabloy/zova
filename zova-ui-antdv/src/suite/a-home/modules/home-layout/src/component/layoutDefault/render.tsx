@@ -57,7 +57,13 @@ export class RenderLayoutDefault extends BeanRenderBase {
   }
   _renderMenu() {
     return (
-      <ClientOnly>
+      <ClientOnly
+        v-slots={{
+          placeholder: () => {
+            return <div style={{ height: '100%' }}></div>;
+          },
+        }}
+      >
         <Menu
           mode="inline"
           style={{ height: '100%' }}
