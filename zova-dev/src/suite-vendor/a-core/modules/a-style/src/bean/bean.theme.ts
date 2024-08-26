@@ -22,7 +22,8 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   protected async __init__() {
     // support admin
-    const useQueryMethodThemeName = this.app.config.ssr.cookieThemeName ? '$useQueryCookie' : '$useQueryLocal';
+    const cookieThemeName = this.app.config.ssr.cookieThemeName;
+    const useQueryMethodThemeName = cookieThemeName ? '$useQueryCookie' : '$useQueryLocal';
     this.name = this[useQueryMethodThemeName]({
       queryKey: ['themename'],
       meta: {
@@ -32,14 +33,21 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
         defaultData: this.scope.config.defaultTheme,
       },
     });
-    const useQueryMethodThemeDark = this.app.config.ssr.cookieThemeDark ? '$useQueryCookie' : '$useQueryLocal';
+    const cookieThemeDark = this.app.config.ssr.cookieThemeDark;
+    const cookieThemeDarkDefault = this.app.config.ssr.cookieThemeDarkDefault;
+    const useQueryMethodThemeDark = cookieThemeDark ? '$useQueryCookie' : '$useQueryLocal';
     this.darkMode = this[useQueryMethodThemeDark]({
       queryKey: ['themedark'],
       meta: {
         persister: {
           maxAge: this.scope.config.model.themename.persister.maxAge,
+          deserialize: (value, deserializeDefault) => {
+            value = deserializeDefault(value);
+            if (cookieThemeDark && value === 'auto') return cookieThemeDarkDefault;
+            return value;
+          },
         },
-        defaultData: this.app.config.ssr.cookieThemeDark ? true : 'auto',
+        defaultData: cookieThemeDark ? cookieThemeDarkDefault : 'auto',
       },
     });
     this._updateDark();

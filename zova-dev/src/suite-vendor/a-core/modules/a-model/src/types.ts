@@ -62,13 +62,13 @@ export interface QueryMetaPersister {
    * How to serialize the data to storage.
    * @default `JSON.stringify`
    */
-  serialize?: (persistedQuery: any, serializeDefault?: (persistedQuery: any) => any) => any;
+  serialize?: (persistedQuery: any, serializeDefault: (persistedQuery: any) => any) => any;
   serializeDefault?: (persistedQuery: any) => any;
   /**
    * How to deserialize the data from storage.
    * @default `JSON.parse`
    */
-  deserialize?: (cachedString: any, deserializeDefault?: (cachedString: any) => any) => any;
+  deserialize?: (cachedString: any, deserializeDefault: (cachedString: any) => any) => any;
   deserializeDefault?: (cachedString: any) => any;
   prefix?: string;
   buster?: string;

@@ -19,7 +19,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
       const storedData = storage.getItem(storageKey);
       if (!storedData) return undefined;
       const persistedQuery = options.deserialize
-        ? options.deserialize(storedData as string, options.deserializeDefault)
+        ? options.deserialize(storedData as string, options.deserializeDefault!)
         : options.deserializeDefault!(storedData as string);
 
       if (persistedQuery.state.dataUpdatedAt) {
@@ -63,7 +63,7 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
       buster: options.buster,
     };
     const data = options.serialize
-      ? options.serialize(params, options.serializeDefault)
+      ? options.serialize(params, options.serializeDefault!)
       : options.serializeDefault!(params);
     if (options.sync === true) {
       storage.setItem(storageKey, data);
