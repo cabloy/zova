@@ -10,7 +10,7 @@ import {
 } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
-import { isString, stringifyStyle } from '@vue/shared';
+import { includeBooleanAttr, isBooleanAttr, isString, stringifyStyle } from '@vue/shared';
 import { ErrorSSR } from '../../bean/index.js';
 
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
@@ -20,8 +20,6 @@ const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatches');
 const SymbolInstanceUpdates = Symbol('SymbolInstanceUpdates');
 const SymbolHydratingCounter = Symbol('SymbolHydratingCounter');
-
-const __IgnoreKeys: string[] = ['id', 'checked', 'selected', 'disabled'];
 
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
@@ -150,16 +148,40 @@ export class CtxSSR extends BeanSimple {
     let expected: string | undefined = undefined;
     if (key === 'class') {
       ignore = true;
-      expected = normalizeClass(clientValue);
+      if (clientValue !== undefined) {
+        expected = normalizeClass(clientValue);
+        el.setAttribute(key, expected as string);
+      }
     } else if (key === 'style') {
       ignore = true;
-      expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
-    } else if (__IgnoreKeys.includes(key) || el.getAttribute(`data-hydrate-ignore-${key}`) !== null) {
+      if (clientValue !== undefined) {
+        expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
+        el.setAttribute(key, expected as string);
+      }
+    } else if (key === 'id') {
       ignore = true;
-      expected = String(clientValue);
+      if (clientValue !== undefined) {
+        expected = String(clientValue);
+        el.setAttribute(key, expected as string);
+      }
+    } else if (isBooleanAttr(key)) {
+      ignore = true;
+      if (clientValue !== undefined) {
+        const expected = includeBooleanAttr(clientValue);
+        if (expected) {
+          el.setAttribute(key, '');
+        } else {
+          el.removeAttribute(key);
+        }
+      }
+    } else if (el.getAttribute(`data-hydrate-ignore-${key}`) !== null) {
+      ignore = true;
+      if (clientValue !== undefined) {
+        expected = String(clientValue);
+        el.setAttribute(key, expected as string);
+      }
     }
     if (!ignore) return { clientValue };
-    el.setAttribute(key, expected as string);
     return { ignore: true };
   }
 
