@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutEmpty } from './controller.js';
 import { App, ConfigProvider, StyleProvider } from 'ant-design-vue';
+import { RouterView } from 'vue-router';
 
 export interface RenderLayoutEmpty extends ControllerLayoutEmpty {}
 
@@ -11,7 +12,7 @@ export class RenderLayoutEmpty extends BeanRenderBase {
       <StyleProvider cache={this.$antdvStyleCache}>
         <ConfigProvider>
           <App>
-            <router-view />
+            <RouterView />
           </App>
         </ConfigProvider>
       </StyleProvider>

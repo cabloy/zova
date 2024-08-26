@@ -1,6 +1,7 @@
 import { BeanRenderBase, ClientOnly, Local } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
 import { ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, StyleProvider } from 'ant-design-vue';
+import { RouterView } from 'vue-router';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
@@ -38,7 +39,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
             <Layout>
               <Layout class="ant-layout-has-sider">
                 <LayoutSider>{this._renderMenu()}</LayoutSider>
-                <router-view style="width:100%" />
+                <RouterView style="width:100%" />
               </Layout>
             </Layout>
           </Layout>
