@@ -85,7 +85,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
               <div>Ant Design Vue</div>
             </LayoutHeader>
             <Layout>
-              <Layout>
+              <Layout class="ant-layout-has-sider">
                 <LayoutSider>{this._renderMenu()}</LayoutSider>
                 <router-view style="width:100%" />
               </Layout>
