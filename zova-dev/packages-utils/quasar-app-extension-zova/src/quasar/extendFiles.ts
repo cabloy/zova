@@ -24,6 +24,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     fse.copyFileSync(resolveTemplatePath('modes/ssr/middlewares/env.ts'), api.resolve.ssr('middlewares/env.ts'));
     // ssr: ssr-devserver.js
     await _handleSSRDevServer();
+    // ssr: ssr-prod-webserver.mjs
+    await _handleSSRProdWebserver();
   }
 
   async function prepareTemplates() {
@@ -90,6 +92,19 @@ export function extendFiles(api: IndexAPI, flavor: string) {
       await viteServer.ssrLoadModule(serverEntry)
     }`,
       );
+    fse.writeFileSync(fileSrc, contentNew);
+  }
+
+  // ssr-prod-webserver.mjs
+  async function _handleSSRProdWebserver() {
+    const fileSrc = api.resolve.cli('templates/entry/ssr-prod-webserver.mjs');
+    const fileSrcBak = api.resolve.cli('templates/entry/ssr-prod-webserver-bak.mjs');
+    copyTemplateIfNeed(fileSrc, fileSrcBak);
+    const content = fse.readFileSync(fileSrcBak).toString();
+    const contentNew = content.replace(
+      "import { join, basename, isAbsolute } from 'node:path'",
+      "import 'zova-vite/dist/ssrEntry.js'\nimport { join, basename, isAbsolute } from 'node:path'",
+    );
     fse.writeFileSync(fileSrc, contentNew);
   }
 }
