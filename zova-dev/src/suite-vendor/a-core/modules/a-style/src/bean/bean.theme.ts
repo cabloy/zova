@@ -42,9 +42,8 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
         persister: {
           maxAge: this.scope.config.model.themename.persister.maxAge,
           deserialize: (value, deserializeDefault) => {
-            value = deserializeDefault(value);
-            if (cookieThemeDark && value === 'auto') return cookieThemeDarkDefault;
-            return value;
+            if (cookieThemeDark && value === 'auto') value = cookieThemeDarkDefault;
+            return deserializeDefault(value);
           },
         },
         defaultData: cookieThemeDark ? cookieThemeDarkDefault : 'auto',
