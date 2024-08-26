@@ -18,7 +18,9 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     try {
       const storedData = storage.getItem(storageKey);
       if (!storedData) return undefined;
-      const persistedQuery = options.deserialize!(storedData as string);
+      const persistedQuery = options.deserialize
+        ? options.deserialize(storedData as string, options.deserializeDefault)
+        : options.deserializeDefault!(storedData as string);
 
       if (persistedQuery.state.dataUpdatedAt) {
         const queryAge = Date.now() - persistedQuery.state.dataUpdatedAt;
@@ -54,12 +56,15 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     const storage = this._getPersisterStorage(options, query);
     if (!storage) return;
     const storageKey = this._getPersisterStorageKey(options, query);
-    const data = options.serialize!({
+    const params = {
       state: query.state,
       queryKey: query.queryKey,
       queryHash: query.queryHash,
       buster: options.buster,
-    });
+    };
+    const data = options.serialize
+      ? options.serialize(params, options.serializeDefault)
+      : options.serializeDefault!(params);
     if (options.sync === true) {
       storage.setItem(storageKey, data);
     } else {
@@ -110,8 +115,8 @@ export class BeanModelPersister<TScopeModule = unknown> extends BeanModelLast<TS
     options.maxAge = options.maxAge ?? this.scopeSelf.config.persister.maxAge[options.storage];
     options.prefix = options.prefix ?? this._getPersisterPrefix();
     options.buster = options.buster ?? this._getPersisterBuster();
-    options.serialize = options.serialize ?? JSON.stringify;
-    options.deserialize = options.deserialize ?? JSON.parse;
+    options.serializeDefault = options.serializeDefault ?? JSON.stringify;
+    options.deserializeDefault = options.deserializeDefault ?? JSON.parse;
     return options;
   }
 

@@ -77,10 +77,10 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       {
         meta: {
           persister: {
-            serialize: (obj?: Query) => {
+            serializeDefault: (obj?: Query) => {
               return this.$serializeLocal(obj);
             },
-            deserialize: (value?: string) => {
+            deserializeDefault: (value?: string) => {
               return this.$deserializeLocal(value);
             },
           },
@@ -139,10 +139,10 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
       {
         meta: {
           persister: {
-            serialize: (obj?: Query) => {
+            serializeDefault: (obj?: Query) => {
               return this.$serializeCookie(obj);
             },
-            deserialize: (value?: string) => {
+            deserializeDefault: (value?: string) => {
               const cookieType = options.meta.persister.cookieType;
               return this.$deserializeCookie(this._cookieCoerce(value, cookieType));
             },
