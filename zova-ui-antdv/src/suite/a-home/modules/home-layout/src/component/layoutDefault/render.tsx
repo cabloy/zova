@@ -81,7 +81,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
             <Layout>
               <Layout>
                 <LayoutSider>{this._renderMenu()}</LayoutSider>
-                <router-view />
+                <router-view style="width:100%" />
               </Layout>
             </Layout>
           </Layout>
