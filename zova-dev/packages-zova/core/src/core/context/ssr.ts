@@ -21,6 +21,8 @@ const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatche
 const SymbolInstanceUpdates = Symbol('SymbolInstanceUpdates');
 const SymbolHydratingCounter = Symbol('SymbolHydratingCounter');
 
+const __IgnoreKeys: string[] = ['id', 'checked'];
+
 export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
@@ -146,16 +148,13 @@ export class CtxSSR extends BeanSimple {
     // expected
     let ignore = false;
     let expected: string | undefined = undefined;
-    if (key === 'id') {
-      ignore = true;
-      expected = String(clientValue);
-    } else if (key === 'class') {
+    if (key === 'class') {
       ignore = true;
       expected = normalizeClass(clientValue);
     } else if (key === 'style') {
       ignore = true;
       expected = isString(clientValue) ? clientValue : stringifyStyle(normalizeStyle(clientValue));
-    } else if (el.getAttribute(`data-hydrate-ignore-${key}`) !== null) {
+    } else if (__IgnoreKeys.includes(key) || el.getAttribute(`data-hydrate-ignore-${key}`) !== null) {
       ignore = true;
       expected = String(clientValue);
     }
