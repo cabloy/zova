@@ -9,11 +9,6 @@ export class LocalSSR extends BeanBase<ScopeModule> {
   public async initialize() {
     // ssr style
     this.styleCache = createCache();
-    // ssr hydrated
-    if (process.env.CLIENT) {
-      this.ctx.meta.ssr.onHydrated(() => {});
-    }
-    // ssr theme
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
         const styles = extractStyle(this.styleCache);
