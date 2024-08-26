@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { ControllerLayoutEmpty } from './controller.js';
 import { VApp, VMain } from 'vuetify/components';
+import { RouterView } from 'vue-router';
 
 export interface RenderLayoutEmpty extends ControllerLayoutEmpty {}
 
@@ -10,7 +11,7 @@ export class RenderLayoutEmpty extends BeanRenderBase {
     return (
       <VApp>
         <VMain>
-          <router-view />
+          <RouterView />
         </VMain>
       </VApp>
     );

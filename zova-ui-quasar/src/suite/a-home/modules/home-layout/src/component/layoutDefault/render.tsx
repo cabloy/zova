@@ -16,6 +16,7 @@ import {
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule } from '../../resource/this.js';
+import { RouterView } from 'vue-router';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
@@ -67,7 +68,7 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
         </QDrawer>
 
         <QPageContainer>
-          <router-view />
+          <RouterView />
         </QPageContainer>
       </QLayout>
     );

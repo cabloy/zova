@@ -16,6 +16,7 @@ import {
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
 import { ServiceMenuEntity } from '../../api/index.js';
+import { RouterView } from 'vue-router';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
@@ -63,7 +64,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
           <VBtn icon="::more-horiz" variant="text"></VBtn>
         </VAppBar>
         <VMain>
-          <router-view />
+          <RouterView />
         </VMain>
       </VApp>
     );

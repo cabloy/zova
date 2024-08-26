@@ -13,6 +13,7 @@ import {
 } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/index.js';
+import { RouterView } from 'vue-router';
 //import EssentialLink from '../essentialLink/index.vue';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
@@ -98,7 +99,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
           <ElContainer class="main-container">
             <ElAside>{this._renderMenu()}</ElAside>
             <ElMain>
-              <router-view />
+              <RouterView />
             </ElMain>
           </ElContainer>
         </ElContainer>
