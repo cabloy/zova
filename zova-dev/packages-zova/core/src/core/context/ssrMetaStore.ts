@@ -309,17 +309,23 @@ function injectServerMeta(ssrContext: SSRContext) {
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
+  const ssr_local_themedark =
+    process.env.SSR_COOKIE_THEMEDARK === 'true'
+      ? ''
+      : `let ssr_local_themedark=window.ssr_load_local('themedark');
+      if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
+        ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      window.ssr_local_themedark=ssr_local_themedark;`;
+  const ssr_local_themename =
+    process.env.SSR_COOKIE_THEMENAME === 'true' ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');";
   ctx.endingHeadTags += `<script id="ssr-prefers-color-schema-dark">
       window.ssr_load_local=function(key){
         const __ssr_local=localStorage.getItem(key);
         return __ssr_local?JSON.parse(__ssr_local):undefined;
       };
-      let ssr_local_themedark=window.ssr_load_local('themedark');
-      if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
-        ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-      window.ssr_local_themedark=ssr_local_themedark;
-      ${process.env.SSR_COOKIE_THEMENAME === 'true' ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');"}
+      ${ssr_local_themedark}
+      ${ssr_local_themename}
       document.querySelector('#ssr-prefers-color-schema-dark').remove();
   </script>`.replaceAll('\n', '');
 

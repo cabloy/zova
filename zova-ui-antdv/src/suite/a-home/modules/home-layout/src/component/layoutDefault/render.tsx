@@ -1,6 +1,15 @@
-import { BeanRenderBase, iconh, Local } from 'zova';
+import { BeanRenderBase, ClientOnly, iconh, Local } from 'zova';
 import type { ControllerLayoutDefault } from './controller.js';
-import { ConfigProvider, Layout, LayoutHeader, LayoutSider, Menu, MenuItem, SubMenu } from 'ant-design-vue';
+import {
+  ConfigProvider,
+  Layout,
+  LayoutHeader,
+  LayoutSider,
+  Menu,
+  MenuItem,
+  StyleProvider,
+  SubMenu,
+} from 'ant-design-vue';
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/interface/menu.js';
 
@@ -48,32 +57,36 @@ export class RenderLayoutDefault extends BeanRenderBase {
   }
   _renderMenu() {
     return (
-      <Menu
-        mode="inline"
-        style={{ height: '100%' }}
-        items={this.menuTree?.children as any}
-        v-model:selectedKeys={this.activeMenuItemKeys}
-        v-model:openKeys={this.activeMenuSubKeys}
-        onClick={menuItem => this.onMenuItemClick(menuItem)}
-      ></Menu>
+      <ClientOnly>
+        <Menu
+          mode="inline"
+          style={{ height: '100%' }}
+          items={this.menuTree?.children as any}
+          v-model:selectedKeys={this.activeMenuItemKeys}
+          v-model:openKeys={this.activeMenuSubKeys}
+          onClick={menuItem => this.onMenuItemClick(menuItem)}
+        ></Menu>
+      </ClientOnly>
     );
   }
 
   render() {
     return (
-      <ConfigProvider theme={{ token: this.$token }}>
-        <Layout class="fill-height">
-          <LayoutHeader style={{ color: 'white' }}>
-            <div>Ant Design Vue</div>
-          </LayoutHeader>
-          <Layout>
-            <LayoutSider>{this._renderMenu()}</LayoutSider>
+      <StyleProvider cache={this.$antdvStyleCache}>
+        <ConfigProvider theme={{ token: this.$token }}>
+          <Layout class="fill-height">
+            <LayoutHeader style={{ color: 'white' }}>
+              <div>Ant Design Vue</div>
+            </LayoutHeader>
             <Layout>
-              <router-view />
+              <Layout>
+                <LayoutSider>{this._renderMenu()}</LayoutSider>
+                <router-view />
+              </Layout>
             </Layout>
           </Layout>
-        </Layout>
-      </ConfigProvider>
+        </ConfigProvider>
+      </StyleProvider>
     );
   }
 }
