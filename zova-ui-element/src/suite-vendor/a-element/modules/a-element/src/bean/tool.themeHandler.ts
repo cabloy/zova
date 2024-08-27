@@ -10,7 +10,7 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
 
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
     // body
-    const body = process.env.SERVER ? undefined : window?.document?.body;
+    const body = process.env.SERVER ? undefined : window?.document?.documentElement;
     // classBrand
     if (this.$$modelTheme.classBrand) {
       body?.classList.remove(this.$$modelTheme.classBrand);
@@ -21,7 +21,11 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
       brand[key2] = token[key];
       //body.style.setProperty(key2, token[key]);
     }
-    this.$$modelTheme.classBrand = this.$style(brand);
+    this.$$modelTheme.classBrand = this.$style({
+      $nest: {
+        '&&': brand,
+      },
+    });
     body?.classList.add(this.$$modelTheme.classBrand);
     // dark
     if (dark) {
@@ -32,11 +36,11 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
     // server
     if (process.env.SERVER) {
       // meta
-      const bodyClass = {
-        [this.$$modelTheme.classBrand]: true,
-        dark,
-      };
-      this.$useMeta({ bodyClass });
+      const htmlClass = [this.$$modelTheme.classBrand];
+      if (dark) {
+        htmlClass.push('dark');
+      }
+      this.$useMeta({ htmlAttr: { class: htmlClass.join(' ') } });
     }
   }
 }
