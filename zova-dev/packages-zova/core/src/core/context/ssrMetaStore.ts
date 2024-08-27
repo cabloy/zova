@@ -347,6 +347,7 @@ function injectServerMeta(ssrContext: SSRContext) {
         }
       });
       window.ssr_bodyReadyObserver.observe(document.body, {
+        subtree: true,
         childList: true,
       });
       document.addEventListener("DOMContentLoaded", () => {
