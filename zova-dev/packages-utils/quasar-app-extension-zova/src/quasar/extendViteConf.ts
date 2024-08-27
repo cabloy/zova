@@ -64,7 +64,7 @@ export function extendViteConf(context: ConfigContext) {
       conf.define = mergeConfig(conf.define || {}, define);
     }
     // ssr
-    if (context.configMeta?.appMode === 'ssr' && context.configMeta.mode === 'production') {
+    if (opts.isServer && (context.configMeta?.mode === 'production' || process.env.SSR_VITE_NODE === 'true')) {
       conf.ssr = mergeConfig(conf.ssr || {}, {
         noExternal: true,
         external: [
