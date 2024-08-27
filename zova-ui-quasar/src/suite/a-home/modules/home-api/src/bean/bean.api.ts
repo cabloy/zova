@@ -6,8 +6,6 @@ const SymbolApi = Symbol('SymbolApi');
 
 export interface BeanApi extends AxiosInstance {}
 
-// const __ApiMethods = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch'];
-
 @Bean()
 export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
