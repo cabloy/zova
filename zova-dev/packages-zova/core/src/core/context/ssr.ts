@@ -61,7 +61,9 @@ export class CtxSSR extends BeanSimple {
     this.metaStore = this.bean._newBeanSimple(CtxSSRMetaStore, false);
     // fix: flash on page load
     if (process.env.DEV && process.env.CLIENT && this.isRuntimeSsrPreHydration) {
-      document.body.style.display = 'block';
+      this.ctx.meta.ssr.onHydrated(() => {
+        document.body.style.display = 'block';
+      });
     }
   }
 
