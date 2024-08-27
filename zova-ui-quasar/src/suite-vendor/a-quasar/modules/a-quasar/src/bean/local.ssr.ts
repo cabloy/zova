@@ -23,9 +23,15 @@ export class LocalSSR extends BeanBase<ScopeModule> {
     }
     document.querySelector('#__prefersColorSchemeDarkJS').remove();
 </script>`.replaceAll('\n', '');
-        if (this.app.config.ssr.optimization.bodyHiddenBeforeLoad) {
+        if (this.app.config.ssr.optimization.bodyReadyObserver) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
-  document.addEventListener("DOMContentLoaded", () => {
+  window.ssr_body_ready_condition=()=>{
+    const __domHeader=document.querySelector('#q-app>.q-layout>.q-header');
+    const __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
+    const __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
+    return __domHeader && __domDrawer && __domPageContainer;
+  };
+  window.ssr_body_ready_callback=()=>{
     const __belowBreakpoint=document.documentElement.clientWidth <= ${this.app.config.layout.sidebar.breakpoint};
     let __leftDrawerOpen;
     if(__belowBreakpoint){
@@ -49,7 +55,7 @@ export class LocalSSR extends BeanBase<ScopeModule> {
       }
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
-  });
+  };        
 </script>`.replaceAll('\n', '');
         }
       });

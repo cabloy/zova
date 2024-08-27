@@ -13,7 +13,7 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
-      if (process.env.DEV || process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
+      if (process.env.DEV) {
         ssrContext.__qMetaList.push({
           bodyStyle: { display: 'none' },
         });
@@ -329,11 +329,28 @@ function injectServerMeta(ssrContext: SSRContext) {
       document.querySelector('#ssr-prefers-color-schema-dark').remove();
   </script>`.replaceAll('\n', '');
 
-  if (process.env.PROD && process.env.SSR_BODYHIDDENBEFORELOAD === 'true') {
-    ctx.bodyTags += `<script id="ssr-document-body-display">
+  if (process.env.SSR_BODYREADYOBSERVER === 'true') {
+    ctx.bodyTags += `<script id="ssr-body-ready-observer">
+      window.ssr_bodyReadyObserverClear=()=>{
+        if(window.ssr_bodyReadyObserver){
+          window.ssr_body_ready_condition=undefined;
+          window.ssr_body_ready_callback=undefined;
+          window.ssr_bodyReadyObserver.disconnect();
+          window.ssr_bodyReadyObserver=undefined;
+          document.querySelector('#ssr-body-ready-observer').remove();
+        }
+      };
+      window.ssr_bodyReadyObserver = new MutationObserver(() => {
+        if(window.ssr_body_ready_condition && window.ssr_body_ready_condition()){
+          window.ssr_body_ready_callback(); 
+          window.ssr_bodyReadyObserverClear();
+        }
+      });
+      window.ssr_bodyReadyObserver.observe(document.body, {
+        childList: true,
+      });
       document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = 'block';
-        document.querySelector('#ssr-document-body-display').remove();
+        window.ssr_bodyReadyObserverClear();
       });
     </script>`.replaceAll('\n', '');
   }

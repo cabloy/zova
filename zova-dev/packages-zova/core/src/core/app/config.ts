@@ -25,7 +25,7 @@ export function configDefault() {
       cookieThemeDark: process.env.SSR_COOKIE_THEMEDARK === 'true',
       cookieThemeDarkDefault: process.env.SSR_COOKIE_THEMEDARK_DEFAULT === 'true',
       optimization: {
-        bodyReadyObserver: process.env.SSR_BODYHIDDENBEFORELOAD === 'true',
+        bodyReadyObserver: process.env.SSR_BODYREADYOBSERVER === 'true',
       },
     },
     icon: {
