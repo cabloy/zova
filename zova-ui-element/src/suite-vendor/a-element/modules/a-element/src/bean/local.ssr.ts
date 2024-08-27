@@ -1,6 +1,6 @@
 import { BeanBase, Local } from 'zova';
 import { ScopeModule } from '../resource/this.js';
-import { ID_INJECTION_KEY } from 'element-plus';
+import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus';
 
 @Local()
 export class LocalSSR extends BeanBase<ScopeModule> {
@@ -11,6 +11,7 @@ export class LocalSSR extends BeanBase<ScopeModule> {
         prefix: 1024,
         current: 0,
       });
+      this.app.vue.provide(ZINDEX_INJECTION_KEY, { current: 0 });
     }
     // ssr style
     if (process.env.SERVER) {
