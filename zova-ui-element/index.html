@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Element Plus Vite Starter</title>
-    <!-- element css cdn, if you use custom theme, remove it. -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css"
-    /> -->
+    <title><%= productName %></title>
+
+    <meta charset="utf-8" />
+    <meta name="description" content="<%= productDescription %>" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>"
+    />
+
+    <link rel="icon" type="image/ico" href="favicon.ico" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/boot/main.ts"></script>
+    <!-- quasar:entry-point -->
   </body>
 </html>
