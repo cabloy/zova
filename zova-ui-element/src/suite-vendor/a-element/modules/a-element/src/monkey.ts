@@ -1,5 +1,5 @@
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
-import { PatchIcon } from './patch/icon.jsx';
+import { LocalIcon } from './bean/local.icon.jsx';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
@@ -8,8 +8,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
     scopeStyle.config.defaultThemeHandler = 'a-element.tool.themeHandler';
     // icon
-    const patchIcon = await bean._newBean(PatchIcon, false);
-    await patchIcon.initialize();
+    const localIcon = await bean._newBean(LocalIcon, false);
+    await localIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}
