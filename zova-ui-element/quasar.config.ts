@@ -17,7 +17,7 @@ export default configure(_ctx => {
     build: {
       extendViteConf(viteConf) {
         // plugins
-        viteConf.plugins!.concat([
+        viteConf.plugins = viteConf.plugins!.concat([
           ElementPlus({}), // https://github.com/antfu/unocss
           // see unocss.config.ts for config
           (<any>Unocss)({
