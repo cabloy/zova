@@ -64,7 +64,8 @@
     "concurrently": "^8.2.2",
     "quasar-app-extension-zova": "^1.1.144",
     "typescript": "^5.5.4",
-    "vue-tsc": "^2.0.29"
+    "vue-tsc": "^2.0.29",
+    "zova-vite": "^1.0.151"
   },
   "license": "MIT",
   "gitHead": "04c78c1a2d285879fa136d7ebaad60319bd94487"
