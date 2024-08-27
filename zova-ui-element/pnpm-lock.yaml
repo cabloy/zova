@@ -73,8 +73,8 @@ importers:
         specifier: ^8.2.2
         version: 8.2.2
       quasar-app-extension-zova:
-        specifier: ^1.1.145
-        version: 1.1.145(@babel/core@7.24.7)(@babel/traverse@7.24.7)(@types/node@20.14.4)(eslint@8.57.0)(pinia@2.1.7(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)))(quasar@2.16.9)(rollup@4.21.1)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5))
+        specifier: ^1.1.146
+        version: 1.1.146(@babel/core@7.24.7)(@babel/traverse@7.24.7)(@types/node@20.14.4)(eslint@8.57.0)(pinia@2.1.7(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)))(quasar@2.16.9)(rollup@4.21.1)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5))
       sass:
         specifier: ^1.77.6
         version: 1.77.6
@@ -3126,8 +3126,8 @@ packages:
     resolution: {integrity: sha512-zWmv4RSuB9r2mYQw3zxQuHWeU+42aKi1wWig/j4ele4ygELZ7PEO6MM7rim9oAQH2A5MWfsAVf/jPvTPgCbvUQ==}
     engines: {node: '>=0.6'}
 
-  quasar-app-extension-zova@1.1.145:
-    resolution: {integrity: sha512-gUxfHyHkHGnJ4/Ufxlf9Iq+YzYrypWdSVKGvmsRh2an+Aa763pDWyoX1vflhkMdnPMTFpzwLfgg3fEao7uD1sg==}
+  quasar-app-extension-zova@1.1.146:
+    resolution: {integrity: sha512-QyJ41t6erAPcSPfpgUeHRmZxH6CnAVzSC7nXRqYHAtaXmB7FEzWEfS7voE7NxVi/GIsQFvLs6TAf0tukxSKGsg==}
 
   quasar@2.16.9:
     resolution: {integrity: sha512-cAbt5l8hbxf7GQSwtYQ/3TlrbA8cOfjXXbFvikx4amMQEFKVB/vi/PfQMjbdRVcK/zEB6hu1y5OjS/9NlpJc/Q==}
@@ -6892,12 +6892,12 @@ snapshots:
     dependencies:
       side-channel: 1.0.6
 
-  quasar-app-extension-zova@1.1.145(@babel/core@7.24.7)(@babel/traverse@7.24.7)(@types/node@20.14.4)(eslint@8.57.0)(pinia@2.1.7(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)))(quasar@2.16.9)(rollup@4.21.1)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5)):
+  quasar-app-extension-zova@1.1.146(@babel/core@7.24.7)(@babel/traverse@7.24.7)(@types/node@20.14.4)(eslint@8.57.0)(pinia@2.1.7(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)))(quasar@2.16.9)(rollup@4.21.1)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5)):
     dependencies:
       '@quasar/app-vite': 2.0.0-beta.18(@types/node@20.14.4)(eslint@8.57.0)(pinia@2.1.7(typescript@5.4.5)(vue@3.4.29(typescript@5.4.5)))(quasar@2.16.9)(rollup@4.21.1)(terser@5.31.1)(typescript@5.4.5)(vue-router@4.3.3(vue@3.4.29(typescript@5.4.5)))(vue@3.4.29(typescript@5.4.5))
       chalk: 3.0.0
       fs-extra: 11.2.0
-      vite: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
+      vite: 5.4.2(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       vite-node: 2.0.5(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
       zova-shared: 1.0.4
       zova-vite: 1.0.151(@babel/core@7.24.7)(@babel/traverse@7.24.7)(sass@1.77.6)(vue@3.4.29(typescript@5.4.5))
@@ -7483,12 +7483,13 @@ snapshots:
       debug: 4.3.5
       pathe: 1.1.2
       tinyrainbow: 1.2.0
-      vite: 5.3.1(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
+      vite: 5.4.2(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -7507,6 +7508,17 @@ snapshots:
       esbuild: 0.21.5
       postcss: 8.4.38
       rollup: 4.18.0
+    optionalDependencies:
+      '@types/node': 20.14.4
+      fsevents: 2.3.3
+      sass: 1.77.6
+      terser: 5.31.1
+
+  vite@5.4.2(@types/node@20.14.4)(sass@1.77.6)(terser@5.31.1):
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.4.41
+      rollup: 4.21.1
     optionalDependencies:
       '@types/node': 20.14.4
       fsevents: 2.3.3
