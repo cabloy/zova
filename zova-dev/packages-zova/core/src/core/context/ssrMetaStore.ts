@@ -13,7 +13,7 @@ export class CtxSSRMetaStore extends BeanSimple {
     if (process.env.SERVER) {
       const ssrContext = this.ctx.meta.ssr.context;
       ssrContext.__qMetaList = [];
-      if (process.env.DEV || process.env.SSR_BODYREADYOBSERVER === 'true') {
+      if (process.env.SSR_BODYREADYOBSERVER === 'true') {
         ssrContext.__qMetaList.push({
           bodyStyle: { display: 'none' },
         });
@@ -337,7 +337,7 @@ function injectServerMeta(ssrContext: SSRContext) {
           window.ssr_body_ready_callback=undefined;
           window.ssr_bodyReadyObserver.disconnect();
           window.ssr_bodyReadyObserver=undefined;
-          ${process.env.PROD ? "document.body.style.display = 'block';" : ''}
+          document.body.style.display='block';
           document.querySelector('#ssr-body-ready-observer').remove();
         }
       };

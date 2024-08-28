@@ -36,7 +36,7 @@ export const collectCss = (mods: ModuleNode[] | Set<ModuleNode>, styles = new Ma
   });
 
   styles.forEach((content, id) => {
-    result = result.concat(`<style vite-module-id="${hashCode(id)}">${content}</style>`);
+    result = result.concat(`<style vite-css-module-id="${hashCode(id)}">${content}</style>`);
   });
 
   return result;
