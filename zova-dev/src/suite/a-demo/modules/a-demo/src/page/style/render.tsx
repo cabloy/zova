@@ -36,7 +36,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <button class={this.$class.buttonPrimary}>{`$token.color.primary: ${this.$token.color.primary}`}</button>
           <hr></hr>
           <div class={this.pageColor}>
-            <div>{`dark: ${String(this.$theme.dark)}`} </div>
+            <div>{`dark: ${String(this.$theme.dark)}`}</div>
             <div>{`dark mode: ${String(this.$theme.darkMode)}`}</div>
             <div>
               <select
