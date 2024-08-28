@@ -125,6 +125,9 @@ importers:
       chalk:
         specifier: ^3.0.0
         version: 3.0.0
+      esbuild:
+        specifier: ^0.23.0
+        version: 0.23.1
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -138,7 +141,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.151
+        specifier: ^1.0.152
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -289,7 +292,7 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.133
+        specifier: ^5.0.135
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
