@@ -59,7 +59,10 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     const contentNew = content
       .replace(
         "import { green } from 'kolorist'",
-        "import { green } from 'kolorist'\nimport { ViteNode } from 'quasar-app-extension-zova'",
+        `import { green } from 'kolorist'
+        import { ViteNode } from 'quasar-app-extension-zova'
+        import { collectCss } from 'zova-vite'
+        import * as path from 'node:path'`,
       )
       .replace(
         "const autoRemove = 'document.currentScript.remove()'",
@@ -91,6 +94,18 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     } else {
       await viteServer.ssrLoadModule(serverEntry)
     }`,
+      )
+      .replace(
+        'let html = renderTemplate(ssrContext)',
+        `ssrContext._meta.endingHeadTags += collectCss(
+          [viteServer.moduleGraph.getModuleById(this.#pathMap.serverEntryFile)].concat(
+          [...ssrContext.modules]
+            .map((componentPath) => this.#viteServer.moduleGraph.getModuleById(
+              path.resolve(componentPath),
+          )))
+        )
+
+        let html = renderTemplate(ssrContext)`,
       );
     fse.writeFileSync(fileSrc, contentNew);
   }
