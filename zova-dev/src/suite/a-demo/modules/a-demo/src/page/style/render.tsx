@@ -1,4 +1,4 @@
-import { BeanRenderBase, Local, getBeanName, useComputed } from 'zova';
+import { BeanRenderBase, ClientOnly, Local, getBeanName, useComputed } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import type { StyleStyle } from './style.js';
 
@@ -36,8 +36,12 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <button class={this.$class.buttonPrimary}>{`$token.color.primary: ${this.$token.color.primary}`}</button>
           <hr></hr>
           <div class={this.pageColor}>
-            <div>{`dark: ${String(this.$theme.dark)}`}</div>
-            <div>{`dark mode: ${String(this.$theme.darkMode)}`}</div>
+            <ClientOnly>
+              <div>{`dark: ${String(this.$theme.dark)}`}</div>
+            </ClientOnly>
+            <ClientOnly>
+              <div>{`dark mode: ${String(this.$theme.darkMode)}`}</div>
+            </ClientOnly>
             <div>
               <select
                 class="select select-bordered w-full max-w-xs"
