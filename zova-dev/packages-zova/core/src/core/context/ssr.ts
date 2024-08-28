@@ -166,6 +166,16 @@ export class CtxSSR extends BeanSimple {
         expected = String(clientValue);
         el.setAttribute(key, expected as string);
       }
+    } else if (key === 'value') {
+      ignore = true;
+      if (clientValue !== undefined) {
+        expected = String(clientValue);
+        if (el.tagName === 'TEXTAREA') {
+          (<any>el).value = expected;
+        } else {
+          el.setAttribute(key, expected as string);
+        }
+      }
     } else if (isBooleanAttr(key)) {
       ignore = true;
       if (clientValue !== undefined) {
