@@ -99,7 +99,7 @@ export function extendFiles(api: IndexAPI, flavor: string) {
         'let html = renderTemplate(ssrContext)',
         `ssrContext._meta.endingHeadTags += collectCss(
           [viteServer.moduleGraph.getModuleById(this.#pathMap.serverEntryFile)].concat(
-          [...ssrContext.modules]
+          [...(ssrContext.modules||[])]
             .map((componentPath) => this.#viteServer.moduleGraph.getModuleById(
               path.resolve(componentPath),
           )))
