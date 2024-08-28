@@ -14,8 +14,18 @@ const hashCode = (moduleId: string) => {
 };
 
 const moduleIsStyle = (mod: ModuleNode) =>
-  (mod?.file?.endsWith('.scss') || mod?.file?.endsWith('.css') || mod?.id?.includes('vue&type=style')) &&
-  mod?.ssrModule;
+  (mod?.file?.endsWith('.sass') ||
+    mod?.file?.endsWith('.scss') ||
+    mod?.file?.endsWith('.css') ||
+    mod?.id?.includes('vue&type=style')) &&
+  (mod?.ssrModule || mod?.ssrTransformResult);
+
+function getCssContent(mod) {
+  if (mod.ssrModule) return mod.ssrModule.default;
+  const __vite_ssr_exports__ = { default: '' };
+  eval(mod.ssrTransformResult.code);
+  return __vite_ssr_exports__.default;
+}
 
 /**
  * Collect SSR CSS for Vite
@@ -25,7 +35,7 @@ export const collectCss = (mods: ModuleNode[] | Set<ModuleNode>, styles = new Ma
 
   mods.forEach(mod => {
     if (moduleIsStyle(mod)) {
-      styles.set(mod.url, mod.ssrModule?.default);
+      styles.set(mod.url, getCssContent(mod));
     }
 
     if (mod?.importedModules?.size > 0 && !checkedMods.has(mod.id)) {
