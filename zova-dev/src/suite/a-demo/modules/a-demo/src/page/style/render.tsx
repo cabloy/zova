@@ -36,10 +36,22 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <button class={this.$class.buttonPrimary}>{`$token.color.primary: ${this.$token.color.primary}`}</button>
           <hr></hr>
           <div class={this.cBlock}>
-            <ClientOnly>
+            <ClientOnly
+              v-slots={{
+                placeholder: () => {
+                  return <div>dark: </div>;
+                },
+              }}
+            >
               <div>{`dark: ${String(this.$theme.dark)}`}</div>
             </ClientOnly>
-            <ClientOnly>
+            <ClientOnly
+              v-slots={{
+                placeholder: () => {
+                  return <div>dark mode: </div>;
+                },
+              }}
+            >
               <div>{`dark mode: ${String(this.$theme.darkMode)}`}</div>
             </ClientOnly>
             <div>
