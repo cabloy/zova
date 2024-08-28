@@ -1,4 +1,4 @@
-import { BeanRenderBase, ClientOnly, Local, getBeanName, useComputed } from 'zova';
+import { BeanRenderBase, Local, getBeanName, useComputed } from 'zova';
 import { ScopeModule } from '../../resource/this.js';
 import type { StyleStyle } from './style.js';
 
