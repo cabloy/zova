@@ -20,9 +20,7 @@ export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class RenderLayoutDefault extends BeanRenderBase {
-  _renderMenuItem(item: ServiceMenuEntity, levels: number[]) {
-    // index
-    const index = levels.join('-');
+  _renderMenuItem(item: ServiceMenuEntity) {
     // folder
     if (item.folder) {
       const slots = {
@@ -30,15 +28,14 @@ export class RenderLayoutDefault extends BeanRenderBase {
           return <span>{item.title}</span>;
         },
       };
-      const domItems = this._renderMenuItems(item.children, levels);
+      const domItems = this._renderMenuItems(item.children);
       return (
-        <ElSubMenu key={index} index={index} v-slots={slots}>
+        <ElSubMenu key={item.key} index={item.key} v-slots={slots}>
           {domItems}
         </ElSubMenu>
       );
     }
     // item
-    const route = { path: item.to };
     const slots = {
       title: () => {
         return (
@@ -51,33 +48,39 @@ export class RenderLayoutDefault extends BeanRenderBase {
     };
     return (
       <ElMenuItem
-        key={index}
-        index={index}
-        route={route}
+        key={item.key}
+        index={item.key}
         v-slots={slots}
         onClick={() => {
           if (item.href) {
             window.open(item.href);
+          } else {
+            this.$router.push(item.to!);
           }
         }}
       ></ElMenuItem>
     );
   }
-  _renderMenuItems(items: ServiceMenuEntity[] | undefined, levels: number[]) {
+  _renderMenuItems(items: ServiceMenuEntity[] | undefined) {
     if (!items) return [];
     const domItems: JSX.Element[] = [];
     for (let index = 0; index < items.length; index++) {
       const item = items[index];
-      domItems.push(this._renderMenuItem(item, levels.concat(index + 1)));
+      domItems.push(this._renderMenuItem(item));
     }
     return domItems;
   }
   _renderMenu() {
     const queryMenus = this.$$modelMenu.select();
     if (queryMenus.isLoading) return;
-    const domItems = this._renderMenuItems(queryMenus.data, []);
+    const domItems = this._renderMenuItems(queryMenus.data);
     return (
-      <ElMenu router class="el-menu-vertical-demo" collapse={this.leftDrawerOpen}>
+      <ElMenu
+        class="el-menu-vertical-demo"
+        collapse={this.leftDrawerOpen}
+        defaultActive={this.activeMenuItemKey}
+        defaultOpeneds={this.activeMenuSubKeys}
+      >
         {domItems}
       </ElMenu>
     );

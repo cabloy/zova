@@ -1,4 +1,5 @@
 export interface ServiceMenuEntity {
+  key: string;
   title: string;
   caption?: string;
   icon?: string;

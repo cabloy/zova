@@ -2,6 +2,7 @@ import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 const __MenuData = [
   {
+    key: '1',
     title: 'Home',
     caption: '',
     icon: '::home',
@@ -9,22 +10,26 @@ const __MenuData = [
     //to: '/a/home/home',
   },
   {
+    key: '2',
     folder: true,
     title: 'Basic',
     children: [
       {
+        key: '2-1',
         title: 'State',
         caption: 'ref, computed',
         icon: '',
         to: '/a/demo/state',
       },
       {
+        key: '2-2',
         title: 'Component',
         caption: 'props, emits, slots',
         icon: '',
         to: '/a/demo/component',
       },
       {
+        key: '2-3',
         title: 'CSS-in-JS',
         caption: 'Style & Theme',
         icon: '',
@@ -33,16 +38,19 @@ const __MenuData = [
     ],
   },
   {
+    key: '3',
     folder: true,
     title: 'Element',
     children: [
       {
+        key: '3-1',
         title: 'Docs',
         caption: 'element-plus.org',
         icon: ':social:school',
         href: 'https://element-plus.org',
       },
       {
+        key: '3-2',
         title: 'Github',
         caption: 'github.com/element-plus',
         icon: ':editor:code',
