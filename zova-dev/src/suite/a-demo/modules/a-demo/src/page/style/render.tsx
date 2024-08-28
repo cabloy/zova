@@ -10,16 +10,16 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   renderHello2;
 
   protected async __init__() {
-    this.renderHello = <div class={this.textColor}>Hello World</div>;
+    this.renderHello = <div class={this.cTextColor}>Hello World</div>;
     this.renderHello2 = useComputed(() => {
-      return <div class={this.textColor}>Hello World</div>;
+      return <div class={this.cTextColor}>Hello World</div>;
     });
   }
   render() {
     return (
       <this.$component.page>
         <hr></hr>
-        <div class={this.textColor}>Hello World</div>
+        <div class={this.cTextColor}>Hello World</div>
         {this.renderHello}
         {this.renderHello2}
         <button
@@ -35,7 +35,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <div>$class.textCenter</div>
           <button class={this.$class.buttonPrimary}>{`$token.color.primary: ${this.$token.color.primary}`}</button>
           <hr></hr>
-          <div class={this.pageColor}>
+          <div class={this.cBlock}>
             <ClientOnly>
               <div>{`dark: ${String(this.$theme.dark)}`}</div>
             </ClientOnly>

@@ -6,17 +6,15 @@ export interface StyleStyle extends ControllerPageStyle {}
 
 @Local()
 export class StyleStyle extends BeanStyleBase<ScopeModule> {
-  textColor: string;
-  pageColor: string;
+  cTextColor: string;
+  cBlock: string;
 
   protected async __init__() {
-    this.textColor = useComputed(() => {
+    this.cTextColor = useComputed(() => {
       return this.$style({ color: this.active ? this.$token.color.primary : '' });
     });
-    this.pageColor = useComputed(() => {
+    this.cBlock = useComputed(() => {
       return this.$style({
-        color: this.$token.component.page.color,
-        background: this.$token.component.page.background,
         padding: '8px',
       });
     });
