@@ -1,7 +1,6 @@
 import { BeanBase, Tool, Use } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
-import { setCssVar } from 'quasar';
 import { ModelTheme } from './model.theme.js';
 
 @Tool()
@@ -10,27 +9,44 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
   $$modelTheme: ModelTheme;
 
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
+    // data
+    const brand = {};
+    for (const key in token.color) {
+      brand[`--q-${key}`] = token.color[key];
+    }
+    const cBrandOld = this.$$modelTheme.cBrand;
+    this.$$modelTheme.cBrand = this.$style({
+      $nest: {
+        '&&': brand,
+      },
+    });
+    // client
     if (process.env.CLIENT) {
-      // style
-      for (const key in token.color) {
-        setCssVar(key, token.color[key]);
+      // body
+      const body = window.document.body;
+      // cBrand
+      if (cBrandOld) {
+        body.classList.remove(cBrandOld);
       }
+      body.classList.add(this.$$modelTheme.cBrand);
       // dark
       this.$q.dark.set(dark);
     }
+    // server
     if (process.env.SERVER) {
-      // style
-      const bodyStyle = {};
-      for (const key in token.color) {
-        bodyStyle[`--q-${key}`] = token.color[key];
+      if (!this.app.config.ssr.cookieThemeDark) {
+        const bodyClass = [this.$$modelTheme.cBrand, dark ? 'body--dark' : 'body--light'];
+        this.$useMeta({ bodyAttr: { [`data-ssr-theme-dark-${dark}`]: bodyClass.join(',') } });
+      } else {
+        // dark
+        const bodyClass = {
+          [this.$$modelTheme.cBrand]: true,
+          'body--light': !dark,
+          'body--dark': dark,
+        };
+        // meta
+        this.$useMeta({ bodyClass });
       }
-      // dark
-      const bodyClass = {
-        'body--light': !dark,
-        'body--dark': dark,
-      };
-      // meta
-      this.$useMeta({ bodyStyle, bodyClass });
     }
   }
 }
