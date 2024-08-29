@@ -4,11 +4,11 @@ import { ScopeModule } from '../resource/this.js';
 
 @Model()
 export class ModelTheme extends BeanModelBase<ScopeModule> {
-  classBrand: string;
+  cBrand: string;
 
   protected async __init__() {
-    this.classBrand = this.$useQueryMem({
-      queryKey: ['classBrand'],
+    this.cBrand = this.$useQueryMem({
+      queryKey: ['cBrand'],
     });
   }
 }

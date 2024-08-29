@@ -11,9 +11,9 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
     // body
     const body = process.env.SERVER ? undefined : window?.document?.documentElement;
-    // classBrand
-    if (this.$$modelTheme.classBrand) {
-      body?.classList.remove(this.$$modelTheme.classBrand);
+    // cBrand
+    if (this.$$modelTheme.cBrand) {
+      body?.classList.remove(this.$$modelTheme.cBrand);
     }
     const brand = {};
     for (const key in token) {
@@ -21,12 +21,12 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
       brand[key2] = token[key];
       //body.style.setProperty(key2, token[key]);
     }
-    this.$$modelTheme.classBrand = this.$style({
+    this.$$modelTheme.cBrand = this.$style({
       $nest: {
         '&&': brand,
       },
     });
-    body?.classList.add(this.$$modelTheme.classBrand);
+    body?.classList.add(this.$$modelTheme.cBrand);
     // dark
     if (dark) {
       body?.classList.add('dark');
@@ -36,11 +36,16 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
     // server
     if (process.env.SERVER) {
       // meta
-      const htmlClass = [this.$$modelTheme.classBrand];
+      const htmlClass = [this.$$modelTheme.cBrand];
       if (dark) {
         htmlClass.push('dark');
       }
-      this.$useMeta({ htmlAttr: { class: htmlClass.join(' ') } });
+      const htmlClassString = htmlClass.join(' ');
+      if (!this.app.config.ssr.cookieThemeDark) {
+        this.$useMeta({ bodyAttr: { [`data-ssr-theme-dark-${dark}`]: htmlClassString } });
+      } else {
+        this.$useMeta({ htmlAttr: { class: htmlClassString } });
+      }
     }
   }
 }
