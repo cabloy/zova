@@ -9,29 +9,34 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
   $$modelTheme: ModelTheme;
 
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
-    // body
-    const body = process.env.SERVER ? undefined : window?.document?.documentElement;
-    // cBrand
-    if (this.$$modelTheme.cBrand) {
-      body?.classList.remove(this.$$modelTheme.cBrand);
-    }
+    // data
     const brand = {};
     for (const key in token) {
       const key2 = `--el-${key}`;
       brand[key2] = token[key];
       //body.style.setProperty(key2, token[key]);
     }
+    const cBrandOld = this.$$modelTheme.cBrand;
     this.$$modelTheme.cBrand = this.$style({
       $nest: {
         '&&': brand,
       },
     });
-    body?.classList.add(this.$$modelTheme.cBrand);
-    // dark
-    if (dark) {
-      body?.classList.add('dark');
-    } else {
-      body?.classList.remove('dark');
+    // client
+    if (process.env.CLIENT) {
+      // body
+      const body = window.document.documentElement;
+      // cBrand
+      if (cBrandOld) {
+        body.classList.remove(cBrandOld);
+      }
+      body.classList.add(this.$$modelTheme.cBrand);
+      // dark
+      if (dark) {
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+      }
     }
     // server
     if (process.env.SERVER) {

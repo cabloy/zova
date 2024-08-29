@@ -1,10 +1,14 @@
-import { BeanBase, Tool } from 'zova';
+import { BeanBase, Tool, Use } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 import { setCssVar } from 'quasar';
+import { ModelTheme } from './model.theme.js';
 
 @Tool()
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
+  @Use()
+  $$modelTheme: ModelTheme;
+
   async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
     if (process.env.CLIENT) {
       // style
