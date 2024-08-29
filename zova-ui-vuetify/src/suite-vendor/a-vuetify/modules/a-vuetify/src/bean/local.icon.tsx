@@ -1,7 +1,7 @@
-import { BeanBase, getZovaIcon, Local } from 'zova';
+import { BeanBase, getZovaIcon, Local, useApp } from 'zova';
 import { ScopeModule } from '../resource/this.js';
 import { VIcon } from 'vuetify/components';
-import { computed, ref, toRef } from 'vue';
+import { computed, onServerPrefetch, ref, toRef } from 'vue';
 import { provideTheme } from 'vuetify/lib/composables/theme.mjs';
 import { useIcon } from 'vuetify/lib/composables/icons.mjs';
 import { useSize } from 'vuetify/lib/composables/size.mjs';
@@ -18,6 +18,16 @@ export class LocalIcon extends BeanBase<ScopeModule> {
   private _patchSetup() {
     const self = this;
     VIcon.setup = function (props, { attrs, slots }) {
+      onServerPrefetch(async () => {
+        let [iconName] = self._parseNameFromSlotDefault(slots);
+        iconName = iconName || props.icon;
+        if (!iconName) {
+          return;
+        }
+        const app = useApp();
+        await app.meta.icon.parseIconInfo(iconName);
+      });
+
       const slotIcon = ref<string>();
 
       const { themeClasses } = provideTheme(props);
@@ -85,5 +95,15 @@ export class LocalIcon extends BeanBase<ScopeModule> {
         },
       },
     };
+  }
+
+  private _parseNameFromSlotDefault(slots) {
+    if (!slots.default) return [undefined, null];
+    const slotDefault = slots.default();
+    if (!slotDefault) return [undefined, null];
+    const iconName = flattenFragments(slotDefault).filter(
+      node => node.type === Text && node.children && typeof node.children === 'string',
+    )[0]?.children as string;
+    return [iconName, slotDefault];
   }
 }
