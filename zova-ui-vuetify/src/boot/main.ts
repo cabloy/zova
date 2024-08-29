@@ -1,4 +1,4 @@
-import { Cast, SSRContext } from 'zova';
+import { SSRContext } from 'zova';
 import { App } from 'vue';
 import vuetify from './vuetify.js';
 
