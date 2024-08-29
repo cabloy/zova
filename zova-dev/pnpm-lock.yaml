@@ -292,13 +292,13 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.141
+        specifier: ^5.0.144
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.105
+        specifier: ^5.0.108
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-demo:
@@ -322,7 +322,7 @@ importers:
         specifier: ^5.0.42
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.23
+        specifier: ^5.0.24
         version: link:modules/a-model
       zova-module-a-pinia:
         specifier: ^5.0.24
@@ -331,7 +331,7 @@ importers:
         specifier: ^5.0.58
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.33
+        specifier: ^5.0.35
         version: link:modules/a-style
       zova-module-a-tabs:
         specifier: ^5.0.18

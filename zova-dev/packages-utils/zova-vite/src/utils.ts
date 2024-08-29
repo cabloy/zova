@@ -48,9 +48,9 @@ export function generateConfigDefine(env) {
 export function setModuleAlias() {
   // alias
   const alias = {
-    '@vue/runtime-core': __getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
-    '@vue/reactivity': __getAbsolutePathOfModule('@cabloy/vue-reactivity'),
-    'vue-router': __getAbsolutePathOfModule('@cabloy/vue-router'),
+    '@vue/runtime-core': getAbsolutePathOfModule('@cabloy/vue-runtime-core'),
+    '@vue/reactivity': getAbsolutePathOfModule('@cabloy/vue-reactivity'),
+    'vue-router': getAbsolutePathOfModule('@cabloy/vue-router'),
   };
   for (const key in alias) {
     moduleAlias.addAlias(key, alias[key]);
@@ -58,12 +58,12 @@ export function setModuleAlias() {
   return alias;
 }
 
-function __getAbsolutePathOfModule(id) {
+export function getAbsolutePathOfModule(id: string, postfix: string = 'index.js') {
   const require = createRequire(import.meta.url);
   let modulePath = require.resolve(id);
-  const pos = modulePath.lastIndexOf('index.js');
+  const pos = modulePath.lastIndexOf(postfix);
   if (pos > -1) {
-    modulePath = modulePath.substring(0, modulePath.length - 'index.js'.length - 1);
+    modulePath = modulePath.substring(0, modulePath.length - postfix.length - 1);
   }
   return modulePath;
 }

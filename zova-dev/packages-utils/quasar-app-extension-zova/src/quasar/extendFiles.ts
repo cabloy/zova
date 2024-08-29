@@ -1,6 +1,8 @@
 import fse from 'fs-extra';
 import { IndexAPI } from '@quasar/app-vite';
+import { getAbsolutePathOfModule } from 'zova-vite';
 import { resolveTemplatePath } from '../utils.js';
+import path from 'node:path';
 
 export function extendFiles(api: IndexAPI, flavor: string) {
   return async function extendFiles() {
@@ -8,6 +10,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     await patchTemplates();
     // prepare templates
     await prepareTemplates();
+    // prepare vuetify
+    await prepareVuetify();
   };
 
   async function patchTemplates() {
@@ -127,5 +131,22 @@ export function extendFiles(api: IndexAPI, flavor: string) {
       "import 'zova-vite/dist/ssrEntry.js'\nimport { join, basename, isAbsolute } from 'node:path'",
     );
     fse.writeFileSync(fileSrc, contentNew);
+  }
+
+  async function prepareVuetify() {
+    let modulePath;
+    try {
+      modulePath = getAbsolutePathOfModule('vuetify', 'lib/framework.mjs');
+    } catch (_) {}
+    if (!modulePath) return;
+    // copy
+    fse.copyFileSync(
+      resolveTemplatePath('vuetify/composables/hydration.mjs'),
+      path.join(modulePath, 'lib/composables/hydration.mjs'),
+    );
+    fse.copyFileSync(
+      resolveTemplatePath('vuetify/composables/ssrBoot.mjs'),
+      path.join(modulePath, 'lib/composables/ssrBoot.mjs'),
+    );
   }
 }
