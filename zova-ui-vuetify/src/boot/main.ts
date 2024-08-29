@@ -1,20 +1,10 @@
-/**
- * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
-
-import { createApp } from 'vue';
-import { PluginBean } from 'zova';
-import 'roboto-fontface/css/roboto/sass/roboto-fontface.scss';
+import { Cast, SSRContext } from 'zova';
+import { App } from 'vue';
 import vuetify from './vuetify.js';
-import App from './app/index.vue';
 
-async function start({ app }) {
-  app.use(PluginBean);
-  app.mount('#app');
-}
+import 'roboto-fontface/css/roboto/sass/roboto-fontface.scss';
+import '../css/settings.scss';
 
-const app = createApp(App);
-app.use(vuetify);
-start({ app });
+export default (app: App, _ssrContext: SSRContext) => {
+  app.use(vuetify);
+};

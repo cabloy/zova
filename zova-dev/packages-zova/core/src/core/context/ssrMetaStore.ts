@@ -311,12 +311,14 @@ function injectServerMeta(ssrContext: SSRContext) {
 
   const ssr_local_themedark =
     process.env.SSR_COOKIE_THEMEDARK === 'true'
-      ? ''
+      ? `let ssr_cookie_themedark=document.cookie.split('; ')?.find(item=>item.indexOf('themedark=')>-1)?.split('=')[1];
+      ssr_cookie_themedark=ssr_cookie_themedark==='true'?true:ssr_cookie_themedark==='false'?false:${process.env.SSR_COOKIE_THEMEDARK_DEFAULT};
+      window.ssr_themedark=window.ssr_cookie_themedark=ssr_cookie_themedark;`
       : `let ssr_local_themedark=window.ssr_load_local('themedark');
       if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
         ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
-      window.ssr_local_themedark=ssr_local_themedark;
+      window.ssr_themedark=window.ssr_local_themedark=ssr_local_themedark;
       Object.defineProperty(window, 'ssr_local_themedark_data', {
         get: () => {
           return document.body.getAttribute('data-ssr-theme-dark-'+ssr_local_themedark);
