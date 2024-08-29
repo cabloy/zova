@@ -15,6 +15,7 @@ export class LocalSSR extends BeanBase<ScopeModule> {
       this.ctx.meta.ssr.context.onRendered(() => {
         if (!this.app.config.ssr.cookieThemeDark) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
+            document.body.classList.remove('body--light','body--dark');
             window.ssr_local_themedark_data.split(',').forEach(item=>document.body.classList.add(item));
             document.querySelector('#__prefersColorSchemeDarkJS').remove();
           </script>`.replaceAll('\n', '');
