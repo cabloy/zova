@@ -7,10 +7,10 @@ import { useIcon } from 'vuetify/lib/composables/icons.mjs';
 import { useSize } from 'vuetify/lib/composables/size.mjs';
 import { useTextColor } from 'vuetify/lib/composables/color.mjs';
 import { convertToUnit, flattenFragments } from 'vuetify/lib/util/index.mjs';
-import { VSvgIconZova } from './svg.js';
+import { VSvgIconZova } from '../component/svg.js';
 
 @Local()
-export class PatchIcon extends BeanBase<ScopeModule> {
+export class LocalIcon extends BeanBase<ScopeModule> {
   public async initialize() {
     this._patchSetup();
   }

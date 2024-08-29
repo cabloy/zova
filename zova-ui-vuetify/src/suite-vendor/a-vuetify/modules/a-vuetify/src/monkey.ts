@@ -1,5 +1,4 @@
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
-import { PatchIcon } from './patch/icon.jsx';
 import { inject, reactive } from 'vue';
 import { DateAdapterSymbol } from 'vuetify/lib/composables/date/date.mjs';
 import { DefaultsSymbol } from 'vuetify/lib/composables/defaults.mjs';
@@ -8,6 +7,7 @@ import { IconSymbol } from 'vuetify/lib/composables/icons.mjs';
 import { LocaleSymbol } from 'vuetify/lib/composables/locale.mjs';
 import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
+import { LocalIcon } from './bean/local.icon.jsx';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize(bean: BeanContainer) {
@@ -15,8 +15,8 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
     scopeStyle.config.defaultThemeHandler = 'a-vuetify.tool.themeHandler';
     // icon
-    const patchIcon = await bean._newBean(PatchIcon, false);
-    await patchIcon.initialize();
+    const localIcon = await bean._newBean(LocalIcon, false);
+    await localIcon.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}
