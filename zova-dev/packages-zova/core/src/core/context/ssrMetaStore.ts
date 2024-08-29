@@ -317,7 +317,11 @@ function injectServerMeta(ssrContext: SSRContext) {
         ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
       window.ssr_local_themedark=ssr_local_themedark;
-      window.ssr_local_themedark_data=document.body.getAttribute('data-ssr-theme-dark-'+ssr_local_themedark);`;
+      Object.defineProperty(window, 'ssr_local_themedark_data', {
+        get: () => {
+          return document.body.getAttribute('data-ssr-theme-dark-'+ssr_local_themedark);
+        },
+      });`;
   const ssr_local_themename =
     process.env.SSR_COOKIE_THEMENAME === 'true' ? '' : "window.ssr_local_themename=window.ssr_load_local('themename');";
   ctx.endingHeadTags += `<script id="ssr-prefers-color-schema-dark">
