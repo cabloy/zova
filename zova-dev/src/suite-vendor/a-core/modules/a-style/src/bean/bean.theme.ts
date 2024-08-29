@@ -62,7 +62,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       this._applyTheme();
     });
     // not use watch.immediate for await done
-    await this._applyTheme();
+    await this._applyThemeWrapper();
   }
 
   protected __dispose__() {
@@ -71,6 +71,14 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   private _updateDark() {
     this._dark = this._getDarkFromDarkMode(this.darkMode);
+  }
+
+  async _applyThemeWrapper() {
+    await this._applyTheme();
+    if (process.env.SERVER && !this.app.config.ssr.cookieThemeDark) {
+      this.toggleDark();
+      await this._applyTheme();
+    }
   }
 
   async _applyTheme() {

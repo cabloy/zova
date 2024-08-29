@@ -15,13 +15,18 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHand
     const themeName = _names.join('-');
     // data-theme
     if (process.env.CLIENT) {
+      // client
       const body = window?.document?.body;
       if (body) {
         body.setAttribute('data-theme', themeName);
       }
     } else {
-      // meta
-      this.$useMeta({ bodyAttr: { 'data-theme': themeName } });
+      // server
+      if (!this.app.config.ssr.cookieThemeDark) {
+        this.$useMeta({ bodyAttr: { [`data-ssr-theme-dark-${dark}`]: themeName } });
+      } else {
+        this.$useMeta({ bodyAttr: { 'data-theme': themeName } });
+      }
     }
   }
 }
