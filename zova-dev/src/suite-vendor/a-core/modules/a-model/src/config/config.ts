@@ -13,6 +13,7 @@ const defaultOptions: DefaultOptions = {
   dehydrate: {
     shouldDehydrateQuery(query) {
       if (query.meta?.ssr?.dehydrate === false) return false;
+      // mem query return true, because mem persister is false
       if (typeof query.meta?.persister === 'object' && query.meta?.persister?.sync) return false;
       return defaultShouldDehydrateQuery(query);
     },
