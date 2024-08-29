@@ -16,7 +16,7 @@ export class RenderHome extends BeanRenderBase<ScopeModule> {
         }}
       >
         <div>
-          <ElTooltip>
+          <ElTooltip content="Hello Zova">
             <div style="font-size: 36px">Hello Zova</div>
           </ElTooltip>
           <div style="font-size: 24px;opacity:.4">Less is more, while more is less</div>
