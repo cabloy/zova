@@ -66,3 +66,9 @@ export type OnHydratePropHasMismatch = (
   vnode: VNode,
   instance: ComponentInternalInstance | null,
 ) => OnHydratePropHasMismatchResult;
+
+export interface SSREnv {
+  ssr: boolean;
+  server: boolean;
+  client: boolean;
+}

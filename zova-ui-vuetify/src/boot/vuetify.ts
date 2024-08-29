@@ -13,6 +13,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
+  ssr: process.env.SSR,
   theme: {
     defaultTheme: 'dark',
   },
