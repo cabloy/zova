@@ -39,8 +39,8 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
       zova:
-        specifier: ^5.0.189
-        version: 5.0.189(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
+        specifier: ^5.0.190
+        version: 5.0.190(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
       zova-module-a-model:
         specifier: ^5.0.24
         version: 5.0.24(vue@3.4.38(typescript@5.5.4))
@@ -3391,8 +3391,8 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
-  zova-core@5.0.143:
-    resolution: {integrity: sha512-+r0tqYSzFrfkSfBBnWMMGuHx6QkCNKFBZD8ogS00UHlO1Jp2y4LoGmGEYQ2K7QqTvXLlxApMkuRfmNIo6Jv9dw==}
+  zova-core@5.0.144:
+    resolution: {integrity: sha512-Ex3e6ijGgnLRETuCxEuFvVcJ7BV5UxiIGRhnnuU+/lryIo0wtLMncd+84XLB3dI0nF32W6CapZXRTO+qfU8P9Q==}
 
   zova-module-a-core@5.0.42:
     resolution: {integrity: sha512-OB34tqJrXARqWDhjRjHVDV1AAFZ6AKMkuzBtkQtkLA4Vy5Rxx3bLsz+p7jCAIgbx68ApmuMzcrqc8PSK8tov8A==}
@@ -3421,8 +3421,8 @@ packages:
   zova-vite@1.0.157:
     resolution: {integrity: sha512-JEa1Fx8vXDGS+dGirZ39FKUaeL2seoAK/FcrdqjHLpI8u7jq+nvh0phzMGHOD6QvOZk0NPaBJFvbQsRL6HXx0A==}
 
-  zova@5.0.189:
-    resolution: {integrity: sha512-9C6D6qTHbZdF5e+wolgSBO6vqX+qsVxJ8/lsEzrwgdVdFeVUCYzBUSaErLpCJfYDMdS6g8l0wwU7VP00Nd7RBQ==}
+  zova@5.0.190:
+    resolution: {integrity: sha512-3wcVFBAI1IO0dvnXxufLjSSWJqrsidH+lL88gXlp7CdH0IVVd72jk73JtlUuM5oK4m6FkjmLDuDd3bPXzwNOfg==}
 
 snapshots:
 
@@ -6688,7 +6688,7 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zova-core@5.0.143(typescript@5.5.4):
+  zova-core@5.0.144(typescript@5.5.4):
     dependencies:
       '@cabloy/compose': 1.0.2
       '@cabloy/extend': 3.0.5
@@ -6795,9 +6795,9 @@ snapshots:
       - supports-color
       - vue
 
-  zova@5.0.189(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)):
+  zova@5.0.190(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)):
     dependencies:
-      zova-core: 5.0.143(typescript@5.5.4)
+      zova-core: 5.0.144(typescript@5.5.4)
       zova-shared: 1.0.4
       zova-suite-a-core: 5.0.108(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
     transitivePeerDependencies:
