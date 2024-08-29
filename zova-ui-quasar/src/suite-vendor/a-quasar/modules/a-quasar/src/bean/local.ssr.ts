@@ -13,16 +13,12 @@ export class LocalSSR extends BeanBase<ScopeModule> {
     // ssr theme
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
-        this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
-    if(window.ssr_local_themedark){
-      document.body.classList.remove('body--light');
-      document.body.classList.add('body--dark');
-    }else{
-      document.body.classList.remove('body--dark');
-      document.body.classList.add('body--light');
-    }
-    document.querySelector('#__prefersColorSchemeDarkJS').remove();
-</script>`.replaceAll('\n', '');
+        if (!this.app.config.ssr.cookieThemeDark) {
+          this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
+            window.ssr_local_themedark_data.split(',').forEach(item=>document.body.classList.add(item));
+            document.querySelector('#__prefersColorSchemeDarkJS').remove();
+          </script>`.replaceAll('\n', '');
+        }
         if (this.app.config.ssr.optimization.bodyReadyObserver) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   window.ssr_body_ready_condition=()=>{
