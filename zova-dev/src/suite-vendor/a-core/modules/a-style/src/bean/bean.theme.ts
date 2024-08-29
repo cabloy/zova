@@ -58,9 +58,12 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       },
     );
 
-    watch([() => this.name, () => this._dark], () => {
-      this._applyTheme();
-    });
+    if (process.env.CLIENT) {
+      watch([() => this.name, () => this._dark], () => {
+        this._applyTheme();
+      });
+    }
+
     // not use watch.immediate for await done
     await this._applyThemeWrapper();
   }
@@ -96,6 +99,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
 
   toggleDark() {
     this.darkMode = !this._dark;
+    this._updateDark(); // immediate
   }
 
   _getDarkFromDarkMode(mode?: ThemeDarkMode) {
