@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleHome } from './style.js';
 import { ScopeModule } from '../../resource/this.js';
+import { ElTooltip } from 'element-plus';
 
 export interface RenderHome extends StyleHome {}
 
@@ -15,7 +16,9 @@ export class RenderHome extends BeanRenderBase<ScopeModule> {
         }}
       >
         <div>
-          <div style="font-size: 36px">Hello Zova</div>
+          <ElTooltip>
+            <div style="font-size: 36px">Hello Zova</div>
+          </ElTooltip>
           <div style="font-size: 24px;opacity:.4">Less is more, while more is less</div>
         </div>
       </div>
