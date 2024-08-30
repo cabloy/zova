@@ -174,6 +174,12 @@ export class CtxSSR extends BeanSimple {
         expected = String(clientValue);
         el.setAttribute(key, expected as string);
       }
+    } else if (key === 'd') {
+      ignore = true;
+      if (clientValue !== undefined) {
+        expected = String(clientValue);
+        el.setAttribute(key, expected as string);
+      }
     } else if (key === 'value') {
       ignore = true;
       if (clientValue !== undefined) {
