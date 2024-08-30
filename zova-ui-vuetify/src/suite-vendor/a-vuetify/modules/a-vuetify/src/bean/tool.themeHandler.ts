@@ -4,9 +4,14 @@ import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 @Tool()
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
-  async apply({ name, token }: ThemeHandlerApplyParams): Promise<void> {
+  async apply({ name, dark, token }: ThemeHandlerApplyParams): Promise<void> {
     // theme
     Cast(this.$vuetify.theme.global).name = name;
     Cast(this.$vuetify.theme.themes)[name] = token;
+    if (process.env.SERVER) {
+      this.$ssr.state[`data-ssr-theme-dark-${dark}`] = this.$vuetify.theme.styles;
+      this.$ssr.state['data-ssr-theme-name'] = name;
+      this.$ssr.state[`data-ssr-theme-token-${dark}`] = token;
+    }
   }
 }
