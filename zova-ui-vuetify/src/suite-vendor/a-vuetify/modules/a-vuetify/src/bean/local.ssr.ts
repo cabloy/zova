@@ -48,7 +48,7 @@ export class LocalSSR extends BeanBase<ScopeModule> {
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
   };
-</script>`;
+</script>`.replaceAll('\n', '');
         }
       });
     }
