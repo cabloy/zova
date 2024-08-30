@@ -7,16 +7,14 @@ export class LocalSSR extends BeanBase<ScopeModule> {
     // ssr theme
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
-        if (!this.app.config.ssr.cookieThemeDark) {
-          this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
-            const __themeDarkStyle=window.__INITIAL_STATE__['data-ssr-theme-dark-'+window.ssr_local_themedark];
+        this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
+            const __themeDarkStyle=window.__INITIAL_STATE__['data-ssr-theme-dark-'+window.ssr_themedark];
             const __themeDarkEl=document.createElement('style');
             __themeDarkEl.id='vuetify-theme-stylesheet';
             __themeDarkEl.innerHTML=__themeDarkStyle;
             document.head.appendChild(__themeDarkEl);
             document.querySelector('#__prefersColorSchemeDarkJS').remove();
           </script>`.replaceAll('\n', '');
-        }
         if (this.app.config.ssr.optimization.bodyReadyObserver) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   window.ssr_body_ready_condition=()=>{

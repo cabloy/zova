@@ -53,7 +53,11 @@ export class RenderLayoutDefault extends BeanRenderBase {
   render() {
     return (
       <VApp>
-        <VNavigationDrawer v-model={this.leftDrawerOpen} width="360">
+        <VNavigationDrawer
+          v-model={this.leftDrawerOpen}
+          mobileBreakpoint={this.app.config.layout.sidebar.breakpoint}
+          width="360"
+        >
           {this._renderMenu()}
         </VNavigationDrawer>
         <VAppBar>

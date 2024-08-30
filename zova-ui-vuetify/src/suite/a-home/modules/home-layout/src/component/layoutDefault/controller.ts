@@ -1,5 +1,6 @@
-import { BeanControllerBase, Local, Use, PropsBase } from 'zova';
+import { BeanControllerBase, Local, Use, PropsBase, useComputed, useCustomRef } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
+import { ModelLayout } from '../../bean/model.layout.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -13,10 +14,36 @@ export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, 
 
   @Use()
   $$modelMenu: ModelMenu;
+  @Use()
+  $$modelLayout: ModelLayout;
 
-  leftDrawerOpen: boolean = false;
+  leftDrawerOpen: boolean;
+  leftDrawerOpenMobile: boolean = false;
+  belowBreakpoint: boolean;
 
   protected async __init__() {
+    // belowBreakpoint
+    this.belowBreakpoint = useComputed(() => {
+      let width;
+      if (process.env.SERVER) {
+        width = 0;
+      } else {
+        width = document.documentElement.clientWidth;
+      }
+      return width <= this.app.config.layout.sidebar.breakpoint;
+    });
+    // leftDrawerOpen
+    this.leftDrawerOpen = useCustomRef(() => {
+      const self = this;
+      return {
+        get() {
+          return self.belowBreakpoint ? self.leftDrawerOpenMobile : self.$$modelLayout.leftDrawerOpenPC;
+        },
+        set(value) {
+          self.belowBreakpoint ? (self.leftDrawerOpenMobile = value) : (self.$$modelLayout.leftDrawerOpenPC = value);
+        },
+      };
+    });
     // menu
     const queryMenus = this.$$modelMenu.select();
     await queryMenus.suspense();
