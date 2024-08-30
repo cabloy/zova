@@ -18,9 +18,9 @@ export class LocalSSR extends BeanBase<ScopeModule> {
         if (this.app.config.ssr.optimization.bodyReadyObserver) {
           this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__leftDrawerOpenJS">
   window.ssr_body_ready_condition=()=>{
-    const __domHeader=document.querySelector('#q-app>.q-layout>.q-header');
-    const __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
-    const __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
+    const __domHeader=document.querySelector('#q-app>.v-application>.v-application__wrap>header.v-toolbar');
+    const __domDrawer=document.querySelector('#q-app>.v-application>.v-application__wrap>.v-navigation-drawer--left');
+    const __domPageContainer=document.querySelector('#q-app>.v-application>.v-application__wrap>main.v-main');
     return __domHeader && __domDrawer && __domPageContainer;
   };
   window.ssr_body_ready_callback=()=>{
@@ -33,22 +33,19 @@ export class LocalSSR extends BeanBase<ScopeModule> {
       __leftDrawerOpen=__leftDrawerOpenPC!==undefined?__leftDrawerOpenPC:${this.app.config.layout.sidebar.leftOpenPC};  
     }
     if(__leftDrawerOpen){
-      const __domHeader=document.querySelector('#q-app>.q-layout>.q-header');
-      const __domDrawer=document.querySelector('#q-app>.q-layout>.q-drawer-container>.q-drawer--left');
-      const __domPageContainer=document.querySelector('#q-app>.q-layout>.q-page-container');
-      __domHeader.style.left='300px';
-      __domDrawer.style.transform='unset !important';
-      __domDrawer.className=__domDrawer.className.replace('q-layout--prevent-focus ','');
-      __domPageContainer.style.paddingLeft='300px';
-      if(window.ssr_local_themedark){
-      __domDrawer.classList.add('q-drawer--dark','q-dark');
-      __domDrawer.querySelector('.q-list').classList.add('q-list--dark');
-      __domDrawer.querySelector('.q-separator').classList.add('q-separator--dark');
-      }
+    debugger;
+      const __domHeader=document.querySelector('#q-app>.v-application>.v-application__wrap>header.v-toolbar');
+      const __domDrawer=document.querySelector('#q-app>.v-application>.v-application__wrap>.v-navigation-drawer--left');
+      const __domPageContainer=document.querySelector('#q-app>.v-application>.v-application__wrap>main.v-main');
+      __domHeader.style.left='360px';
+      __domHeader.style.width='calc(100% - 360px)';
+      __domDrawer.transform='translateX(0px)';
+      __domPageContainer.style.setProperty('--v-layout-left','360px');
+      __domPageContainer.style.setProperty('--v-layout-top','64px');
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
   };        
-</script>`.replaceAll('\n', '');
+</script>`;
         }
       });
     }
