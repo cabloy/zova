@@ -32,19 +32,22 @@ export class LocalSSR extends BeanBase<ScopeModule> {
       const __leftDrawerOpenPC=window.ssr_load_local('sidebarLeftOpenPC');
       __leftDrawerOpen=__leftDrawerOpenPC!==undefined?__leftDrawerOpenPC:${this.app.config.layout.sidebar.leftOpenPC};  
     }
+    const __domHeader=document.querySelector('#q-app>.v-application>.v-application__wrap>header.v-toolbar');
+    const __domDrawer=document.querySelector('#q-app>.v-application>.v-application__wrap>.v-navigation-drawer--left');  
+    const __domPageContainer=document.querySelector('#q-app>.v-application>.v-application__wrap>main.v-main');
     if(__leftDrawerOpen){
-    debugger;
-      const __domHeader=document.querySelector('#q-app>.v-application>.v-application__wrap>header.v-toolbar');
-      const __domDrawer=document.querySelector('#q-app>.v-application>.v-application__wrap>.v-navigation-drawer--left');
-      const __domPageContainer=document.querySelector('#q-app>.v-application>.v-application__wrap>main.v-main');
       __domHeader.style.left='360px';
       __domHeader.style.width='calc(100% - 360px)';
-      __domDrawer.transform='translateX(0px)';
+      __domDrawer.style.transform='translateX(0px)';
+      __domDrawer.style.width='360px';
       __domPageContainer.style.setProperty('--v-layout-left','360px');
+      __domPageContainer.style.setProperty('--v-layout-top','64px');
+    }else{
+      __domPageContainer.style.setProperty('--v-layout-left','0px');
       __domPageContainer.style.setProperty('--v-layout-top','64px');
     }
     document.querySelector('#__leftDrawerOpenJS').remove();
-  };        
+  };
 </script>`;
         }
       });
