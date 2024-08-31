@@ -5,6 +5,11 @@ export interface ZovaConfigEnv {
   appName: string | undefined;
   appTitle: string | undefined;
   appVersion: string | undefined;
+  ssr: boolean;
+  server: boolean;
+  client: boolean;
+  dev: boolean;
+  prod: boolean;
 }
 
 declare global {

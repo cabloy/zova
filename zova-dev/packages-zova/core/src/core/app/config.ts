@@ -12,7 +12,13 @@ import {
 export function configDefault() {
   return {
     meta: {},
-    env: {},
+    env: {
+      ssr: process.env.SSR,
+      server: process.env.SERVER,
+      client: process.env.CLIENT,
+      dev: process.env.DEV,
+      prod: process.env.PROD,
+    },
     base: {
       jwt: process.env.APP_BASE_JWT !== 'false',
     },
