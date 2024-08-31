@@ -141,7 +141,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.157
+        specifier: ^1.0.158
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -292,7 +292,7 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.144
+        specifier: ^5.0.147
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
