@@ -8,7 +8,7 @@ export class LocalSSR extends BeanBase<ScopeModule> {
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
         this.ctx.meta.ssr.context._meta.bodyTags += `<script id="__prefersColorSchemeDarkJS">
-            const __themeDarkStyle=window.__INITIAL_STATE__['data-ssr-theme-dark-'+window.ssr_themedark];
+            const __themeDarkStyle=window.ssr_themedark_data;
             const __themeDarkEl=document.createElement('style');
             __themeDarkEl.id='vuetify-theme-stylesheet';
             __themeDarkEl.innerHTML=__themeDarkStyle;
