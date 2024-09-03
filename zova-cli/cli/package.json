@@ -1,6 +1,6 @@
 {
   "name": "zova-cli",
-  "version": "1.1.161",
+  "version": "1.1.162",
   "description": "zova cli",
   "publishConfig": {
     "access": "public"
@@ -54,7 +54,7 @@
     "istextorbinary": "^3.3.0",
     "semver": "^7.6.2",
     "urllib": "^3.24.0",
-    "zova-cli-set-front": "^1.1.150"
+    "zova-cli-set-front": "^1.1.151"
   },
   "gitHead": "54f08aaa53a6cec0e29941f915aebbe5cd290195"
 }
