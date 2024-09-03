@@ -57,6 +57,10 @@
     "*.code-snippets": "text",
     "docker-compose-dockerfile-app": "dockerfile"
   },
+  // watcher
+  "files.watcherExclude": {
+    "node_modules": true
+  },
   // search
   "search.exclude": {
     "/.vscode/**": true,
