@@ -309,7 +309,7 @@ function injectServerMeta(ssrContext: SSRContext) {
       .join('') +
     `<script${nonce} id="ssr-meta-init">window.__Q_META__=${delete data.bodyStyle && delete data.bodyClass && delete data.noscript && devalue.uneval(data)}</script>`;
 
-  const ssr_local_themedark =
+  let ssr_local_themedark =
     process.env.SSR_COOKIE_THEMEDARK === 'true'
       ? `let ssr_cookie_themedark=document.cookie.split('; ')?.find(item=>item.indexOf('themedark=')>-1)?.split('=')[1];
       ssr_cookie_themedark=ssr_cookie_themedark==='true'?true:ssr_cookie_themedark==='false'?false:${process.env.SSR_COOKIE_THEMEDARK_DEFAULT};
@@ -318,10 +318,14 @@ function injectServerMeta(ssrContext: SSRContext) {
       if(ssr_local_themedark===undefined || ssr_local_themedark==='auto'){
         ssr_local_themedark=window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
-      window.ssr_themedark=window.ssr_local_themedark=ssr_local_themedark;
-      Object.defineProperty(window, 'ssr_local_themedark_data', {
+      window.ssr_themedark=window.ssr_local_themedark=ssr_local_themedark;`;
+  ssr_local_themedark += `Object.defineProperty(window, 'ssr_themedark_data', {
         get: () => {
-          return document.body.getAttribute('data-ssr-theme-dark-'+ssr_local_themedark);
+          let _data=document.body.getAttribute('data-ssr-theme-dark-'+window.ssr_themedark);
+          if(_data===undefined || _data===null){
+            _data=window.__INITIAL_STATE__ && window.__INITIAL_STATE__['data-ssr-theme-dark-'+window.ssr_themedark];
+          }
+          return _data;
         },
       });`;
   const ssr_local_themename =
