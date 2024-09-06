@@ -78,5 +78,7 @@ export class CliCreateBeanBase extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'create/bean/boilerplate',
     });
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }

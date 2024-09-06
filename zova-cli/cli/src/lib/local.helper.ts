@@ -12,11 +12,11 @@ import path from 'node:path';
 
 export class LocalHelper {
   cli: BeanCliBase;
-  ProcessHelper: any;
+  processHelper: any;
 
   constructor(cli) {
     this.cli = cli;
-    this.ProcessHelper = new ProcessHelper(this.cwd, this.console as any);
+    this.processHelper = new ProcessHelper(this.cwd, this.console as any);
   }
 
   get options() {
@@ -142,22 +142,22 @@ export class LocalHelper {
     });
   }
   async formatFile({ fileName, logPrefix }: any) {
-    return await this.ProcessHelper.formatFile({ fileName, logPrefix });
+    return await this.processHelper.formatFile({ fileName, logPrefix });
   }
   async spawnBin({ cmd, args, options }: any) {
-    return await this.ProcessHelper.spawnBin({ cmd, args, options });
+    return await this.processHelper.spawnBin({ cmd, args, options });
   }
   async spawnCmd({ cmd, args, options }: any) {
-    return await this.ProcessHelper.spawnCmd({ cmd, args, options });
+    return await this.processHelper.spawnCmd({ cmd, args, options });
   }
   async spawnExe({ cmd, args, options }: any) {
-    return await this.ProcessHelper.spawnExe({ cmd, args, options });
+    return await this.processHelper.spawnExe({ cmd, args, options });
   }
   async spawn({ cmd, args = [], options = {} }) {
-    return await this.ProcessHelper.spawn({ cmd, args, options });
+    return await this.processHelper.spawn({ cmd, args, options });
   }
   async gitCommit({ cwd, message }: any) {
-    return await this.ProcessHelper.gitCommit({ cwd, message });
+    return await this.processHelper.gitCommit({ cwd, message });
   }
   async getRegistry() {
     return await getRegistry();
