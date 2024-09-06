@@ -12,6 +12,7 @@ import { CliCreateModule } from './bean/cli.create.module.js';
 import { CliCreatePage } from './bean/cli.create.page.js';
 import { CliCreateSuite } from './bean/cli.create.suite.js';
 import { CliToolsIcons } from './bean/cli.tools.icons.js';
+import { CliToolsRes } from './bean/cli.tools.res.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -28,4 +29,5 @@ export const beans = {
   'create.tool': CliCreateTool,
   'create.local': CliCreateLocal,
   'tools.icons': CliToolsIcons,
+  'tools.res': CliToolsRes,
 };

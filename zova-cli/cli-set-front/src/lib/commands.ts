@@ -12,6 +12,7 @@ import createModule from './command/create.module.js';
 import createPage from './command/create.page.js';
 import createSuite from './command/create.suite.js';
 import toolsIcons from './command/tools.icons.js';
+import toolsRes from './command/tools.res.js';
 
 export const commands = {
   default: {
@@ -33,5 +34,6 @@ export const commands = {
   },
   tools: {
     icons: toolsIcons,
+    res: toolsRes,
   },
 };
