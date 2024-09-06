@@ -8,6 +8,7 @@ import { commandsConfig } from '../config.js';
 import { BeanCliBase } from './bean.cli.base.js';
 import { NameMeta } from '../types/helper.js';
 import { getRegistry } from '../registry.js';
+import path from 'node:path';
 
 export class LocalHelper {
   cli: BeanCliBase;
@@ -160,5 +161,12 @@ export class LocalHelper {
   }
   async getRegistry() {
     return await getRegistry();
+  }
+  async invokeCli(args: string[], options) {
+    await this.processHelper.spawnExe({
+      cmd: 'node',
+      args: [path.join(__dirname, '../../dist/bin/zova.js')].concat(args),
+      options,
+    });
   }
 }
