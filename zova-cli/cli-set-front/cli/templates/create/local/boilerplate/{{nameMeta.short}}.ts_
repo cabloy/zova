@@ -1,9 +1,6 @@
 import { BeanBase, Local } from 'zova';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length-1)%>resource/this.js';
 
 @Local()
-export class <%=argv.nameMeta.fullCapitalize%> extends BeanBase<ScopeModule> {
+export class <%=argv.nameMeta.fullCapitalize%> extends BeanBase {
   protected async __init__() {}
-
-  protected __dispose__() {}
 }
