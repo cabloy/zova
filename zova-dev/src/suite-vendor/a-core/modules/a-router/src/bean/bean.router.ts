@@ -113,11 +113,13 @@ export class BeanRouter extends BeanBase {
   private _registerRoute(module: IModule, route: IModuleRoute) {
     // path
     let path: string | undefined;
-    if (route.path) {
+    if (route.path !== undefined) {
       if (route.meta?.absolute === true) {
         path = route.path;
       } else {
-        path = `/${module.info.pid}/${module.info.name}/${route.path}`;
+        path = route.path
+          ? `/${module.info.pid}/${module.info.name}/${route.path}`
+          : `/${module.info.pid}/${module.info.name}`;
       }
     }
     // name
