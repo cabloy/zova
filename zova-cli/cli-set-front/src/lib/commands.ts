@@ -11,6 +11,7 @@ import createLocal from './command/create.local.js';
 import createModule from './command/create.module.js';
 import createPage from './command/create.page.js';
 import createSuite from './command/create.suite.js';
+import initIcons from './command/init.icons.js';
 import toolsIcons from './command/tools.icons.js';
 import toolsRes from './command/tools.res.js';
 
@@ -31,6 +32,9 @@ export const commands = {
     theme: createTheme,
     tool: createTool,
     local: createLocal,
+  },
+  init: {
+    icons: initIcons,
   },
   tools: {
     icons: toolsIcons,
