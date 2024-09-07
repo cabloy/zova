@@ -12,6 +12,4 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPage<%=argv.nameMeta.fullCapitalize%> extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

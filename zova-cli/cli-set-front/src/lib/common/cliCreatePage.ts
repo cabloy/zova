@@ -62,6 +62,8 @@ export class CliCreatePageBase extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: `create/${this.pageMode}/boilerplate`,
     });
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
     // log url
     await this.logUrl(argv);
   }
