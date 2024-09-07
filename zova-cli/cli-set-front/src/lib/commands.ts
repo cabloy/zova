@@ -13,6 +13,7 @@ import createPage from './command/create.page.js';
 import createSuite from './command/create.suite.js';
 import initIcons from './command/init.icons.js';
 import initConfig from './command/init.config.js';
+import initConstant from './command/init.constant.js';
 // import toolsIcons from './command/tools.icons.js';
 import toolsRes from './command/tools.res.js';
 
@@ -37,6 +38,7 @@ export const commands = {
   init: {
     icons: initIcons,
     config: initConfig,
+    constant: initConstant,
   },
   tools: {
     // icons: toolsIcons,

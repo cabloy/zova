@@ -15,6 +15,7 @@ import { CliToolsIcons } from './bean/cli.tools.icons.js';
 import { CliToolsRes } from './bean/cli.tools.res.js';
 import { CliInitIcons } from './bean/cli.init.icons.js';
 import { CliInitConfig } from './bean/cli.init.config.js';
+import { CliInitConstant } from './bean/cli.init.constant.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -32,6 +33,7 @@ export const beans = {
   'create.local': CliCreateLocal,
   'init.icons': CliInitIcons,
   'init.config': CliInitConfig,
+  'init.constant': CliInitConstant,
   'tools.icons': CliToolsIcons,
   'tools.res': CliToolsRes,
 };
