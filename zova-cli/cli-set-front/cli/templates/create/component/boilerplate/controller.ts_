@@ -12,6 +12,4 @@ export class Controller<%=argv.nameMeta.fullCapitalize%> extends BeanControllerB
   static $propsDefault = {};
 
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

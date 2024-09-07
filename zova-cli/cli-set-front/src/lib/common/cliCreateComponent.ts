@@ -46,13 +46,13 @@ export class CliCreateComponentBase extends BeanCliBase {
       throw new Error(`component exists: ${componentName}`);
     }
     await this.helper.ensureDir(componentDir);
-    // render snippets
-    await this.template.renderBoilerplateAndSnippets({
-      targetDir,
-      setName: __ThisSetName__,
-      snippetsPath: `create/${this.componentMode}/snippets`,
-      boilerplatePath: null,
-    });
+    // // render snippets
+    // await this.template.renderBoilerplateAndSnippets({
+    //   targetDir,
+    //   setName: __ThisSetName__,
+    //   snippetsPath: `create/${this.componentMode}/snippets`,
+    //   boilerplatePath: null,
+    // });
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
       targetDir: componentDir,
@@ -60,5 +60,7 @@ export class CliCreateComponentBase extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: `create/${this.componentMode}/boilerplate`,
     });
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }
