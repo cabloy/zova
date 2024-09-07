@@ -7,6 +7,7 @@ import gogocode from 'gogocode';
 export async function generatePages(moduleInfo: IModuleInfo, moduleName: string, modulePath: string) {
   const pattern = `${modulePath}/src/page/*/index.vue`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
+  if (files.length === 0) return '';
   const contentExports: string[] = [];
   const contentImports: string[] = [];
   const contentPathRecords: string[] = [];

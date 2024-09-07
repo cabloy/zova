@@ -46,6 +46,10 @@ export class CliToolsRes extends BeanCliBase {
     content += await generatePages(module.info, moduleName, modulePath);
     // icons
     content += await generateIcons(moduleName, modulePath);
+    // empty
+    if (!content.trim()) {
+      content = 'export {};';
+    }
     // save
     await fse.writeFile(resDest, content);
     await this.helper.formatFile({ fileName: resDest, logPrefix: 'format: ' });

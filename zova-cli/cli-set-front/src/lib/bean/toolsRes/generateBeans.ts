@@ -4,6 +4,7 @@ import eggBornUtils from 'egg-born-utils';
 export async function generateBeans(moduleName: string, modulePath: string) {
   const pattern = `${modulePath}/src/bean/*.ts`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
+  if (files.length === 0) return '';
   const contentExports: string[] = [];
   const contentImports: string[] = [];
   const contentRecords: string[] = [];
