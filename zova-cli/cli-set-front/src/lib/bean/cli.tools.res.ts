@@ -115,41 +115,67 @@ declare module 'zova' {
     return content;
   }
 
-  async _generatePages(_moduleInfo: IModuleInfo, _moduleName: string, modulePath: string) {
+  async _generatePages(moduleInfo: IModuleInfo, moduleName: string, modulePath: string) {
     const pattern = `${modulePath}/src/page/*/index.vue`;
     const files = await eggBornUtils.tools.globbyAsync(pattern);
     const contentExports: string[] = [];
     const contentImports: string[] = [];
-    const contentImports2: string[] = [];
-    const contentComponents: string[] = [];
-    const contentRecords: string[] = [];
+    const contentPathRecords: string[] = [];
+    const contentNameRecords: string[] = [];
+    const contentPathSchemas: string[] = [];
+    const contentNameSchemas: string[] = [];
     for (const file of files) {
       const pageName = path.basename(file.substring(0, file.length - '/index.vue'.length));
       const className = pageName.charAt(0).toUpperCase() + pageName.substring(1);
       //
-      this._extractRoutePathOrName(modulePath, className);
-      //const routePath = `/${moduleInfo.pid}/${moduleInfo.name}/${pageName}`;
-      //const routeName;
-
-      // contentExports.push(`export * as NSController${className} from '../component/${componentName}/controller.js';`);
-      // contentImports.push(`import * as NSController${className} from '../component/${componentName}/controller.js';`);
-      // contentImports2.push(`import ${componentName} from '../component/${componentName}/index.vue';`);
-      // contentComponents.push(componentName);
-      // contentRecords.push(`'${componentFullName}': NSController${className}.Controller${className};`);
+      const { routePath, routeName } = await this._extractRoutePathOrName(modulePath, className);
+      const routePathFull = routePath
+        ? `/${moduleInfo.pid}/${moduleInfo.name}/${routePath}`
+        : `/${moduleInfo.pid}/${moduleInfo.name}`;
+      const routeNameFull = `${moduleName}:${routeName}`;
+      //
+      contentExports.push(`export * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
+      contentImports.push(`import * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
+      if (!routeName) {
+        contentPathRecords.push(`'${routePathFull}': NSControllerPage${className}.QueryInput;`);
+      } else {
+        contentNameRecords.push(
+          `'${routeNameFull}': TypePageParamsQuery<NSControllerPage${className}.QueryInput, NSControllerPage${className}.ParamsInput>;`,
+        );
+      }
+      if (!routeName) {
+        contentPathSchemas.push(`'${routePathFull}': {
+    query: NSControllerPage${className}.QuerySchema,
+  },`);
+      } else {
+        contentNameSchemas.push(`'${routeNameFull}': {
+    params: NSControllerPage${className}.ParamsSchema,
+    query: NSControllerPage${className}.QuerySchema,
+  },`);
+      }
     }
     // combine
-    const content = `/** components: begin */
+    const content = `/** pages: begin */
 ${contentExports.join('\n')}
 ${contentImports.join('\n')}
-${contentImports2.join('\n')}
-export const components = { ${contentComponents.join(', ')} };
+export * from '../routes.js';
+${contentNameRecords.length > 0 ? "import { TypePageParamsQuery } from 'zova';" : ''}
 import 'zova';
 declare module 'zova' {
-  export interface IComponentRecord {
-    ${contentRecords.join('\n')}
+  export interface IPagePathRecord {
+    ${contentPathRecords.join('\n')}
+  }
+  export interface IPageNameRecord {
+    ${contentNameRecords.join('\n')}
   }
 }
-/** components: end */
+export const pagePathSchemas = {
+  ${contentPathSchemas.join('\n')}
+};
+export const pageNameSchemas = {
+  ${contentNameSchemas.join('\n')}
+};
+/** pages: end */
 `;
     return content;
   }
@@ -171,6 +197,11 @@ declare module 'zova' {
     const astPropPath = (<any>astMatch?.node).properties.find(prop => {
       return prop.key.name === 'path';
     });
-    this.console.log(astPropPath);
+    const routePath = astPropPath?.value.value || '';
+    const astPropName = (<any>astMatch?.node).properties.find(prop => {
+      return prop.key.name === 'name';
+    });
+    const routeName = astPropName?.value.value;
+    return { routePath, routeName };
   }
 }
