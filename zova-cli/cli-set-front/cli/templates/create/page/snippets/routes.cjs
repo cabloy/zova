@@ -3,6 +3,10 @@ const __snippet_body = "{ path: '<%=argv.pageName%>', component: <%=argv.nameMet
 
 module.exports = {
   file: 'src/routes.ts',
+  init: `import { IModuleRoute } from 'zova-module-a-router';
+
+export const routes: IModuleRoute[] = [];
+`,
   async transform({ cli, ast }) {
     // code
     let code = await cli.template.renderContent({ content: __snippet_declare });
