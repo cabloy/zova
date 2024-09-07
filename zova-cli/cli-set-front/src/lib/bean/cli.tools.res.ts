@@ -129,6 +129,7 @@ declare module 'zova' {
       const className = pageName.charAt(0).toUpperCase() + pageName.substring(1);
       //
       const { routePath, routeName } = await this._extractRoutePathOrName(modulePath, className);
+      // no matter that: route.meta?.absolute
       const routePathFull = routePath
         ? `/${moduleInfo.pid}/${moduleInfo.name}/${routePath}`
         : `/${moduleInfo.pid}/${moduleInfo.name}`;
