@@ -81,7 +81,7 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-cli-set-front:
-        specifier: ^1.1.136
+        specifier: ^1.1.152
         version: link:../cli-set-front
 
   cli-set-front:
@@ -95,6 +95,9 @@ importers:
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
+      gogocode:
+        specifier: ^1.0.53
+        version: 1.0.55(vue@3.4.27(typescript@5.4.5))
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -108,11 +111,11 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-shared:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.4
+        version: 1.0.4
       zova-vite:
-        specifier: ^1.0.145
-        version: 1.0.145(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.161
+        version: 1.0.161(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5))
 
 packages:
 
@@ -296,23 +299,14 @@ packages:
     resolution: {integrity: sha512-WaMsgi6Q8zMgMth93GvWPXkhAIEobfsIkLTacoVZoK1J0CevIPGYY2Vo5YvJGqyHqXM6P4ppOYGsIRU8MM9pFQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/compose@1.0.2':
-    resolution: {integrity: sha512-aOiMY6y5KyJ988pujOX90D+KTuHcFd6nyr/1hNzBnpyx0wYbFBeeJGwvzwk2TKHvkAB+VdbIPkaZNSFlQ4aeug==}
-
   '@cabloy/dotenv@1.0.2':
     resolution: {integrity: sha512-1NBshzNa1/NPRHKEu2aqwlumIAH/YbnS+JtuCybRiOE6ECWbvwWRO7EjPl9dJXvYRuPCC1PJs1RVuaqWETvU2Q==}
 
   '@cabloy/extend@3.0.5':
     resolution: {integrity: sha512-xP/60896+mpkF7AszF8VfItTYDZgvaqwMhzVFmWnKMJSlD9jbl/4Y7Vd2okxEX/nKLoh0NanY7atkR5PWD+CTg==}
 
-  '@cabloy/last-word@1.0.13':
-    resolution: {integrity: sha512-6/A4UHmLwEDxf2b93EoPTP5vn193pHafvWSOwkQJUGuhlihFWMLwOjNCle7TQSz2fiH+HdYWijXI5xJkfUwlOQ==}
-
   '@cabloy/lint@4.0.11':
     resolution: {integrity: sha512-ba6+MYPoRzFjBKt890AcwnQs5dxeF1XHGvtXCQwX1qDm3KEzlwe+o9s9Q81bFwZUsMSQykIYe4Y0pcsTTli80g==}
-
-  '@cabloy/localeutil@1.0.4':
-    resolution: {integrity: sha512-ZNcb/v9qCvFlyvdOrag8VcBRkvEqnJZTZWYr2qnf3NFWQDzUBFxVd8LBOYjOJmPd2efGZHM/+nAk21KyJ2mkLw==}
 
   '@cabloy/module-glob@5.0.15':
     resolution: {integrity: sha512-okia6pVV2nmaG63O3qCylpmpPRcpZDun+QQHG24/MNf7N478RGwpxtQOmnME3y6+pA4DyNuylsyRClZQO5zUtw==}
@@ -329,16 +323,16 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-reactivity@3.4.45':
-    resolution: {integrity: sha512-darLz5g9hmSjTH+OstMgWnZX0wXP9NEz8ZjEXcD0Nj4W2mtal8OSzFGBWja3QNB8hqs8WSfuKvw2PqVuY12H0g==}
+  '@cabloy/vue-reactivity@3.4.49':
+    resolution: {integrity: sha512-oyl3OrIrzjlKhw5p71yMv+ojdga3x1brJemau9VS6kbzd5WxqqAnNKallFaJimJxEuvPlIb/M3nYxWWjyiGWsQ==}
 
   '@cabloy/vue-router@4.4.7':
     resolution: {integrity: sha512-lLAYqFOVuk3oMx2+uV5CEcuF7IPW1Z8ObD/UIOBwBm5U6DT8Gdcjd1dt/YsXNpRP4gQZGfX6w5brgQuANSAn0Q==}
     peerDependencies:
       vue: ^3.2.0
 
-  '@cabloy/vue-runtime-core@3.4.45':
-    resolution: {integrity: sha512-aWUKyKi8A5BOD0B5YO62VnVTK7Wzpl9ZeDPX5Cytv9sYuu5/kRt6bn7HqdNbIUkeCFS0RWMBI864cuRdD2d6wQ==}
+  '@cabloy/vue-runtime-core@3.4.49':
+    resolution: {integrity: sha512-m0T0xUfmJn+MDCeZ9sZm6FXL+WXk9Tge0N2EZmzDS6CkLRE4niFOSgLK4+2THSsjU6wudfsYeey5UjpbToF61A==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -910,46 +904,55 @@ packages:
     resolution: {integrity: sha512-C/zbRYRXFjWvz9Z4haRxcTdnkPt1BtCkz+7RtBSuNmKzMzp3ZxdM28Mpccn6pt28/UWUCTXa+b0Mx1k3g6NOMA==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.18.0':
     resolution: {integrity: sha512-l3m9ewPgjQSXrUMHg93vt0hYCGnrMOcUpTz6FLtbwljo2HluS4zTXFy2571YQbisTnfTKPZ01u/ukJdQTLGh9A==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.18.0':
     resolution: {integrity: sha512-rJ5D47d8WD7J+7STKdCUAgmQk49xuFrRi9pZkWoRD1UeSMakbcepWXPF8ycChBoAqs1pb2wzvbY6Q33WmN2ftw==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.18.0':
     resolution: {integrity: sha512-be6Yx37b24ZwxQ+wOQXXLZqpq4jTckJhtGlWGZs68TgdKXJgw54lUUoFYrg6Zs/kjzAQwEwYbp8JxZVzZLRepQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.18.0':
     resolution: {integrity: sha512-hNVMQK+qrA9Todu9+wqrXOHxFiD5YmdEi3paj6vP02Kx1hjd2LLYR2eaN7DsEshg09+9uzWi2W18MJDlG0cxJA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.18.0':
     resolution: {integrity: sha512-ROCM7i+m1NfdrsmvwSzoxp9HFtmKGHEqu5NNDiZWQtXLA8S5HBCkVvKAxJ8U+CVctHwV2Gb5VUaK7UAkzhDjlg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.18.0':
     resolution: {integrity: sha512-0UyyRHyDN42QL+NbqevXIIUnKA47A+45WyasO+y2bGJ1mhQrfrtXUpTxCOrfxCR4esV3/RLYyucGVPiUsO8xjg==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.18.0':
     resolution: {integrity: sha512-xuglR2rBVHA5UsI8h8UbX4VJ470PtGCf5Vpswh7p2ukaqBGFTnsfzxUBetoWBWymHMxbIG0Cmx7Y9qDZzr648w==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.18.0':
     resolution: {integrity: sha512-LKaqQL9osY/ir2geuLVvRRs+utWUNilzdE90TpyoX0eNqPzWjRm14oMEE+YLve4k/NAqCdPkGYDaDF5Sw+xBfg==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.18.0':
     resolution: {integrity: sha512-7J6TkZQFGo9qBKH0pk2cEVSRhJbL6MtfWxth7Y5YmZs57Pi+4x6c2dStAUvaQkHQLnEQv1jzBUW43GvZW8OFqA==}
@@ -987,9 +990,6 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
-
-  '@types/js-cookie@3.0.6':
-    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1111,9 +1111,6 @@ packages:
   '@vue/reactivity@3.4.27':
     resolution: {integrity: sha512-kK0g4NknW6JX2yySLpsm2jlunZJl2/RJGZ0H9ddHdfBVHcNzxmQ0sS0b09ipmBoQpY8JM2KmUw+a6sO8Zo+zIA==}
 
-  '@vue/reactivity@3.4.29':
-    resolution: {integrity: sha512-w8+KV+mb1a8ornnGQitnMdLfE0kXmteaxLdccm2XwdFxXst4q/Z7SEboCV5SqJNpZbKFeaRBBJBhW24aJyGINg==}
-
   '@vue/runtime-core@3.4.27':
     resolution: {integrity: sha512-7aYA9GEbOOdviqVvcuweTLe5Za4qBZkUY7SvET6vE8kyypxVgaT1ixHLg4urtOlrApdgcdgHoTZCUuTGap/5WA==}
 
@@ -1131,14 +1128,8 @@ packages:
   '@vue/shared@3.4.27':
     resolution: {integrity: sha512-DL3NmY2OFlqmYYrzp39yi3LDkKxa5vZVwxWdQ3rG0ekuWscHraeIbnI8t+aZK7qhYqEqWKTUdijadunb9pnrgA==}
 
-  '@vue/shared@3.4.29':
-    resolution: {integrity: sha512-hQ2gAQcBO/CDpC82DCrinJNgOHI2v+FA7BDW4lMSPeBpQ7sRe2OLHWe5cph1s7D8DUQAwRt18dBDfJJ220APEA==}
-
   '@vue/shared@3.4.37':
     resolution: {integrity: sha512-nIh8P2fc3DflG8+5Uw8PT/1i17ccFn0xxN/5oE9RfV5SVnd7G0XEFRwakrnNFE/jlS95fpGXDVG5zDETS26nmg==}
-
-  '@vue/shared@3.4.38':
-    resolution: {integrity: sha512-q0xCiLkuWWQLzVrecPb0RMsNWyxICOjPrcrwxTUEHb1fsnvni4dcuyG7RT/Ie7VPTvnjzIaWzRMUBsrqNj/hhw==}
 
   '@zhennann/common-bin@4.0.0':
     resolution: {integrity: sha512-PJMKNkA7UrrYW8KZyz7i3+lE4sDM0YxbLCGIidM73jaceQ4oZyrVN2vHTWpxN0NRV/SBVHYwpaZKPOw/FPczrA==}
@@ -1612,15 +1603,9 @@ packages:
     resolution: {integrity: sha512-jwK2UV4cnPpbcG7+VRARKTZPUWowwXA8bzH5NP6ud0oeAxyYPuGZUAC7hMugpCdz4BeSZl2Dl9k66CHJ/46ZYQ==}
     engines: {node: '>=0.10.0'}
 
-  defu@6.1.4:
-    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
-
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
-
-  devalue@5.0.0:
-    resolution: {integrity: sha512-gO+/OMXF7488D+u3ue+G7Y4AA3ZmUnB3eHJXmBTgNHvr4ZNzl36A0ZtG+XCRNYCkYx/bFmw4qtkoFLa+wSrwAA==}
 
   diff@4.0.2:
     resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
@@ -2917,9 +2902,6 @@ packages:
     resolution: {integrity: sha512-hYM2QgEbYxmevT66lDhQv+24erth+RbQfCFjft89cvHjJzRNyhf4QY1UtDs91IMh3duRhX1vLvPNoc1XOBMbIQ==}
     engines: {node: '>= 4'}
 
-  reflect-metadata@0.2.2:
-    resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
-
   regex-not@1.0.2:
     resolution: {integrity: sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==}
     engines: {node: '>=0.10.0'}
@@ -3596,17 +3578,11 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zova-shared@1.0.4:
+    resolution: {integrity: sha512-aPiz/kIhD49GIsYVW00AKky4pMUgS2Qgs9QAl47X+DrBH1RIzJxf1PmuZeGfkdUHOV690Xk0/jE33nFdhMYeGQ==}
 
-  zova-core@5.0.121:
-    resolution: {integrity: sha512-emz6uZXJzE7JeZbuBF/muXYxEYiS6O0TCINcp/mhYF/hvTjD+xhmHnlgNRKV1ezEtnS+AD5AegYnzbswcruLsQ==}
-
-  zova-shared@1.0.0:
-    resolution: {integrity: sha512-wtl1Bhm9mqBqXZXYiFDkh7lwIMX5Tzia2cwnNK0kZ0SAN65PKnEewpN8Fdkrx9gcawbixdpAhcSxLeN4s7Q/iA==}
-
-  zova-vite@1.0.145:
-    resolution: {integrity: sha512-6/cMytr9ZKLdDpyQL1EjctpWwrvbTh6FRb8kKDqQaMQmzEkyNZ1iF08I8eIPDKzqy8m8T83pWWzMAaIKA6BrnA==}
+  zova-vite@1.0.161:
+    resolution: {integrity: sha512-ly03SsOn7fSEeA8i58R/6NN3unFUFS6TE9Efq59VIICG/MrqZnnA3LYE0t0cQbFg2HX0+y53318C8LTrI4ao4g==}
 
 snapshots:
 
@@ -3830,8 +3806,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
 
-  '@cabloy/compose@1.0.2': {}
-
   '@cabloy/dotenv@1.0.2':
     dependencies:
       cascade-extend: 1.0.4
@@ -3843,8 +3817,6 @@ snapshots:
       - supports-color
 
   '@cabloy/extend@3.0.5': {}
-
-  '@cabloy/last-word@1.0.13': {}
 
   '@cabloy/lint@4.0.11(@types/eslint@8.56.10)(typescript@5.4.5)':
     dependencies:
@@ -3861,8 +3833,6 @@ snapshots:
       - '@types/eslint'
       - supports-color
       - typescript
-
-  '@cabloy/localeutil@1.0.4': {}
 
   '@cabloy/module-glob@5.0.15':
     dependencies:
@@ -3885,7 +3855,7 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.2.12(@types/node@20.14.9)(terser@5.31.0)
 
-  '@cabloy/vue-reactivity@3.4.45':
+  '@cabloy/vue-reactivity@3.4.49':
     dependencies:
       '@vue/shared': 3.4.37
 
@@ -3894,9 +3864,9 @@ snapshots:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.27(typescript@5.4.5)
 
-  '@cabloy/vue-runtime-core@3.4.45':
+  '@cabloy/vue-runtime-core@3.4.49':
     dependencies:
-      '@vue/reactivity': '@cabloy/vue-reactivity@3.4.45'
+      '@vue/reactivity': '@cabloy/vue-reactivity@3.4.49'
       '@vue/shared': 3.4.37
 
   '@colors/colors@1.5.0':
@@ -4339,8 +4309,6 @@ snapshots:
 
   '@types/estree@1.0.5': {}
 
-  '@types/js-cookie@3.0.6': {}
-
   '@types/json-schema@7.0.15': {}
 
   '@types/mocha@10.0.6': {}
@@ -4525,10 +4493,6 @@ snapshots:
     dependencies:
       '@vue/shared': 3.4.27
 
-  '@vue/reactivity@3.4.29':
-    dependencies:
-      '@vue/shared': 3.4.29
-
   '@vue/runtime-core@3.4.27':
     dependencies:
       '@vue/reactivity': 3.4.27
@@ -4550,11 +4514,7 @@ snapshots:
 
   '@vue/shared@3.4.27': {}
 
-  '@vue/shared@3.4.29': {}
-
   '@vue/shared@3.4.37': {}
-
-  '@vue/shared@3.4.38': {}
 
   '@zhennann/common-bin@4.0.0':
     dependencies:
@@ -5055,11 +5015,7 @@ snapshots:
       is-descriptor: 1.0.3
       isobject: 3.0.1
 
-  defu@6.1.4: {}
-
   destroy@1.2.0: {}
-
-  devalue@5.0.0: {}
 
   diff@4.0.2: {}
 
@@ -6516,8 +6472,6 @@ snapshots:
       private: 0.1.8
       source-map: 0.6.1
 
-  reflect-metadata@0.2.2: {}
-
   regex-not@1.0.2:
     dependencies:
       extend-shallow: 3.0.2
@@ -7300,32 +7254,9 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@3.23.8: {}
+  zova-shared@1.0.4: {}
 
-  zova-core@5.0.121(typescript@5.4.5):
-    dependencies:
-      '@cabloy/compose': 1.0.2
-      '@cabloy/extend': 3.0.5
-      '@cabloy/last-word': 1.0.13
-      '@cabloy/localeutil': 1.0.4
-      '@cabloy/module-info': 1.0.20
-      '@cabloy/vue-reactivity': 3.4.45
-      '@cabloy/vue-router': 4.4.7(vue@3.4.27(typescript@5.4.5))
-      '@cabloy/vue-runtime-core': 3.4.45
-      '@types/js-cookie': 3.0.6
-      '@vue/reactivity': 3.4.29
-      '@vue/shared': 3.4.38
-      defu: 6.1.4
-      devalue: 5.0.0
-      reflect-metadata: 0.2.2
-      vue: 3.4.27(typescript@5.4.5)
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - typescript
-
-  zova-shared@1.0.0: {}
-
-  zova-vite@1.0.145(@babel/core@7.24.6)(@babel/traverse@7.24.6)(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.161(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
@@ -7334,9 +7265,9 @@ snapshots:
       '@cabloy/module-glob': 5.0.15
       '@cabloy/module-info': 1.0.20
       '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.6)(vite@5.2.12(@types/node@20.14.9)(terser@5.31.0))
-      '@cabloy/vue-reactivity': 3.4.45
+      '@cabloy/vue-reactivity': 3.4.49
       '@cabloy/vue-router': 4.4.7(vue@3.4.27(typescript@5.4.5))
-      '@cabloy/vue-runtime-core': 3.4.45
+      '@cabloy/vue-runtime-core': 3.4.49
       '@faker-js/faker': 8.4.1
       '@types/node': 20.14.9
       '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.12(@types/node@20.14.9)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
@@ -7352,7 +7283,7 @@ snapshots:
       tmp: 0.2.3
       vite: 5.2.12(@types/node@20.14.9)(terser@5.31.0)
       vite-plugin-fake-server-turbo: 2.1.3
-      zova-core: 5.0.121(typescript@5.4.5)
+      zova-shared: 1.0.4
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'
@@ -7363,5 +7294,4 @@ snapshots:
       - stylus
       - sugarss
       - supports-color
-      - typescript
       - vue

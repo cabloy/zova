@@ -2,6 +2,8 @@ import { BeanCliBase } from 'zova-cli';
 import fse from 'fs-extra';
 import path from 'path';
 import eggBornUtils from 'egg-born-utils';
+import { IModuleInfo } from '@cabloy/module-info';
+import gogocode from 'gogocode';
 
 declare module 'zova-cli' {
   interface ICommandArgv {}
@@ -35,9 +37,12 @@ export class CliToolsRes extends BeanCliBase {
     const resDest = path.join(modulePath, 'src/.res/index.ts');
     // content
     let content = '';
-    // bean
+    // beans
     content += await this._generateBeans(moduleName, modulePath);
+    // components
     content += await this._generateComponents(moduleName, modulePath);
+    // pages
+    content += await this._generatePages(module.info, moduleName, modulePath);
     // save
     await fse.writeFile(resDest, content);
     await this.helper.formatFile({ fileName: resDest, logPrefix: 'format: ' });
@@ -85,7 +90,6 @@ declare module 'zova' {
     const contentRecords: string[] = [];
     for (const file of files) {
       const componentName = path.basename(file.substring(0, file.length - '/index.vue'.length));
-      await this.console.log(componentName);
       const className = componentName.charAt(0).toUpperCase() + componentName.substring(1);
       const componentFullName = `${moduleName}:${componentName}`;
       contentExports.push(`export * as NSController${className} from '../component/${componentName}/controller.js';`);
@@ -109,5 +113,52 @@ declare module 'zova' {
 /** components: end */
 `;
     return content;
+  }
+
+  async _generatePages(_moduleInfo: IModuleInfo, _moduleName: string, modulePath: string) {
+    const pattern = `${modulePath}/src/page/*/index.vue`;
+    const files = await eggBornUtils.tools.globbyAsync(pattern);
+    const contentExports: string[] = [];
+    const contentImports: string[] = [];
+    const contentImports2: string[] = [];
+    const contentComponents: string[] = [];
+    const contentRecords: string[] = [];
+    for (const file of files) {
+      const pageName = path.basename(file.substring(0, file.length - '/index.vue'.length));
+      const className = pageName.charAt(0).toUpperCase() + pageName.substring(1);
+      //
+      this._extractRoutePathOrName(modulePath, className);
+      //const routePath = `/${moduleInfo.pid}/${moduleInfo.name}/${pageName}`;
+      //const routeName;
+
+      // contentExports.push(`export * as NSController${className} from '../component/${componentName}/controller.js';`);
+      // contentImports.push(`import * as NSController${className} from '../component/${componentName}/controller.js';`);
+      // contentImports2.push(`import ${componentName} from '../component/${componentName}/index.vue';`);
+      // contentComponents.push(componentName);
+      // contentRecords.push(`'${componentFullName}': NSController${className}.Controller${className};`);
+    }
+    // combine
+    const content = `/** components: begin */
+${contentExports.join('\n')}
+${contentImports.join('\n')}
+${contentImports2.join('\n')}
+export const components = { ${contentComponents.join(', ')} };
+import 'zova';
+declare module 'zova' {
+  export interface IComponentRecord {
+    ${contentRecords.join('\n')}
+  }
+}
+/** components: end */
+`;
+    return content;
+  }
+
+  async _extractRoutePathOrName(modulePath: string, className: string) {
+    const targetFile = path.join(modulePath, 'src/routes.ts');
+    const content = (await fse.readFile(targetFile)).toString('utf8');
+    const ast = gogocode(content);
+    const nodeRoute = ast.find(`routes: IModuleRoute[] = [$_$,{ $$$0, component: ${className} }],$_$`);
+    console.log(nodeRoute);
   }
 }
