@@ -11,6 +11,9 @@ export async function generateIcons(moduleName: string, modulePath: string) {
   for (const group of groups) {
     group.iconNames = await _generateIconsGroup(modulePath, iconsSrc, moduleName, group.name);
   }
+  if (groups.length === 0) return '';
+  // set zovaModule.capabilities.icon: true
+  await _setPackageInfo(modulePath);
   // src/config/icons.ts
   const configIcons = await _generateFileConfigIcons(groups);
   // src/resource/icons.ts
@@ -22,6 +25,17 @@ ${resourceIcons}
 /** icons: end */
 `;
   return content;
+}
+
+async function _setPackageInfo(modulePath: string) {
+  const pkgFile = path.join(modulePath, 'package.json');
+  const pkgContent = (await fse.readFile(pkgFile)).toString();
+  const pkg = JSON.parse(pkgContent);
+  if (!pkg.zovaModule) pkg.zovaModule = {};
+  if (!pkg.zovaModule.capabilities) pkg.zovaModule.capabilities = {};
+  if (pkg.zovaModule.capabilities.icon) return;
+  pkg.zovaModule.capabilities.icon = true;
+  await fse.writeFile(pkgFile, JSON.stringify(pkg, null, 2));
 }
 
 async function _generateFileConfigIcons(groups) {
