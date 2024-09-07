@@ -5,6 +5,7 @@ import { generateBeans } from './toolsRes/generateBeans.js';
 import { generateComponents } from './toolsRes/generateComponents.js';
 import { generatePages } from './toolsRes/generatePages.js';
 import { generateIcons } from './toolsRes/generateIcons.js';
+import { generateConfig, generateConstant } from './toolsRes/generateConfig.js';
 
 declare module 'zova-cli' {
   interface ICommandArgv {}
@@ -46,6 +47,10 @@ export class CliToolsRes extends BeanCliBase {
     content += await generatePages(module.info, moduleName, modulePath);
     // icons
     content += await generateIcons(moduleName, modulePath);
+    // config
+    content += await generateConfig(modulePath);
+    // constant
+    content += await generateConstant(modulePath);
     // empty
     if (!content.trim()) {
       content = 'export {};';
