@@ -158,7 +158,19 @@ declare module 'zova' {
     const targetFile = path.join(modulePath, 'src/routes.ts');
     const content = (await fse.readFile(targetFile)).toString('utf8');
     const ast = gogocode(content);
-    const nodeRoute = ast.find(`routes: IModuleRoute[] = [$_$,{ $$$0, component: ${className} }],$_$`);
-    console.log(nodeRoute);
+    const astNode = ast.find('export const routes: IModuleRoute[] = [$_$]');
+    const astMatches = astNode.match[0];
+    const astMatch = astMatches.find(item => {
+      return (<any>item.node).properties.some(prop => {
+        return prop.key.name === 'component' && prop.value.name === className;
+      });
+    });
+    if (!astMatch) {
+      throw new Error(`page route not found: ${className}`);
+    }
+    const astPropPath = (<any>astMatch?.node).properties.find(prop => {
+      return prop.key.name === 'path';
+    });
+    this.console.log(astPropPath);
   }
 }
