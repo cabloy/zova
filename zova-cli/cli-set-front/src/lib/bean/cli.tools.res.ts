@@ -40,6 +40,7 @@ export class CliToolsRes extends BeanCliBase {
     content += await this._generateComponents(moduleName, modulePath);
     // save
     await fse.writeFile(resDest, content);
+    await this.helper.formatFile({ fileName: resDest, logPrefix: 'format: ' });
   }
 
   async _generateBeans(moduleName: string, modulePath: string) {
@@ -60,7 +61,8 @@ export class CliToolsRes extends BeanCliBase {
       contentRecords.push(`'${beanFullName}': ${className};`);
     }
     // combine
-    const content = `${contentExports.join('\n')}
+    const content = `/** beans: begin */
+${contentExports.join('\n')}
 ${contentImports.join('\n')}
 import 'zova';
 declare module 'zova' {
@@ -68,6 +70,7 @@ declare module 'zova' {
     ${contentRecords.join('\n')}
   }
 }
+/** beans: end */
 `;
     return content;
   }
@@ -92,7 +95,8 @@ declare module 'zova' {
       contentRecords.push(`'${componentFullName}': NSController${className}.Controller${className};`);
     }
     // combine
-    const content = `${contentExports.join('\n')}
+    const content = `/** components: begin */
+${contentExports.join('\n')}
 ${contentImports.join('\n')}
 ${contentImports2.join('\n')}
 export const components = { ${contentComponents.join(', ')} };
@@ -102,6 +106,7 @@ declare module 'zova' {
     ${contentRecords.join('\n')}
   }
 }
+/** components: end */
 `;
     return content;
   }
