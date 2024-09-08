@@ -8,12 +8,12 @@ declare module 'zova-cli' {
   interface ICommandArgv {
     module: string;
     moduleInfo: IModuleInfo;
-    serviceName: string;
+    mockName: string;
     nameMeta: NameMeta;
   }
 }
 
-export class CliCreateService extends BeanCliBase {
+export class CliCreateMock extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super
@@ -28,25 +28,23 @@ export class CliCreateService extends BeanCliBase {
     }
     // target dir
     const targetDir = await this.helper.ensureDir(_module.root);
-    // serviceName
-    const serviceName = argv.serviceName;
+    // mockName
+    const mockName = argv.mockName;
     // nameMeta
-    argv.nameMeta = this.helper.parseNameMeta(serviceName, ['service']);
+    argv.nameMeta = this.helper.parseNameMeta(mockName, ['mock']);
     // directory
-    const serviceDir = path.join(targetDir, 'src/service');
-    const serviceFile = path.join(serviceDir, `${serviceName}.ts`);
-    if (fs.existsSync(serviceFile)) {
-      throw new Error(`service exists: ${serviceFile}`);
+    const mockDir = path.join(targetDir, 'mock');
+    const mockFile = path.join(mockDir, `${mockName}.fake.ts`);
+    if (fs.existsSync(mockFile)) {
+      throw new Error(`mock exists: ${mockFile}`);
     }
-    await this.helper.ensureDir(serviceDir);
+    await this.helper.ensureDir(mockDir);
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
-      targetDir: serviceDir,
+      targetDir: mockDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: 'create/service/boilerplate',
+      boilerplatePath: 'create/mock/boilerplate',
     });
-    // tools.res
-    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }

@@ -2,7 +2,7 @@ import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 export default defineFakeRoute([
   {
-    url: '/test/echo',
+    url: '/<%=argv.mockName%>/echo',
     method: 'get',
     response: () => {
       return {

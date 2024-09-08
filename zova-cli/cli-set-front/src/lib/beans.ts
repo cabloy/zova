@@ -9,6 +9,7 @@ import { CliCreateTheme } from './bean/cli.create.theme.js';
 import { CliCreateTool } from './bean/cli.create.tool.js';
 import { CliCreateLocal } from './bean/cli.create.local.js';
 import { CliCreateService } from './bean/cli.create.service.js';
+import { CliCreateMock } from './bean/cli.create.mock.js';
 import { CliCreateModule } from './bean/cli.create.module.js';
 import { CliCreatePage } from './bean/cli.create.page.js';
 import { CliCreateSuite } from './bean/cli.create.suite.js';
@@ -19,7 +20,6 @@ import { CliInitConfig } from './bean/cli.init.config.js';
 import { CliInitConstant } from './bean/cli.init.constant.js';
 import { CliInitLocale } from './bean/cli.init.locale.js';
 import { CliInitError } from './bean/cli.init.error.js';
-import { CliInitMock } from './bean/cli.init.mock.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -36,12 +36,12 @@ export const beans = {
   'create.tool': CliCreateTool,
   'create.local': CliCreateLocal,
   'create.service': CliCreateService,
+  'create.mock': CliCreateMock,
   'init.icon': CliInitIcon,
   'init.config': CliInitConfig,
   'init.constant': CliInitConstant,
   'init.locale': CliInitLocale,
   'init.error': CliInitError,
-  'init.mock': CliInitMock,
   'tools.icon': CliToolsIcon,
   'tools.res': CliToolsRes,
 };
