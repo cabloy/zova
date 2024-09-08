@@ -13,7 +13,7 @@ declare module 'zova-cli' {
   }
 }
 
-export class CliCreateLocal extends BeanCliBase {
+export class CliCreateService extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super
@@ -28,32 +28,23 @@ export class CliCreateLocal extends BeanCliBase {
     }
     // target dir
     const targetDir = await this.helper.ensureDir(_module.root);
-    // localName
-    const localName = argv.localName;
-    // nameMeta
-    argv.nameMeta = this.helper.parseNameMeta(localName, ['page', 'component', 'local', 'store']);
-    // sepcial for bean/local.xx.ts
-    if (!argv.nameMeta.directory) {
-      argv.nameMeta.directory = 'bean';
-      argv.nameMeta.short = `local.${argv.nameMeta.short}`;
-      argv.nameMeta.fullCapitalize = `Local${argv.nameMeta.fullCapitalize}`;
-    }
+    // serviceName
+    const serviceName = argv.serviceName;
     // directory
-    let localDir = path.join(targetDir, 'src');
-    if (argv.nameMeta.directory) {
-      localDir = path.join(localDir, argv.nameMeta.directory);
+    const serviceDir = path.join(targetDir, 'src/service');
+    const serviceFile = path.join(serviceDir, `${serviceName}.ts`);
+    if (fs.existsSync(serviceFile)) {
+      throw new Error(`service exists: ${serviceFile}`);
     }
-    const localFile = path.join(localDir, `${argv.nameMeta.short}.ts`);
-    if (fs.existsSync(localFile)) {
-      throw new Error(`local bean exists: ${localName}`);
-    }
-    await this.helper.ensureDir(localDir);
+    await this.helper.ensureDir(serviceDir);
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
-      targetDir: localDir,
+      targetDir: serviceDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: 'create/local/boilerplate',
+      boilerplatePath: 'create/service/boilerplate',
     });
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }
