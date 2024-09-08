@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { Style<%=argv.nameMeta.fullCapitalize%> } from './style.js';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>.metadata/this.js';
 
 export interface Render<%=argv.nameMeta.fullCapitalize%> extends Style<%=argv.nameMeta.fullCapitalize%> {}
 

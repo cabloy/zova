@@ -1,6 +1,6 @@
 import { BeanStyleBase, Local } from 'zova';
 import type { ControllerPage<%=argv.nameMeta.fullCapitalize%> } from './controller.js';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>.metadata/this.js';
 
 export interface Style<%=argv.nameMeta.fullCapitalize%> extends ControllerPage<%=argv.nameMeta.fullCapitalize%> {}
 

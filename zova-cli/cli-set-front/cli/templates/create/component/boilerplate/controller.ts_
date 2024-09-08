@@ -1,5 +1,5 @@
 import { BeanControllerBase, Local, PropsBase } from 'zova';
-import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>resource/this.js';
+import { ScopeModule } from '<%=cli.helper.slashPrefixForPath(argv.nameMeta.parts.length+1)%>.metadata/this.js';
 
 export interface Props extends PropsBase<Controller<%=argv.nameMeta.fullCapitalize%>, Slots> {}
 
