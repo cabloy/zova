@@ -107,6 +107,7 @@ export { ScopeModule${relativeNameCapitalize} as ScopeModule } from './index.js'
       jsContent = (await fse.readFile(jsFile)).toString();
       if (jsContent.indexOf(jsExport) > -1) return;
       jsContent = jsExport + '\n' + jsContent;
+      jsContent = jsContent.replace('export {};\n', '');
     } else {
       jsContent = jsExport + '\n';
     }
