@@ -60,7 +60,7 @@ export class CliCreateComponentBase extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: `create/${this.componentMode}/boilerplate`,
     });
-    // tools.res
+    // tools.metadata
     await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }

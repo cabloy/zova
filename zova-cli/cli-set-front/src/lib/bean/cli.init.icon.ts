@@ -36,7 +36,7 @@ export class CliInitIcon extends BeanCliBase {
     });
     // set zovaModule.capabilities.icon: true
     await this._setPackageInfo(targetDir);
-    // tools.res
+    // tools.metadata
     await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 
