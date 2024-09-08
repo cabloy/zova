@@ -45,5 +45,7 @@ export class CliInitError extends BeanCliBase {
         boilerplatePath: 'init/locale/boilerplate',
       });
     }
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }

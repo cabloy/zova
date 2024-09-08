@@ -34,5 +34,7 @@ export class CliInitConstant extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'init/constant/boilerplate',
     });
+    // tools.res
+    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
   }
 }
