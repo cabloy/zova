@@ -37,8 +37,8 @@ export class CliToolsRes extends BeanCliBase {
     const module = this.helper.findModule(moduleName);
     if (!module) throw new Error(`module not found: ${moduleName}`);
     const modulePath = module.root;
-    await this.helper.ensureDir(path.join(modulePath, 'src/.res'));
-    const resDest = path.join(modulePath, 'src/.res/index.ts');
+    await this.helper.ensureDir(path.join(modulePath, 'src/.metadata'));
+    const resDest = path.join(modulePath, 'src/.metadata/index.ts');
     // relativeNameCapitalize
     const relativeNameCapitalize = this.helper.stringToCapitalize(moduleName, '-');
     // content
@@ -90,7 +90,7 @@ export class CliToolsRes extends BeanCliBase {
   }
 
   async _generateThis(moduleName: string, relativeNameCapitalize: string, modulePath: string) {
-    const thisDest = path.join(modulePath, 'src/.res/this.ts');
+    const thisDest = path.join(modulePath, 'src/.metadata/this.ts');
     if (fse.existsSync(thisDest)) return;
     const content = `export const __ThisModule__ = '${moduleName}';
 export { ScopeModule${relativeNameCapitalize} as ScopeModule } from './index.js';
@@ -100,11 +100,15 @@ export { ScopeModule${relativeNameCapitalize} as ScopeModule } from './index.js'
   }
 
   async _generateIndex(modulePath: string) {
+    const jsExport = "export * from './.metadata/index.js';";
     const jsFile = path.join(modulePath, 'src/index.ts');
-    let jsContent = (await fse.readFile(jsFile)).toString();
-    const jsExport = "export * from './icons.js';";
-    if (jsContent.indexOf(jsExport) === -1) {
-      jsContent = jsContent.replace("export * from './constants.js';", `export * from './constants.js';\n${jsExport}`);
+    let jsContent;
+    if (fse.existsSync(jsFile)) {
+      jsContent = (await fse.readFile(jsFile)).toString();
+      if (jsContent.indexOf(jsExport) > -1) return;
+      jsContent = jsExport + '\n' + jsContent;
+    } else {
+      jsContent = jsExport + '\n';
     }
     await fse.writeFile(jsFile, jsContent);
   }
