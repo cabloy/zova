@@ -11,9 +11,9 @@ import { CliCreateLocal } from './bean/cli.create.local.js';
 import { CliCreateModule } from './bean/cli.create.module.js';
 import { CliCreatePage } from './bean/cli.create.page.js';
 import { CliCreateSuite } from './bean/cli.create.suite.js';
-import { CliToolsIcons } from './bean/cli.tools.icons.js';
+import { CliToolsIcon } from './bean/cli.tools.icon.js';
 import { CliToolsRes } from './bean/cli.tools.res.js';
-import { CliInitIcons } from './bean/cli.init.icons.js';
+import { CliInitIcon } from './bean/cli.init.icon.js';
 import { CliInitConfig } from './bean/cli.init.config.js';
 import { CliInitConstant } from './bean/cli.init.constant.js';
 import { CliInitLocale } from './bean/cli.init.locale.js';
@@ -33,11 +33,11 @@ export const beans = {
   'create.theme': CliCreateTheme,
   'create.tool': CliCreateTool,
   'create.local': CliCreateLocal,
-  'init.icons': CliInitIcons,
+  'init.icon': CliInitIcon,
   'init.config': CliInitConfig,
   'init.constant': CliInitConstant,
   'init.locale': CliInitLocale,
   'init.error': CliInitError,
-  'tools.icons': CliToolsIcons,
+  'tools.icon': CliToolsIcon,
   'tools.res': CliToolsRes,
 };

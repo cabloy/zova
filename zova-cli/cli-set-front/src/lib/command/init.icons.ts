@@ -1,9 +1,9 @@
 export default {
-  bean: 'init.icons',
+  bean: 'init.icon',
   info: {
     version: '5.0.0',
-    title: 'Cli: Init: Icons',
-    usage: 'zova :init:icons module',
+    title: 'Cli: Init: Icon',
+    usage: 'zova :init:icon module',
   },
   // options: null,
   // groups: null,

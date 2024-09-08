@@ -9,7 +9,7 @@ declare module 'zova-cli' {
   interface ICommandArgv {}
 }
 
-export class CliToolsIcons extends BeanCliBase {
+export class CliToolsIcon extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super

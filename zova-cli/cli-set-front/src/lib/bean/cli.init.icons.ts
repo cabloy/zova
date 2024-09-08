@@ -7,7 +7,7 @@ declare module 'zova-cli' {
   interface ICommandArgv {}
 }
 
-export class CliInitIcons extends BeanCliBase {
+export class CliInitIcon extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super
@@ -23,16 +23,16 @@ export class CliInitIcons extends BeanCliBase {
     }
     // target dir
     const targetDir = await this.helper.ensureDir(_module.root);
-    const iconsDir = path.join(targetDir, 'icons');
-    if (fse.existsSync(iconsDir)) {
-      throw new Error(`icons exists: ${moduleName}`);
+    const iconDir = path.join(targetDir, 'icons');
+    if (fse.existsSync(iconDir)) {
+      throw new Error(`icon exists: ${moduleName}`);
     }
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
       targetDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: 'init/icons/boilerplate',
+      boilerplatePath: 'init/icon/boilerplate',
     });
     // set zovaModule.capabilities.icon: true
     await this._setPackageInfo(targetDir);

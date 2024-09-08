@@ -11,12 +11,12 @@ import createLocal from './command/create.local.js';
 import createModule from './command/create.module.js';
 import createPage from './command/create.page.js';
 import createSuite from './command/create.suite.js';
-import initIcons from './command/init.icons.js';
+import initIcon from './command/init.icon.js';
 import initConfig from './command/init.config.js';
 import initConstant from './command/init.constant.js';
 import initLocale from './command/init.locale.js';
 import initError from './command/init.error.js';
-// import toolsIcons from './command/tools.icons.js';
+// import toolsIcon from './command/tools.icon.js';
 import toolsRes from './command/tools.res.js';
 
 export const commands = {
@@ -38,14 +38,14 @@ export const commands = {
     local: createLocal,
   },
   init: {
-    icons: initIcons,
+    icon: initIcon,
     config: initConfig,
     constant: initConstant,
     locale: initLocale,
     error: initError,
   },
   tools: {
-    // icons: toolsIcons,
+    // icon: toolsIcon,
     res: toolsRes,
   },
 };

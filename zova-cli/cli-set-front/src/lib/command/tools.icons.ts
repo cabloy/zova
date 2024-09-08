@@ -1,9 +1,9 @@
 export default {
-  bean: 'tools.icons',
+  bean: 'tools.icon',
   info: {
     version: '5.0.0',
-    title: 'Cli: Tools: Icons',
-    usage: 'zova :tools:icons module1 [module2]',
+    title: 'Cli: Tools: Icon',
+    usage: 'zova :tools:icon module1 [module2]',
   },
   // options: null,
   // groups: null,
