@@ -8,6 +8,7 @@ export async function generateConfig(modulePath: string) {
   // combine
   const content = `/** config: begin */
 export * from '../config/config.js';
+import { config } from '../config/config.js';
 /** config: end */
 `;
   return content;
@@ -19,6 +20,7 @@ export async function generateConstant(modulePath: string) {
   // combine
   const content = `/** constant: begin */
 export * from '../config/constants.js';
+import { constants } from '../config/constants.js';
 /** constant: end */
 `;
   return content;
@@ -53,6 +55,7 @@ export async function generateError(modulePath: string) {
   // combine
   const content = `/** error: begin */
 export * from '../config/errors.js';
+import { Errors } from '../config/errors.js';
 /** error: end */
 `;
   return content;
