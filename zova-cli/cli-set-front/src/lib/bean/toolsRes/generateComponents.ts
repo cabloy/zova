@@ -14,10 +14,11 @@ export async function generateComponents(moduleName: string, modulePath: string)
     const componentName = path.basename(file.substring(0, file.length - '/index.vue'.length));
     const className = componentName.charAt(0).toUpperCase() + componentName.substring(1);
     const componentFullName = `${moduleName}:${componentName}`;
+    const componentName2 = 'component_' + componentName;
     contentExports.push(`export * as NSController${className} from '../component/${componentName}/controller.js';`);
     contentImports.push(`import * as NSController${className} from '../component/${componentName}/controller.js';`);
-    contentImports2.push(`import ${componentName} from '../component/${componentName}/index.vue';`);
-    contentComponents.push(componentName);
+    contentImports2.push(`import ${componentName2} from '../component/${componentName}/index.vue';`);
+    contentComponents.push(`'${componentName}': ${componentName2},`);
     contentRecords.push(`'${componentFullName}': NSController${className}.Controller${className};`);
   }
   // combine
@@ -25,7 +26,9 @@ export async function generateComponents(moduleName: string, modulePath: string)
 ${contentExports.join('\n')}
 ${contentImports.join('\n')}
 ${contentImports2.join('\n')}
-export const components = { ${contentComponents.join(', ')} };
+export const components = {
+  ${contentComponents.join('\n')}
+};
 import 'zova';
 declare module 'zova' {
 export interface IComponentRecord {
