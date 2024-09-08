@@ -1,5 +1,0 @@
-{
-  "extends": "<%=!argv.suite?'../':''%>../../tsconfig.base.json",
-  "compilerOptions": {},
-  "exclude": ["dist", "node_modules"]
-}

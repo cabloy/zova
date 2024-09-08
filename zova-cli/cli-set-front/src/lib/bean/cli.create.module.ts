@@ -12,7 +12,6 @@ declare module 'zova-cli' {
     moduleInfo: IModuleInfo;
     relativeNameCapitalize: string;
     force: boolean;
-    template: string;
   }
 }
 
@@ -50,14 +49,12 @@ export class CliCreateModule extends BeanCliBase {
     if (!argv.force && fs.existsSync(targetDir)) {
       throw new Error(`module exists: ${moduleName}`);
     }
-    // template
-    const template = argv.template;
     // render module snippets for suite
     if (suiteName) {
       await this.template.renderBoilerplateAndSnippets({
         targetDir: argv._suite.root,
         setName: __ThisSetName__,
-        snippetsPath: `create/module-${template}/snippets`,
+        snippetsPath: 'create/module/snippets',
         boilerplatePath: null,
       });
     }
@@ -67,7 +64,7 @@ export class CliCreateModule extends BeanCliBase {
       targetDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: `create/module-${template}/boilerplate`,
+      boilerplatePath: 'create/module/boilerplate',
     });
   }
 }
