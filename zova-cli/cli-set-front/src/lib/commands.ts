@@ -8,6 +8,7 @@ import createStyle from './command/create.style.js';
 import createTheme from './command/create.theme.js';
 import createTool from './command/create.tool.js';
 import createLocal from './command/create.local.js';
+import createService from './command/create.service.js';
 import createModule from './command/create.module.js';
 import createPage from './command/create.page.js';
 import createSuite from './command/create.suite.js';
@@ -37,6 +38,7 @@ export const commands = {
     theme: createTheme,
     tool: createTool,
     local: createLocal,
+    service: createService,
   },
   init: {
     icon: initIcon,
