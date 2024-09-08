@@ -1,19 +1,19 @@
 import { BeanCliBase } from 'zova-cli';
 import fse from 'fs-extra';
 import path from 'path';
-import { generateBeans } from './toolsRes/generateBeans.js';
-import { generateComponents } from './toolsRes/generateComponents.js';
-import { generatePages } from './toolsRes/generatePages.js';
-import { generateIcons } from './toolsRes/generateIcons.js';
-import { generateConfig, generateConstant, generateError, generateLocale } from './toolsRes/generateConfig.js';
-import { generateServices } from './toolsRes/generateServices.js';
-import { generateScope } from './toolsRes/generateScope.js';
+import { generateBeans } from './toolsMetadata/generateBeans.js';
+import { generateComponents } from './toolsMetadata/generateComponents.js';
+import { generatePages } from './toolsMetadata/generatePages.js';
+import { generateIcons } from './toolsMetadata/generateIcons.js';
+import { generateConfig, generateConstant, generateError, generateLocale } from './toolsMetadata/generateConfig.js';
+import { generateServices } from './toolsMetadata/generateServices.js';
+import { generateScope } from './toolsMetadata/generateScope.js';
 
 declare module 'zova-cli' {
   interface ICommandArgv {}
 }
 
-export class CliToolsRes extends BeanCliBase {
+export class CliToolsMetadata extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super
@@ -29,11 +29,11 @@ export class CliToolsRes extends BeanCliBase {
         text: moduleName,
       });
       // generate res
-      await this._generateRes(moduleName);
+      await this._generateMetadata(moduleName);
     }
   }
 
-  async _generateRes(moduleName: string) {
+  async _generateMetadata(moduleName: string) {
     const module = this.helper.findModule(moduleName);
     if (!module) throw new Error(`module not found: ${moduleName}`);
     const modulePath = module.root;

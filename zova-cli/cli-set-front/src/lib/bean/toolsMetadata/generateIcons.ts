@@ -80,7 +80,7 @@ async function _generateIconsGroup(modulePath: string, iconsSrc: string, moduleN
 ${symbols.join('\n')}
 </svg>`;
   // write
-  const pathDest = path.join(modulePath, 'src/.res/icons', 'groups');
+  const pathDest = path.join(modulePath, 'src/.metadata/icons', 'groups');
   await fse.ensureDir(pathDest);
   const fileDest = path.join(pathDest, `${groupName}.svg`);
   await fse.writeFile(fileDest, xml);

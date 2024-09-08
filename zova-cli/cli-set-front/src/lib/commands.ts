@@ -19,7 +19,7 @@ import initConstant from './command/init.constant.js';
 import initLocale from './command/init.locale.js';
 import initError from './command/init.error.js';
 // import toolsIcon from './command/tools.icon.js';
-import toolsRes from './command/tools.res.js';
+import toolsMetadata from './command/tools.metadata.js';
 
 export const commands = {
   default: {
@@ -50,6 +50,6 @@ export const commands = {
   },
   tools: {
     // icon: toolsIcon,
-    res: toolsRes,
+    metadata: toolsMetadata,
   },
 };
