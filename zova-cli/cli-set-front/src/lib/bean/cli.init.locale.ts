@@ -23,16 +23,16 @@ export class CliInitLocale extends BeanCliBase {
     }
     // target dir
     const targetDir = await this.helper.ensureDir(_module.root);
-    const configFile = path.join(targetDir, 'src/config/config.ts');
-    if (fse.existsSync(configFile)) {
-      throw new Error(`config exists: ${moduleName}`);
+    const localeFile = path.join(targetDir, 'src/config/locale');
+    if (fse.existsSync(localeFile)) {
+      throw new Error(`locale exists: ${moduleName}`);
     }
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
       targetDir: path.join(targetDir, 'src'),
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: 'init/config/boilerplate',
+      boilerplatePath: 'init/locale/boilerplate',
     });
   }
 }
