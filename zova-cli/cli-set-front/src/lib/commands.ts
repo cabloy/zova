@@ -14,6 +14,8 @@ import createSuite from './command/create.suite.js';
 import initIcons from './command/init.icons.js';
 import initConfig from './command/init.config.js';
 import initConstant from './command/init.constant.js';
+import initLocale from './command/init.locale.js';
+import initError from './command/init.error.js';
 // import toolsIcons from './command/tools.icons.js';
 import toolsRes from './command/tools.res.js';
 
@@ -39,6 +41,8 @@ export const commands = {
     icons: initIcons,
     config: initConfig,
     constant: initConstant,
+    locale: initLocale,
+    error: initError,
   },
   tools: {
     // icons: toolsIcons,
