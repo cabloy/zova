@@ -35,6 +35,6 @@ export class CliInitLocale extends BeanCliBase {
       boilerplatePath: 'init/locale/boilerplate',
     });
     // tools.metadata
-    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
+    await this.helper.invokeCli([':tools:metadata', moduleName], { cwd: argv.projectPath });
   }
 }

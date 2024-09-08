@@ -34,7 +34,7 @@ export class CliInitConfig extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'init/config/boilerplate',
     });
-    // tools.res
-    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
+    // tools.metadata
+    await this.helper.invokeCli([':tools:metadata', moduleName], { cwd: argv.projectPath });
   }
 }

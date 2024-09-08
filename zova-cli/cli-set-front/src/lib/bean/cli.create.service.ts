@@ -46,7 +46,7 @@ export class CliCreateService extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'create/service/boilerplate',
     });
-    // tools.res
-    await this.helper.invokeCli([':tools:res', moduleName], { cwd: argv.projectPath });
+    // tools.metadata
+    await this.helper.invokeCli([':tools:metadata', moduleName], { cwd: argv.projectPath });
   }
 }
