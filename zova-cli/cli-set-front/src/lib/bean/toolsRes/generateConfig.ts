@@ -22,3 +22,25 @@ export * from '../config/constants.js';
 `;
   return content;
 }
+
+export async function generateLocale(modulePath: string) {
+  const constantFile = path.join(modulePath, 'src/config/constants.ts');
+  if (!fse.existsSync(constantFile)) return '';
+  // combine
+  const content = `/** constant: begin */
+export * from '../config/constants.js';
+/** constant: end */
+`;
+  return content;
+}
+
+export async function generateError(modulePath: string) {
+  const constantFile = path.join(modulePath, 'src/config/constants.ts');
+  if (!fse.existsSync(constantFile)) return '';
+  // combine
+  const content = `/** constant: begin */
+export * from '../config/constants.js';
+/** constant: end */
+`;
+  return content;
+}
