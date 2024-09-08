@@ -34,5 +34,18 @@ export class CliInitIcons extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'init/icons/boilerplate',
     });
+    // set zovaModule.capabilities.icon: true
+    await this._setPackageInfo(targetDir);
+  }
+
+  async _setPackageInfo(modulePath: string) {
+    const pkgFile = path.join(modulePath, 'package.json');
+    const pkgContent = (await fse.readFile(pkgFile)).toString();
+    const pkg = JSON.parse(pkgContent);
+    if (!pkg.zovaModule) pkg.zovaModule = {};
+    if (!pkg.zovaModule.capabilities) pkg.zovaModule.capabilities = {};
+    if (pkg.zovaModule.capabilities.icon) return;
+    pkg.zovaModule.capabilities.icon = true;
+    await fse.writeFile(pkgFile, JSON.stringify(pkg, null, 2));
   }
 }
