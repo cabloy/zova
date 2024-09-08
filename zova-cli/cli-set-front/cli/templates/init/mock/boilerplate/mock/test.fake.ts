@@ -2,7 +2,7 @@ import { defineFakeRoute } from 'vite-plugin-fake-server-turbo/client';
 
 export default defineFakeRoute([
   {
-    url: '/backend-api-test',
+    url: '/test/echo',
     method: 'get',
     response: () => {
       return {
