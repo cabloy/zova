@@ -16,6 +16,7 @@ import initConfig from './command/init.config.js';
 import initConstant from './command/init.constant.js';
 import initLocale from './command/init.locale.js';
 import initError from './command/init.error.js';
+import initMock from './command/init.mock.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsRes from './command/tools.res.js';
 
@@ -43,6 +44,7 @@ export const commands = {
     constant: initConstant,
     locale: initLocale,
     error: initError,
+    mock: initMock,
   },
   tools: {
     // icon: toolsIcon,

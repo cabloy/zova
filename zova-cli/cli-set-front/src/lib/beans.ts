@@ -18,6 +18,7 @@ import { CliInitConfig } from './bean/cli.init.config.js';
 import { CliInitConstant } from './bean/cli.init.constant.js';
 import { CliInitLocale } from './bean/cli.init.locale.js';
 import { CliInitError } from './bean/cli.init.error.js';
+import { CliInitMock } from './bean/cli.init.mock.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -38,6 +39,7 @@ export const beans = {
   'init.constant': CliInitConstant,
   'init.locale': CliInitLocale,
   'init.error': CliInitError,
+  'init.mock': CliInitMock,
   'tools.icon': CliToolsIcon,
   'tools.res': CliToolsRes,
 };
