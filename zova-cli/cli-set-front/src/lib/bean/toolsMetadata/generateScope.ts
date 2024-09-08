@@ -9,7 +9,7 @@ export interface GenerateScopeOptions {
 export async function generateScope(moduleName: string, relativeNameCapitalize: string, options: GenerateScopeOptions) {
   // combine
   const content = `/** scope: begin */
-import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
+import { BeanScopeBase, Scope, ${options.locales ? 'TypeLocaleBase,' : ''} TypeModuleResource } from 'zova';
 
 @Scope()
 export class ScopeModule${relativeNameCapitalize} extends BeanScopeBase {}

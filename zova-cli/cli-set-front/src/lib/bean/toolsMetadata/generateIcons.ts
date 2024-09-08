@@ -29,7 +29,7 @@ async function _generateFileConfigIcons(groups) {
   const groupsFrontImport: string[] = [];
   const groupsFrontExport: string[] = [];
   for (const group of groups) {
-    groupsFrontImport.push(`// @ts-ignore icons\nimport icon_${group.name} from './icons/groups/${group.name}.svg';`);
+    groupsFrontImport.push(`import icon_${group.name} from './icons/groups/${group.name}.svg';`);
     groupsFrontExport.push(`${group.name}: icon_${group.name},`);
   }
   const jsContent = `${groupsFrontImport.join('\n')}\n\nexport const icons = {\n  ${groupsFrontExport.join('\n  ')}\n};\n`;
