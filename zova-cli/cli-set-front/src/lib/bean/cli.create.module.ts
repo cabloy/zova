@@ -30,6 +30,10 @@ export class CliCreateModule extends BeanCliBase {
         throw new Error(`suite does not exist: ${suiteName}`);
       }
     }
+    // nameMeta
+    const nameMeta = this.helper.parseNameMeta(argv.name);
+    const moduleDir = nameMeta.directory || 'module';
+    argv.name = nameMeta.short;
     // module name/info
     const moduleName = argv.name;
     argv.moduleInfo = this.helper.parseModuleInfo(moduleName);
@@ -44,7 +48,7 @@ export class CliCreateModule extends BeanCliBase {
     if (suiteName) {
       targetDir = path.join(argv._suite.root, 'modules', moduleName);
     } else {
-      targetDir = path.join(argv.projectPath, 'src/module', moduleName);
+      targetDir = path.join(argv.projectPath, `src/${moduleDir}`, moduleName);
     }
     if (!argv.force && fs.existsSync(targetDir)) {
       throw new Error(`module exists: ${moduleName}`);
