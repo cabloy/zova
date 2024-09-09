@@ -1,5 +1,9 @@
 import { ZovaApplication } from 'zova';
-import { ServiceUserEntity } from '../interface/user.js';
+
+export interface ServiceUserEntity {
+  username?: string;
+  avatar?: string;
+}
 
 export default (app: ZovaApplication) => {
   return {
