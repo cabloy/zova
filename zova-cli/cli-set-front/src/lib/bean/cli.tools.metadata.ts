@@ -10,7 +10,9 @@ import { generateServices } from './toolsMetadata/generateServices.js';
 import { generateScope } from './toolsMetadata/generateScope.js';
 
 declare module 'zova-cli' {
-  interface ICommandArgv {}
+  interface ICommandArgv {
+    force: boolean;
+  }
 }
 
 export class CliToolsMetadata extends BeanCliBase {
@@ -18,7 +20,13 @@ export class CliToolsMetadata extends BeanCliBase {
     const { argv } = this.context;
     // super
     await super.execute();
-    const moduleNames = argv._;
+    let moduleNames = argv._;
+    const force = argv.force ?? moduleNames.length > 0;
+    if (moduleNames.length === 0) {
+      moduleNames = this.modulesMeta.modulesArray
+        .filter(item => !item.info.node_modules)
+        .map(item => item.info.relativeName);
+    }
     const total = moduleNames.length;
     for (let index = 0; index < total; index++) {
       const moduleName = moduleNames[index];
@@ -29,16 +37,21 @@ export class CliToolsMetadata extends BeanCliBase {
         text: moduleName,
       });
       // generate res
-      await this._generateMetadata(moduleName);
+      await this._generateMetadata(moduleName, force);
     }
   }
 
-  async _generateMetadata(moduleName: string) {
+  async _generateMetadata(moduleName: string, force: boolean) {
     const module = this.helper.findModule(moduleName);
     if (!module) throw new Error(`module not found: ${moduleName}`);
     const modulePath = module.root;
-    await this.helper.ensureDir(path.join(modulePath, 'src/.metadata'));
-    const resDest = path.join(modulePath, 'src/.metadata/index.ts');
+    const metaDir = path.join(modulePath, 'src/.metadata');
+    if (fse.existsSync(metaDir) && !force) {
+      // do nothing
+      return;
+    }
+    await this.helper.ensureDir(metaDir);
+    const resDest = path.join(metaDir, 'index.ts');
     // relativeNameCapitalize
     const relativeNameCapitalize = this.helper.stringToCapitalize(moduleName, '-');
     // content
