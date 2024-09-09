@@ -14,6 +14,4 @@ export type QueryOutput = zz.output<typeof QuerySchema>;
 @Local()
 export class ControllerPageRouteParams extends BeanControllerPageBase<ScopeModule, QueryOutput, ParamsOutput> {
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

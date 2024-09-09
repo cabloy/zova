@@ -15,6 +15,4 @@ export class ControllerPage extends BeanControllerBase<ScopeModule, Props, Emits
   static $propsDefault = {};
 
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

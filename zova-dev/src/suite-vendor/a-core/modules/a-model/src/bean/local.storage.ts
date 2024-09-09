@@ -35,6 +35,4 @@ export class LocalStorage extends BeanBase<ScopeModule> {
       hydrate(queryClient, this.ctx.meta.ssr.state.query);
     }
   }
-
-  protected __dispose__() {}
 }

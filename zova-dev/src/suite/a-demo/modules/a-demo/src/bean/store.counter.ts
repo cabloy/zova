@@ -10,6 +10,4 @@ export class StoreCounter extends BeanPiniaStoreBase<ScopeModule> {
   protected async __init__() {
     await super.__init__(useCounterStore);
   }
-
-  protected __dispose__() {}
 }

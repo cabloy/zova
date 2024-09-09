@@ -26,6 +26,4 @@ export class ControllerPageStyle extends BeanControllerPageBase<ScopeModule, Que
   ];
 
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

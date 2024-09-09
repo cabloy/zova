@@ -16,6 +16,4 @@ export class ControllerPagePinia extends BeanControllerPageBase<ScopeModule, Que
   $$counter: StoreCounter;
 
   protected async __init__() {}
-
-  protected __dispose__() {}
 }

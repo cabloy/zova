@@ -15,6 +15,4 @@ export class StyleDefault extends BeanBase<ScopeModule> {
       });
     });
   }
-
-  protected __dispose__() {}
 }

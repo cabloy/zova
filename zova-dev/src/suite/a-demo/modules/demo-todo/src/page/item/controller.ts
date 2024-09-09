@@ -24,6 +24,4 @@ export class ControllerPageItem extends BeanControllerPageBase<ScopeModule, Quer
       return { id: this.$params.id };
     });
   }
-
-  protected __dispose__() {}
 }
