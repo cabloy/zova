@@ -301,6 +301,8 @@ importers:
         specifier: ^5.0.108
         version: link:../../src/suite-vendor/a-core
 
+  src/module/test-a: {}
+
   src/module/test-demo:
     dependencies:
       '@tanstack/query-persist-client-core':

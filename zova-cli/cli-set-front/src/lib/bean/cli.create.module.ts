@@ -66,7 +66,7 @@ export class CliCreateModule extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'create/module/boilerplate',
     });
-    // pnpm install
-    await this.helper.pnpmInstall();
+    // pnpm install, not await
+    this.helper.pnpmInstall();
   }
 }
