@@ -1,6 +1,6 @@
 import { BeanStyleBase, Local } from 'zova';
 import type { ControllerRouterViewTabs } from './controller.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export interface StyleRouterViewTabs extends ControllerRouterViewTabs {}
 

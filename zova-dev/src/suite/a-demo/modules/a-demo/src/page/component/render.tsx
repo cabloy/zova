@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { nextTick } from 'vue';
 
 export interface RenderComponent extends ControllerPageComponent {}

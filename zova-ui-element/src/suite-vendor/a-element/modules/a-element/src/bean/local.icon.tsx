@@ -3,7 +3,7 @@ import { useNamespace } from 'element-plus/es/hooks/use-namespace/index.mjs';
 import { addUnit } from 'element-plus/es/utils/dom/style.mjs';
 import { isUndefined } from 'element-plus/es/utils/types.mjs';
 import { Text, computed, createVNode, mergeProps, onServerPrefetch, unref } from 'vue';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { ElIcon } from 'element-plus';
 
 @Local()

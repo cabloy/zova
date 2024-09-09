@@ -1,5 +1,5 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ModelAuth } from '../../bean/model.auth.js';
 import { ServiceAuthLoginParams } from '../../api/interface/auth.js';
 

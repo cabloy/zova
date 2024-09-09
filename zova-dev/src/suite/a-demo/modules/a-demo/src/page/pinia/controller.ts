@@ -1,5 +1,5 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import type { StoreCounter } from '../../bean/store.counter.js';
 
 export const ParamsSchema = zz.object({});

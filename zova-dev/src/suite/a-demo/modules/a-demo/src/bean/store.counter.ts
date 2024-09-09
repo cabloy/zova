@@ -1,5 +1,5 @@
 import { Store } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { BeanPiniaStoreBase, PiniaStore } from 'zova-module-a-pinia';
 import { useCounterStore } from './counterStore.js';
 

@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local, getBeanName } from 'zova';
 import type { StyleStyle } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { Button, Radio, RadioGroup } from 'ant-design-vue';
 
 export interface RenderStyle extends StyleStyle {}

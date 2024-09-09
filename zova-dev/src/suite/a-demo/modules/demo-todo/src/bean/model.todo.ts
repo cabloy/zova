@@ -1,5 +1,5 @@
 import { Model } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { BeanModelBase } from 'zova-module-a-model';
 import {
   ServiceTodoDeleteParams,

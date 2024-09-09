@@ -1,6 +1,6 @@
 import { BeanRenderBase, ClientOnly, Local, iconh } from 'zova';
 import { StyleLayoutDefault } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export interface RenderTheme extends StyleLayoutDefault {}
 

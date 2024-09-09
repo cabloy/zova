@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleRouteQuery2 } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export interface RenderRouteQuery2 extends StyleRouteQuery2 {}
 

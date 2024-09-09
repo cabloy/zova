@@ -14,7 +14,7 @@
 
 ```typescript{2,5,7}
 import { BeanBase, Local } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 
 @Local()
 export class TestA extends BeanBase<ScopeModule> {

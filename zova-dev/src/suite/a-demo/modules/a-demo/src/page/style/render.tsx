@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local, getBeanName, useComputed } from 'zova';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import type { StyleStyle } from './style.js';
 
 export interface RenderStyle extends StyleStyle {}

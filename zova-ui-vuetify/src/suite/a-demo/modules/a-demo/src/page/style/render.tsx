@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local, getBeanName } from 'zova';
 import type { StyleStyle } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { VBtn, VRadio, VRadioGroup } from 'vuetify/components';
 
 export interface RenderStyle extends StyleStyle {}

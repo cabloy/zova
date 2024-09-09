@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageLocale } from './controller.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export interface RenderLocale extends ControllerPageLocale {}
 

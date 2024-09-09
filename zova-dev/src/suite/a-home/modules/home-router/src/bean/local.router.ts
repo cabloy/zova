@@ -1,5 +1,5 @@
 import { Local, Use } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { BeanRouter, BeanRouterBase } from 'zova-module-a-router';
 import type { ModelAuth } from 'zova-module-home-user';
 

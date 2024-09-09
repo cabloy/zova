@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleHome } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ElTooltip } from 'element-plus';
 
 export interface RenderHome extends StyleHome {}

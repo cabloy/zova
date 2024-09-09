@@ -1,5 +1,5 @@
 import { BeanBase, Tool } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 const __Themes = { 'a-demo.theme.orange': 'orange', 'home-theme.theme.default': '' };

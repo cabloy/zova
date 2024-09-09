@@ -1,5 +1,5 @@
 import { BeanBase, getZovaIcon, Local, useApp } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { VIcon } from 'vuetify/components';
 import { computed, onServerPrefetch, ref, toRef } from 'vue';
 import { provideTheme } from 'vuetify/lib/composables/theme.mjs';

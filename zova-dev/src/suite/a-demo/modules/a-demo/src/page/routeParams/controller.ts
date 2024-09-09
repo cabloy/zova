@@ -1,5 +1,5 @@
 import { BeanControllerPageBase, Local, zz } from 'zova';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export const ParamsSchema = zz.object({
   id: zz.number().optional().default(0),

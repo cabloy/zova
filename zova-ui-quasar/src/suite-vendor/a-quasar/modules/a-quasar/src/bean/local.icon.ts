@@ -1,6 +1,6 @@
 import { BeanBase, Cast, getZovaIcon, Local, useApp } from 'zova';
 import { Platform, QIcon, Quasar } from 'quasar';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 
 import { h, computed, onServerPrefetch } from 'vue';
 import useSize from 'quasar/src/composables/private.use-size/use-size.js';

@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleLogin } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { withModifiers } from 'vue';
 
 export interface RenderLogin extends StyleLogin {}

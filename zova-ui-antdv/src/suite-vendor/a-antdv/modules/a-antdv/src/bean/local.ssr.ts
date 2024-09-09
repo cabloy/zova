@@ -1,5 +1,5 @@
 import { BeanBase, Local } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { createCache, extractStyle } from 'ant-design-vue';
 
 @Local()

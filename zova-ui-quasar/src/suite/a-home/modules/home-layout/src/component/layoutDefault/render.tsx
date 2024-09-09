@@ -15,7 +15,7 @@ import {
 } from 'quasar';
 import { JSX } from 'vue/jsx-runtime';
 import { ServiceMenuEntity } from '../../api/index.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { RouterView } from 'vue-router';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}

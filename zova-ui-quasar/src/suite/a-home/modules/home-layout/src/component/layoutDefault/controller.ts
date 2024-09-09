@@ -1,7 +1,7 @@
 import { BeanControllerBase, Local, Use, PropsBase, useComputed, useCustomRef } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelLayout } from '../../bean/model.layout.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 

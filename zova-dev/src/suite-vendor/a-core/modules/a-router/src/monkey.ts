@@ -14,7 +14,7 @@ import {
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
-import { ScopeModule, __ThisModule__ } from './resource/this.js';
+import { ScopeModule, __ThisModule__ } from './.metadata/this.js';
 import { markRaw } from 'vue';
 import { getRealRouteName } from './utils.js';
 import { LocalRouter } from './bean/local.router.js';

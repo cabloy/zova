@@ -1,6 +1,6 @@
 import { Local, Use } from 'zova';
 import * as ModuleInfo from '@cabloy/module-info';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { BeanRouterBase } from './virtual.router.js';
 import { BeanRouter } from './bean.router.js';
 

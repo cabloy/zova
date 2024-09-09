@@ -1,5 +1,5 @@
 import { BeanControllerPageBase, Local, Use, useComputed, zz } from 'zova';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ModelTodo } from '../../bean/model.todo.js';
 import { ServiceTodoGetParams } from '../../api/index.js';
 

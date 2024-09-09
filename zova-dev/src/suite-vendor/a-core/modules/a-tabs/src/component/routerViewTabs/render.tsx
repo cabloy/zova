@@ -1,6 +1,6 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleRouterViewTabs } from './style.js';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ComponentInternalInstance, KeepAlive, Transition } from 'vue';
 import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
 

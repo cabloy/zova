@@ -1,5 +1,5 @@
 import { BeanBase, Cast, Tool } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 @Tool()

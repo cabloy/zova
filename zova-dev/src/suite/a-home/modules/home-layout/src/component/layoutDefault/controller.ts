@@ -1,7 +1,7 @@
 import { BeanControllerBase, Local, Use, UseScope, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import type { ModelAuth, ModelUser } from 'zova-module-home-user';
-import { ScopeModule } from '../../resource/this.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import type { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
 import { RenderTabs } from './renderTabs.jsx';
 import { RenderTheme } from './renderTheme.jsx';

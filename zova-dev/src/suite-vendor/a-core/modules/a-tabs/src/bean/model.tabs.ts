@@ -1,6 +1,6 @@
 import { Model, useComputed } from 'zova';
 import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { watch } from 'vue';
 
 export interface RouteTabInfo {

@@ -1,5 +1,5 @@
 import { BeanBase, Style } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {

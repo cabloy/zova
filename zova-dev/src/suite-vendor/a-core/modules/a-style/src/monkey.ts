@@ -1,6 +1,6 @@
 import { style, createTypeStyle, TypeStyle } from 'typestyle';
 import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
-import { ScopeModule, __ThisModule__ } from './resource/this.js';
+import { ScopeModule, __ThisModule__ } from './.metadata/this.js';
 import { BeanTheme } from './bean/bean.theme.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {

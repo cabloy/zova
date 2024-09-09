@@ -1,5 +1,5 @@
 import { BeanBase, Local } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { ID_INJECTION_KEY, ZINDEX_INJECTION_KEY } from 'element-plus';
 
 @Local()

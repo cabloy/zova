@@ -1,5 +1,5 @@
 import { Bean, Cast, IBeanRecord } from 'zova';
-import { ScopeModule } from '../resource/this.js';
+import { ScopeModule } from '../.metadata/this.js';
 import { ThemeBase, ThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
 import { watch } from 'vue';
