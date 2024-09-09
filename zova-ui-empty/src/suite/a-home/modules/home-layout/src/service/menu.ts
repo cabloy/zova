@@ -1,5 +1,14 @@
 import { ZovaApplication } from 'zova';
-import { ServiceMenuEntity } from '../interface/menu.js';
+
+export interface ServiceMenuEntity {
+  title: string;
+  caption?: string;
+  icon?: string;
+  href?: string;
+  to?: string;
+  folder?: boolean;
+  separator?: boolean;
+}
 
 export default (app: ZovaApplication) => {
   return {
