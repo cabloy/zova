@@ -1,11 +1,18 @@
 import { ZovaApplication } from 'zova';
-import {
-  ServiceTodoDeleteParams,
-  ServiceTodoGetParams,
-  ServiceTodoIntertParams,
-  ServiceTodoEntity,
-  ServiceTodoUpdateParams,
-} from '../interface/todo.js';
+
+export interface ServiceTodoEntity {
+  id: string;
+  title: string;
+  done: boolean;
+}
+
+export interface ServiceTodoGetParams {
+  id: string;
+}
+
+export type ServiceTodoDeleteParams = ServiceTodoGetParams;
+export type ServiceTodoIntertParams = ServiceTodoEntity;
+export type ServiceTodoUpdateParams = ServiceTodoEntity;
 
 export default (app: ZovaApplication) => {
   return {
