@@ -65,9 +65,6 @@ importers:
       zova-module-a-style:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
-      zova-module-a-tabs:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-tabs
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.11
@@ -301,9 +298,7 @@ importers:
         specifier: ^5.0.108
         version: link:../../src/suite-vendor/a-core
 
-  src/module/test-a: {}
-
-  src/module/test-demo:
+  src/module/test-a:
     dependencies:
       '@tanstack/query-persist-client-core':
         specifier: ^5.45.0
@@ -311,16 +306,6 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.52.0(vue@3.4.38(typescript@5.5.4))
-
-  src/module/test-demo4: {}
-
-  src/module/test-demo6: {}
-
-  src/module/test-ioc: {}
-
-  src/module/test-task2: {}
-
-  src/module/test-todo: {}
 
   src/suite-vendor/a-core:
     dependencies:
