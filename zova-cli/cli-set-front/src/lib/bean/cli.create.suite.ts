@@ -16,6 +16,10 @@ export class CliCreateSuite extends BeanCliBase {
     const { argv } = this.context;
     // super
     await super.execute();
+    // nameMeta
+    const nameMeta = this.helper.parseNameMeta(argv.name);
+    const suiteDir = nameMeta.directory || 'suite';
+    argv.name = nameMeta.short;
     // suite name/info
     const suiteName = argv.name;
     argv.suiteInfo = this.helper.parseSuiteInfo(suiteName);
@@ -25,7 +29,7 @@ export class CliCreateSuite extends BeanCliBase {
       throw new Error(`suite exists: ${suiteName}`);
     }
     // target dir
-    let targetDir = path.join(argv.projectPath, 'src/suite', suiteName);
+    let targetDir = path.join(argv.projectPath, `src/${suiteDir}`, suiteName);
     if (fs.existsSync(targetDir)) {
       throw new Error(`suite exists: ${suiteName}`);
     }
