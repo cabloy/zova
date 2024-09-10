@@ -20,6 +20,7 @@ import initLocale from './command/init.locale.js';
 import initError from './command/init.error.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
+import toolsDeps from './command/tools.deps.js';
 
 export const commands = {
   default: {
@@ -51,5 +52,6 @@ export const commands = {
   tools: {
     // icon: toolsIcon,
     metadata: toolsMetadata,
+    deps: toolsDeps,
   },
 };

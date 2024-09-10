@@ -15,6 +15,7 @@ import { CliCreatePage } from './bean/cli.create.page.js';
 import { CliCreateSuite } from './bean/cli.create.suite.js';
 import { CliToolsIcon } from './bean/cli.tools.icon.js';
 import { CliToolsMetadata } from './bean/cli.tools.metadata.js';
+import { CliToolsDeps } from './bean/cli.tools.deps.js';
 import { CliInitIcon } from './bean/cli.init.icon.js';
 import { CliInitConfig } from './bean/cli.init.config.js';
 import { CliInitConstant } from './bean/cli.init.constant.js';
@@ -44,4 +45,5 @@ export const beans = {
   'init.error': CliInitError,
   'tools.icon': CliToolsIcon,
   'tools.metadata': CliToolsMetadata,
+  'tools.deps': CliToolsDeps,
 };
