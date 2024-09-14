@@ -5,6 +5,7 @@ export async function generateServices(modulePath: string) {
   const pattern = `${modulePath}/src/service/*.ts`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
   if (files.length === 0) return '';
+  files.sort();
   const contentImports: string[] = [];
   const contentServices: string[] = [];
   for (const file of files) {

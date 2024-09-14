@@ -5,6 +5,7 @@ export async function generateComponents(moduleName: string, modulePath: string)
   const pattern = `${modulePath}/src/component/*/index.vue`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
   if (files.length === 0) return '';
+  files.sort();
   const contentExports: string[] = [];
   const contentImports: string[] = [];
   const contentImports2: string[] = [];

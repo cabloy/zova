@@ -56,6 +56,7 @@ export interface IIconRecord {
 
 async function _resolveGroups(iconsSrc: string) {
   const groupPaths = await eggBornUtils.tools.globbyAsync(`${iconsSrc}/*`, { onlyDirectories: true });
+  groupPaths.sort();
   return groupPaths.map(item => {
     return {
       name: path.basename(item),
@@ -66,6 +67,7 @@ async function _resolveGroups(iconsSrc: string) {
 async function _generateIconsGroup(modulePath: string, iconsSrc: string, moduleName: string, groupName: string) {
   // icons
   const files = await eggBornUtils.tools.globbyAsync(`${iconsSrc}/${groupName}/*.svg`);
+  files.sort();
   const iconNames = files.map(item => path.basename(item, '.svg'));
   // symbols
   const symbols: string[] = [];

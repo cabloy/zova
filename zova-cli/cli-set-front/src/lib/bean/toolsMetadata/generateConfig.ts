@@ -30,6 +30,7 @@ export async function generateLocale(modulePath: string) {
   const pattern = `${modulePath}/src/config/locale/*.ts`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
   if (files.length === 0) return '';
+  files.sort();
   const contentImports: string[] = [];
   const contentLocales: string[] = [];
   for (const file of files) {
