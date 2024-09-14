@@ -17,6 +17,7 @@
     "build:spa": "tsc -b && npm run tsc && quasar build --mode spa --flavor admin",
     "preview:spa": "vite preview --outDir=dist/spa",
     "build:githubpages": "tsc -b && npm run tsc && quasar build --mode spa --flavor githubpages",
+    "meta":"npm run zova :tools:metadata && npm run zova :tools:deps",
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
