@@ -1,13 +1,13 @@
 /** beans: begin */
 export * from '../bean/bean.router.js';
-export * from '../bean/virtual.router.js';
+export * from '../bean/bean.routerBase.js';
 import { BeanRouter } from '../bean/bean.router.js';
-import { VirtualRouter } from '../bean/virtual.router.js';
+import { BeanRouterBase } from '../bean/bean.routerBase.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
     'a-router.bean.router': BeanRouter;
-    'a-router.virtual.router': VirtualRouter;
+    'a-router.bean.routerBase': BeanRouterBase;
   }
 }
 /** beans: end */

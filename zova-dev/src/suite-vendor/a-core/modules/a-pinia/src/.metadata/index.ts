@@ -1,10 +1,10 @@
 /** beans: begin */
-export * from '../bean/virtual.piniaStore.js';
-import { VirtualPiniaStore } from '../bean/virtual.piniaStore.js';
+export * from '../bean/bean.piniaStoreBase.js';
+import { BeanPiniaStoreBase } from '../bean/bean.piniaStoreBase.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-pinia.virtual.piniaStore': VirtualPiniaStore;
+    'a-pinia.bean.piniaStoreBase': BeanPiniaStoreBase;
   }
 }
 /** beans: end */

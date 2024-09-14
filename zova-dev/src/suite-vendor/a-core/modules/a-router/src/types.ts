@@ -42,4 +42,12 @@ declare module 'zova' {
     path: Record<keyof IPagePathRecord, IModuleRoute>;
     name: Record<keyof IPageNameRecord, IModuleRoute>;
   }
+
+  export interface IEventRecord {
+    'a-router:routerGuards': BeanRouter;
+  }
+
+  export interface IEventResultRecord {
+    'a-router:routerGuards': void;
+  }
 }
