@@ -10,10 +10,10 @@ Zova has injected the `$style` method in the `BeanBase` base class so that css-i
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  textCenter: string;
+  cTextCenter: string;
 
   protected async __init__() {
-    this.textCenter = this.$style({ textAlign: 'center' });
+    this.cTextCenter = this.$style({ textAlign: 'center' });
   }
 
   render() {
@@ -34,10 +34,10 @@ Computed properties can be used to create dynamic styles
 ```typescript
 export class RenderTest extends BeanRenderBase {
   active: boolean;
-  textColor: string;
+  cTextCenter: string;
 
   protected async __init__() {
-    this.textColor = useComputed(() => {
+    this.cTextCenter = useComputed(() => {
       return this.$style({ color: this.active ? 'orange' : '' });
     });
   }

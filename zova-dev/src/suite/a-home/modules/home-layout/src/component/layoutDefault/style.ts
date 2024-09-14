@@ -6,10 +6,10 @@ export interface StyleLayoutDefault extends ControllerLayoutDefault {}
 
 @Local()
 export class StyleLayoutDefault extends BeanStyleBase<ScopeModule> {
-  styleTab: string;
+  cTab: string;
 
   protected async __init__() {
-    this.styleTab = this.$style({
+    this.cTab = this.$style({
       $nest: {
         '&:hover .tab-close': {
           display: 'block',

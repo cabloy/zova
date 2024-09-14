@@ -23,12 +23,12 @@ Zova provides a global style Bean in the module `home-style`. We can provide som
 ```typescript
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
-  textCenter: string;
-  buttonPrimary: string;
+  cTextCenter: string;
+  cButtonPrimary: string;
 
   protected async __init__() {
-    this.textCenter = this.$style({ textAlign: 'center' });
-    this.buttonPrimary = useComputed(() => {
+    this.cTextCenter = this.$style({ textAlign: 'center' });
+    this.cButtonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,

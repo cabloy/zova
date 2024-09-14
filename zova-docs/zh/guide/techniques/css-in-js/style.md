@@ -10,10 +10,10 @@ Zova 在 BeanBase 基类中注入了`$style`方法，从而可以在任何 bean 
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  textCenter: string;
+  cTextCenter: string;
 
   protected async __init__() {
-    this.textCenter = this.$style({ textAlign: 'center' });
+    this.cTextCenter = this.$style({ textAlign: 'center' });
   }
 
   render() {

@@ -46,10 +46,10 @@ Zova injects a `$token` object into the `BeanBase` base class so that token data
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  buttonPrimary: string;
+  cButtonPrimary: string;
 
   protected async __init__() {
-    this.buttonPrimary = useComputed(() => {
+    this.cButtonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,

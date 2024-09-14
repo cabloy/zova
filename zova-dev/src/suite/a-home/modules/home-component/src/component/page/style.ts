@@ -6,10 +6,10 @@ export interface StylePage extends ControllerPage {}
 
 @Local()
 export class StylePage extends BeanStyleBase<ScopeModule> {
-  stylePage: string;
+  cPage: string;
 
   protected async __init__() {
-    this.stylePage = this.$style({
+    this.cPage = this.$style({
       padding: '16px',
     });
   }

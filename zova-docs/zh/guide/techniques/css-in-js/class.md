@@ -23,12 +23,12 @@ Zova 在模块`home-style`中提供了一个全局样式 Bean，我们可以直�
 ```typescript
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
-  textCenter: string;
-  buttonPrimary: string;
+  cTextCenter: string;
+  cButtonPrimary: string;
 
   protected async __init__() {
-    this.textCenter = this.$style({ textAlign: 'center' });
-    this.buttonPrimary = useComputed(() => {
+    this.cTextCenter = this.$style({ textAlign: 'center' });
+    this.cButtonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,
