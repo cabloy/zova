@@ -6,7 +6,7 @@ export interface RenderContent extends StyleLayoutDefault {}
 
 @Local()
 export class RenderContent extends BeanRenderBase<ScopeModule> {
-  _renderContent() {
+  render() {
     return this.$$renderTabs._renderRouterViewTabs();
   }
 }

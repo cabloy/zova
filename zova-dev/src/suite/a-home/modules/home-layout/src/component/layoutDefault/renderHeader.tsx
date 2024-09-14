@@ -6,7 +6,7 @@ export interface RenderHeader extends StyleLayoutDefault {}
 
 @Local()
 export class RenderHeader extends BeanRenderBase<ScopeModule> {
-  _renderHeader() {
+  render() {
     return (
       <div class="navbar bg-base-300 w-full">
         <div class="flex-none lg:hidden">
@@ -21,13 +21,13 @@ export class RenderHeader extends BeanRenderBase<ScopeModule> {
             </svg>
           </label>
         </div>
-        <div class="mx-2 flex-1 px-2">{this.$$renderTabs._renderTabs()}</div>
+        <div class="mx-2 flex-1 px-2">{this.$$renderTabs.render()}</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
-            {this.$$renderLocale._renderLocale()}
-            {this.$$renderTheme._renderThemeDark()}
-            {this.$$renderTheme._renderThemeName()}
-            {this.$$renderUser._renderUser()}
+            {this.$$renderLocale.render()}
+            {this.$$renderTheme.renderThemeDark()}
+            {this.$$renderTheme.renderThemeName()}
+            {this.$$renderUser.render()}
           </ul>
         </div>
       </div>

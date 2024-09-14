@@ -11,10 +11,10 @@ export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
       <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
-          {this.$$renderHeader._renderHeader()}
-          {this.$$renderContent._renderContent()}
+          {this.$$renderHeader.render()}
+          {this.$$renderContent.render()}
         </div>
-        {this.$$renderSidebar._renderSidebar()}
+        {this.$$renderSidebar.render()}
       </div>
     );
   }

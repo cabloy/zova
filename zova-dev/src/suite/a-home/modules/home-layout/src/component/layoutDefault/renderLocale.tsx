@@ -6,7 +6,7 @@ export interface RenderLocale extends StyleLayoutDefault {}
 
 @Local()
 export class RenderLocale extends BeanRenderBase<ScopeModule> {
-  _renderLocale() {
+  render() {
     const locales = [
       {
         name: 'en-us',

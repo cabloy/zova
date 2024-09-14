@@ -6,7 +6,7 @@ export interface RenderUser extends StyleLayoutDefault {}
 
 @Local()
 export class RenderUser extends BeanRenderBase<ScopeModule> {
-  _renderUser() {
+  render() {
     return (
       <li>
         <details>

@@ -38,7 +38,7 @@ export class RenderMenu extends BeanRenderBase<ScopeModule> {
     return domItems;
   }
 
-  _renderMenu() {
+  render() {
     const queryMenus = this.$$modelMenu.select();
     if (queryMenus.isLoading || !queryMenus.data) return;
     const domItems = this._renderMenuItems(queryMenus.data);

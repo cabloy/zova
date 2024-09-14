@@ -6,7 +6,7 @@ export interface RenderTheme extends StyleLayoutDefault {}
 
 @Local()
 export class RenderTheme extends BeanRenderBase<ScopeModule> {
-  _renderThemeDark() {
+  renderThemeDark() {
     const themes = [
       {
         mode: false,
@@ -48,7 +48,7 @@ export class RenderTheme extends BeanRenderBase<ScopeModule> {
     );
   }
 
-  _renderThemeName() {
+  renderThemeName() {
     const themes = [
       {
         name: 'home-theme.theme.default',
