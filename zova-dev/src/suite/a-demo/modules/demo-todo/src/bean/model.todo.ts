@@ -6,7 +6,7 @@ import {
   ServiceTodoGetParams,
   ServiceTodoIntertParams,
   ServiceTodoUpdateParams,
-} from '../api/index.js';
+} from '../service/todo.js';
 
 @Model()
 export class ModelTodo extends BeanModelBase<ScopeModule> {

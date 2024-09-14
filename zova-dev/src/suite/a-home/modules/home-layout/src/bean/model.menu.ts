@@ -1,7 +1,7 @@
 import { Model } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../.metadata/this.js';
-import { ServiceMenuEntity } from '../api/interface/menu.js';
+import { ServiceMenuEntity } from '../service/menu.js';
 
 @Model()
 export class ModelMenu extends BeanModelBase<ScopeModule> {

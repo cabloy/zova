@@ -1,7 +1,7 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../.metadata/this.js';
 import { ModelTodo } from '../../bean/model.todo.js';
-import { ServiceTodoEntity, ServiceTodoGetParams } from '../../api/index.js';
+import { ServiceTodoEntity, ServiceTodoGetParams } from '../../service/todo.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
