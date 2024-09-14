@@ -373,6 +373,8 @@ importers:
         specifier: ^5.45.0
         version: 5.52.0(vue@3.4.38(typescript@5.5.4))
 
+  src/module/test-a1: {}
+
   src/module/test-b: {}
 
   src/suite-vendor/a-core:

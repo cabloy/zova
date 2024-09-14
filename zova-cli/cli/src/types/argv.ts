@@ -2,6 +2,7 @@ export interface ICommandArgv {
   // [Prop: string]: any;
   projectPath: string;
   cliFullName: string;
+  vscode: boolean;
   _: string[];
 }
 
