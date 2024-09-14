@@ -1,9 +1,9 @@
 import { BeanRenderBase, Local } from 'zova';
 import { StyleLayoutDefault } from './style.js';
 import { ScopeModule, __ThisModule__ } from '../../.metadata/this.js';
-import { ServiceMenuEntity } from '../../api/index.js';
 import EssentialLink from '../essentialLink/index.vue';
 import { JSX } from 'vue/jsx-runtime';
+import { ServiceMenuEntity } from '../../service/menu.js';
 
 export interface RenderMenu extends StyleLayoutDefault {}
 

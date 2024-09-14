@@ -1,5 +1,5 @@
 import { ZovaApplication } from 'zova';
-import { ServiceUserEntity } from './user.ts';
+import { ServiceUserEntity } from './user.js';
 
 export interface ServiceAuthJWT {
   accessToken: string;

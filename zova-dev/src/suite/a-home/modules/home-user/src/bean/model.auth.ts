@@ -1,8 +1,8 @@
 import { Model, Use } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../.metadata/this.js';
-import { ServiceAuthJWT, ServiceAuthLoginParams, ServiceAuthLoginResult } from '../api/interface/auth.js';
 import { ModelUser } from './model.user.js';
+import { ServiceAuthJWT, ServiceAuthLoginParams, ServiceAuthLoginResult } from '../service/auth.js';
 
 @Model()
 export class ModelAuth extends BeanModelBase<ScopeModule> {

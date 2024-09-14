@@ -1,7 +1,7 @@
 import { BeanControllerPageBase, Local, Use, zz } from 'zova';
 import { ScopeModule } from '../../.metadata/this.js';
 import { ModelAuth } from '../../bean/model.auth.js';
-import { ServiceAuthLoginParams } from '../../api/interface/auth.js';
+import { ServiceAuthLoginParams } from '../../service/auth.js';
 
 export const ParamsSchema = zz.object({});
 export type ParamsInput = zz.input<typeof ParamsSchema>;
