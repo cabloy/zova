@@ -1,0 +1,70 @@
+{
+  "name": "zova-dev",
+  "description": "A vue3 framework with ioc",
+  "author": "zhennann <zhen.nann@icloud.com>",
+  "type": "module",
+  "scripts": {
+    "zova": "cd ../zova-cli && tsc -b && cd ../zova-dev && node ../zova-cli/cli/dist/bin/zova.js",
+    "dev": "npm run dev:ssr:admin",
+    "build": "npm run build:ssr:admin",
+    "preview": "npm run preview:ssr",
+    "dev:ssr:admin": "tsc -b && quasar dev --mode ssr --flavor admin",
+    "dev:ssr:front": "tsc -b && quasar dev --mode ssr --flavor front",
+    "build:ssr:admin": "tsc -b && npm run tsc && quasar build --mode ssr --flavor admin",
+    "build:ssr:front": "tsc -b && npm run tsc && quasar build --mode ssr --flavor front",
+    "preview:ssr": "concurrently \"cd ./distMockServer && node index.js\" \"node ./dist/ssr/index.js\"",
+    "dev:spa": "tsc -b && quasar dev --mode spa --flavor admin",
+    "build:spa": "tsc -b && npm run tsc && quasar build --mode spa --flavor admin",
+    "preview:spa": "vite preview --outDir=dist/spa",
+    "build:githubpages": "tsc -b && npm run tsc && quasar build --mode spa --flavor githubpages",
+    "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
+    "lint": "eslint . --fix --ignore-path .gitignore"
+  },
+  "keywords": [
+    "nodejs",
+    "full-stack",
+    "workflow-engine",
+    "vue3",
+    "ioc",
+    "zova"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/zova.git"
+  },
+  "homepage": "https://github.com/cabloy/zova#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/zova/issues"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "autoprefixer": "^10.4.19",
+    "compression": "^1.7.4",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "daisyui": "^4.12.10",
+    "postcss": "^8.4.38",
+    "quasar": "^2.16.8",
+    "tailwindcss": "^3.4.4",
+    "typestyle": "^2.4.0",
+    "vue": "^3.4.38",
+    "vue-router": "^4.3.3",
+    "zod": "^3.23.8",
+    "zova": "workspace:^"
+  },
+  "devDependencies": {
+    "@cabloy/lint": "^4.0.11",
+    "@quasar/app-vite": "2.0.0-beta.18",
+    "@types/node": "^20.14.2",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "concurrently": "^8.2.2",
+    "quasar-app-extension-zova": "workspace:^",
+    "sass": "^1.77.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1",
+    "vue-tsc": "^2.0.29",
+    "zova-vite": "workspace:^"
+  },
+  "license": "MIT"
+}
