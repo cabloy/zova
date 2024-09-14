@@ -28,15 +28,15 @@ declare module 'zova' {
 /** pages: begin */
 export * as NSControllerPageComponent from '../page/component/controller.js';
 export * as NSControllerPageLocale from '../page/locale/controller.js';
-export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 export * as NSControllerPagePinia from '../page/pinia/controller.js';
+export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 export * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 export * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
 export * as NSControllerPageState from '../page/state/controller.js';
 export * as NSControllerPageStyle from '../page/style/controller.js';
 import * as NSControllerPageLocale from '../page/locale/controller.js';
-import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 import * as NSControllerPagePinia from '../page/pinia/controller.js';
+import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 import * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 import * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
 import * as NSControllerPageStyle from '../page/style/controller.js';

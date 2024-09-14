@@ -8,6 +8,7 @@ export async function generatePages(moduleInfo: IModuleInfo, moduleName: string,
   const pattern = `${modulePath}/src/page/*/index.vue`;
   const files = await eggBornUtils.tools.globbyAsync(pattern);
   if (files.length === 0) return '';
+  files.sort();
   const contentExports: string[] = [];
   const contentImports: string[] = [];
   const contentPathRecords: string[] = [];
