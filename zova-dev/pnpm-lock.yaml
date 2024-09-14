@@ -159,6 +159,12 @@ importers:
       zova-module-test-a:
         specifier: ^5.0.0
         version: link:src/module/test-a
+      zova-module-test-a1:
+        specifier: ^5.0.0
+        version: link:src/module/test-a1
+      zova-module-test-a2:
+        specifier: ^5.0.0
+        version: link:src/module/test-a2
       zova-module-test-b:
         specifier: ^5.0.0
         version: link:src/module/test-b
@@ -374,6 +380,8 @@ importers:
         version: 5.52.0(vue@3.4.38(typescript@5.5.4))
 
   src/module/test-a1: {}
+
+  src/module/test-a2: {}
 
   src/module/test-b: {}
 

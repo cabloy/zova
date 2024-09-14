@@ -70,6 +70,8 @@ export class CliCreateModule extends BeanCliBase {
       snippetsPath: null,
       boilerplatePath: 'create/module/boilerplate',
     });
+    // tools.deps
+    await this.helper.invokeCli([':tools:deps'], { cwd: argv.projectPath });
     // pnpm install
     if (!argv.vscode) {
       await this.helper.pnpmInstall();
