@@ -43,7 +43,7 @@ export class CliToolsDeps extends BeanCliBase {
     let content = '';
     // all modules
     this.modulesMeta.modulesArray.forEach(module => {
-      content += `import from '${module.package.name}'\n`;
+      content += `import '${module.package.name}';\n`;
     });
     await fse.writeFile(typeFile, content);
   }
