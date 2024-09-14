@@ -3,14 +3,6 @@ import { ModelMenu } from '../../bean/model.menu.js';
 import type { ModelAuth, ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../.metadata/this.js';
 import type { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
-import { RenderTabs } from './renderTabs.jsx';
-import { RenderTheme } from './renderTheme.jsx';
-import { RenderLocale } from './renderLocale.jsx';
-import { RenderUser } from './renderUser.jsx';
-import { RenderSidebar } from './renderSidebar.jsx';
-import { RenderHeader } from './renderHeader.jsx';
-import { RenderContent } from './renderContent.jsx';
-import { RenderMenu } from './renderMenu.jsx';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -33,23 +25,6 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
   $$modelUser: ModelUser;
   @Use('a-tabs.model.tabs')
   $$modelTabs: ModelTabs;
-
-  @Use()
-  $$renderHeader: RenderHeader;
-  @Use()
-  $$renderContent: RenderContent;
-  @Use()
-  $$renderSidebar: RenderSidebar;
-  @Use()
-  $$renderMenu: RenderMenu;
-  @Use()
-  $$renderTabs: RenderTabs;
-  @Use()
-  $$renderTheme: RenderTheme;
-  @Use()
-  $$renderLocale: RenderLocale;
-  @Use()
-  $$renderUser: RenderUser;
 
   leftDrawerOpen: boolean = false;
 

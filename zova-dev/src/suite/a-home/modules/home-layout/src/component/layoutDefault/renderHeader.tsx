@@ -1,11 +1,15 @@
-import { BeanRenderBase, Local } from 'zova';
+import { BeanRenderBase, Local, Use } from 'zova';
 import { StyleLayoutDefault } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
+import type { RenderLayoutDefault } from './render.jsx';
 
 export interface RenderHeader extends StyleLayoutDefault {}
 
 @Local()
 export class RenderHeader extends BeanRenderBase<ScopeModule> {
+  @Use()
+  $$r: RenderLayoutDefault;
+
   render() {
     return (
       <div class="navbar bg-base-300 w-full">
@@ -21,13 +25,13 @@ export class RenderHeader extends BeanRenderBase<ScopeModule> {
             </svg>
           </label>
         </div>
-        <div class="mx-2 flex-1 px-2">{this.$$renderTabs.render()}</div>
+        <div class="mx-2 flex-1 px-2">{this.$$r.$$renderTabs.render()}</div>
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal">
-            {this.$$renderLocale.render()}
-            {this.$$renderTheme.renderThemeDark()}
-            {this.$$renderTheme.renderThemeName()}
-            {this.$$renderUser.render()}
+            {this.$$r.$$renderLocale.render()}
+            {this.$$r.$$renderTheme.renderThemeDark()}
+            {this.$$r.$$renderTheme.renderThemeName()}
+            {this.$$r.$$renderUser.render()}
           </ul>
         </div>
       </div>
