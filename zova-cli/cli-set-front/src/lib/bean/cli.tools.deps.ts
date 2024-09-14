@@ -1,4 +1,6 @@
+import path from 'node:path';
 import { BeanCliBase } from 'zova-cli';
+import fse from 'fs-extra';
 
 declare module 'zova-cli' {
   interface ICommandArgv {
@@ -12,11 +14,27 @@ export class CliToolsDeps extends BeanCliBase {
     // super
     await super.execute();
     const projectPath = argv.projectPath;
-    // generate original
-    await this._generateOriginal(projectPath);
+    // generate
+    await this._generate(projectPath);
   }
 
-  async _generateOriginal(projectPath: string) {
+  async _generate(projectPath: string) {
+    const pkgFile = path.join(projectPath, 'package.json');
+    const pkgOriginalFile = path.join(projectPath, 'package.original.json');
+    // check original
+    if (!fse.existsSync(pkgOriginalFile)) {
+      await fse.copyFile(pkgFile, pkgOriginalFile);
+    }
+    // pkg
+    if (fse.existsSync(pkgFile)) {
+      const pkg = await this.helper.loadJSONFile(fse.existsSync(pkgFile) ? pkgFile : pkgOriginalFile);
+      const pkgOriginal = require(pkgOriginalFile);
+    }
+    // check versions
+
+    if (fse.existsSync(pkgFile)) {
+    }
+
     this.console.log(projectPath);
   }
 }

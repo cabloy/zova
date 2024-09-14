@@ -169,4 +169,8 @@ export class LocalHelper {
       options,
     });
   }
+  async loadJSONFile(fileName: string) {
+    const pkgContent = (await fse.readFile(fileName)).toString();
+    return JSON.parse(pkgContent);
+  }
 }

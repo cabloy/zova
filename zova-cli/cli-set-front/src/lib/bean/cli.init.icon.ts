@@ -42,8 +42,7 @@ export class CliInitIcon extends BeanCliBase {
 
   async _setPackageInfo(modulePath: string) {
     const pkgFile = path.join(modulePath, 'package.json');
-    const pkgContent = (await fse.readFile(pkgFile)).toString();
-    const pkg = JSON.parse(pkgContent);
+    const pkg = await this.helper.loadJSONFile(pkgFile);
     if (!pkg.zovaModule) pkg.zovaModule = {};
     if (!pkg.zovaModule.capabilities) pkg.zovaModule.capabilities = {};
     if (pkg.zovaModule.capabilities.icon) return;
