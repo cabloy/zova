@@ -40,7 +40,20 @@ export class CliToolsDeps extends BeanCliBase {
     const devDeps = pkgOriginal.devDependencies;
     // all modules
     this.modulesMeta.modulesArray.forEach(module => {
-      devDeps[module.package.name] = '^' + module.package.version;
+      if (!devDeps[module.package.name]) {
+        devDeps[module.package.name] = '^' + module.package.version;
+      }
+    });
+    // all deps of modules
+    this.modulesMeta.modulesArray.forEach(module => {
+      const deps = module.package.dependencies;
+      if (deps) {
+        for (const key in deps) {
+          if (!devDeps[key]) {
+            devDeps[key] = deps[key];
+          }
+        }
+      }
     });
     await this.helper.saveJSONFile(pkgFile, pkgOriginal);
   }
