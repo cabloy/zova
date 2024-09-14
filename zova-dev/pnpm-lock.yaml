@@ -53,18 +53,6 @@ importers:
       zova:
         specifier: workspace:^
         version: link:packages-zova/zova
-      zova-module-a-model:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-model
-      zova-module-a-pinia:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-pinia
-      zova-module-a-router:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-router
-      zova-module-a-style:
-        specifier: workspace:^
-        version: link:src/suite-vendor/a-core/modules/a-style
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.11
@@ -72,15 +60,30 @@ importers:
       '@quasar/app-vite':
         specifier: 2.0.0-beta.18
         version: 2.0.0-beta.18(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.52.0
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.52.0(vue@3.4.38(typescript@5.5.4))
       '@types/node':
         specifier: ^20.14.2
         version: 20.16.1
       '@vitejs/plugin-vue':
         specifier: ^5.0.5
         version: 5.1.2(vite@5.4.2(@types/node@20.16.1)(sass@1.77.8)(terser@5.31.6))(vue@3.4.38(typescript@5.5.4))
+      axios:
+        specifier: ^1.6.8
+        version: 1.7.5
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
+      localforage:
+        specifier: ^1.10.0
+        version: 1.10.0
+      pinia:
+        specifier: ^2.1.7
+        version: 2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
       quasar-app-extension-zova:
         specifier: workspace:^
         version: link:packages-utils/quasar-app-extension-zova
@@ -96,6 +99,69 @@ importers:
       vue-tsc:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
+      zova-module-a-core:
+        specifier: ^5.0.42
+        version: link:src/suite-vendor/a-core/modules/a-core
+      zova-module-a-demo:
+        specifier: ^5.0.0
+        version: link:src/suite/a-demo/modules/a-demo
+      zova-module-a-devui:
+        specifier: ^5.0.18
+        version: link:src/suite-vendor/a-devui/modules/a-devui
+      zova-module-a-home:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/a-home
+      zova-module-a-model:
+        specifier: ^5.0.24
+        version: link:src/suite-vendor/a-core/modules/a-model
+      zova-module-a-pinia:
+        specifier: ^5.0.24
+        version: link:src/suite-vendor/a-core/modules/a-pinia
+      zova-module-a-router:
+        specifier: ^5.0.58
+        version: link:src/suite-vendor/a-core/modules/a-router
+      zova-module-a-style:
+        specifier: ^5.0.35
+        version: link:src/suite-vendor/a-core/modules/a-style
+      zova-module-a-tabs:
+        specifier: ^5.0.18
+        version: link:src/suite-vendor/a-core/modules/a-tabs
+      zova-module-demo-todo:
+        specifier: ^5.0.0
+        version: link:src/suite/a-demo/modules/demo-todo
+      zova-module-home-api:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-api
+      zova-module-home-component:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-component
+      zova-module-home-icon:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-icon
+      zova-module-home-layout:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-layout
+      zova-module-home-pagesystem:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-pagesystem
+      zova-module-home-router:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-router
+      zova-module-home-style:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-style
+      zova-module-home-theme:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-theme
+      zova-module-home-user:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-user
+      zova-module-test-a:
+        specifier: ^5.0.0
+        version: link:src/module/test-a
+      zova-module-test-b:
+        specifier: ^5.0.0
+        version: link:src/module/test-b
       zova-vite:
         specifier: workspace:^
         version: link:packages-utils/zova-vite
@@ -306,6 +372,8 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.45.0
         version: 5.52.0(vue@3.4.38(typescript@5.5.4))
+
+  src/module/test-b: {}
 
   src/suite-vendor/a-core:
     dependencies:
@@ -1346,55 +1414,46 @@ packages:
     resolution: {integrity: sha512-pWJsfQjNWNGsoCq53KjMtwdJDmh/6NubwQcz52aEwLEuvx08bzcy6tOUuawAOncPnxz/3siRtd8hiQ32G1y8VA==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.21.0':
     resolution: {integrity: sha512-efRIANsz3UHZrnZXuEvxS9LoCOWMGD1rweciD6uJQIx2myN3a8Im1FafZBzh7zk1RJ6oKcR16dU3UPldaKd83w==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.21.0':
     resolution: {integrity: sha512-ZrPhydkTVhyeGTW94WJ8pnl1uroqVHM3j3hjdquwAcWnmivjAwOYjTEAuEDeJvGX7xv3Z9GAvrBkEzCgHq9U1w==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.21.0':
     resolution: {integrity: sha512-cfaupqd+UEFeURmqNP2eEvXqgbSox/LHOyN9/d2pSdV8xTrjdg3NgOFJCtc1vQ/jEke1qD0IejbBfxleBPHnPw==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.21.0':
     resolution: {integrity: sha512-ZKPan1/RvAhrUylwBXC9t7B2hXdpb/ufeu22pG2psV7RN8roOfGurEghw1ySmX/CmDDHNTDDjY3lo9hRlgtaHg==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.21.0':
     resolution: {integrity: sha512-H1eRaCwd5E8eS8leiS+o/NqMdljkcb1d6r2h4fKSsCXQilLKArq6WS7XBLDu80Yz+nMqHVFDquwcVrQmGr28rg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.21.0':
     resolution: {integrity: sha512-zJ4hA+3b5tu8u7L58CCSI0A9N1vkfwPhWd/puGXwtZlsB5bTkwDNW/+JCU84+3QYmKpLi+XvHdmrlwUwDA6kqw==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.21.0':
     resolution: {integrity: sha512-e2hrvElFIh6kW/UNBQK/kzqMNY5mO+67YtEh9OA65RM5IJXYTWiXjX6fjIiPaqOkBthYF1EqgiZ6OXKcQsM0hg==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.21.0':
     resolution: {integrity: sha512-1vvmgDdUSebVGXWX2lIcgRebqfQSff0hMEkLJyakQ9JQUbLDkEaMsPTLOmyccyC6IJ/l3FZuJbmrBw/u0A0uCQ==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.21.0':
     resolution: {integrity: sha512-s5oFkZ/hFcrlAyBTONFY1TWndfyre1wOMwU+6KCpm/iatybvrRgmZVM+vCFwxmC5ZhdlgfE0N4XorsDpi7/4XQ==}
