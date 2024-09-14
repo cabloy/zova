@@ -46,10 +46,10 @@ Zova 在 BeanBase 基类中注入了`$token`对象，从而可以在任何 bean 
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  cButtonPrimary: string;
+  buttonPrimary: string;
 
   protected async __init__() {
-    this.cButtonPrimary = useComputed(() => {
+    this.buttonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,

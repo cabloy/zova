@@ -10,7 +10,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <QPage padding class={this.$class.textCenter}>
-        <div class={this.textColor}>Hello World</div>
+        <div class={this.cTextColor}>Hello World</div>
         <QBtn
           onClick={() => {
             this.active = !this.active;

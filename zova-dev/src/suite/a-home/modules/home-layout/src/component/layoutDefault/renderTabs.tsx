@@ -19,7 +19,7 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
         <a
           key={tab.key}
           role="tab"
-          class={`${className} ${this.styleTab}`}
+          class={`${className} ${this.cTab}`}
           onClick={() => {
             this.$$modelTabs.activeTab(tab);
           }}

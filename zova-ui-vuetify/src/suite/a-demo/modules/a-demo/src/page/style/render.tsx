@@ -10,7 +10,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div class={this.$class.textCenter}>
-        <div class={this.textColor}>Hello World</div>
+        <div class={this.cTextColor}>Hello World</div>
         <VBtn
           onClick={() => {
             this.active = !this.active;

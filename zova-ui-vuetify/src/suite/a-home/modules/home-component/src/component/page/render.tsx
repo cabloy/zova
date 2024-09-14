@@ -7,6 +7,6 @@ export interface RenderPage extends StylePage {}
 @Local()
 export class RenderPage extends BeanRenderBase<ScopeModule> {
   render() {
-    return <div class={this.stylePage}>{this.$slots.default?.()}</div>;
+    return <div class={this.cPage}>{this.$slots.default?.()}</div>;
   }
 }

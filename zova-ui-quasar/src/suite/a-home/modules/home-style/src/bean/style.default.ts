@@ -3,9 +3,9 @@ import { ScopeModule } from '../.metadata/this.js';
 
 @Style()
 export class StyleDefault extends BeanBase<ScopeModule> {
-  cTextCenter: string;
+  textCenter: string;
 
   protected async __init__() {
-    this.cTextCenter = this.$style({ textAlign: 'center' });
+    this.textCenter = this.$style({ textAlign: 'center' });
   }
 }
