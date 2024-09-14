@@ -10,25 +10,25 @@ declare module 'zova' {
 /** beans: end */
 /** components: begin */
 export * as NSControllerEssentialLink from '../component/essentialLink/controller.js';
-export * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 export * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';
+export * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 import * as NSControllerEssentialLink from '../component/essentialLink/controller.js';
-import * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 import * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';
+import * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 import component_essentialLink from '../component/essentialLink/index.vue';
-import component_layoutDefault from '../component/layoutDefault/index.vue';
 import component_layoutEmpty from '../component/layoutEmpty/index.vue';
+import component_layoutDefault from '../component/layoutDefault/index.vue';
 export const components = {
   essentialLink: component_essentialLink,
-  layoutDefault: component_layoutDefault,
   layoutEmpty: component_layoutEmpty,
+  layoutDefault: component_layoutDefault,
 };
 import 'zova';
 declare module 'zova' {
   export interface IComponentRecord {
     'home-layout:essentialLink': NSControllerEssentialLink.ControllerEssentialLink;
-    'home-layout:layoutDefault': NSControllerLayoutDefault.ControllerLayoutDefault;
     'home-layout:layoutEmpty': NSControllerLayoutEmpty.ControllerLayoutEmpty;
+    'home-layout:layoutDefault': NSControllerLayoutDefault.ControllerLayoutDefault;
   }
 }
 /** components: end */
