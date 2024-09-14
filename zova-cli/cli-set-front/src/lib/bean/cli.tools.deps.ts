@@ -25,16 +25,40 @@ export class CliToolsDeps extends BeanCliBase {
     if (!fse.existsSync(pkgOriginalFile)) {
       await fse.copyFile(pkgFile, pkgOriginalFile);
     }
-    // pkg
+    // pkg/pkgOriginal
+    const pkgOriginal = await this.helper.loadJSONFile(pkgOriginalFile);
     if (fse.existsSync(pkgFile)) {
-      const pkg = await this.helper.loadJSONFile(fse.existsSync(pkgFile) ? pkgFile : pkgOriginalFile);
-      const pkgOriginal = require(pkgOriginalFile);
+      const pkg = await this.helper.loadJSONFile(pkgFile);
+      // save back versions
+      await this._saveBackVersions(pkg, pkgOriginal, pkgOriginalFile);
     }
-    // check versions
+    // generate pkg from pkgOriginal
+    await this._generatePkgFromPkgOriginal(pkgOriginal, pkgFile);
+  }
 
-    if (fse.existsSync(pkgFile)) {
+  async _generatePkgFromPkgOriginal(pkgOriginal, pkgFile) {
+    const devDeps = pkgOriginal.devDependencies;
+    // all modules
+    this.modulesMeta.modulesArray.forEach(module => {
+      devDeps[module.package.name] = '^' + module.package.version;
+    });
+    await this.helper.saveJSONFile(pkgFile, pkgOriginal);
+  }
+
+  async _saveBackVersions(pkg, pkgOriginal, pkgOriginalFile) {
+    let changed = false;
+    for (const field of ['dependencies', 'devDependencies']) {
+      const fieldObj = pkg[field];
+      const fieldObjOriginal = pkgOriginal[field];
+      for (const key in fieldObjOriginal) {
+        if (fieldObjOriginal[key] !== fieldObj[key]) {
+          fieldObjOriginal[key] = fieldObj[key];
+          changed = true;
+        }
+      }
     }
-
-    this.console.log(projectPath);
+    if (changed) {
+      await this.helper.saveJSONFile(pkgOriginalFile, pkgOriginal);
+    }
   }
 }

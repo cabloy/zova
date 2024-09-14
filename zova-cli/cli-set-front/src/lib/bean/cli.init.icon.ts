@@ -47,6 +47,6 @@ export class CliInitIcon extends BeanCliBase {
     if (!pkg.zovaModule.capabilities) pkg.zovaModule.capabilities = {};
     if (pkg.zovaModule.capabilities.icon) return;
     pkg.zovaModule.capabilities.icon = true;
-    await fse.writeFile(pkgFile, JSON.stringify(pkg, null, 2));
+    await this.helper.saveJSONFile(pkgFile, pkg);
   }
 }
