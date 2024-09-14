@@ -34,6 +34,18 @@ export class CliToolsDeps extends BeanCliBase {
     }
     // generate pkg from pkgOriginal
     await this._generatePkgFromPkgOriginal(pkgOriginal, pkgFile);
+    // generate type file
+    await this._generateTypeFile(projectPath);
+  }
+
+  async _generateTypeFile(projectPath: string) {
+    const typeFile = path.join(projectPath, 'src/front/typing/modules.d.ts');
+    let content = '';
+    // all modules
+    this.modulesMeta.modulesArray.forEach(module => {
+      content += `import from '${module.package.name}'\n`;
+    });
+    await fse.writeFile(typeFile, content);
   }
 
   async _generatePkgFromPkgOriginal(pkgOriginal, pkgFile) {
