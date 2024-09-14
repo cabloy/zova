@@ -1,0 +1,70 @@
+{
+  "name": "zova-ui-empty",
+  "version": "5.0.268",
+  "description": "A vue3 empty framework with ioc",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "zhennann <zhen.nann@icloud.com>",
+  "type": "module",
+  "scripts": {
+    "zova": "cd ../zova-cli && tsc -b && cd ../zova-ui-empty && node ../zova-cli/cli/dist/bin/zova.js",
+    "dev": "npm run dev:ssr:admin",
+    "build": "npm run build:ssr:admin",
+    "preview": "npm run preview:ssr",
+    "dev:ssr:admin": "npm run meta && tsc -b && quasar dev --mode ssr --flavor admin",
+    "dev:ssr:front": "npm run meta && tsc -b && quasar dev --mode ssr --flavor front",
+    "build:ssr:admin": "npm run meta && tsc -b && npm run tsc && quasar build --mode ssr --flavor admin",
+    "build:ssr:front": "npm run meta && tsc -b && npm run tsc && quasar build --mode ssr --flavor front",
+    "preview:ssr": "concurrently \"cd ./distMockServer && node index.js\" \"node ./dist/ssr/index.js\"",
+    "dev:spa": "npm run meta && tsc -b && quasar dev --mode spa --flavor admin",
+    "build:spa": "npm run meta && tsc -b && npm run tsc && quasar build --mode spa --flavor admin",
+    "preview:spa": "vite preview --outDir=dist/spa",
+    "meta":"zova :tools:metadata && zova :tools:deps",
+    "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
+    "lint": "eslint . --fix --ignore-path .gitignore"
+  },
+  "keywords": [
+    "nodejs",
+    "full-stack",
+    "workflow-engine",
+    "vue3",
+    "ioc",
+    "zova"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabloy/zova.git"
+  },
+  "homepage": "https://github.com/cabloy/zova#readme",
+  "bugs": {
+    "url": "https://github.com/cabloy/zova/issues"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "quasar": "^2.16.8",
+    "typestyle": "^2.4.0",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
+    "zod": "^3.23.8",
+    "zova": "^5.0.196"
+  },
+  "devDependencies": {
+    "@cabloy/lint": "^4.0.11",
+    "@quasar/app-vite": "2.0.0-beta.18",
+    "@types/node": "^20.14.2",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "concurrently": "^8.2.2",
+    "quasar-app-extension-zova": "^1.1.158",
+    "sass": "^1.77.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1",
+    "vue-tsc": "^2.0.29",
+    "zova-vite": "^1.0.161"
+  },
+  "license": "MIT",
+  "gitHead": "2e4d9bb972eb659ee729924bf7df496635c734a0"
+}
