@@ -9,10 +9,10 @@ declare module 'zova' {
 }
 /** beans: end */
 /** pages: begin */
-export * as NSControllerPageTodo from '../page/todo/controller.js';
 export * as NSControllerPageItem from '../page/item/controller.js';
-import * as NSControllerPageTodo from '../page/todo/controller.js';
+export * as NSControllerPageTodo from '../page/todo/controller.js';
 import * as NSControllerPageItem from '../page/item/controller.js';
+import * as NSControllerPageTodo from '../page/todo/controller.js';
 export * from '../routes.js';
 import { TypePageParamsQuery } from 'zova';
 import 'zova';

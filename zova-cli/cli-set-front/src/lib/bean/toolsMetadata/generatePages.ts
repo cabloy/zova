@@ -30,7 +30,9 @@ export async function generatePages(moduleInfo: IModuleInfo, moduleName: string,
     const routeNameFull = `${moduleName}:${routeName}`;
     //
     contentExports.push(`export * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
-    contentImports.push(`import * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
+    if (enableRouteQuery || enableRouteParams) {
+      contentImports.push(`import * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
+    }
     if (!routeName) {
       if (enableRouteQuery) {
         contentPathRecords.push(`'${routePathFull}': NSControllerPage${className}.QueryInput;`);

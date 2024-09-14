@@ -11,7 +11,7 @@ export async function generateBeans(moduleName: string, modulePath: string) {
   for (const file of files) {
     const fileName = path.basename(file);
     const parts = fileName.split('.').slice(0, -1);
-    if (parts[0] === 'local') continue;
+    if (parts.length < 2 || parts[0] === 'local') continue;
     const fileNameJS = fileName.replace('.ts', '.js');
     const className = parts.map(item => item.charAt(0).toUpperCase() + item.substring(1)).join('');
     const beanFullName = `${moduleName}.${parts.join('.')}`;

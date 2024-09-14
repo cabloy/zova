@@ -1,6 +1,6 @@
 /** pages: begin */
 export * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
-import * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
+
 export * from '../routes.js';
 
 import 'zova';
