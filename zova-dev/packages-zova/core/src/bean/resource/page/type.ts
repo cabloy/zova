@@ -4,7 +4,7 @@ export interface ZovaConfigRoutes {}
 export interface IPagePathRecord {}
 export interface IPageNameRecord {}
 
-export type TypePageParamsQuery<Q, P = unknown> = {
+export type TypePageParamsQuery<Q = unknown, P = unknown> = {
   query?: Q;
   params?: P;
 };

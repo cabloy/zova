@@ -5,16 +5,10 @@ export * from '../routes.js';
 
 import 'zova';
 declare module 'zova' {
-  export interface IPagePathRecord {
-    '/home/pagesystem//:catchAll(.*)*': NSControllerPageErrorNotFound.QueryInput;
-  }
+  export interface IPagePathRecord {}
   export interface IPageNameRecord {}
 }
-export const pagePathSchemas = {
-  '/home/pagesystem//:catchAll(.*)*': {
-    query: NSControllerPageErrorNotFound.QuerySchema,
-  },
-};
+export const pagePathSchemas = {};
 export const pageNameSchemas = {};
 /** pages: end */
 /** scope: begin */

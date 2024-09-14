@@ -36,10 +36,6 @@ declare module 'zova' {
 export * from '../config/config.js';
 import { config } from '../config/config.js';
 /** config: end */
-/** constant: begin */
-export * from '../config/constants.js';
-import { constants } from '../config/constants.js';
-/** constant: end */
 /** locale: begin */
 import locale_en_us from '../config/locale/en-us.js';
 import locale_zh_cn from '../config/locale/zh-cn.js';
@@ -48,10 +44,6 @@ export const locales = {
   'zh-cn': locale_zh_cn,
 };
 /** locale: end */
-/** error: begin */
-export * from '../config/errors.js';
-import { Errors } from '../config/errors.js';
-/** error: end */
 /** service: begin */
 import service_menu from '../service/menu.js';
 export const services = {
@@ -68,9 +60,9 @@ export interface ScopeModuleHomeLayout
   extends TypeModuleResource<
     typeof components,
     typeof config,
-    typeof Errors,
+    any,
     (typeof locales)[TypeLocaleBase],
-    typeof constants,
+    any,
     typeof services
   > {}
 

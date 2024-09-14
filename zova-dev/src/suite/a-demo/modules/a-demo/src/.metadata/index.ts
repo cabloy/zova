@@ -29,20 +29,20 @@ declare module 'zova' {
 }
 /** components: end */
 /** pages: begin */
-export * as NSControllerPageComponent from '../page/component/controller.js';
 export * as NSControllerPageLocale from '../page/locale/controller.js';
-export * as NSControllerPagePinia from '../page/pinia/controller.js';
-export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
+export * as NSControllerPageComponent from '../page/component/controller.js';
 export * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 export * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
+export * as NSControllerPagePinia from '../page/pinia/controller.js';
+export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 export * as NSControllerPageState from '../page/state/controller.js';
 export * as NSControllerPageStyle from '../page/style/controller.js';
-import * as NSControllerPageComponent from '../page/component/controller.js';
 import * as NSControllerPageLocale from '../page/locale/controller.js';
-import * as NSControllerPagePinia from '../page/pinia/controller.js';
-import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
+import * as NSControllerPageComponent from '../page/component/controller.js';
 import * as NSControllerPageRouteQuery from '../page/routeQuery/controller.js';
 import * as NSControllerPageRouteQuery2 from '../page/routeQuery2/controller.js';
+import * as NSControllerPagePinia from '../page/pinia/controller.js';
+import * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
 import * as NSControllerPageState from '../page/state/controller.js';
 import * as NSControllerPageStyle from '../page/style/controller.js';
 export * from '../routes.js';
@@ -50,12 +50,10 @@ import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': NSControllerPageComponent.QueryInput;
     '/a/demo/locale': NSControllerPageLocale.QueryInput;
-    '/a/demo/pinia': NSControllerPagePinia.QueryInput;
     '/a/demo/routeQuery': NSControllerPageRouteQuery.QueryInput;
     '/a/demo/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
-    '/a/demo/state': NSControllerPageState.QueryInput;
+    '/a/demo/pinia': NSControllerPagePinia.QueryInput;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {
@@ -66,14 +64,8 @@ declare module 'zova' {
   }
 }
 export const pagePathSchemas = {
-  '/a/demo/component': {
-    query: NSControllerPageComponent.QuerySchema,
-  },
   '/a/demo/locale': {
     query: NSControllerPageLocale.QuerySchema,
-  },
-  '/a/demo/pinia': {
-    query: NSControllerPagePinia.QuerySchema,
   },
   '/a/demo/routeQuery': {
     query: NSControllerPageRouteQuery.QuerySchema,
@@ -81,8 +73,8 @@ export const pagePathSchemas = {
   '/a/demo/routeQuery2': {
     query: NSControllerPageRouteQuery2.QuerySchema,
   },
-  '/a/demo/state': {
-    query: NSControllerPageState.QuerySchema,
+  '/a/demo/pinia': {
+    query: NSControllerPagePinia.QuerySchema,
   },
   '/a/demo/style': {
     query: NSControllerPageStyle.QuerySchema,

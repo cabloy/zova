@@ -30,14 +30,6 @@ export const pagePathSchemas = {
 };
 export const pageNameSchemas = {};
 /** pages: end */
-/** config: begin */
-export * from '../config/config.js';
-import { config } from '../config/config.js';
-/** config: end */
-/** constant: begin */
-export * from '../config/constants.js';
-import { constants } from '../config/constants.js';
-/** constant: end */
 /** locale: begin */
 import locale_en_us from '../config/locale/en-us.js';
 import locale_zh_cn from '../config/locale/zh-cn.js';
@@ -46,10 +38,6 @@ export const locales = {
   'zh-cn': locale_zh_cn,
 };
 /** locale: end */
-/** error: begin */
-export * from '../config/errors.js';
-import { Errors } from '../config/errors.js';
-/** error: end */
 /** service: begin */
 import service_auth from '../service/auth.js';
 import service_user from '../service/user.js';
@@ -65,23 +53,12 @@ import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 export class ScopeModuleHomeUser extends BeanScopeBase {}
 
 export interface ScopeModuleHomeUser
-  extends TypeModuleResource<
-    any,
-    typeof config,
-    typeof Errors,
-    (typeof locales)[TypeLocaleBase],
-    typeof constants,
-    typeof services
-  > {}
+  extends TypeModuleResource<any, any, any, (typeof locales)[TypeLocaleBase], any, typeof services> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
     'home-user': ScopeModuleHomeUser;
-  }
-
-  export interface IBeanScopeConfig {
-    'home-user': ReturnType<typeof config>;
   }
 
   export interface IBeanScopeLocale {

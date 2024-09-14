@@ -17,6 +17,10 @@ export async function generatePages(moduleInfo: IModuleInfo, moduleName: string,
   for (const file of files) {
     const pageName = path.basename(file.substring(0, file.length - '/index.vue'.length));
     const className = pageName.charAt(0).toUpperCase() + pageName.substring(1);
+    // controller.ts
+    const controllerContent = (await fse.readFile(file.replace('index.vue', 'controller.ts'))).toString();
+    const enableRouteQuery = controllerContent.includes('export const QuerySchema');
+    const enableRouteParams = controllerContent.includes('export const ParamsSchema');
     //
     const { routePath, routeName } = await _extractRoutePathOrName(modulePath, className);
     // no matter that: route.meta?.absolute
@@ -28,21 +32,29 @@ export async function generatePages(moduleInfo: IModuleInfo, moduleName: string,
     contentExports.push(`export * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
     contentImports.push(`import * as NSControllerPage${className} from '../page/${pageName}/controller.js';`);
     if (!routeName) {
-      contentPathRecords.push(`'${routePathFull}': NSControllerPage${className}.QueryInput;`);
+      if (enableRouteQuery) {
+        contentPathRecords.push(`'${routePathFull}': NSControllerPage${className}.QueryInput;`);
+      }
     } else {
-      contentNameRecords.push(
-        `'${routeNameFull}': TypePageParamsQuery<NSControllerPage${className}.QueryInput, NSControllerPage${className}.ParamsInput>;`,
-      );
+      if (enableRouteQuery || enableRouteParams) {
+        contentNameRecords.push(
+          `'${routeNameFull}': TypePageParamsQuery<${enableRouteQuery ? `NSControllerPage${className}.QueryInput` : 'unknown'}, ${enableRouteParams ? `NSControllerPage${className}.ParamsInput` : 'unknown'}>;`,
+        );
+      }
     }
     if (!routeName) {
-      contentPathSchemas.push(`'${routePathFull}': {
-  query: NSControllerPage${className}.QuerySchema,
-},`);
+      if (enableRouteQuery) {
+        contentPathSchemas.push(`'${routePathFull}': {
+          query: NSControllerPage${className}.QuerySchema,
+        },`);
+      }
     } else {
-      contentNameSchemas.push(`'${routeNameFull}': {
-  params: NSControllerPage${className}.ParamsSchema,
-  query: NSControllerPage${className}.QuerySchema,
-},`);
+      if (enableRouteQuery || enableRouteParams) {
+        contentNameSchemas.push(`'${routeNameFull}': {
+          ${enableRouteParams ? `params: NSControllerPage${className}.ParamsSchema,` : ''}
+          ${enableRouteQuery ? `query: NSControllerPage${className}.QuerySchema,` : ''}
+        },`);
+      }
     }
   }
   // combine
