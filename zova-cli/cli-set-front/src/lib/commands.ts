@@ -18,6 +18,7 @@ import initConfig from './command/init.config.js';
 import initConstant from './command/init.constant.js';
 import initLocale from './command/init.locale.js';
 import initError from './command/init.error.js';
+import refactorPageQuery from './command/refactor.pageQuery.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
 import toolsDeps from './command/tools.deps.js';
@@ -48,6 +49,9 @@ export const commands = {
     constant: initConstant,
     locale: initLocale,
     error: initError,
+  },
+  refactor: {
+    pageQuery: refactorPageQuery,
   },
   tools: {
     // icon: toolsIcon,
