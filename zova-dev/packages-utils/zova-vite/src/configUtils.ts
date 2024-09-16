@@ -19,7 +19,9 @@ const __ZovaManualChunkVendors = [
   { match: ['@faker-js'], output: 'faker' },
   {
     match: [
-      'vue',
+      // 'vue',
+      'vue/dist',
+      'vue/jsx-runtime',
       '@vue/runtime-dom',
       '@vue/shared',
       '@vue/reactivity',
