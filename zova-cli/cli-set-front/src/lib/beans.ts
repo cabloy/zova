@@ -22,6 +22,7 @@ import { CliInitConstant } from './bean/cli.init.constant.js';
 import { CliInitLocale } from './bean/cli.init.locale.js';
 import { CliInitError } from './bean/cli.init.error.js';
 import { CliRefactorPageQuery } from './bean/cli.refactor.pageQuery.js';
+import { CliRefactorPageParams } from './bean/cli.refactor.pageParams.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -45,6 +46,7 @@ export const beans = {
   'init.locale': CliInitLocale,
   'init.error': CliInitError,
   'refactor.pageQuery': CliRefactorPageQuery,
+  'refactor.pageParams': CliRefactorPageParams,
   'tools.icon': CliToolsIcon,
   'tools.metadata': CliToolsMetadata,
   'tools.deps': CliToolsDeps,
