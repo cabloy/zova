@@ -19,7 +19,7 @@ module.exports = {
     }
     // type
     const res = ast.find(__snippet_type);
-    const typeNames = res.match['$$$1'].map(item => item.typeName.name);
+    const typeNames = res.match['$$$1'].map(item => item.typeName?.name);
     if (!typeNames[0]) typeNames[0] = 'ScopeModule';
     if (!typeNames[1]) typeNames[1] = 'QueryOutput';
     ast.replace(
