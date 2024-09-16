@@ -46,7 +46,7 @@ export class CliCommand extends BaseCommand {
     // done: log cli docs
     this._logCliDocs();
     // done
-    console.log(chalk.cyan('\n  cli successfully!\n'));
+    // console.log(chalk.cyan('\n  cli successfully!\n'));
   }
 
   _getMetaWelcomes() {
