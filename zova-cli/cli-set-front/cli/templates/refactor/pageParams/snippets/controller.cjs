@@ -1,13 +1,13 @@
-const __snippet_export = `export const QuerySchema = zz.object({});
-export type QueryInput = zz.input<typeof QuerySchema>;
-export type QueryOutput = zz.output<typeof QuerySchema>;\n`;
+const __snippet_export = `export const ParamsSchema = zz.object({});
+export type ParamsInput = zz.input<typeof ParamsSchema>;
+export type ParamsOutput = zz.output<typeof ParamsSchema>;\n`;
 const __snippet_type = '@Local() export class $_$0 extends $_$1<$$$1> {$$$2}';
 
 module.exports = {
   file: 'controller.ts',
   async transform({ cli, ast }) {
     // check if exists
-    if (ast.has('export type QueryInput = zz.input<typeof QuerySchema>')) {
+    if (ast.has('export type ParamsInput = zz.input<typeof ParamsSchema>')) {
       return;
     }
     // export
@@ -21,7 +21,8 @@ module.exports = {
     const res = ast.find(__snippet_type);
     const typeNames = res.match['$$$1'].map(item => item.typeName.name);
     if (!typeNames[0]) typeNames[0] = 'ScopeModule';
-    if (!typeNames[1]) typeNames[1] = 'QueryOutput';
+    if (!typeNames[1]) typeNames[1] = 'unknown';
+    if (!typeNames[2]) typeNames[2] = 'ParamsOutput';
     ast.replace(
       __snippet_type,
       __snippet_type
