@@ -1,7 +1,11 @@
 export const config = {
-  projects: [
+  uiProjects: [
     //
-    'zova-cli',
-    'zova',
+    'zova-dev',
+    'zova-ui-antdv',
+    'zova-ui-element',
+    'zova-ui-empty',
+    'zova-ui-quasar',
+    'zova-ui-vuetify',
   ],
 };
