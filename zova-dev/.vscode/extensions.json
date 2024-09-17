@@ -1,6 +1,13 @@
 {
-  "recommendations": ["vscodevim.vim", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vue.volar"],
+  "recommendations": [
+    "cabloy.zova-vscode",
+    "vscodevim.vim",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Vue.volar"
+  ],
   "unwantedRecommendations": [
+    "Vue.vscode-typescript-vue-plugin",
     "octref.vetur",
     "hookyqr.beautify",
     "dbaeumer.jshint",
