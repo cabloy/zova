@@ -8,7 +8,6 @@
   "author": "zhennann <zhen.nann@icloud.com>",
   "type": "module",
   "scripts": {
-    "zova": "cd ../zova-cli && tsc -b && cd ../zova-ui-element && node ../zova-cli/cli/dist/bin/zova.js",
     "dev": "npm run dev:ssr:admin",
     "build": "npm run build:ssr:admin",
     "preview": "npm run preview:ssr",
@@ -24,14 +23,7 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": [
-    "nodejs",
-    "full-stack",
-    "workflow-engine",
-    "vue3",
-    "ioc",
-    "zova"
-  ],
+  "keywords": ["nodejs", "full-stack", "workflow-engine", "vue3", "ioc", "zova"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"

@@ -60,30 +60,15 @@ importers:
       '@quasar/app-vite':
         specifier: 2.0.0-beta.18
         version: 2.0.0-beta.18(@types/node@20.16.1)(eslint@8.57.0)(pinia@2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4)))(quasar@2.16.9)(rollup@4.21.0)(terser@5.31.6)(typescript@5.5.4)(vue-router@4.4.3(vue@3.4.38(typescript@5.5.4)))(vue@3.4.38(typescript@5.5.4))
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.52.0
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.52.0(vue@3.4.38(typescript@5.5.4))
       '@types/node':
         specifier: ^20.14.2
         version: 20.16.1
       '@vitejs/plugin-vue':
         specifier: ^5.0.5
         version: 5.1.2(vite@5.4.2(@types/node@20.16.1)(sass@1.77.8)(terser@5.31.6))(vue@3.4.38(typescript@5.5.4))
-      axios:
-        specifier: ^1.6.8
-        version: 1.7.5
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.2(typescript@5.5.4)(vue@3.4.38(typescript@5.5.4))
       quasar-app-extension-zova:
         specifier: workspace:^
         version: link:packages-utils/quasar-app-extension-zova
@@ -99,78 +84,6 @@ importers:
       vue-tsc:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
-      zova-module-a-core:
-        specifier: ^5.0.42
-        version: link:src/suite-vendor/a-core/modules/a-core
-      zova-module-a-demo:
-        specifier: ^5.0.0
-        version: link:src/suite/a-demo/modules/a-demo
-      zova-module-a-devui:
-        specifier: ^5.0.18
-        version: link:src/suite-vendor/a-devui/modules/a-devui
-      zova-module-a-home:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/a-home
-      zova-module-a-model:
-        specifier: ^5.0.24
-        version: link:src/suite-vendor/a-core/modules/a-model
-      zova-module-a-pinia:
-        specifier: ^5.0.24
-        version: link:src/suite-vendor/a-core/modules/a-pinia
-      zova-module-a-router:
-        specifier: ^5.0.58
-        version: link:src/suite-vendor/a-core/modules/a-router
-      zova-module-a-style:
-        specifier: ^5.0.35
-        version: link:src/suite-vendor/a-core/modules/a-style
-      zova-module-a-tabs:
-        specifier: ^5.0.18
-        version: link:src/suite-vendor/a-core/modules/a-tabs
-      zova-module-demo-todo:
-        specifier: ^5.0.0
-        version: link:src/suite/a-demo/modules/demo-todo
-      zova-module-home-api:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-api
-      zova-module-home-component:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-component
-      zova-module-home-icon:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-icon
-      zova-module-home-layout:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-layout
-      zova-module-home-pagesystem:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-pagesystem
-      zova-module-home-router:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-router
-      zova-module-home-style:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-style
-      zova-module-home-theme:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-theme
-      zova-module-home-user:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-user
-      zova-module-test-a:
-        specifier: ^5.0.0
-        version: link:src/module/test-a
-      zova-module-test-a1:
-        specifier: ^5.0.0
-        version: link:src/module/test-a1
-      zova-module-test-a2:
-        specifier: ^5.0.0
-        version: link:src/module/test-a2
-      zova-module-test-b:
-        specifier: ^5.0.0
-        version: link:src/module/test-b
-      zova-module-test-c:
-        specifier: ^5.0.0
-        version: link:src/module/test-c
       zova-vite:
         specifier: workspace:^
         version: link:packages-utils/zova-vite
@@ -213,7 +126,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.161
+        specifier: ^1.0.163
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -364,13 +277,13 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.150
+        specifier: ^5.0.152
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.108
+        specifier: ^5.0.110
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-a:
@@ -393,22 +306,22 @@ importers:
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
-        specifier: ^5.0.42
+        specifier: ^5.0.44
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.24
+        specifier: ^5.0.26
         version: link:modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.24
+        specifier: ^5.0.26
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.58
+        specifier: ^5.0.60
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.35
+        specifier: ^5.0.37
         version: link:modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.18
+        specifier: ^5.0.20
         version: link:modules/a-tabs
 
   src/suite-vendor/a-core/modules/a-core: {}
@@ -444,7 +357,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-a-devui:
-        specifier: ^5.0.18
+        specifier: ^5.0.20
         version: link:modules/a-devui
 
   src/suite-vendor/a-devui/modules/a-devui: {}

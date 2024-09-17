@@ -81,7 +81,7 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-cli-set-front:
-        specifier: ^1.1.152
+        specifier: ^1.1.154
         version: link:../cli-set-front
 
   cli-set-front:
@@ -114,8 +114,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
       zova-vite:
-        specifier: ^1.0.161
-        version: 1.0.161(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.163
+        version: 1.0.163(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5))
 
 packages:
 
@@ -3572,8 +3572,8 @@ packages:
   zova-shared@1.0.4:
     resolution: {integrity: sha512-aPiz/kIhD49GIsYVW00AKky4pMUgS2Qgs9QAl47X+DrBH1RIzJxf1PmuZeGfkdUHOV690Xk0/jE33nFdhMYeGQ==}
 
-  zova-vite@1.0.161:
-    resolution: {integrity: sha512-ly03SsOn7fSEeA8i58R/6NN3unFUFS6TE9Efq59VIICG/MrqZnnA3LYE0t0cQbFg2HX0+y53318C8LTrI4ao4g==}
+  zova-vite@1.0.163:
+    resolution: {integrity: sha512-wb1qd3/MZqII9H80txR++nevsWzB6dSp9b0dciqRj5PXDOwI1lci2vepdLho/IFAltJxmFGlTVjwYnwfSAlBuQ==}
 
 snapshots:
 
@@ -7247,7 +7247,7 @@ snapshots:
 
   zova-shared@1.0.4: {}
 
-  zova-vite@1.0.161(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.163(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
