@@ -43,7 +43,7 @@ export class CliRefactorRenameComponent extends BeanCliBase {
       throw new Error(`component not exists: ${componentDir}`);
     }
     // rename
-    await this._renameRoute(componentDir);
+    await this._renameRoute(targetDir);
     await this._renameFiles(componentDir);
     await this._renameDir(componentDir, targetDir);
     // tools.metadata
@@ -63,7 +63,8 @@ export class CliRefactorRenameComponent extends BeanCliBase {
 
   async _renameRoute(targetDir: string) {
     const { argv } = this.context;
-    const routesFile = path.join(targetDir, 'routes.ts');
+    if (argv.nameMeta.directory !== 'page') return;
+    const routesFile = path.join(targetDir, 'src/routes.ts');
     let content = (await fse.readFile(routesFile)).toString();
     //
     content = content.replace(
@@ -90,8 +91,12 @@ export class CliRefactorRenameComponent extends BeanCliBase {
       return prop.key.name === 'path';
     });
     if (astPropPath && astPropPath.value.value) {
-      astPropPath.value.value.replace(argv.nameMeta.short, argv.componentNameNew);
+      astPropPath.value.value = astPropPath.value.value.replace(argv.nameMeta.short, argv.componentNameNew);
     }
+    content = ast.root().generate();
+    await fse.writeFile(routesFile, content);
+    // format
+    await this.helper.formatFile({ fileName: routesFile, logPrefix: 'format: ' });
   }
 
   async _renameFiles(componentDir: string) {
