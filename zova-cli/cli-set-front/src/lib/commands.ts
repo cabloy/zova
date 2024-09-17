@@ -21,6 +21,7 @@ import initError from './command/init.error.js';
 import refactorPageQuery from './command/refactor.pageQuery.js';
 import refactorPageParams from './command/refactor.pageParams.js';
 import refactorComponentGeneric from './command/refactor.componentGeneric.js';
+import refactorAnotherRender from './command/refactor.anotherRender.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
 import toolsDeps from './command/tools.deps.js';
@@ -56,6 +57,7 @@ export const commands = {
     pageQuery: refactorPageQuery,
     pageParams: refactorPageParams,
     componentGeneric: refactorComponentGeneric,
+    anotherRender: refactorAnotherRender,
   },
   tools: {
     // icon: toolsIcon,
