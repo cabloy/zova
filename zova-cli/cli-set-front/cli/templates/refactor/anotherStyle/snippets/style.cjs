@@ -1,5 +1,5 @@
 module.exports = {
-  file: 'render.tsx',
+  file: 'style.ts',
   parseOptions: { language: 'plain' },
   async transform({ ast, argv }) {
     const res = ast.match(/import {.*? Use[ ,].*?} from 'zova';/);
@@ -9,11 +9,11 @@ module.exports = {
     ast = ast
       .replace(
         "import { ScopeModule } from '../../.metadata/this.js';",
-        `import { ScopeModule } from '../../.metadata/this.js';\nimport { ${argv.renderNameCapitalize} } from './${argv.renderName}.jsx';`,
+        `import { ScopeModule } from '../../.metadata/this.js';\nimport { ${argv.styleNameCapitalize} } from './${argv.styleName}.js';`,
       )
       .replace(
-        'extends BeanRenderBase<ScopeModule> {',
-        `extends BeanRenderBase<ScopeModule> {\n  @Use()\n  $$${argv.renderName}: ${argv.renderNameCapitalize};\n`,
+        'extends BeanStyleBase<ScopeModule> {',
+        `extends BeanStyleBase<ScopeModule> {\n  @Use()\n  $$${argv.styleName}: ${argv.styleNameCapitalize};\n`,
       );
     // ok
     return ast;
