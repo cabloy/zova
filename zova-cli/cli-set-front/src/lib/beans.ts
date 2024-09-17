@@ -26,6 +26,7 @@ import { CliRefactorPageParams } from './bean/cli.refactor.pageParams.js';
 import { CliRefactorComponentGeneric } from './bean/cli.refactor.componentGeneric.js';
 import { CliRefactorAnotherRender } from './bean/cli.refactor.anotherRender.js';
 import { CliRefactorAnotherStyle } from './bean/cli.refactor.anotherStyle.js';
+import { CliRefactorRenameComponent } from './bean/cli.refactor.renameComponent.js';
 
 export const beans = {
   'default.list': CliDefaultList,
@@ -53,6 +54,7 @@ export const beans = {
   'refactor.componentGeneric': CliRefactorComponentGeneric,
   'refactor.anotherRender': CliRefactorAnotherRender,
   'refactor.anotherStyle': CliRefactorAnotherStyle,
+  'refactor.renameComponent': CliRefactorRenameComponent,
   'tools.icon': CliToolsIcon,
   'tools.metadata': CliToolsMetadata,
   'tools.deps': CliToolsDeps,
