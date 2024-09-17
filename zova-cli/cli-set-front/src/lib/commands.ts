@@ -22,6 +22,7 @@ import refactorPageQuery from './command/refactor.pageQuery.js';
 import refactorPageParams from './command/refactor.pageParams.js';
 import refactorComponentGeneric from './command/refactor.componentGeneric.js';
 import refactorAnotherRender from './command/refactor.anotherRender.js';
+import refactorAnotherStyle from './command/refactor.anotherStyle.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
 import toolsDeps from './command/tools.deps.js';
@@ -58,6 +59,7 @@ export const commands = {
     pageParams: refactorPageParams,
     componentGeneric: refactorComponentGeneric,
     anotherRender: refactorAnotherRender,
+    anotherStyle: refactorAnotherStyle,
   },
   tools: {
     // icon: toolsIcon,
