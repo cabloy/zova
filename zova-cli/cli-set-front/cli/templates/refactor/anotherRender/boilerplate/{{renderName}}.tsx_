@@ -2,9 +2,9 @@ import { BeanRenderBase, Local } from 'zova';
 import type { Style<%=argv.nameMeta.shortCapitalize%> } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
 
-export interface Render<%=argv.renderNameCapitalize%> extends Style<%=argv.nameMeta.shortCapitalize%> {}
+export interface <%=argv.renderNameCapitalize%> extends Style<%=argv.nameMeta.shortCapitalize%> {}
 
 @Local()
-export class Render<%=argv.renderNameCapitalize%> extends BeanRenderBase<ScopeModule> {
+export class <%=argv.renderNameCapitalize%> extends BeanRenderBase<ScopeModule> {
   render() {}
 }
