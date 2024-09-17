@@ -10,6 +10,7 @@ declare module 'zova-cli' {
     moduleInfo: IModuleInfo;
     componentName: string;
     renderName: string;
+    renderNameCapitalize: string;
     nameMeta: NameMeta;
   }
 }
@@ -33,10 +34,15 @@ export class CliRefactorAnotherRender extends BeanCliBase {
     const componentName = argv.componentName;
     // nameMeta
     argv.nameMeta = this.helper.parseNameMeta(componentName, ['component', 'page']);
+    argv.renderNameCapitalize = this.helper.firstCharToUpperCase(argv.renderName);
     // directory
-    const componentDir = path.join(targetDir, 'src/component', argv.nameMeta.short);
+    const componentDir = path.join(targetDir, 'src', argv.nameMeta.original);
     if (!fs.existsSync(componentDir)) {
       throw new Error(`component not exists: ${componentDir}`);
+    }
+    const renderFile = path.join(componentDir, `${argv.renderName}.tsx`);
+    if (fs.existsSync(renderFile)) {
+      throw new Error(`render exists: ${renderFile}`);
     }
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
