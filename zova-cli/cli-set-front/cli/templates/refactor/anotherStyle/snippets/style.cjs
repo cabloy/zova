@@ -13,7 +13,7 @@ module.exports = {
       )
       .replace(
         'extends BeanStyleBase<ScopeModule> {',
-        `extends BeanStyleBase<ScopeModule> {\n  @Use()\n  $$${argv.styleName}: ${argv.styleNameCapitalize};\n`,
+        `extends BeanStyleBase<ScopeModule> {\n  @Use()\n  $$$$${argv.styleName}: ${argv.styleNameCapitalize};\n`,
       );
     // ok
     return ast;

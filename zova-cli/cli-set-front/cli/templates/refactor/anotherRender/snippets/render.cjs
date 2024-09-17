@@ -13,7 +13,7 @@ module.exports = {
       )
       .replace(
         'extends BeanRenderBase<ScopeModule> {',
-        `extends BeanRenderBase<ScopeModule> {\n  @Use()\n  $$${argv.renderName}: ${argv.renderNameCapitalize};\n`,
+        `extends BeanRenderBase<ScopeModule> {\n  @Use()\n  $$$$${argv.renderName}: ${argv.renderNameCapitalize};\n`,
       );
     // ok
     return ast;
