@@ -168,6 +168,9 @@ importers:
       zova-module-test-b:
         specifier: ^5.0.0
         version: link:src/module/test-b
+      zova-module-test-c:
+        specifier: ^5.0.0
+        version: link:src/module/test-c
       zova-vite:
         specifier: workspace:^
         version: link:packages-utils/zova-vite
@@ -384,6 +387,8 @@ importers:
   src/module/test-a2: {}
 
   src/module/test-b: {}
+
+  src/module/test-c: {}
 
   src/suite-vendor/a-core:
     dependencies:
