@@ -48,12 +48,12 @@
   "scripts": {
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
-    "prepublishOnly": "npm run tsc:publish"
+    "_prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
     "@tanstack/query-persist-client-core": "^5.45.0",
     "@tanstack/vue-query": "^5.45.0",
     "localforage": "^1.10.0"
   },
-  "gitHead": "02346e248530cef50a2891fe2a3160fd5e808bbd"
+  "gitHead": "06a79ff9527443a6c301214ae09f17a0f52d1f1e"
 }

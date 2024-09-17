@@ -32,10 +32,10 @@
   "scripts": {
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
-    "prepublishOnly": "npm run tsc:publish"
+    "_prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
     "pinia": "^2.1.7"
   },
-  "gitHead": "922381c3a09280eee63c506c1868343d1c60af7c"
+  "gitHead": "06a79ff9527443a6c301214ae09f17a0f52d1f1e"
 }
