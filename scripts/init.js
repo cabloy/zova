@@ -14,7 +14,7 @@ async function main() {
   for (const uiProject of config.uiProjects) {
     await fs.copyFile(
       path.join(cwdDir, uiProject, 'package.original.json'),
-      path.join(cwdDir, uiProject, 'zova-dev/package.json'),
+      path.join(cwdDir, uiProject, 'package.json'),
     );
   }
 }
