@@ -1,10 +1,10 @@
 import { BeanControllerBase, Local, Use, PropsBase, useComputed, iconh } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
-import { ServiceMenuEntity } from '../../api/interface/menu.js';
 import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import * as TreeLodash from 'tree-lodash';
 import { Tree } from 'tree-lodash/dist/esm/types.js';
 import { MenuItemGroupType } from 'ant-design-vue/es/menu/src/interface.js';
+import { ServiceMenuEntity } from '../../service/menu.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
