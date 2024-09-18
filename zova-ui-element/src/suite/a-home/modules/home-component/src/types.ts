@@ -1,5 +1,5 @@
 import 'zova';
-import { components } from './resource/components.js';
+import { components } from './.metadata/index.js';
 declare module 'zova' {
   export interface BeanBase {
     $component: typeof components;

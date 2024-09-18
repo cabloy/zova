@@ -12,8 +12,8 @@ import {
   ElSubMenu,
 } from 'element-plus';
 import { JSX } from 'vue/jsx-runtime';
-import { ServiceMenuEntity } from '../../api/index.js';
 import { RouterView } from 'vue-router';
+import { ServiceMenuEntity } from '../../service/menu.js';
 //import EssentialLink from '../essentialLink/index.vue';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
