@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
+  "include": ["src", "**/src/.metadata/*.ts"],
   "exclude": [
     "./dist",
     "./distMockServer",

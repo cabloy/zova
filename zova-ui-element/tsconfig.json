@@ -1,5 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
-  "exclude": ["./dist", "./distMockServer", "./.zova", "./node_modules"]
+  "include": ["src", "**/src/.metadata/*.ts"],
+  "exclude": [
+    "./dist",
+    "./distMockServer",
+    "./.quasar",
+    "./.zova",
+    "./node_modules",
+    "./src-capacitor",
+    "./src-cordova",
+    "./quasar.config.*.temporary.compiled*"
+  ]
 }
