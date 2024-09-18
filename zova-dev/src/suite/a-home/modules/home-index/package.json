@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-home",
+  "name": "zova-module-home-index",
   "version": "5.0.0",
-  "title": "Home",
+  "title": "Home Index",
   "type": "module",
   "exports": {
     ".": {

@@ -6,12 +6,12 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/home/home': NSControllerPageHome.QueryInput;
+    '/home/index/home': NSControllerPageHome.QueryInput;
   }
   export interface IPageNameRecord {}
 }
 export const pagePathSchemas = {
-  '/a/home/home': {
+  '/home/index/home': {
     query: NSControllerPageHome.QuerySchema,
   },
 };
@@ -29,19 +29,19 @@ export const locales = {
 import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleAHome extends BeanScopeBase {}
+export class ScopeModuleHomeIndex extends BeanScopeBase {}
 
-export interface ScopeModuleAHome
+export interface ScopeModuleHomeIndex
   extends TypeModuleResource<any, any, any, (typeof locales)[TypeLocaleBase], any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-home': ScopeModuleAHome;
+    'home-index': ScopeModuleHomeIndex;
   }
 
   export interface IBeanScopeLocale {
-    'a-home': (typeof locales)[TypeLocaleBase];
+    'home-index': (typeof locales)[TypeLocaleBase];
   }
 }
 /** scope: end */
