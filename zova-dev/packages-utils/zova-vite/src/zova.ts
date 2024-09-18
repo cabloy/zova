@@ -7,7 +7,7 @@ import path from 'node:path';
 import { ZovaConfigMeta } from 'zova-shared';
 import { setModuleAlias } from './utils.js';
 
-const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
+const __SvgIconPattern = /\.metadata\/icons\/groups\/.*?\.svg/;
 
 export async function generateZovaViteMeta(
   configMeta: ZovaConfigMeta,

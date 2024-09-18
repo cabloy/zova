@@ -13,7 +13,7 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
     res.setHeader('Content-Type', 'text/html');
 
     render(/* the ssrContext: */ { req, res })
-      .then((html) => {
+      .then(html => {
         // now let's send the rendered html to the client
         res.send(html);
       })
@@ -51,9 +51,7 @@ export default ssrMiddleware(({ app, resolve, render, serve }) => {
           // create a route (/src/routes) for an error page and redirect to it
           res.status(500).send('500 | Internal Server Error');
 
-          if (process.env.DEBUGGING) {
-            console.error(err.stack);
-          }
+          console.error(err.stack);
         }
       });
   });

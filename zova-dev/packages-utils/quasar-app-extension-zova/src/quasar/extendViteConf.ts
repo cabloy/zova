@@ -3,7 +3,7 @@ import { mergeConfig, UserConfig as ViteUserConfig, createLogger } from 'vite';
 import { ConfigContext } from './types.js';
 import { viteNodePlugin } from './viteNodePlugin.js';
 
-const __SvgIconPattern = /assets\/icons\/groups\/.*?\.svg/;
+const __SvgIconPattern = /\.metadata\/icons\/groups\/.*?\.svg/;
 
 export function extendViteConf(context: ConfigContext) {
   return function extendViteConf(conf: ViteUserConfig, opts) {
