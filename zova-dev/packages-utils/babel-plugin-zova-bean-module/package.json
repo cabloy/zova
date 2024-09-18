@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-zova-bean-module",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "babel-plugin-zova-bean-module",
   "publishConfig": {
     "access": "public"
