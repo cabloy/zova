@@ -42,10 +42,10 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0
       vue:
-        specifier: ^3.4.38
+        specifier: ^3.5.6
         version: 3.5.6(typescript@5.6.2)
       vue-router:
-        specifier: ^4.3.3
+        specifier: ^4.4.5
         version: 4.4.5(vue@3.5.6(typescript@5.6.2))
       zod:
         specifier: ^3.23.8
@@ -60,15 +60,30 @@ importers:
       '@quasar/app-vite':
         specifier: 2.0.0-beta.18
         version: 2.0.0-beta.18(@types/node@20.16.5)(eslint@8.57.1)(pinia@2.2.2(typescript@5.6.2)(vue@3.5.6(typescript@5.6.2)))(quasar@2.16.11)(rollup@4.21.3)(terser@5.32.0)(typescript@5.6.2)(vue-router@4.4.5(vue@3.5.6(typescript@5.6.2)))(vue@3.5.6(typescript@5.6.2))
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.56.2
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.56.2(vue@3.5.6(typescript@5.6.2))
       '@types/node':
         specifier: ^20.14.2
         version: 20.16.5
       '@vitejs/plugin-vue':
         specifier: ^5.0.5
         version: 5.1.3(vite@5.4.6(@types/node@20.16.5)(sass@1.78.0)(terser@5.32.0))(vue@3.5.6(typescript@5.6.2))
+      axios:
+        specifier: ^1.6.8
+        version: 1.7.7
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
+      localforage:
+        specifier: ^1.10.0
+        version: 1.10.0
+      pinia:
+        specifier: ^2.1.7
+        version: 2.2.2(typescript@5.6.2)(vue@3.5.6(typescript@5.6.2))
       quasar-app-extension-zova:
         specifier: workspace:^
         version: link:packages-utils/quasar-app-extension-zova
@@ -84,6 +99,78 @@ importers:
       vue-tsc:
         specifier: ^2.0.29
         version: 2.1.6(typescript@5.6.2)
+      zova-module-a-core:
+        specifier: ^5.0.44
+        version: link:src/suite-vendor/a-core/modules/a-core
+      zova-module-a-demo:
+        specifier: ^5.0.0
+        version: link:src/suite/a-demo/modules/a-demo
+      zova-module-a-devui:
+        specifier: ^5.0.20
+        version: link:src/suite-vendor/a-devui/modules/a-devui
+      zova-module-a-home:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/a-home
+      zova-module-a-model:
+        specifier: ^5.0.26
+        version: link:src/suite-vendor/a-core/modules/a-model
+      zova-module-a-pinia:
+        specifier: ^5.0.26
+        version: link:src/suite-vendor/a-core/modules/a-pinia
+      zova-module-a-router:
+        specifier: ^5.0.60
+        version: link:src/suite-vendor/a-core/modules/a-router
+      zova-module-a-style:
+        specifier: ^5.0.37
+        version: link:src/suite-vendor/a-core/modules/a-style
+      zova-module-a-tabs:
+        specifier: ^5.0.20
+        version: link:src/suite-vendor/a-core/modules/a-tabs
+      zova-module-demo-todo:
+        specifier: ^5.0.0
+        version: link:src/suite/a-demo/modules/demo-todo
+      zova-module-home-api:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-api
+      zova-module-home-component:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-component
+      zova-module-home-icon:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-icon
+      zova-module-home-layout:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-layout
+      zova-module-home-pagesystem:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-pagesystem
+      zova-module-home-router:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-router
+      zova-module-home-style:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-style
+      zova-module-home-theme:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-theme
+      zova-module-home-user:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-user
+      zova-module-test-a:
+        specifier: ^5.0.0
+        version: link:src/module/test-a
+      zova-module-test-a1:
+        specifier: ^5.0.0
+        version: link:src/module/test-a1
+      zova-module-test-a2:
+        specifier: ^5.0.0
+        version: link:src/module/test-a2
+      zova-module-test-b:
+        specifier: ^5.0.0
+        version: link:src/module/test-b
+      zova-module-test-c:
+        specifier: ^5.0.0
+        version: link:src/module/test-c
       zova-vite:
         specifier: workspace:^
         version: link:packages-utils/zova-vite
@@ -157,14 +244,14 @@ importers:
         specifier: ^1.1.3
         version: 1.1.3(@babel/core@7.25.2)(vite@5.4.6(@types/node@20.16.5)(sass@1.78.0)(terser@5.32.0))
       '@cabloy/vue-reactivity':
-        specifier: ^3.4.49
-        version: 3.4.49
+        specifier: ^3.5.6
+        version: 3.5.6
       '@cabloy/vue-router':
-        specifier: ^4.4.7
-        version: 4.4.7(vue@3.5.6(typescript@5.6.2))
+        specifier: ^4.4.8
+        version: 4.4.8(vue@3.5.6(typescript@5.6.2))
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.49
-        version: 3.4.49
+        specifier: ^3.5.6
+        version: 3.5.6
       '@faker-js/faker':
         specifier: ^8.4.1
         version: 8.4.1
@@ -236,22 +323,22 @@ importers:
         specifier: ^1.0.20
         version: 1.0.21
       '@cabloy/vue-reactivity':
-        specifier: ^3.4.49
-        version: 3.4.49
+        specifier: ^3.5.6
+        version: 3.5.6
       '@cabloy/vue-router':
-        specifier: ^4.4.7
-        version: 4.4.7(vue@3.5.6(typescript@5.6.2))
+        specifier: ^4.4.8
+        version: 4.4.8(vue@3.5.6(typescript@5.6.2))
       '@cabloy/vue-runtime-core':
-        specifier: ^3.4.49
-        version: 3.4.49
+        specifier: ^3.5.6
+        version: 3.5.6
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
       '@vue/reactivity':
-        specifier: ^3.4.27
+        specifier: ^3.5.6
         version: 3.5.6
       '@vue/shared':
-        specifier: ^3.4.38
+        specifier: ^3.5.6
         version: 3.5.6
       defu:
         specifier: ^6.1.4
@@ -263,7 +350,7 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2
       vue:
-        specifier: ^3.4.27
+        specifier: ^3.5.6
         version: 3.5.6(typescript@5.6.2)
       zod:
         specifier: ^3.23.8
@@ -347,7 +434,7 @@ importers:
   src/suite-vendor/a-core/modules/a-router:
     dependencies:
       vue-router:
-        specifier: ^4.3.2
+        specifier: ^4.4.5
         version: 4.4.5(vue@3.5.6(typescript@5.6.2))
 
   src/suite-vendor/a-core/modules/a-style: {}
@@ -612,16 +699,16 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-reactivity@3.4.49':
-    resolution: {integrity: sha512-oyl3OrIrzjlKhw5p71yMv+ojdga3x1brJemau9VS6kbzd5WxqqAnNKallFaJimJxEuvPlIb/M3nYxWWjyiGWsQ==}
+  '@cabloy/vue-reactivity@3.5.6':
+    resolution: {integrity: sha512-r6cvM50C7zYcmmJqTj6aEXaeuSKsh+5Iytys4juq4NNM+US5WfvVPzXFJMCaqIpnYwGTk+8t0+xnpihbtm0skg==}
 
-  '@cabloy/vue-router@4.4.7':
-    resolution: {integrity: sha512-lLAYqFOVuk3oMx2+uV5CEcuF7IPW1Z8ObD/UIOBwBm5U6DT8Gdcjd1dt/YsXNpRP4gQZGfX6w5brgQuANSAn0Q==}
+  '@cabloy/vue-router@4.4.8':
+    resolution: {integrity: sha512-KsVwHn/h0K4q4LujM6VO3Nkg7Z6neM56L6mJu9z4coYdKyi2F+wdB92BT0You5pYz1C1I8tl72TfHmPfwnIYAg==}
     peerDependencies:
       vue: ^3.2.0
 
-  '@cabloy/vue-runtime-core@3.4.49':
-    resolution: {integrity: sha512-m0T0xUfmJn+MDCeZ9sZm6FXL+WXk9Tge0N2EZmzDS6CkLRE4niFOSgLK4+2THSsjU6wudfsYeey5UjpbToF61A==}
+  '@cabloy/vue-runtime-core@3.5.6':
+    resolution: {integrity: sha512-URwmyVAAC3++tQzJD+t9zZXVW7s/5YU1Yjv2Yxhi3BES+9SfFaVQSrr4RLUYXBmSYyIObVBaRZDNumGlZNQyXA==}
 
   '@es-joy/jsdoccomment@0.46.0':
     resolution: {integrity: sha512-C3Axuq1xd/9VqFZpW4YAzOx5O9q/LP46uIQy/iNDpHG3fmPa6TBtvfglMCs3RBiBxAIi0Go97r8+jvTt55XMyQ==}
@@ -1635,9 +1722,6 @@ packages:
     resolution: {integrity: sha512-zivnxQnOnwEXVaT9CstJ64rZFXMS5ZkKxCjDQKiMSvUhXRzFLWZVbaBiNF4HGDqGNNsTgmjcCSmU6TB/0OOxLA==}
     peerDependencies:
       vue: 3.5.6
-
-  '@vue/shared@3.4.37':
-    resolution: {integrity: sha512-nIh8P2fc3DflG8+5Uw8PT/1i17ccFn0xxN/5oE9RfV5SVnd7G0XEFRwakrnNFE/jlS95fpGXDVG5zDETS26nmg==}
 
   '@vue/shared@3.5.6':
     resolution: {integrity: sha512-eidH0HInnL39z6wAt6SFIwBrvGOpDWsDxlw3rCgo1B+CQ1781WzQUSU3YjxgdkcJo9Q8S6LmXTkvI+cLHGkQfA==}
@@ -4058,19 +4142,19 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.4.6(@types/node@20.16.5)(sass@1.78.0)(terser@5.32.0)
 
-  '@cabloy/vue-reactivity@3.4.49':
+  '@cabloy/vue-reactivity@3.5.6':
     dependencies:
-      '@vue/shared': 3.4.37
+      '@vue/shared': 3.5.6
 
-  '@cabloy/vue-router@4.4.7(vue@3.5.6(typescript@5.6.2))':
+  '@cabloy/vue-router@4.4.8(vue@3.5.6(typescript@5.6.2))':
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.6(typescript@5.6.2)
 
-  '@cabloy/vue-runtime-core@3.4.49':
+  '@cabloy/vue-runtime-core@3.5.6':
     dependencies:
-      '@vue/reactivity': '@cabloy/vue-reactivity@3.4.49'
-      '@vue/shared': 3.4.37
+      '@vue/reactivity': '@cabloy/vue-reactivity@3.5.6'
+      '@vue/shared': 3.5.6
 
   '@es-joy/jsdoccomment@0.46.0':
     dependencies:
@@ -4904,8 +4988,6 @@ snapshots:
       '@vue/compiler-ssr': 3.5.6
       '@vue/shared': 3.5.6
       vue: 3.5.6(typescript@5.6.2)
-
-  '@vue/shared@3.4.37': {}
 
   '@vue/shared@3.5.6': {}
 
