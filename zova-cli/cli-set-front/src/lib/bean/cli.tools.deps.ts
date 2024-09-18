@@ -72,9 +72,11 @@ export class CliToolsDeps extends BeanCliBase {
 
   async _saveBackVersions(pkg, pkgOriginal, pkgOriginalFile) {
     let changed = false;
-    if (pkgOriginal.version !== pkg.version) {
-      pkgOriginal.version = pkg.version;
-      changed = true;
+    for (const key of ['version', 'gitHead']) {
+      if (pkgOriginal[key] !== pkg[key]) {
+        pkgOriginal[key] = pkg[key];
+        changed = true;
+      }
     }
     for (const field of ['dependencies', 'devDependencies']) {
       const fieldObj = pkg[field];
