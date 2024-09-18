@@ -37,6 +37,8 @@ export async function generatePages(moduleInfo: IModuleInfo, moduleName: string,
     if (!routeName) {
       if (enableRouteQuery) {
         contentPathRecords.push(`'${routePathFull}': NSControllerPage${className}.QueryInput;`);
+      } else {
+        contentPathRecords.push(`'${routePathFull}': never;`); // for type of route path
       }
     } else {
       if (enableRouteQuery || enableRouteParams) {
