@@ -35,26 +35,6 @@ declare module 'zova' {
   }
 }
 /** components: end */
-/** config: begin */
-export * from '../config/config.js';
-import { config } from '../config/config.js';
-/** config: end */
-/** constant: begin */
-export * from '../config/constants.js';
-import { constants } from '../config/constants.js';
-/** constant: end */
-/** locale: begin */
-import locale_en_us from '../config/locale/en-us.js';
-import locale_zh_cn from '../config/locale/zh-cn.js';
-export const locales = {
-  'en-us': locale_en_us,
-  'zh-cn': locale_zh_cn,
-};
-/** locale: end */
-/** error: begin */
-export * from '../config/errors.js';
-import { Errors } from '../config/errors.js';
-/** error: end */
 /** service: begin */
 import service_menu from '../service/menu.js';
 export const services = {
@@ -62,33 +42,18 @@ export const services = {
 };
 /** service: end */
 /** scope: begin */
-import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
+import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
 export class ScopeModuleHomeLayout extends BeanScopeBase {}
 
 export interface ScopeModuleHomeLayout
-  extends TypeModuleResource<
-    typeof components,
-    typeof config,
-    typeof Errors,
-    (typeof locales)[TypeLocaleBase],
-    typeof constants,
-    typeof services
-  > {}
+  extends TypeModuleResource<typeof components, any, any, any, any, typeof services> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
     'home-layout': ScopeModuleHomeLayout;
-  }
-
-  export interface IBeanScopeConfig {
-    'home-layout': ReturnType<typeof config>;
-  }
-
-  export interface IBeanScopeLocale {
-    'home-layout': (typeof locales)[TypeLocaleBase];
   }
 }
 /** scope: end */

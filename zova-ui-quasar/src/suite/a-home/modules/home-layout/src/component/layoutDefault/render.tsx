@@ -14,9 +14,9 @@ import {
   QToolbarTitle,
 } from 'quasar';
 import { JSX } from 'vue/jsx-runtime';
-import { ServiceMenuEntity } from '../../api/index.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { RouterView } from 'vue-router';
+import { ServiceMenuEntity } from '../../service/menu.js';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 

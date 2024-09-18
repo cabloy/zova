@@ -1,20 +1,16 @@
 /** pages: begin */
 export * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
-import * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
+
 export * from '../routes.js';
 
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/home/pagesystem//:catchAll(.*)*': NSControllerPageErrorNotFound.QueryInput;
+    '/home/pagesystem//:catchAll(.*)*': never;
   }
   export interface IPageNameRecord {}
 }
-export const pagePathSchemas = {
-  '/home/pagesystem//:catchAll(.*)*': {
-    query: NSControllerPageErrorNotFound.QuerySchema,
-  },
-};
+export const pagePathSchemas = {};
 export const pageNameSchemas = {};
 /** pages: end */
 /** scope: begin */
