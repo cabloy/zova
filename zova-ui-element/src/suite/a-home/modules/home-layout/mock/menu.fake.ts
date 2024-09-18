@@ -7,7 +7,7 @@ const __MenuData = [
     caption: '',
     icon: '::home',
     to: '/',
-    //to: '/a/home/home',
+    //to: '/home/index',
   },
   {
     key: '2',

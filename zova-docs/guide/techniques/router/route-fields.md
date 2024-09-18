@@ -66,7 +66,7 @@ import ErrorNotFound from './page/errorNotFound/index.vue';
 export const routes: IModuleRoute[] = [
   {
     path: '/',
-    redirect: '/a/home/home',
+    redirect: '/home/index',
     meta: {
       absolute: true,
     },
@@ -84,7 +84,7 @@ export const routes: IModuleRoute[] = [
 
 | Name                      | Description                                                                                              |
 | ------------------------- | -------------------------------------------------------------------------------------------------------- |
-| path: '/'                 | The function of this route is to jump `'/'` to `'/a/home/home'`, so that we can provide our own homepage |
+| path: '/'                 | The function of this route is to jump `'/'` to `'/home/index'`, so that we can provide our own homepage |
 | path: '/:catchAll(.\*)\*' | Catch all unmatched paths and display a 404 page                                                         |
 
 ## meta.layout

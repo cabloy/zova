@@ -6,7 +6,7 @@ const __MenuData = [
     caption: '',
     icon: '::home',
     to: '/',
-    //to: '/a/home/home',
+    //to: '/home/index',
   },
   {
     separator: true,

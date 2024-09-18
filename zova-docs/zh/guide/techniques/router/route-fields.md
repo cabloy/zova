@@ -67,7 +67,7 @@ import { IModuleRoute } from 'zova-module-a-router';
 export const routes: IModuleRoute[] = [
   {
     path: '/',
-    redirect: '/a/home/home',
+    redirect: '/home/index',
     meta: {
       absolute: true,
     },
@@ -85,7 +85,7 @@ export const routes: IModuleRoute[] = [
 
 | 名称                      | 说明                                                                    |
 | ------------------------- | ----------------------------------------------------------------------- |
-| path: '/'                 | 该路由的作用是将`'/'`跳转至`'/a/home/home'`，从而方便我们提供自己的首页 |
+| path: '/'                 | 该路由的作用是将`'/'`跳转至`'/home/index'`，从而方便我们提供自己的首页 |
 | path: '/:catchAll(.\*)\*' | 捕获所有未匹配路径，显示404页面                                         |
 
 ## meta.layout
