@@ -1,5 +1,5 @@
 import { BeanRenderBase, Local } from 'zova';
-import type { ControllerLayoutDefault } from './controller.js';
+import type { StyleLayoutDefault } from './style.js';
 import {
   ElAside,
   ElConfigProvider,
@@ -14,12 +14,12 @@ import {
 import { JSX } from 'vue/jsx-runtime';
 import { RouterView } from 'vue-router';
 import { ServiceMenuEntity } from '../../service/menu.js';
-//import EssentialLink from '../essentialLink/index.vue';
+import { ScopeModule } from '../../.metadata/this.js';
 
-export interface RenderLayoutDefault extends ControllerLayoutDefault {}
+export interface RenderLayoutDefault extends StyleLayoutDefault {}
 
 @Local()
-export class RenderLayoutDefault extends BeanRenderBase {
+export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
     // folder
     if (item.folder) {
@@ -76,7 +76,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     const domItems = this._renderMenuItems(queryMenus.data);
     return (
       <ElMenu
-        class="el-menu-vertical-demo"
+        class={this.cMenuVerticalDemo}
         collapse={this.leftDrawerOpen}
         defaultActive={this.activeMenuItemKey}
         defaultOpeneds={this.activeMenuSubKeys}
@@ -99,7 +99,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
       <ElConfigProvider>
         <ElContainer>
           <ElHeader>{this._renderHeader()}</ElHeader>
-          <ElContainer class="main-container">
+          <ElContainer class={this.cMainContainer}>
             <ElAside>{this._renderMenu()}</ElAside>
             <ElMain>
               <RouterView />

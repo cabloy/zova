@@ -3,6 +3,7 @@ import { ModelMenu } from '../../bean/model.menu.js';
 import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import * as TreeLodash from 'tree-lodash';
 import { Tree } from 'tree-lodash/dist/esm/types.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ServiceMenuEntity } from '../../service/menu.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
@@ -12,7 +13,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
   @Use()
