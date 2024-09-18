@@ -42,6 +42,8 @@ export class CliCreateProject extends BeanCliBase {
     fse.copySync(templateDir, targetDir);
     // remove LICENSE
     fse.removeSync(path.join(targetDir, 'LICENSE'));
+    // copy package.json
+    fse.copyFileSync(path.join(targetDir, 'package.original.json'), path.join(targetDir, 'package.json'));
     // // render project boilerplate
     // await this.template.renderBoilerplateAndSnippets({
     //   targetDir,
