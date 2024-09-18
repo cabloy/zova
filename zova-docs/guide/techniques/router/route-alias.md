@@ -1,6 +1,6 @@
 # Route Alias
 
-You can specify an `alias` for the route. For example, the module `a-home` provides a page component with a path of `/a/home/home`. We can specify an alias `/` for `/a/home/home`, so when the user visits `/`, the URL is still `/`, but the page component corresponding to `/a/home/home` will be used directly
+You can specify an `alias` for the route. For example, the module `a-home` provides a page component with a path of `/home/index`. We can specify an alias `/` for `/a/home/home`, so when the user visits `/`, the URL is still `/`, but the page component corresponding to `/a/home/home` will be used directly
 
 ## Global Config
 

@@ -6,12 +6,12 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/home/index/home': NSControllerPageHome.QueryInput;
+    '/home/index': NSControllerPageHome.QueryInput;
   }
   export interface IPageNameRecord {}
 }
 export const pagePathSchemas = {
-  '/home/index/home': {
+  '/home/index': {
     query: NSControllerPageHome.QuerySchema,
   },
 };

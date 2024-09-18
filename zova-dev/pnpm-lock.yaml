@@ -108,9 +108,6 @@ importers:
       zova-module-a-devui:
         specifier: ^5.0.20
         version: link:src/suite-vendor/a-devui/modules/a-devui
-      zova-module-a-home:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/a-home
       zova-module-a-model:
         specifier: ^5.0.26
         version: link:src/suite-vendor/a-core/modules/a-model
@@ -118,7 +115,7 @@ importers:
         specifier: ^5.0.26
         version: link:src/suite-vendor/a-core/modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.60
+        specifier: ^5.0.61
         version: link:src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
         specifier: ^5.0.37
@@ -138,6 +135,9 @@ importers:
       zova-module-home-icon:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-icon
+      zova-module-home-index:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-index
       zova-module-home-layout:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-layout
@@ -213,7 +213,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.163
+        specifier: ^1.0.164
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -364,13 +364,13 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.152
+        specifier: ^5.0.153
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.110
+        specifier: ^5.0.111
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-a:
@@ -402,7 +402,7 @@ importers:
         specifier: ^5.0.26
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.60
+        specifier: ^5.0.61
         version: link:modules/a-router
       zova-module-a-style:
         specifier: ^5.0.37
@@ -464,9 +464,6 @@ importers:
 
   src/suite/a-home:
     dependencies:
-      zova-module-a-home:
-        specifier: workspace:^
-        version: link:modules/a-home
       zova-module-home-api:
         specifier: workspace:^
         version: link:modules/home-api
@@ -476,6 +473,9 @@ importers:
       zova-module-home-icon:
         specifier: workspace:^
         version: link:modules/home-icon
+      zova-module-home-index:
+        specifier: workspace:^
+        version: link:modules/home-index
       zova-module-home-layout:
         specifier: workspace:^
         version: link:modules/home-layout
@@ -495,8 +495,6 @@ importers:
         specifier: workspace:^
         version: link:modules/home-user
 
-  src/suite/a-home/modules/a-home: {}
-
   src/suite/a-home/modules/home-api:
     dependencies:
       axios:
@@ -506,6 +504,8 @@ importers:
   src/suite/a-home/modules/home-component: {}
 
   src/suite/a-home/modules/home-icon: {}
+
+  src/suite/a-home/modules/home-index: {}
 
   src/suite/a-home/modules/home-layout: {}
 

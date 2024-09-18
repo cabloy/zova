@@ -6,7 +6,7 @@
   "description": "",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-home": "workspace:^",
+    "zova-module-home-index": "workspace:^",
     "zova-module-home-icon": "workspace:^",
     "zova-module-home-pagesystem": "workspace:^",
     "zova-module-home-layout": "workspace:^",
