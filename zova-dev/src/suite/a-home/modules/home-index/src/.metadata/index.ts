@@ -1,18 +1,18 @@
 /** pages: begin */
-export * as NSControllerPageHome from '../page/home/controller.js';
-import * as NSControllerPageHome from '../page/home/controller.js';
+export * as NSControllerPageIndex from '../page/index/controller.js';
+import * as NSControllerPageIndex from '../page/index/controller.js';
 export * from '../routes.js';
 
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/home/index': NSControllerPageHome.QueryInput;
+    '/home/index': NSControllerPageIndex.QueryInput;
   }
   export interface IPageNameRecord {}
 }
 export const pagePathSchemas = {
   '/home/index': {
-    query: NSControllerPageHome.QuerySchema,
+    query: NSControllerPageIndex.QuerySchema,
   },
 };
 export const pageNameSchemas = {};
