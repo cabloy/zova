@@ -15,8 +15,8 @@ import {
 } from 'vuetify/components';
 import { JSX } from 'vue/jsx-runtime';
 import EssentialLink from '../essentialLink/index.vue';
-import { ServiceMenuEntity } from '../../api/index.js';
 import { RouterView } from 'vue-router';
+import { ServiceMenuEntity } from '../../service/menu.js';
 
 export interface RenderLayoutDefault extends ControllerLayoutDefault {}
 

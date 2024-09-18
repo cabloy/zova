@@ -26,27 +26,19 @@ declare module 'zova' {
 export * as NSControllerPageComponent from '../page/component/controller.js';
 export * as NSControllerPageState from '../page/state/controller.js';
 export * as NSControllerPageStyle from '../page/style/controller.js';
-import * as NSControllerPageComponent from '../page/component/controller.js';
-import * as NSControllerPageState from '../page/state/controller.js';
 import * as NSControllerPageStyle from '../page/style/controller.js';
 export * from '../routes.js';
 
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': NSControllerPageComponent.QueryInput;
-    '/a/demo/state': NSControllerPageState.QueryInput;
+    '/a/demo/component': never;
+    '/a/demo/state': never;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {}
 }
 export const pagePathSchemas = {
-  '/a/demo/component': {
-    query: NSControllerPageComponent.QuerySchema,
-  },
-  '/a/demo/state': {
-    query: NSControllerPageState.QuerySchema,
-  },
   '/a/demo/style': {
     query: NSControllerPageStyle.QuerySchema,
   },

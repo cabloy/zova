@@ -1,6 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "composite": false,
+    "declarationMap": false,
+    "declaration": false
+  },
   "include": ["src", "**/src/.metadata/*.ts"],
   "exclude": [
     "**/dist/**",
