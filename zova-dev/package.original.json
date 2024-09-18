@@ -21,7 +21,14 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": ["nodejs", "full-stack", "workflow-engine", "vue3", "ioc", "zova"],
+  "keywords": [
+    "nodejs",
+    "full-stack",
+    "workflow-engine",
+    "vue3",
+    "ioc",
+    "zova"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -39,7 +46,7 @@
     "express": "^4.19.2",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.38",
-    "quasar": "^2.16.8",
+    "quasar": "^2.17.0",
     "tailwindcss": "^3.4.4",
     "typestyle": "^2.4.0",
     "vue": "^3.5.6",
@@ -49,7 +56,7 @@
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.11",
-    "@quasar/app-vite": "2.0.0-beta.18",
+    "@quasar/app-vite": "2.0.0-beta.21",
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",

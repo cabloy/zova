@@ -29,7 +29,7 @@
     "@cabloy/lint": "^4.0.6"
   },
   "dependencies": {
-    "@quasar/app-vite": "2.0.0-beta.18",
+    "@quasar/app-vite": "2.0.0-beta.21",
     "chalk": "^3.0.0",
     "esbuild": "^0.23.0",
     "fs-extra": "^11.2.0",
