@@ -21,3 +21,7 @@ body {
 ul.menu details > ul {
   z-index: 1;
 }
+
+.router-link-active {
+  color: orange;
+}

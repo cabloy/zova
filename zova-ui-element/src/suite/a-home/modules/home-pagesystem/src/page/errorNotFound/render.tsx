@@ -8,7 +8,7 @@ export interface RenderErrorNotFound extends ControllerPageErrorNotFound {}
 export class RenderErrorNotFound extends BeanRenderBase {
   render() {
     return (
-      <div class="fill-height bg-blue text-white text-center">
+      <div style="height: 100vh;" class="bg-blue text-white text-center">
         <div>
           <div style="font-size: 30vh">404</div>
 

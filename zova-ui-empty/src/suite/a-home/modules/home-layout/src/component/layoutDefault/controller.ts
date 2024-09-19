@@ -1,4 +1,5 @@
 import { BeanControllerBase, Local, Use, PropsBase } from 'zova';
+import { ScopeModule } from '../../.metadata/this.js';
 import { ModelMenu } from '../../bean/model.menu.js';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
@@ -8,7 +9,7 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class ControllerLayoutDefault extends BeanControllerBase<unknown, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
   @Use()

@@ -1,14 +1,15 @@
 import { BeanRenderBase, Local } from 'zova';
-import type { ControllerLayoutDefault } from './controller.js';
+import type { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
+import { ScopeModule } from '../../.metadata/this.js';
 import EssentialLink from '../essentialLink/index.vue';
 import { RouterView } from 'vue-router';
 import { ServiceMenuEntity } from '../../service/menu.js';
 
-export interface RenderLayoutDefault extends ControllerLayoutDefault {}
+export interface RenderLayoutDefault extends StyleLayoutDefault {}
 
 @Local()
-export class RenderLayoutDefault extends BeanRenderBase {
+export class RenderLayoutDefault extends BeanRenderBase<ScopeModule> {
   _renderMenuItem(item: ServiceMenuEntity) {
     if (item.separator) {
       return <div class="menu-separator"> - - - </div>;
@@ -34,7 +35,7 @@ export class RenderLayoutDefault extends BeanRenderBase {
     for (const item of queryMenus.data) {
       domItems.push(this._renderMenuItem(item));
     }
-    return <div class="menu-list">{domItems}</div>;
+    return <div class={this.cMenuList}>{domItems}</div>;
   }
 
   render() {
