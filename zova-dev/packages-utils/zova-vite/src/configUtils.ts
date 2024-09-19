@@ -194,7 +194,7 @@ export function createConfigUtils(
         output: '-zova-mock',
       });
     }
-    if (process.env.BUILD_CHUNK_OBFUSCATION === 'false') {
+    if (process.env.BUILD_MINIFY === 'false') {
       vendors.push({
         match: [/\.zova\/config\.ts/],
         output: '-zova-config',
