@@ -14,6 +14,11 @@ export class ZovaCommand extends CommonBin {
   }
 
   async [DISPATCH]() {
+    const parsed = await this[PARSE](this.rawArgv);
+    if (parsed._.length === 0) {
+      await super[DISPATCH]();
+      return;
+    }
     // checkForUpdates
     checkForUpdates('zova-cli');
     // collectCommands
