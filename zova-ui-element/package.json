@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.277",
+  "version": "5.0.278",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -59,7 +59,7 @@
     "concurrently": "^8.2.2",
     "localforage": "^1.10.0",
     "pinia": "^2.1.7",
-    "quasar-app-extension-zova": "^1.1.163",
+    "quasar-app-extension-zova": "^1.1.164",
     "sass": "^1.77.6",
     "tree-lodash": "^0.4.0",
     "typescript": "^5.4.5",

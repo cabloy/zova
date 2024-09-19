@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-quasar",
-  "version": "5.0.292",
+  "version": "5.0.293",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -59,7 +59,7 @@
     "concurrently": "^8.2.2",
     "localforage": "^1.10.0",
     "pinia": "^2.1.7",
-    "quasar-app-extension-zova": "^1.1.163",
+    "quasar-app-extension-zova": "^1.1.164",
     "typescript": "^5.5.4",
     "vue-tsc": "^2.0.29",
     "zova-module-a-core": "^5.0.44",
