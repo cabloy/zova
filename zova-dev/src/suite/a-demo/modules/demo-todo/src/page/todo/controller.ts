@@ -18,7 +18,12 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
   newTitle: string;
   currentTodo?: ServiceTodoGetParams;
 
-  protected async __init__() {}
+  protected async __init__() {
+    // todos
+    const queryTodos = this.$$modelTodo.select();
+    await queryTodos.suspense();
+    if (queryTodos.error) throw queryTodos.error;
+  }
 
   async addTodo() {
     const todo = {
