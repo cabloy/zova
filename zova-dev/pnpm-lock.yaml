@@ -11,18 +11,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.15(tailwindcss@3.4.12)
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.56.2
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.56.2(vue@3.5.6(typescript@5.6.2))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.20(postcss@8.4.47)
-      axios:
-        specifier: ^1.6.8
-        version: 1.7.7
       compression:
         specifier: ^1.7.4
         version: 1.7.4
@@ -32,21 +23,12 @@ importers:
       cors:
         specifier: ^2.8.5
         version: 2.8.5
-      csx:
-        specifier: ^10.0.2
-        version: 10.0.2
       daisyui:
         specifier: ^4.12.10
         version: 4.12.10(postcss@8.4.47)
       express:
         specifier: ^4.19.2
         version: 4.21.0
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.2(typescript@5.6.2)(vue@3.5.6(typescript@5.6.2))
       postcss:
         specifier: ^8.4.38
         version: 8.4.47
@@ -56,9 +38,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.12
-      typestyle:
-        specifier: ^2.4.0
-        version: 2.4.0
       vue:
         specifier: ^3.5.6
         version: 3.5.6(typescript@5.6.2)
@@ -90,7 +69,7 @@ importers:
         specifier: ^5.0.61
         version: link:src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.37
+        specifier: ^5.0.38
         version: link:src/suite-vendor/a-core/modules/a-style
       zova-module-a-tabs:
         specifier: ^5.0.20
@@ -143,9 +122,6 @@ importers:
       zova-module-test-c:
         specifier: ^5.0.0
         version: link:src/module/test-c
-      zova-vite:
-        specifier: workspace:^
-        version: link:packages-utils/zova-vite
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.11
@@ -177,6 +153,9 @@ importers:
       vue-tsc:
         specifier: ^2.0.29
         version: 2.1.6(typescript@5.6.2)
+      zova-vite:
+        specifier: workspace:^
+        version: link:packages-utils/zova-vite
 
   packages-utils/babel-plugin-zova-bean-module:
     devDependencies:
@@ -373,7 +352,7 @@ importers:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.111
+        specifier: ^5.0.112
         version: link:../../src/suite-vendor/a-core
 
   src/module/test-a:
@@ -408,7 +387,7 @@ importers:
         specifier: ^5.0.61
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.37
+        specifier: ^5.0.38
         version: link:modules/a-style
       zova-module-a-tabs:
         specifier: ^5.0.20

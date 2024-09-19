@@ -49,11 +49,11 @@ export class CliToolsDeps extends BeanCliBase {
   }
 
   async _generatePkgFromPkgOriginal(pkgOriginal, pkgFile) {
-    const deps = pkgOriginal.dependencies;
+    const depsOriginal = pkgOriginal.dependencies;
     // all modules
     this.modulesMeta.modulesArray.forEach(module => {
-      if (!deps[module.package.name]) {
-        deps[module.package.name] = '^' + module.package.version;
+      if (!depsOriginal[module.package.name]) {
+        depsOriginal[module.package.name] = '^' + module.package.version;
       }
     });
     // all deps of modules
@@ -61,8 +61,8 @@ export class CliToolsDeps extends BeanCliBase {
       const deps = module.package.dependencies;
       if (deps) {
         for (const key in deps) {
-          if (!deps[key]) {
-            deps[key] = deps[key];
+          if (!depsOriginal[key]) {
+            depsOriginal[key] = deps[key];
           }
         }
       }
