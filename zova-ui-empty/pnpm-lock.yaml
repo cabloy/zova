@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@tanstack/query-persist-client-core':
+        specifier: ^5.45.0
+        version: 5.51.15
+      '@tanstack/vue-query':
+        specifier: ^5.45.0
+        version: 5.51.15(vue@3.5.6(typescript@5.5.4))
+      axios:
+        specifier: ^1.6.8
+        version: 1.7.2
       compression:
         specifier: ^1.7.4
         version: 1.7.4
@@ -17,9 +26,18 @@ importers:
       cors:
         specifier: ^2.8.5
         version: 2.8.5
+      csx:
+        specifier: ^10.0.2
+        version: 10.0.2
       express:
         specifier: ^4.19.2
         version: 4.19.2
+      localforage:
+        specifier: ^1.10.0
+        version: 1.10.0
+      pinia:
+        specifier: ^2.1.7
+        version: 2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4))
       quasar:
         specifier: ^2.17.0
         version: 2.17.0
@@ -29,58 +47,15 @@ importers:
       vue:
         specifier: ^3.5.6
         version: 3.5.6(typescript@5.5.4)
+      vue-router:
+        specifier: ^4.4.5
+        version: 4.4.5(vue@3.5.6(typescript@5.5.4))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
       zova:
         specifier: ^5.0.202
         version: 5.0.202(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4))
-    devDependencies:
-      '@cabloy/lint':
-        specifier: ^4.0.11
-        version: 4.0.11(typescript@5.5.4)
-      '@quasar/app-vite':
-        specifier: 2.0.0-beta.18
-        version: 2.0.0-beta.18(@types/node@20.14.13)(eslint@8.57.0)(pinia@2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4)))(quasar@2.17.0)(rollup@4.19.1)(terser@5.31.3)(typescript@5.5.4)(vue-router@4.4.5(vue@3.5.6(typescript@5.5.4)))(vue@3.5.6(typescript@5.5.4))
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.51.15
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.51.15(vue@3.5.6(typescript@5.5.4))
-      '@types/node':
-        specifier: ^20.14.2
-        version: 20.14.13
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.5
-        version: 5.1.1(vite@5.3.5(@types/node@20.14.13)(sass@1.77.8)(terser@5.31.3))(vue@3.5.6(typescript@5.5.4))
-      axios:
-        specifier: ^1.6.8
-        version: 1.7.2
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4))
-      quasar-app-extension-zova:
-        specifier: ^1.1.165
-        version: 1.1.165(@babel/core@7.25.2)(@babel/traverse@7.25.2)(@types/node@20.14.13)(eslint@8.57.0)(pinia@2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4)))(quasar@2.17.0)(rollup@4.19.1)(sass@1.77.8)(terser@5.31.3)(typescript@5.5.4)(vue-router@4.4.5(vue@3.5.6(typescript@5.5.4)))(vue@3.5.6(typescript@5.5.4))
-      sass:
-        specifier: ^1.77.5
-        version: 1.77.8
-      typescript:
-        specifier: ^5.4.5
-        version: 5.5.4
-      vite:
-        specifier: ^5.3.1
-        version: 5.3.5(@types/node@20.14.13)(sass@1.77.8)(terser@5.31.3)
-      vue-tsc:
-        specifier: ^2.0.29
-        version: 2.0.29(typescript@5.5.4)
       zova-module-a-core:
         specifier: ^5.0.44
         version: 5.0.44
@@ -129,14 +104,40 @@ importers:
       zova-module-home-theme:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-theme
-      zova-module-test-demo:
-        specifier: ^5.0.0
-        version: link:src/module/test-demo
+    devDependencies:
+      '@cabloy/lint':
+        specifier: ^4.0.11
+        version: 4.0.11(typescript@5.5.4)
+      '@quasar/app-vite':
+        specifier: 2.0.0-beta.18
+        version: 2.0.0-beta.18(@types/node@20.14.13)(eslint@8.57.0)(pinia@2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4)))(quasar@2.17.0)(rollup@4.19.1)(terser@5.31.3)(typescript@5.5.4)(vue-router@4.4.5(vue@3.5.6(typescript@5.5.4)))(vue@3.5.6(typescript@5.5.4))
+      '@types/node':
+        specifier: ^20.14.2
+        version: 20.14.13
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.1.1(vite@5.3.5(@types/node@20.14.13)(sass@1.77.8)(terser@5.31.3))(vue@3.5.6(typescript@5.5.4))
+      concurrently:
+        specifier: ^8.2.2
+        version: 8.2.2
+      quasar-app-extension-zova:
+        specifier: ^1.1.165
+        version: 1.1.165(@babel/core@7.25.2)(@babel/traverse@7.25.2)(@types/node@20.14.13)(eslint@8.57.0)(pinia@2.2.0(typescript@5.5.4)(vue@3.5.6(typescript@5.5.4)))(quasar@2.17.0)(rollup@4.19.1)(sass@1.77.8)(terser@5.31.3)(typescript@5.5.4)(vue-router@4.4.5(vue@3.5.6(typescript@5.5.4)))(vue@3.5.6(typescript@5.5.4))
+      sass:
+        specifier: ^1.77.5
+        version: 1.77.8
+      typescript:
+        specifier: ^5.4.5
+        version: 5.5.4
+      vite:
+        specifier: ^5.3.1
+        version: 5.3.5(@types/node@20.14.13)(sass@1.77.8)(terser@5.31.3)
+      vue-tsc:
+        specifier: ^2.0.29
+        version: 2.0.29(typescript@5.5.4)
       zova-vite:
         specifier: ^1.0.167
         version: 1.0.167(@babel/core@7.25.2)(@babel/traverse@7.25.2)(sass@1.77.8)(vue@3.5.6(typescript@5.5.4))
-
-  src/module/test-demo: {}
 
   src/suite/a-demo:
     dependencies:
