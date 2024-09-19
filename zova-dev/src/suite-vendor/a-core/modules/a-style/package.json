@@ -1,6 +1,6 @@
 {
   "name": "zova-module-a-style",
-  "version": "5.0.37",
+  "version": "5.0.38",
   "title": "a-style",
   "zovaModule": {
     "capabilities": {
@@ -38,8 +38,8 @@
     "_prepublishOnly": "npm run tsc:publish"
   },
   "dependencies": {
-    "typestyle": "^2.4.0",
-    "csx": "^10.0.2"
+    "csx": "^10.0.2",
+    "typestyle": "^2.4.0"
   },
   "gitHead": "06a79ff9527443a6c301214ae09f17a0f52d1f1e"
 }
