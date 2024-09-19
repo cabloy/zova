@@ -29,7 +29,7 @@ jobs:
         run: zova :create:suite test-demo --description --author
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: module
-        run: zova :create:module test-demo --template=basic --suite=test-demo --description --author
+        run: zova :create:module test-demo --template=basic --suite=test-demo --description --author --cicd
         working-directory: ${{ matrix.project-template }}-${{ matrix.node-version }}
       - name: pnpm install --force
         run: pnpm install --force --no-frozen-lockfile
