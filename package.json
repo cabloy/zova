@@ -21,7 +21,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "init": "pnpm install --no-frozen-lockfile && cd ./zova-cli && pnpm install --no-frozen-lockfile && cd ../zova-dev && zova :tools:deps && pnpm install --no-frozen-lockfile",
+    "init": "pnpm install --no-frozen-lockfile && cd ./zova-cli && pnpm install --no-frozen-lockfile && cd .. && npm run zova-dev-deps && cd ./zova-dev && pnpm install --no-frozen-lockfile",
+    "zova-dev-deps": "cd ./zova-cli && tsc -b && cd ../zova-dev && node ../zova-cli/cli/dist/bin/zova.js :tools:deps",
     "docs:dev": "vitepress dev zova-docs",
     "docs:build": "vitepress build zova-docs",
     "docs:preview": "vitepress preview zova-docs"

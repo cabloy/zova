@@ -81,7 +81,7 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-cli-set-front:
-        specifier: ^1.1.161
+        specifier: ^1.1.162
         version: link:../cli-set-front
 
   cli-set-front:
@@ -114,8 +114,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
       zova-vite:
-        specifier: ^1.0.166
-        version: 1.0.166(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5))
+        specifier: ^1.0.167
+        version: 1.0.167(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5))
 
 packages:
 
@@ -323,16 +323,16 @@ packages:
       '@babel/core': ^7.0.0
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  '@cabloy/vue-reactivity@3.5.6':
-    resolution: {integrity: sha512-r6cvM50C7zYcmmJqTj6aEXaeuSKsh+5Iytys4juq4NNM+US5WfvVPzXFJMCaqIpnYwGTk+8t0+xnpihbtm0skg==}
+  '@cabloy/vue-reactivity@3.5.7':
+    resolution: {integrity: sha512-DkL7FxunH5ijYHA+ijJB01Qo+l1ZcbqG/HlzRX9QBB1a0pGZny9l3kqkErxMyXqStF9rN/W3NAx2VNIXtkIzfw==}
 
   '@cabloy/vue-router@4.4.8':
     resolution: {integrity: sha512-KsVwHn/h0K4q4LujM6VO3Nkg7Z6neM56L6mJu9z4coYdKyi2F+wdB92BT0You5pYz1C1I8tl72TfHmPfwnIYAg==}
     peerDependencies:
       vue: ^3.2.0
 
-  '@cabloy/vue-runtime-core@3.5.6':
-    resolution: {integrity: sha512-URwmyVAAC3++tQzJD+t9zZXVW7s/5YU1Yjv2Yxhi3BES+9SfFaVQSrr4RLUYXBmSYyIObVBaRZDNumGlZNQyXA==}
+  '@cabloy/vue-runtime-core@3.5.7':
+    resolution: {integrity: sha512-cF8KrLAYLFRCTupEoUA07s/GxSTj63bhLX06QkSH+4nmtyHz6bDfOglP+TrLB6luX0mGk8JOfQapbS40eanS7A==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3572,8 +3572,8 @@ packages:
   zova-shared@1.0.4:
     resolution: {integrity: sha512-aPiz/kIhD49GIsYVW00AKky4pMUgS2Qgs9QAl47X+DrBH1RIzJxf1PmuZeGfkdUHOV690Xk0/jE33nFdhMYeGQ==}
 
-  zova-vite@1.0.166:
-    resolution: {integrity: sha512-APIe+NSDxwICXyFQ9a+77oze0tqLG9pPXVN1p/QMMoRrCi/BnHM7VwqTKHq4oQS5srM4HAeJhQ3h+YoR2SF97g==}
+  zova-vite@1.0.167:
+    resolution: {integrity: sha512-CSQthmXl36EKcaqBwB4k9YtznCNwbMyDq29Rp/u+KwxokaGcDhIWHaUAByhKLfA5haaXfjTaa7CaNYApz4ctig==}
 
 snapshots:
 
@@ -3846,7 +3846,7 @@ snapshots:
       esbuild: 0.20.2
       vite: 5.2.12(@types/node@20.14.9)(terser@5.31.0)
 
-  '@cabloy/vue-reactivity@3.5.6':
+  '@cabloy/vue-reactivity@3.5.7':
     dependencies:
       '@vue/shared': 3.5.6
 
@@ -3855,9 +3855,9 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.4.27(typescript@5.4.5)
 
-  '@cabloy/vue-runtime-core@3.5.6':
+  '@cabloy/vue-runtime-core@3.5.7':
     dependencies:
-      '@vue/reactivity': '@cabloy/vue-reactivity@3.5.6'
+      '@vue/reactivity': '@cabloy/vue-reactivity@3.5.7'
       '@vue/shared': 3.5.6
 
   '@colors/colors@1.5.0':
@@ -7247,7 +7247,7 @@ snapshots:
 
   zova-shared@1.0.4: {}
 
-  zova-vite@1.0.166(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5)):
+  zova-vite@1.0.167(@babel/core@7.24.6)(@babel/traverse@7.24.6)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@babel/plugin-proposal-decorators': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-class-properties': 7.24.6(@babel/core@7.24.6)
@@ -7256,9 +7256,9 @@ snapshots:
       '@cabloy/module-glob': 5.0.15
       '@cabloy/module-info': 1.0.22
       '@cabloy/vite-plugin-babel': 1.1.3(@babel/core@7.24.6)(vite@5.2.12(@types/node@20.14.9)(terser@5.31.0))
-      '@cabloy/vue-reactivity': 3.5.6
+      '@cabloy/vue-reactivity': 3.5.7
       '@cabloy/vue-router': 4.4.8(vue@3.4.27(typescript@5.4.5))
-      '@cabloy/vue-runtime-core': 3.5.6
+      '@cabloy/vue-runtime-core': 3.5.7
       '@faker-js/faker': 8.4.1
       '@types/node': 20.14.9
       '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.12(@types/node@20.14.9)(terser@5.31.0))(vue@3.4.27(typescript@5.4.5))
