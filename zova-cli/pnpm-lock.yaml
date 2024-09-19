@@ -81,7 +81,7 @@ importers:
         specifier: ^3.24.0
         version: 3.24.0
       zova-cli-set-front:
-        specifier: ^1.1.160
+        specifier: ^1.1.161
         version: link:../cli-set-front
 
   cli-set-front:
