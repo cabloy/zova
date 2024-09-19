@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-empty",
-  "version": "5.0.268",
+  "version": "5.0.275",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,11 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": ["vue3", "ioc", "zova"],
+  "keywords": [
+    "vue3",
+    "ioc",
+    "zova"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -41,7 +45,7 @@
     "typestyle": "^2.4.0",
     "vue": "^3.5.6",
     "zod": "^3.23.8",
-    "zova": "^5.0.196"
+    "zova": "^5.0.202"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.11",
@@ -49,12 +53,12 @@
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.158",
+    "quasar-app-extension-zova": "^1.1.165",
     "sass": "^1.77.5",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.29",
-    "zova-vite": "^1.0.161"
+    "zova-vite": "^1.0.167"
   },
   "license": "MIT",
   "gitHead": "2e4d9bb972eb659ee729924bf7df496635c734a0"
