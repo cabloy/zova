@@ -60,6 +60,12 @@ const __MenuData = [
         icon: '',
         to: '/a/demo/pinia',
       },
+      {
+        title: 'Legacy Vue3',
+        caption: '',
+        icon: '',
+        to: '/a/demo/legacy',
+      },
     ],
   },
   {
