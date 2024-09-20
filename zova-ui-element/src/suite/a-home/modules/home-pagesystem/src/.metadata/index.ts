@@ -6,7 +6,7 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/home/pagesystem//:catchAll(.*)*': never;
+    '/home/pagesystem//:catchAll(.*)*': undefined;
   }
   export interface IPageNameRecord {}
 }

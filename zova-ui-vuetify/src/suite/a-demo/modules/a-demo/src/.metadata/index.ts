@@ -32,8 +32,8 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': never;
-    '/a/demo/state': never;
+    '/a/demo/component': undefined;
+    '/a/demo/state': undefined;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {}
