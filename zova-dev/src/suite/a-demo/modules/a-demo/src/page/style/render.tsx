@@ -70,8 +70,8 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
                 }}
               >
                 <option
-                  value={getBeanName('home-theme.theme.default')}
-                  selected={this.$theme.name === getBeanName('home-theme.theme.default')}
+                  value={getBeanName('home-base.theme.default')}
+                  selected={this.$theme.name === getBeanName('home-base.theme.default')}
                 >
                   Default
                 </option>

@@ -1,10 +1,16 @@
 /** beans: begin */
 export * from '../bean/bean.api.js';
+export * from '../bean/style.default.js';
+export * from '../bean/theme.default.js';
 import { BeanApi } from '../bean/bean.api.js';
+import { StyleDefault } from '../bean/style.default.js';
+import { ThemeDefault } from '../bean/theme.default.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
     'home-base.bean.api': BeanApi;
+    'home-base.style.default': StyleDefault;
+    'home-base.theme.default': ThemeDefault;
   }
 }
 /** beans: end */
@@ -16,7 +22,7 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/home/base/errorNotFound': never;
+    '/home/base//:catchAll(.*)*': never;
   }
   export interface IPageNameRecord {}
 }
