@@ -21,6 +21,7 @@ import { CliInitConfig } from './bean/cli.init.config.js';
 import { CliInitConstant } from './bean/cli.init.constant.js';
 import { CliInitLocale } from './bean/cli.init.locale.js';
 import { CliInitError } from './bean/cli.init.error.js';
+import { CliInitLegacy } from './bean/cli.init.legacy.js';
 import { CliRefactorPageQuery } from './bean/cli.refactor.pageQuery.js';
 import { CliRefactorPageParams } from './bean/cli.refactor.pageParams.js';
 import { CliRefactorComponentGeneric } from './bean/cli.refactor.componentGeneric.js';
@@ -49,6 +50,7 @@ export const beans = {
   'init.constant': CliInitConstant,
   'init.locale': CliInitLocale,
   'init.error': CliInitError,
+  'init.legacy': CliInitLegacy,
   'refactor.pageQuery': CliRefactorPageQuery,
   'refactor.pageParams': CliRefactorPageParams,
   'refactor.componentGeneric': CliRefactorComponentGeneric,
