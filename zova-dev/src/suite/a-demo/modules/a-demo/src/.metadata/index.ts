@@ -27,6 +27,7 @@ declare module 'zova' {
 /** components: end */
 /** pages: begin */
 export * as NSControllerPageComponent from '../page/component/controller.js';
+export * as NSControllerPageLegacy from '../page/legacy/controller.js';
 export * as NSControllerPageLocale from '../page/locale/controller.js';
 export * as NSControllerPagePinia from '../page/pinia/controller.js';
 export * as NSControllerPageRouteParams from '../page/routeParams/controller.js';
@@ -45,10 +46,13 @@ import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
+    '/a/demo/component': never;
+    '/a/demo/legacy': never;
     '/a/demo/locale': NSControllerPageLocale.QueryInput;
     '/a/demo/pinia': NSControllerPagePinia.QueryInput;
     '/a/demo/routeQuery': NSControllerPageRouteQuery.QueryInput;
     '/a/demo/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
+    '/a/demo/state': never;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {
