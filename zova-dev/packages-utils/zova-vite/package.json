@@ -58,7 +58,8 @@
     "zova-shared": "^1.0.4"
   },
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4"
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.17.7"
   },
   "gitHead": "06a79ff9527443a6c301214ae09f17a0f52d1f1e"
 }

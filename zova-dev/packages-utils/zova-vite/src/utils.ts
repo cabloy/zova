@@ -3,6 +3,8 @@ import path from 'node:path';
 import { ZovaConfigMeta } from 'zova-shared';
 import { createRequire } from 'node:module';
 import moduleAlias from 'module-alias';
+import fse from 'fs-extra';
+import compileTemplate from 'lodash/template.js';
 
 export function getFlavor(offset: number = 2): string {
   return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);
@@ -66,4 +68,17 @@ export function getAbsolutePathOfModule(id: string, postfix: string = 'index.js'
     modulePath = modulePath.substring(0, modulePath.length - postfix.length - 1);
   }
   return modulePath;
+}
+
+export async function copyTemplateFile(fileSrc: URL | string, fileDest: string, variables?) {
+  if (!variables) {
+    await fse.copyFile(fileSrc, fileDest);
+    return;
+  }
+  // src
+  const contentSrc = (await fse.readFile(fileSrc, 'utf-8')).toString();
+  const template = compileTemplate(contentSrc);
+  // dest
+  const contentDest = template(variables);
+  await fse.writeFile(fileDest, contentDest, 'utf-8');
 }

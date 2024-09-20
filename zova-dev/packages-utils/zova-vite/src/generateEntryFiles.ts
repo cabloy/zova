@@ -1,6 +1,4 @@
-import { readFileSync } from 'node:fs';
 import fse from 'fs-extra';
-import compileTemplate from 'lodash/template.js';
 import { glob } from '@cabloy/module-glob';
 import tmp from 'tmp';
 import { build as esBuild } from 'esbuild';
@@ -8,7 +6,7 @@ import chalk from 'chalk';
 import { extend } from '@cabloy/extend';
 import { pathToFileURL } from 'node:url';
 import path, * as Path from 'node:path';
-import { getEnvMeta, resolveTemplatePath } from './utils.js';
+import { copyTemplateFile, getEnvMeta, resolveTemplatePath } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaViteConfigOptions } from './types.js';
 import { ZovaConfigMeta } from 'zova-shared';
@@ -114,13 +112,9 @@ export async function generateEntryFiles(
     const moduleNames = modulesArray.map(item => item.info.relativeName);
     // src
     const fileSrc = resolveTemplatePath('zova-modules-meta.ejs');
-    const contentSrc = readFileSync(fileSrc, 'utf8');
-    const template = compileTemplate(contentSrc);
-    // dest
-    const contentDest = template({ modules, moduleNames });
     const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'modules-meta.ts');
-    fse.ensureFileSync(fileDest);
-    fse.writeFileSync(fileDest, contentDest, 'utf-8');
+    await fse.ensureDir(path.join(configOptions.appDir, configOptions.runtimeDir));
+    await copyTemplateFile(fileSrc, fileDest, { modules, moduleNames });
   }
 
   function _pathToHref(fileName: string): string {
