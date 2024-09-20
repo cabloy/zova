@@ -8,6 +8,7 @@ import { generateIcons } from './toolsMetadata/generateIcons.js';
 import { generateConfig, generateConstant, generateError, generateLocale } from './toolsMetadata/generateConfig.js';
 import { generateServices } from './toolsMetadata/generateServices.js';
 import { generateScope } from './toolsMetadata/generateScope.js';
+import { generateMonkey } from './toolsMetadata/generateMonkey.js';
 
 declare module 'zova-cli' {
   interface ICommandArgv {
@@ -80,6 +81,8 @@ export class CliToolsMetadata extends BeanCliBase {
     // services
     const contentServices = await generateServices(modulePath);
     content += contentServices;
+    // monkey
+    content += await generateMonkey(modulePath);
     // scope
     content += await generateScope(moduleName, relativeNameCapitalize, {
       components: contentComponents,
