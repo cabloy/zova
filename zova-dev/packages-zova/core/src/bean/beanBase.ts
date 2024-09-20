@@ -38,6 +38,14 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
     });
   }
 
+  protected get $appUtil() {
+    return this.app.meta.util;
+  }
+
+  protected get $ctxUtil() {
+    return this.ctx.meta.util;
+  }
+
   // need not
   // protected async __init__() {}
   // protected __dispose__() {}
