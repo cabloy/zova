@@ -6,7 +6,7 @@ import { LocalSSR } from './bean/local.ssr.js';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   private _localSSR: LocalSSR;
 
-  async appInitialize(_bean: BeanContainer) {
+  async appInitialize() {
     // defaultThemeHandler
     const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
     scopeStyle.config.defaultThemeHandler = 'a-element.tool.themeHandler';
@@ -17,7 +17,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     this._localSSR = await this.bean._newBean(LocalSSR, false);
     await this._localSSR.initialize();
   }
-  async appInitialized(_bean: BeanContainer) {}
+  async appInitialized() {}
   async appReady(_bean: BeanContainer) {}
   async beanInit(_bean: BeanContainer, _beanInstance: BeanBase) {}
   async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}

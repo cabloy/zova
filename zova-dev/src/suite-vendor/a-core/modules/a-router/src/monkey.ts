@@ -38,14 +38,14 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     return this._beanRouter;
   }
 
-  async appInitialize(_bean: BeanContainer) {
+  async appInitialize() {
     // router
     this.localRouter = await this.bean._newBean(LocalRouter, false);
   }
-  async appInitialized(bean: BeanContainer) {
+  async appInitialized() {
     // component default
-    const scope: ScopeModule = await bean.getScope(__ThisModule__);
-    this._beanComponentDefault = await bean.getScope(scope.config.defaultComponent);
+    const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
+    this._beanComponentDefault = await this.bean.getScope(scope.config.defaultComponent);
     // emit event
     await this.app.meta.event.emit('a-router:routerGuards', this._beanRouter);
   }

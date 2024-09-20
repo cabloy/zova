@@ -8,7 +8,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
   private _beanStyleDefault: any;
   private _styleInstance: TypeStyle;
 
-  async appInitialize(_bean: BeanContainer) {
+  async appInitialize() {
     if (process.env.SERVER) {
       this._styleInstance = createTypeStyle();
       this.ctx.meta.ssr.context.onRendered(() => {
@@ -23,12 +23,12 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       });
     }
   }
-  async appInitialized(bean: BeanContainer) {
+  async appInitialized() {
     // theme
-    this._beanTheme = await bean._getBean(BeanTheme, true);
+    this._beanTheme = await this.bean._getBean(BeanTheme, true);
     // style default
-    const scope: ScopeModule = await bean.getScope(__ThisModule__);
-    this._beanStyleDefault = await bean._getBean(scope.config.defaultStyle, true);
+    const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
+    this._beanStyleDefault = await this.bean._getBean(scope.config.defaultStyle, true);
   }
   async appReady(_bean: BeanContainer) {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
