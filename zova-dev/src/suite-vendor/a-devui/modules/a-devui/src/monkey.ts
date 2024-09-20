@@ -12,7 +12,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     await localSSR.initialize();
   }
   async appInitialized() {}
-  async appReady(_bean: BeanContainer) {}
+  async appReady() {}
   async beanInit(_bean: BeanContainer, _beanInstance: BeanBase) {}
   async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
   beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}

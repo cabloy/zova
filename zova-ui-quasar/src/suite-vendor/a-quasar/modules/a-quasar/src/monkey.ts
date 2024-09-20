@@ -16,7 +16,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     await localSSR.initialize();
   }
   async appInitialized() {}
-  async appReady(_bean: BeanContainer) {}
+  async appReady() {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
     bean.defineProperty(beanInstance, '$q', {

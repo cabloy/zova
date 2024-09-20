@@ -49,7 +49,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     // emit event
     await this.app.meta.event.emit('a-router:routerGuards', this._beanRouter);
   }
-  async appReady(_bean: BeanContainer) {
+  async appReady() {
     // use router
     this.app.vue.use(this._beanRouter);
     // ssr

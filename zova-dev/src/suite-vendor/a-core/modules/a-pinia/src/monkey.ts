@@ -9,7 +9,7 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     this.pinia = await this.bean._newBean(LocalPinia, false);
   }
   async appInitialized() {}
-  async appReady(_bean: BeanContainer) {}
+  async appReady() {}
 
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
