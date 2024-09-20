@@ -196,7 +196,7 @@ export class BeanRouter extends BeanBase {
   }
 
   private _loadLegacyRoutes() {
-    const legacyRoutes = this.app.meta.legacyRoutes;
+    const legacyRoutes = Cast(this.app.meta).legacyRoutes;
     if (!legacyRoutes) return;
     for (const route of legacyRoutes) {
       this._registerRoute(route);
@@ -214,6 +214,19 @@ export class BeanRouter extends BeanBase {
   ): IModuleRoute | undefined {
     name = this.getRealRouteName(name);
     return name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
+  }
+
+  /** @internal */
+  public _findLegacyRoute(
+    name: string | symbol | null | undefined,
+    path: string | undefined,
+  ): IModuleRoute | undefined {
+    const legacyRoutes = Cast(this.app.meta).legacyRoutes;
+    if (!legacyRoutes) return;
+    name = this.getRealRouteName(name);
+    return legacyRoutes.find(item => {
+      return name ? item.name === name : item.path === path;
+    });
   }
 
   getRealRouteName(name?: string | symbol | null): string | undefined {

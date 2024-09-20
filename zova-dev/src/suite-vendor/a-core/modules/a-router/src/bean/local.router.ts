@@ -17,6 +17,9 @@ export class LocalRouter extends BeanRouterBase<ScopeModule> {
         match = match.aliasOf;
       } else {
         match = to.matched[to.matched.length - 1];
+        // legacy
+        const legacyRoute = this.$$router._findLegacyRoute(match?.name, match?.path);
+        if (legacyRoute) return;
         // alias
         const configRoute = this.$$router._findConfigRoute(match?.name, match?.path);
         const alias = configRoute?.alias;
