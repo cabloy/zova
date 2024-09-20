@@ -26,6 +26,8 @@ export class BeanRouter extends BeanBase {
     if (mainRouter) {
       // config.routes
       this._loadConfigRoutes();
+      // legacy routes
+      this._loadLegacyRoutes();
     } else {
       // emit event
       await this.app.meta.event.emit('a-router:routerGuards', this);
@@ -104,17 +106,17 @@ export class BeanRouter extends BeanBase {
 
   /** @internal */
   public _registerRoutes(module: IModule) {
-    if (!module.resource.routes) return null;
+    if (!module.resource.routes) return;
     for (const route of module.resource.routes) {
-      this._registerRoute(module, route);
+      this._registerRoute(route, module);
     }
   }
 
-  private _registerRoute(module: IModule, route: IModuleRoute) {
+  private _registerRoute(route: IModuleRoute, module?: IModule) {
     // path
     let path: string | undefined;
     if (route.path !== undefined) {
-      if (route.meta?.absolute === true) {
+      if (!module || route.meta?.absolute === true) {
         path = route.path;
       } else {
         path = route.path
@@ -125,7 +127,7 @@ export class BeanRouter extends BeanBase {
     // name
     let name: string | undefined;
     if (route.name) {
-      if (route.meta?.absolute === true) {
+      if (!module || route.meta?.absolute === true) {
         name = String(route.name);
       } else {
         name = `${module.info.relativeName}:${String(route.name)}`;
@@ -190,6 +192,14 @@ export class BeanRouter extends BeanBase {
     for (const key in routesName) {
       const route = routesName[key];
       this._loadConfigRoute({ ...route, path: route.path || route.alias, name: key });
+    }
+  }
+
+  private _loadLegacyRoutes() {
+    const legacyRoutes = this.app.meta.legacyRoutes;
+    if (!legacyRoutes) return;
+    for (const route of legacyRoutes) {
+      this._registerRoute(route);
     }
   }
 
