@@ -1,3 +1,13 @@
+/** beans: begin */
+export * from '../bean/bean.api.js';
+import { BeanApi } from '../bean/bean.api.js';
+import 'zova';
+declare module 'zova' {
+  export interface IBeanRecord {
+    'home-base.bean.api': BeanApi;
+  }
+}
+/** beans: end */
 /** monkey: begin */
 export * from '../monkey.js';
 /** monkey: end */
