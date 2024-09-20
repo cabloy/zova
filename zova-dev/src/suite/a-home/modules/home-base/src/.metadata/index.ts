@@ -14,6 +14,20 @@ declare module 'zova' {
   }
 }
 /** beans: end */
+/** components: begin */
+export * as NSControllerPage from '../component/page/controller.js';
+import * as NSControllerPage from '../component/page/controller.js';
+import component_page from '../component/page/index.vue';
+export const components = {
+  page: component_page,
+};
+import 'zova';
+declare module 'zova' {
+  export interface IComponentRecord {
+    'home-base:page': NSControllerPage.ControllerPage;
+  }
+}
+/** components: end */
 /** pages: begin */
 export * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
 
@@ -38,7 +52,7 @@ import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 @Scope()
 export class ScopeModuleHomeBase extends BeanScopeBase {}
 
-export interface ScopeModuleHomeBase extends TypeModuleResource<any, any, any, any, any, any> {}
+export interface ScopeModuleHomeBase extends TypeModuleResource<typeof components, any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
