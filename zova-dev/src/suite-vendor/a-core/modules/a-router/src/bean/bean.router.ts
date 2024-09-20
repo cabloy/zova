@@ -70,7 +70,11 @@ export class BeanRouter extends BeanBase {
   }
 
   public checkPathValid(to?: { name?: string; path?: string } | string): boolean {
+    const _name = to && typeof to === 'object' ? to.name : undefined;
     const _path = to && typeof to === 'object' ? (to.name ?? to.path) : to;
+    // legacy
+    if (this._findLegacyRoute(_name, _path)) return true;
+    // general check
     if (!_path) return true;
     const moduleName = ModuleInfo.parseName(_path);
     if (!moduleName) return true;

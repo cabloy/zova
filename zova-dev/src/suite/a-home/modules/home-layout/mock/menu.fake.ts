@@ -31,7 +31,7 @@ const __MenuData = [
         to: '/a/demo/routeQuery',
       },
       {
-        title: 'Route Query2',
+        title: 'Route Query(2)',
         caption: 'boolean, json, array',
         icon: '',
         to: '/a/demo/routeQuery2',
@@ -65,6 +65,12 @@ const __MenuData = [
         caption: '',
         icon: '',
         to: '/a/demo/legacy',
+      },
+      {
+        title: 'Legacy Vue3(2)',
+        caption: '',
+        icon: '',
+        to: '/legacy/counter',
       },
     ],
   },
