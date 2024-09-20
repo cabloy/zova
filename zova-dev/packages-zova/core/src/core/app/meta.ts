@@ -38,7 +38,9 @@ export class AppMeta extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(AppMonkey: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>) {
-    this.appMonkey = this.bean._newBeanSimple(AppMonkey, false);
+  public async initialize(AppMonkey?: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>) {
+    if (AppMonkey) {
+      this.appMonkey = this.bean._newBeanSimple(AppMonkey, false);
+    }
   }
 }

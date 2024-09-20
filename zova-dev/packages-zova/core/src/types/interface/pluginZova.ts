@@ -11,7 +11,7 @@ export interface PluginZovaModulesMeta {
 
 export interface PluginZovaOptions {
   modulesMeta: PluginZovaModulesMeta;
-  AppMonkey: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>;
+  AppMonkey?: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>;
   locales: ZovaLocaleOptionalMap;
   config: ZovaConfig;
 }

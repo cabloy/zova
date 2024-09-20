@@ -1,7 +1,7 @@
 import { App, getCurrentInstance } from 'vue';
 import { BeanControllerPageBase, Local, PluginZova, ZovaApplication } from 'zova';
 import { locales } from '../../src/front/config/locales.js';
-import { AppMonkey } from '../../src/front/config/monkey.js';
+<%=appMonkey?"import { AppMonkey } from '../../src/front/config/monkey.js';":''%>
 import config from '../config.js';
 import { modulesMeta } from '../modules-meta.js';
 
@@ -20,7 +20,7 @@ export class ControllerPageApp extends BeanControllerPageBase {
 
   protected async initApp(app: App) {
     // install
-    await PluginZova.install(app, this.ctx, { modulesMeta, AppMonkey, locales, config });
+    await PluginZova.install(app, this.ctx, { modulesMeta, <%=appMonkey?'AppMonkey, ':''%>locales, config });
   }
 
   protected async updateApp(app: ZovaApplication) {

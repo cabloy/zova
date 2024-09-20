@@ -102,7 +102,10 @@ export async function generateEntryFiles(
     for (const file of files) {
       const fileSrc = resolveTemplatePath(`app/${file}`);
       const fileDest = path.join(pathDest, file);
-      fse.copyFileSync(fileSrc, fileDest);
+      const vars = {
+        appMonkey: fse.existsSync(path.join(configOptions.appDir, 'src/front/config/monkey.ts')),
+      };
+      await copyTemplateFile(fileSrc, fileDest, vars);
     }
   }
 
