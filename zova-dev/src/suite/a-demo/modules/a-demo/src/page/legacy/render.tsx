@@ -10,6 +10,7 @@ export class RenderLegacy extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <this.$component.page>
+        <div>Legacy Vue3 composables/components can be used directly in Zova</div>
         <Counter></Counter>
       </this.$component.page>
     );
