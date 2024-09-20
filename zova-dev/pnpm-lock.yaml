@@ -101,6 +101,9 @@ importers:
       zova-module-home-api:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-api
+      zova-module-home-base:
+        specifier: ^5.0.0
+        version: link:src/suite/a-home/modules/home-base
       zova-module-home-component:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-component
@@ -480,6 +483,9 @@ importers:
       zova-module-home-api:
         specifier: workspace:^
         version: link:modules/home-api
+      zova-module-home-base:
+        specifier: workspace:^
+        version: link:modules/home-base
       zova-module-home-component:
         specifier: workspace:^
         version: link:modules/home-component
@@ -513,6 +519,8 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.7.7
+
+  src/suite/a-home/modules/home-base: {}
 
   src/suite/a-home/modules/home-component: {}
 

@@ -4,9 +4,9 @@ import { LocalRouter } from './bean/local.router.js';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   localRouter: LocalRouter;
 
-  async appInitialize(bean: BeanContainer) {
+  async appInitialize(_bean: BeanContainer) {
     // router
-    this.localRouter = await bean._newBean(LocalRouter, false);
+    this.localRouter = await this.bean._newBean(LocalRouter, false);
   }
   async appInitialized(_bean: BeanContainer) {}
   async appReady(_bean: BeanContainer) {}

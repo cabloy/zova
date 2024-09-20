@@ -6,15 +6,15 @@ import { LocalSSR } from './bean/local.ssr.js';
 export class Monkey extends BeanSimple implements IMonkeySystem {
   private _localSSR: LocalSSR;
 
-  async appInitialize(bean: BeanContainer) {
+  async appInitialize(_bean: BeanContainer) {
     // defaultThemeHandler
-    const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
+    const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
     scopeStyle.config.defaultThemeHandler = 'a-element.tool.themeHandler';
     // icon
-    const localIcon = await bean._newBean(LocalIcon, false);
+    const localIcon = await this.bean._newBean(LocalIcon, false);
     await localIcon.initialize();
     // ssr
-    this._localSSR = await bean._newBean(LocalSSR, false);
+    this._localSSR = await this.bean._newBean(LocalSSR, false);
     await this._localSSR.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}

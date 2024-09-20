@@ -3,12 +3,12 @@ import { ScopeModuleAStyle } from 'zova-module-a-style';
 import { LocalSSR } from './bean/local.ssr.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
-  async appInitialize(bean: BeanContainer) {
+  async appInitialize(_bean: BeanContainer) {
     // defaultThemeHandler
-    const scopeStyle: ScopeModuleAStyle = await bean.getScope('a-style');
+    const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
     scopeStyle.config.defaultThemeHandler = 'a-devui.tool.themeHandler';
     // ssr
-    const localSSR = await bean._newBean(LocalSSR, false);
+    const localSSR = await this.bean._newBean(LocalSSR, false);
     await localSSR.initialize();
   }
   async appInitialized(_bean: BeanContainer) {}

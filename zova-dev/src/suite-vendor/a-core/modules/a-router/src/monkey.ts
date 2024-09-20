@@ -38,9 +38,9 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
     return this._beanRouter;
   }
 
-  async appInitialize(bean: BeanContainer) {
+  async appInitialize(_bean: BeanContainer) {
     // router
-    this.localRouter = await bean._newBean(LocalRouter, false);
+    this.localRouter = await this.bean._newBean(LocalRouter, false);
   }
   async appInitialized(bean: BeanContainer) {
     // component default
