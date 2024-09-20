@@ -1,11 +1,12 @@
 import { BeanRenderBase, Local } from 'zova';
-import type { ControllerPageErrorNotFound } from './controller.js';
+import type { StyleErrorNotFound } from './style.js';
+import { ScopeModule } from '../../.metadata/this.js';
 import { RouterLink } from 'vue-router';
 
-export interface RenderErrorNotFound extends ControllerPageErrorNotFound {}
+export interface RenderErrorNotFound extends StyleErrorNotFound {}
 
 @Local()
-export class RenderErrorNotFound extends BeanRenderBase {
+export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div class="fill-height bg-blue text-white text-center">

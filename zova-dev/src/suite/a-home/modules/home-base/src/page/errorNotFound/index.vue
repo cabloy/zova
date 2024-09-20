@@ -6,5 +6,6 @@
 import { useControllerPage } from 'zova';
 import { ControllerPageErrorNotFound } from './controller.js';
 import { RenderErrorNotFound } from './render.jsx';
-useControllerPage(ControllerPageErrorNotFound, RenderErrorNotFound);
+import { StyleErrorNotFound } from './style.js';
+useControllerPage(ControllerPageErrorNotFound, RenderErrorNotFound, StyleErrorNotFound);
 </script>

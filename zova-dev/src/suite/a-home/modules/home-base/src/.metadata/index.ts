@@ -8,6 +8,21 @@ declare module 'zova' {
   }
 }
 /** beans: end */
+/** pages: begin */
+export * as NSControllerPageErrorNotFound from '../page/errorNotFound/controller.js';
+
+export * from '../routes.js';
+
+import 'zova';
+declare module 'zova' {
+  export interface IPagePathRecord {
+    '/home/base/errorNotFound': never;
+  }
+  export interface IPageNameRecord {}
+}
+export const pagePathSchemas = {};
+export const pageNameSchemas = {};
+/** pages: end */
 /** monkey: begin */
 export * from '../monkey.js';
 /** monkey: end */
