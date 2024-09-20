@@ -45,8 +45,21 @@ export class CliInitMonkey extends BeanCliBase {
     const pkg = await this.helper.loadJSONFile(pkgFile);
     if (!pkg.zovaModule) pkg.zovaModule = {};
     if (!pkg.zovaModule.capabilities) pkg.zovaModule.capabilities = {};
-    if (pkg.zovaModule.capabilities.monkey) return;
-    pkg.zovaModule.capabilities.monkey = true;
-    await this.helper.saveJSONFile(pkgFile, pkg);
+    let changed;
+    // monkey
+    if (!pkg.zovaModule.capabilities.monkey) {
+      pkg.zovaModule.capabilities.monkey = true;
+      changed = true;
+    }
+    // dependencies
+    if (!pkg.zovaModule.dependencies) pkg.zovaModule.dependencies = {};
+    if (!pkg.zovaModule.dependencies['a-core']) {
+      pkg.zovaModule.dependencies['a-core'] = '5.0.0';
+      changed = true;
+    }
+    // save
+    if (changed) {
+      await this.helper.saveJSONFile(pkgFile, pkg);
+    }
   }
 }
