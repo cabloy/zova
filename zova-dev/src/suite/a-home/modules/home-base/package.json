@@ -24,5 +24,10 @@
     "dist"
   ],
   "scripts": {},
-  "dependencies": {}
+  "dependencies": {},
+  "zovaModule": {
+    "capabilities": {
+      "monkey": true
+    }
+  }
 }
