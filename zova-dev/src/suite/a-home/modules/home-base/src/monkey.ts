@@ -5,7 +5,7 @@ import { BeanApi } from './bean/bean.api.js';
 export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyBeanInit {
   async appInitialize() {
     this.app.meta.$axios = axios;
-    this.app.meta.$api = (await this.bean._getBean('home-api.bean.api', false)) as BeanApi;
+    this.app.meta.$api = (await this.bean._getBean('home-base.bean.api', false)) as BeanApi;
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
