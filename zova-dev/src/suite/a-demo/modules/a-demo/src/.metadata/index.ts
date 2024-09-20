@@ -46,13 +46,13 @@ import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': never;
-    '/a/demo/legacy': never;
+    '/a/demo/component': undefined;
+    '/a/demo/legacy': undefined;
     '/a/demo/locale': NSControllerPageLocale.QueryInput;
     '/a/demo/pinia': NSControllerPagePinia.QueryInput;
     '/a/demo/routeQuery': NSControllerPageRouteQuery.QueryInput;
     '/a/demo/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
-    '/a/demo/state': never;
+    '/a/demo/state': undefined;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {
