@@ -17,17 +17,44 @@ export interface IMonkeyModule {
   configLoaded(module: IModule, config: any): Promise<void>;
 }
 
-export interface IMonkeySystem {
-  appInitialize(): Promise<void>;
-  appInitialized(): Promise<void>;
-  appReady(): Promise<void>;
-  beanInit(bean: BeanContainer, beanInstance: BeanBase): Promise<void>;
-  beanInited(bean: BeanContainer, beanInstance: BeanBase): Promise<void>;
-  beanDispose(bean: BeanContainer, beanInstance: BeanBase): void;
-  beanDisposed(bean: BeanContainer, beanInstance: BeanBase): void;
-}
+export interface IMonkeySystem
+  extends IMonkeyAppInitialize,
+    IMonkeyAppInitialized,
+    IMonkeyAppReady,
+    IMonkeyBeanInit,
+    IMonkeyBeanInited,
+    IMonkeyBeanDispose,
+    IMonkeyBeanDisposed {}
 
 export interface IMonkeyController {
   controllerDataPrepare(controllerData: IControllerData);
   controllerDataInit(controllerData: IControllerData, controller: BeanBase);
+}
+
+export interface IMonkeyAppInitialize {
+  appInitialize(): Promise<void>;
+}
+
+export interface IMonkeyAppInitialized {
+  appInitialized(): Promise<void>;
+}
+
+export interface IMonkeyAppReady {
+  appReady(): Promise<void>;
+}
+
+export interface IMonkeyBeanInit {
+  beanInit(bean: BeanContainer, beanInstance: BeanBase): Promise<void>;
+}
+
+export interface IMonkeyBeanInited {
+  beanInited(bean: BeanContainer, beanInstance: BeanBase): Promise<void>;
+}
+
+export interface IMonkeyBeanDispose {
+  beanDispose(bean: BeanContainer, beanInstance: BeanBase): void;
+}
+
+export interface IMonkeyBeanDisposed {
+  beanDisposed(bean: BeanContainer, beanInstance: BeanBase): void;
 }
