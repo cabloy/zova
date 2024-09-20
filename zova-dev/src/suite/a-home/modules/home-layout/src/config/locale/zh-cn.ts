@@ -18,4 +18,5 @@ export default {
   Locale: '本地化',
   'Todo: CRUD': 'Todo: 增删改查',
   Docs: '文档',
+  'Legacy Vue3': '传统Vue3',
 };

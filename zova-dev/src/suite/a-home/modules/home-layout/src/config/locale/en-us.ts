@@ -18,4 +18,5 @@ export default {
   Locale: 'Locale',
   'Todo: CRUD': 'Todo: CRUD',
   Docs: 'Docs',
+  'Legacy Vue3': 'Legacy Vue3',
 };
