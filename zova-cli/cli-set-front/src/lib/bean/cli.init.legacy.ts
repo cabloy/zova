@@ -12,40 +12,17 @@ export class CliInitLegacy extends BeanCliBase {
     const { argv } = this.context;
     // super
     await super.execute();
-    // module name/info
-    const moduleName = argv._[0];
-    if (!moduleName) return;
-    argv.moduleInfo = this.helper.parseModuleInfo(moduleName);
-    // check if exists
-    const _module = this.helper.findModule(moduleName);
-    if (!_module) {
-      throw new Error(`module does not exist: ${moduleName}`);
-    }
     // target dir
-    const targetDir = await this.helper.ensureDir(_module.root);
-    const errorFile = path.join(targetDir, 'src/config/errors.ts');
-    if (fse.existsSync(errorFile)) {
-      throw new Error(`error exists: ${moduleName}`);
+    const legacyDir = path.join(argv.projectPath, 'src/legacy');
+    if (fse.existsSync(legacyDir)) {
+      throw new Error(`legacy exists: ${legacyDir}`);
     }
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
-      targetDir: path.join(targetDir, 'src'),
+      targetDir: legacyDir,
       setName: __ThisSetName__,
       snippetsPath: null,
-      boilerplatePath: 'init/error/boilerplate',
+      boilerplatePath: 'init/legacy/boilerplate',
     });
-    // special for locale
-    const localeFile = path.join(targetDir, 'src/config/locale');
-    if (!fse.existsSync(localeFile)) {
-      // render boilerplate
-      await this.template.renderBoilerplateAndSnippets({
-        targetDir: path.join(targetDir, 'src'),
-        setName: __ThisSetName__,
-        snippetsPath: null,
-        boilerplatePath: 'init/locale/boilerplate',
-      });
-    }
-    // tools.metadata
-    await this.helper.invokeCli([':tools:metadata', moduleName], { cwd: argv.projectPath });
   }
 }
