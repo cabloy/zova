@@ -10,6 +10,7 @@ import { AppLocale } from '../component/locale.js';
 import { AppModule } from '../component/module.js';
 import { AppUtil } from './util.js';
 import { AppCookie } from '../component/cookie.js';
+import { RouteRecordRaw } from 'vue-router';
 
 export class AppMeta extends BeanSimple {
   module: AppModule;
@@ -24,6 +25,8 @@ export class AppMeta extends BeanSimple {
 
   /** @internal */
   public appMonkey?: IMonkeyApp & IMonkeySystem & IMonkeyController;
+  /** @internal */
+  public legacyRoutes?: RouteRecordRaw[];
 
   protected __init__() {
     this.module = this.app.bean._newBeanSimple(AppModule, false);
@@ -38,9 +41,13 @@ export class AppMeta extends BeanSimple {
   }
 
   /** @internal */
-  public async initialize(AppMonkey?: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>) {
+  public async initialize(
+    AppMonkey?: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>,
+    legacyRoutes?: RouteRecordRaw[],
+  ) {
     if (AppMonkey) {
       this.appMonkey = this.bean._newBeanSimple(AppMonkey, false);
     }
+    this.legacyRoutes = legacyRoutes;
   }
 }

@@ -6,10 +6,14 @@ import { Cast } from '../types/index.js';
 import { BeanControllerIdentifier, BeanRenderIdentifier, BeanStyleIdentifier } from '../bean/type.js';
 
 export const PluginZova = {
-  async install(vue: App, ctxRoot: ZovaContext, { modulesMeta, AppMonkey, locales, config }: PluginZovaOptions) {
+  async install(
+    vue: App,
+    ctxRoot: ZovaContext,
+    { modulesMeta, locales, config, AppMonkey, legacyRoutes }: PluginZovaOptions,
+  ) {
     // zova app
     const app = new ZovaApplication(vue, ctxRoot);
-    await app.initialize({ modulesMeta, AppMonkey, locales, config });
+    await app.initialize({ modulesMeta, locales, config, AppMonkey, legacyRoutes });
     return app;
   },
   async update(app: ZovaApplication, ctxRoot: ZovaContext) {

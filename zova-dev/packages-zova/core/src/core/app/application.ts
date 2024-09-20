@@ -31,9 +31,9 @@ export class ZovaApplication {
   }
 
   /** @internal */
-  public async initialize({ modulesMeta, AppMonkey, locales, config }: PluginZovaOptions) {
+  public async initialize({ modulesMeta, locales, config, AppMonkey, legacyRoutes }: PluginZovaOptions) {
     // monkey
-    await this.meta.initialize(AppMonkey);
+    await this.meta.initialize(AppMonkey, legacyRoutes);
     // component
     await this.meta.component.initialize();
     // locales
