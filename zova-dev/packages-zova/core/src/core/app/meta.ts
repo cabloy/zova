@@ -42,7 +42,7 @@ export class AppMeta extends BeanSimple {
 
   /** @internal */
   public async initialize(
-    AppMonkey?: Constructable<IMonkeyApp & IMonkeySystem & IMonkeyController>,
+    AppMonkey?: Constructable<IMonkeyModule & IMonkeySystem & IMonkeyController>,
     legacyRoutes?: RouteRecordRaw[],
   ) {
     if (AppMonkey) {
