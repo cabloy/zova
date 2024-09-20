@@ -87,5 +87,6 @@
     "vue-tsc": "^2.0.29",
     "zova-vite": "^1.0.168"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "05d23697b757afe62aff4ff5de98a9babdd326e2"
 }
