@@ -1,5 +1,5 @@
 <script setup>
-import { useCounter } from '../composables/counter.js';
+import { useCounter } from '@/composables/counter.js';
 const { count, increment, decrement } = useCounter();
 </script>
 <template>
