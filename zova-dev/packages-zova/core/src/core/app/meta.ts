@@ -2,7 +2,7 @@ import { BeanSimple } from '../../bean/beanSimple.js';
 import { AppIcon } from '../../bean/resource/icon/icon.js';
 import { IModuleLocaleText } from '../../bean/resource/locale/type.js';
 import { Constructable } from '../../decorator/type/constructable.js';
-import { IMonkeyApp, IMonkeyController, IMonkeySystem } from '../../types/interface/monkey.js';
+import { IMonkeyModule, IMonkeyController, IMonkeySystem } from '../../types/interface/monkey.js';
 import { AppError } from '../component/error.js';
 import { AppEvent } from '../component/event.js';
 import { AppComponent } from '../component/component.js';
@@ -24,7 +24,7 @@ export class AppMeta extends BeanSimple {
   text: IModuleLocaleText;
 
   /** @internal */
-  public appMonkey?: IMonkeyApp & IMonkeySystem & IMonkeyController;
+  public appMonkey?: IMonkeyModule & IMonkeySystem & IMonkeyController;
   /** @internal */
   public legacyRoutes?: RouteRecordRaw[];
 
