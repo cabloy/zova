@@ -21,8 +21,8 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': never;
-    '/a/demo/state': never;
+    '/a/demo/component': undefined;
+    '/a/demo/state': undefined;
   }
   export interface IPageNameRecord {}
 }
