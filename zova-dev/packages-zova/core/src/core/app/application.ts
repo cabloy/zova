@@ -47,11 +47,11 @@ export class ZovaApplication {
     // module
     await this.meta.module.initialize(modulesMeta);
     // monkey: appInitialize
-    await this.meta.module._monkeyModule('appInitialize', undefined, this.bean);
+    await this.meta.module._monkeyModule('appInitialize');
     // monkey: appInitialized
-    await this.meta.module._monkeyModule('appInitialized', undefined, this.bean);
+    await this.meta.module._monkeyModule('appInitialized');
     // monkey: appReady
-    await this.meta.module._monkeyModule('appReady', undefined, this.bean);
+    await this.meta.module._monkeyModule('appReady');
   }
 
   public reload() {
