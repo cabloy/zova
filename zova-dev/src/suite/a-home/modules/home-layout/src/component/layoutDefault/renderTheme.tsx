@@ -51,7 +51,7 @@ export class RenderTheme extends BeanRenderBase<ScopeModule> {
   renderThemeName() {
     const themes = [
       {
-        name: 'home-theme.theme.default',
+        name: 'home-base.theme.default',
         title: this.scope.locale.ThemeDefault(),
       },
       {

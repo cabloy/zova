@@ -87,7 +87,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
   async _applyTheme() {
     const name = this.name;
     const dark = this._dark;
-    const theme = (await this.bean._getBean(name as any, true)) as ThemeBase;
+    const theme = await this._loadThemeBean(name);
     if (!theme) {
       this.name = this.scope.config.defaultTheme;
       await this._applyTheme();
@@ -100,6 +100,12 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
       const themeHandler = (await this.bean._getBean(handler, true)) as unknown as ThemeHandler;
       await themeHandler.apply({ name, dark, token: this.token } as any);
     }
+  }
+
+  async _loadThemeBean(name: string): Promise<ThemeBase | undefined> {
+    const moduleName = name.split('.')[0];
+    if (!this.app.meta.module.exists(moduleName)) return;
+    return await this.bean._getBean(name as any, true);
   }
 
   toggleDark() {
