@@ -1,4 +1,4 @@
-import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem } from 'zova';
+import { BeanBase, BeanContainer, BeanSimple, IMonkeyAppInitialize, IMonkeyBeanInit } from 'zova';
 import { inject, reactive } from 'vue';
 import { DateAdapterSymbol } from 'vuetify/lib/composables/date/date.mjs';
 import { DefaultsSymbol } from 'vuetify/lib/composables/defaults.mjs';
@@ -9,7 +9,7 @@ import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
 import { LocalIcon } from './bean/local.icon.jsx';
 
-export class Monkey extends BeanSimple implements IMonkeySystem {
+export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyBeanInit {
   async appInitialize() {
     // defaultThemeHandler
     const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
@@ -18,8 +18,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     const localIcon = await this.bean._newBean(LocalIcon, false);
     await localIcon.initialize();
   }
-  async appInitialized() {}
-  async appReady() {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$vuetify', {
       enumerable: false,
@@ -36,7 +34,4 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       },
     });
   }
-  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 }
