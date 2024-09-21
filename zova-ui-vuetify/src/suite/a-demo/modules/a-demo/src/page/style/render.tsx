@@ -30,7 +30,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
         <div>
           <div style={{ color: this.$token.colors.primary }}>theme: {this.$theme.name}</div>
           <VRadioGroup v-model={this.$theme.name} inline>
-            <VRadio label="Default" value={getBeanName('home-theme.theme.default')}></VRadio>
+            <VRadio label="Default" value={getBeanName('home-base.theme.default')}></VRadio>
             <VRadio label="Orange" value={getBeanName('a-demo.theme.orange')}></VRadio>
           </VRadioGroup>
         </div>
