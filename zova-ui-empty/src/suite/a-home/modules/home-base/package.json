@@ -1,0 +1,28 @@
+{
+  "name": "zova-module-home-base",
+  "version": "5.0.0",
+  "title": "home-base",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": [
+        "./src/index.ts",
+        "./dist/index.d.ts"
+      ],
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "description": "",
+  "keywords": [
+    "Zova Module"
+  ],
+  "author": "",
+  "files": [
+    "mock",
+    "dist"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}
