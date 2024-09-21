@@ -29,7 +29,7 @@ export function extendQuasarConf(context: ConfigContext, flavor: string) {
     if (!conf.boot) conf.boot = [];
     conf.boot.unshift('zova');
     // build: alias
-    conf.build = mergeConfig(conf.build as unknown as any, {
+    conf.build = mergeConfig(conf.build || {}, {
       alias: zovaViteMeta.viteConfig.resolve.alias,
       // not set env here
       //env: zovaViteMeta.env,

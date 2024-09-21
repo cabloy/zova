@@ -12,7 +12,7 @@ export function extendViteConf(context: ConfigContext) {
     const minify = conf.build?.minify;
     // have two outDir for ssr
     const outDir = conf.build?.outDir;
-    conf.build = mergeConfig(conf.build as unknown as any, zovaViteMeta.viteConfig.build);
+    conf.build = mergeConfig(conf.build || {}, zovaViteMeta.viteConfig.build);
     if (minify === false) {
       conf.build.minify = minify;
     }
@@ -20,7 +20,7 @@ export function extendViteConf(context: ConfigContext) {
       conf.build.outDir = outDir;
     }
     // css
-    conf.css = mergeConfig(conf.css as unknown as any, {
+    conf.css = mergeConfig(conf.css || {}, {
       preprocessorOptions: {
         scss: {
           api: 'modern',
