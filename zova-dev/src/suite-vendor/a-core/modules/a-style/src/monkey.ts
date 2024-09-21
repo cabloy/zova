@@ -1,9 +1,18 @@
 import { style, createTypeStyle, TypeStyle } from 'typestyle';
-import { BeanBase, BeanContainer, BeanSimple, IMonkeySystem, SymbolModuleName, useComputed } from 'zova';
+import {
+  BeanBase,
+  BeanContainer,
+  BeanSimple,
+  IMonkeyAppInitialize,
+  IMonkeyAppInitialized,
+  IMonkeyBeanInit,
+  SymbolModuleName,
+  useComputed,
+} from 'zova';
 import { ScopeModule, __ThisModule__ } from './.metadata/this.js';
 import { BeanTheme } from './bean/bean.theme.js';
 
-export class Monkey extends BeanSimple implements IMonkeySystem {
+export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyAppInitialized, IMonkeyBeanInit {
   private _beanTheme: BeanTheme;
   private _beanStyleDefault: any;
   private _styleInstance: TypeStyle;
@@ -30,7 +39,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
     this._beanStyleDefault = await this.bean._getBean(scope.config.defaultStyle, true);
   }
-  async appReady() {}
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
     bean.defineProperty(beanInstance, '$style', {
@@ -64,9 +72,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
       },
     });
   }
-  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
 
   _patchStyle(beanInstance: BeanBase, props, ...args) {
     if (process.env.DEV) {
