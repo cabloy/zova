@@ -43,6 +43,7 @@ export default configure(_ctx => {
         viteConf.css = mergeConfig(viteConf.css || {}, {
           preprocessorOptions: {
             scss: {
+              api: 'modern',
               additionalData: '@use "~/css/element/index.scss" as *;',
             },
           },
