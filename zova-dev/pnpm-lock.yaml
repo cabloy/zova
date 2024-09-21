@@ -78,19 +78,19 @@ importers:
         specifier: ^5.0.0
         version: link:src/suite/a-demo/modules/a-demo
       zova-module-a-devui:
-        specifier: ^5.0.20
+        specifier: ^5.0.24
         version: link:src/suite-vendor/a-devui/modules/a-devui
       zova-module-a-model:
-        specifier: ^5.0.26
+        specifier: ^5.0.29
         version: link:src/suite-vendor/a-core/modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.26
+        specifier: ^5.0.29
         version: link:src/suite-vendor/a-core/modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.61
+        specifier: ^5.0.64
         version: link:src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.38
+        specifier: ^5.0.41
         version: link:src/suite-vendor/a-core/modules/a-style
       zova-module-a-tabs:
         specifier: ^5.0.20
@@ -101,9 +101,6 @@ importers:
       zova-module-home-base:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-base
-      zova-module-home-component:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-component
       zova-module-home-icon:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-icon
@@ -113,36 +110,9 @@ importers:
       zova-module-home-layout:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-layout
-      zova-module-home-pagesystem:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-pagesystem
-      zova-module-home-router:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-router
-      zova-module-home-style:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-style
-      zova-module-home-theme:
-        specifier: ^5.0.0
-        version: link:src/suite/a-home/modules/home-theme
       zova-module-home-user:
         specifier: ^5.0.0
         version: link:src/suite/a-home/modules/home-user
-      zova-module-test-a:
-        specifier: ^5.0.0
-        version: link:src/module/test-a
-      zova-module-test-a1:
-        specifier: ^5.0.0
-        version: link:src/module/test-a1
-      zova-module-test-a2:
-        specifier: ^5.0.0
-        version: link:src/module/test-a2
-      zova-module-test-b:
-        specifier: ^5.0.0
-        version: link:src/module/test-b
-      zova-module-test-c:
-        specifier: ^5.0.0
-        version: link:src/module/test-c
     devDependencies:
       '@cabloy/lint':
         specifier: ^4.0.11
@@ -190,6 +160,18 @@ importers:
         specifier: ^7.20.5
         version: 7.20.6
 
+  packages-utils/babel-plugin-zova-component:
+    devDependencies:
+      '@cabloy/module-info':
+        specifier: ^1.0.22
+        version: 1.0.22
+      '@types/babel__core':
+        specifier: ^7.20.5
+        version: 7.20.5
+      '@types/babel__traverse':
+        specifier: ^7.20.5
+        version: 7.20.6
+
   packages-utils/last-word: {}
 
   packages-utils/quasar-app-extension-zova:
@@ -216,7 +198,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.167
+        specifier: ^1.0.169
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -270,6 +252,9 @@ importers:
       babel-plugin-zova-bean-module:
         specifier: ^1.0.31
         version: link:../babel-plugin-zova-bean-module
+      babel-plugin-zova-component:
+        specifier: ^1.0.0
+        version: link:../babel-plugin-zova-component
       chalk:
         specifier: ^3.0.0
         version: 3.0.0
@@ -370,31 +355,14 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.155
+        specifier: ^5.0.157
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.112
+        specifier: ^5.0.115
         version: link:../../src/suite-vendor/a-core
-
-  src/module/test-a:
-    dependencies:
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.56.2
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.56.2(vue@3.5.6(typescript@5.6.2))
-
-  src/module/test-a1: {}
-
-  src/module/test-a2: {}
-
-  src/module/test-b: {}
-
-  src/module/test-c: {}
 
   src/suite-vendor/a-core:
     dependencies:
@@ -402,16 +370,16 @@ importers:
         specifier: ^5.0.44
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.26
+        specifier: ^5.0.29
         version: link:modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.26
+        specifier: ^5.0.29
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.61
+        specifier: ^5.0.64
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.38
+        specifier: ^5.0.41
         version: link:modules/a-style
       zova-module-a-tabs:
         specifier: ^5.0.20
@@ -457,7 +425,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-a-devui:
-        specifier: ^5.0.20
+        specifier: ^5.0.24
         version: link:modules/a-devui
 
   src/suite-vendor/a-devui/modules/a-devui: {}
@@ -480,9 +448,6 @@ importers:
       zova-module-home-base:
         specifier: workspace:^
         version: link:modules/home-base
-      zova-module-home-component:
-        specifier: workspace:^
-        version: link:modules/home-component
       zova-module-home-icon:
         specifier: workspace:^
         version: link:modules/home-icon
@@ -492,18 +457,6 @@ importers:
       zova-module-home-layout:
         specifier: workspace:^
         version: link:modules/home-layout
-      zova-module-home-pagesystem:
-        specifier: workspace:^
-        version: link:modules/home-pagesystem
-      zova-module-home-router:
-        specifier: workspace:^
-        version: link:modules/home-router
-      zova-module-home-style:
-        specifier: workspace:^
-        version: link:modules/home-style
-      zova-module-home-theme:
-        specifier: workspace:^
-        version: link:modules/home-theme
       zova-module-home-user:
         specifier: workspace:^
         version: link:modules/home-user
@@ -514,21 +467,11 @@ importers:
         specifier: ^1.6.8
         version: 1.7.7
 
-  src/suite/a-home/modules/home-component: {}
-
   src/suite/a-home/modules/home-icon: {}
 
   src/suite/a-home/modules/home-index: {}
 
   src/suite/a-home/modules/home-layout: {}
-
-  src/suite/a-home/modules/home-pagesystem: {}
-
-  src/suite/a-home/modules/home-router: {}
-
-  src/suite/a-home/modules/home-style: {}
-
-  src/suite/a-home/modules/home-theme: {}
 
   src/suite/a-home/modules/home-user: {}
 
