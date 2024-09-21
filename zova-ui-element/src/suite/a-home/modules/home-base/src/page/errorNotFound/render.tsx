@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleErrorNotFound } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
-import { RouterLink } from 'vue-router';
+import { ElButton } from 'element-plus';
 
 export interface RenderErrorNotFound extends StyleErrorNotFound {}
 
@@ -9,7 +9,7 @@ export interface RenderErrorNotFound extends StyleErrorNotFound {}
 export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div class="fill-height bg-blue text-white text-center">
+      <div style="height: 100vh;" class="bg-blue text-white text-center">
         <div>
           <div style="font-size: 30vh">404</div>
 
@@ -17,7 +17,14 @@ export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
             Oops. Nothing here...
           </div>
 
-          <RouterLink to="/">Go Home</RouterLink>
+          <ElButton
+            color="white"
+            onClick={() => {
+              this.$router.push('/');
+            }}
+          >
+            Go Home
+          </ElButton>
         </div>
       </div>
     );
