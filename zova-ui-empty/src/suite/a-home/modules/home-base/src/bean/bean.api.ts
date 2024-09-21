@@ -1,7 +1,6 @@
-import { Bean, BeanBase, Use } from 'zova';
+import { Bean, BeanBase } from 'zova';
 import axios, { AxiosInstance } from 'axios';
 import { markRaw } from 'vue';
-import type { ModelAuth } from 'zova-module-home-user';
 
 const SymbolApi = Symbol('SymbolApi');
 
@@ -9,9 +8,6 @@ export interface BeanApi extends AxiosInstance {}
 
 @Bean()
 export class BeanApi extends BeanBase {
-  @Use('home-user.model.auth')
-  $$modelAuth: ModelAuth;
-
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
@@ -29,7 +25,7 @@ export class BeanApi extends BeanBase {
     api.interceptors.request.use(
       config => {
         if (this.app.config.base.jwt) {
-          config.headers.Authorization = `Bearer ${this.$$modelAuth.jwtAuthorization || ''}`;
+          config.headers.Authorization = 'Bearer ';
         }
         return config;
       },

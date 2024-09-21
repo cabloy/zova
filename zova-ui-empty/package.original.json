@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-empty",
-  "version": "5.0.279",
+  "version": "5.0.280",
   "description": "A vue3 empty framework with ioc",
   "publishConfig": {
     "access": "public"
