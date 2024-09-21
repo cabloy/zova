@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-antdv",
-  "version": "5.0.299",
+  "version": "5.0.300",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -37,7 +37,7 @@
     "url": "https://github.com/cabloy/zova/issues"
   },
   "dependencies": {
-    "ant-design-vue": "^4.2.3",
+    "ant-design-vue": "^4.2.5",
     "compression": "^1.7.4",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
