@@ -6,6 +6,7 @@ import { LocalSSR } from './bean/local.ssr.js';
 
 export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyBeanInit {
   localRouter: LocalRouter;
+  localSSR: LocalSSR;
 
   async appInitialize() {
     // api
@@ -14,8 +15,8 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
     // router
     this.localRouter = await this.bean._newBean(LocalRouter, false);
     // ssr
-    const localSSR = await this.bean._newBean(LocalSSR, false);
-    await localSSR.initialize();
+    this.localSSR = await this.bean._newBean(LocalSSR, false);
+    await this.localSSR.initialize();
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
