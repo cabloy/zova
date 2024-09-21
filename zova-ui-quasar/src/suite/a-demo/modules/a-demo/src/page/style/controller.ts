@@ -20,7 +20,7 @@ export class ControllerPageStyle extends BeanControllerPageBase<ScopeModule, Que
   themeNameOptions = [
     {
       label: 'Default',
-      value: getBeanName('home-theme.theme.default'),
+      value: getBeanName('home-base.theme.default'),
     },
     { label: 'Orange', value: getBeanName('a-demo.theme.orange') },
   ];
