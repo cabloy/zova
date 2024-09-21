@@ -27,5 +27,12 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
         return self.app.meta.$api;
       },
     });
+    bean.defineProperty(beanInstance, '$antdvStyleCache', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return self.localSSR.styleCache;
+      },
+    });
   }
 }
