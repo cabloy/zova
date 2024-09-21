@@ -6,10 +6,12 @@ import {
   IModule,
   IMonkeyModule,
   IMonkeyController,
-  IMonkeySystem,
   IControllerData,
   TypePageSchema,
   useComputed,
+  IMonkeyAppInitialize,
+  IMonkeyAppInitialized,
+  IMonkeyAppReady,
 } from 'zova';
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
@@ -19,7 +21,10 @@ import { markRaw } from 'vue';
 import { getRealRouteName } from './utils.js';
 import { LocalRouter } from './bean/local.router.js';
 
-export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, IMonkeyController {
+export class Monkey
+  extends BeanSimple
+  implements IMonkeyAppInitialize, IMonkeyAppInitialized, IMonkeyAppReady, IMonkeyModule, IMonkeyController
+{
   private _moduleSelf: IModule;
   private _beanRouter: BeanRouter;
   private _beanComponentDefault: any;
@@ -79,9 +84,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem, IMonkeyModule, 
       },
     });
   }
-  async beanInited(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDispose(_bean: BeanContainer, _beanInstance: BeanBase) {}
-  beanDisposed(_bean: BeanContainer, _beanInstance: BeanBase) {}
   async moduleLoading(module: IModule) {
     if (this._moduleSelf === module) return;
     const beanRouter = await this.getBeanRouter();
