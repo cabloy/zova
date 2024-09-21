@@ -2,6 +2,24 @@
   "name": "zova-module-home-base",
   "version": "5.0.0",
   "title": "home-base",
+  "zovaModule": {
+    "capabilities": {
+      "monkey": true
+    },
+    "dependencies": {
+      "a-core": "5.0.0"
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "axios"
+          ],
+          "output": "axios"
+        }
+      ]
+    }
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -24,5 +42,7 @@
     "dist"
   ],
   "scripts": {},
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
 }
