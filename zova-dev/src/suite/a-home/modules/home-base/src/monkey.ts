@@ -2,6 +2,7 @@ import { BeanBase, BeanContainer, BeanSimple, IMonkeyAppInitialize, IMonkeyBeanI
 import axios from 'axios';
 import { BeanApi } from './bean/bean.api.js';
 import { LocalRouter } from './bean/local.router.js';
+import { LocalSSR } from './bean/local.ssr.js';
 
 export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyBeanInit {
   localRouter: LocalRouter;
@@ -12,6 +13,9 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
     this.app.meta.$api = (await this.bean._getBean('home-base.bean.api', false)) as BeanApi;
     // router
     this.localRouter = await this.bean._newBean(LocalRouter, false);
+    // ssr
+    const localSSR = await this.bean._newBean(LocalSSR, false);
+    await localSSR.initialize();
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
