@@ -19,6 +19,14 @@ export function extendViteConf(context: ConfigContext) {
     if (outDir) {
       conf.build.outDir = outDir;
     }
+    // css
+    conf.css = mergeConfig(conf.css as unknown as any, {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        },
+      },
+    });
     // hmr
     if (opts.isClient) {
       conf.server = mergeConfig(conf.server || {}, {
