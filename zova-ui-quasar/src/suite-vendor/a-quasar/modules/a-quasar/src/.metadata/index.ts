@@ -11,6 +11,9 @@ declare module 'zova' {
   }
 }
 /** beans: end */
+/** monkey: begin */
+export * from '../monkey.js';
+/** monkey: end */
 /** scope: begin */
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
