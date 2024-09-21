@@ -32,6 +32,7 @@ export function generateVitePlugins(
           babelrc: false,
           configFile: false,
           plugins: [
+            ['babel-plugin-zova-component'],
             ['babel-plugin-zova-bean-module'],
             ['babel-plugin-transform-typescript-metadata'],
             ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
@@ -51,6 +52,7 @@ export function generateVitePlugins(
       {
         include: /\.[jt]sx$/,
         babelPlugins: [
+          ['babel-plugin-zova-component'],
           ['babel-plugin-zova-bean-module'],
           ['babel-plugin-transform-typescript-metadata'],
           ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
