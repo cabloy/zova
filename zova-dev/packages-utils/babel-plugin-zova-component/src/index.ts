@@ -2,12 +2,33 @@ import { /*template,*/ types as t, type PluginPass } from '@babel/core';
 import type { NodePath, Visitor } from '@babel/traverse';
 //import { parseInfoFromPath } from '@cabloy/module-info';
 
+const JSXVisitor = {
+  JSXOpeningElement(_path: NodePath<t.JSXOpeningElement>) {
+    //console.log('Visiting: ' + path.node.name);
+  },
+};
+
 export default function () {
   const visitor: Visitor<PluginPass> = {
-    Program(_path: NodePath<t.Program>, state) {
-      const sourceFileName = state.file.opts.sourceFileName || state.file.opts.filename;
-      console.log(sourceFileName);
+    Program(path: NodePath<t.Program>) {
+      // import
+      findImports(path);
+      // jsx
+      path.traverse(JSXVisitor);
     },
   };
   return { visitor };
+}
+
+function findImports(path: NodePath<t.Program>) {
+  for (const node of path.node.body) {
+    if (!t.isImportDeclaration(node)) continue;
+    for (const specifier of node.specifiers) {
+      if (!t.isImportSpecifier(specifier) || specifier.importKind !== 'value' || !t.isIdentifier(specifier.imported)) {
+        continue;
+      }
+      const specifierName = specifier.imported.name;
+      console.log(specifierName);
+    }
+  }
 }
