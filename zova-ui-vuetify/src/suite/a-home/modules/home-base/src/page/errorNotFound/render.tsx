@@ -1,7 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StyleErrorNotFound } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
-import { RouterLink } from 'vue-router';
+import { VBtn } from 'vuetify/components';
 
 export interface RenderErrorNotFound extends StyleErrorNotFound {}
 
@@ -17,7 +17,7 @@ export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
             Oops. Nothing here...
           </div>
 
-          <RouterLink to="/">Go Home</RouterLink>
+          <VBtn rounded elevation={12} ripple color="white" text="Go Home" text-color="blue" to="/" />
         </div>
       </div>
     );

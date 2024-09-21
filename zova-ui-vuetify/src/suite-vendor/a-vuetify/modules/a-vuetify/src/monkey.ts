@@ -8,7 +8,6 @@ import { LocaleSymbol } from 'vuetify/lib/composables/locale.mjs';
 import { ThemeSymbol } from 'vuetify/lib/composables/theme.mjs';
 import { ScopeModuleAStyle } from 'zova-module-a-style';
 import { LocalIcon } from './bean/local.icon.jsx';
-import { LocalSSR } from './bean/local.ssr.js';
 
 export class Monkey extends BeanSimple implements IMonkeySystem {
   async appInitialize() {
@@ -18,9 +17,6 @@ export class Monkey extends BeanSimple implements IMonkeySystem {
     // icon
     const localIcon = await this.bean._newBean(LocalIcon, false);
     await localIcon.initialize();
-    // ssr
-    const localSSR = await this.bean._newBean(LocalSSR, false);
-    await localSSR.initialize();
   }
   async appInitialized() {}
   async appReady() {}
