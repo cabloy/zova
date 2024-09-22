@@ -22,7 +22,7 @@ export default function () {
 
 function findImports(path: NodePath<t.Program>) {
   for (const node of path.node.body) {
-    if (!t.isImportDeclaration(node)) continue;
+    if (!t.isImportDeclaration(node) || !node.source.value.startsWith('zova-module-')) continue;
     for (const specifier of node.specifiers) {
       if (!t.isImportSpecifier(specifier) || specifier.importKind !== 'value' || !t.isIdentifier(specifier.imported)) {
         continue;
