@@ -2,7 +2,8 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { nextTick } from 'vue';
-import { ZCard } from '../../.metadata/index.js';
+import { ZPage } from 'zova-module-home-base';
+import { ZCard } from 'zova-module-a-demo';
 
 export interface RenderComponent extends ControllerPageComponent {}
 
@@ -10,7 +11,7 @@ export interface RenderComponent extends ControllerPageComponent {}
 export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <ZCard
           controllerRef={ref => {
             this.cardRef = ref;
@@ -48,7 +49,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
           }}
           value={this.resetTime.toString()}
         ></input>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }
