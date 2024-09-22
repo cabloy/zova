@@ -1,6 +1,6 @@
 {
   "name": "zova-cli-set-front",
-  "version": "1.1.166",
+  "version": "1.1.167",
   "description": "zova cli-set-front",
   "publishConfig": {
     "access": "public"
@@ -46,7 +46,7 @@
     "svgo": "^3.2.0",
     "urllib": "^3.24.0",
     "zova-shared": "^1.0.4",
-    "zova-vite": "^1.0.169"
+    "zova-vite": "^1.0.170"
   },
   "gitHead": "05d23697b757afe62aff4ff5de98a9babdd326e2"
 }
