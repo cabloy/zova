@@ -11,9 +11,10 @@ declare module 'zova' {
 /** components: begin */
 export * as NSControllerRouterViewTabs from '../component/routerViewTabs/controller.js';
 import * as NSControllerRouterViewTabs from '../component/routerViewTabs/controller.js';
-import component_routerViewTabs from '../component/routerViewTabs/index.vue';
+export { default as ZRouterViewTabs } from '../component/routerViewTabs/index.vue';
+import ZRouterViewTabs from '../component/routerViewTabs/index.vue';
 export const components = {
-  routerViewTabs: component_routerViewTabs,
+  routerViewTabs: ZRouterViewTabs,
 };
 import 'zova';
 declare module 'zova' {

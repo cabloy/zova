@@ -17,9 +17,10 @@ declare module 'zova' {
 /** components: begin */
 export * as NSControllerPage from '../component/page/controller.js';
 import * as NSControllerPage from '../component/page/controller.js';
-import component_page from '../component/page/index.vue';
+export { default as ZPage } from '../component/page/index.vue';
+import ZPage from '../component/page/index.vue';
 export const components = {
-  page: component_page,
+  page: ZPage,
 };
 import 'zova';
 declare module 'zova' {
