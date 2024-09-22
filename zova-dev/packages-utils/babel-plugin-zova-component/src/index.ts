@@ -7,10 +7,10 @@ interface ComponentInfo {
   localName: string;
 }
 
-interface ComponentFindInfo {
-  import: ImportInfo;
-  component: ComponentInfo;
-}
+// interface ComponentFindInfo {
+//   import: ImportInfo;
+//   component: ComponentInfo;
+// }
 
 interface ImportInfo {
   moduleFullName: string;
@@ -32,6 +32,11 @@ export default function () {
       };
       // traverse
       path.traverse(createVisitor(context));
+      if (context.imports.length === 0) return;
+      // insertComponents
+      insertComponents(path, context);
+      // insertImport
+      insertImport(path);
       // removeImports
       removeImports(context);
     },
@@ -39,7 +44,7 @@ export default function () {
   return { visitor };
 }
 
-function createVisitor(context) {
+function createVisitor(context: ContextInfo) {
   return {
     ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
       const moduleFullName = path.node.source.value;
@@ -60,38 +65,16 @@ function createVisitor(context) {
         });
       }
       if (components.length > 0) {
-        const _import = {
+        const _import: ImportInfo = {
           moduleFullName,
-          moduleInfo: parseInfo(moduleFullName),
+          moduleInfo: parseInfo(moduleFullName)!,
           components,
           path,
         };
         context.imports.push(_import);
       }
     },
-    JSXOpeningElement(path: NodePath<t.JSXOpeningElement>) {
-      const identifier = path.node.name;
-      if (!t.isJSXIdentifier(identifier)) return;
-      const componentInfo = findComponent(identifier.name, context);
-      if (!componentInfo) return;
-      // name
-      identifier.name = 'zova-component';
-      // attributes
-      path.node.attributes.push(
-        t.jsxAttribute(t.jsxIdentifier('__z_module'), t.stringLiteral(componentInfo.import.moduleInfo.relativeName)),
-      );
-      path.node.attributes.push(
-        t.jsxAttribute(
-          t.jsxIdentifier('__z_name'),
-          t.stringLiteral(parseRealComponentName(componentInfo.component.importName)),
-        ),
-      );
-    },
   };
-}
-
-function parseRealComponentName(name: string) {
-  return firstCharToLowerCase(name.substring(1));
 }
 
 function isZComponent(name: string) {
@@ -100,18 +83,6 @@ function isZComponent(name: string) {
 
 function isUpperCase(character) {
   return /^[A-Z]$/.test(character);
-}
-
-function findComponent(nodeName: string, context: ContextInfo): ComponentFindInfo | undefined {
-  for (const _import of context.imports) {
-    const component = _import.components.find(item => item.localName === nodeName);
-    if (component) {
-      return {
-        import: _import,
-        component,
-      };
-    }
-  }
 }
 
 function removeImports(context: ContextInfo) {
@@ -124,6 +95,35 @@ function removeImports(context: ContextInfo) {
       _import.path.remove();
     }
   }
+}
+
+function insertImport(path: NodePath<t.Program>) {
+  const nodeImport = t.importDeclaration(
+    [t.importSpecifier(t.identifier('createZovaComponent'), t.stringLiteral('createZovaComponent'))],
+    t.stringLiteral('zova'),
+  );
+  path.get('body')[0].insertBefore(nodeImport);
+}
+
+function insertComponents(path: NodePath<t.Program>, context: ContextInfo) {
+  for (const _import of context.imports) {
+    for (const component of _import.components) {
+      const nodeComponent = t.variableDeclaration('const', [
+        t.variableDeclarator(
+          t.identifier(component.localName),
+          t.callExpression(t.identifier('createZovaComponent'), [
+            t.stringLiteral(_import.moduleInfo.relativeName),
+            t.stringLiteral(parseRealComponentName(component.importName)),
+          ]),
+        ),
+      ]);
+      path.get('body')[0].insertBefore(nodeComponent);
+    }
+  }
+}
+
+function parseRealComponentName(name: string) {
+  return firstCharToLowerCase(name.substring(1));
 }
 
 function firstCharToLowerCase(name: string) {
