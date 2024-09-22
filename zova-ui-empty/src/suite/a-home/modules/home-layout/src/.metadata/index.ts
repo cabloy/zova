@@ -15,13 +15,16 @@ export * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js
 import * as NSControllerEssentialLink from '../component/essentialLink/controller.js';
 import * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 import * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';
-import component_essentialLink from '../component/essentialLink/index.vue';
-import component_layoutDefault from '../component/layoutDefault/index.vue';
-import component_layoutEmpty from '../component/layoutEmpty/index.vue';
+export { default as ZEssentialLink } from '../component/essentialLink/index.vue';
+import ZEssentialLink from '../component/essentialLink/index.vue';
+export { default as ZLayoutDefault } from '../component/layoutDefault/index.vue';
+import ZLayoutDefault from '../component/layoutDefault/index.vue';
+export { default as ZLayoutEmpty } from '../component/layoutEmpty/index.vue';
+import ZLayoutEmpty from '../component/layoutEmpty/index.vue';
 export const components = {
-  essentialLink: component_essentialLink,
-  layoutDefault: component_layoutDefault,
-  layoutEmpty: component_layoutEmpty,
+  essentialLink: ZEssentialLink,
+  layoutDefault: ZLayoutDefault,
+  layoutEmpty: ZLayoutEmpty,
 };
 import 'zova';
 declare module 'zova' {

@@ -11,9 +11,10 @@ declare module 'zova' {
 /** components: begin */
 export * as NSControllerCard from '../component/card/controller.js';
 import * as NSControllerCard from '../component/card/controller.js';
-import component_card from '../component/card/index.vue';
+export { default as ZCard } from '../component/card/index.vue';
+import ZCard from '../component/card/index.vue';
 export const components = {
-  card: component_card,
+  card: ZCard,
 };
 import 'zova';
 declare module 'zova' {
@@ -32,6 +33,8 @@ export * from '../routes.js';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
+    '/a/demo/component': undefined;
+    '/a/demo/state': undefined;
     '/a/demo/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {}
