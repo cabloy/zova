@@ -3,7 +3,7 @@ import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { nextTick } from 'vue';
 import { ZPage } from 'zova-module-home-base';
-import { ZCard } from 'zova-module-a-demo';
+import { ZCard } from '../../.metadata/index.js';
 
 export interface RenderComponent extends ControllerPageComponent {}
 
