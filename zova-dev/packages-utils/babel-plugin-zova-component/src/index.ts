@@ -32,6 +32,8 @@ export default function () {
       };
       // traverse
       path.traverse(createVisitor(context));
+      // removeImports
+      removeImports(context);
     },
   };
   return { visitor };
@@ -108,6 +110,18 @@ function findComponent(nodeName: string, context: ContextInfo): ComponentFindInf
         import: _import,
         component,
       };
+    }
+  }
+}
+
+function removeImports(context: ContextInfo) {
+  for (const _import of context.imports) {
+    for (const component of _import.components) {
+      const index = _import.path.node.specifiers.findIndex(item => item.local.name === component?.localName);
+      _import.path.node.specifiers.splice(index, 1);
+    }
+    if (_import.path.node.specifiers.length === 0) {
+      _import.path.remove();
     }
   }
 }
