@@ -1,13 +1,13 @@
-import { defineAsyncComponent } from '@cabloy/vue-runtime-core';
+import { defineAsyncComponent } from 'vue';
 import { useApp } from '../composables/useApp.js';
 
-export const ZovaComponent = defineAsyncComponent(attrs => {
-  return new Promise(resolve => {
-    const moduleName = attrs!.__z_module as string;
-    const componentName = attrs!.__z_name as string;
-    const app = useApp();
-    app.meta.module.use(moduleName).then(module => {
-      resolve(module.resource.components[componentName] as any);
+export function createZovaComponent(module, name) {
+  return defineAsyncComponent(() => {
+    return new Promise(resolve => {
+      const app = useApp();
+      app.meta.module.use(module).then(_module => {
+        resolve(_module.resource.components[name] as any);
+      });
     });
   });
-});
+}

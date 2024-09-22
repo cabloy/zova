@@ -6,7 +6,6 @@ import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
 import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
-import { ZovaComponent } from '../../components/component.js';
 
 export class ZovaApplication {
   private _reloadDelayTimer: number = 0;
@@ -29,7 +28,6 @@ export class ZovaApplication {
     Cast(ctxRoot.instance.appContext).reload = () => {
       this.reloadDelay();
     };
-    vue.component('ZovaComponent', ZovaComponent);
   }
 
   /** @internal */
