@@ -2,6 +2,7 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { nextTick } from 'vue';
+import { ZCard } from '../../.metadata/index.js';
 
 export interface RenderComponent extends ControllerPageComponent {}
 
@@ -10,7 +11,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <this.$component.page>
-        <this.scope.component.card
+        <ZCard
           controllerRef={ref => {
             this.cardRef = ref;
             console.log('cardRef.$props: ', this.cardRef?.$props);
@@ -32,7 +33,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
               return <div>this is a footer slot from parent</div>;
             },
           }}
-        ></this.scope.component.card>
+        ></ZCard>
         <label>Input: </label>
         <input
           type="text"
