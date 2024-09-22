@@ -72,9 +72,24 @@ function createVisitor(context) {
       if (!t.isJSXIdentifier(identifier)) return;
       const componentInfo = findComponent(identifier.name, context);
       if (!componentInfo) return;
-      console.log(componentInfo);
+      // name
+      identifier.name = 'zova-component';
+      // attributes
+      path.node.attributes.push(
+        t.jsxAttribute(t.jsxIdentifier('__z_module'), t.stringLiteral(componentInfo.import.moduleInfo.relativeName)),
+      );
+      path.node.attributes.push(
+        t.jsxAttribute(
+          t.jsxIdentifier('__z_name'),
+          t.stringLiteral(parseRealComponentName(componentInfo.component.importName)),
+        ),
+      );
     },
   };
+}
+
+function parseRealComponentName(name: string) {
+  return firstCharToLowerCase(name.substring(1));
 }
 
 function isZComponent(name: string) {
@@ -95,4 +110,8 @@ function findComponent(nodeName: string, context: ContextInfo): ComponentFindInf
       };
     }
   }
+}
+
+function firstCharToLowerCase(name: string) {
+  return name.charAt(0).toLowerCase() + name.substring(1);
 }
