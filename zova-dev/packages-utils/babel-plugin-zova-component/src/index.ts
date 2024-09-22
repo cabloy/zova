@@ -1,17 +1,33 @@
 import { /*template,*/ types as t, type PluginPass } from '@babel/core';
 import type { NodePath, Visitor } from '@babel/traverse';
-import { parseInfo } from '@cabloy/module-info';
+import { IModuleInfo, parseInfo } from '@cabloy/module-info';
 
-interface componentInfo {
+interface ComponentInfo {
   importName: string;
   localName: string;
+}
+
+interface ComponentFindInfo {
+  import: ImportInfo;
+  component: ComponentInfo;
+}
+
+interface ImportInfo {
+  moduleFullName: string;
+  moduleInfo: IModuleInfo;
+  components: ComponentInfo[];
+  path: NodePath<t.ImportDeclaration>;
+}
+
+interface ContextInfo {
+  imports: ImportInfo[];
 }
 
 export default function () {
   const visitor: Visitor<PluginPass> = {
     Program(path: NodePath<t.Program>) {
       // context
-      const context = {
+      const context: ContextInfo = {
         imports: [],
       };
       // traverse
@@ -26,7 +42,7 @@ function createVisitor(context) {
     ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
       const moduleFullName = path.node.source.value;
       if (!moduleFullName.startsWith('zova-module-')) return;
-      const components: componentInfo[] = [];
+      const components: ComponentInfo[] = [];
       for (const specifier of path.node.specifiers) {
         if (
           !t.isImportSpecifier(specifier) ||
@@ -51,8 +67,12 @@ function createVisitor(context) {
         context.imports.push(_import);
       }
     },
-    JSXOpeningElement(_path: NodePath<t.JSXOpeningElement>) {
-      //console.log('Visiting jsx: ' + path.node.name);
+    JSXOpeningElement(path: NodePath<t.JSXOpeningElement>) {
+      const identifier = path.node.name;
+      if (!t.isJSXIdentifier(identifier)) return;
+      const componentInfo = findComponent(identifier.name, context);
+      if (!componentInfo) return;
+      console.log(componentInfo);
     },
   };
 }
@@ -63,4 +83,16 @@ function isZComponent(name: string) {
 
 function isUpperCase(character) {
   return /^[A-Z]$/.test(character);
+}
+
+function findComponent(nodeName: string, context: ContextInfo): ComponentFindInfo | undefined {
+  for (const _import of context.imports) {
+    const component = _import.components.find(item => item.localName === nodeName);
+    if (component) {
+      return {
+        import: _import,
+        component,
+      };
+    }
+  }
 }
