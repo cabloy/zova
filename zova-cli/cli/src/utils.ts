@@ -7,22 +7,26 @@ import { getRegistry } from './registry.js';
 const boxenOptions = { padding: 1, margin: 1, align: 'center', borderColor: 'yellow', borderStyle: 'round' };
 
 export async function checkForUpdates(packageName: string) {
-  // version old
-  const pkg = require(`${packageName}/package.json`);
-  const versionOld = pkg.version;
-  // version new
-  const info = await getPackageInfo(packageName);
-  const versionNew = info.version;
-  // check
-  const lt = semver.lt(versionOld, versionNew);
-  if (!lt) return;
-  // log
-  let message = `[${chalk.keyword('cyan')(packageName)}] new version available: ${chalk.keyword('yellow')(
-    versionOld,
-  )} → ${chalk.keyword('orange')(versionNew)}`;
-  message += `\nRun ${chalk.keyword('orange')(`> pnpm add -g ${packageName} <`)} to update!`;
+  try {
+    // version old
+    const pkg = require(`${packageName}/package.json`);
+    const versionOld = pkg.version;
+    // version new
+    const info = await getPackageInfo(packageName);
+    const versionNew = info.version;
+    // check
+    const lt = semver.lt(versionOld, versionNew);
+    if (!lt) return;
+    // log
+    let message = `[${chalk.keyword('cyan')(packageName)}] new version available: ${chalk.keyword('yellow')(
+      versionOld,
+    )} → ${chalk.keyword('orange')(versionNew)}`;
+    message += `\nRun ${chalk.keyword('orange')(`> pnpm add -g ${packageName} <`)} to update!`;
 
-  console.log('\n' + boxen(message, boxenOptions as any));
+    console.log('\n' + boxen(message, boxenOptions as any));
+  } catch (_err) {
+    // donothing
+  }
 }
 
 export async function getPackageInfo(packageName: string) {
