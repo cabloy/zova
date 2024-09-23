@@ -26,6 +26,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     );
     // ssr: middlewares/env.ts
     fse.copyFileSync(resolveTemplatePath('modes/ssr/middlewares/env.ts'), api.resolve.ssr('middlewares/env.ts'));
+    // ssr: html-template.js
+    await _handleSSRHtmlTemplate();
     // ssr: ssr-devserver.js
     await _handleSSRDevServer();
     // ssr: ssr-prod-webserver.mjs
@@ -52,6 +54,29 @@ export function extendFiles(api: IndexAPI, flavor: string) {
     if (!fse.existsSync(fileDest)) {
       fse.copyFileSync(fileSrc, fileDest);
     }
+  }
+
+  // html-template
+  async function _handleSSRHtmlTemplate() {
+    const fileSrc = api.resolve.cli('lib/utils/html-template.js');
+    const fileSrcBak = api.resolve.cli('lib/utils/html-template-bak.js');
+    copyTemplateIfNeed(fileSrc, fileSrcBak);
+    const content = fse.readFileSync(fileSrcBak).toString();
+    const contentNew = content
+      .replace(
+        'const bodyStartTagRE = /(<body[^>]*)(>)/i',
+        'const bodyStartTagRE = /(<body[^>]*)(>)/i\nconst bodyEndRE = /(<\\/body>)/i',
+      )
+      .replace(
+        /\.replace\(\s+bodyStartTagRE,/,
+        `.replace(
+      bodyEndRE,
+      (_, tag) => \`{{ ssrContext._meta.endingBodyTags || '' }}\${ tag }\`
+    )
+    .replace(
+      bodyStartTagRE,`,
+      );
+    fse.writeFileSync(fileSrc, contentNew);
   }
 
   // ssr-devserver.js
