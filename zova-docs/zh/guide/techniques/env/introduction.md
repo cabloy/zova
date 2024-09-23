@@ -121,7 +121,7 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 `src/front/config/config/config.ts`
 
 ```typescript{5-6}
-export default function (_meta: ZovaConfigMeta) {
+export default function (_app: ZovaApplication) {
   const config: ZovaConfigOptional = {
     base: {},
     api: {

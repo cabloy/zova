@@ -121,7 +121,7 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 `src/front/config/config/config.ts`
 
 ```typescript{5-6}
-export default function (_meta: ZovaConfigMeta) {
+export default function (_app: ZovaApplication) {
   const config: ZovaConfigOptional = {
     base: {},
     api: {

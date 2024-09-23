@@ -57,7 +57,7 @@ export class TestA {
 `src/front/config/config/config.ts`
 
 ```typescript{6-8}
-export default function (_meta: ZovaConfigMeta) {
+export default function (_app: ZovaApplication) {
   const config = {};
 
   // modules

@@ -1,6 +1,6 @@
 import { ZovaConfigMeta, ZovaConfigOptional } from 'zova';
 
-export default function (_meta: ZovaConfigMeta) {
+export default function (_app: ZovaApplication) {
   const config: ZovaConfigOptional = {};
 
   // routes
