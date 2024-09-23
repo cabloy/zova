@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-antdv",
-  "version": "5.0.302",
+  "version": "5.0.303",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -54,15 +54,15 @@
     "vue": "^3.5.6",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "^5.0.205",
+    "zova": "^5.0.206",
     "zova-module-a-antdv": "^5.0.0",
-    "zova-module-a-core": "^5.0.44",
+    "zova-module-a-core": "^5.0.45",
     "zova-module-a-demo": "^5.0.0",
-    "zova-module-a-model": "^5.0.29",
-    "zova-module-a-pinia": "^5.0.29",
-    "zova-module-a-router": "^5.0.64",
-    "zova-module-a-style": "^5.0.41",
-    "zova-module-a-tabs": "^5.0.20",
+    "zova-module-a-model": "^5.0.30",
+    "zova-module-a-pinia": "^5.0.30",
+    "zova-module-a-router": "^5.0.65",
+    "zova-module-a-style": "^5.0.42",
+    "zova-module-a-tabs": "^5.0.21",
     "zova-module-home-base": "^5.0.0",
     "zova-module-home-icon": "^5.0.0",
     "zova-module-home-index": "^5.0.0",
@@ -74,12 +74,12 @@
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.169",
+    "quasar-app-extension-zova": "^1.1.170",
     "sass": "^1.77.5",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.29",
-    "zova-vite": "^1.0.170"
+    "zova-vite": "^1.0.171"
   },
   "license": "MIT",
   "gitHead": "544f25da60609ebc63c14f92057dedb289ba5946"
