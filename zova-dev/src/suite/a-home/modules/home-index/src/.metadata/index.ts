@@ -19,7 +19,7 @@ import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 @Scope()
 export class ScopeModuleHomeIndex extends BeanScopeBase {}
 
-export interface ScopeModuleHomeIndex extends TypeModuleResource<any, any, any, any, any, any> {}
+export interface ScopeModuleHomeIndex extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
