@@ -16,8 +16,6 @@ import {
 import * as ModuleInfo from '@cabloy/module-info';
 import { useRoute } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
-import { ScopeModule, __ThisModule__ } from './.metadata/this.js';
-import { markRaw } from 'vue';
 import { getRealRouteName } from './utils.js';
 import { LocalRouter } from './bean/local.router.js';
 
@@ -27,7 +25,6 @@ export class Monkey
 {
   private _moduleSelf: IModule;
   private _beanRouter: BeanRouter;
-  private _beanComponentDefault: any;
   localRouter: LocalRouter;
 
   constructor(moduleSelf: IModule) {
@@ -48,9 +45,6 @@ export class Monkey
     this.localRouter = await this.bean._newBean(LocalRouter, false);
   }
   async appInitialized() {
-    // component default
-    const scope: ScopeModule = await this.bean.getScope(__ThisModule__);
-    this._beanComponentDefault = await this.bean.getScope(scope.config.defaultComponent);
     // emit event
     await this.app.meta.event.emit('a-router:routerGuards', this._beanRouter);
   }
@@ -68,19 +62,11 @@ export class Monkey
     }
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
-    const self = this;
     bean.defineProperty(beanInstance, '$router', {
       enumerable: false,
       configurable: true,
       get() {
         return bean._getBeanFromHost('a-router.bean.router');
-      },
-    });
-    bean.defineProperty(beanInstance, '$component', {
-      enumerable: false,
-      configurable: true,
-      get() {
-        return markRaw(self._beanComponentDefault.component);
       },
     });
   }

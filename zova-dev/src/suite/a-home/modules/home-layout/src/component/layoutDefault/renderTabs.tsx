@@ -3,6 +3,7 @@ import { ScopeModule, __ThisModule__ } from '../../.metadata/this.js';
 import { StyleLayoutDefault } from './style.js';
 import { JSX } from 'vue/jsx-runtime';
 import { withModifiers } from 'vue';
+import { ZRouterViewTabs } from 'zova-module-a-tabs';
 
 export interface RenderTabs extends StyleLayoutDefault {}
 
@@ -51,6 +52,6 @@ export class RenderTabs extends BeanRenderBase<ScopeModule> {
   }
 
   _renderRouterViewTabs() {
-    return <this.$$scopeModuleATabs.component.routerViewTabs></this.$$scopeModuleATabs.component.routerViewTabs>;
+    return <ZRouterViewTabs></ZRouterViewTabs>;
   }
 }
