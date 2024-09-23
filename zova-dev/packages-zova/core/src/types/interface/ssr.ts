@@ -3,6 +3,7 @@ import { ComponentInternalInstance, VNode } from 'vue';
 export interface SSRContext {
   _meta: SSRContextMeta;
   state: SSRContextState;
+  stateDefer: SSRContextStateDefer;
   req: Request;
   res: Response;
   /** The global "nonce" attribute to use */
@@ -28,6 +29,7 @@ export interface SSRContextMeta {
 }
 
 export interface SSRContextState {}
+export interface SSRContextStateDefer {}
 
 // from: quasar/dist/types/meta.d.ts
 // Cannot use `Record<string, string>` as TS would error out about `template` signature

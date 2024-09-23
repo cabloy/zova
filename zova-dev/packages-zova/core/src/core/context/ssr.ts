@@ -7,6 +7,7 @@ import {
   OnHydratePropHasMismatchResult,
   SSRContext,
   SSRContextState,
+  SSRContextStateDefer,
 } from '../../types/interface/ssr.js';
 import { Cast } from '../../types/utils/cast.js';
 import { CtxSSRMetaStore } from './ssrMetaStore.js';
@@ -16,6 +17,7 @@ import { ErrorSSR } from '../../bean/index.js';
 const SymbolIsRuntimeSsrPreHydration = Symbol('SymbolIsRuntimeSsrPreHydration');
 const SymbolSSRContext = Symbol('SymbolSSRContext');
 const SymbolSSRState = Symbol('SymbolSSRState');
+const SymbolSSRStateDefer = Symbol('SymbolSSRStateDefer');
 const SymbolOnHydrateds = Symbol('SymbolOnHydrateds');
 const SymbolOnHydratePropHasMismatches = Symbol('SymbolOnHydratePropHasMismatches');
 const SymbolInstanceUpdates = Symbol('SymbolInstanceUpdates');
@@ -25,6 +27,7 @@ export class CtxSSR extends BeanSimple {
   private [SymbolIsRuntimeSsrPreHydration]: Ref<boolean> = ref(false);
   private [SymbolSSRContext]: SSRContext;
   private [SymbolSSRState]: SSRContextState;
+  private [SymbolSSRStateDefer]: SSRContextStateDefer;
   private [SymbolOnHydrateds]: Functionable[] = [];
   private [SymbolOnHydratePropHasMismatches]: OnHydratePropHasMismatch[] = [];
   private [SymbolInstanceUpdates]: ComponentInternalInstance[] = [];
@@ -49,6 +52,13 @@ export class CtxSSR extends BeanSimple {
         document.getElementById('ssr-state-init')?.remove();
       } else {
         this[SymbolSSRState] = {};
+      }
+      if (Cast(window).__INITIAL_STATE_DEFER__) {
+        this[SymbolSSRStateDefer] = Cast(window).__INITIAL_STATE_DEFER__;
+        delete Cast(window).__INITIAL_STATE_DEFER__;
+        document.getElementById('ssr-state-defer-init')?.remove();
+      } else {
+        this[SymbolSSRStateDefer] = {};
       }
     }
     // onHydratePropHasMismatch
@@ -95,6 +105,15 @@ export class CtxSSR extends BeanSimple {
     return this[SymbolSSRState];
   }
 
+  get stateDefer() {
+    if (!this[SymbolSSRStateDefer]) {
+      if (process.env.SERVER) {
+        this[SymbolSSRStateDefer] = this.context.stateDefer;
+      }
+    }
+    return this[SymbolSSRStateDefer];
+  }
+
   private _initContext() {
     const ssrContext = this[SymbolSSRContext];
     ssrContext._meta = defu(ssrContext._meta, {
@@ -106,6 +125,7 @@ export class CtxSSR extends BeanSimple {
       bodyTags: '',
     });
     ssrContext.state = ssrContext.state || {};
+    ssrContext.stateDefer = ssrContext.stateDefer || {};
   }
 
   onHydrated(fn: Functionable) {
