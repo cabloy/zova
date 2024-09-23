@@ -90,7 +90,7 @@ export function extendFiles(api: IndexAPI, flavor: string) {
         "import { green } from 'kolorist'",
         `import { green } from 'kolorist'
         import { ViteNode } from 'quasar-app-extension-zova'
-        import { collectCss, collectTeleports } from 'zova-vite'
+        import { collectCss, renderTeleports } from 'zova-vite'
         import * as path from 'node:path'`,
       )
       .replace(
@@ -137,10 +137,8 @@ export function extendFiles(api: IndexAPI, flavor: string) {
         let html = renderTemplate(ssrContext)`,
       )
       .replace(
-        "logServerMessage('Rendered',",
-        `html = collectTeleports(html, ssrContext.teleports)
-        
-        logServerMessage('Rendered',`,
+        '<div id="q-app">${ runtimePageContent }</div>',
+        '<div id="q-app">${ runtimePageContent }</div>${ renderTeleports(ssrContext.teleports) }',
       );
     fse.writeFileSync(fileSrc, contentNew);
   }
