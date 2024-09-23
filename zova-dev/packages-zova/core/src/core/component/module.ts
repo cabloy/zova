@@ -193,7 +193,7 @@ export class AppModule extends BeanSimple {
   private async _registerConfig(module: IModule) {
     if (!module.resource.config) return;
     // config
-    const config = await module.resource.config(this.app);
+    const config = await module.resource.config(this.app, this.app.config.meta);
     // monkey
     await this._monkeyModule('configLoaded', module, config);
     // extend

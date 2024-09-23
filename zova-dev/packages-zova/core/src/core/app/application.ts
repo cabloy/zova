@@ -6,6 +6,7 @@ import { ZovaConfig, configDefault } from './config.js';
 import { ZovaConstant, constantDefault } from './constant.js';
 import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
+import { TypeModuleResourceConfig } from '../../types/interface/module.js';
 
 export class ZovaApplication {
   private _reloadDelayTimer: number = 0;
@@ -41,7 +42,7 @@ export class ZovaApplication {
     // errors
     await this.meta.error.initialize();
     // config
-    this.config = this.meta.util.extend({}, configDefault(), config);
+    this.config = await this._combineConfig(config);
     // constant
     this.constant = constantDefault;
     // module
@@ -52,6 +53,14 @@ export class ZovaApplication {
     await this.meta.module._monkeyModule('appInitialized');
     // monkey: appReady
     await this.meta.module._monkeyModule('appReady');
+  }
+
+  private async _combineConfig(config: TypeModuleResourceConfig[]): Promise<ZovaConfig> {
+    const _config = this.meta.util.extend({}, configDefault());
+    for (const configFn of config) {
+      this.meta.util.extend(_config, await configFn(this, _config.meta));
+    }
+    return _config;
   }
 
   public reload() {

@@ -11,8 +11,18 @@ import {
 
 export function configDefault() {
   return {
-    meta: {},
+    meta: {
+      flavor: process.env.META_FLAVOR,
+      mode: process.env.META_MODE,
+      appMode: process.env.META_APP_MODE,
+    },
     env: {
+      appRouterMode: process.env.APP_ROUTER_MODE,
+      appRouterBase: process.env.APP_ROUTER_BASE,
+      appPublicPath: process.env.APP_PUBLIC_PATH,
+      appName: process.env.APP_NAME,
+      appTitle: process.env.APP_TITLE,
+      appVersion: process.env.APP_VERSION,
       ssr: process.env.SSR,
       server: process.env.SERVER,
       client: process.env.CLIENT,

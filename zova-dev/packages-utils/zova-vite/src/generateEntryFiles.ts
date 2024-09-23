@@ -1,11 +1,7 @@
 import fse from 'fs-extra';
 import { glob } from '@cabloy/module-glob';
-import tmp from 'tmp';
-import { build as esBuild } from 'esbuild';
 import chalk from 'chalk';
-import { extend } from '@cabloy/extend';
-import { pathToFileURL } from 'node:url';
-import path, * as Path from 'node:path';
+import path from 'node:path';
 import { copyTemplateFile, getEnvMeta, resolveTemplatePath } from './utils.js';
 import { getEnvFiles } from '@cabloy/dotenv';
 import { ZovaViteConfigOptions } from './types.js';
@@ -36,61 +32,23 @@ export async function generateEntryFiles(
     const meta = getEnvMeta(configMeta);
     configDir = path.join(configOptions.appDir, 'src/front/config/config');
     const files = getEnvFiles(meta, configDir, 'config', '.ts')!;
-    const targetMeta: any = { ...meta };
-    delete targetMeta.mine;
-    const target = {
-      meta: targetMeta,
-      env: {
-        appRouterMode: process.env.APP_ROUTER_MODE,
-        appRouterBase: process.env.APP_ROUTER_BASE,
-        appPublicPath: process.env.APP_PUBLIC_PATH,
-        appName: process.env.APP_NAME,
-        appTitle: process.env.APP_TITLE,
-        appVersion: process.env.APP_VERSION,
-      },
-    };
-    for (const file of files) {
-      const config = await __loadConfig(file, targetMeta);
-      if (config) {
-        extend(true, target, config);
+    const filenames = files.map(item => path.basename(item));
+    const imports: string[] = [];
+    const constNames: string[] = [];
+    for (const filename of filenames) {
+      const parts = filename.split('.');
+      let constName = parts[0];
+      for (let index = 1; index < parts.length - 1; index++) {
+        constName += parts[index].charAt(0).toUpperCase() + parts[index].substring(1);
       }
+      imports.push(`import ${constName} from '../src/front/config/config/${filename}';`);
+      constNames.push(constName);
     }
+    const contentDest = `${imports.join('\n')}\nexport default [${constNames.join(', ')}];`;
     // output
-    const contentDest = `import { ZovaConfig } from 'zova';\nexport default ${JSON.stringify(target, null, 2)} as ZovaConfig;`;
     const fileDest = path.join(configOptions.appDir, configOptions.runtimeDir, 'config.ts');
     fse.ensureFileSync(fileDest);
     fse.writeFileSync(fileDest, contentDest, 'utf-8');
-    // ok
-    return target;
-  }
-
-  async function __loadConfig(fileName: string, meta) {
-    // temp
-    const fileTempObj = tmp.fileSync({ postfix: '.mjs' });
-    const fileTemp = fileTempObj.name;
-    // build
-    const esBuildConfig = __createEsbuildConfig(fileName, fileTemp);
-    await esBuild(esBuildConfig as any);
-    // load
-    const fnResult = await import(_pathToHref(fileTemp));
-    const configFn = fnResult.default || fnResult;
-    const config = await configFn(meta);
-    // delete temp
-    fileTempObj.removeCallback();
-    // ok
-    return config;
-  }
-
-  function __createEsbuildConfig(fileSrc: string, fileDest: string) {
-    return {
-      platform: 'node',
-      format: 'esm',
-      bundle: true,
-      packages: 'external',
-      resolveExtensions: ['.mjs', '.js', '.mts', '.ts', '.json'],
-      entryPoints: [fileSrc],
-      outfile: fileDest,
-    };
   }
 
   async function __generateAppComponent() {
@@ -121,7 +79,40 @@ export async function generateEntryFiles(
     await copyTemplateFile(fileSrc, fileDest, { modules, moduleNames });
   }
 
-  function _pathToHref(fileName: string): string {
-    return Path.sep === '\\' ? pathToFileURL(fileName).href : fileName;
-  }
+  //import tmp from 'tmp';
+  //import { build as esBuild } from 'esbuild';
+  //import { pathToFileURL } from 'node:url';
+
+  // function _pathToHref(fileName: string): string {
+  //   return Path.sep === '\\' ? pathToFileURL(fileName).href : fileName;
+  // }
+
+  // async function __loadConfig(fileName: string, meta) {
+  //   // temp
+  //   const fileTempObj = tmp.fileSync({ postfix: '.mjs' });
+  //   const fileTemp = fileTempObj.name;
+  //   // build
+  //   const esBuildConfig = __createEsbuildConfig(fileName, fileTemp);
+  //   await esBuild(esBuildConfig as any);
+  //   // load
+  //   const fnResult = await import(_pathToHref(fileTemp));
+  //   const configFn = fnResult.default || fnResult;
+  //   const config = await configFn(meta);
+  //   // delete temp
+  //   fileTempObj.removeCallback();
+  //   // ok
+  //   return config;
+  // }
+
+  // function __createEsbuildConfig(fileSrc: string, fileDest: string) {
+  //   return {
+  //     platform: 'node',
+  //     format: 'esm',
+  //     bundle: true,
+  //     packages: 'external',
+  //     resolveExtensions: ['.mjs', '.js', '.mts', '.ts', '.json'],
+  //     entryPoints: [fileSrc],
+  //     outfile: fileDest,
+  //   };
+  // }
 }

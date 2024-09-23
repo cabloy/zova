@@ -3,6 +3,7 @@ import { ZovaApplication } from '../../core/app/application.js';
 import { IModuleMain, IMonkeyModule, IMonkeyController, IMonkeySystem } from './monkey.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { Component } from 'vue';
+import { ZovaConfigMeta } from 'zova-shared';
 
 export type TypeModuleResourceIcons = Record<string, string>;
 export type TypeModuleResourceLocales = Record<string, object>;
@@ -11,13 +12,14 @@ export type TypeModuleResourceErrors = Record<number, string>;
 export type TypeModuleResourceErrorModules = Record<string, TypeModuleResourceErrors>;
 export type TypeModuleResourceComponents = Record<string, Component>;
 export type TypeModuleResourceServices = Record<string, (app: ZovaApplication) => object>;
+export type TypeModuleResourceConfig = (app: ZovaApplication, meta?: ZovaConfigMeta) => object | Promise<object>;
 
 export interface IModuleResource {
   Main: new () => IModuleMain;
   Monkey: new () => IMonkeyModule & IMonkeySystem & IMonkeyController;
   locales: TypeModuleResourceLocales;
   Errors: TypeModuleResourceErrors;
-  config: (app: ZovaApplication) => object | Promise<object>;
+  config: TypeModuleResourceConfig;
   constants: unknown;
   icons: TypeModuleResourceIcons;
   components: TypeModuleResourceComponents;
