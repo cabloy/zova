@@ -31,7 +31,7 @@ export class RenderComponent {
 ## Use Child Component cross-module
 
 ```typescript{1,4-5,10-17}
-import type { ScopeModuleADemo } from 'zova-module-a-demo';
+import { ZCard } from 'zova-module-a-demo';
 
 export class RenderComponent {
   @UseScope('a-demo')
@@ -40,14 +40,14 @@ export class RenderComponent {
   render() {
     return (
       <div>
-        <this.scopeModuleADemo.component.card
+        <ZCard
           header="header"
           content="content"
           footer="footer"
           onReset={time => {
             console.log(time);
           }}
-        ></this.scopeModuleADemo.component.card>
+        ></ZCard>
       </div>
     );
   }
