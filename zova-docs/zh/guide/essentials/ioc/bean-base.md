@@ -43,7 +43,6 @@
 | ------------------------------------------------------- | ------------------------------------ |
 | [$api](../../techniques/api/introduction.md)            | 由模块`home-api`提供的api对象        |
 | [$class](../../techniques/css-in-js/class.md)           | 由模块`home-style`提供的全局样式对象 |
-| [$component](../scope/component.md)                     | 由模块`home-component`提供的全局组件 |
 | [$pinia](../../vue/pinia.md)                            | 由模块`a-pinia`提供的pinia对象       |
 | [$queryClient](../../techniques/model/introduction.md)  | 由模块`a-model`提供的queryClient对象 |
 | [$router](../../techniques/router/navigation-guards.md) | 由模块`a-router`提供的router对象     |

@@ -43,7 +43,6 @@ When a project is created, there will be some modules present in the project, pr
 | ------------------------------------------------------- | ----------------------------------------------------------- |
 | [$api](../../techniques/api/introduction.md)            | Api object provided by module `home-api`                    |
 | [$class](../../techniques/css-in-js/class.md)           | Global style object provided by module `home-style`         |
-| [$component](../scope/component.md)                     | Global child components provided by module `home-component` |
 | [$pinia](../../vue/pinia.md)                            | Pinia object provided by module `a-pinia`                   |
 | [$queryClient](../../techniques/model/introduction.md)  | QueryClient object provided by module `a-model`             |
 | [$router](../../techniques/router/navigation-guards.md) | Router object provided by module `a-router`                 |
