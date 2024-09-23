@@ -3,6 +3,7 @@ import type { StyleTodo } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { withModifiers } from 'vue';
 import { RouterLink } from 'vue-router';
+import { ZPage } from 'zova-module-home-base';
 
 export interface RenderTodo extends StyleTodo {}
 

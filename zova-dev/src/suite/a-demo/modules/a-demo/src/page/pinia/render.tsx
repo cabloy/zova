@@ -1,6 +1,7 @@
 import { BeanRenderBase, Local } from 'zova';
 import type { StylePinia } from './style.js';
 import { ScopeModule } from '../../.metadata/this.js';
+import { ZPage } from 'zova-module-home-base';
 
 export interface RenderPinia extends StylePinia {}
 
