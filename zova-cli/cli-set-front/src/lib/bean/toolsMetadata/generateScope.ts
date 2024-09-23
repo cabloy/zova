@@ -16,7 +16,6 @@ export class ScopeModule${relativeNameCapitalize} extends BeanScopeBase {}
 
 export interface ScopeModule${relativeNameCapitalize}
   extends TypeModuleResource<
-    ${options.components ? 'typeof components' : 'any'},
     ${options.config ? 'typeof config' : 'any'},
     ${options.errors ? 'typeof Errors' : 'any'},
     ${options.locales ? '(typeof locales)[TypeLocaleBase]' : 'any'},
