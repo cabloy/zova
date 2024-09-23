@@ -15,7 +15,7 @@ declare module 'zova' {
     $queryClient: ReturnType<typeof useQueryClient>;
   }
 
-  export interface SSRContextState {
+  export interface SSRContextStateDefer {
     query: DehydratedState;
   }
 }

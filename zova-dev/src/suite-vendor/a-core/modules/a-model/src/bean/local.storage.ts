@@ -22,7 +22,7 @@ export class LocalStorage extends BeanBase<ScopeModule> {
     // onRendered
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
-        this.ctx.meta.ssr.state.query = dehydrate(queryClient, {
+        this.ctx.meta.ssr.stateDefer.query = dehydrate(queryClient, {
           shouldDehydrateMutation: () => {
             return false;
           },
@@ -32,7 +32,7 @@ export class LocalStorage extends BeanBase<ScopeModule> {
     }
     // client
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
-      hydrate(queryClient, this.ctx.meta.ssr.state.query);
+      hydrate(queryClient, this.ctx.meta.ssr.stateDefer.query);
     }
   }
 }

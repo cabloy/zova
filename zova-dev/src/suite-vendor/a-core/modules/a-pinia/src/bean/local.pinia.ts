@@ -12,13 +12,13 @@ export class LocalPinia extends BeanBase<ScopeModule> {
     // onRendered
     if (process.env.SERVER) {
       this.ctx.meta.ssr.context.onRendered(() => {
-        this.ctx.meta.ssr.state.pinia = this.pinia.state.value;
+        this.ctx.meta.ssr.stateDefer.pinia = this.pinia.state.value;
         this.pinia.state.value = {};
       });
     }
     // client
     if (process.env.CLIENT && this.ctx.meta.ssr.isRuntimeSsrPreHydration) {
-      this.pinia.state.value = this.ctx.meta.ssr.state.pinia;
+      this.pinia.state.value = this.ctx.meta.ssr.stateDefer.pinia;
     }
   }
 }

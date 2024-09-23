@@ -9,7 +9,7 @@ declare module 'zova' {
     $pinia: Pinia;
   }
 
-  export interface SSRContextState {
+  export interface SSRContextStateDefer {
     pinia: Record<string, StateTree>;
   }
 }
