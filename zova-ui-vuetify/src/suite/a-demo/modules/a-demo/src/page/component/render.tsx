@@ -9,7 +9,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <div>
-        <this.scope.component.card
+        <ZCard
           controllerRef={ref => {
             this.cardRef = ref;
           }}
@@ -30,7 +30,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
               return <div>this is a footer slot from parent</div>;
             },
           }}
-        ></this.scope.component.card>
+        ></ZCard>
       </div>
     );
   }

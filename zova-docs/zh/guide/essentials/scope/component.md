@@ -11,14 +11,14 @@ export class RenderComponent {
   render() {
     return (
       <div>
-        <this.scope.component.card
+        <ZCard
           header="header"
           content="content"
           footer="footer"
           onReset={time => {
             console.log(time);
           }}
-        ></this.scope.component.card>
+        ></ZCard>
       </div>
     );
   }
