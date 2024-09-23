@@ -62,9 +62,9 @@ To simplify the code, Zova provides the `home-component` module, into which comm
 export class RenderState {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div>Hello Zova</div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

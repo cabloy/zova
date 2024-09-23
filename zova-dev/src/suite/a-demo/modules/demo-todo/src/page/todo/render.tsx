@@ -11,7 +11,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     const todoCurrent = this.$$modelTodo.get(this.currentTodo);
     return (
-      <this.$component.page>
+      <ZPage>
         {todoCurrent?.data && (
           <div role="alert" class="alert alert-success">
             <div>
@@ -94,7 +94,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
             </tbody>
           </table>
         </div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

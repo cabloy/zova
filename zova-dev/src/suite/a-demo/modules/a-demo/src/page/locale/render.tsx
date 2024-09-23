@@ -8,7 +8,7 @@ export interface RenderLocale extends ControllerPageLocale {}
 export class RenderLocale extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div>
           {this.app.meta.locale.current}: {this.scope.locale.HelloWorld()}
         </div>
@@ -24,7 +24,7 @@ export class RenderLocale extends BeanRenderBase<ScopeModule> {
         >
           {this.scope.locale.ChangeLanguage()}
         </button>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

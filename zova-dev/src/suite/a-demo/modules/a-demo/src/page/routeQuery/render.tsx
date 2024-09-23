@@ -8,7 +8,7 @@ export interface RenderRouteQuery extends StyleRouteQuery {}
 export class RenderRouteQuery extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div class="overflow-x-auto">
           <table class="table">
             <thead>
@@ -46,7 +46,7 @@ export class RenderRouteQuery extends BeanRenderBase<ScopeModule> {
             Go to current page with different query value
           </button>
         </div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

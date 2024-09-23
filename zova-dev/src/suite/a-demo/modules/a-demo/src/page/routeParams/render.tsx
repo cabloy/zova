@@ -8,7 +8,7 @@ export interface RenderRouteParams extends StyleRouteParams {}
 export class RenderRouteParams extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div class="overflow-x-auto">
           <table class="table">
             <thead>
@@ -39,7 +39,7 @@ export class RenderRouteParams extends BeanRenderBase<ScopeModule> {
             Go to current page with different params value
           </button>
         </div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

@@ -8,7 +8,7 @@ export interface RenderPinia extends StylePinia {}
 export class RenderPinia extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div>{`count: ${this.$$counter.count}`}</div>
         <div>{`doubleCount: ${this.$$counter.doubleCount}`}</div>
         <div>{`name: ${this.$$counter.name}`}</div>
@@ -20,7 +20,7 @@ export class RenderPinia extends BeanRenderBase<ScopeModule> {
         >
           Increment
         </button>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

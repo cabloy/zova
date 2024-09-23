@@ -9,7 +9,7 @@ export class RenderItem extends BeanRenderBase<ScopeModule> {
   render() {
     const todoCurrent = this.$$modelTodo.get(this.currentTodo);
     return (
-      <this.$component.page>
+      <ZPage>
         {todoCurrent?.data && (
           <div role="alert" class="alert alert-info">
             <div>Current: {todoCurrent?.data?.title}</div>
@@ -20,7 +20,7 @@ export class RenderItem extends BeanRenderBase<ScopeModule> {
             <span>{todoCurrent?.error?.message}</span>
           </div>
         )}
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

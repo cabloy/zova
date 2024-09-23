@@ -8,7 +8,7 @@ export interface RenderRouteQuery2 extends StyleRouteQuery2 {}
 export class RenderRouteQuery2 extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <div role="tablist" class="tabs tabs-lifted">
           <input
             type="radio"
@@ -154,7 +154,7 @@ export class RenderRouteQuery2 extends BeanRenderBase<ScopeModule> {
             </div>
           </div>
         </div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }

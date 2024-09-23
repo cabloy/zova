@@ -17,7 +17,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
   }
   render() {
     return (
-      <this.$component.page>
+      <ZPage>
         <hr></hr>
         <div class={this.cTextColor}>Hello World</div>
         {this.renderHello}
@@ -85,7 +85,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
             </div>
           </div>
         </div>
-      </this.$component.page>
+      </ZPage>
     );
   }
 }
