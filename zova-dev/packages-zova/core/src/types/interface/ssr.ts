@@ -26,6 +26,7 @@ export interface SSRContextMeta {
   bodyClasses: string;
   bodyAttrs: string;
   bodyTags: string;
+  endingBodyTags: string;
 }
 
 export interface SSRContextState {}

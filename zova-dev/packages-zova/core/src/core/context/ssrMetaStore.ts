@@ -32,6 +32,7 @@ export class CtxSSRMetaStore extends BeanSimple {
   private _onRenderedLast() {
     const ssrContext = this.ctx.meta.ssr.context;
     injectContextState(ssrContext);
+    injectContextStateDefer(ssrContext);
     injectServerMeta(ssrContext);
   }
 
@@ -375,4 +376,12 @@ function injectContextState(ssrContext: SSRContext) {
   const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
 
   ctx.endingHeadTags += `<script${nonce} id="ssr-state-init">window.__INITIAL_STATE__=${devalue.uneval(ssrContext.state)}</script>`;
+}
+
+function injectContextStateDefer(ssrContext: SSRContext) {
+  const ctx = ssrContext._meta;
+
+  const nonce = ssrContext.nonce !== void 0 ? ` nonce="${ssrContext.nonce}"` : '';
+
+  ctx.endingBodyTags += `<script${nonce} id="ssr-state-defer-init">window.__INITIAL_STATE_DEFER__=${devalue.uneval(ssrContext.stateDefer)}</script>`;
 }

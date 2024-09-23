@@ -123,6 +123,7 @@ export class CtxSSR extends BeanSimple {
       bodyClasses: '',
       bodyAttrs: 'data-server-rendered',
       bodyTags: '',
+      endingBodyTags: '',
     });
     ssrContext.state = ssrContext.state || {};
     ssrContext.stateDefer = ssrContext.stateDefer || {};
