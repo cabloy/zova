@@ -47,8 +47,7 @@ import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 @Scope()
 export class ScopeModuleHomeLayout extends BeanScopeBase {}
 
-export interface ScopeModuleHomeLayout
-  extends TypeModuleResource<typeof components, any, any, any, any, typeof services> {}
+export interface ScopeModuleHomeLayout extends TypeModuleResource<any, any, any, any, typeof services> {}
 
 import 'zova';
 declare module 'zova' {
