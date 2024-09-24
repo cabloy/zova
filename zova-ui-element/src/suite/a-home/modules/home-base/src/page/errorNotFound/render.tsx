@@ -9,13 +9,11 @@ export interface RenderErrorNotFound extends StyleErrorNotFound {}
 export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div style="height: 100vh;" class="bg-blue text-white text-center">
+      <div class="text-center">
         <div>
           <div style="font-size: 30vh">404</div>
 
-          <div class="text-h2" style="opacity:.4">
-            Oops. Nothing here...
-          </div>
+          <div style="font-size: 30px;line-height:2;opacity:.4">Oops. Nothing here...</div>
 
           <ElButton
             color="white"
