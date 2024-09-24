@@ -53,7 +53,8 @@ export class CliToolsDeps extends BeanCliBase {
     // all modules
     this.modulesMeta.modulesArray.forEach(module => {
       if (!depsOriginal[module.package.name]) {
-        depsOriginal[module.package.name] = '^' + module.package.version;
+        const version = module.info.node_modules ? '^' + module.package.version : 'workspace:^';
+        depsOriginal[module.package.name] = version;
       }
     });
     // all deps of modules
