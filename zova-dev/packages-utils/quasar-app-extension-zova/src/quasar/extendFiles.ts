@@ -127,10 +127,10 @@ export function extendFiles(api: IndexAPI, flavor: string) {
       .replace(
         'let html = renderTemplate(ssrContext)',
         `ssrContext._meta.endingHeadTags += collectCss(
-          [viteServer.moduleGraph.getModuleById(this.#pathMap.serverEntryFile)].concat(
+          [viteServer.moduleGraph.getModuleById(this.#pathMap.serverEntryFile.replaceAll('\\\\','/'))].concat(
           [...(ssrContext.modules||[])]
             .map((componentPath) => this.#viteServer.moduleGraph.getModuleById(
-              path.resolve(componentPath),
+              path.resolve(componentPath).replaceAll('\\\\','/'),
           )))
         )
 
