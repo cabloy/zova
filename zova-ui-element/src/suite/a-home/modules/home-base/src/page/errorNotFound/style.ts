@@ -6,5 +6,11 @@ export interface StyleErrorNotFound extends ControllerPageErrorNotFound {}
 
 @Local()
 export class StyleErrorNotFound extends BeanStyleBase<ScopeModule> {
-  protected async __init__() {}
+  cTextCenter: string;
+
+  protected async __init__() {
+    this.cTextCenter = this.$style({
+      textAlign: 'center',
+    });
+  }
 }

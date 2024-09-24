@@ -9,7 +9,7 @@ export interface RenderErrorNotFound extends StyleErrorNotFound {}
 export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div class="text-center">
+      <div class={this.cTextCenter}>
         <div>
           <div style="font-size: 30vh">404</div>
 
