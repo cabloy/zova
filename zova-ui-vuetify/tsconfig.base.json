@@ -2,9 +2,8 @@
   "extends": "./tsconfig.base.esm",
   "compilerOptions": {
     "noEmit": true,
-    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/legacy/*"]
+      "@/*": ["./src/legacy/*"]
     }
   }
 }
