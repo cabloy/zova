@@ -15,6 +15,11 @@ export class StyleErrorNotFound extends BeanStyleBase<ScopeModule> {
     this.cTitle = this.$style({
       fontSize: '30vh',
     });
-    this.cDescription = classes('text-3xl');
+    this.cDescription = classes(
+      'text-3xl',
+      this.$style({
+        opacity: '0.4',
+      }),
+    );
   }
 }

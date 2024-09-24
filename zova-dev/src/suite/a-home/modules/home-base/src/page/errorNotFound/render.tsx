@@ -13,9 +13,7 @@ export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
         <div>
           <div class={this.cTitle}>404</div>
 
-          <div class={this.cDescription} style="opacity:.4">
-            Oops. Nothing here...
-          </div>
+          <div class={this.cDescription}>Oops. Nothing here...</div>
 
           <RouterLink to="/">Go Home</RouterLink>
         </div>
