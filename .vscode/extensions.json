@@ -4,8 +4,15 @@
     "vscodevim.vim",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
+    "Vue.volar",
     "csstools.postcss",
     "bradlc.vscode-tailwindcss"
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    "Vue.vscode-typescript-vue-plugin",
+    "octref.vetur",
+    "hookyqr.beautify",
+    "dbaeumer.jshint",
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ]
 }

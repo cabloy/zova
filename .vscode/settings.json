@@ -14,6 +14,8 @@
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.includePackageJsonAutoImports": "on",
+  // tailwindCSS
+  "tailwindCSS.experimental.classRegex": [["classes\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]],
   // eslint
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"

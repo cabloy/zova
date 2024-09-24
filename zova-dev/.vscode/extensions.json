@@ -4,7 +4,9 @@
     "vscodevim.vim",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "Vue.volar"
+    "Vue.volar",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss"
   ],
   "unwantedRecommendations": [
     "Vue.vscode-typescript-vue-plugin",

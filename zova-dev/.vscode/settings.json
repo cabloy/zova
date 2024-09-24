@@ -48,6 +48,8 @@
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.includePackageJsonAutoImports": "on",
+  // tailwindCSS
+  "tailwindCSS.experimental.classRegex": [["classes\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]],
   // associations
   "files.associations": {
     "*.ejs": "html",
