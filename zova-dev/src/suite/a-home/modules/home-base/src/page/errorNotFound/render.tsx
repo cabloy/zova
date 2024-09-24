@@ -11,9 +11,9 @@ export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
     return (
       <div class="text-center">
         <div>
-          <div style="font-size: 30vh">404</div>
+          <div class={this.cTitle}>404</div>
 
-          <div class="text-3xl" style="opacity:.4">
+          <div class={this.cDescription} style="opacity:.4">
             Oops. Nothing here...
           </div>
 
