@@ -10,15 +10,13 @@ export class RenderErrorNotFound extends BeanRenderBase<ScopeModule> {
   render() {
     return (
       <QPage>
-        <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+        <div class="text-center q-pa-md">
           <div>
             <div style="font-size: 30vh">404</div>
 
-            <div class="text-h2" style="opacity:.4">
-              Oops. Nothing here...
-            </div>
+            <div style="font-size: 30px;line-height:1;opacity:.4">Oops. Nothing here...</div>
 
-            <QBtn class="q-mt-xl" color="white" text-color="blue" unelevated to="/" label="Go Home" no-caps />
+            <QBtn class="q-mt-xl" outline unelevated to="/" label="Go Home" no-caps />
           </div>
         </div>
       </QPage>
