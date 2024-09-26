@@ -13,7 +13,7 @@ declare module 'zova-cli' {
   }
 }
 
-export class CliRefactorComponentGeneric extends BeanCliBase {
+export class CliRefactorComponentProps extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super
@@ -41,7 +41,7 @@ export class CliRefactorComponentGeneric extends BeanCliBase {
     await this.template.renderBoilerplateAndSnippets({
       targetDir: componentDir,
       setName: __ThisSetName__,
-      snippetsPath: 'refactor/componentGeneric/snippets',
+      snippetsPath: 'refactor/componentProps/snippets',
       boilerplatePath: null,
     });
     // // tools.metadata

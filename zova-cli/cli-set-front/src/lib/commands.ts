@@ -25,6 +25,7 @@ import refactorPageParams from './command/refactor.pageParams.js';
 import refactorComponentGeneric from './command/refactor.componentGeneric.js';
 import refactorAnotherRender from './command/refactor.anotherRender.js';
 import refactorAnotherStyle from './command/refactor.anotherStyle.js';
+import refactorComponentProps from './command/refactor.componentProps.js';
 import refactorRenameComponent from './command/refactor.renameComponent.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
@@ -65,6 +66,7 @@ export const commands = {
     componentGeneric: refactorComponentGeneric,
     anotherRender: refactorAnotherRender,
     anotherStyle: refactorAnotherStyle,
+    componentProps: refactorComponentProps,
     renameComponent: refactorRenameComponent,
   },
   tools: {
