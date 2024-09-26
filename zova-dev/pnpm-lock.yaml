@@ -72,46 +72,49 @@ importers:
         specifier: workspace:^
         version: link:packages-zova/zova
       zova-module-a-core:
-        specifier: ^5.0.44
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-core
       zova-module-a-demo:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-demo/modules/a-demo
       zova-module-a-devui:
-        specifier: ^5.0.24
+        specifier: workspace:^
         version: link:src/suite-vendor/a-devui/modules/a-devui
       zova-module-a-model:
-        specifier: ^5.0.29
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.29
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.64
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.41
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.20
+        specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-tabs
+      zova-module-a-test:
+        specifier: workspace:^
+        version: link:src/module/a-test
       zova-module-demo-todo:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-demo/modules/demo-todo
       zova-module-home-base:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-base
       zova-module-home-icon:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-icon
       zova-module-home-index:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-index
       zova-module-home-layout:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-layout
       zova-module-home-user:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-user
     devDependencies:
       '@cabloy/lint':
@@ -198,7 +201,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.170
+        specifier: ^1.0.172
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -253,7 +256,7 @@ importers:
         specifier: ^1.0.31
         version: link:../babel-plugin-zova-bean-module
       babel-plugin-zova-component:
-        specifier: ^1.0.1
+        specifier: ^1.0.2
         version: link:../babel-plugin-zova-component
       chalk:
         specifier: ^3.0.0
@@ -355,34 +358,36 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.157
+        specifier: ^5.0.159
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.115
+        specifier: ^5.0.117
         version: link:../../src/suite-vendor/a-core
+
+  src/module/a-test: {}
 
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
-        specifier: ^5.0.44
+        specifier: ^5.0.45
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.29
+        specifier: ^5.0.31
         version: link:modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.29
+        specifier: ^5.0.31
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.64
+        specifier: ^5.0.65
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.41
+        specifier: ^5.0.42
         version: link:modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.20
+        specifier: ^5.0.21
         version: link:modules/a-tabs
 
   src/suite-vendor/a-core/modules/a-core: {}
@@ -425,7 +430,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-a-devui:
-        specifier: ^5.0.24
+        specifier: ^5.0.25
         version: link:modules/a-devui
 
   src/suite-vendor/a-devui/modules/a-devui: {}
