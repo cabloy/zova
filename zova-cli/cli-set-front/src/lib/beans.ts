@@ -29,6 +29,7 @@ import { CliRefactorComponentGeneric } from './bean/cli.refactor.componentGeneri
 import { CliRefactorAnotherRender } from './bean/cli.refactor.anotherRender.js';
 import { CliRefactorAnotherStyle } from './bean/cli.refactor.anotherStyle.js';
 import { CliRefactorComponentProps } from './bean/cli.refactor.componentProps.js';
+import { CliRefactorComponentEmits } from './bean/cli.refactor.componentEmits.js';
 import { CliRefactorRenameComponent } from './bean/cli.refactor.renameComponent.js';
 
 export const beans = {
@@ -60,6 +61,7 @@ export const beans = {
   'refactor.anotherRender': CliRefactorAnotherRender,
   'refactor.anotherStyle': CliRefactorAnotherStyle,
   'refactor.componentProps': CliRefactorComponentProps,
+  'refactor.componentEmits': CliRefactorComponentEmits,
   'refactor.renameComponent': CliRefactorRenameComponent,
   'tools.icon': CliToolsIcon,
   'tools.metadata': CliToolsMetadata,
