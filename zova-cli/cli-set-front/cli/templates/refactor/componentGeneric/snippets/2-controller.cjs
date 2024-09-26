@@ -3,10 +3,14 @@ module.exports = {
   parseOptions: { language: 'plain' },
   async transform({ ast }) {
     if (ast.includes('export interface Props<')) return;
-    const matchController = ast.match(/export class (.*?) extends/);
+    const matchController = ast.match(/export class ([^< ]*)(.*?) extends/);
     const className = matchController[1];
+    const hasGeneric = !!matchController[2];
+    const genericT = hasGeneric ? '<T>' : '';
+    const genericT2 = hasGeneric ? '<_T>' : '';
+    const hasSlots = ast.includes('export interface Slots');
     ast = ast
-      .replace('export interface Props', 'export interface Props<T>')
+      .replace('export interface Props', `export interface Props${hasSlots ? genericT : genericT2}`)
       .replace(`${className}, Slots`, `${className}<T>, Slots<T>`)
       .replace('export type Emits', 'export type Emits<_T>')
       .replace('export interface Slots', 'export interface Slots<_T>')
