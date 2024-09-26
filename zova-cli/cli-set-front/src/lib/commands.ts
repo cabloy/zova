@@ -27,6 +27,7 @@ import refactorAnotherRender from './command/refactor.anotherRender.js';
 import refactorAnotherStyle from './command/refactor.anotherStyle.js';
 import refactorComponentProps from './command/refactor.componentProps.js';
 import refactorComponentEmits from './command/refactor.componentEmits.js';
+import refactorComponentSlots from './command/refactor.componentSlots.js';
 import refactorRenameComponent from './command/refactor.renameComponent.js';
 // import toolsIcon from './command/tools.icon.js';
 import toolsMetadata from './command/tools.metadata.js';
@@ -69,6 +70,7 @@ export const commands = {
     anotherStyle: refactorAnotherStyle,
     componentProps: refactorComponentProps,
     componentEmits: refactorComponentEmits,
+    componentSlots: refactorComponentSlots,
     renameComponent: refactorRenameComponent,
   },
   tools: {
