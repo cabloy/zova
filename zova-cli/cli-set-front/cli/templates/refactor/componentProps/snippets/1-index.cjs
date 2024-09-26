@@ -3,7 +3,7 @@ module.exports = {
   parseOptions: { language: 'plain' },
   async transform({ ast }) {
     if (!ast.includes(', PropsBase')) throw new Error('Props exists');
-
+    //
     const hasGeneric = ast.match(/<script[^/]*?generic="[^"]*?"[^/]*?>/);
     const genericT = hasGeneric ? '<T>' : '';
     //

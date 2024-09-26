@@ -2,7 +2,7 @@ module.exports = {
   file: 'controller.ts',
   parseOptions: { language: 'plain' },
   async transform({ ast }) {
-    if (ast.includes('export interface Props')) throw new Error('Props exists');
+    if (ast.includes('export interface Props')) throw new Error('Emits exists');
     const matchController = ast.match(/export class ([^< ]*)(.*?) extends/);
     const className = matchController[1];
     const hasGeneric = !!matchController[2];
