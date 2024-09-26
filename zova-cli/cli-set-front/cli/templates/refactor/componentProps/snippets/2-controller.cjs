@@ -7,6 +7,7 @@ module.exports = {
     const className = matchController[1];
     const hasGeneric = !!matchController[2];
     const genericT = hasGeneric ? '<T>' : '';
+    const genericT2 = hasGeneric ? '<_T>' : '';
     const hasSlots = ast.includes('export interface Slots');
     // PropsBase
     if (!ast.match(/import \{[^\}]*PropsBase[^\}]*\} from 'zova';/)) {
@@ -16,7 +17,7 @@ module.exports = {
     }
     ast = ast.replace(
       '@Local',
-      `export interface Props${genericT} extends PropsBase<${className}${genericT}${hasSlots ? `, Slots${genericT}` : ''}> {}\n\n@Local`,
+      `export interface Props${hasSlots ? genericT : genericT2} extends PropsBase<${className}${genericT}${hasSlots ? `, Slots${genericT}` : ''}> {}\n\n@Local`,
     );
     // BeanControllerBase
     ast = ast.replace(/BeanControllerBase<(.*?)> \{/, (_, $1) => {
