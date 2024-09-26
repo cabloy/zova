@@ -2,27 +2,20 @@ module.exports = {
   file: 'controller.ts',
   parseOptions: { language: 'plain' },
   async transform({ ast }) {
-    if (ast.includes('export interface Props')) throw new Error('Emits exists');
+    if (ast.includes('export type Emits')) throw new Error('Emits exists');
     const matchController = ast.match(/export class ([^< ]*)(.*?) extends/);
-    const className = matchController[1];
+    // const className = matchController[1];
     const hasGeneric = !!matchController[2];
     const genericT = hasGeneric ? '<T>' : '';
-    const hasSlots = ast.includes('export interface Slots');
-    // PropsBase
-    if (!ast.match(/import \{[^\}]*PropsBase[^\}]*\} from 'zova';/)) {
-      ast = ast.replace(/import \{ ([^\}]*) \} from 'zova';/, (_, $1) => {
-        return `import { ${$1}, PropsBase } from 'zova';`;
-      });
-    }
-    ast = ast.replace(
-      '@Local',
-      `export interface Props${genericT} extends PropsBase<${className}${genericT}${hasSlots ? `, Slots${genericT}` : ''}> {}\n\n@Local`,
-    );
+    const genericT2 = hasGeneric ? '<_T>' : '';
+    //
+    ast = ast.replace('@Local', `export type Emits${genericT2} = {};\n\n@Local`);
     // BeanControllerBase
     ast = ast.replace(/BeanControllerBase<(.*?)> \{/, (_, $1) => {
       const parts = $1.split(',');
-      parts[1] = ` Props${genericT}`;
-      return `BeanControllerBase<${parts.join(',')}> {\n  static $propsDefault = {};\n\n`;
+      if (!parts[1]) parts[1] = ' unknown';
+      parts[2] = ` Emits${genericT}`;
+      return `BeanControllerBase<${parts.join(',')}> {`;
     });
     // ok
     return ast;
