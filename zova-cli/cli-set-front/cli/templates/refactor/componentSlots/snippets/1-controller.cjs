@@ -11,11 +11,13 @@ module.exports = {
     const hasProps = ast.includes('export interface Props');
     // Props
     if (hasProps) {
-      ast = ast.replace(/PropsBase<(.*?)> \{/, (_, $1) => {
-        const parts = $1.split(',');
-        parts[1] = ` Slots${genericT}`;
-        return `PropsBase<${parts.join(',')}> {`;
-      });
+      ast = ast
+        .replace(/PropsBase<(.*?)> \{/, (_, $1) => {
+          const parts = $1.split(',');
+          parts[1] = ` Slots${genericT}`;
+          return `PropsBase<${parts.join(',')}> {`;
+        })
+        .replace('Props<_T>', 'Props<T>');
     }
     // Slots
     ast = ast.replace('@Local', `export interface Slots${genericT2} {}\n\n@Local`);
