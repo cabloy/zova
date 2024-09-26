@@ -23,7 +23,12 @@ module.exports = {
       '@Local',
       `export interface Props${genericT} extends PropsBase<${className}${genericT}${hasSlots ? `, Slots${genericT}` : ''}> {}\n\n@Local`,
     );
-
+    // BeanControllerBase
+    ast = ast.replace(/BeanControllerBase<(.*?)> \{/, (_, $1) => {
+      const parts = $1.split(',');
+      parts[1] = ` Props${genericT}`;
+      return `BeanControllerBase<${parts.join(',')}> {\n  static $propsDefault = {};\n\n`;
+    });
     // ok
     return ast;
   },
