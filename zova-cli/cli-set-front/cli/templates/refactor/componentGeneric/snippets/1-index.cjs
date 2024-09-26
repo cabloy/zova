@@ -7,7 +7,8 @@ module.exports = {
   file: 'index.vue',
   parseOptions: { language: 'plain' },
   async transform({ ast }) {
-    if (ast.includes('generic="T"')) return;
+    const hasGeneric = ast.match(/<script[^/]*?generic="[^"]*?"[^/]*?>/);
+    if (hasGeneric) throw new Error('Generic exists');
     ast = ast
       .replace('<script setup lang="ts">', '<script setup lang="ts" generic="T">')
       .replace('defineProps<Props>', 'defineProps<Props<T>>')
