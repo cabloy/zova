@@ -1,33 +1,29 @@
 module.exports = {
   file: 'controller.ts',
   parseOptions: { language: 'plain' },
-  async transform({ ast }) {
-    if (ast.includes('export interface Slots')) throw new Error('Slots exists');
-    const matchController = ast.match(/export class ([^< ]*)(.*?) extends/);
-    // const className = matchController[1];
-    const hasGeneric = !!matchController[2];
-    const genericT = hasGeneric ? '<T>' : '';
-    const genericT2 = hasGeneric ? '<_T>' : '';
-    const hasProps = ast.includes('export interface Props');
+  async transform({ cli, ast, argv }) {
+    const modelName = argv.modelName;
+    const localName = modelName === 'modelValue' ? modelName : `model${cli.helper.firstCharToUpperCase(modelName)}`;
+    const eventName = `update:${modelName}`;
+    if (ast.includes(`e: '${eventName}'`)) throw new Error('Model exists');
     // Props
-    if (hasProps) {
-      ast = ast
-        .replace(/PropsBase<(.*?)> \{/, (_, $1) => {
-          const parts = $1.split(',');
-          parts[1] = ` Slots${genericT}`;
-          return `PropsBase<${parts.join(',')}> {`;
-        })
-        .replace('Props<_T>', 'Props<T>');
-    }
-    // Slots
-    ast = ast.replace('@Local', `export interface Slots${genericT2} {}\n\n@Local`);
-    // BeanControllerBase
-    ast = ast.replace(/BeanControllerBase<(.*?)> \{/, (_, $1) => {
-      const parts = $1.split(',');
-      if (!parts[1]) parts[1] = ' unknown';
-      if (!parts[2]) parts[2] = ' unknown';
-      parts[3] = ` Slots${genericT}`;
-      return `BeanControllerBase<${parts.join(',')}> {`;
+    ast = ast.replace(/export interface Props([^\{]*) \{/, $0 => {
+      return `${$0}\n  ${modelName}: number;`;
+    });
+    // Emits
+    ast = ast.replace(/export type Emits([^\{]*) = \{/, $0 => {
+      return `${$0}\n  (e: '${eventName}', value: number);`;
+    });
+    // propsDefault
+    ast = ast.replace(/static $propsDefault([^\{]*) = \{/, $0 => {
+      return `${$0}\n  ${modelName}: 0,`;
+    });
+    // localName
+    ast = ast.replace(/protected async __init__/, $0 => {
+      return `${localName}: number;\n\n    ${$0}`;
+    });
+    ast = ast.replace(/protected async __init__([^\{]*) \{/, $0 => {
+      return `${$0}\n      this.${localName} = this.$useModel(${modelName === 'modelValue' ? '' : modelName});`;
     });
     // ok
     return ast;
