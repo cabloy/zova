@@ -15,7 +15,7 @@ module.exports = {
       return `${$0}\n  (e: '${eventName}', value: number);`;
     });
     // propsDefault
-    ast = ast.replace(/static $propsDefault([^\{]*) = \{/, $0 => {
+    ast = ast.replace(/static \$propsDefault([^\{]*) = \{/, $0 => {
       return `${$0}\n  ${modelName}: 0,`;
     });
     // localName
@@ -23,7 +23,7 @@ module.exports = {
       return `${localName}: number;\n\n    ${$0}`;
     });
     ast = ast.replace(/protected async __init__([^\{]*) \{/, $0 => {
-      return `${$0}\n      this.${localName} = this.$useModel(${modelName === 'modelValue' ? '' : modelName});`;
+      return `${$0}\n      this.${localName} = this.$useModel(${modelName === 'modelValue' ? '' : `'${modelName}'`});`;
     });
     // ok
     return ast;
