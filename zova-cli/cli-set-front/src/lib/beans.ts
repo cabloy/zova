@@ -31,6 +31,7 @@ import { CliRefactorAnotherStyle } from './bean/cli.refactor.anotherStyle.js';
 import { CliRefactorComponentProps } from './bean/cli.refactor.componentProps.js';
 import { CliRefactorComponentEmits } from './bean/cli.refactor.componentEmits.js';
 import { CliRefactorComponentSlots } from './bean/cli.refactor.componentSlots.js';
+import { CliRefactorComponentModel } from './bean/cli.refactor.componentModel.js';
 import { CliRefactorRenameComponent } from './bean/cli.refactor.renameComponent.js';
 
 export const beans = {
@@ -64,6 +65,7 @@ export const beans = {
   'refactor.componentProps': CliRefactorComponentProps,
   'refactor.componentEmits': CliRefactorComponentEmits,
   'refactor.componentSlots': CliRefactorComponentSlots,
+  'refactor.componentModel': CliRefactorComponentModel,
   'refactor.renameComponent': CliRefactorRenameComponent,
   'tools.icon': CliToolsIcon,
   'tools.metadata': CliToolsMetadata,
