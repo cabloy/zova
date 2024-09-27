@@ -38,11 +38,19 @@ export class CliRefactorComponentModel extends BeanCliBase {
     if (!fs.existsSync(componentDir)) {
       throw new Error(`component not exists: ${componentDir}`);
     }
+    // props emits
+    for (const cmd of ['componentProps', 'componentEmits']) {
+      try {
+        await this.helper.invokeCli([`:refactor:${cmd}`, componentName, `--module=${moduleName}`], {
+          cwd: argv.projectPath,
+        });
+      } catch (_) {}
+    }
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
       targetDir: componentDir,
       setName: __ThisSetName__,
-      snippetsPath: 'refactor/componentSlots/snippets',
+      snippetsPath: 'refactor/componentModel/snippets',
       boilerplatePath: null,
     });
     // // tools.metadata
