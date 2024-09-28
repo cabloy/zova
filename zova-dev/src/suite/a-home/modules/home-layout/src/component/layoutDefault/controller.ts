@@ -2,7 +2,7 @@ import { BeanControllerBase, Local, Use, UseScope, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import type { ModelAuth, ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../.metadata/this.js';
-import type { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
+import { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
 
 export interface Props extends PropsBase<ControllerLayoutDefault, Slots> {}
 
@@ -14,7 +14,7 @@ export interface Slots {}
 export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
   static $propsDefault = {};
 
-  @UseScope('a-tabs')
+  @UseScope()
   $$scopeModuleATabs: ScopeModuleATabs;
 
   @Use()

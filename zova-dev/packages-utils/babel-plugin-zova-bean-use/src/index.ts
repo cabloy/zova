@@ -105,10 +105,12 @@ function checkUseScope(decorator: t.Decorator, path: NodePath<t.ClassProperty>, 
   if (!argument) {
     decorator.expression.arguments.push(t.stringLiteral(componentFindInfo.import.moduleInfo.relativeName));
     componentFindInfo.component.specifier.importKind = 'type';
+    return;
   }
   // argument: string
   if (t.isStringLiteral(argument)) {
     componentFindInfo.component.specifier.importKind = 'type';
+    return;
   }
   // argument: options
   if (t.isObjectExpression(argument)) {
@@ -143,10 +145,12 @@ function checkUse(decorator: t.Decorator, path: NodePath<t.ClassProperty>, conte
   if (!argument) {
     decorator.expression.arguments.push(t.stringLiteral(combineBeanFullName(componentFindInfo)));
     componentFindInfo.component.specifier.importKind = 'type';
+    return;
   }
   // argument: string
   if (t.isStringLiteral(argument)) {
     componentFindInfo.component.specifier.importKind = 'type';
+    return;
   }
   // argument: options
   if (t.isObjectExpression(argument)) {
