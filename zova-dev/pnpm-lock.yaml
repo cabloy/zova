@@ -165,6 +165,9 @@ importers:
 
   packages-utils/babel-plugin-zova-bean-use:
     devDependencies:
+      '@cabloy/last-word':
+        specifier: ^1.0.13
+        version: link:../last-word
       '@cabloy/module-info':
         specifier: ^1.0.22
         version: 1.0.22
