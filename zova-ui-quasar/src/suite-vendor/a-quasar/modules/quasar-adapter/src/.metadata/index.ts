@@ -6,8 +6,8 @@ import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-quasar.model.theme': ModelTheme;
-    'a-quasar.tool.themeHandler': ToolThemeHandler;
+    'quasar-adapter.model.theme': ModelTheme;
+    'quasar-adapter.tool.themeHandler': ToolThemeHandler;
   }
 }
 /** beans: end */
@@ -18,14 +18,14 @@ export * from '../monkey.js';
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleAQuasar extends BeanScopeBase {}
+export class ScopeModuleQuasarAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleAQuasar extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleQuasarAdapter extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-quasar': ScopeModuleAQuasar;
+    'quasar-adapter': ScopeModuleQuasarAdapter;
   }
 }
 /** scope: end */

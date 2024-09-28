@@ -6,6 +6,6 @@
   "description": "quasar",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-quasar": "workspace:^"
+    "zova-module-quasar-adapter": "workspace:^"
   }
 }
