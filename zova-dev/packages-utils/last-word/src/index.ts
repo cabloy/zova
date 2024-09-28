@@ -7,12 +7,27 @@ function _parseLastWord(str?: string): string | undefined {
   return str;
 }
 
+function _parseFirstWord(str?: string): string | undefined {
+  if (!str) return str;
+  for (let i = 1; i < str.length; i++) {
+    const ch = str.charAt(i);
+    if (ch >= 'A' && ch <= 'Z') return str.substring(0, i);
+  }
+  return str;
+}
+
 export function toLowerCaseFirstChar(str: string) {
   return str.charAt(0).toLowerCase() + str.substring(1);
 }
 
 export function parseLastWord(str?: string, toLowerCase?: boolean): string | undefined {
   const word = _parseLastWord(str);
+  if (!word) return word;
+  return toLowerCase ? toLowerCaseFirstChar(word) : word;
+}
+
+export function parseFirstWord(str?: string, toLowerCase?: boolean): string | undefined {
+  const word = _parseFirstWord(str);
   if (!word) return word;
   return toLowerCase ? toLowerCaseFirstChar(word) : word;
 }
