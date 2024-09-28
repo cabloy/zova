@@ -13,7 +13,7 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
   async appInitialize() {
     // defaultThemeHandler
     const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
-    scopeStyle.config.defaultThemeHandler = 'a-vuetify.tool.themeHandler';
+    scopeStyle.config.defaultThemeHandler = 'vuetify-adapter.tool.themeHandler';
     // icon
     const localIcon = await this.bean._newBean(LocalIcon, false);
     await localIcon.initialize();

@@ -4,7 +4,7 @@ import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-vuetify.tool.themeHandler': ToolThemeHandler;
+    'vuetify-adapter.tool.themeHandler': ToolThemeHandler;
   }
 }
 /** beans: end */
@@ -15,14 +15,14 @@ export * from '../monkey.js';
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleAVuetify extends BeanScopeBase {}
+export class ScopeModuleVuetifyAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleAVuetify extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleVuetifyAdapter extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-vuetify': ScopeModuleAVuetify;
+    'vuetify-adapter': ScopeModuleVuetifyAdapter;
   }
 }
 /** scope: end */

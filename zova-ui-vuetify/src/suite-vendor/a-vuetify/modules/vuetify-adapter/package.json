@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-vuetify",
+  "name": "zova-module-vuetify-adapter",
   "version": "5.0.0",
-  "title": "a-vuetify",
+  "title": "vuetify-adapter",
   "zovaModule": {
     "capabilities": {
       "monkey": true
