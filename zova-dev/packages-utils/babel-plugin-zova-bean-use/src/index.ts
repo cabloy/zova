@@ -101,11 +101,27 @@ function checkUse(decorator: t.Decorator, path: NodePath<t.ClassProperty>, conte
   // findComponent
   const componentFindInfo = findComponent(tsTypeName, context);
   if (!componentFindInfo) return;
-
   // argument: first
   const argument = decorator.expression.arguments[0];
+  // argument: none
   if (!argument) {
     decorator.expression.arguments.push(t.stringLiteral(combineBeanFullName(componentFindInfo)));
+    componentFindInfo.component.specifier.importKind = 'type';
+  }
+  // argument: string
+  if (t.isStringLiteral(argument)) {
+    componentFindInfo.component.specifier.importKind = 'type';
+  }
+  // argument: options
+  if (t.isObjectExpression(argument)) {
+    const prop = argument.properties.find(
+      item => t.isObjectProperty(item) && t.isIdentifier(item.key) && item.key.name === 'name',
+    );
+    if (!prop) {
+      argument.properties.push(
+        t.objectProperty(t.identifier('beanFullName'), t.stringLiteral(combineBeanFullName(componentFindInfo))),
+      );
+    }
     componentFindInfo.component.specifier.importKind = 'type';
   }
 }
