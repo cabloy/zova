@@ -28,6 +28,9 @@
       "path": "packages-utils/babel-plugin-zova-bean-module"
     },
     {
+      "path": "packages-utils/babel-plugin-zova-bean-use"
+    },
+    {
       "path": "packages-utils/babel-plugin-zova-component"
     },
     {

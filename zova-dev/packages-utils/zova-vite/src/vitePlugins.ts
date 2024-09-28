@@ -33,6 +33,7 @@ export function generateVitePlugins(
           configFile: false,
           plugins: [
             ['babel-plugin-zova-bean-module'],
+            ['babel-plugin-zova-bean-use'],
             ['babel-plugin-transform-typescript-metadata'],
             ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
             ['@babel/plugin-transform-class-properties', { loose: true }],
@@ -53,6 +54,7 @@ export function generateVitePlugins(
         babelPlugins: [
           ['babel-plugin-zova-component'],
           ['babel-plugin-zova-bean-module'],
+          ['babel-plugin-zova-bean-use'],
           ['babel-plugin-transform-typescript-metadata'],
           ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
           ['@babel/plugin-transform-class-properties', { loose: true }],
