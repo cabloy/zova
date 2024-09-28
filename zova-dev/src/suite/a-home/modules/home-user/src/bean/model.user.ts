@@ -1,7 +1,7 @@
 import { Model, Use } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../.metadata/this.js';
-import { ModelAuth } from './model.auth.js';
+import { ModelAuth } from 'zova-module-home-user';
 import { ServiceUserEntity } from '../service/user.js';
 
 @Model()
