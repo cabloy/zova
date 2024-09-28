@@ -1,0 +1,37 @@
+{
+  "name": "babel-plugin-zova-bean-use",
+  "version": "1.0.2",
+  "description": "babel-plugin-zova-bean-use",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "keywords": [
+    "egg",
+    "egg-born",
+    "framework",
+    "zova"
+  ],
+  "author": "zhennann",
+  "license": "MIT",
+  "devDependencies": {
+    "@cabloy/module-info": "^1.0.22",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__traverse": "^7.20.5"
+  }
+}
