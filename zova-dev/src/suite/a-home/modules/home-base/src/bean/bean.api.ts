@@ -1,7 +1,7 @@
 import { Bean, BeanBase, Use } from 'zova';
 import axios, { AxiosInstance } from 'axios';
 import { markRaw } from 'vue';
-import type { ModelAuth } from 'zova-module-home-user';
+import { ModelAuth } from 'zova-module-home-user';
 
 const SymbolApi = Symbol('SymbolApi');
 
@@ -9,7 +9,7 @@ export interface BeanApi extends AxiosInstance {}
 
 @Bean()
 export class BeanApi extends BeanBase {
-  @Use('home-user.model.auth')
+  @Use()
   $$modelAuth: ModelAuth;
 
   private [SymbolApi]: AxiosInstance;
