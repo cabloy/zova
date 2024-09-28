@@ -1,6 +1,6 @@
 import { BeanControllerBase, Local, Use, UseScope, PropsBase } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
-import type { ModelAuth, ModelUser } from 'zova-module-home-user';
+import { ModelAuth, ModelUser } from 'zova-module-home-user';
 import { ScopeModule } from '../../.metadata/this.js';
 import { ModelTabs, ModelTabsOptions, ScopeModuleATabs } from 'zova-module-a-tabs';
 
@@ -19,11 +19,11 @@ export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Pro
 
   @Use()
   $$modelMenu: ModelMenu;
-  @Use('home-user.model.auth')
+  @Use()
   $$modelAuth: ModelAuth;
-  @Use('home-user.model.user')
+  @Use()
   $$modelUser: ModelUser;
-  @Use('a-tabs.model.tabs')
+  @Use()
   $$modelTabs: ModelTabs;
 
   leftDrawerOpen: boolean = false;

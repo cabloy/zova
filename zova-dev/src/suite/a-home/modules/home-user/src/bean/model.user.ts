@@ -1,13 +1,13 @@
 import { Model, Use } from 'zova';
 import { BeanModelBase } from 'zova-module-a-model';
 import { ScopeModule } from '../.metadata/this.js';
-import type { ModelAuth } from './model.auth.js';
+import { ModelAuth } from './model.auth.js';
 import { ServiceUserEntity } from '../service/user.js';
 
 @Model()
 export class ModelUser extends BeanModelBase<ScopeModule> {
   user?: ServiceUserEntity;
-  @Use('home-user.model.auth')
+  @Use()
   $$modelAuth: ModelAuth;
 
   protected async __init__() {
