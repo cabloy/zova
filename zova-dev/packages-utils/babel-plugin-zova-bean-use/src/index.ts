@@ -1,9 +1,9 @@
 import { /*template,*/ types as t, type PluginPass } from '@babel/core';
 import type { NodePath, Visitor } from '@babel/traverse';
 import { IModuleInfo, parseInfo } from '@cabloy/module-info';
-import { parseFirstWord, toLowerCaseFirstChar } from '@cabloy/last-word';
 
 interface ComponentInfo {
+  specifier: t.ImportSpecifier;
   importName: string;
   localName: string;
 }
@@ -56,6 +56,7 @@ function createVisitor(context: ContextInfo) {
           continue;
         }
         components.push({
+          specifier,
           importName: specifier.imported.name,
           localName: specifier.local.name,
         });
@@ -105,6 +106,7 @@ function checkUse(decorator: t.Decorator, path: NodePath<t.ClassProperty>, conte
   const argument = decorator.expression.arguments[0];
   if (!argument) {
     decorator.expression.arguments.push(t.stringLiteral(combineBeanFullName(componentFindInfo)));
+    componentFindInfo.component.specifier.importKind = 'type';
   }
 }
 
@@ -141,4 +143,23 @@ function isZComponent(name: string) {
 
 function isUpperCase(character) {
   return /^[A-Z]$/.test(character);
+}
+
+function _parseFirstWord(str?: string): string | undefined {
+  if (!str) return str;
+  for (let i = 1; i < str.length; i++) {
+    const ch = str.charAt(i);
+    if (ch >= 'A' && ch <= 'Z') return str.substring(0, i);
+  }
+  return str;
+}
+
+function parseFirstWord(str?: string, toLowerCase?: boolean): string | undefined {
+  const word = _parseFirstWord(str);
+  if (!word) return word;
+  return toLowerCase ? toLowerCaseFirstChar(word) : word;
+}
+
+function toLowerCaseFirstChar(str: string) {
+  return str.charAt(0).toLowerCase() + str.substring(1);
 }

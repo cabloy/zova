@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.cjs.json",
+  "extends": "../../tsconfig.base.esm.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist"
