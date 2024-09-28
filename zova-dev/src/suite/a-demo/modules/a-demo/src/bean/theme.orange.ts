@@ -1,7 +1,7 @@
 import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
 import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
-import { ThemeToken } from 'zova-module-a-devui';
+import { ThemeToken } from 'zova-module-devui-adapter';
 
 @Theme()
 export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
