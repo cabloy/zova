@@ -86,7 +86,43 @@ function createVisitor(context: ContextInfo) {
   };
 }
 
-function checkUseScope(_decorator: t.Decorator, _path: NodePath<t.ClassProperty>, _context: ContextInfo) {}
+function checkUseScope(decorator: t.Decorator, path: NodePath<t.ClassProperty>, context: ContextInfo) {
+  if (!t.isCallExpression(decorator.expression)) return;
+  // className
+  if (!t.isTSTypeAnnotation(path.node.typeAnnotation)) return;
+  const tsType = path.node.typeAnnotation;
+  const tsTypeName =
+    t.isTSTypeReference(tsType.typeAnnotation) &&
+    t.isIdentifier(tsType.typeAnnotation.typeName) &&
+    tsType.typeAnnotation.typeName.name;
+  if (!tsTypeName) return;
+  // findComponent
+  const componentFindInfo = findComponent(tsTypeName, context);
+  if (!componentFindInfo) return;
+  // argument: first
+  const argument = decorator.expression.arguments[0];
+  // argument: none
+  if (!argument) {
+    decorator.expression.arguments.push(t.stringLiteral(componentFindInfo.import.moduleInfo.relativeName));
+    componentFindInfo.component.specifier.importKind = 'type';
+  }
+  // argument: string
+  if (t.isStringLiteral(argument)) {
+    componentFindInfo.component.specifier.importKind = 'type';
+  }
+  // argument: options
+  if (t.isObjectExpression(argument)) {
+    const prop = argument.properties.find(
+      item => t.isObjectProperty(item) && t.isIdentifier(item.key) && item.key.name === 'module',
+    );
+    if (!prop) {
+      argument.properties.push(
+        t.objectProperty(t.identifier('module'), t.stringLiteral(componentFindInfo.import.moduleInfo.relativeName)),
+      );
+    }
+    componentFindInfo.component.specifier.importKind = 'type';
+  }
+}
 
 function checkUse(decorator: t.Decorator, path: NodePath<t.ClassProperty>, context: ContextInfo) {
   if (!t.isCallExpression(decorator.expression)) return;
