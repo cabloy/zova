@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-quasar",
-  "version": "5.0.314",
+  "version": "5.0.315",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -53,7 +53,7 @@
     "vue": "^3.5.6",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "^5.0.208",
+    "zova": "^5.0.209",
     "zova-module-a-core": "^5.0.45",
     "zova-module-a-demo": "workspace:^",
     "zova-module-a-model": "^5.0.31",
@@ -73,10 +73,10 @@
     "@types/node": "^20.16.1",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.174",
+    "quasar-app-extension-zova": "^1.1.175",
     "typescript": "^5.5.4",
     "vue-tsc": "^2.0.29",
-    "zova-vite": "^1.0.173"
+    "zova-vite": "^1.0.174"
   },
   "license": "MIT",
   "gitHead": "50e953d9c83d3bc9e658931beff0bf4ebf7346f5"
