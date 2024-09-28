@@ -85,7 +85,7 @@ importers:
         version: 5.0.21
       zova-module-antdv-adapter:
         specifier: workspace:^
-        version: link:src/suite-vendor/a-antdv/modules/a-antdv
+        version: link:src/suite-vendor/a-antdv/modules/antdv-adapter
       zova-module-home-base:
         specifier: workspace:^
         version: link:src/suite/a-home/modules/home-base
@@ -137,9 +137,9 @@ importers:
     dependencies:
       zova-module-antdv-adapter:
         specifier: workspace:^
-        version: link:modules/a-antdv
+        version: link:modules/antdv-adapter
 
-  src/suite-vendor/a-antdv/modules/a-antdv: {}
+  src/suite-vendor/a-antdv/modules/antdv-adapter: {}
 
   src/suite/a-demo:
     dependencies:
