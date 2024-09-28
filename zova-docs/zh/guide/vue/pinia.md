@@ -80,11 +80,11 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 ```typescript
 import { Local, Use } from 'zova';
-import type { StoreCounter } from '../../bean/store.counter.js';
+import { StoreCounter } from '../../bean/store.counter.js';
 
 @Local()
 export class ControllerPagePinia {
-  @Use('a-demo.store.counter')
+  @Use()
   $$counter: StoreCounter;
 
   protected async __init__() {
@@ -96,6 +96,6 @@ export class ControllerPagePinia {
 }
 ```
 
-- line 6: 使用@Use 装饰器函数，传入 store bean 的标识
+- line 6: 使用@Use 装饰器函数
 - line 7: 声明一个变量，类型为 StoreCounter
 - 接下来就可以直接访问$$counter 的属性和方法，有完整的 Typescript 类型提示

@@ -47,7 +47,7 @@ class ControllerLayout {
 Lookup and inject bean instance in the ioc container through the `registration name`, and return a null value if not exist. This mechanism is generally used for `same module injection` and `hierarchical injection`
 
 ```typescript
-import type { ModelTodo } from '../../bean/model.todo.js';
+import { ModelTodo } from '../../bean/model.todo.js';
 
 class ControllerTodo {
   @Use({ name: '$$modelTodo' })
@@ -90,15 +90,15 @@ class StoreCounter {}
 
 ```typescript
 // in module: test-module2
-import type { StoreCounter } from 'zova-module-test-module1';
+import { StoreCounter } from 'zova-module-test-module1';
 
 class Test {
-  @Use('test-module1.store.counter')
+  @Use()
   $$storeCounter: StoreCounter;
 }
 ```
 
-- The injection scope of `Store` is `app` by default, so the bean instance will be lookuped and injected in the global ioc container through the bean identifier `test-module1.store.counter`
+- The injection scope of `Store` is `app` by default, so the bean instance will be lookuped and injected in the global ioc container
 
 ### 2. ctx
 
@@ -112,15 +112,15 @@ class ModelTabs {}
 
 ```typescript
 // in module: test-module2
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use('a-tabs.model.tabs')
+  @Use()
   $$modelTabs: ModelTabs;
 }
 ```
 
-- The injection scope of `Model` is `ctx` by default, so the bean instance will be lookuped and injected in the ioc container of the current component instance through the bean identifier `a-tabs.model.tabs`
+- The injection scope of `Model` is `ctx` by default, so the bean instance will be lookuped and injected in the ioc container of the current component instance
 
 ### 3. new
 
@@ -134,15 +134,15 @@ class ModelTabs {}
 
 ```typescript
 // in module: test-module2
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use({ beanFullName: 'a-tabs.model.tabs', injectionScope: 'new' })
+  @Use({ injectionScope: 'new' })
   $$modelTabs: ModelTabs;
 }
 ```
 
-- Since the `injectionScope` option is specified as `new`, a new bean instance will be directly created through the bean identifier `a-tabs.model.tabs`
+- Since the `injectionScope` option is specified as `new`, a new bean instance will be directly created
 
 ## Hierarchical injection {#hierarchical-injection}
 
@@ -154,10 +154,10 @@ If the injection scope is `host`, the bean instance will be lookuped in the ioc 
 
 ```typescript
 // in parent component
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class Parent {
-  @Use('a-tabs.model.tabs')
+  @Use()
   $$modelTabs: ModelTabs;
 }
 ```

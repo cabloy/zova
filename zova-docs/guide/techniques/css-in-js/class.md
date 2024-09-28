@@ -45,7 +45,7 @@ export class StyleDefault extends BeanBase<ScopeModule> {
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  @Use('home-style.style.default')
+  @Use()
   $$styleDefault: StyleDefault;
 
   render() {
@@ -56,7 +56,7 @@ export class RenderTest extends BeanRenderBase {
 }
 ```
 
-- Use `@Use` to inject the Bean instance and pass in the Bean identifier: `home-style.style.default`
+- Use `@Use` to inject the Bean instance
 
 ## $class
 

@@ -80,11 +80,11 @@ You can use store bean in any module. Here we take the existing page component o
 
 ```typescript
 import { Local, Use } from 'zova';
-import type { StoreCounter } from '../../bean/store.counter.js';
+import { StoreCounter } from '../../bean/store.counter.js';
 
 @Local()
 export class ControllerPagePinia {
-  @Use('a-demo.store.counter')
+  @Use()
   $$counter: StoreCounter;
 
   protected async __init__() {
@@ -96,6 +96,6 @@ export class ControllerPagePinia {
 }
 ```
 
-- line 6: Use the `@Use` decorator function to pass in the store bean's identifier
+- line 6: Use the `@Use` decorator function
 - line 7: Declare a variable of type `StoreCounter`
 - Then you can directly access the properties and methods of `$$counter`

@@ -47,7 +47,7 @@ class ControllerLayout {
 通过`注册名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`
 
 ```typescript
-import type { ModelTodo } from '../../bean/model.todo.js';
+import { ModelTodo } from '../../bean/model.todo.js';
 
 class ControllerTodo {
   @Use({ name: '$$modelTodo' })
@@ -90,15 +90,15 @@ class StoreCounter {}
 
 ```typescript
 // in module: test-module2
-import type { StoreCounter } from 'zova-module-test-module1';
+import { StoreCounter } from 'zova-module-test-module1';
 
 class Test {
-  @Use('test-module1.store.counter')
+  @Use()
   $$storeCounter: StoreCounter;
 }
 ```
 
-- Store 的注入范围默认是 app，因此通过 Bean 标识`test-module1.store.counter`在全局 ioc 容器中查找并注入 bean 实例
+- Store 的注入范围默认是 app，因此在全局 ioc 容器中查找并注入 bean 实例
 
 ### 2. ctx
 
@@ -112,15 +112,15 @@ class ModelTabs {}
 
 ```typescript
 // in module: test-module2
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use('a-tabs.model.tabs')
+  @Use()
   $$modelTabs: ModelTabs;
 }
 ```
 
-- Model 的注入范围默认是 ctx，因此通过 Bean 标识`a-tabs.model.tabs`在当前组件实例的 ioc 容器中查找并注入 bean 实例
+- Model 的注入范围默认是 ctx，因此在当前组件实例的 ioc 容器中查找并注入 bean 实例
 
 ### 3. new
 
@@ -134,15 +134,15 @@ class ModelTabs {}
 
 ```typescript
 // in module: test-module2
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class ControllerLayout {
-  @Use({ beanFullName: 'a-tabs.model.tabs', injectionScope: 'new' })
+  @Use({ injectionScope: 'new' })
   $$modelTabs: ModelTabs;
 }
 ```
 
-- 由于指定 injectionScope 选项为 new，因此通过 Bean 标识`a-tabs.model.tabs`直接创建新的 bean 实例
+- 由于指定 injectionScope 选项为 new，因此直接创建新的 bean 实例
 
 ## 层级注入 {#hierarchical-injection}
 
@@ -154,10 +154,10 @@ class ControllerLayout {
 
 ```typescript
 // in parent component
-import type { ModelTabs } from 'zova-module-a-tabs';
+import { ModelTabs } from 'zova-module-a-tabs';
 
 class Parent {
-  @Use('a-tabs.model.tabs')
+  @Use()
   $$modelTabs: ModelTabs;
 }
 ```
