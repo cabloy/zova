@@ -267,6 +267,9 @@ importers:
       babel-plugin-zova-bean-module:
         specifier: ^1.0.31
         version: link:../babel-plugin-zova-bean-module
+      babel-plugin-zova-bean-use:
+        specifier: ^1.0.0
+        version: link:../babel-plugin-zova-bean-use
       babel-plugin-zova-component:
         specifier: ^1.0.2
         version: link:../babel-plugin-zova-component
