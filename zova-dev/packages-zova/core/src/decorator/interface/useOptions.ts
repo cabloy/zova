@@ -33,5 +33,5 @@ export interface IDecoratorUseComposableOptions {
 }
 
 export interface IDecoratorUseScopeOptions {
-  module: keyof IBeanScopeRecord;
+  module?: keyof IBeanScopeRecord;
 }
