@@ -55,7 +55,7 @@
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
     "zova": "^5.0.207",
-    "zova-module-a-antdv": "workspace:^",
+    "zova-module-antdv-adapter": "workspace:^",
     "zova-module-a-core": "^5.0.45",
     "zova-module-a-demo": "workspace:^",
     "zova-module-a-model": "^5.0.31",

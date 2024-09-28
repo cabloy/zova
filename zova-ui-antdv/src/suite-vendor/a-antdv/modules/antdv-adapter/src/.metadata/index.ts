@@ -4,7 +4,7 @@ import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-antdv.tool.themeHandler': ToolThemeHandler;
+    'antdv-adapter.tool.themeHandler': ToolThemeHandler;
   }
 }
 /** beans: end */
@@ -15,14 +15,14 @@ export * from '../monkey.js';
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleAAntdv extends BeanScopeBase {}
+export class ScopeModuleAntdvAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleAAntdv extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleAntdvAdapter extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-antdv': ScopeModuleAAntdv;
+    'antdv-adapter': ScopeModuleAntdvAdapter;
   }
 }
 /** scope: end */

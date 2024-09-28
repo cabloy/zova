@@ -62,14 +62,11 @@ importers:
       zova:
         specifier: ^5.0.207
         version: 5.0.207(typescript@5.6.2)(vue@3.5.7(typescript@5.6.2))
-      zova-module-a-antdv:
-        specifier: ^5.0.0
-        version: link:src/suite-vendor/a-antdv/modules/a-antdv
       zova-module-a-core:
         specifier: ^5.0.45
         version: 5.0.45
       zova-module-a-demo:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-demo/modules/a-demo
       zova-module-a-model:
         specifier: ^5.0.31
@@ -86,17 +83,20 @@ importers:
       zova-module-a-tabs:
         specifier: ^5.0.21
         version: 5.0.21
+      zova-module-antdv-adapter:
+        specifier: workspace:^
+        version: link:src/suite-vendor/a-antdv/modules/a-antdv
       zova-module-home-base:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-base
       zova-module-home-icon:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-icon
       zova-module-home-index:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-index
       zova-module-home-layout:
-        specifier: ^5.0.0
+        specifier: workspace:^
         version: link:src/suite/a-home/modules/home-layout
     devDependencies:
       '@cabloy/lint':
@@ -135,7 +135,7 @@ importers:
 
   src/suite-vendor/a-antdv:
     dependencies:
-      zova-module-a-antdv:
+      zova-module-antdv-adapter:
         specifier: workspace:^
         version: link:modules/a-antdv
 
@@ -1134,46 +1134,55 @@ packages:
     resolution: {integrity: sha512-GBHuY07x96OTEM3OQLNaUSUwrOhdMea/LDmlFHi/HMonrgF6jcFrrFFwJhhe84XtA1oK/Qh4yFS+VMREf6dobg==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.22.2':
     resolution: {integrity: sha512-Dbfa9Sc1G1lWxop0gNguXOfGhaXQWAGhZUcqA0Vs6CnJq8JW/YOw/KvyGtQFmz4yDr0H4v9X248SM7bizYj4yQ==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.22.2':
     resolution: {integrity: sha512-Z1YpgBvFYhZIyBW5BoopwSg+t7yqEhs5HCei4JbsaXnhz/eZehT18DaXl957aaE9QK7TRGFryCAtStZywcQe1A==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.22.2':
     resolution: {integrity: sha512-66Zszr7i/JaQ0u/lefcfaAw16wh3oT72vSqubIMQqWzOg85bGCPhoeykG/cC5uvMzH80DQa2L539IqKht6twVA==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.22.2':
     resolution: {integrity: sha512-HpJCMnlMTfEhwo19bajvdraQMcAq3FX08QDx3OfQgb+414xZhKNf3jNvLFYKbbDSGBBrQh5yNwWZrdK0g0pokg==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.22.2':
     resolution: {integrity: sha512-/egzQzbOSRef2vYCINKITGrlwkzP7uXRnL+xU2j75kDVp3iPdcF0TIlfwTRF8woBZllhk3QaxNOEj2Ogh3t9hg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.22.2':
     resolution: {integrity: sha512-qgYbOEbrPfEkH/OnUJd1/q4s89FvNJQIUldx8X2F/UM5sEbtkqZpf2s0yly2jSCKr1zUUOY1hnTP2J1WOzMAdA==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.22.2':
     resolution: {integrity: sha512-a0lkvNhFLhf+w7A95XeBqGQaG0KfS3hPFJnz1uraSdUe/XImkp/Psq0Ca0/UdD5IEAGoENVmnYrzSC9Y2a2uKQ==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.22.2':
     resolution: {integrity: sha512-sSWBVZgzwtsuG9Dxi9kjYOUu/wKW+jrbzj4Cclabqnfkot8Z3VEHcIgyenA3lLn/Fu11uDviWjhctulkhEO60g==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.22.2':
     resolution: {integrity: sha512-t/YgCbZ638R/r7IKb9yCM6nAek1RUvyNdfU0SHMDLOf6GFe/VG1wdiUAsxTWHKqjyzkRGg897ZfCpdo1bsCSsA==}

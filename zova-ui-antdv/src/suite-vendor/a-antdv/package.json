@@ -6,6 +6,6 @@
   "description": "antdv",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-antdv": "workspace:^"
+    "zova-module-antdv-adapter": "workspace:^"
   }
 }

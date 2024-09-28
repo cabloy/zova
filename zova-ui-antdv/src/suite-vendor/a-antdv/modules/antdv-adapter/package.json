@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-antdv",
+  "name": "zova-module-antdv-adapter",
   "version": "5.0.0",
-  "title": "a-antdv",
+  "title": "antdv-adapter",
   "zovaModule": {
     "capabilities": {
       "monkey": true

@@ -6,7 +6,7 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
   async appInitialize() {
     // defaultThemeHandler
     const scopeStyle: ScopeModuleAStyle = await this.bean.getScope('a-style');
-    scopeStyle.config.defaultThemeHandler = 'a-antdv.tool.themeHandler';
+    scopeStyle.config.defaultThemeHandler = 'antdv-adapter.tool.themeHandler';
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     bean.defineProperty(beanInstance, '$antdv', {
