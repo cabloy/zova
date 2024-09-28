@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-element",
+  "name": "zova-module-element-adapter",
   "version": "5.0.0",
-  "title": "a-element",
+  "title": "element-adapter",
   "zovaModule": {
     "capabilities": {
       "monkey": true

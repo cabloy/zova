@@ -57,7 +57,7 @@
     "zova": "^5.0.207",
     "zova-module-a-core": "^5.0.45",
     "zova-module-a-demo": "workspace:^",
-    "zova-module-a-element": "workspace:^",
+    "zova-module-element-adapter": "workspace:^",
     "zova-module-a-model": "^5.0.31",
     "zova-module-a-pinia": "^5.0.31",
     "zova-module-a-router": "^5.0.65",

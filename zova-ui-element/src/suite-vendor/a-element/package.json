@@ -6,6 +6,6 @@
   "description": "element",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-element": "workspace:^"
+    "zova-module-element-adapter": "workspace:^"
   }
 }

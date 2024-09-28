@@ -6,8 +6,8 @@ import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-element.model.theme': ModelTheme;
-    'a-element.tool.themeHandler': ToolThemeHandler;
+    'element-adapter.model.theme': ModelTheme;
+    'element-adapter.tool.themeHandler': ToolThemeHandler;
   }
 }
 /** beans: end */
@@ -18,14 +18,14 @@ export * from '../monkey.js';
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleAElement extends BeanScopeBase {}
+export class ScopeModuleElementAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleAElement extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleElementAdapter extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-element': ScopeModuleAElement;
+    'element-adapter': ScopeModuleElementAdapter;
   }
 }
 /** scope: end */
