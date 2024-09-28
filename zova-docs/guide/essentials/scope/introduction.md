@@ -46,18 +46,18 @@ The `Scope` object itself is also a bean, so you can directly use `dependency in
 Still taking `testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
 
 ```typescript{1,4-5,8}
-import type { ScopeModuleAHome } from 'zova-module-a-home';
+import { ScopeModuleAHome } from 'zova-module-a-home';
 
 export class TestA {
-  @UseScope('a-home')
-  scopeModuleAHome: ScopeModuleAHome;
+  @UseScope()
+  $$scopeModuleAHome: ScopeModuleAHome;
 
   protected async __init__() {
-    console.log(this.scopeModuleAHome);
+    console.log(this.$$scopeModuleAHome);
   }
 }
 ```
 
 - Type of `Scope` object imported from module `a-home`
-- Use the `UseScope` decorator function and pass in the `module` parameter
-- The system will automatically find the `Scope` instance of the module `a-home` and inject it into the variable `scopeModuleAHome`
+- Use the `UseScope` decorator function
+- The system will automatically find the `Scope` instance of the module `a-home` and inject it into the variable `$$scopeModuleAHome`

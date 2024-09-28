@@ -44,14 +44,14 @@ const data = await this.scope.service.menu.select();
 ## Use API services cross-module
 
 ```typescript
-import type { ScopeModuleHomeLayout } from 'zova-module-home-layout';
+import { ScopeModuleHomeLayout } from 'zova-module-home-layout';
 
 export class TestA {
-  @UseScope('home-layout')
-  scopeModuleHomeLayout: ScopeModuleHomeLayout;
+  @UseScope()
+  $$scopeModuleHomeLayout: ScopeModuleHomeLayout;
 
   protected async __init__() {
-    const data = await this.scopeModuleHomeLayout.service.menu.select();
+    const data = await this.$$scopeModuleHomeLayout.service.menu.select();
   }
 }
 ```

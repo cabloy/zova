@@ -39,15 +39,15 @@ export class TestA {
 ## 跨模块使用Constant
 
 ```typescript{1,4-5,8-10}
-import type { ScopeModuleADemo } from 'zova-module-a-demo';
+import { ScopeModuleADemo } from 'zova-module-a-demo';
 
 export class TestA {
-  @UseScope('a-demo')
-  scopeModuleADemo: ScopeModuleADemo;
+  @UseScope()
+  $$scopeModuleADemo: ScopeModuleADemo;
 
   protected async __init__() {
-    const male = this.scopeModuleADemo.constant.gender.male;
-    const female = this.scopeModuleADemo.constant.gender.female;
+    const male = this.$$scopeModuleADemo.constant.gender.male;
+    const female = this.$$scopeModuleADemo.constant.gender.female;
     console.log(male, female);
   }
 }

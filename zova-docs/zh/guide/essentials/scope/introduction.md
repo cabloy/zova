@@ -46,18 +46,18 @@ export class TestA extends BeanBase<ScopeModule> {
 仍以`testA.ts`为例，获取模块`a-home`的`Scope`实例：
 
 ```typescript{1,4-5,8}
-import type { ScopeModuleAHome } from 'zova-module-a-home';
+import { ScopeModuleAHome } from 'zova-module-a-home';
 
 export class TestA {
-  @UseScope('a-home')
-  scopeModuleAHome: ScopeModuleAHome;
+  @UseScope()
+  $$scopeModuleAHome: ScopeModuleAHome;
 
   protected async __init__() {
-    console.log(this.scopeModuleAHome);
+    console.log(this.$$scopeModuleAHome);
   }
 }
 ```
 
 - 导入模块`a-home`的`Scope`对象的类型
-- 使用`UseScope`装饰器函数，并且传入`module`参数
-- 系统会自动找到模块`a-home`的`Scope`实例，并且注入给变量`scopeModuleAHome`
+- 使用`UseScope`装饰器函数
+- 系统会自动找到模块`a-home`的`Scope`实例，并且注入给变量`$$scopeModuleAHome`
