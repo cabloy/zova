@@ -100,7 +100,7 @@ $ zova :tools:metadata home-icon
 
 除了模块`home-icon`，还可以创建若干新的模块，在其中添加图标
 
-- 方式 1: 右键菜单 - [模块路径]: Zova Init/Icon
+- 方式 1: 右键菜单 - [模块路径]: `Zova Init/Icon`
 
 - 方式 2: 通过 cli 命令初始化图标文件目录结构
 
