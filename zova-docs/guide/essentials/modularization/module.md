@@ -28,6 +28,8 @@ FullName: zova-module-{providerId}-{moduleName}
 ShortName: {providerId}-{moduleName}
 ```
 
+- You can use a function or feature as a `providerid`, such as: blog, dashboard, etc.
+
 ## Create Module
 
 You can use the cli command to create a module file skeleton, such as creating a new module `test-home`:

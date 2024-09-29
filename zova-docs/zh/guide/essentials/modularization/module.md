@@ -28,7 +28,7 @@
 短名: {providerId}-{moduleName}
 ```
 
-- providerId: 提供者 Id
+- providerId: 提供者 Id。可以将某个功能或者特性作为 providerId，比如：blog, dashboard 等等
 - moduleName: 模块名称
 
 ## 新建模块
