@@ -31,6 +31,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
         { text: '为什么需要Vue3+IOC', link: 'start/why' },
         { text: '简介', link: 'start/introduction' },
         { text: '快速上手', link: 'start/quick-start' },
+        { text: 'VS Code 插件', link: 'start/zova-vscode' },
         { text: '框架升级', link: 'start/update' },
       ],
     },
