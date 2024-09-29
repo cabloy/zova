@@ -2,6 +2,8 @@
 
 Zova 通过`process.env`暴露环境变量，这些变量在构建时会被静态的替换掉
 
+Zova 基于多维变量加载环境文件，从而提供更加灵活的配置机制，支持更复杂的业务场景
+
 ## meta与.env文件
 
 Zova 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载下列文件中的环境变量：
@@ -13,42 +15,37 @@ Zova 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载�
 .env.[meta].mine    # 只在指定条件下加载，但会被 git 忽略
 ```
 
-- `[meta]`可以是以下三个字段值的`任意组合`
+- `[meta]`可以是以下三个字段值的`任意组合`，从而支持基于多维变量的加载机制
 
-| 名称    | 类型                                                                                               |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| mode    | 'development' \| 'production' \| string;                                                           |
-| flavor  | 'web' \| 'app' \| string;                                                                          |
-| appMode | 'spa' \| 'ssr' \| 'pwa' \| 'cordova' \| 'capacitor' \| 'electron' \| 'bex' \| string \| undefined; |
+| 名称    | 类型                                                                                 |
+| ------- | ------------------------------------------------------------------------------------ |
+| mode    | 'development' \| 'production' \| string;                                             |
+| flavor  | 'front' \| 'admin' \| string;                                                        |
+| appMode | 'spa' \| 'ssr' \| 'pwa' \| 'cordova' \| 'capacitor' \| 'electron' \| 'bex' \| string |
 
-### mode
+- `appMode`: 更多信息，参见 [Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
-```bash
-$ npm run dev     # mode is 'development'
-$ npm run build   # mode is 'production'
-```
+## npm scripts
 
-### flavor
-
-可以通过命令行传入 flavor 变量值，默认是`app`
+与多维变量相对应，命令行运行脚本也相应地分为三个部分，比如：
 
 ```bash
-$ npm run [dev/build]                # flavor is 'app'
-$ FLAVOR=app npm run [dev/build]     # flavor is 'app'
-$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
+$ npm run dev:ssr:admin
+$ npm run build:ssr:admin
 ```
 
-### appMode
+为了方便起见，我们把最常用的脚本设为别名即可，比如：
 
-可以通过命令行传入 appMode 变量值，默认是`spa`
-
-```bash
-$ npm run [dev/build]                # appMode is 'spa'
-$ APPMODE=spa npm run [dev/build]    # appMode is 'spa'
-$ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
+```json
+"scripts": {
+  "dev": "npm run dev:ssr:admin",
+  "build": "npm run build:ssr:admin",
+  "preview": "npm run preview:ssr",
+  "dev:ssr:admin": "npm run prerun && tsc -b && quasar dev --mode ssr --flavor admin",
+  "build:ssr:admin": "npm run prerun && tsc -b && npm run tsc && quasar build --mode ssr --flavor admin",
+  "preview:ssr": "concurrently \"cd ./distMockServer && node index.js\" \"node ./dist/ssr/index.js\"",
+},
 ```
-
-- `quasar`有自己的`appMode`设置机制，参见：[Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
 ### 举例
 
@@ -57,20 +54,20 @@ $ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
 | 名称    | 值            |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'app'         |
-| appMode | 'spa'         |
+| flavor  | 'admin'       |
+| appMode | 'ssr'         |
 
 系统就会自动加载下列文件中的环境变量，并进行合并:
 
 ```txt
 .env
+.env.admin
+.env.admin.development
+.env.admin.development.ssr
 .env.mine
-.env.app
-.env.app.mine
-.env.app.development
-.env.app.development.mine
-.env.app.development.spa
-.env.app.development.spa.mine
+.env.admin.mine
+.env.admin.development.mine
+.env.admin.development.ssr.mine
 ```
 
 ## 内置环境变量

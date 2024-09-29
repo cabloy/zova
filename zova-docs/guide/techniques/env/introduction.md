@@ -2,6 +2,8 @@
 
 Zova exposes env variables on the special `process.env` object, which are statically replaced at build time
 
+Zova loads environment files based on multi-dimensional variables, providing a more flexible configuration mechanism and supporting more complex business scenarios
+
 ## meta & .env file
 
 Zova uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in the directory `env`:
@@ -15,40 +17,35 @@ Zova uses [dotenv](https://github.com/motdotla/dotenv) to load additional enviro
 
 - `[meta]` can be `any combination` of the following three field values
 
-| Name    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| mode    | 'development' \| 'production' \| string;                                                           |
-| flavor  | 'web' \| 'app' \| string;                                                                          |
-| appMode | 'spa' \| 'ssr' \| 'pwa' \| 'cordova' \| 'capacitor' \| 'electron' \| 'bex' \| string \| undefined; |
+| Name    | Description                                                                          |
+| ------- | ------------------------------------------------------------------------------------ |
+| mode    | 'development' \| 'production' \| string;                                             |
+| flavor  | 'front' \| 'admin' \| string;                                                        |
+| appMode | 'spa' \| 'ssr' \| 'pwa' \| 'cordova' \| 'capacitor' \| 'electron' \| 'bex' \| string |
 
-### mode
+- `appMode`: for more info, see [Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
-```bash
-$ npm run dev     # mode is 'development'
-$ npm run build   # mode is 'production'
-```
+## npm scripts
 
-### flavor
-
-The `flavor` variable value can be passed in through the command line. The default value is `app`
+Corresponding to the multi-dimensional variables, the command line script is also divided into three parts, such as:
 
 ```bash
-$ npm run [dev/build]                # flavor is 'app'
-$ FLAVOR=app npm run [dev/build]     # flavor is 'app'
-$ FLAVOR=web npm run [dev/build]     # flavor is 'web'
+$ npm run dev:ssr:admin
+$ npm run build:ssr:admin
 ```
 
-### appMode
+For convenience, we can set the most commonly used scripts as aliases, for example:
 
-The `appMode` variable value can be passed in through the command line. The default value is `spa`
-
-```bash
-$ npm run [dev/build]                # appMode is 'spa'
-$ APPMODE=spa npm run [dev/build]    # appMode is 'spa'
-$ APPMODE=ssr npm run [dev/build]    # appMode is 'ssr'
+```json
+"scripts": {
+  "dev": "npm run dev:ssr:admin",
+  "build": "npm run build:ssr:admin",
+  "preview": "npm run preview:ssr",
+  "dev:ssr:admin": "npm run prerun && tsc -b && quasar dev --mode ssr --flavor admin",
+  "build:ssr:admin": "npm run prerun && tsc -b && npm run tsc && quasar build --mode ssr --flavor admin",
+  "preview:ssr": "concurrently \"cd ./distMockServer && node index.js\" \"node ./dist/ssr/index.js\"",
+},
 ```
-
-- `quasar` has its own `appMode` setting mechanism, see: [Commands List: Mode](https://quasar.dev/quasar-cli-vite/commands-list#mode)
 
 ### For example
 
@@ -57,20 +54,20 @@ Execute `npm run dev` on the command line, then the corresponding meta variable 
 | Name    | Value         |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'app'         |
-| appMode | 'spa'         |
+| flavor  | 'admin'       |
+| appMode | 'ssr'         |
 
 The system will automatically load the environment variables in the following files and merge them:
 
 ```txt
 .env
+.env.admin
+.env.admin.development
+.env.admin.development.ssr
 .env.mine
-.env.app
-.env.app.mine
-.env.app.development
-.env.app.development.mine
-.env.app.development.spa
-.env.app.development.spa.mine
+.env.admin.mine
+.env.admin.development.mine
+.env.admin.development.ssr.mine
 ```
 
 ## Built-in env variables
