@@ -1,6 +1,6 @@
 # 模块Scope
 
-在 Zova 中，实际的业务代码开发都是在模块中进行。模块作为一个相对独立的业务单元，包含各种类型的资源：`Config配置`、`Constant常量`、`Locale国际化`、`Error错误异常`、`Component组件`、`Api服务`，等等。为了统一管理这些资源，方便资源的定义和使用，Zova 提供了`Scope`对象
+在 Zova 中，实际的业务代码开发都是在模块中进行。模块作为一个相对独立的业务单元，包含各种类型的资源：`Config配置`、`Constant常量`、`Locale国际化`、`Error错误异常`、`Api服务`，等等。为了统一管理这些资源，方便资源的定义和使用，Zova 提供了`Scope`对象
 
 ## Zova 的 IOC 容器为何代码更简洁？
 
@@ -28,14 +28,13 @@ export class TestA extends BeanBase<ScopeModule> {
 
 ## Scope对象的成员
 
-| 名称      | 说明             |
-| --------- | ---------------- |
-| config    | 模块的Config配置 |
-| constant  | 模块的常量定义   |
-| locale    | 模块的I18n国际化 |
-| error     | 模块的错误异常   |
-| component | 模块的Vue组件    |
-| service   | 模块的Api服务    |
+| 名称     | 说明             |
+| -------- | ---------------- |
+| config   | 模块的Config配置 |
+| constant | 模块的常量定义   |
+| locale   | 模块的I18n国际化 |
+| error    | 模块的错误异常   |
+| service  | 模块的Api服务    |
 
 ## 跨模块访问Scope实例
 

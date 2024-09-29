@@ -1,6 +1,6 @@
 # Module Scope
 
-In Zova, the actual business code development is done in modules. As a relatively independent business unit, the module contains various types of resources: `Config`, `Constant`, `Locale I18n`, `Error exception`, `Component`, `Api Service`, etc. In order to uniformly manage these resources and facilitate the definition and use of resources, Zova provides the `Scope` object
+In Zova, the actual business code development is done in modules. As a relatively independent business unit, the module contains various types of resources: `Config`, `Constant`, `Locale I18n`, `Error exception`, `Api Service`, etc. In order to uniformly manage these resources and facilitate the definition and use of resources, Zova provides the `Scope` object
 
 ## Why is Zova's IOC container code more concise?
 
@@ -28,14 +28,13 @@ export class TestA extends BeanBase<ScopeModule> {
 
 ## Members of the Scope object
 
-| Name      | Description               |
-| --------- | ------------------------- |
-| config    | Config of Module          |
-| constant  | Constant of Module        |
-| locale    | I18n of Module            |
-| error     | Error exception of Module |
-| component | Vue Component of Module   |
-| service   | Api Service of Module     |
+| Name     | Description               |
+| -------- | ------------------------- |
+| config   | Config of Module          |
+| constant | Constant of Module        |
+| locale   | I18n of Module            |
+| error    | Error exception of Module |
+| service  | Api Service of Module     |
 
 ## How to obtain Scope Instance cross-module?
 
