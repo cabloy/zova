@@ -11,20 +11,20 @@ Zova 从`src/front/config/config`目录中加载 config 文件。同样支持基
 | 名称    | 值            |
 | ------- | ------------- |
 | mode    | 'development' |
-| flavor  | 'app'         |
-| appMode | 'spa'         |
+| flavor  | 'admin'       |
+| appMode | 'ssr'         |
 
 系统就会自动加载下列文件中的 Config 配置，并进行合并:
 
 ```txt
 config.ts
+config.admin.ts
+config.admin.development.ts
+config.admin.development.ssr.ts
 config.mine.ts
-config.app.ts
-config.app.mine.ts
-config.app.development.ts
-config.app.development.mine.ts
-config.app.development.spa.ts
-config.app.development.spa.mine.ts
+config.admin.mine.ts
+config.admin.development.mine.ts
+config.admin.development.ssr.mine.ts
 ```
 
 ## 访问全局config
