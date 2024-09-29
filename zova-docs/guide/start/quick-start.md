@@ -4,12 +4,21 @@
 
 ### 1. Prerequisites
 
+- install pnpm
+
 ```bash
-# install pnpm
 $ npm install -g pnpm
-# install zova-cli
+```
+
+- install command-line tools
+
+```bash
 $ pnpm add -g zova-cli
 ```
+
+- VS Code Extension: [Zova - Official](https://marketplace.visualstudio.com/items?itemName=cabloy.zova-vscode)
+
+It is strongly recommended to install this VS Code extension to obtain a more convenient and pleasant development experience
 
 ### 2. Create Project
 

@@ -4,12 +4,21 @@
 
 ### 1. 前置条件
 
+- npm 包管理器：pnpm
+
 ```bash
-# 安装pnpm
 $ npm install -g pnpm
-# 安装zova-cli
+```
+
+- 命令行工具：zova-cli
+
+```bash
 $ pnpm add -g zova-cli
 ```
+
+- VS Code 插件：[Zova - Official](https://marketplace.visualstudio.com/items?itemName=cabloy.zova-vscode)
+
+强烈建议安装此 VS Code 插件，从而获得更便捷、更愉悦的开发体验
 
 ### 2. 创建项目
 
