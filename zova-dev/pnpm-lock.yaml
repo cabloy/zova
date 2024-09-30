@@ -8,24 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@cabloy/last-word':
-        specifier: ^1.0.13
-        version: link:packages-utils/last-word
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.15(tailwindcss@3.4.13)
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.56.2
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.56.2(vue@3.5.10(typescript@5.6.2))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.20(postcss@8.4.47)
-      axios:
-        specifier: ^1.6.8
-        version: 1.7.7
       compression:
         specifier: ^1.7.4
         version: 1.7.4
@@ -35,21 +23,12 @@ importers:
       cors:
         specifier: ^2.8.5
         version: 2.8.5
-      csx:
-        specifier: ^10.0.2
-        version: 10.0.2
       daisyui:
         specifier: ^4.12.10
         version: 4.12.10(postcss@8.4.47)
       express:
         specifier: ^4.19.2
         version: 4.21.0
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.2(typescript@5.6.2)(vue@3.5.10(typescript@5.6.2))
       postcss:
         specifier: ^8.4.38
         version: 8.4.47
@@ -59,15 +38,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.13
-      typestyle:
-        specifier: ^2.4.0
-        version: 2.4.0
       vue:
         specifier: ^3.5.6
         version: 3.5.10(typescript@5.6.2)
-      vue-router:
-        specifier: ^4.4.5
-        version: 4.4.5(vue@3.5.10(typescript@5.6.2))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -168,9 +141,6 @@ importers:
 
   packages-utils/babel-plugin-zova-bean-use:
     devDependencies:
-      '@cabloy/last-word':
-        specifier: ^1.0.13
-        version: link:../last-word
       '@cabloy/module-info':
         specifier: ^1.0.22
         version: 1.0.22
@@ -219,7 +189,7 @@ importers:
         specifier: ^1.0.4
         version: link:../../packages-zova/shared
       zova-vite:
-        specifier: ^1.0.172
+        specifier: ^1.0.174
         version: link:../zova-vite
     devDependencies:
       '@cabloy/lint':
@@ -274,7 +244,7 @@ importers:
         specifier: ^1.0.31
         version: link:../babel-plugin-zova-bean-module
       babel-plugin-zova-bean-use:
-        specifier: ^1.0.0
+        specifier: ^1.0.2
         version: link:../babel-plugin-zova-bean-use
       babel-plugin-zova-component:
         specifier: ^1.0.2
@@ -329,7 +299,7 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5
       '@cabloy/last-word':
-        specifier: ^1.0.13
+        specifier: ^1.0.15
         version: link:../../packages-utils/last-word
       '@cabloy/localeutil':
         specifier: ^1.0.4
@@ -379,13 +349,13 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.159
+        specifier: ^5.0.162
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.117
+        specifier: ^5.0.118
         version: link:../../src/suite-vendor/a-core
 
   src/module/a-test: {}
@@ -393,32 +363,25 @@ importers:
   src/suite-vendor/a-core:
     dependencies:
       zova-module-a-core:
-        specifier: ^5.0.45
+        specifier: ^5.0.46
         version: link:modules/a-core
       zova-module-a-model:
-        specifier: ^5.0.31
+        specifier: ^5.0.32
         version: link:modules/a-model
       zova-module-a-pinia:
-        specifier: ^5.0.31
+        specifier: ^5.0.32
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.65
+        specifier: ^5.0.66
         version: link:modules/a-router
       zova-module-a-style:
-        specifier: ^5.0.42
+        specifier: ^5.0.43
         version: link:modules/a-style
       zova-module-a-tabs:
-        specifier: ^5.0.21
+        specifier: ^5.0.22
         version: link:modules/a-tabs
 
-  src/suite-vendor/a-core/modules/a-core:
-    dependencies:
-      '@cabloy/last-word':
-        specifier: ^1.0.13
-        version: link:../../../../../packages-utils/last-word
-      zova-core:
-        specifier: ^5.0.159
-        version: link:../../../../../packages-zova/core
+  src/suite-vendor/a-core/modules/a-core: {}
 
   src/suite-vendor/a-core/modules/a-model:
     dependencies:
@@ -458,7 +421,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-devui-adapter:
-        specifier: ^5.0.27
+        specifier: ^5.0.28
         version: link:modules/devui-adapter
 
   src/suite-vendor/a-devui/modules/devui-adapter: {}
@@ -1539,8 +1502,8 @@ packages:
   '@types/fs-extra@11.0.4':
     resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
 
-  '@types/har-format@1.2.15':
-    resolution: {integrity: sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==}
+  '@types/har-format@1.2.16':
+    resolution: {integrity: sha512-fluxdy7ryD3MV6h8pTfTYpy/xQzCFC7m89nOH9y94cNqJ1mDIDPut7MnRHI3F6qRmh/cT2fUjG1MLdCNb4hE9A==}
 
   '@types/http-errors@2.0.4':
     resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
@@ -4712,7 +4675,7 @@ snapshots:
   '@types/chrome@0.0.262':
     dependencies:
       '@types/filesystem': 0.0.36
-      '@types/har-format': 1.2.15
+      '@types/har-format': 1.2.16
 
   '@types/compression@1.7.5':
     dependencies:
@@ -4751,7 +4714,7 @@ snapshots:
       '@types/jsonfile': 6.1.4
       '@types/node': 20.16.10
 
-  '@types/har-format@1.2.15': {}
+  '@types/har-format@1.2.16': {}
 
   '@types/http-errors@2.0.4': {}
 
