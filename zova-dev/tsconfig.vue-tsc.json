@@ -2,10 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {},
   "exclude": [
-    "./src/module",
-    "./src/module-vendor",
-    "./src/suite",
-    "./src/suite-vendor",
     "**/dist/**",
     "./dist",
     "./distMockServer",

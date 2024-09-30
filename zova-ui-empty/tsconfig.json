@@ -6,10 +6,6 @@
     "declaration": false
   },
   "exclude": [
-    "./src/module",
-    "./src/module-vendor",
-    "./src/suite",
-    "./src/suite-vendor",
     "./dist",
     "./distMockServer",
     "./.quasar",
