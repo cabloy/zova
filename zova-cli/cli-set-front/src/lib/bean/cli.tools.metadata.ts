@@ -47,12 +47,12 @@ export class CliToolsMetadata extends BeanCliBase {
     if (!module) throw new Error(`module not found: ${moduleName}`);
     const modulePath = module.root;
     const metaDir = path.join(modulePath, 'src/.metadata');
-    if (fse.existsSync(metaDir) && !force) {
+    const metaIndexFile = path.join(metaDir, 'index.ts');
+    if (fse.existsSync(metaIndexFile) && !force) {
       // do nothing
       return;
     }
     await this.helper.ensureDir(metaDir);
-    const resDest = path.join(metaDir, 'index.ts');
     // relativeNameCapitalize
     const relativeNameCapitalize = this.helper.stringToCapitalize(moduleName, '-');
     // content
@@ -97,8 +97,8 @@ export class CliToolsMetadata extends BeanCliBase {
       content = 'export {};';
     }
     // save
-    await fse.writeFile(resDest, content);
-    await this.helper.formatFile({ fileName: resDest, logPrefix: 'format: ' });
+    await fse.writeFile(metaIndexFile, content);
+    await this.helper.formatFile({ fileName: metaIndexFile, logPrefix: 'format: ' });
     // generate this
     await this._generateThis(moduleName, relativeNameCapitalize, modulePath);
     // index
