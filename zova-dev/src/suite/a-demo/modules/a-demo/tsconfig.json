@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["../../../../../src/legacy/*"]
+    }
+  },
+  "include": ["src", "src/.metadata/*.ts", "../../../../../src/legacy"]
+}
