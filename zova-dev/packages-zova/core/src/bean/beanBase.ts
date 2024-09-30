@@ -9,7 +9,7 @@ import { CtxSSR } from '../core/context/ssr.js';
 
 const SymbolText = Symbol('SymbolText');
 
-export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
+export class BeanBase<_TScopeModule = unknown> extends BeanBaseSimple {
   protected get $el(): RendererNode {
     if (!this.ctx) {
       throw new Error('$el can not be used inside global bean.');
@@ -50,16 +50,11 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   // protected async __init__() {}
   // protected __dispose__() {}
 
-  protected get scope() {
-    return this.getScope() as TScopeModule;
-  }
-
   protected getScope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): IBeanScopeRecord[K];
-  protected getScope<T>(moduleScope: string): T;
-  protected getScope(): TScopeModule;
+  protected getScope(): unknown;
   protected getScope(moduleScope?: string) {
     if (!moduleScope) {
-      return this.app.bean.scope(this[SymbolModuleBelong]) as TScopeModule;
+      return this.app.bean.scope(this[SymbolModuleBelong]);
     }
     return this.app.bean.scope(moduleScope);
   }
@@ -72,3 +67,9 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   //   }
   // }
 }
+
+Object.defineProperty(BeanBase.prototype, 'scope', {
+  get(this: BeanBase) {
+    return this.getScope();
+  },
+});
