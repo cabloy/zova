@@ -1,6 +1,6 @@
 {
   "name": "zova-module-a-core",
-  "version": "5.0.45",
+  "version": "5.0.46",
   "title": "a-core",
   "zovaModule": {
     "dependencies": {
