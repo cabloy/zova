@@ -1,0 +1,9 @@
+{
+  "extends": "<%=argv.suite?'':'../'%>../../tsconfig.base",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["<%=argv.suite?'../../':''%>../../../src/legacy/*"]
+    }
+  },
+  "include": ["src", "src/.metadata/*.ts", "<%=argv.suite?'../../':''%>../../../src/legacy"]
+}
