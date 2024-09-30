@@ -46,6 +46,14 @@ export class CliToolsDeps extends BeanCliBase {
       content += `import '${module.package.name}';\n`;
     });
     await fse.writeFile(typeFile, content);
+    // all modules: type file
+    for (const module of this.modulesMeta.modulesArray) {
+      if (module.info.node_modules) continue;
+      const moduleTypeFile = path.join(module.root, 'src/.metadata/modules.d.ts');
+      if (!fse.existsSync(moduleTypeFile)) {
+        await fse.ensureLink(typeFile, moduleTypeFile);
+      }
+    }
   }
 
   async _generatePkgFromPkgOriginal(pkgOriginal, pkgFile) {
