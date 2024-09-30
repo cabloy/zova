@@ -5,8 +5,11 @@
     "declarationMap": false,
     "declaration": false
   },
-  "include": ["src", "**/src/.metadata/*.ts"],
   "exclude": [
+    "./src/module",
+    "./src/module-vendor",
+    "./src/suite",
+    "./src/suite-vendor",
     "**/dist/**",
     "./dist",
     "./distMockServer",
