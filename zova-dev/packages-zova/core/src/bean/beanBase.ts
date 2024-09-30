@@ -55,7 +55,6 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   }
 
   protected getScope<K extends TypeBeanScopeRecordKeys>(moduleScope: K): IBeanScopeRecord[K];
-  protected getScope<T>(moduleScope: string): T;
   protected getScope(): TScopeModule;
   protected getScope(moduleScope?: string) {
     if (!moduleScope) {
