@@ -41,8 +41,8 @@ $ npm run build:ssr:admin
   "dev": "npm run dev:ssr:admin",
   "build": "npm run build:ssr:admin",
   "preview": "npm run preview:ssr",
-  "dev:ssr:admin": "npm run prerun && tsc -b && quasar dev --mode ssr --flavor admin",
-  "build:ssr:admin": "npm run prerun && tsc -b && npm run tsc && quasar build --mode ssr --flavor admin",
+  "dev:ssr:admin": "npm run prerun && quasar dev --mode ssr --flavor admin",
+  "build:ssr:admin": "npm run prerun && npm run tsc && quasar build --mode ssr --flavor admin",
   "preview:ssr": "concurrently \"cd ./distMockServer && node index.js\" \"node ./dist/ssr/index.js\"",
 },
 ```
