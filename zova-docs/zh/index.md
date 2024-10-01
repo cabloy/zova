@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Zova'
   text: '一款支持IOC容器的Vue3框架'
-  tagline: 可以搭配任何UI库使用
+  tagline: 能够帮助开发者构建快速、可靠的应用
   actions:
     - theme: brand
       text: 快速开始
@@ -18,8 +18,18 @@ hero:
       link: https://github.com/cabloy/zova
 
 features:
-  - title: 不用ref/reactive, 不用ref.value
+  - title: UI库
+    details: 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：antdv、element-plus、quasar和vuetify
+  - title: SSR
+    details: 内置开箱即用的SSR解决方案，同时支持B端和C端应用
+  - title: 响应式系统
     details: 有了IOC容器的加持，定义响应式状态不再需要 ref/reactive。因为不用 ref，自然也就不用再写大量的 ref.value
+  - title: CSS-in-JS
+    details: 内置CSS-in-JS的能力，让样式的开发更加灵活、便捷，同时提供了开箱即用的主题切换能力
+  - title: 统一数据源
+    details: 采用统一的Model机制封装统一数据源，包括Cookie、Localstorage和Vue Query管理的服务端数据
+  - title: IOC容器
+    details: Zova提供的IOC容器概念更加清晰，功能更加强大，是应对大型业务系统开发的利器
   - title: 化类型于无形
     details: Zova 采用依赖注入与依赖查找相结合的策略，大量减少装饰器函数的使用。优先使用依赖查找可以达到“化类型于无形”的开发体验，也就是不需要标注类型就可以享受到类型编程的诸多好处，从而让我们的代码始终保持简洁和优雅，进而显著提升开发效率，保证代码质量
   - title: 模块化体系
