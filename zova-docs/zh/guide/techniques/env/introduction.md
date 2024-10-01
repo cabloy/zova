@@ -83,13 +83,6 @@ $ npm run build:ssr:admin
 | META_APP_MODE | appMode       |
 | NODE_ENV      | 等于META_MODE |
 
-### 开发服务
-
-| 名称            | 说明                                                                                          |
-| --------------- | --------------------------------------------------------------------------------------------- |
-| DEV_SERVER_HOST | 开发服务的host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
-| DEV_SERVER_PORT | 开发服务的port                                                                                |
-
 ### 应用
 
 | 名称            | 说明                                                                                     |
@@ -100,6 +93,21 @@ $ npm run build:ssr:admin
 | APP_NAME        | 应用名称                                                                                 |
 | APP_TITLE       | 应用标题                                                                                 |
 | APP_VERSION     | 应用版本                                                                                 |
+
+### 开发服务
+
+| 名称            | 说明                                                                                          |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| DEV_SERVER_HOST | 开发服务的host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
+| DEV_SERVER_PORT | 开发服务的port                                                                                |
+
+### 构建
+
+| 名称          | 说明             |
+| ------------- | ---------------- |
+| BUILD_OUTDIR  | 指定输出目录     |
+| BUILD_MINIFY  | 是否最小化       |
+| BUILD_ANALYZE | 是否显示分析信息 |
 
 ### 套件/模块
 

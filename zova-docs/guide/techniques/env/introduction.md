@@ -83,13 +83,6 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 | META_APP_MODE | appMode           |
 | NODE_ENV      | equal `META_MODE` |
 
-### Dev server
-
-| Name            | Description                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| DEV_SERVER_HOST | Dev server host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
-| DEV_SERVER_PORT | Dev server port                                                                                |
-
 ### App
 
 | Name            | Description                                                                              |
@@ -100,6 +93,21 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 | APP_NAME        | App Name                                                                                 |
 | APP_TITLE       | App Title                                                                                |
 | APP_VERSION     | App Version                                                                              |
+
+### Dev server
+
+| Name            | Description                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| DEV_SERVER_HOST | Dev server host [Vite: server.host](https://vitejs.dev/config/server-options.html#server-host) |
+| DEV_SERVER_PORT | Dev server port                                                                                |
+
+### Build
+
+| 名称          | 说明                                |
+| ------------- | ----------------------------------- |
+| BUILD_OUTDIR  | Specify the output directory        |
+| BUILD_MINIFY  | Whether to enable minify            |
+| BUILD_ANALYZE | Whether to display the analyze info |
 
 ### Suite/Module
 
