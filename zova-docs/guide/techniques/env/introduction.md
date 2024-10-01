@@ -130,43 +130,6 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 | ------------- | ----------------------- |
 | PINIA_ENABLED | Whether to enable Pinia |
 
-### PROXY
-
-| Name               | Description                 |
-| ------------------ | --------------------------- |
-| PROXY_API_ENABLED  | Whether to enable API proxy |
-| PROXY_API_BASE_URL | BaseURL of API proxy        |
-| PROXY_API_PREFIX   | Prefix of API proxy         |
-
-`src/front/config/config/config.ts`
-
-```typescript{5-6}
-export default function (_app: ZovaApplication) {
-  const config: ZovaConfigOptional = {
-    base: {},
-    api: {
-      baseURL: process.env.API_BASE_URL,
-      prefix: process.env.API_PREFIX,
-    },
-    layout: {},
-  };
-  return config;
-}
-```
-
-`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
-
-```typescript{5}
-export class StoreApi {
-  private [SymbolApi]: AxiosInstance;
-
-  protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
-    this[SymbolApi] = markRaw(axios.create({ baseURL }));
-  }
-}
-```
-
 ### Proxy
 
 | Name               | Description                                                                                               |
@@ -174,6 +137,17 @@ export class StoreApi {
 | PROXY_API_ENABLED  | Whether to enable proxy: [Vite: server.proxy](https://vitejs.dev/config/server-options.html#server-proxy) |
 | PROXY_API_BASE_URL | proxy target                                                                                              |
 | PROXY_API_PREFIX   | proxy key                                                                                                 |
+
+### SSR
+
+| Name                         | Description                                          |
+| ---------------------------- | ---------------------------------------------------- |
+| SSR_COOKIE_THEMENAME         | Whether to enable cookie used to save ThemeName      |
+| SSR_COOKIE_THEMEDARK         | Whether to enable cookie used to save ThemeDark      |
+| SSR_COOKIE_THEMEDARK_DEFAULT | The default ThemeDark value for SSR_COOKIE_THEMEDARK |
+| SSR_BODYREADYOBSERVER        | Whether to observe the body dom loading process      |
+| SSR_API_BASE_URL             | The API BaseURL on ssr server                        |
+| SSR_PROD_PORT                | The port of ssr production server                    |
 
 ### Mock
 

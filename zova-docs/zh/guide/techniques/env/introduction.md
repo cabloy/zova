@@ -130,43 +130,6 @@ $ npm run build:ssr:admin
 | ------------- | ------------- |
 | PINIA_ENABLED | 是否启用Pinia |
 
-### PROXY
-
-| 名称               | 说明             |
-| ------------------ | ---------------- |
-| PROXY_API_ENABLED  | 是否启用API代理  |
-| PROXY_API_BASE_URL | API代理的BaseURL |
-| PROXY_API_PREFIX   | API代理的前缀    |
-
-`src/front/config/config/config.ts`
-
-```typescript{5-6}
-export default function (_app: ZovaApplication) {
-  const config: ZovaConfigOptional = {
-    base: {},
-    api: {
-      baseURL: process.env.API_BASE_URL,
-      prefix: process.env.API_PREFIX,
-    },
-    layout: {},
-  };
-  return config;
-}
-```
-
-`src/suite/a-home/modules/home-api/src/bean/store.api.ts`
-
-```typescript{5}
-export class StoreApi {
-  private [SymbolApi]: AxiosInstance;
-
-  protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
-    this[SymbolApi] = markRaw(axios.create({ baseURL }));
-  }
-}
-```
-
 ### Proxy
 
 | 名称               | 说明                                                                                            |
@@ -174,6 +137,17 @@ export class StoreApi {
 | PROXY_API_ENABLED  | 是否启用proxy：[Vite: server.proxy](https://vitejs.dev/config/server-options.html#server-proxy) |
 | PROXY_API_BASE_URL | proxy target                                                                                    |
 | PROXY_API_PREFIX   | proxy key                                                                                       |
+
+### SSR
+
+| 名称                         | 说明                              |
+| ---------------------------- | --------------------------------- |
+| SSR_COOKIE_THEMENAME         | 是否启用Cookie，用于存储ThemeName |
+| SSR_COOKIE_THEMEDARK         | 是否启用Cookie，用于存储ThemeDark |
+| SSR_COOKIE_THEMEDARK_DEFAULT | 当启用Cookie时，默认的ThemeDark值 |
+| SSR_BODYREADYOBSERVER        | 是否监测Body元素的加载过程        |
+| SSR_API_BASE_URL             | 在服务端访问API用的BaseURL        |
+| SSR_PROD_PORT                | SSR生产服务的端口号               |
 
 ### Mock
 
