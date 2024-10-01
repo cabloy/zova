@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Zova'
   text: 'A vue3 framework with ioc'
-  tagline: Can be used with any UI library
+  tagline: Empowers developers to build fast, reliable applications
   actions:
     - theme: brand
       text: Get Started
@@ -18,8 +18,18 @@ hero:
       link: https://github.com/cabloy/zova
 
 features:
-  - title: No ref/reactive, No ref.value
+  - title: UI libraries
+    details: Zova can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box, including antdv, element-plus, quasar and vuetify
+  - title: SSR
+    details: Built-in out-of-the-box SSR solution, supporting both front-end applications and admin management systems
+  - title: Reactivity
     details: With the support of ioc container, defining reactive states no longer needs ref/reactive. Without ref, naturally there is no need to write a lot of ref.value
+  - title: CSS-in-JS
+    details: Built-in CSS-in-JS capability making style development more flexible and convenient, while providing out-of-the-box theme switching capabilities
+  - title: Unified Data Source
+    details: Encapsulating unified data sources through model mechanism, including Cookie, Localstorage and server-side data managed by Vue Query
+  - title: IOC Container
+    details: The IOC container provided by Zova has a clearer concept and more powerful functions, which is a powerful tool for the development of large-scale business systems
   - title: Type programming without type
     details: Zova adopts a strategy that combines dependency injection and dependency lookup, significantly reducing the use of decorator functions. Prioritizing the use of dependency lookup can achieve a development experience of "Type programming without type", which means that we can enjoy the many benefits of type programming without the need to annotate types, thus keeping our code concise and elegant, significantly improving development efficiency, and ensuring code quality
   - title: Modularization
