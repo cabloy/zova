@@ -118,3 +118,11 @@ export class StyleCounter {}
 Zova 奉行渐进式开发的理念。如果某些 Vue 组件逻辑比较简单，或者想利用旧的 Vue 组件代码，那么直接像通常一样使用 SFC 开发即可，不必引入 IOC 容器
 
 - 参见：[传统写法](../../vue/legacy.md)
+
+## 页面参数
+
+可以通过路由向页面传入参数。Zova 对页面参数进行了强化，提供了 Typescript 类型化支持
+
+- 参见：
+  - [路由Query](../../techniques/router/route-query.md)
+  - [路由Params](../../techniques/router/route-params.md)
