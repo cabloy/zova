@@ -260,7 +260,3 @@ export class RenderComponent {
 ```
 
 - Import the child component `Card` from `index.vue`, and then directly pass the value to the `slots` prop of Card
-
-## How to refer to child component instance?
-
-In Zova, `Template Ref` is not used to refer to child component instances, but directly refers to the `controller bean` corresponding to the child component. See: [Controller Ref](../../vue/refs.md#controller-ref)
