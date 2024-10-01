@@ -2,14 +2,9 @@
 
 ## Create Page Component
 
-Let's first create a page component `counter` using a cli command:
+> Context Menu - [Module Path]: `Zova Create/Page`
 
-```bash
-$ zova :create:page counter --module=a-demo
-```
-
-- The `module` option indicates that the page component belongs to the module `a-demo`
-- This command will create a route and a directory
+Enter the name of the page component according to the prompt, such as `counter`, and the VSCode extension will automatically create a route record and a file directory
 
 ### Route
 

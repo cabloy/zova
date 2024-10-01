@@ -2,16 +2,11 @@
 
 ## 创建页面组件
 
-我们先通过一个 cli 命令来创建一个页面组件`counter`:
+> 右键菜单 - [模块路径]: `Zova Create/Page`
 
-```bash
-$ zova :create:page counter --module=a-demo
-```
+依据提示输入页面组件的名称，比如 `counter`，VSCode 插件会自动创建一个路由记录和一个文件目录
 
-- module 选项指示该页面组件归属于模块`a-demo`。也可以不指定选项，在命令行提示中再指定
-- 该命令会创建一个路由和一个目录
-
-### 路由
+### 路由记录
 
 `src/suite/a-demo/modules/a-demo/src/routes.ts`
 
@@ -28,7 +23,7 @@ export const routes: IModuleRoute[] = [
 
 ### 目录
 
-在 Zova 中，一个页面组件被切分为四个文件:
+在 Zova 中，一个页面组件被拆分为四个文件:
 
 `src/suite/a-demo/modules/a-demo/src/page/counter`
 
