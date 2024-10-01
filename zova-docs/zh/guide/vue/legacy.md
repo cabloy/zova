@@ -10,7 +10,7 @@ Zova 专门提供了一个文件目录，用于集中管理传统代码。目录
 右键菜单 - [项目路径/src]: `Zova Init/Legacy`
 :::
 
-VSCode 插件默认会自动提供三个目录：composables，components 和 pages，也可以根据需要自行添加其他目录
+VSCode 插件默认会自动创建三个目录：composables，components 和 pages，也可以根据需要自行添加其他目录
 
 ## 目录别名
 
