@@ -124,6 +124,20 @@ $ npm run build:ssr:admin
 | API_PREFIX   |             |
 | API_JWT      | 是否启用JWT |
 
+### PINIA
+
+| 名称          | 说明          |
+| ------------- | ------------- |
+| PINIA_ENABLED | 是否启用Pinia |
+
+### PROXY
+
+| 名称               | 说明             |
+| ------------------ | ---------------- |
+| PROXY_API_ENABLED  | 是否启用API代理  |
+| PROXY_API_BASE_URL | API代理的BaseURL |
+| PROXY_API_PREFIX   | API代理的前缀    |
+
 `src/front/config/config/config.ts`
 
 ```typescript{5-6}

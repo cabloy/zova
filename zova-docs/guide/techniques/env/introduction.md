@@ -103,7 +103,7 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 
 ### Build
 
-| 名称          | 说明                                |
+| Name          | Description                         |
 | ------------- | ----------------------------------- |
 | BUILD_OUTDIR  | Specify the output directory        |
 | BUILD_MINIFY  | Whether to enable minify            |
@@ -123,6 +123,20 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 | API_BASE_URL |                       |
 | API_PREFIX   |                       |
 | API_JWT      | Whether to enable JWT |
+
+### PINIA
+
+| Name          | Description             |
+| ------------- | ----------------------- |
+| PINIA_ENABLED | Whether to enable Pinia |
+
+### PROXY
+
+| Name               | Description                 |
+| ------------------ | --------------------------- |
+| PROXY_API_ENABLED  | Whether to enable API proxy |
+| PROXY_API_BASE_URL | BaseURL of API proxy        |
+| PROXY_API_PREFIX   | Prefix of API proxy         |
 
 `src/front/config/config/config.ts`
 
