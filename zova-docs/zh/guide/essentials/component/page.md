@@ -117,4 +117,4 @@ export class StyleCounter {}
 
 Zova 奉行渐进式开发的理念。如果某些 Vue 组件逻辑比较简单，或者想利用旧的 Vue 组件代码，那么直接像通常一样使用 SFC 开发即可，不必引入 IOC 容器
 
-- 参见：[传统用法](../../vue/legacy.md)
+- 参见：[传统写法](../../vue/legacy.md)
