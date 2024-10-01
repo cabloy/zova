@@ -28,7 +28,7 @@ export class BeanApi extends BeanBase {
     // request
     api.interceptors.request.use(
       config => {
-        if (this.app.config.base.jwt) {
+        if (this.app.config.api.jwt) {
           config.headers.Authorization = `Bearer ${this.$$modelAuth.jwtAuthorization || ''}`;
         }
         return config;

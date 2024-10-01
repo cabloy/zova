@@ -29,12 +29,10 @@ export function configDefault() {
       dev: process.env.DEV,
       prod: process.env.PROD,
     },
-    base: {
-      jwt: process.env.APP_BASE_JWT !== 'false',
-    },
     api: {
       baseURL: process.env.API_BASE_URL,
       prefix: process.env.API_PREFIX,
+      jwt: process.env.API_JWT !== 'false',
     },
     ssr: {
       cookieThemeName: process.env.SSR_COOKIE_THEMENAME === 'true',
@@ -76,12 +74,10 @@ export function configDefault() {
 export type ZovaConfig = {
   meta: ZovaConfigMeta;
   env: ZovaConfigEnv;
-  base: {
-    jwt: boolean;
-  };
   api: {
     baseURL: string;
     prefix: string;
+    jwt: boolean;
   };
   ssr: {
     cookieThemeName: boolean;
