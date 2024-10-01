@@ -110,10 +110,11 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 
 ### API
 
-| Name         | Description |
-| ------------ | ----------- |
-| API_BASE_URL |             |
-| API_PREFIX   |             |
+| Name         | Description           |
+| ------------ | --------------------- |
+| API_BASE_URL |                       |
+| API_PREFIX   |                       |
+| API_JWT      | Whether to enable JWT |
 
 `src/front/config/config/config.ts`
 

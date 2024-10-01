@@ -110,10 +110,11 @@ $ npm run build:ssr:admin
 
 ### API
 
-| 名称         | 说明 |
-| ------------ | ---- |
-| API_BASE_URL |      |
-| API_PREFIX   |      |
+| 名称         | 说明        |
+| ------------ | ----------- |
+| API_BASE_URL |             |
+| API_PREFIX   |             |
+| API_JWT      | 是否启用JWT |
 
 `src/front/config/config/config.ts`
 
