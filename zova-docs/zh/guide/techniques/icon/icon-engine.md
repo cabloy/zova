@@ -88,22 +88,14 @@ import { VBtn } from 'vuetify/components';
 
 ### 2. 构建图标
 
-- 方式 1: 右键菜单 - [模块路径]: `Zova Tools/Generate .metadata`
-
-- 方式 2: 通过 cli 命令执行构建，就会自动把 SVG 图标按分组生成图标文件
-
-```bash
-$ zova :tools:metadata home-icon
-```
+::: tip
+右键菜单 - [模块路径]: `Zova Tools/Generate .metadata`
+:::
 
 ## 创建图标模块
 
 除了模块`home-icon`，还可以创建若干新的模块，在其中添加图标
 
-- 方式 1: 右键菜单 - [模块路径]: `Zova Init/Icon`
-
-- 方式 2: 通过 cli 命令初始化图标文件目录结构
-
-```bash
-$ zova :init:icon test-icon
-```
+::: tip
+右键菜单 - [模块路径]: `Zova Init/Icon`
+:::

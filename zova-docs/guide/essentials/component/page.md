@@ -2,7 +2,9 @@
 
 ## Create Page Component
 
-> Context Menu - [Module Path]: `Zova Create/Page`
+::: tip
+Context Menu - [Module Path]: `Zova Create/Page`
+:::
 
 Enter the name of the page component according to the prompt, such as `counter`, and the VSCode extension will automatically create a route record and a file directory
 

@@ -2,7 +2,9 @@
 
 ## 创建页面组件
 
-> 右键菜单 - [模块路径]: `Zova Create/Page`
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Page`
+:::
 
 依据提示输入页面组件的名称，比如 `counter`，VSCode 插件会自动创建一个路由记录和一个文件目录
 

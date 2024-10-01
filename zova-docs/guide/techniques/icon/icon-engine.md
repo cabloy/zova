@@ -88,22 +88,14 @@ Place the SVG icon into the icon module's group directory. For example, the `def
 
 ### 2. Build icon
 
-- Method 1: Context Menu - [Module Path]: `Zova Tools/Generate .metadata`
-
-- Method 2: Executing the build through the cli command will automatically group the SVG icons into icon files
-
-```bash
-$ zova :tools:metadata home-icon
-```
+::: tip
+Context Menu - [Module Path]: `Zova Tools/Generate .metadata`
+:::
 
 ## Create Icon Module
 
 In addition to the module `home-icon`, you can also create several new icon modules and add icons to them
 
-- Method 1: Context Menu - [Module Path]: `Zova Init/Icon`
-
-- Method 2: Initialize the icon file directory structure through the cli command
-
-```bash
-$ zova :init:icon test-icon
-```
+::: tip
+Context Menu - [Module Path]: `Zova Init/Icon`
+:::
