@@ -164,6 +164,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: true,
       text: 'Vue Ecosystem Support',
       items: [
+        { text: 'Legacy Usage', link: 'vue/legacy' },
         { text: 'Pinia', link: 'vue/pinia' },
         { text: 'Composables', link: 'vue/composables' },
         { text: 'Provide/Inject', link: 'vue/provide-inject' },
