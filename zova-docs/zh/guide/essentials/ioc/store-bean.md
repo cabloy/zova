@@ -117,7 +117,7 @@ $ zova :create:local testD --module=a-demo2
 `src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
 ```typescript{1,4-5,8-9}
-import { StoreUserInfo } from 'zova-module-a-demo';
+import { StoreUserInfo } from 'zova-module-demo-basic';
 
 export class TestD {
   @Use()
@@ -130,5 +130,5 @@ export class TestD {
 }
 ```
 
-- 从`zova-module-a-demo`模块导入 class `StoreUserInfo`的类型
+- 从`zova-module-demo-basic`模块导入 class `StoreUserInfo`的类型
 - 系统会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到`testD`中

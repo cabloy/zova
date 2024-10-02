@@ -46,7 +46,7 @@ export class TestA {
 ## Use language resources cross-module
 
 ```typescript{1,4-5,8-14}
-import { ScopeModuleADemo } from 'zova-module-a-demo';
+import { ScopeModuleADemo } from 'zova-module-demo-basic';
 
 export class TestA {
   @UseScope()

@@ -37,7 +37,7 @@ export class TestA {
 ## 跨模块使用Config
 
 ```typescript{1,4-5,8-9}
-import { ScopeModuleADemo } from 'zova-module-a-demo';
+import { ScopeModuleADemo } from 'zova-module-demo-basic';
 
 export class TestA {
   @UseScope()

@@ -116,7 +116,7 @@ Then inject `userInfo` directly into `testD` and access the properties and metho
 `src/suite/a-demo/modules/a-demo2/src/testD.ts`
 
 ```typescript{1,4-5,8-9}
-import { StoreUserInfo } from 'zova-module-a-demo';
+import { StoreUserInfo } from 'zova-module-demo-basic';
 
 export class TestD {
   @Use()
@@ -129,5 +129,5 @@ export class TestD {
 }
 ```
 
-- Import the type of class `StoreUserInfo` from the module of `zova-module-a-demo`
+- Import the type of class `StoreUserInfo` from the module of `zova-module-demo-basic`
 - The system will automatically look up or create an instance in the app bean container, and then inject it into `testD`
