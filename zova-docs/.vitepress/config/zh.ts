@@ -45,7 +45,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: '页面组件', link: 'page' },
             { text: '子组件', link: 'child' },
-            { text: '子组件(更多)', link: 'child-more' },
+            { text: '组件(高级)', link: 'component-advanced' },
           ],
         },
         {

@@ -1,4 +1,4 @@
-# Child Component(More)
+# Component(Advanced)
 
 ## How to refer to child component instance?
 
