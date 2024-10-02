@@ -9,20 +9,18 @@ project
 │  ├── front
 │  │  ├── config
 │  │  │  ├── config
-│  │  │  ├── locales.ts
-│  │  │  └── monkey.ts
+│  │  │  └── locales.ts
+│  ├── legacy
 │  ├── module
 │  ├── module-vendor
 │  ├── suite
 │  │  ├── a-demo
 │  │  └── a-home
 │  │    ├── modules
-│  │    │  ├── a-home
-│  │    │  ├── home-api
+│  │    │  ├── home-base
 │  │    │  ├── home-icon
-│  │    │  ├── home-layout
-│  │    │  ├── home-pagesystem
-│  │    │  └── home-router
+│  │    │  ├── home-index
+│  │    │  └── home-layout
 │  └── suite-vendor
 ```
 
@@ -45,13 +43,13 @@ Zova has planned the modules/suites so that we can start business development im
 
 ## Directory cheat sheet
 
-| Name                                      | Description                                                                          |
-| ----------------------------------------- | ------------------------------------------------------------------------------------ |
-| env                                       | [Env](../../techniques/env/introduction.md)                                          |
-| src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                    |
-| src/front/config/locales.ts               | [I18n](../scope/locale.md)                                                           |
-| src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                          |
-| src/suite/a-home/modules/home-icon       | [Icon](../../techniques/icon/icon-engine.md)                                         |
-| src/suite/a-home/modules/home-layout     | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
-| src/suite/a-home/modules/home-pagesystem | [Route Fields: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
-| src/suite/a-home/modules/home-router     | [Navigation Guards](../../techniques/router/navigation-guards.md)                    |
+| Name                                 | Description                                                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| env                                  | [Env](../../techniques/env/introduction.md)                                                                   |
+| src/front/config/config              | [Config](../../techniques/config/introduction.md)                                                             |
+| src/front/config/locales.ts          | [I18n](../scope/locale.md)                                                                                    |
+| legacy                               | [Legacy Usage](../../vue/legacy.md)                                                                           |
+| src/suite/a-home/modules/home-base   | [API](../../techniques/api/introduction.md) [Navigation Guards](../../techniques/router/navigation-guards.md) |
+| src/suite/a-home/modules/home-icon   | [Icon](../../techniques/icon/icon-engine.md)                                                                  |
+| src/suite/a-home/modules/home-index  | [Route Alias](../../techniques/router/route-alias.md)                                                         |
+| src/suite/a-home/modules/home-layout | [Route Fields: meta.layout](../../techniques/router/route-fields.md#meta-layout)                              |

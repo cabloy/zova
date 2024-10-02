@@ -9,20 +9,18 @@ project
 │  ├── front
 │  │  ├── config
 │  │  │  ├── config
-│  │  │  ├── locales.ts
-│  │  │  └── monkey.ts
+│  │  │  └── locales.ts
+│  ├── legacy
 │  ├── module
 │  ├── module-vendor
 │  ├── suite
 │  │  ├── a-demo
 │  │  └── a-home
 │  │    ├── modules
-│  │    │  ├── a-home
-│  │    │  ├── home-api
+│  │    │  ├── home-base
 │  │    │  ├── home-icon
-│  │    │  ├── home-layout
-│  │    │  ├── home-pagesystem
-│  │    │  └── home-router
+│  │    │  ├── home-index
+│  │    │  └── home-layout
 │  └── suite-vendor
 ```
 
@@ -45,13 +43,13 @@ Zova 对模块/套件进行了规划，方便我们在约定的目录立即开�
 
 ## 目录说明
 
-| 名称                                      | 说明                                                                             |
-| ----------------------------------------- | -------------------------------------------------------------------------------- |
-| env                                       | [Env](../../techniques/env/introduction.md)                                      |
-| src/front/config/config                   | [Config](../../techniques/config/introduction.md)                                |
-| src/front/config/locales.ts               | [I18n国际化](../scope/locale.md)                                                 |
-| src/suite/a-home/modules/home-api        | [API](../../techniques/api/introduction.md)                                      |
-| src/suite/a-home/modules/home-icon       | [图标](../../techniques/icon/icon-engine.md)                                     |
-| src/suite/a-home/modules/home-layout     | [路由字段: meta.layout](../../techniques/router/route-fields.md#meta-layout)     |
-| src/suite/a-home/modules/home-pagesystem | [路由字段: meta.absolute](../../techniques/router/route-fields.md#meta-absolute) |
-| src/suite/a-home/modules/home-router     | [导航守卫](../../techniques/router/navigation-guards.md)                         |
+| 名称                                 | 说明                                                                                                 |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| env                                  | [Env](../../techniques/env/introduction.md)                                                          |
+| src/front/config/config              | [Config](../../techniques/config/introduction.md)                                                    |
+| src/front/config/locales.ts          | [I18n国际化](../scope/locale.md)                                                                     |
+| legacy                               | [传统写法](../../vue/legacy.md)                                                                      |
+| src/suite/a-home/modules/home-base   | [API](../../techniques/api/introduction.md) [导航守卫](../../techniques/router/navigation-guards.md) |
+| src/suite/a-home/modules/home-icon   | [图标](../../techniques/icon/icon-engine.md)                                                         |
+| src/suite/a-home/modules/home-index  | [路由别名](../../techniques/router/route-alias.md)                                                   |
+| src/suite/a-home/modules/home-layout | [路由字段: meta.layout](../../techniques/router/route-fields.md#meta-layout)                         |
