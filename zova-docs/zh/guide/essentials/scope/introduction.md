@@ -42,21 +42,21 @@ export class TestA extends BeanBase<ScopeModule> {
 
 `Scope`对象本身也是一个 bean，因此可以直接采用`依赖注入`的方式获取到其他模块的`Scope`实例
 
-仍以`testA.ts`为例，获取模块`a-home`的`Scope`实例：
+仍以`testA.ts`为例，获取模块`home-base`的`Scope`实例：
 
 ```typescript{1,4-5,8}
-import { ScopeModuleAHome } from 'zova-module-a-home';
+import { ScopeModuleHomeBase } from 'zova-module-home-base';
 
 export class TestA {
   @UseScope()
-  $$scopeModuleAHome: ScopeModuleAHome;
+  $$scopeModuleHomeBase: ScopeModuleHomeBase;
 
   protected async __init__() {
-    console.log(this.$$scopeModuleAHome);
+    console.log(this.$$scopeModuleHomeBase);
   }
 }
 ```
 
-- 导入模块`a-home`的`Scope`对象的类型
+- 导入模块`home-base`的`Scope`对象的类型
 - 使用`UseScope`装饰器函数
-- 系统会自动找到模块`a-home`的`Scope`实例，并且注入给变量`$$scopeModuleAHome`
+- 系统会自动找到模块`home-base`的`Scope`实例，并且注入给变量`$$scopeModuleHomeBase`

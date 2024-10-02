@@ -42,21 +42,21 @@ So, how to obtain `Scope` instances of other modules?
 
 The `Scope` object itself is also a bean, so you can directly use `dependency injection` to obtain `Scope` instances of other modules
 
-Still taking `testA.ts` as an example, obtain the `Scope` instance of the module `a-home`:
+Still taking `testA.ts` as an example, obtain the `Scope` instance of the module `home-base`:
 
 ```typescript{1,4-5,8}
-import { ScopeModuleAHome } from 'zova-module-a-home';
+import { ScopeModuleHomeBase } from 'zova-module-home-base';
 
 export class TestA {
   @UseScope()
-  $$scopeModuleAHome: ScopeModuleAHome;
+  $$scopeModuleHomeBase: ScopeModuleHomeBase;
 
   protected async __init__() {
-    console.log(this.$$scopeModuleAHome);
+    console.log(this.$$scopeModuleHomeBase);
   }
 }
 ```
 
-- Type of `Scope` object imported from module `a-home`
+- Type of `Scope` object imported from module `home-base`
 - Use the `UseScope` decorator function
-- The system will automatically find the `Scope` instance of the module `a-home` and inject it into the variable `$$scopeModuleAHome`
+- The system will automatically find the `Scope` instance of the module `home-base` and inject it into the variable `$$scopeModuleHomeBase`
