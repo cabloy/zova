@@ -1,35 +1,20 @@
 # v-model
 
+It is very convenient to add `v-model` to child components
+
 ## Basic Usage
 
-`child/controller.ts`
+### Initialize code skeleton
 
-```typescript
-export interface Props {
-  modelValue: number;
-}
+::: tip
+Context Menu - [Module Path/src/component/card]: `Zova Refactor/Add v-model`
+:::
 
-export type Emits = {
-  (e: 'update:modelValue', value: number);
-};
+Enter the name of the model according to the prompt. The default is `modelValue`. The VSCode extension will automatically add the code skeleton of `v-model`
 
-export class ControllerChild {
-  static $propsDefault = {
-    modelValue: 0,
-  };
-  modelValue: number;
+### Access v-model
 
-  protected async __init__() {
-    this.modelValue = this.$useModel();
-  }
-}
-```
-
-- line 2: Define Prop `modelValue`
-- line 3: Define Emit `update:modelValue`
-- line 11: Set the default value of Prop `modelValue`
-- line 13: Declare a local variable `modelValue`
-- line 16: Call the `$useModel` method to generate a proxy object and assign it to `modelValue`
+Access v-model in `render.tsx`:
 
 `child/render.tsx`
 
@@ -54,6 +39,10 @@ export class RenderChild {
 
 - The local variable `modelValue` can achieve two-way binding with the parent component. Modifying the value of `modelValue` will trigger the synchronous update of the value bound to the parent component
 
+### Use v-model
+
+Next, use the v-model inside the parent component:
+
 `parent/controller.ts`
 
 ```typescript
@@ -62,9 +51,9 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
-```typescript
+```typescript{5}
 export class RenderParent {
   render() {
     return (
@@ -82,29 +71,21 @@ export class RenderParent {
 
 `modelValue` is the default model parameter, we can also specify other model parameters
 
-`child/controller.ts`
+### Initialize code skeleton
 
-```typescript
-export interface Props {
-  title?: string;
-}
+::: tip
+Context Menu - [Module Path/src/component/card]: `Zova Refactor/Add v-model`
+:::
 
-export type Emits = {
-  (e: 'update:title', value?: string);
-};
+Enter the name of the model according to the prompt, such as `title`. The VSCode extension will automatically add the code skeleton of `v-model`
 
-export class ControllerChild {
-  modelTitle?: string;
+### Access v-model
 
-  protected async __init__() {
-    this.modelTitle = this.$useModel('title');
-  }
-}
-```
+Access v-model in `render.tsx`:
 
 `child/render.tsx`
 
-```typescript
+```typescript{5}
 export class RenderChild {
   render() {
     return (
@@ -116,6 +97,10 @@ export class RenderChild {
 }
 ```
 
+### Use v-model
+
+Next, use the v-model inside the parent component:
+
 `parent/controller.ts`
 
 ```typescript
@@ -124,7 +109,7 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
 ```typescript{5}
 export class RenderParent {
