@@ -41,9 +41,7 @@ Zova has planned the modules/suites so that we can start business development im
 
 1. Suite `suite/a-demo`: Contains some test or demo code, which can be disabled during build
 2. Suite `suite/a-home`: Development in this suite
-   - Module `suite/a-home/modules/a-home`: Development in this module
-   - Other modules: Different modules are preset with different system functions, and custom logic can be added
-3. `Grow into a large system`: As the business expands, more suites and modules can be created to split the system business
+3. `Grow into a large-scale system`: As the business expands, more suites and modules can be created to split the system business
 
 ## Directory cheat sheet
 
