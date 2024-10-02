@@ -17,7 +17,7 @@ Therefore, Zova provides two types of Bean Classes:
 
 1. `Anonymous bean`: The class decorated with `@Local` is an `anonymous bean`. This type of bean is only used within the module, there is no naming conflict, and it is easy to define and use
 
-2. `Named bean`: Except for `@Local`, the classes decorated by the other decorator functions are `named beans`. Zova provides a unified naming convention for such beans, which can avoid naming conflicts and facilitate cross-module usage
+2. `Named bean`: Except for `@Local`, the classes decorated by the other decorator functions are `named beans`. Zova provides a unified naming convention for such beans, and assigns the unique `Bean identifier` to avoid naming conflicts, but also conducive to cross-module use
 
 ## Injection Scope
 
