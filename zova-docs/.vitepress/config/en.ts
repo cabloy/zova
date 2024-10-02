@@ -45,6 +45,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Page Component', link: 'page' },
             { text: 'Child Component', link: 'child' },
+            { text: 'Child Component Members', link: 'child-members' },
             { text: 'Component(Advanced)', link: 'component-advanced' },
           ],
         },
