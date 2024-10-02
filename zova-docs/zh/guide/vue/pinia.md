@@ -74,7 +74,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 ## 4. 使用store bean
 
-可以在任何模块使用 store bean。这里以 a-demo 模块现有的页面组件为例：
+可以在任何模块使用 store bean。这里以 demo-basic 模块现有的页面组件为例：
 
 `src/suite/a-demo/modules/demo-basic/src/page/pinia/controller.ts`
 

@@ -100,7 +100,7 @@ export class TestC {
 {moduleName}.store.{beanName}
 ```
 
-比如，前面创建的 `userInfo`，对应的标识为：`a-demo.store.userInfo`，其中`demo-basic`是`userInfo`所归属的模块名称
+比如，前面创建的 `userInfo`，对应的标识为：`demo-basic.store.userInfo`，其中`demo-basic`是`userInfo`所归属的模块名称
 
 ### 跨模块使用Store Bean
 

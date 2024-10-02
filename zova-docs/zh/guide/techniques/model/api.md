@@ -23,7 +23,7 @@ export class ModelTodo {
 - queryKey
   - Required
   - 确保本地缓存的唯一性
-  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`a-demo.model.todo`，那么完整的 queryKey 就是`['a-demo.model.todo', 'select']`
+  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`demo-basic.model.todo`，那么完整的 queryKey 就是`['demo-basic.model.todo', 'select']`
 - queryFn
   - Required
   - 在合适的时机调用此函数获取服务端数据
@@ -61,7 +61,7 @@ export class ModelTodo {
 - mutationKey
   - Required
   - 确保本地缓存的唯一性
-  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`a-demo.model.todo`，那么完整的 mutationKey 就是`['a-demo.model.todo', 'insert']`
+  - 自动添加命名空间。比如，ModelTodo 的 Bean 标识是`demo-basic.model.todo`，那么完整的 mutationKey 就是`['demo-basic.model.todo', 'insert']`
 - mutationFn
   - Required
   - 用于执行变更操作

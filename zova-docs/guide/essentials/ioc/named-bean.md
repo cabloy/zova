@@ -43,7 +43,7 @@ The system will automatically assign an identifier to each `named bean` as the f
 {moduleName}.{scene}.{name}
 ```
 
-For example, the previously created store bean `userInfo` corresponds to the identifier `a-demo.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
+For example, the previously created store bean `userInfo` corresponds to the identifier `demo-basic.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
 
 ## Decorator list
 

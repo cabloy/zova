@@ -33,7 +33,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- name 设为`user`，系统自动添加模块前缀，生成绝对名称`a-demo:user`
+- name 设为`user`，系统自动添加模块前缀，生成绝对名称`demo-basic:user`
 - path 改为`user/:id?`
 
 ### 2. 资源记录
@@ -46,20 +46,20 @@ import * as NSControllerPageUser from '../page/user/controller.js';
 
 declare module 'zova' {
   export interface IPageNameRecord {
-    'a-demo:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
+    'demo-basic:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
   }
 }
 
 export const pageNameSchemas = {
-  'a-demo:user': {
+  'demo-basic:user': {
     params: NSControllerPageUser.ParamsSchema,
     query: NSControllerPageUser.QuerySchema,
   },
 };
 ```
 
-- 向`IPageNameRecord`接口添加记录，声明`a-demo:user`对应的`Params类型`
-- 向`pageNameSchemas`对象添加记录，声明`a-demo:user`对应的`ParamsSchema`
+- 向`IPageNameRecord`接口添加记录，声明`demo-basic:user`对应的`Params类型`
+- 向`pageNameSchemas`对象添加记录，声明`demo-basic:user`对应的`ParamsSchema`
 
 ## 使用Params
 
@@ -96,7 +96,7 @@ export class RenderUser {
         <button
           onClick={() => {
             const id = this.$params.id + 1;
-            const url = this.$router.resolveName('a-demo:user', { params: { id } });
+            const url = this.$router.resolveName('demo-basic:user', { params: { id } });
             this.$router.push(url);
           }}
         >

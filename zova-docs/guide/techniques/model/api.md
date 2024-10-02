@@ -23,7 +23,7 @@ export class ModelTodo {
 - queryKey
   - Required
   - Ensure local cache uniqueness
-  - Namespaces are added automatically. For example, the Bean identifier of ModelTodo is `a-demo.model.todo`, then the complete queryKey is `['a-demo.model.todo', 'select']`
+  - Namespaces are added automatically. For example, the Bean identifier of ModelTodo is `demo-basic.model.todo`, then the complete queryKey is `['demo-basic.model.todo', 'select']`
 - queryFn
   - Required
   - Invoke this function at the appropriate time to fetch server data
@@ -61,7 +61,7 @@ export class ModelTodo {
 - mutationKey
   - Required
   - Ensure local cache uniqueness
-  - Namespaces are added automatically. For example, the Bean identifier of ModelTodo is `a-demo.model.todo`, then the complete mutationKey is `['a-demo.model.todo', 'insert']`
+  - Namespaces are added automatically. For example, the Bean identifier of ModelTodo is `demo-basic.model.todo`, then the complete mutationKey is `['demo-basic.model.todo', 'insert']`
 - mutationFn
   - Required
   - Used to perform mutation operation

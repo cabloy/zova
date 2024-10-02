@@ -77,7 +77,7 @@ Theme beans can be created through Cli commands. For example, create a theme Bea
 $ zova :create:theme orange --module=demo-basic
 ```
 
-- This command will automatically create a Bean file: `demo-basic/src/bean/theme.orange.ts`, and the corresponding Bean identifier is: `a-demo.theme.orange`
+- This command will automatically create a Bean file: `demo-basic/src/bean/theme.orange.ts`, and the corresponding Bean identifier is: `demo-basic.theme.orange`
 
 ### Custom apply method
 
@@ -119,7 +119,7 @@ export class RenderTest extends BeanRenderBase {
         <button onClick={() => {
             this.$theme.name =
               this.$theme.name === 'home-theme.theme.default'
-                ? 'a-demo.theme.orange'
+                ? 'demo-basic.theme.orange'
                 : 'home-theme.theme.default';
           }}
         >

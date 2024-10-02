@@ -6,7 +6,7 @@
 
 ### Cli命令
 
-可以通过 Cli 命令创建全局样式 Bean。比如，在 a-demo 模块中创建一个全局 Bean `myStyle`
+可以通过 Cli 命令创建全局样式 Bean。比如，在 demo-basic 模块中创建一个全局 Bean `myStyle`
 
 ```bash
 $ zova :create:style myStyle --module=demo-basic

@@ -44,7 +44,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- Similarly, the system will also add a module prefix to `name` to generate an absolute name, for example, here is `a-demo:user`
+- Similarly, the system will also add a module prefix to `name` to generate an absolute name, for example, here is `demo-basic:user`
 
 ## component
 

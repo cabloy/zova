@@ -71,13 +71,13 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
 
 ### Cli命令
 
-可以通过 Cli 命令创建主题 Bean。比如，在 a-demo 模块中创建一个主题 Bean `orange`
+可以通过 Cli 命令创建主题 Bean。比如，在 demo-basic 模块中创建一个主题 Bean `orange`
 
 ```bash
 $ zova :create:theme orange --module=demo-basic
 ```
 
-- 该指令会自动创建一个 Bean 文件：`demo-basic/src/bean/theme.orange.ts`，对应的 Bean 标识是：`a-demo.theme.orange`
+- 该指令会自动创建一个 Bean 文件：`demo-basic/src/bean/theme.orange.ts`，对应的 Bean 标识是：`demo-basic.theme.orange`
 
 ### 定制apply方法
 
@@ -119,7 +119,7 @@ export class RenderTest extends BeanRenderBase {
         <button onClick={() => {
             this.$theme.name =
               this.$theme.name === 'home-theme.theme.default'
-                ? 'a-demo.theme.orange'
+                ? 'demo-basic.theme.orange'
                 : 'home-theme.theme.default';
           }}
         >

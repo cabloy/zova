@@ -31,7 +31,7 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
           <div style={{ color: this.$token['color-primary'] }}>theme: {this.$theme.name}</div>
           <ElRadioGroup v-model={this.$theme.name}>
             <ElRadio value={getBeanName('home-base.theme.default')}>Default</ElRadio>
-            <ElRadio value={getBeanName('a-demo.theme.orange')}>Orange</ElRadio>
+            <ElRadio value={getBeanName('demo-basic.theme.orange')}>Orange</ElRadio>
           </ElRadioGroup>
         </div>
       </div>

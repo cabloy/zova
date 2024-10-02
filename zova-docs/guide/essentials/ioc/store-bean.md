@@ -99,7 +99,7 @@ The system will automatically assign an identifier to each store bean as the fol
 {moduleName}.store.{beanName}
 ```
 
-For example, the previously created `userInfo` corresponds to the identifier `a-demo.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
+For example, the previously created `userInfo` corresponds to the identifier `demo-basic.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
 
 ### Use Store Bean
 

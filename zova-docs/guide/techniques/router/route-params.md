@@ -33,7 +33,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- Set name to `user`, the system automatically adds the module prefix and generates the absolute name `a-demo:user`
+- Set name to `user`, the system automatically adds the module prefix and generates the absolute name `demo-basic:user`
 - Change path to `user/:id?`
 
 ### 2. Resource record
@@ -46,20 +46,20 @@ import * as NSControllerPageUser from '../page/user/controller.js';
 
 declare module 'zova' {
   export interface IPageNameRecord {
-    'a-demo:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
+    'demo-basic:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
   }
 }
 
 export const pageNameSchemas = {
-  'a-demo:user': {
+  'demo-basic:user': {
     params: NSControllerPageUser.ParamsSchema,
     query: NSControllerPageUser.QuerySchema,
   },
 };
 ```
 
-- Add a record to the `IPageNameRecord` interface and declare the `Params type` corresponding to `a-demo:user`
-- Add a record to the `pageNameSchemas` object and declare the `ParamsSchema` corresponding to `a-demo:user`
+- Add a record to the `IPageNameRecord` interface and declare the `Params type` corresponding to `demo-basic:user`
+- Add a record to the `pageNameSchemas` object and declare the `ParamsSchema` corresponding to `demo-basic:user`
 
 ## Use Params
 
@@ -96,7 +96,7 @@ export class RenderUser {
         <button
           onClick={() => {
             const id = this.$params.id + 1;
-            const url = this.$router.resolveName('a-demo:user', { params: { id } });
+            const url = this.$router.resolveName('demo-basic:user', { params: { id } });
             this.$router.push(url);
           }}
         >

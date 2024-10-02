@@ -29,7 +29,7 @@ export function useMouse() {
 
 ## 2. 注入并使用Composable
 
-以 a-demo 模块现有的页面组件为例：
+以 demo-basic 模块现有的页面组件为例：
 
 `src/suite/a-demo/modules/demo-basic/src/page/state/controller.ts`
 

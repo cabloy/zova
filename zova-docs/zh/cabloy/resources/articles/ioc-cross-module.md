@@ -2,7 +2,7 @@
 
 ## 引言
 
-在上一篇文章中，我们创建了一个业务模块 a-demo，并且采用依赖查找的机制演示了如何优雅的定义和使用资源，包括：Service 服务、Config 配置、国际化语言资源、Error 错误异常
+在上一篇文章中，我们创建了一个业务模块 demo-basic，并且采用依赖查找的机制演示了如何优雅的定义和使用资源，包括：Service 服务、Config 配置、国际化语言资源、Error 错误异常
 
 在实际的项目当中，经常会遇到跨模块访问资源的场景，那么 Cabloy5 的依赖查找机制是否仍然可以优雅的实现跨模块访问呢？让我们一睹为快
 
@@ -10,7 +10,7 @@
 
 Cabloy5 全栈框架的前后端均采用模块化体系。一个 Cabloy5 项目由多个业务模块组成，每个业务模块都可以包含与自身业务相关的资源，比如：Service 服务、Config 配置、国际化语言资源、Error 错误异常、中间件、定时任务、消息队列、系统启动项，等等
 
-在这里，我们创建一个新的业务模块 test-work，在 test-work 中访问 a-demo 提供的资源
+在这里，我们创建一个新的业务模块 test-work，在 test-work 中访问 demo-basic 提供的资源
 
 ## 1. 新建业务模块
 
@@ -32,7 +32,7 @@ cabloy api:create:controller work
 
 ## 3. 跨模块访问Service服务
 
-接下来，我们在刚才新建的 Service 当中，访问模块 a-demo 的 Service 服务
+接下来，我们在刚才新建的 Service 当中，访问模块 demo-basic 的 Service 服务
 
 ```diff
 export class LocalWork {
@@ -43,7 +43,7 @@ export class LocalWork {
 }
 ```
 
-1. 通过 getScope 方法获取模块 a-demo 的 scope 对象
+1. 通过 getScope 方法获取模块 demo-basic 的 scope 对象
 2. 通过 scope 对象直接访问 Service 服务: `home`
 
 看一下动画演示，提供了完整的类型智能提示：
@@ -52,7 +52,7 @@ export class LocalWork {
 
 ## 4. 跨模块访问Config配置
 
-访问模块 a-demo 的 Config 配置
+访问模块 demo-basic 的 Config 配置
 
 ```diff
 export class LocalWork {
@@ -72,7 +72,7 @@ export class LocalWork {
 
 ## 5. 跨模块访问国际化语言资源
 
-访问模块 a-demo 的国际化语言资源
+访问模块 demo-basic 的国际化语言资源
 
 ```diff
 export class LocalWork {
@@ -92,7 +92,7 @@ export class LocalWork {
 
 ## 6. 跨模块访问Error错误异常
 
-抛出模块 a-demo 提供的 Error 错误异常
+抛出模块 demo-basic 提供的 Error 错误异常
 
 ```diff
 export class LocalWork {

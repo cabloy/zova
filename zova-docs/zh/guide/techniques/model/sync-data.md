@@ -10,7 +10,7 @@ Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的�
 
 ## 创建Model Bean
 
-首先在 a-demo 模块中创建一个 Model Bean `user`
+首先在 demo-basic 模块中创建一个 Model Bean `user`
 
 ```bash
 $ zova :create:model user --module=demo-basic
