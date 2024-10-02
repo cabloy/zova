@@ -11,15 +11,6 @@ importers:
       '@quasar/extras':
         specifier: ^1.16.12
         version: 1.16.12
-      '@tanstack/query-persist-client-core':
-        specifier: ^5.45.0
-        version: 5.56.2
-      '@tanstack/vue-query':
-        specifier: ^5.45.0
-        version: 5.56.2(vue@3.5.7(typescript@5.6.2))
-      axios:
-        specifier: ^1.6.8
-        version: 1.7.7
       compression:
         specifier: ^1.7.4
         version: 1.7.4
@@ -29,18 +20,9 @@ importers:
       cors:
         specifier: ^2.8.5
         version: 2.8.5
-      csx:
-        specifier: ^10.0.2
-        version: 10.0.2
       express:
         specifier: ^4.19.2
         version: 4.21.0
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.2(typescript@5.6.2)(vue@3.5.7(typescript@5.6.2))
       quasar:
         specifier: ^2.17.0
         version: 2.17.0
@@ -50,9 +32,6 @@ importers:
       vue:
         specifier: ^3.5.6
         version: 3.5.7(typescript@5.6.2)
-      vue-router:
-        specifier: ^4.4.5
-        version: 4.4.5(vue@3.5.7(typescript@5.6.2))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -62,9 +41,6 @@ importers:
       zova-module-a-core:
         specifier: ^5.0.46
         version: 5.0.46
-      zova-module-a-demo:
-        specifier: workspace:^
-        version: link:src/suite/a-demo/modules/a-demo
       zova-module-a-model:
         specifier: ^5.0.32
         version: 5.0.32(vue@3.5.7(typescript@5.6.2))
@@ -80,6 +56,9 @@ importers:
       zova-module-a-tabs:
         specifier: ^5.0.22
         version: 5.0.22
+      zova-module-demo-basic:
+        specifier: workspace:^
+        version: link:src/suite/a-demo/modules/demo-basic
       zova-module-home-base:
         specifier: workspace:^
         version: link:src/suite/a-home/modules/home-base
@@ -134,11 +113,11 @@ importers:
 
   src/suite/a-demo:
     dependencies:
-      zova-module-a-demo:
+      zova-module-demo-basic:
         specifier: workspace:^
-        version: link:modules/a-demo
+        version: link:modules/demo-basic
 
-  src/suite/a-demo/modules/a-demo: {}
+  src/suite/a-demo/modules/demo-basic: {}
 
   src/suite/a-home:
     dependencies:
