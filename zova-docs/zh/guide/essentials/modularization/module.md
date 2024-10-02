@@ -1,5 +1,7 @@
 # 模块
 
+在 Zova 中可以通过模块把组件、配置、语言等资源打包成内聚的功能块，每个模块聚焦于一个特性区域、业务领域、工作流或通用工具
+
 ## 为什么要实现模块化体系？
 
 不知你是否认同一个架构理念：如果要避免`香山`的形成，那就把`香`装进集装箱里。
@@ -28,21 +30,19 @@
 短名: {providerId}-{moduleName}
 ```
 
-- providerId: 提供者 Id。可以将某个功能或者特性作为 providerId，比如：blog, dashboard 等等
+- providerId: 提供者 Id。可以将某个功能或者特性作为 providerId，比如：test, demo, blog, dashboard, flow 等等
 - moduleName: 模块名称
 
 ## 新建模块
 
-可以使用 cli 命令创建模块文件骨架，比如新建一个模块`test-home`：
+::: tip
+右键菜单 - [项目路径/src/module]: `Zova Create/Module`
 
-```bash
-$ zova :create:module test-home --template=basic --suite
-```
+右键菜单 - [项目路径/src/module-vendor]: `Zova Create/Module`
 
-- suite 选项指示该模块归属于哪个套件，可以为空
+右键菜单 - [项目路径/src/suite/suite-name/modules]: `Zova Create/Module`
 
-在创建完模块之后，别忘了重新安装依赖，以便让模块生效:
+右键菜单 - [项目路径/src/suite-vendor/suite-name/modules]: `Zova Create/Module`
+:::
 
-```bash
-$ pnpm install --force
-```
+依据提示输入模块的名称，比如`test-home`，VSCode 插件会自动创建模块的代码骨架

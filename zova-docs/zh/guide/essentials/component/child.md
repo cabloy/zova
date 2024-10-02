@@ -6,7 +6,7 @@
 右键菜单 - [模块路径]: `Zova Create/Component`
 :::
 
-依据提示输入子组件的名称，比如 `card`，VSCode 插件会自动创建一个文件目录`src/component/card`。在 Zova 中，一个子组件被拆分为四个文件，位于刚才创建的目录中：
+依据提示输入子组件的名称，比如`card`，VSCode 插件会自动创建一个文件目录`src/component/card`。在 Zova 中，一个子组件被拆分为四个文件，位于刚才创建的目录中：
 
 ```
 src

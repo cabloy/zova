@@ -1,5 +1,7 @@
 # Module
 
+In Zova, `Modules` consolidate components, configurations, languages ​​and other resources into cohesive blocks of functionality, each focused on a feature area, application business domain, workflow, or common collection of utilities
+
 ## Why need Modularization?
 
 May you agree with such an architectural concept: if you want to avoid `shit mountains`, then put `shit` into boxes.
@@ -28,20 +30,18 @@ FullName: zova-module-{providerId}-{moduleName}
 ShortName: {providerId}-{moduleName}
 ```
 
-- You can use a function or feature as a `providerid`, such as: blog, dashboard, etc.
+- You can use a function or feature as a `providerid`, such as: test, demo, blog, dashboard, flow, etc.
 
 ## Create Module
 
-You can use the cli command to create a module file skeleton, such as creating a new module `test-home`:
+::: tip
+Context Menu - [Project Path/src/module]: `Zova Create/Module`
 
-```bash
-$ zova :create:module test-home --template=basic --suite
-```
+Context Menu - [Project Path/src/module-vendor]: `Zova Create/Module`
 
-- The `suite` option indicates which suite the module belongs to, and which can be empty
+Context Menu - [Project Path/src/suite/suite-name/modules]: `Zova Create/Module`
 
-After creating the module, don't forget to reinstall the dependencies for the module to take effect:
+Context Menu - [Project Path/src/suite-vendor/suite-name/modules]: `Zova Create/Module`
+:::
 
-```bash
-$ pnpm install --force
-```
+Enter the module name according to the prompt, such as `test-home`, and the VSCode extension will automatically create the code skeleton of the module
