@@ -79,4 +79,6 @@ export class RenderComponent {
 }
 ```
 
-- 这种方式同样可以更好的支持组件的自动导入
+::: info
+基于编译器的加持， ZCard 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`demo-basic`，然后取得子组件`card`，再进行组件渲染
+:::

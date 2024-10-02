@@ -79,4 +79,6 @@ export class RenderComponent {
 }
 ```
 
-- This way can also better support automatic import of components
+::: info
+Based on the support of the compiler, ZCard will automatically switch to asynchronous loading mode. Specifically, the system will asynchronously load the module `demo-basic`, then obtain the child component `card`, and then render the component
+:::
