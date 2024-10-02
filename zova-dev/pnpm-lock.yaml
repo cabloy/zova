@@ -41,6 +41,9 @@ importers:
       vue:
         specifier: ^3.5.6
         version: 3.5.10(typescript@5.6.2)
+      vue-router:
+        specifier: ^4.4.5
+        version: 4.4.5(vue@3.5.10(typescript@5.6.2))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -355,7 +358,7 @@ importers:
         specifier: ^1.0.4
         version: link:../shared
       zova-suite-a-core:
-        specifier: ^5.0.118
+        specifier: ^5.0.119
         version: link:../../src/suite-vendor/a-core
 
   src/module/a-test: {}
@@ -372,7 +375,7 @@ importers:
         specifier: ^5.0.32
         version: link:modules/a-pinia
       zova-module-a-router:
-        specifier: ^5.0.66
+        specifier: ^5.0.67
         version: link:modules/a-router
       zova-module-a-style:
         specifier: ^5.0.43
@@ -401,11 +404,7 @@ importers:
         specifier: ^2.1.7
         version: 2.2.2(typescript@5.6.2)(vue@3.5.10(typescript@5.6.2))
 
-  src/suite-vendor/a-core/modules/a-router:
-    dependencies:
-      vue-router:
-        specifier: ^4.4.5
-        version: 4.4.5(vue@3.5.10(typescript@5.6.2))
+  src/suite-vendor/a-core/modules/a-router: {}
 
   src/suite-vendor/a-core/modules/a-style:
     dependencies:
@@ -421,7 +420,7 @@ importers:
   src/suite-vendor/a-devui:
     dependencies:
       zova-module-devui-adapter:
-        specifier: ^5.0.28
+        specifier: ^5.0.29
         version: link:modules/devui-adapter
 
   src/suite-vendor/a-devui/modules/devui-adapter: {}
