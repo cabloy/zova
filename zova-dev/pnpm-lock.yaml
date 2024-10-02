@@ -50,9 +50,6 @@ importers:
       zova-module-a-core:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-core
-      zova-module-a-demo:
-        specifier: workspace:^
-        version: link:src/suite/a-demo/modules/a-demo
       zova-module-a-model:
         specifier: workspace:^
         version: link:src/suite-vendor/a-core/modules/a-model
@@ -71,6 +68,9 @@ importers:
       zova-module-a-test:
         specifier: workspace:^
         version: link:src/module/a-test
+      zova-module-demo-basic:
+        specifier: workspace:^
+        version: link:src/suite/a-demo/modules/demo-basic
       zova-module-demo-todo:
         specifier: workspace:^
         version: link:src/suite/a-demo/modules/demo-todo
@@ -349,7 +349,7 @@ importers:
   packages-zova/zova:
     dependencies:
       zova-core:
-        specifier: ^5.0.162
+        specifier: ^5.0.165
         version: link:../core
       zova-shared:
         specifier: ^1.0.4
@@ -428,14 +428,14 @@ importers:
 
   src/suite/a-demo:
     dependencies:
-      zova-module-a-demo:
+      zova-module-demo-basic:
         specifier: workspace:^
-        version: link:modules/a-demo
+        version: link:modules/demo-basic
       zova-module-demo-todo:
         specifier: workspace:^
         version: link:modules/demo-todo
 
-  src/suite/a-demo/modules/a-demo: {}
+  src/suite/a-demo/modules/demo-basic: {}
 
   src/suite/a-demo/modules/demo-todo: {}
 

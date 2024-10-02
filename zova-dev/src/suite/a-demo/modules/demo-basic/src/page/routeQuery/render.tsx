@@ -37,7 +37,7 @@ export class RenderRouteQuery extends BeanRenderBase<ScopeModule> {
             onClick={() => {
               const name = this.$query.name === 'tom' ? 'kevin' : 'tom';
               const age = (this.$query.age ?? 0) + 1;
-              const url = this.$router.resolvePath('/a/demo/routeQuery', {
+              const url = this.$router.resolvePath('/demo/basic/routeQuery', {
                 name,
                 age,
               });

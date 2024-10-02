@@ -6,8 +6,8 @@ import { ThemeOrange } from '../bean/theme.orange.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-demo.store.counter': StoreCounter;
-    'a-demo.theme.orange': ThemeOrange;
+    'demo-basic.store.counter': StoreCounter;
+    'demo-basic.theme.orange': ThemeOrange;
   }
 }
 /** beans: end */
@@ -22,7 +22,7 @@ export const components = {
 import 'zova';
 declare module 'zova' {
   export interface IComponentRecord {
-    'a-demo:card': NSControllerCard.ControllerCard;
+    'demo-basic:card': NSControllerCard.ControllerCard;
   }
 }
 /** components: end */
@@ -47,41 +47,41 @@ import { TypePageParamsQuery } from 'zova';
 import 'zova';
 declare module 'zova' {
   export interface IPagePathRecord {
-    '/a/demo/component': undefined;
-    '/a/demo/legacy': undefined;
-    '/a/demo/locale': NSControllerPageLocale.QueryInput;
-    '/a/demo/pinia': NSControllerPagePinia.QueryInput;
-    '/a/demo/routeQuery': NSControllerPageRouteQuery.QueryInput;
-    '/a/demo/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
-    '/a/demo/state': undefined;
-    '/a/demo/style': NSControllerPageStyle.QueryInput;
+    '/demo/basic/component': undefined;
+    '/demo/basic/legacy': undefined;
+    '/demo/basic/locale': NSControllerPageLocale.QueryInput;
+    '/demo/basic/pinia': NSControllerPagePinia.QueryInput;
+    '/demo/basic/routeQuery': NSControllerPageRouteQuery.QueryInput;
+    '/demo/basic/routeQuery2': NSControllerPageRouteQuery2.QueryInput;
+    '/demo/basic/state': undefined;
+    '/demo/basic/style': NSControllerPageStyle.QueryInput;
   }
   export interface IPageNameRecord {
-    'a-demo:routeParams': TypePageParamsQuery<
+    'demo-basic:routeParams': TypePageParamsQuery<
       NSControllerPageRouteParams.QueryInput,
       NSControllerPageRouteParams.ParamsInput
     >;
   }
 }
 export const pagePathSchemas = {
-  '/a/demo/locale': {
+  '/demo/basic/locale': {
     query: NSControllerPageLocale.QuerySchema,
   },
-  '/a/demo/pinia': {
+  '/demo/basic/pinia': {
     query: NSControllerPagePinia.QuerySchema,
   },
-  '/a/demo/routeQuery': {
+  '/demo/basic/routeQuery': {
     query: NSControllerPageRouteQuery.QuerySchema,
   },
-  '/a/demo/routeQuery2': {
+  '/demo/basic/routeQuery2': {
     query: NSControllerPageRouteQuery2.QuerySchema,
   },
-  '/a/demo/style': {
+  '/demo/basic/style': {
     query: NSControllerPageStyle.QuerySchema,
   },
 };
 export const pageNameSchemas = {
-  'a-demo:routeParams': {
+  'demo-basic:routeParams': {
     params: NSControllerPageRouteParams.ParamsSchema,
     query: NSControllerPageRouteParams.QuerySchema,
   },
@@ -99,18 +99,19 @@ export const locales = {
 import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleADemo extends BeanScopeBase {}
+export class ScopeModuleDemoBasic extends BeanScopeBase {}
 
-export interface ScopeModuleADemo extends TypeModuleResource<any, any, (typeof locales)[TypeLocaleBase], any, any> {}
+export interface ScopeModuleDemoBasic
+  extends TypeModuleResource<any, any, (typeof locales)[TypeLocaleBase], any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-demo': ScopeModuleADemo;
+    'demo-basic': ScopeModuleDemoBasic;
   }
 
   export interface IBeanScopeLocale {
-    'a-demo': (typeof locales)[TypeLocaleBase];
+    'demo-basic': (typeof locales)[TypeLocaleBase];
   }
 }
 /** scope: end */
