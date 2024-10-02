@@ -113,12 +113,6 @@ export class StyleCounter {}
 1. Define `style` as a local bean using `@Local` to register it in the ioc container
 2. Support powerful `css-in-js` capabilities, see: [CSS-in-JS: Style & Theme](../../techniques/css-in-js/introduction.md)
 
-## Progressive development
-
-Zova adheres to the concept of progressive development. If the logic of some Vue components is relatively simple, or if you want to use the old Vue component code, you can directly use SFC development as usual without introducing an IOC container
-
-- See: [Legacy Usage](../../vue/legacy.md)
-
 ## Page Parameters
 
 You can pass the parameters to the page through the route. Zova enhances the page parameters and provides Typescript typing support
