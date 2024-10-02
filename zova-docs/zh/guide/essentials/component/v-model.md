@@ -16,7 +16,7 @@
 
 在`render.tsx`中访问 v-model：
 
-`child/render.ts`
+`child/render.tsx`
 
 ```typescript{5,8}
 export class RenderChild {
@@ -51,7 +51,7 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
 ```typescript{5}
 export class RenderParent {
@@ -71,29 +71,21 @@ export class RenderParent {
 
 `modelValue`是默认的 model 参数，我们也可以指定其他 model 参数
 
-`child/controller.ts`
+### 初始化代码骨架
 
-```typescript
-export interface Props {
-  title?: string;
-}
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Add v-model`
+:::
 
-export type Emits = {
-  (e: 'update:title', value?: string);
-};
+依据提示输入 model 属性的名称，比如：`title`，VSCode 插件会自动添加`v-model`的代码骨架
 
-export class ControllerChild {
-  modelTitle?: string;
+### 访问v-model
 
-  protected async __init__() {
-    this.modelTitle = this.$useModel('title');
-  }
-}
-```
+在`render.tsx`中访问 v-model：
 
 `child/render.tsx`
 
-```typescript
+```typescript{5}
 export class RenderChild {
   render() {
     return (
@@ -105,6 +97,10 @@ export class RenderChild {
 }
 ```
 
+### 使用v-model
+
+接下来，在父组件中使用 v-model：
+
 `parent/controller.ts`
 
 ```typescript
@@ -113,7 +109,7 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
 ```typescript{5}
 export class RenderParent {
@@ -187,7 +183,7 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
 ```typescript{5}
 export class RenderParent {
