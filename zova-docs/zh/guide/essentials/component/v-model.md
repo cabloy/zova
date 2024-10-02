@@ -1,37 +1,22 @@
 # v-model
 
+可以非常便利的为子组件添加`v-model`属性
+
 ## 基本用法
 
-`child/controller.ts`
+### 初始化代码骨架
 
-```typescript
-export interface Props {
-  modelValue: number;
-}
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Add v-model`
+:::
 
-export type Emits = {
-  (e: 'update:modelValue', value: number);
-};
+依据提示输入 model 属性的名称，默认是`modelValue`，VSCode 插件会自动添加`v-model`的代码骨架
 
-export class ControllerChild {
-  static $propsDefault = {
-    modelValue: 0,
-  };
-  modelValue: number;
+### 访问v-model
 
-  protected async __init__() {
-    this.modelValue = this.$useModel();
-  }
-}
-```
+在`render.tsx`中访问 v-model：
 
-- line 2: 定义 Prop `modelValue`
-- line 3: 定义 Emit `update:modelValue`
-- line 11: 设置 Prop `modelValue`的缺省值
-- line 13: 声明一个本地变量`modelValue`
-- line 16: 调用`$useModel`方法生成一个代理对象，并赋值给`modelValue`
-
-`child/render.tsx`
+`child/render.ts`
 
 ```typescript{5,8}
 export class RenderChild {
@@ -54,6 +39,10 @@ export class RenderChild {
 
 - 本地变量`modelValue`可实现与父组件的双向绑定。修改`modelValue`的值会触发父组件绑定的值同步更新
 
+### 使用v-model
+
+接下来，在父组件中使用 v-model：
+
 `parent/controller.ts`
 
 ```typescript
@@ -64,7 +53,7 @@ export class ControllerPageParent {
 
 `parent/render.ts`
 
-```typescript
+```typescript{5}
 export class RenderParent {
   render() {
     return (
