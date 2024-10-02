@@ -6,7 +6,7 @@ The following takes `mouse tracker` as an example to demonstrate how to use Comp
 
 ## 1. Create Composable
 
-`src/suite/a-demo/modules/a-demo/src/page/state/mouse.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/state/mouse.ts`
 
 ```typescript
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -31,7 +31,7 @@ export function useMouse() {
 
 Take the existing page component of module `demo-basic` as an example:
 
-`src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/state/controller.ts`
 
 ```typescript
 import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from 'zova';
@@ -47,7 +47,7 @@ export class ControllerPageState extends BeanControllerPageBase {
 - line 6: Use the `@UseComposable` decorator function to pass in the composable to be used
 - line 7: Declare the variable `$$mouse` and generate its type through the type tool `ReturnTypeComposable`
 
-`src/suite/a-demo/modules/a-demo/src/page/state/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/state/render.tsx`
 
 ```typescript
 @Local()

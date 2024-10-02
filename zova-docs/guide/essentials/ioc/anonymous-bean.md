@@ -9,12 +9,12 @@ In [page component](../component/page.md), we created a page component `counter`
 The code skeleton for local bean can be created using the cli command:
 
 ```bash
-$ zova :create:local page/counter/counter --module=a-demo
+$ zova :create:local page/counter/counter --module=demo-basic
 ```
 
 - The name of the local bean is `counter`, located in the directory `page/counter`
 
-`src/suite/a-demo/modules/a-demo/src/page/counter/counter.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/counter/counter.ts`
 
 ```typescript
 @Local()

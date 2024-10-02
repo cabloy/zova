@@ -22,7 +22,7 @@ PINIA_ENABLED = true
 
 为了方便演示，先创建一个 useCounterStore
 
-`src/suite/a-demo/modules/a-demo/src/bean/counterStore.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/counterStore.ts`
 
 ```typescript
 import { defineStore } from 'pinia';
@@ -46,12 +46,12 @@ export const useCounterStore = defineStore('counter', () => {
 使用 cli 命令创建一个 store bean
 
 ```bash
-$ zova :create:store counter --module=a-demo
+$ zova :create:store counter --module=demo-basic
 ```
 
 在生成的文件中嵌入 useCounterStore
 
-`src/suite/a-demo/modules/a-demo/src/bean/store.counter.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/store.counter.ts`
 
 ```typescript
 import { Store } from 'zova';
@@ -76,7 +76,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 可以在任何模块使用 store bean。这里以 a-demo 模块现有的页面组件为例：
 
-`src/suite/a-demo/modules/a-demo/src/page/pinia/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/pinia/controller.ts`
 
 ```typescript
 import { Local, Use } from 'zova';

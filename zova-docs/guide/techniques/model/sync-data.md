@@ -13,7 +13,7 @@ Below, we demonstrate how to manage user data in Model
 First create a Model Bean `user` in the a-demo module
 
 ```bash
-$ zova :create:model user --module=a-demo
+$ zova :create:model user --module=demo-basic
 ```
 
 `src/bean/model.user.ts`

@@ -10,7 +10,7 @@ Enter the name of the page component according to the prompt, such as `counter`,
 
 ### Route
 
-`src/suite/a-demo/modules/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/demo-basic/src/routes.ts`
 
 ```typescript{1,5}
 import Counter from './page/counter/index.vue';
@@ -27,7 +27,7 @@ export const routes: IModuleRoute[] = [
 
 In Zova, a page component will be splited to four files:
 
-`src/suite/a-demo/modules/a-demo/src/page/counter`
+`src/suite/a-demo/modules/demo-basic/src/page/counter`
 
 ```
 src

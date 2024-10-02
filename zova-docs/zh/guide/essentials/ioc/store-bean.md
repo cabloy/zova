@@ -11,10 +11,10 @@
 我们先来创建一个 store bean `userInfo`。可以通过 cli 命令创建 store bean 的代码骨架：
 
 ```bash
-$ zova :create:store userInfo --module=a-demo
+$ zova :create:store userInfo --module=demo-basic
 ```
 
-`src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/store.userInfo.ts`
 
 ```typescript
 @Store()
@@ -60,12 +60,12 @@ export class StoreUserInfo {
 接下来通过 cli 命令创建一个 local bean `testC`：
 
 ```bash
-$ zova :create:local testC --module=a-demo
+$ zova :create:local testC --module=demo-basic
 ```
 
 然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
 
-`src/suite/a-demo/modules/a-demo/src/testC.ts`
+`src/suite/a-demo/modules/demo-basic/src/testC.ts`
 
 ```typescript{1,4-5,8-9}
 import { StoreUserInfo } from './bean/store.userInfo.js';

@@ -6,7 +6,7 @@ Modules can individually provide their own `I18n` language resources
 
 Taking the module `demo-basic` as an example, define the `I18n` language resources of the module:
 
-English: `src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
+English: `src/suite/a-demo/modules/demo-basic/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -14,7 +14,7 @@ export default {
 };
 ```
 
-Chinese: `src/suite/a-demo/modules/a-demo/src/config/locale/zh-cn.ts`
+Chinese: `src/suite/a-demo/modules/demo-basic/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {

@@ -6,7 +6,7 @@ Modules can individually provide their own `Constant`
 
 Taking the module `demo-basic` as an example, define the `Constant` of the module:
 
-`src/suite/a-demo/modules/a-demo/src/config/constants.ts`
+`src/suite/a-demo/modules/demo-basic/src/config/constants.ts`
 
 ```typescript{2-5}
 export const constants = {

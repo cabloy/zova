@@ -10,7 +10,7 @@
 
 ### 路由记录
 
-`src/suite/a-demo/modules/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/demo-basic/src/routes.ts`
 
 ```typescript{1,5}
 import Counter from './page/counter/index.vue';
@@ -27,7 +27,7 @@ export const routes: IModuleRoute[] = [
 
 在 Zova 中，一个页面组件被拆分为四个文件:
 
-`src/suite/a-demo/modules/a-demo/src/page/counter`
+`src/suite/a-demo/modules/demo-basic/src/page/counter`
 
 ```
 src

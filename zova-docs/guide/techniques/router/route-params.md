@@ -8,7 +8,7 @@ We still use the page component `user` to fully demonstrate how to define and us
 
 Define Params in `controller.ts`:
 
-`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/user/controller.ts`
 
 ```typescript{2}
 export const ParamsSchema = zz.object({
@@ -24,7 +24,7 @@ In order to support `Params`, the `name` field needs to be used on the route rec
 
 ### 1. Route record
 
-`src/suite/a-demo/modules/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/demo-basic/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -38,7 +38,7 @@ export const routes: IModuleRoute[] = [
 
 ### 2. Resource record
 
-`src/suite/a-demo/modules/a-demo/src/resource/pages.ts`
+`src/suite/a-demo/modules/demo-basic/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from 'zova';
@@ -65,7 +65,7 @@ export const pageNameSchemas = {
 
 In `render.ts`, you can directly obtain Params and render its fields
 
-`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
 ```typescript{5}
 export class RenderUser {

@@ -11,10 +11,10 @@ Through store bean, we can define a global state object and use it in any module
 Let's first create a store bean `userInfo`. The code skeleton for store bean can be created using the cli command:
 
 ```bash
-$ zova :create:store userInfo --module=a-demo
+$ zova :create:store userInfo --module=demo-basic
 ```
 
-`src/suite/a-demo/modules/a-demo/src/bean/store.userInfo.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/store.userInfo.ts`
 
 ```typescript
 @Store()
@@ -59,12 +59,12 @@ export class StoreUserInfo {
 Next, create local bean `testC` using the cli command:
 
 ```bash
-$ zova :create:local testC --module=a-demo
+$ zova :create:local testC --module=demo-basic
 ```
 
 Then inject `userInfo` directly into `testC` and access the properties and methods of `userInfo`
 
-`src/suite/a-demo/modules/a-demo/src/testC.ts`
+`src/suite/a-demo/modules/demo-basic/src/testC.ts`
 
 ```typescript{1,4-5,8-9}
 import { StoreUserInfo } from './bean/store.userInfo.js';

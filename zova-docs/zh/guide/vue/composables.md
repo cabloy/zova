@@ -6,7 +6,7 @@ Zova 推荐使用[local bean](../essentials/ioc/anonymous-bean.md)和[store bean
 
 ## 1. 创建Composable
 
-`src/suite/a-demo/modules/a-demo/src/page/state/mouse.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/state/mouse.ts`
 
 ```typescript
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -31,7 +31,7 @@ export function useMouse() {
 
 以 a-demo 模块现有的页面组件为例：
 
-`src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/state/controller.ts`
 
 ```typescript
 import { BeanControllerPageBase, Local, type ReturnTypeComposable, UseComposable } from 'zova';
@@ -47,7 +47,7 @@ export class ControllerPageState extends BeanControllerPageBase {
 - line 6: 使用@UseComposable 装饰器函数，传入需要使用的 composable
 - line 7: 声明变量$$mouse，并通过类型工具 ReturnTypeComposable 生成 composable 的类型
 
-`src/suite/a-demo/modules/a-demo/src/page/state/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/state/render.tsx`
 
 ```typescript
 @Local()

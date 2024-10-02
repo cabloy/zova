@@ -6,7 +6,7 @@ Modules can individually provide their own `Config` configuration
 
 Taking the module `demo-basic` as an example, define the `Config` configuration of the module:
 
-`src/suite/a-demo/modules/a-demo/src/config/config.ts`
+`src/suite/a-demo/modules/demo-basic/src/config/config.ts`
 
 ```typescript{3}
 export const config: ZovaConfigOptional = (_app: ZovaApplication) => {

@@ -8,7 +8,7 @@ Zova 对路由`Params`进行了强化，提供了 Typescript 类型化支持
 
 在`controller.ts`中定义 Params：
 
-`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/user/controller.ts`
 
 ```typescript{2}
 export const ParamsSchema = zz.object({
@@ -24,7 +24,7 @@ export const ParamsSchema = zz.object({
 
 ### 1. 路由记录
 
-`src/suite/a-demo/modules/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/demo-basic/src/routes.ts`
 
 ```typescript{3}
 export const routes: IModuleRoute[] = [
@@ -38,7 +38,7 @@ export const routes: IModuleRoute[] = [
 
 ### 2. 资源记录
 
-`src/suite/a-demo/modules/a-demo/src/resource/pages.ts`
+`src/suite/a-demo/modules/demo-basic/src/resource/pages.ts`
 
 ```typescript{2,6,11-14}
 import { TypePageParamsQuery } from 'zova';
@@ -65,7 +65,7 @@ export const pageNameSchemas = {
 
 在`render.ts`中，可以直接获取 Params，并渲染出来
 
-`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
 ```typescript{5}
 export class RenderUser {

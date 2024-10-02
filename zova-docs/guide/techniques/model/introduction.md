@@ -30,7 +30,7 @@ Zova provides some extension capabilities based on TanStack Query:
 Model beans can be created through Cli commands. For example, create a Model Bean `todo` in the a-demo module
 
 ```bash
-$ zova :create:model todo --module=a-demo
+$ zova :create:model todo --module=demo-basic
 ```
 
 `src/bean/model.todo.ts`

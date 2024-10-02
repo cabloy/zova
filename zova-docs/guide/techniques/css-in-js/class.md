@@ -9,7 +9,7 @@ Several global style beans can be created based on business needs, and several s
 Global style beans can be created through Cli commands. For example, create a global Bean `myStyle` in the `demo-basic` module
 
 ```bash
-$ zova :create:style myStyle --module=a-demo
+$ zova :create:style myStyle --module=demo-basic
 ```
 
 - This command will automatically create a Bean file: `a-demo/src/bean/style.myStyle.ts`

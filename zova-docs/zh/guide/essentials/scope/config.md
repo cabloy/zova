@@ -6,7 +6,7 @@
 
 以模块`demo-basic`为例，定义模块的 Config 配置：
 
-`src/suite/a-demo/modules/a-demo/src/config/config.ts`
+`src/suite/a-demo/modules/demo-basic/src/config/config.ts`
 
 ```typescript{3}
 export const config: ZovaConfigOptional = (_app: ZovaApplication) => {

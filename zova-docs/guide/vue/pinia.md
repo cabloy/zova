@@ -22,7 +22,7 @@ PINIA_ENABLED = true
 
 For the convenience of demonstration, first create a pinia store: `useCounterStore`
 
-`src/suite/a-demo/modules/a-demo/src/bean/counterStore.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/counterStore.ts`
 
 ```typescript
 import { defineStore } from 'pinia';
@@ -46,12 +46,12 @@ export const useCounterStore = defineStore('counter', () => {
 Use the cli command to create a store bean
 
 ```bash
-$ zova :create:store counter --module=a-demo
+$ zova :create:store counter --module=demo-basic
 ```
 
 Use `useCounterStore` in the generated file
 
-`src/suite/a-demo/modules/a-demo/src/bean/store.counter.ts`
+`src/suite/a-demo/modules/demo-basic/src/bean/store.counter.ts`
 
 ```typescript
 import { Store } from 'zova';
@@ -76,7 +76,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 You can use store bean in any module. Here we take the existing page component of module `demo-basic` as an example:
 
-`src/suite/a-demo/modules/a-demo/src/page/pinia/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/pinia/controller.ts`
 
 ```typescript
 import { Local, Use } from 'zova';

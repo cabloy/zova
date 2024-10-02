@@ -30,7 +30,7 @@ Zova 在 TanStack Query 的基础上提供了一些扩展能力：
 可以通过 Cli 命令创建 Model Bean。比如，在 a-demo 模块中创建一个 Model Bean `todo`
 
 ```bash
-$ zova :create:model todo --module=a-demo
+$ zova :create:model todo --module=demo-basic
 ```
 
 `src/bean/model.todo.ts`

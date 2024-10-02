@@ -9,12 +9,12 @@
 可以通过 cli 命令创建 local bean 的代码骨架：
 
 ```bash
-$ zova :create:local page/counter/counter --module=a-demo
+$ zova :create:local page/counter/counter --module=demo-basic
 ```
 
 - local bean 的名称是`counter`，位于目录`page/counter`中，也就是放入页面组件`counter`所在的目录
 
-`src/suite/a-demo/modules/a-demo/src/page/counter/counter.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/counter/counter.ts`
 
 ```typescript
 @Local()

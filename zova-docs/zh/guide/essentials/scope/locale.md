@@ -6,7 +6,7 @@
 
 以模块`demo-basic`为例，定义模块的语言资源：
 
-英文：`src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
+英文：`src/suite/a-demo/modules/demo-basic/src/config/locale/en-us.ts`
 
 ```typescript{2}
 export default {
@@ -14,7 +14,7 @@ export default {
 };
 ```
 
-中文：`src/suite/a-demo/modules/a-demo/src/config/locale/zh-cn.ts`
+中文：`src/suite/a-demo/modules/demo-basic/src/config/locale/zh-cn.ts`
 
 ```typescript{2}
 export default {

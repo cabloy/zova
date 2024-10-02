@@ -7,14 +7,14 @@ Zova enhances route `Query` and provides Typescript typing support
 In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `demo-basic`:
 
 ```bash
-$ zova :create:page user --module=a-demo
+$ zova :create:page user --module=demo-basic
 ```
 
 ## Define Query
 
 Define Query in `controller.ts`:
 
-`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/user/controller.ts`
 
 ```typescript{2-3}
 export const QuerySchema = zz.object({
@@ -30,7 +30,7 @@ export const QuerySchema = zz.object({
 
 In `render.ts`, you can directly obtain Query and render its fields
 
-`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
 ```typescript{5-10}
 export class RenderUser {

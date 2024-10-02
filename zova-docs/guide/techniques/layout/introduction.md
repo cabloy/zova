@@ -38,7 +38,7 @@ export const routes: IModuleRoute[] = [
 
 ### Example: General page
 
-`src/suite/a-demo/modules/a-demo/src/routes.ts`
+`src/suite/a-demo/modules/demo-basic/src/routes.ts`
 
 ```typescript{2-3}
 export const routes: IModuleRoute[] = [

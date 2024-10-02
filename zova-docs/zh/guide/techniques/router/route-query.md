@@ -7,14 +7,14 @@ Zova 对路由`Query`进行了强化，提供了 Typescript 类型化支持
 为了完整的演示如何定义和使用类型化的`Query`，这里我们在模块`demo-basic`中创建一个新的页面组件`user`：
 
 ```bash
-$ zova :create:page user --module=a-demo
+$ zova :create:page user --module=demo-basic
 ```
 
 ## 定义Query
 
 在`controller.ts`中定义 Query：
 
-`src/suite/a-demo/modules/a-demo/src/page/user/controller.ts`
+`src/suite/a-demo/modules/demo-basic/src/page/user/controller.ts`
 
 ```typescript{2-3}
 export const QuerySchema = zz.object({
@@ -30,7 +30,7 @@ export const QuerySchema = zz.object({
 
 在`render.ts`中，可以直接获取 Query，并渲染出来
 
-`src/suite/a-demo/modules/a-demo/src/page/user/render.tsx`
+`src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
 ```typescript{5-10}
 export class RenderUser {
