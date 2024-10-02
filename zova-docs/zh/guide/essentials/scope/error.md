@@ -54,14 +54,14 @@ export class TestA {
 ## 跨模块使用Error
 
 ```typescript{1,4-5,8}
-import { ScopeModuleADemo } from 'zova-module-demo-basic';
+import { ScopeModuleDemoBasic } from 'zova-module-demo-basic';
 
 export class TestA {
   @UseScope()
-  $$scopeModuleADemo: ScopeModuleADemo;
+  $$scopeModuleDemoBasic: ScopeModuleDemoBasic;
 
   protected async __init__() {
-    this.$$scopeModuleADemo.error.ErrorTest.throw();
+    this.$$scopeModuleDemoBasic.error.ErrorTest.throw();
   }
 }
 ```

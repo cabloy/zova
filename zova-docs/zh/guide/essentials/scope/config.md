@@ -37,14 +37,14 @@ export class TestA {
 ## 跨模块使用Config
 
 ```typescript{1,4-5,8-9}
-import { ScopeModuleADemo } from 'zova-module-demo-basic';
+import { ScopeModuleDemoBasic } from 'zova-module-demo-basic';
 
 export class TestA {
   @UseScope()
-  $$scopeModuleADemo: ScopeModuleADemo;
+  $$scopeModuleDemoBasic: ScopeModuleDemoBasic;
 
   protected async __init__() {
-    const message = this.$$scopeModuleADemo.config.prompt;
+    const message = this.$$scopeModuleDemoBasic.config.prompt;
     console.log(message);
   }
 }

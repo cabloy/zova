@@ -46,19 +46,19 @@ export class TestA {
 ## 跨模块使用语言资源
 
 ```typescript{1,4-5,8-14}
-import { ScopeModuleADemo } from 'zova-module-demo-basic';
+import { ScopeModuleDemoBasic } from 'zova-module-demo-basic';
 
 export class TestA {
   @UseScope()
-  $$scopeModuleADemo: ScopeModuleADemo;
+  $$scopeModuleDemoBasic: ScopeModuleDemoBasic;
 
   protected async __init__() {
     // use current locale
-    const message1 = this.$$scopeModuleADemo.locale.HelloWorld();
+    const message1 = this.$$scopeModuleDemoBasic.locale.HelloWorld();
     // use locale en-us
-    const message2 = this.$$scopeModuleADemo.locale.HelloWorld.locale('en-us');
+    const message2 = this.$$scopeModuleDemoBasic.locale.HelloWorld.locale('en-us');
     // use locale zh-cn
-    const message3 = this.$$scopeModuleADemo.locale.HelloWorld.locale('zh-cn');
+    const message3 = this.$$scopeModuleDemoBasic.locale.HelloWorld.locale('zh-cn');
     console.log(message1, message2, message3);
   }
 }
