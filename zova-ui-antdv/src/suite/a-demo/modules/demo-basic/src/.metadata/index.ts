@@ -4,7 +4,7 @@ import { ThemeOrange } from '../bean/theme.orange.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'a-demo.theme.orange': ThemeOrange;
+    'demo-basic.theme.orange': ThemeOrange;
   }
 }
 /** beans: end */
@@ -19,7 +19,7 @@ export const components = {
 import 'zova';
 declare module 'zova' {
   export interface IComponentRecord {
-    'a-demo:card': NSControllerCard.ControllerCard;
+    'demo-basic:card': NSControllerCard.ControllerCard;
   }
 }
 /** components: end */
@@ -50,14 +50,14 @@ export const pageNameSchemas = {};
 import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 
 @Scope()
-export class ScopeModuleADemo extends BeanScopeBase {}
+export class ScopeModuleDemoBasic extends BeanScopeBase {}
 
-export interface ScopeModuleADemo extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleDemoBasic extends TypeModuleResource<any, any, any, any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
-    'a-demo': ScopeModuleADemo;
+    'demo-basic': ScopeModuleDemoBasic;
   }
 }
 /** scope: end */
