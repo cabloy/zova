@@ -20,20 +20,20 @@ A suite is a combination of a group of business modules, so the directory struct
 ```bash
 a-home
 ├── modules
-│   ├── a-home
-│   ├── home-api
+│   ├── home-base
 │   ├── home-icon
+│   ├── home-index
 │   ├── home-layout
-│   ├── home-pagesystem
-│   ├── home-router
 │   └── ...
 └── package.json
 ```
 
 ## Create Suite
 
-You can use the cli command to create a suite file skeleton, such as creating a new suite `test-home`:
+::: tip
+Context Menu - [Project Path/src/suite]: `Zova Create/Suite`
 
-```bash
-$ zova :create:suite test-home
-```
+Context Menu - [Project Path/src/suite-vendor]: `Zova Create/Suite`
+:::
+
+Enter the suite name according to the prompt, such as `test-home`, and the VSCode extension will automatically create the code skeleton of the suite

@@ -23,20 +23,20 @@
 ```bash
 a-home
 ├── modules
-│   ├── a-home
-│   ├── home-api
+│   ├── home-base
 │   ├── home-icon
+│   ├── home-index
 │   ├── home-layout
-│   ├── home-pagesystem
-│   ├── home-router
 │   └── ...
 └── package.json
 ```
 
 ## 新建套件
 
-可以使用 cli 命令创建套件文件骨架，比如新建一个套件`test-home`
+::: tip
+右键菜单 - [项目路径/src/suite]: `Zova Create/Suite`
 
-```bash
-$ zova :create:suite test-home
-```
+右键菜单 - [项目路径/src/suite-vendor]: `Zova Create/Suite`
+:::
+
+依据提示输入套件的名称，比如`test-home`，VSCode 插件会自动创建套件的代码骨架
