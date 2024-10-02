@@ -129,21 +129,14 @@ v-model supports modifiers. Let's create a custom modifier `capitalize`, which w
 
 `child/controller.ts`
 
-```typescript{3-5,18}
+```typescript{2-4,9-17}
 export interface Props {
-  title?: string;
   titleModifiers?: {
     capitalize: boolean;
   };
 }
 
-export type Emits = {
-  (e: 'update:title', value?: string);
-};
-
 export class ControllerChild {
-  modelTitle?: string;
-
   protected async __init__() {
     this.modelTitle = this.$useModel('title', {
       set: value => {
@@ -161,19 +154,9 @@ export class ControllerChild {
 - Add Prop `titleModifiers` and define a modifier `capitalize`
 - When calling the `$useModel` method, pass in the `set` option. In the `set` option, determine the value of `capitalize` and handle `value` accordingly
 
-`child/render.tsx`
+### Use v-model
 
-```typescript
-export class RenderChild {
-  render() {
-    return (
-      <div>
-        <input v-model={this.modelTitle} />
-      </div>
-    );
-  }
-}
-```
+Next, use the v-model inside the parent component:
 
 `parent/controller.ts`
 
@@ -183,7 +166,7 @@ export class ControllerPageParent {
 }
 ```
 
-`parent/render.ts`
+`parent/render.tsx`
 
 ```typescript{5}
 export class RenderParent {
