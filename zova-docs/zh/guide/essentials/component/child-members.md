@@ -1,37 +1,16 @@
 # 子组件
 
-相对`页面组件`而言，`子组件`有三件套：`Props`、`Emits` 和 `Slots`。那么在 Zova 中子组件的三件套如何定义和使用呢？
-
-## 创建子组件
-
-我们先通过一个 cli 命令来创建一个子组件`card`:
-
-```bash
-$ zova :create:component card --module=demo-basic
-```
-
-该命令会创建一个目录`src/component/card`。在 Zova 中，一个子组件被切分为四个文件，位于刚才创建的目录中：
-
-```
-src
-└─ component
-   └─ card
-      ├─ index.vue
-      ├─ controller.ts
-      ├─ render.tsx
-      └─ style.ts
-```
-
-| 名称          | 说明                      |
-| ------------- | ------------------------- |
-| index.vue     | 用于定义vue组件           |
-| controller.ts | 用于业务逻辑的 local bean |
-| render.tsx    | 用于组件渲染的 local bean |
-| style.ts      | 用于组件样式的 local bean |
+相对`页面组件`而言，`子组件`有三类成员：`Props`、`Emits` 和 `Slots`。那么在 Zova 中子组件的三类成员如何定义和使用呢？
 
 ## Props
 
-接下来，在`card`子组件中，定义三个 Props：`header`、`content`、和 `footer`
+以`card`子组件为例，定义三个 Props：`header`、`content`、和 `footer`
+
+### 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Add Component Props`
+:::
 
 ### 定义Props接口
 
@@ -55,17 +34,6 @@ export class ControllerCard {
 }
 ```
 
-### 定义组件Props
-
-然后，在`index.vue`中定义组件 Props:
-
-```typescript{2-3}
-<script setup lang="ts">
-import { ControllerCard, Props} from './controller.js';
-const props = withDefaults(defineProps<Props>(), ControllerCard.$propsDefault);
-</script>
-```
-
 ### 访问Props
 
 在`render.tsx`中访问 Props：
@@ -77,13 +45,13 @@ export class RenderCard {
       <div>
         <div>
           <div style={{ backgroundColor: 'teal' }}>
-            <div>Prop: {this.$props.header}</div>
+            <div>{`Prop: ${this.$props.header}`}</div>
           </div>
           <div style={{ backgroundColor: 'orange' }}>
-            <div>Prop: {this.$props.content}</div>
+            <div>{`Prop: ${this.$props.content}`}</div>
           </div>
           <div style={{ backgroundColor: 'green' }}>
-            <div>Prop: {this.$props.footer}</div>
+            <div>{`Prop: ${this.$props.footer}`}</div>
           </div>
         </div>
       </div>
@@ -97,28 +65,32 @@ export class RenderCard {
 接下来，在父组件中使用子组件：
 
 ```typescript{8-10}
-import Card from '../../component/card/index.vue';
+import { ZCard } from '../../index.js';
 
 export class RenderComponent {
   render() {
     return (
       <div>
-        <Card
+        <ZCard
           header="header"
           content="content"
           footer="footer"
-        ></Card>
+        ></ZCard>
       </div>
     );
   }
 }
 ```
 
-- 从`index.vue`导入子组件`Card`，然后直接给 Card 的 props 传值即可
-
 ## Emits
 
 接下来，在`card`子组件中，定义一个 Emit：`reset`
+
+### 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Add Component Emits`
+:::
 
 ### 定义Emits接口
 
@@ -128,17 +100,6 @@ export class RenderComponent {
 export type Emits = {
   (e: 'reset', time: Date): void;
 };
-```
-
-### 定义组件Emits
-
-然后，在`index.vue`中定义组件 Emits:
-
-```typescript{2-3}
-<script setup lang="ts">
-import { Emits } from './controller.js';
-const emit = defineEmits<Emits>();
-</script>
 ```
 
 ### 触发Emit
@@ -168,28 +129,32 @@ export class RenderCard {
 接下来，在父组件中使用子组件：
 
 ```typescript{8-10}
-import Card from '../../component/card/index.vue';
+import { ZCard } from '../../index.js';
 
 export class RenderComponent {
   render() {
     return (
       <div>
-        <Card
+        <ZCard
           onReset={time => {
             console.log(time);
           }}
-        ></Card>
+        ></ZCard>
       </div>
     );
   }
 }
 ```
 
-- 从`index.vue`导入子组件`Card`，然后向`onReset`传入事件回调函数即可
-
 ## Slots
 
 接下来，在`card`子组件中，定义三个 Slots：`header`、`default`和`footer`
+
+### 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Add Component Slots`
+:::
 
 ### 定义Slots接口
 
@@ -214,13 +179,13 @@ export class RenderCard {
       <div>
         <div>
           <div style={{ backgroundColor: 'teal' }}>
-            <div>Slot: {this.$slots.header?.()}</div>
+            {this.$slots.header?.()}
           </div>
           <div style={{ backgroundColor: 'orange' }}>
-            <div>Slot: {this.$slots.default?.()}</div>
+            {this.$slots.default?.()}
           </div>
           <div style={{ backgroundColor: 'green' }}>
-            <div>Slot: {this.$slots.footer?.()}</div>
+            {this.$slots.footer?.()}
           </div>
         </div>
       </div>
@@ -233,14 +198,14 @@ export class RenderCard {
 
 接下来，在父组件中使用子组件：
 
-```typescript{2,6-16,20}
-import Card from '../../component/card/index.vue';
+```typescript{8-18}
+import { ZCard } from '../../index.js';
 
 export class RenderComponent {
   render() {
     return (
       <div>
-        <Card
+        <ZCard
           slots={{
             header: () => {
               return <div>this is a header slot from parent</div>;
@@ -252,11 +217,9 @@ export class RenderComponent {
               return <div>this is a footer slot from parent</div>;
             },
           }}
-        ></Card>
+        ></ZCard>
       </div>
     );
   }
 }
 ```
-
-- 从`index.vue`导入子组件`Card`，然后直接给 Card 的 slots 属性传值即可
