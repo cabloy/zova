@@ -6,7 +6,7 @@ Several global style beans can be created based on business needs, and several s
 
 ### Cli command
 
-Global style beans can be created through Cli commands. For example, create a global Bean `myStyle` in the `a-demo` module
+Global style beans can be created through Cli commands. For example, create a global Bean `myStyle` in the `demo-basic` module
 
 ```bash
 $ zova :create:style myStyle --module=a-demo

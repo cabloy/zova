@@ -29,7 +29,7 @@ export function useMouse() {
 
 ## 2. Inject and use Composable
 
-Take the existing page component of module `a-demo` as an example:
+Take the existing page component of module `demo-basic` as an example:
 
 `src/suite/a-demo/modules/a-demo/src/page/state/controller.ts`
 

@@ -2,7 +2,7 @@
 
 ## Preface
 
-In the previous article, we created a business module `a-demo`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
+In the previous article, we created a business module `demo-basic`, and used the dependency lookup mechanism to demonstrate how to elegantly define and use resources, including: Local services, Config, I18n and Error exceptions
 
 In actual projects, we often encounter cross-module resource access scenarios. So, can dependency lookup mechanism of Cabloy5 still achieve cross-module access elegantly? Let's take a look
 
@@ -10,7 +10,7 @@ In actual projects, we often encounter cross-module resource access scenarios. S
 
 The front and back ends of the Cabloy5 full-stack framework adopt a modular system. A Cabloy5 project consists of multiple business modules. Each business module can contain resources related to its own business, such as: Service service, Config configuration, international language resources, Error exception, middleware, scheduled tasks, message queue, System startup items, etc.
 
-Here, we create a new business module `test-work` and access the resources provided by `a-demo` in `test-work`
+Here, we create a new business module `test-work` and access the resources provided by `demo-basic` in `test-work`
 
 ## 1. Create a Business Module
 
@@ -32,18 +32,18 @@ cabloy api:create:controller work
 
 ## 3. Access Services across modules
 
-Next, we access the Service of the module `a-demo` in the newly created Service
+Next, we access the Service of the module `demo-basic` in the newly created Service
 
 ```diff
 export class LocalWork {
   async action() {
-+   const scopeDemo = this.getScope('a-demo');
++   const scopeDemo = this.getScope('demo-basic');
 +   return scopeDemo.local.home.action();
   }
 }
 ```
 
-1. Obtain the scope object of the module `a-demo` through the `getScope` method
+1. Obtain the scope object of the module `demo-basic` through the `getScope` method
 2. Directly access the Service `home` through the scope object
 
 Take a look at the animation demo, which provides complete type intelligent prompts:
@@ -52,12 +52,12 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 4. Access Config across modules
 
-Access the Config configuration of the module `a-demo`
+Access the Config configuration of the module `demo-basic`
 
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   const prompt = scopeDemo.config.prompt;
     return scopeDemo.local.home.action();
   }
@@ -72,12 +72,12 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 5. Access I18n across modules
 
-Access the I18n resources of the module `a-demo`
+Access the I18n resources of the module `demo-basic`
 
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   const message = scopeDemo.locale.HelloWorld();
 +   const message1 = scopeDemo.locale.HelloWorld.locale('en-us');
 +   const message2 = scopeDemo.locale.HelloWorld.locale('zh-cn');
@@ -92,12 +92,12 @@ Take a look at the animation demo, which provides complete type intelligent prom
 
 ## 6. Access Error Exception across modules
 
-Access and throw the Error exception of the module `a-demo`
+Access and throw the Error exception of the module `demo-basic`
 
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   scopeDemo.error.Error001.throw();
     return scopeDemo.local.home.action();
   }

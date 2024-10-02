@@ -71,7 +71,7 @@ Then, next, you can create a new theme bean by referring to the default theme be
 
 ### Cli command
 
-Theme beans can be created through Cli commands. For example, create a theme Bean `orange` in the `a-demo` module
+Theme beans can be created through Cli commands. For example, create a theme Bean `orange` in the `demo-basic` module
 
 ```bash
 $ zova :create:theme orange --module=a-demo

@@ -4,7 +4,7 @@ Modules can individually provide their own `I18n` language resources
 
 ## Define language resources
 
-Taking the module `a-demo` as an example, define the `I18n` language resources of the module:
+Taking the module `demo-basic` as an example, define the `I18n` language resources of the module:
 
 English: `src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
 
@@ -73,7 +73,7 @@ English: `src/front/config/locale/en-us.ts`
 ```typescript{3-5}
 export default {
   modules: {
-    'a-demo': {
+    'demo-basic': {
       HelloWorld: 'Hello World!!!',
     },
   },
@@ -85,7 +85,7 @@ Chinese: `src/front/config/locale/zh-cn.ts`
 ```typescript{3-5}
 export default {
   modules: {
-    'a-demo': {
+    'demo-basic': {
       HelloWorld: '您好世界!!!',
     },
   },

@@ -4,7 +4,7 @@ Modules can individually provide their own `Config` configuration
 
 ## Define Config
 
-Taking the module `a-demo` as an example, define the `Config` configuration of the module:
+Taking the module `demo-basic` as an example, define the `Config` configuration of the module:
 
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
@@ -62,7 +62,7 @@ export default function (_app: ZovaApplication) {
 
   // modules
   config.modules = {
-    'a-demo': {
+    'demo-basic': {
       prompt: 'Hello World!!!',
     },
   };
@@ -71,4 +71,4 @@ export default function (_app: ZovaApplication) {
 }
 ```
 
-- Change the `prompt` of the module `a-demo` to `Hello World!!!`
+- Change the `prompt` of the module `demo-basic` to `Hello World!!!`

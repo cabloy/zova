@@ -4,7 +4,7 @@
 
 ## 定义Constant
 
-以模块`a-demo`为例，定义模块的 Constant 常量：
+以模块`demo-basic`为例，定义模块的 Constant 常量：
 
 `src/suite/a-demo/modules/a-demo/src/config/constants.ts`
 

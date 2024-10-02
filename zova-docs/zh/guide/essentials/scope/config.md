@@ -4,7 +4,7 @@
 
 ## 定义Config
 
-以模块`a-demo`为例，定义模块的 Config 配置：
+以模块`demo-basic`为例，定义模块的 Config 配置：
 
 `src/suite/a-demo/modules/a-demo/src/config/config.ts`
 
@@ -62,7 +62,7 @@ export default function (_app: ZovaApplication) {
 
   // modules
   config.modules = {
-    'a-demo': {
+    'demo-basic': {
       prompt: 'Hello World!!!',
     },
   };
@@ -71,4 +71,4 @@ export default function (_app: ZovaApplication) {
 }
 ```
 
-- 将模块`a-demo`的`prompt`修改为`Hello World!!!`
+- 将模块`demo-basic`的`prompt`修改为`Hello World!!!`

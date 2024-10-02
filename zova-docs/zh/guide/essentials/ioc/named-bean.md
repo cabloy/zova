@@ -43,7 +43,7 @@ export class StoreUserInfo {}
 {moduleName}.{scene}.{name}
 ```
 
-比如，前面创建的 store bean `userInfo`，对应的标识为：`a-demo.store.userInfo`，其中`a-demo`是`userInfo`所归属的模块名称
+比如，前面创建的 store bean `userInfo`，对应的标识为：`a-demo.store.userInfo`，其中`demo-basic`是`userInfo`所归属的模块名称
 
 ## 装饰器清单
 

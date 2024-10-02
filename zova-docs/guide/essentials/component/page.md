@@ -21,7 +21,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- path: `counter` is a relative path, and since the page component belongs to the module `a-demo`, its absolute path is `/demo/basic/counter`
+- path: `counter` is a relative path, and since the page component belongs to the module `demo-basic`, its absolute path is `/demo/basic/counter`
 
 ### Directory
 

@@ -4,7 +4,7 @@ Modules can individually provide their own `Constant`
 
 ## Define Constant
 
-Taking the module `a-demo` as an example, define the `Constant` of the module:
+Taking the module `demo-basic` as an example, define the `Constant` of the module:
 
 `src/suite/a-demo/modules/a-demo/src/config/constants.ts`
 

@@ -4,7 +4,7 @@
 
 ## 定义语言资源
 
-以模块`a-demo`为例，定义模块的语言资源：
+以模块`demo-basic`为例，定义模块的语言资源：
 
 英文：`src/suite/a-demo/modules/a-demo/src/config/locale/en-us.ts`
 
@@ -73,7 +73,7 @@ export class TestA {
 ```typescript{3-5}
 export default {
   modules: {
-    'a-demo': {
+    'demo-basic': {
       HelloWorld: 'Hello World!!!',
     },
   },
@@ -85,7 +85,7 @@ export default {
 ```typescript{3-5}
 export default {
   modules: {
-    'a-demo': {
+    'demo-basic': {
       HelloWorld: '您好世界!!!',
     },
   },

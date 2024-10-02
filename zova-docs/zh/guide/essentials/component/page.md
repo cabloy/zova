@@ -21,7 +21,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- path: `counter`是相对路径，由于该页面组件属于模块`a-demo`，因此其绝对路径是`/demo/basic/counter`
+- path: `counter`是相对路径，由于该页面组件属于模块`demo-basic`，因此其绝对路径是`/demo/basic/counter`
 
 ### 目录
 

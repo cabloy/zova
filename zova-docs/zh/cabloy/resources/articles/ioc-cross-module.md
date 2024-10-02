@@ -37,7 +37,7 @@ cabloy api:create:controller work
 ```diff
 export class LocalWork {
   async action() {
-+   const scopeDemo = this.getScope('a-demo');
++   const scopeDemo = this.getScope('demo-basic');
 +   return scopeDemo.local.home.action();
   }
 }
@@ -57,7 +57,7 @@ export class LocalWork {
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   const prompt = scopeDemo.config.prompt;
     return scopeDemo.local.home.action();
   }
@@ -77,7 +77,7 @@ export class LocalWork {
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   const message = scopeDemo.locale.HelloWorld();
 +   const message1 = scopeDemo.locale.HelloWorld.locale('en-us');
 +   const message2 = scopeDemo.locale.HelloWorld.locale('zh-cn');
@@ -97,7 +97,7 @@ export class LocalWork {
 ```diff
 export class LocalWork {
   async action() {
-    const scopeDemo = this.getScope('a-demo');
+    const scopeDemo = this.getScope('demo-basic');
 +   scopeDemo.error.Error001.throw();
     return scopeDemo.local.home.action();
   }

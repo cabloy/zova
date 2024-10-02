@@ -4,7 +4,7 @@ Modules can individually provide their own `Error` exceptions
 
 ## Define Error
 
-It takes two steps to define `Error`. Taking the module `a-demo` as an example:
+It takes two steps to define `Error`. Taking the module `demo-basic` as an example:
 
 ### 1. Define Error enum
 

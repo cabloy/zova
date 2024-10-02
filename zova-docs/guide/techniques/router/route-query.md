@@ -4,7 +4,7 @@ Zova enhances route `Query` and provides Typescript typing support
 
 ## Create Page Component
 
-In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `a-demo`:
+In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `demo-basic`:
 
 ```bash
 $ zova :create:page user --module=a-demo

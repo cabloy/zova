@@ -74,7 +74,7 @@ export class StoreCounter extends BeanPiniaStoreBase {
 
 ## 4. Use store bean
 
-You can use store bean in any module. Here we take the existing page component of module `a-demo` as an example:
+You can use store bean in any module. Here we take the existing page component of module `demo-basic` as an example:
 
 `src/suite/a-demo/modules/a-demo/src/page/pinia/controller.ts`
 

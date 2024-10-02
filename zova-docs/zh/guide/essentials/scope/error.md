@@ -4,7 +4,7 @@
 
 ## 定义Error
 
-定义 Error 分为两个步骤，以模块`a-demo`为例：
+定义 Error 分为两个步骤，以模块`demo-basic`为例：
 
 ### 1. 定义Error枚举
 
