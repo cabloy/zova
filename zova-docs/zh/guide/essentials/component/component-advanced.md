@@ -10,11 +10,39 @@ Zova 支持泛型组件。只需将已创建的子组件转换为泛型组件即
 
 ## 如何引用子组件实例
 
-在 Zova 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`controller bean`，这样可以实现更直观并且更强大的类型提示。参见：[Controller Ref](../../vue/refs.md#controller-ref)
+在 Zova 中，不使用`Template Ref`引用子组件实例，而是直接引用子组件对应的`controller bean`，这样可以支持更直观并且更强大的类型提示。参见：[Controller Ref](../../vue/refs.md#controller-ref)
 
 ## 添加更多Render Bean
 
+如果一个组件涉及的业务复杂，渲染代码太多，可以添加更多的 Render Bean，实现代码的拆分，从而方便阅读和维护
+
+### 页面组件
+
+::: tip
+右键菜单 - [模块路径/src/page/card]: `Zova Refactor/Create Another Render Bean`
+:::
+
+### 子组件
+
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Create Another Render Bean`
+:::
+
 ## 添加更多Style Bean
+
+同理，也可以添加更多的 Style Bean
+
+### 页面组件
+
+::: tip
+右键菜单 - [模块路径/src/page/card]: `Zova Refactor/Create Another Style Bean`
+:::
+
+### 子组件
+
+::: tip
+右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Create Another Style Bean`
+:::
 
 ## 渐进式开发
 
