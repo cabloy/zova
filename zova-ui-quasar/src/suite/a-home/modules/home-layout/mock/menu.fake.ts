@@ -19,19 +19,19 @@ const __MenuData = [
     title: 'State',
     caption: 'ref, computed',
     icon: '',
-    to: '/a/demo/state',
+    to: '/demo/basic/state',
   },
   {
     title: 'Component',
     caption: 'props, emits, slots',
     icon: '',
-    to: '/a/demo/component',
+    to: '/demo/basic/component',
   },
   {
     title: 'CSS-in-JS',
     caption: 'Style & Theme',
     icon: '',
-    to: '/a/demo/style',
+    to: '/demo/basic/style',
   },
   {
     folder: true,

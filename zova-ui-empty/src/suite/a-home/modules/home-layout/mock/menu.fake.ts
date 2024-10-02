@@ -12,13 +12,13 @@ const __MenuData = [
     title: 'State',
     caption: 'ref, computed',
     icon: '',
-    to: '/a/demo/state',
+    to: '/demo/basic/state',
   },
   {
     title: 'Component',
     caption: 'props, emits, slots',
     icon: '',
-    to: '/a/demo/component',
+    to: '/demo/basic/component',
   },
   {
     title: 'Github',

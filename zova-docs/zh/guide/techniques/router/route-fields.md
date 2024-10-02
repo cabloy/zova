@@ -31,7 +31,7 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-- 由于该页面组件属于模块`a-demo`，其绝对路径就是: `/a/demo/counter`
+- 由于该页面组件属于模块`a-demo`，其绝对路径就是: `/demo/basic/counter`
 
 ## name
 
