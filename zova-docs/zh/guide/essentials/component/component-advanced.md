@@ -16,15 +16,9 @@ Zova 支持泛型组件。只需将已创建的子组件转换为泛型组件即
 
 如果一个组件涉及的业务复杂，渲染代码太多，可以添加更多的 Render Bean，实现代码的拆分，从而方便阅读和维护
 
-### 页面组件
-
 ::: tip
 右键菜单 - [模块路径/src/page/card]: `Zova Refactor/Create Another Render Bean`
-:::
 
-### 子组件
-
-::: tip
 右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Create Another Render Bean`
 :::
 
@@ -32,15 +26,9 @@ Zova 支持泛型组件。只需将已创建的子组件转换为泛型组件即
 
 同理，也可以添加更多的 Style Bean
 
-### 页面组件
-
 ::: tip
 右键菜单 - [模块路径/src/page/card]: `Zova Refactor/Create Another Style Bean`
-:::
 
-### 子组件
-
-::: tip
 右键菜单 - [模块路径/src/component/card]: `Zova Refactor/Create Another Style Bean`
 :::
 

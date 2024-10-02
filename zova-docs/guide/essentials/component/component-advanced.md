@@ -16,15 +16,9 @@ In Zova, `Template Ref` is not used to refer to child component instances, but d
 
 If a component involves complex business and too much rendering code, you can add more Render Beans to split the code for easier reading and maintenance
 
-### Page Component
-
 ::: tip
 Context Menu - [Module Path/src/page/card]: `Zova Refactor/Create Another Render Bean`
-:::
 
-### Child Component
-
-::: tip
 Context Menu - [Module Path/src/component/card]: `Zova Refactor/Create Another Render Bean`
 :::
 
@@ -32,15 +26,9 @@ Context Menu - [Module Path/src/component/card]: `Zova Refactor/Create Another R
 
 Similarly, you can add more Style Beans
 
-### Page Component
-
 ::: tip
 Context Menu - [Module Path/src/page/card]: `Zova Refactor/Create Another Style Bean`
-:::
 
-### Child Component
-
-::: tip
 Context Menu - [Module Path/src/component/card]: `Zova Refactor/Create Another Style Bean`
 :::
 
