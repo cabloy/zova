@@ -12,7 +12,7 @@
 $ zova :create:style myStyle --module=demo-basic
 ```
 
-- 该指令会自动创建一个 Bean 文件：`a-demo/src/bean/style.myStyle.ts`
+- 该指令会自动创建一个 Bean 文件：`demo-basic/src/bean/style.myStyle.ts`
 
 ### 缺省全局样式
 

@@ -77,7 +77,7 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
 $ zova :create:theme orange --module=demo-basic
 ```
 
-- 该指令会自动创建一个 Bean 文件：`a-demo/src/bean/theme.orange.ts`，对应的 Bean 标识是：`a-demo.theme.orange`
+- 该指令会自动创建一个 Bean 文件：`demo-basic/src/bean/theme.orange.ts`，对应的 Bean 标识是：`a-demo.theme.orange`
 
 ### 定制apply方法
 

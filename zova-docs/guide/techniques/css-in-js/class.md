@@ -12,7 +12,7 @@ Global style beans can be created through Cli commands. For example, create a gl
 $ zova :create:style myStyle --module=demo-basic
 ```
 
-- This command will automatically create a Bean file: `a-demo/src/bean/style.myStyle.ts`
+- This command will automatically create a Bean file: `demo-basic/src/bean/style.myStyle.ts`
 
 ### Default global style
 
