@@ -77,8 +77,8 @@ export class RenderStyle extends BeanRenderBase<ScopeModule> {
                   Default
                 </option>
                 <option
-                  value={getBeanName('a-demo.theme.orange')}
-                  selected={this.$theme.name === getBeanName('a-demo.theme.orange')}
+                  value={getBeanName('demo-basic.theme.orange')}
+                  selected={this.$theme.name === getBeanName('demo-basic.theme.orange')}
                 >
                   Orange
                 </option>

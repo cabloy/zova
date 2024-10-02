@@ -6,7 +6,7 @@
   "description": "demo",
   "author": "zhennann",
   "dependencies": {
-    "zova-module-a-demo": "workspace:^",
+    "zova-module-demo-basic": "workspace:^",
     "zova-module-demo-todo": "workspace:^"
   }
 }

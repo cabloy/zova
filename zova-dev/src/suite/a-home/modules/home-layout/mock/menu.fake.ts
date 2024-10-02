@@ -40,7 +40,7 @@ const __MenuData = [
         title: 'Route Params',
         caption: 'Typesafe',
         icon: '',
-        to: { name: 'a-demo:routeParams' },
+        to: { name: 'demo-basic:routeParams' },
       },
       {
         title: 'Locale',

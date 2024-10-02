@@ -31,7 +31,7 @@ export class RenderRouteParams extends BeanRenderBase<ScopeModule> {
             class="btn btn-primary"
             onClick={() => {
               const id = this.$params.id + 1;
-              const url = this.$router.resolveName('a-demo:routeParams', {
+              const url = this.$router.resolveName('demo-basic:routeParams', {
                 params: { id },
               });
               this.$router.push(url);

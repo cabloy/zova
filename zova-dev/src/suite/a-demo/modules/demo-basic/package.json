@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-demo",
+  "name": "zova-module-demo-basic",
   "version": "5.0.0",
-  "title": "a-demo",
+  "title": "demo-basic",
   "type": "module",
   "exports": {
     ".": {

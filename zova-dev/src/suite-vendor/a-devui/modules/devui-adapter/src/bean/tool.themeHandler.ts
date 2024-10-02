@@ -2,7 +2,7 @@ import { BeanBase, Tool } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
 import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
-const __Themes = { 'a-demo.theme.orange': 'orange', 'home-base.theme.default': '' };
+const __Themes = { 'demo-basic.theme.orange': 'orange', 'home-base.theme.default': '' };
 
 @Tool()
 export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {

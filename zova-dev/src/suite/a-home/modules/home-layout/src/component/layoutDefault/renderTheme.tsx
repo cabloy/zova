@@ -55,7 +55,7 @@ export class RenderTheme extends BeanRenderBase<ScopeModule> {
         title: this.scope.locale.ThemeDefault(),
       },
       {
-        name: 'a-demo.theme.orange',
+        name: 'demo-basic.theme.orange',
         title: this.scope.locale.ThemeOrange(),
       },
     ];
