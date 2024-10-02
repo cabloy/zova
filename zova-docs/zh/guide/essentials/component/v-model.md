@@ -129,21 +129,14 @@ v-model 支持修饰符。我们来创建一个自定义的修饰符 capitalize�
 
 `child/controller.ts`
 
-```typescript{3-5,18}
+```typescript{2-4,9-17}
 export interface Props {
-  title?: string;
   titleModifiers?: {
     capitalize: boolean;
   };
 }
 
-export type Emits = {
-  (e: 'update:title', value?: string);
-};
-
 export class ControllerChild {
-  modelTitle?: string;
-
   protected async __init__() {
     this.modelTitle = this.$useModel('title', {
       set: value => {
@@ -161,19 +154,9 @@ export class ControllerChild {
 - 添加 Prop `titleModifiers`，并且定义一个修饰符`capitalize`
 - 调用`$useModel`方法时传入 set 选项。在 set 选项中判断`capitalize`的值对`value`做相应的处理
 
-`child/render.tsx`
+### 使用v-model
 
-```typescript
-export class RenderChild {
-  render() {
-    return (
-      <div>
-        <input v-model={this.modelTitle} />
-      </div>
-    );
-  }
-}
-```
+接下来，在父组件中使用 v-model 修饰符：
 
 `parent/controller.ts`
 
