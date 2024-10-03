@@ -2,6 +2,12 @@
 
 模块可以单独提供自己的 Constant 常量
 
+## 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src]: `Zova Init/Constant`
+:::
+
 ## 定义Constant
 
 以模块`demo-basic`为例，定义模块的 Constant 常量：
