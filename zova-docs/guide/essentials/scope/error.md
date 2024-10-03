@@ -2,6 +2,12 @@
 
 Modules can individually provide their own `Error` exceptions
 
+## Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path/src]: `Zova Init/Error`
+:::
+
 ## Define Error
 
 It takes two steps to define `Error`. Taking the module `demo-basic` as an example:
