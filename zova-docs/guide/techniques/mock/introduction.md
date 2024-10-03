@@ -2,9 +2,13 @@
 
 Zova provides an out-of-the-box `Mock` mechanism based on [vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/), which can also support `development environment` and `production environment`
 
-## Basic Usage
+## Create Mock Files
 
-Just provide the mock files in the mock directory of the module
+::: tip
+Context Menu - [Module Path]: `Zova Create/Mock`
+:::
+
+Enter the name of mock according to the prompt, such as `menu`. The VSCode extension will automatically create the code skeleton of `mock`
 
 For example, the module `home-layout` needs to get the menu through the API: `/home/layout/menu/select`, then you can directly provide the corresponding mock file in `home-layout` as follows:
 

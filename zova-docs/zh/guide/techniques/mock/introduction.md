@@ -2,9 +2,13 @@
 
 Zova 基于[vite-plugin-fake-server](https://github.com/condorheroblog/vite-plugin-fake-server/)提供了开箱即用的`Mock`机制，可同时支持`开发环境`和`生产环境`
 
-## 基本用法
+## 创建Mock文件
 
-只需在模块的 mock 目录提供 mock 文件即可
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Mock`
+:::
+
+依据提示输入 mock 的名称，比如`menu`，VSCode 插件会自动添加 mock 的代码骨架
 
 比如，模块 home-layout 需要通过 API：`/home/layout/menu/select`获取菜单，那么可以直接在 home-layout 中提供对应的 mock 文件如下：
 
