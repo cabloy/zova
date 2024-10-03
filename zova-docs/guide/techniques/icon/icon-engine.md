@@ -81,21 +81,21 @@ import { VBtn } from 'vuetify/components';
 
 ## Create Icon
 
-### 1. Prepare icon
+We can either add icons to the existing module `home-icon` or create a new module
+
+### 1. Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path]: `Zova Init/Icon`
+:::
+
+### 2. Prepare icon
 
 Place the SVG icon into the icon module's group directory. For example, the `default` group of module `home-icon` has the group directory path:
 `src/suite/a-home/modules/home-icon/icons`
 
-### 2. Build icon
+### 3. Build icon
 
 ::: tip
 Context Menu - [Module Path]: `Zova Tools/Generate .metadata`
-:::
-
-## Create Icon Module
-
-In addition to the module `home-icon`, you can also create several new icon modules and add icons to them
-
-::: tip
-Context Menu - [Module Path]: `Zova Init/Icon`
 :::

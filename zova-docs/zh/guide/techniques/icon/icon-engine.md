@@ -81,21 +81,21 @@ import { VBtn } from 'vuetify/components';
 
 ## 创建图标
 
-### 1. 准备图标
+我们既可以在现有的模块`home-icon`中添加图标，也可以创建新的模块
+
+### 1. 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径]: `Zova Init/Icon`
+:::
+
+### 2. 准备图标
 
 将 SVG 图标放入图标模块的分组目录中。比如模块`home-icon`的`default`分组，其分组目录路径是：
 `src/suite/a-home/modules/home-icon/icons`
 
-### 2. 构建图标
+### 3. 构建图标
 
 ::: tip
 右键菜单 - [模块路径]: `Zova Tools/Generate .metadata`
-:::
-
-## 创建图标模块
-
-除了模块`home-icon`，还可以创建若干新的模块，在其中添加图标
-
-::: tip
-右键菜单 - [模块路径]: `Zova Init/Icon`
 :::
