@@ -60,3 +60,7 @@ export class TestA {
 - 导入模块`home-base`的`Scope`对象的类型
 - 使用`UseScope`装饰器函数
 - 系统会自动找到模块`home-base`的`Scope`实例，并且注入给变量`$$scopeModuleHomeBase`
+
+::: info
+基于编译器的加持，UseScope 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`home-base`，然后取得 home-base 的 Scope 实例，从而完成注入
+:::

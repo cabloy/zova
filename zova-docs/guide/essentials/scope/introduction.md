@@ -60,3 +60,7 @@ export class TestA {
 - Type of `Scope` object imported from module `home-base`
 - Use the `UseScope` decorator function
 - The system will automatically find the `Scope` instance of the module `home-base` and inject it into the variable `$$scopeModuleHomeBase`
+
+::: info
+Based on the support of the compiler, UseScope will automatically switch to asynchronous loading mode. Specifically, the system will asynchronously load the module `home-base`, then obtain the Scope instance of the module, and then inject it
+:::
