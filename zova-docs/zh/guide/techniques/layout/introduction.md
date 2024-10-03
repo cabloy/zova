@@ -21,7 +21,7 @@ Zova 通过模块`home-layout`提供了通用的布局机制。在模块`home-la
 
 ### 举例：404页面
 
-`src/suite/a-home/modules/home-pagesystem/src/routes.ts`
+`src/suite/a-home/modules/home-base/src/routes.ts`
 
 ```typescript{7}
 export const routes: IModuleRoute[] = [
