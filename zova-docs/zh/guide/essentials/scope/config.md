@@ -2,6 +2,12 @@
 
 模块可以单独提供自己的 Config 配置
 
+## 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src]: `Zova Init/Config`
+:::
+
 ## 定义Config
 
 以模块`demo-basic`为例，定义模块的 Config 配置：
@@ -9,7 +15,7 @@
 `src/suite/a-demo/modules/demo-basic/src/config/config.ts`
 
 ```typescript{3}
-export const config: ZovaConfigOptional = (_app: ZovaApplication) => {
+export const config = (_app: ZovaApplication) => {
   return {
     prompt: 'Hello World',
   };
@@ -58,7 +64,7 @@ export class TestA {
 
 ```typescript{6-8}
 export default function (_app: ZovaApplication) {
-  const config = {};
+  const config: ZovaConfigOptional = {};
 
   // modules
   config.modules = {

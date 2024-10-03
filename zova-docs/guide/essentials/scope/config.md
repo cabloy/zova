@@ -2,6 +2,12 @@
 
 Modules can individually provide their own `Config` configuration
 
+## Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path/src]: `Zova Init/Config`
+:::
+
 ## Define Config
 
 Taking the module `demo-basic` as an example, define the `Config` configuration of the module:
@@ -9,7 +15,7 @@ Taking the module `demo-basic` as an example, define the `Config` configuration 
 `src/suite/a-demo/modules/demo-basic/src/config/config.ts`
 
 ```typescript{3}
-export const config: ZovaConfigOptional = (_app: ZovaApplication) => {
+export const config = (_app: ZovaApplication) => {
   return {
     prompt: 'Hello World',
   };
@@ -58,7 +64,7 @@ You can use `project-level` Config to override `module-level` Config
 
 ```typescript{6-8}
 export default function (_app: ZovaApplication) {
-  const config = {};
+  const config: ZovaConfigOptional = {};
 
   // modules
   config.modules = {
