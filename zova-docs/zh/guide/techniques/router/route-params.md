@@ -4,6 +4,12 @@ Zova 对路由`Params`进行了强化，提供了 Typescript 类型化支持
 
 我们仍然使用页面组件`user`完整的演示如何定义和使用类型化的`Params`
 
+## 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src/page/user]: `Zova Refactor/Add Page Params`
+:::
+
 ## 定义Params
 
 在`controller.ts`中定义 Params：
@@ -20,7 +26,7 @@ export const ParamsSchema = zz.object({
 
 ## 路由name
 
-为了支持 Params，需要在路由记录上使用`name`字段，并且登记在模块的资源中
+为了支持 Params，需要在路由记录上使用`name`字段，并且重新生成模块的`.metadata`
 
 ### 1. 路由记录
 
@@ -36,30 +42,11 @@ export const routes: IModuleRoute[] = [
 - name 设为`user`，系统自动添加模块前缀，生成绝对名称`demo-basic:user`
 - path 改为`user/:id?`
 
-### 2. 资源记录
+### 2. 重新生成模块的.metadata
 
-`src/suite/a-demo/modules/demo-basic/src/resource/pages.ts`
-
-```typescript{2,6,11-14}
-import { TypePageParamsQuery } from 'zova';
-import * as NSControllerPageUser from '../page/user/controller.js';
-
-declare module 'zova' {
-  export interface IPageNameRecord {
-    'demo-basic:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
-  }
-}
-
-export const pageNameSchemas = {
-  'demo-basic:user': {
-    params: NSControllerPageUser.ParamsSchema,
-    query: NSControllerPageUser.QuerySchema,
-  },
-};
-```
-
-- 向`IPageNameRecord`接口添加记录，声明`demo-basic:user`对应的`Params类型`
-- 向`pageNameSchemas`对象添加记录，声明`demo-basic:user`对应的`ParamsSchema`
+::: tip
+右键菜单 - [模块路径]: `Zova Tools/Generate .metadata`
+:::
 
 ## 使用Params
 
@@ -72,7 +59,7 @@ export class RenderUser {
   render() {
     return (
       <div>
-        <div>id: {this.$params.id}</div>
+        <div>{this.$params.id}</div>
       </div>
     );
   }
@@ -87,12 +74,12 @@ export class RenderUser {
 
 仍然响应页面组件`user`中的按钮单击事件，并采用不同的`Params`参数导航至当前页面。这样，我们可以看到`$params`是响应式的
 
-```typescript{6-14}
+```typescript{8-10}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>id: {this.$params.id}</div>
+        <div>{this.$params.id}</div>
         <button
           onClick={() => {
             const id = this.$params.id + 1;

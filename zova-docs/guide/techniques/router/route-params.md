@@ -4,6 +4,12 @@ Zova enhances route `Params` and provides Typescript typing support
 
 We still use the page component `user` to fully demonstrate how to define and use typed `Params`
 
+## Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path/src/page/user]: `Zova Refactor/Add Page Params`
+:::
+
 ## Define Params
 
 Define Params in `controller.ts`:
@@ -20,7 +26,7 @@ export const ParamsSchema = zz.object({
 
 ## Route name
 
-In order to support `Params`, the `name` field needs to be used on the route record and registered in the module's resources
+In order to support `Params`, the `name` field needs to be used on the route record and regenerate the module's .metadata
 
 ### 1. Route record
 
@@ -36,30 +42,11 @@ export const routes: IModuleRoute[] = [
 - Set name to `user`, the system automatically adds the module prefix and generates the absolute name `demo-basic:user`
 - Change path to `user/:id?`
 
-### 2. Resource record
+### 2. Regenerate the module's .metadata
 
-`src/suite/a-demo/modules/demo-basic/src/resource/pages.ts`
-
-```typescript{2,6,11-14}
-import { TypePageParamsQuery } from 'zova';
-import * as NSControllerPageUser from '../page/user/controller.js';
-
-declare module 'zova' {
-  export interface IPageNameRecord {
-    'demo-basic:user': TypePageParamsQuery<NSControllerPageUser.QueryInput, NSControllerPageUser.ParamsInput>;
-  }
-}
-
-export const pageNameSchemas = {
-  'demo-basic:user': {
-    params: NSControllerPageUser.ParamsSchema,
-    query: NSControllerPageUser.QuerySchema,
-  },
-};
-```
-
-- Add a record to the `IPageNameRecord` interface and declare the `Params type` corresponding to `demo-basic:user`
-- Add a record to the `pageNameSchemas` object and declare the `ParamsSchema` corresponding to `demo-basic:user`
+::: tip
+Context Menu - [Module Path]: `Zova Tools/Generate .metadata`
+:::
 
 ## Use Params
 
@@ -72,7 +59,7 @@ export class RenderUser {
   render() {
     return (
       <div>
-        <div>id: {this.$params.id}</div>
+        <div>{this.$params.id}</div>
       </div>
     );
   }
@@ -87,12 +74,12 @@ Next, we need to pass in the `Params` parameter when navigating the route
 
 Still listen to the button click event in the page component `user` and use different `Params` parameter to navigate to the current page. In this way, we can see that `$params` is reactive
 
-```typescript{6-14}
+```typescript{8-10}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>id: {this.$params.id}</div>
+        <div>{this.$params.id}</div>
         <button
           onClick={() => {
             const id = this.$params.id + 1;
