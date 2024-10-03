@@ -12,7 +12,7 @@ Through store bean, we can define a global state object and use it in any module
 Context Menu - [Module Path/src]: `Zova Create/Bean: Store`
 :::
 
-Enter the name of store bean according to the prompt, such as `userInfo`. The VSCode extension will automatically add the code skeleton of `store bean`
+Enter the name of store bean according to the prompt, such as `userInfo`. The VSCode extension will automatically create the code skeleton of `store bean`
 
 `src/suite/a-demo/modules/demo-basic/src/bean/store.userInfo.ts`
 

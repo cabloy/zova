@@ -10,7 +10,7 @@ In [page component](../component/page.md), we created a page component `counter`
 Context Menu - [Module Path/src/page/counter]: `Zova Create/Bean: Local`
 :::
 
-Enter the name of local bean according to the prompt, such as `counter`. The VSCode extension will automatically add the code skeleton of `local bean`
+Enter the name of local bean according to the prompt, such as `counter`. The VSCode extension will automatically create the code skeleton of `local bean`
 
 `src/suite/a-demo/modules/demo-basic/src/page/counter/counter.ts`
 

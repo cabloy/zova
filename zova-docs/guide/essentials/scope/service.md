@@ -2,11 +2,17 @@
 
 Modules can centrally manage backend Api calls and package Api calls as `service` resources, making them easy to access in any module
 
-## Define Api services
+## Create Api services
+
+::: tip
+Context Menu - [Module Path/src]: `Zova Create/Service`
+:::
+
+Enter the name of service according to the prompt, such as `menu`. The VSCode extension will automatically create the code skeleton of `service`
 
 Take the module `home-layout` as an example, and get the menu by calling the Api `/home/layout/menu/select`. Then, you can define the Api service as follows:
 
-`src/suite/a-home/modules/home-layout/src/api/service/menu.ts`
+`src/suite/a-home/modules/home-layout/src/service/menu.ts`
 
 ```typescript
 import { ZovaApplication } from 'zova';
@@ -21,21 +27,11 @@ export default (app: ZovaApplication) => {
 
 - For the usage of `$api`, see: [API](../../techniques/api/introduction.md)
 
-`src/suite/a-home/modules/home-layout/src/api/service/index.ts`
-
-```typescript
-import menu from './menu.js';
-
-export const services = {
-  menu,
-};
-```
-
 ## Use API services
 
 You can directly access API services through Scope instance
 
-`src/suite/a-home/modules/home-layout/src/bean/data.menu.ts`
+`src/suite/a-home/modules/home-layout/src/bean/model.menu.ts`
 
 ```typescript
 const data = await this.scope.service.menu.select();
@@ -62,7 +58,7 @@ Let's take Todo's CRUD as an example:
 
 ### Define Api services
 
-`src/suite/a-demo/modules/demo-todo/src/api/service/todo.ts`
+`src/suite/a-demo/modules/demo-todo/src/service/todo.ts`
 
 ```typescript
 export default (app: ZovaApplication) => {
@@ -79,19 +75,9 @@ export default (app: ZovaApplication) => {
 };
 ```
 
-`src/suite/a-demo/modules/demo-todo/src/api/service/index.ts`
-
-```typescript
-import todo from './todo.js';
-
-export const services = {
-  todo,
-};
-```
-
 ### Use Api services
 
-`src/suite/a-demo/modules/demo-todo/src/bean/data.todo.ts`
+`src/suite/a-demo/modules/demo-todo/src/bean/model.todo.ts`
 
 ```typescript
 await this.scope.service.todo.select();
