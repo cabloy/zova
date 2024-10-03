@@ -2,6 +2,12 @@
 
 Modules can individually provide their own `I18n` language resources
 
+## Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path/src]: `Zova Init/Locale`
+:::
+
 ## Define language resources
 
 Taking the module `demo-basic` as an example, define the `I18n` language resources of the module:
