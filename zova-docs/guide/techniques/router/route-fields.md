@@ -1,6 +1,6 @@
 # Route Fields
 
-In [Page Component](../../essentials/component/page.md), we create a page component `counter` through a cli command, which creates a route record. Here we further describe the fields of route records
+In [Page Component](../../essentials/component/page.md), we create a page component `counter` and a route record. Here we further describe the fields of route records
 
 ## List of route fields
 
@@ -58,19 +58,10 @@ Specify an `alias` for the route. However We cannot specify the route alias in t
 
 ## meta.absolute
 
-`absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, two absolute routes are defined in the module `home-pagesystem`:
+`absolute` specifies whether the current path is an absolute path. If it is an absolute path, the module prefix will not be added. For example, one absolute route is defined in the module `home-base`:
 
 ```typescript
-import ErrorNotFound from './page/errorNotFound/index.vue';
-
 export const routes: IModuleRoute[] = [
-  {
-    path: '/',
-    redirect: '/home/index',
-    meta: {
-      absolute: true,
-    },
-  },
   {
     path: '/:catchAll(.*)*',
     component: ErrorNotFound,
@@ -82,10 +73,9 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-| Name                      | Description                                                                                              |
-| ------------------------- | -------------------------------------------------------------------------------------------------------- |
-| path: '/'                 | The function of this route is to jump `'/'` to `'/home/index'`, so that we can provide our own homepage |
-| path: '/:catchAll(.\*)\*' | Catch all unmatched paths and display a 404 page                                                         |
+| Name                      | Description                                      |
+| ------------------------- | ------------------------------------------------ |
+| path: '/:catchAll(.\*)\*' | Catch all unmatched paths and display a 404 page |
 
 ## meta.layout
 

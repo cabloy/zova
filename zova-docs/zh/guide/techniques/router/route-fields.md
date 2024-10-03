@@ -1,6 +1,6 @@
 # 路由字段
 
-在[页面组件](../../essentials/component/page.md)中，我们通过一个 cli 命令创建了一个页面组件`counter`，该命令创建了一个路由记录。这里我们进一步讲述路由记录的字段配置
+在[页面组件](../../essentials/component/page.md)中，我们创建了一个页面组件`counter`，同时创建了一个路由记录。这里我们进一步讲述路由记录的字段配置
 
 ## 路由字段清单
 
@@ -58,20 +58,10 @@ export const routes: IModuleRoute[] = [
 
 ## meta.absolute
 
-`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`home-pagesystem`中定义了两个绝对路由：
+`absolute`指定当前 path 是否为绝对路径。如果是绝对路径就不会添加模块前缀。比如，在模块`home-base`中定义了 1 个绝对路由：
 
 ```typescript
-import ErrorNotFound from './page/errorNotFound/index.vue';
-import { IModuleRoute } from 'zova-module-a-router';
-
 export const routes: IModuleRoute[] = [
-  {
-    path: '/',
-    redirect: '/home/index',
-    meta: {
-      absolute: true,
-    },
-  },
   {
     path: '/:catchAll(.*)*',
     component: ErrorNotFound,
@@ -83,10 +73,9 @@ export const routes: IModuleRoute[] = [
 ];
 ```
 
-| 名称                      | 说明                                                                    |
-| ------------------------- | ----------------------------------------------------------------------- |
-| path: '/'                 | 该路由的作用是将`'/'`跳转至`'/home/index'`，从而方便我们提供自己的首页 |
-| path: '/:catchAll(.\*)\*' | 捕获所有未匹配路径，显示404页面                                         |
+| 名称                      | 说明                            |
+| ------------------------- | ------------------------------- |
+| path: '/:catchAll(.\*)\*' | 捕获所有未匹配路径，显示404页面 |
 
 ## meta.layout
 
