@@ -42,6 +42,19 @@ class ControllerLayout {
 - 通过`a-tabs.model.tabs`查找并注入 Bean 实例
 - 因此，只需导入 ModelTabs 的 type 类型，从而保持模块之间的松耦合关系
 
+为了简化代码，我们仍然可以采用`基于Class类型`的写法，基于编译器的加持，该写法会自动转为`基于Bean标识`的写法。那么优化后的代码风格如下：
+
+```typescript
+import { ModelTabs } from 'zova-module-a-tabs';
+
+class ControllerLayout {
+  @Use()
+  $$modelTabs: ModelTabs;
+}
+```
+
+- 参见：[Bean标识](./bean-identifier.md)
+
 ### 3. 注册名
 
 通过`注册名`在 ioc 容器中查找并注入 Bean 实例，如果不存在则返回空值。这种机制一般用于`同模块注入`和`层级注入`

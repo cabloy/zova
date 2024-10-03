@@ -42,6 +42,19 @@ class ControllerLayout {
 - Lookup and inject bean instance through `a-tabs.model.tabs`
 - Therefore, only the type of ModelTabs needs to be imported to maintain the loose coupling relationship between modules
 
+In order to simplify the code, we can still use the `Class-type-based` code style. Based on the support of the compiler, this `Class-type-based` code style will automatically be converted to the `Bean-identifier-based` code style. Then the optimized code style is as follows:
+
+```typescript
+import { ModelTabs } from 'zova-module-a-tabs';
+
+class ControllerLayout {
+  @Use()
+  $$modelTabs: ModelTabs;
+}
+```
+
+- See: [Bean Identifier](./bean-identifier.md)
+
 ### 3. Registration name
 
 Lookup and inject bean instance in the ioc container through the `registration name`, and return a null value if not exist. This mechanism is generally used for `same module injection` and `hierarchical injection`
