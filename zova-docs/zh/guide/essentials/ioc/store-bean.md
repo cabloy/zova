@@ -106,5 +106,5 @@ export class ControllerPageCounter {
 - 系统会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到页面组件中
 
 ::: info
-基于编译器的加持， Store Bean 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`demo-basic`，然后取得 class `StoreUserInfo`，完成实例的查找、创建与注入
+基于编译器的加持，Store Bean 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`demo-basic`，然后取得 class `StoreUserInfo`，完成实例的查找、创建与注入
 :::
