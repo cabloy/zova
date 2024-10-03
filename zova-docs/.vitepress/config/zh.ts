@@ -68,6 +68,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: '匿名Bean', link: 'anonymous-bean' },
             { text: '具名Bean: Store', link: 'store-bean' },
             { text: '具名Bean: 通用', link: 'named-bean' },
+            { text: 'Bean标识', link: 'bean-identifier' },
             { text: '注入', link: 'inject' },
             { text: '注入(API)', link: 'inject-api' },
             { text: 'BeanBase基类', link: 'bean-base' },
