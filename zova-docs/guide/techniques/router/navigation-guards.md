@@ -1,12 +1,12 @@
 # Navigation Guards
 
-Zova provides a module `home-router`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
+Zova provides a module `home-base`. We can add navigation guards to this module, such as judging user authentication status, jumping on the login page, and so on
 
 ## onRouterGuards
 
-The module `home-router` provides a `LocalRouter` bean, just add custom logic directly in the `onRouterGuards` method as well
+The module `home-base` provides a `LocalRouter` bean, just add custom logic directly in the `onRouterGuards` method as well
 
-`src/suite/a-home/modules/home-router/src/bean/local.router.ts`
+`src/suite/a-home/modules/home-base/src/bean/local.router.ts`
 
 ```typescript
 export class LocalRouter {
