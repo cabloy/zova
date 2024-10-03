@@ -8,11 +8,11 @@ Through store bean, we can define a global state object and use it in any module
 
 ## Create Store Bean: userInfo
 
-Let's first create a store bean `userInfo`. The code skeleton for store bean can be created using the cli command:
+::: tip
+Context Menu - [Module Path/src]: `Zova Create/Bean: Store`
+:::
 
-```bash
-$ zova :create:store userInfo --module=demo-basic
-```
+Enter the name of store bean according to the prompt, such as `userInfo`. The VSCode extension will automatically add the code skeleton of `store bean`
 
 `src/suite/a-demo/modules/demo-basic/src/bean/store.userInfo.ts`
 
@@ -27,12 +27,13 @@ export class StoreUserInfo {}
 
 We add a reactive property `user` in `userInfo` and perform asynchronous initialization
 
-```typescript{1-4,7-23}
+```typescript{1-4,8-24}
 interface User {
   name: string;
   age: number;
 }
 
+@Store()
 export class StoreUserInfo {
   user: User;
 
@@ -56,20 +57,15 @@ export class StoreUserInfo {
 
 ## Use Store Bean
 
-Next, create local bean `testC` using the cli command:
+Then inject `userInfo` directly into the page component `counter`, and access the properties and methods of `userInfo`
 
-```bash
-$ zova :create:local testC --module=demo-basic
-```
+`src/suite/a-demo/modules/demo-basic/src/page/counter/controller.ts`
 
-Then inject `userInfo` directly into `testC` and access the properties and methods of `userInfo`
+```typescript{1,5-6,9-10}
+import { StoreUserInfo } from '../../bean/store.userInfo.js';
 
-`src/suite/a-demo/modules/demo-basic/src/testC.ts`
-
-```typescript{1,4-5,8-9}
-import { StoreUserInfo } from './bean/store.userInfo.js';
-
-export class TestC {
+@Local()
+export class ControllerPageCounter {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -80,45 +76,22 @@ export class TestC {
 }
 ```
 
-- By the property decorated with `Use`, the system will automatically look up or create an instance in the app bean container, and then inject it into `testC`
+- By the property decorated with `Use`, the system will automatically look up or create an instance in the app bean container, and then inject it into the page component
 - Set the type of `$$userInfo` to `StoreUserInfo`, the app bean container will find the class and create an instance based on this type
 
 ## Use Store Bean Cross-Module
 
 What we just demonstrated was using store beans within the current module. Now let's take a look at how to use them cross-module
 
-### Bean Identifier
+Assume that we create another module `demo-basic2` and create a page component `counter2` in the module, then the code using Store Bean is as follows:
 
-In Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
+`src/suite/a-demo/modules/demo-basic2/src/page/counter2/controller.ts`
 
-Therefore, when using store beans cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
-
-The system will automatically assign an identifier to each store bean as the following format:
-
-```bash
-{moduleName}.store.{beanName}
-```
-
-For example, the previously created `userInfo` corresponds to the identifier `demo-basic.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
-
-### Use Store Bean
-
-Next, create a module `a-demo2` using the cli command, and create a local bean `testD` at the same time:
-
-```bash
-$ zova :create:module a-demo2 --template=basic --suite=a-demo
-$ pnpm install --force
-$ zova :create:local testD --module=a-demo2
-```
-
-Then inject `userInfo` directly into `testD` and access the properties and methods of `userInfo`
-
-`src/suite/a-demo/modules/a-demo2/src/testD.ts`
-
-```typescript{1,4-5,8-9}
+```typescript{1,5-6,9-10}
 import { StoreUserInfo } from 'zova-module-demo-basic';
 
-export class TestD {
+@Local()
+export class ControllerPageCounter {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -129,5 +102,9 @@ export class TestD {
 }
 ```
 
-- Import the type of class `StoreUserInfo` from the module of `zova-module-demo-basic`
-- The system will automatically look up or create an instance in the app bean container, and then inject it into `testD`
+- Import class `StoreUserInfo` from the module of `zova-module-demo-basic`
+- The system will automatically look up or create an instance in the app bean container, and then inject it into the page component
+
+::: info
+Based on the support of the compiler, Store Bean will automatically switch to asynchronous loading mode. Specifically, the system will asynchronously load the module `demo-basic`, then obtain class `StoreUserInfo`, and then look up or create an instance which will be injected into the page component
+:::

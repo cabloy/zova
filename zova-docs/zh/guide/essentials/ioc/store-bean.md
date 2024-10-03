@@ -8,11 +8,11 @@
 
 ## 创建Store Bean: userInfo
 
-我们先来创建一个 store bean `userInfo`。可以通过 cli 命令创建 store bean 的代码骨架：
+::: tip
+右键菜单 - [模块路径/src]: `Zova Create/Bean: Store`
+:::
 
-```bash
-$ zova :create:store userInfo --module=demo-basic
-```
+依据提示输入 store bean 的名称，比如`userInfo`，VSCode 插件会自动添加 store bean 的代码骨架
 
 `src/suite/a-demo/modules/demo-basic/src/bean/store.userInfo.ts`
 
@@ -57,20 +57,15 @@ export class StoreUserInfo {
 
 ## 使用Store Bean
 
-接下来通过 cli 命令创建一个 local bean `testC`：
+接下来，在页面组件`counter`中注入`userInfo`，并访问其中的属性和方法
 
-```bash
-$ zova :create:local testC --module=demo-basic
-```
+`src/suite/a-demo/modules/demo-basic/src/page/counter/controller.ts`
 
-然后直接在`testC`中注入`userInfo`，并访问其中的属性和方法
+```typescript{1,5-6,9-10}
+import { StoreUserInfo } from '../../bean/store.userInfo.js';
 
-`src/suite/a-demo/modules/demo-basic/src/testC.ts`
-
-```typescript{1,4-5,8-9}
-import { StoreUserInfo } from './bean/store.userInfo.js';
-
-export class TestC {
+@Local()
+export class ControllerPageCounter {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -81,45 +76,22 @@ export class TestC {
 }
 ```
 
-- 通过`Use`装饰器函数会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到`testC`中
+- 通过`Use`装饰器函数会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到页面组件中
 - 将`$$userInfo`的类型设置为`StoreUserInfo`，app bean 容器将根据此类型找到 class 并创建一个实例
 
-## 跨模块使用
+## 跨模块使用Store Bean
 
 刚才演示的是在当前模块中使用 store bean，现在我们看看如何跨模块使用
 
-### Bean标识
+假设我们又创建了一个模块`demo-basic2`，在模块中创建了一个页面组件`counter2`，那么使用 Store Bean 的代码如下：
 
-在 Zova 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk
+`src/suite/a-demo/modules/demo-basic2/src/page/counter2/controller.ts`
 
-因此，在跨模块使用 store bean 时，我们不建议直接`基于类型`注入，而是`基于标识`注入
-
-系统会为每一个 store bean 自动分配一个标识，格式如下：
-
-```bash
-{moduleName}.store.{beanName}
-```
-
-比如，前面创建的 `userInfo`，对应的标识为：`demo-basic.store.userInfo`，其中`demo-basic`是`userInfo`所归属的模块名称
-
-### 跨模块使用Store Bean
-
-接下来通过 cli 命令创建一个模块`a-demo2`，同时创建一个 local bean `testD`：
-
-```bash
-$ zova :create:module a-demo2 --template=basic --suite=a-demo
-$ pnpm install --force
-$ zova :create:local testD --module=a-demo2
-```
-
-然后直接在`testD`中注入`userInfo`，并访问其中的属性和方法
-
-`src/suite/a-demo/modules/a-demo2/src/testD.ts`
-
-```typescript{1,4-5,8-9}
+```typescript{1,5-6,9-10}
 import { StoreUserInfo } from 'zova-module-demo-basic';
 
-export class TestD {
+@Local()
+export class ControllerPageCounter {
   @Use()
   $$userInfo: StoreUserInfo;
 
@@ -130,5 +102,9 @@ export class TestD {
 }
 ```
 
-- 从`zova-module-demo-basic`模块导入 class `StoreUserInfo`的类型
-- 系统会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到`testD`中
+- 从`zova-module-demo-basic`模块导入 class `StoreUserInfo`
+- 系统会自动在 app bean 容器中查找或者创建一个 store 实例，然后注入到页面组件中
+
+::: info
+基于编译器的加持， Store Bean 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`demo-basic`，然后取得 class `StoreUserInfo`，完成实例的查找、创建与注入
+:::
