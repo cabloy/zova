@@ -1,6 +1,6 @@
 # API
 
-Zova 提供了一个模块`home-api`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
+Zova 提供了一个模块`home-base`，该模块基于[axios](https://axios-http.com)提供了基本的`API`代码骨架。可以在此基础上添加自定义的 API 逻辑，甚至也可以直接替换掉`axios`底层库
 
 ## $api
 
@@ -9,7 +9,7 @@ Zova 提供了一个模块`home-api`，该模块基于[axios](https://axios-http
 
 比如，获取菜单数据：
 
-`src/suite/a-home/modules/home-layout/src/api/service/menu.ts`
+`src/suite/a-home/modules/home-layout/src/service/menu.ts`
 
 ```typescript
 export default (app: ZovaApplication) => {
@@ -19,18 +19,18 @@ export default (app: ZovaApplication) => {
 };
 ```
 
-## home-api.bean.api
+## home-base.bean.api
 
-模块`home-api`提供了一个`home-api.bean.api`bean，可以直接在里面添加自定义逻辑
+模块`home-base`提供了一个`home-base.bean.api`bean，可以直接在里面添加自定义逻辑
 
-`src/suite/a-home/modules/home-api/src/bean/bean.api.ts`
+`src/suite/a-home/modules/home-base/src/bean/bean.api.ts`
 
 ```typescript{7}
 export class BeanApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
+    const baseURL = this.app.meta.util.getApiBaseURL();
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     // your custom logic maybe here
   }

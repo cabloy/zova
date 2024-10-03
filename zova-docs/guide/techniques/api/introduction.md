@@ -1,6 +1,6 @@
 # API
 
-Zova provides a module `home-api`, which provides a basic `API` code skeleton based on [axios](https://axios-http.com). Custom API logic can be added on this basis, or even the `axios` underlying library can be directly replaced
+Zova provides a module `home-base`, which provides a basic `API` code skeleton based on [axios](https://axios-http.com). Custom API logic can be added on this basis, or even the `axios` underlying library can be directly replaced
 
 ## $api
 
@@ -9,7 +9,7 @@ Zova provides a module `home-api`, which provides a basic `API` code skeleton ba
 
 For example, load menu data:
 
-`src/suite/a-home/modules/home-layout/src/api/service/menu.ts`
+`src/suite/a-home/modules/home-layout/src/service/menu.ts`
 
 ```typescript
 export default (app: ZovaApplication) => {
@@ -19,18 +19,18 @@ export default (app: ZovaApplication) => {
 };
 ```
 
-## home-api.bean.api
+## home-base.bean.api
 
-The module `home-api` provides an `home-api.bean.api` bean, in which custom logic can be added directly
+The module `home-base` provides an `home-base.bean.api` bean, in which custom logic can be added directly
 
-`src/suite/a-home/modules/home-api/src/bean/bean.api.ts`
+`src/suite/a-home/modules/home-base/src/bean/bean.api.ts`
 
 ```typescript{7}
 export class BeanApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = `${this.app.config.api.baseURL || ''}${this.app.config.api.prefix || ''}/`;
+    const baseURL = this.app.meta.util.getApiBaseURL();
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     // your custom logic maybe here
   }
