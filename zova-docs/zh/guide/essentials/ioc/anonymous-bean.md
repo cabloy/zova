@@ -2,17 +2,15 @@
 
 使用`@Local`装饰的 class 就是`匿名bean`，因此也称之为`local bean`。此类 bean 仅在模块内部使用，不存在命名冲突的问题，定义和使用都很便捷
 
-在[页面组件](../component/page.md)中，我们通过一个 cli 命令创建了一个页面组件`counter`。现在，我们把其中关于 count 状态的逻辑抽离出来，放入一个 local bean 当中，演示逻辑复用的效果
+在[页面组件](../component/page.md)中，我们创建了一个页面组件`counter`。现在，把其中关于 count 状态的逻辑抽离出来，放入一个 local bean 当中，演示逻辑复用的效果
 
 ## 创建Local Bean: counter
 
-可以通过 cli 命令创建 local bean 的代码骨架：
+::: tip
+右键菜单 - [模块路径/src/page/counter]: `Zova Create/Bean: Local`
+:::
 
-```bash
-$ zova :create:local page/counter/counter --module=demo-basic
-```
-
-- local bean 的名称是`counter`，位于目录`page/counter`中，也就是放入页面组件`counter`所在的目录
+依据提示输入 local bean 的名称，比如`counter`，VSCode 插件会自动添加 local bean 的代码骨架
 
 `src/suite/a-demo/modules/demo-basic/src/page/counter/counter.ts`
 
@@ -69,7 +67,7 @@ export class RenderCounter {
   render() {
     return (
       <div>
-        <div>count(ref): {this.$$counter.count}</div>
+        <div>{this.$$counter.count}</div>
         <button onClick={() => this.$$counter.increment()}>Increment</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>

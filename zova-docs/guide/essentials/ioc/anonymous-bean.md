@@ -2,17 +2,15 @@
 
 The class decorated with `@Local` is an `anonymous bean`, so it is also called a `local bean`. This type of bean is only used within the module, there is no naming conflict, and it is easy to define and use
 
-In [page component](../component/page.md), we created a page component `counter` through a cli command. Now, we pull out the logic of the `count` state, put it in a local bean to demonstrate the effect of logic reuse
+In [page component](../component/page.md), we created a page component `counter`. Now, we pull out the logic of the `count` state, put it in a local bean to demonstrate the effect of logic reuse
 
 ## Create Local Bean: counter
 
-The code skeleton for local bean can be created using the cli command:
+::: tip
+Context Menu - [Module Path/src/page/counter]: `Zova Create/Bean: Local`
+:::
 
-```bash
-$ zova :create:local page/counter/counter --module=demo-basic
-```
-
-- The name of the local bean is `counter`, located in the directory `page/counter`
+Enter the name of local bean according to the prompt, such as `counter`. The VSCode extension will automatically add the code skeleton of `local bean`
 
 `src/suite/a-demo/modules/demo-basic/src/page/counter/counter.ts`
 
@@ -69,7 +67,7 @@ export class RenderCounter {
   render() {
     return (
       <div>
-        <div>count(ref): {this.$$counter.count}</div>
+        <div>{this.$$counter.count}</div>
         <button onClick={() => this.$$counter.increment()}>Increment</button>
         <button onClick={() => this.$$counter.decrement()}>Decrement</button>
       </div>
