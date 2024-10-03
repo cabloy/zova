@@ -84,7 +84,6 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             { text: 'Constant', link: 'constant' },
             { text: 'I18n', link: 'locale' },
             { text: 'Error Exception', link: 'error' },
-            { text: 'Vue Child Component', link: 'component' },
             { text: 'Api Service', link: 'service' },
           ],
         },
