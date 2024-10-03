@@ -5,7 +5,7 @@ Modules can centrally manage backend Api calls and package Api calls as `service
 ## Create Api services
 
 ::: tip
-Context Menu - [Module Path/src]: `Zova Create/Service`
+Context Menu - [Module Path]: `Zova Create/Service`
 :::
 
 Enter the name of service according to the prompt, such as `menu`. The VSCode extension will automatically create the code skeleton of `service`

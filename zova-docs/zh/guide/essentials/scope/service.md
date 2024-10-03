@@ -5,7 +5,7 @@
 ## 创建Api服务
 
 ::: tip
-右键菜单 - [模块路径/src]: `Zova Create/Service`
+右键菜单 - [模块路径]: `Zova Create/Service`
 :::
 
 依据提示输入 service 的名称，比如`menu`，VSCode 插件会自动添加 service 的代码骨架

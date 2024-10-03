@@ -7,7 +7,7 @@ Zova 奉行渐进式开发的理念。如果某些 Vue 组件逻辑比较简单�
 Zova 专门提供了一个文件目录，用于集中管理传统代码。目录名称为`{project}/src/legacy`，如果不存在，需要先进行初始化
 
 ::: tip
-右键菜单 - [项目路径/src]: `Zova Init/Legacy`
+右键菜单 - [项目路径]: `Zova Init/Legacy`
 :::
 
 VSCode 插件默认会自动创建三个目录：composables，components 和 pages，也可以根据需要自行添加其他目录

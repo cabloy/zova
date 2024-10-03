@@ -7,7 +7,7 @@ Zova adheres to the concept of progressive development. If the logic of some Vue
 Zova provides a file directory for centralized management of legacy code. The directory name is `{Project}/src/legacy`, if it does not exist, you need to initialize it first
 
 ::: tip
-Context Menu - [Project Path/src]: `Zova Init/Legacy`
+Context Menu - [Project Path]: `Zova Init/Legacy`
 :::
 
 VSCode extension will automatically create three directory: composables, components, and pages. You can also add other directory as needed

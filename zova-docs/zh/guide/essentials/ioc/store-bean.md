@@ -9,7 +9,7 @@
 ## 创建Store Bean: userInfo
 
 ::: tip
-右键菜单 - [模块路径/src]: `Zova Create/Bean: Store`
+右键菜单 - [模块路径]: `Zova Create/Bean: Store`
 :::
 
 依据提示输入 store bean 的名称，比如`userInfo`，VSCode 插件会自动添加 store bean 的代码骨架

@@ -5,7 +5,7 @@ Modules can individually provide their own `Error` exceptions
 ## Initialize code skeleton
 
 ::: tip
-Context Menu - [Module Path/src]: `Zova Init/Error`
+Context Menu - [Module Path]: `Zova Init/Error`
 :::
 
 ## Define Error

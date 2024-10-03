@@ -5,7 +5,7 @@
 ## 初始化代码骨架
 
 ::: tip
-右键菜单 - [模块路径/src]: `Zova Init/Error`
+右键菜单 - [模块路径]: `Zova Init/Error`
 :::
 
 ## 定义Error

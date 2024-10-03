@@ -5,7 +5,7 @@ Modules can individually provide their own `Config` configuration
 ## Initialize code skeleton
 
 ::: tip
-Context Menu - [Module Path/src]: `Zova Init/Config`
+Context Menu - [Module Path]: `Zova Init/Config`
 :::
 
 ## Define Config

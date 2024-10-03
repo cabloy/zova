@@ -5,7 +5,7 @@ Modules can individually provide their own `Constant`
 ## Initialize code skeleton
 
 ::: tip
-Context Menu - [Module Path/src]: `Zova Init/Constant`
+Context Menu - [Module Path]: `Zova Init/Constant`
 :::
 
 ## Define Constant
