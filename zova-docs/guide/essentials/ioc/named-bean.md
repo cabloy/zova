@@ -29,21 +29,7 @@ export class StoreUserInfo {}
 - containerScope
   - Optional
   - Default: `ctx`
-  - When injecting this bean into other bean instances, if containerScope is not explicitly specified, the value specified here is used
-
-## Bean Identifier
-
-In Zova, a module is a natural bundle boundary, and automatically bundled into an independent asynchronous chunk when building
-
-Therefore, when using `named bean` cross-module, we do not recommend injecting directly based on `type`, but rather on `identifier`
-
-The system will automatically assign an identifier to each `named bean` as the following format:
-
-```bash
-{moduleName}.{scene}.{name}
-```
-
-For example, the previously created store bean `userInfo` corresponds to the identifier `demo-basic.store.userInfo`, where `demo-basic` is the module name which `userInfo` belongs to
+  - When injecting this bean into other bean instances, if `injectionScope` is not explicitly specified, the value specified here is used
 
 ## Decorator list
 
