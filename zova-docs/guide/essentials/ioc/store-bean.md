@@ -107,4 +107,6 @@ export class ControllerPageCounter {
 
 ::: info
 Based on the support of the compiler, Store Bean will automatically switch to asynchronous loading mode. Specifically, the system will asynchronously load the module `demo-basic`, then obtain class `StoreUserInfo`, and then look up or create an instance which will be injected into the page component
+
+See: [Bean Identifier](./bean-identifier.md)
 :::

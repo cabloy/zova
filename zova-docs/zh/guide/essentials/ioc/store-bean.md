@@ -107,4 +107,6 @@ export class ControllerPageCounter {
 
 ::: info
 基于编译器的加持，Store Bean 会自动转为异步加载模式，具体而言就是：系统会异步加载模块`demo-basic`，然后取得 class `StoreUserInfo`，完成实例的查找、创建与注入
+
+参见：[Bean标识](./bean-identifier.md)
 :::
