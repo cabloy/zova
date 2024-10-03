@@ -10,14 +10,18 @@
 
 ## 内置成员
 
-| 名称   | 说明                                        |
-| ------ | ------------------------------------------- |
-| app    | 全局 App 对象                               |
-| ctx    | 当前 bean 实例所归属的 Context 对象         |
-| bean   | 当前 bean 实例所归属的 bean 容器            |
-| scope  | 当前 bean 实例所归属模块的 Scope 对象       |
-| $el    | 当前 bean 实例所归属 Vue 组件的 dom element |
-| $event | 全局事件对象                                |
+| 名称     | 说明                                        |
+| -------- | ------------------------------------------- |
+| app      | 全局 App 对象                               |
+| ctx      | 当前 bean 实例所归属的 Context 对象         |
+| bean     | 当前 bean 实例所归属的 bean 容器            |
+| scope    | 当前 bean 实例所归属模块的 Scope 对象       |
+| $el      | 当前 bean 实例所归属 Vue 组件的 dom element |
+| $event   | 全局事件对象                                |
+| $ssr     | SSR对象                                     |
+| $useMeta | 用于SEO的Meta data                          |
+| $appUtil | = app.meta.util                             |
+| $ctxUtil | = ctx.meta.util                             |
 
 ## 页面组件
 
@@ -41,8 +45,8 @@
 
 | 名称                                                    | 说明                                 |
 | ------------------------------------------------------- | ------------------------------------ |
-| [$api](../../techniques/api/introduction.md)            | 由模块`home-api`提供的api对象        |
-| [$class](../../techniques/css-in-js/class.md)           | 由模块`home-style`提供的全局样式对象 |
+| [$api](../../techniques/api/introduction.md)            | 由模块`home-base`提供的api对象       |
+| [$class](../../techniques/css-in-js/class.md)           | 由模块`home-base`提供的全局样式对象  |
 | [$pinia](../../vue/pinia.md)                            | 由模块`a-pinia`提供的pinia对象       |
 | [$queryClient](../../techniques/model/introduction.md)  | 由模块`a-model`提供的queryClient对象 |
 | [$router](../../techniques/router/navigation-guards.md) | 由模块`a-router`提供的router对象     |
@@ -52,8 +56,8 @@
 
 Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用。不同的 UI 库也会根据自身需要向`BeanBase`基类注入对象
 
-| 名称     | 说明                           |
-| -------- | ------------------------------ |
-| $antdv   | 由Antdv的模块`a-antdv`提供     |
-| $q       | 由Quasar的模块`a-quasar`提供   |
-| $vuetify | 由Vuetify的模块`a-vuetify`提供 |
+| 名称     | 说明                                 |
+| -------- | ------------------------------------ |
+| $antdv   | 由Antdv的模块`antdv-adapter`提供     |
+| $q       | 由Quasar的模块`quasar-adapter`提供   |
+| $vuetify | 由Vuetify的模块`vuetify-adapter`提供 |
