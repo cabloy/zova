@@ -6,9 +6,15 @@ Zova enhances route `Query` and provides Typescript typing support
 
 In order to fully demonstrate how to define and use typed `Query`, here we create a new page component `user` in the module `demo-basic`:
 
-```bash
-$ zova :create:page user --module=demo-basic
-```
+::: tip
+Context Menu - [Module Path]: `Zova Create/Page`
+:::
+
+## Initialize code skeleton
+
+::: tip
+Context Menu - [Module Path/src/page/user]: `Zova Refactor/Add Page Query`
+:::
 
 ## Define Query
 
@@ -32,17 +38,13 @@ In `render.ts`, you can directly obtain Query and render its fields
 
 `src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
-```typescript{5-10}
+```typescript{5-6}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>
-          name: {this.$query.name}, {typeof this.$query.name}
-        </div>
-        <div>
-          age: {this.$query.age}, {typeof this.$query.age}
-        </div>
+        <div>{this.$query.name}</div>
+        <div>{this.$query.age}</div>
       </div>
     );
   }
@@ -58,17 +60,13 @@ Next, we need to pass in the `Query` parameter when navigating the route
 
 Add a button directly to the page component `user`, listen to the click event, and use different `Query` parameter to navigate to the current page. In this way, we can see that `$query` is reactive
 
-```typescript{11-19}
+```typescript{9-11}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>
-          name: {this.$query.name}, {typeof this.$query.name}
-        </div>
-        <div>
-          age: {this.$query.age}, {typeof this.$query.age}
-        </div>
+        <div>{this.$query.name}</div>
+        <div>{this.$query.age}</div>
         <button
           onClick={() => {
             const age = (this.$query.age ?? 0) + 1;

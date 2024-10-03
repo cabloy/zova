@@ -6,9 +6,15 @@ Zova 对路由`Query`进行了强化，提供了 Typescript 类型化支持
 
 为了完整的演示如何定义和使用类型化的`Query`，这里我们在模块`demo-basic`中创建一个新的页面组件`user`：
 
-```bash
-$ zova :create:page user --module=demo-basic
-```
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Page`
+:::
+
+## 初始化代码骨架
+
+::: tip
+右键菜单 - [模块路径/src/page/user]: `Zova Refactor/Add Page Query`
+:::
 
 ## 定义Query
 
@@ -32,17 +38,13 @@ export const QuerySchema = zz.object({
 
 `src/suite/a-demo/modules/demo-basic/src/page/user/render.tsx`
 
-```typescript{5-10}
+```typescript{5-6}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>
-          name: {this.$query.name}, {typeof this.$query.name}
-        </div>
-        <div>
-          age: {this.$query.age}, {typeof this.$query.age}
-        </div>
+        <div>{this.$query.name}</div>
+        <div>{this.$query.age}</div>
       </div>
     );
   }
@@ -58,17 +60,13 @@ export class RenderUser {
 
 直接在页面组件`user`中添加一个按钮，响应单击事件，并采用不同的`Query`参数导航至当前页面。这样，我们可以看到`$query`是响应式的
 
-```typescript{11-19}
+```typescript{9-11}
 export class RenderUser {
   render() {
     return (
       <div>
-        <div>
-          name: {this.$query.name}, {typeof this.$query.name}
-        </div>
-        <div>
-          age: {this.$query.age}, {typeof this.$query.age}
-        </div>
+        <div>{this.$query.name}</div>
+        <div>{this.$query.age}</div>
         <button
           onClick={() => {
             const age = (this.$query.age ?? 0) + 1;
