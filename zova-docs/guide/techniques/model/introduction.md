@@ -17,6 +17,7 @@ The core of TanStack Query is to manage server-side data. Here are the capabilit
 - `Reduce duplicate requests`: When accessing data in multiple places in the program at the same time, the server api will be called only once
 - `Memory Optimization`: If the page component using data has been unmounted, the cached data will be automatically recycled after the specified time, thereby saving memory
 - `Persistence`: The local cache can be persisted and can be automatically restored when the page is refreshed to avoid server calls
+- `Support SSR`: The initial data prepared on the server can be synchronized to the client and automatically complete the hydration
 
 ## Feature: Zova extension
 
