@@ -39,8 +39,6 @@ class Parent {
 
 ```typescript
 // in module: test-module2
-import 'zova-module-test-module1';
-
 class Child {
   protected async __init__() {
     const fruit = this.bean.inject('test-module1:fruit');
