@@ -27,13 +27,15 @@ Zova 在 TanStack Query 的基础上提供了一些扩展能力：
 
 ## 创建Model Bean
 
-可以通过 Cli 命令创建 Model Bean。比如，在 demo-basic 模块中创建一个 Model Bean `todo`
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Bean: Model`
+:::
 
-```bash
-$ zova :create:model todo --module=demo-basic
-```
+依据提示输入 model bean 的名称，比如`todo`，VSCode 插件会自动添加 model bean 的代码骨架
 
-`src/bean/model.todo.ts`
+比如，在 demo-basic 模块中创建一个 Model Bean `todo`
+
+`demo-basic/src/bean/model.todo.ts`
 
 ```typescript
 import { Model } from 'zova';

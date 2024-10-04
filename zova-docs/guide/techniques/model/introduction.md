@@ -27,13 +27,15 @@ Zova provides some extension capabilities based on TanStack Query:
 
 ## Create Model Bean
 
-Model beans can be created through Cli commands. For example, create a Model Bean `todo` in the demo-basic module
+::: tip
+Context Menu - [Module Path]: `Zova Create/Bean: Model`
+:::
 
-```bash
-$ zova :create:model todo --module=demo-basic
-```
+Enter the name of model bean according to the prompt, such as `todo`. The VSCode extension will automatically create the code skeleton of `model bean`
 
-`src/bean/model.todo.ts`
+For example, create a Model Bean `todo` in the `demo-basic` module
+
+`demo-basic/src/bean/model.todo.ts`
 
 ```typescript
 import { Model } from 'zova';
