@@ -4,21 +4,19 @@
 
 可以基于业务需求创建若干个全局样式 Bean，在全局 Bean 中预先生成若干个样式变量，从而可以在任何 bean 实例中注入使用
 
-### Cli命令
+### 创建全局样式Bean
 
-可以通过 Cli 命令创建全局样式 Bean。比如，在 demo-basic 模块中创建一个全局 Bean `myStyle`
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Bean: Style`
+:::
 
-```bash
-$ zova :create:style myStyle --module=demo-basic
-```
+依据提示输入 style bean 的名称，比如`myStyle`，VSCode 插件会自动添加 style bean 的代码骨架
 
-- 该指令会自动创建一个 Bean 文件：`demo-basic/src/bean/style.myStyle.ts`
+### 缺省全局样式Bean
 
-### 缺省全局样式
+Zova 在模块`home-base`中提供了一个全局样式 Bean，我们可以直接在这里提供一些全局样式
 
-Zova 在模块`home-style`中提供了一个全局样式 Bean，我们可以直接在这里提供一些全局样式
-
-`src/suite/a-home/modules/home-style/src/bean/style.default.ts`
+`src/suite/a-home/modules/home-base/src/bean/style.default.ts`
 
 ```typescript
 @Style()
@@ -60,7 +58,7 @@ export class RenderTest extends BeanRenderBase {
 
 ## $class
 
-由于缺省全局样式将在不同的 bean 实例中大量使用。为了简化代码，Zova 在 BeanBase 基类中注入了`$class`对象，从而可以在任何 bean 实例中通过`this.$class`直接访问全局样式
+由于缺省全局样式可以在不同的 bean 实例中大量使用。为了简化代码，Zova 在 BeanBase 基类中注入了`$class`对象，从而可以在任何 bean 实例中通过`this.$class`直接访问全局样式
 
 ```typescript
 export class RenderTest extends BeanRenderBase {

@@ -4,21 +4,19 @@
 
 Several global style beans can be created based on business needs, and several style variables are pre-generated in the global beans, so that they can be injected and used in any bean instance
 
-### Cli command
+### Create global style Beans
 
-Global style beans can be created through Cli commands. For example, create a global Bean `myStyle` in the `demo-basic` module
+::: tip
+Context Menu - [Module Path]: `Zova Create/Bean: Style`
+:::
 
-```bash
-$ zova :create:style myStyle --module=demo-basic
-```
+Enter the name of style bean according to the prompt, such as `myStyle`. The VSCode extension will automatically create the code skeleton of `style bean`
 
-- This command will automatically create a Bean file: `demo-basic/src/bean/style.myStyle.ts`
+### Default global style bean
 
-### Default global style
+Zova provides a global style Bean in the module `home-base`. We can provide some global styles directly here
 
-Zova provides a global style Bean in the module `home-style`. We can provide some global styles directly here
-
-`src/suite/a-home/modules/home-style/src/bean/style.default.ts`
+`src/suite/a-home/modules/home-base/src/bean/style.default.ts`
 
 ```typescript
 @Style()
@@ -60,7 +58,7 @@ export class RenderTest extends BeanRenderBase {
 
 ## $class
 
-Since the default global style bean will be used extensively across different bean instances. To simplify the code, Zova injects a `$class` object into the `BeanBase` base class, so that global styles can be directly accessed through `this.$class` in any bean instance
+Since the default global style bean can be used extensively across different bean instances. To simplify the code, Zova injects a `$class` object into the `BeanBase` base class, so that global styles can be directly accessed through `this.$class` in any bean instance
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
