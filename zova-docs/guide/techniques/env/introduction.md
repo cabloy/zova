@@ -10,8 +10,8 @@ Zova uses [dotenv](https://github.com/motdotla/dotenv) to load additional enviro
 
 ```txt
 .env                # loaded in all cases
-.env.mine           # loaded in all cases, ignored by git
 .env.[meta]         # only loaded in specified condition
+.env.mine           # loaded in all cases, ignored by git
 .env.[meta].mine    # only loaded in specified condition, ignored by git
 ```
 

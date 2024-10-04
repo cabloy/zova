@@ -10,8 +10,8 @@ Zova 使用[dotenv](https://github.com/motdotla/dotenv)从`env`目录中加载�
 
 ```txt
 .env                # 所有情况下都会加载
-.env.mine           # 所有情况下都会加载，但会被 git 忽略
 .env.[meta]         # 只在指定条件下加载
+.env.mine           # 所有情况下都会加载，但会被 git 忽略
 .env.[meta].mine    # 只在指定条件下加载，但会被 git 忽略
 ```
 
