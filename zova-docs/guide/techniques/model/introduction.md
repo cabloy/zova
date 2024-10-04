@@ -8,7 +8,7 @@ The base of Zova Model is [TanStack Query](https://tanstack.com/query/latest/doc
 
 - [Todo: CRUD](https://zova.js.org/zova-demo/#/demo/todo/todo)
 
-## Feature: TanStack Query
+## Features: TanStack Query
 
 The core of TanStack Query is to manage server-side data. Here are the capabilities provided by TanStack Query:
 
@@ -19,7 +19,7 @@ The core of TanStack Query is to manage server-side data. Here are the capabilit
 - `Persistence`: The local cache can be persisted and can be automatically restored when the page is refreshed to avoid server calls
 - `Support SSR`: The initial data prepared on the server can be synchronized to the client and automatically complete the hydration
 
-## Feature: Zova extension
+## Features: Zova extension
 
 Zova provides some extension capabilities based on TanStack Query:
 
