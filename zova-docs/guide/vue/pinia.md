@@ -43,11 +43,11 @@ export const useCounterStore = defineStore('counter', () => {
 
 ## 3. Create a store bean
 
-Use the cli command to create a store bean
+::: tip
+Context Menu - [Module Path]: `Zova Create/Bean: Store`
+:::
 
-```bash
-$ zova :create:store counter --module=demo-basic
-```
+Enter the name of store bean according to the prompt, such as `counter`. The VSCode extension will automatically create the code skeleton of `store bean`
 
 Use `useCounterStore` in the generated file
 

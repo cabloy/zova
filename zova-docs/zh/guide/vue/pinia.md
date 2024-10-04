@@ -43,11 +43,11 @@ export const useCounterStore = defineStore('counter', () => {
 
 ## 3. 创建store bean
 
-使用 cli 命令创建一个 store bean
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Bean: Store`
+:::
 
-```bash
-$ zova :create:store counter --module=demo-basic
-```
+依据提示输入 store bean 的名称，比如`counter`，VSCode 插件会自动添加 store bean 的代码骨架
 
 在生成的文件中嵌入 useCounterStore
 
