@@ -151,12 +151,12 @@ darkMode: ThemeDarkMode; // auto/true/false
 
 protected async __init__() {
   this.darkMode = this.$useQueryCookie({
-    queryKey: ['themedarkmode'],
+    queryKey: ['themedark'],
     meta: {
       persister: {
-        deserialize: value => {
-          value = value === 'true' ? true : value === 'false' ? false : !value ? undefined : value;
-          return this.$deserializeCookie(value);
+        deserialize: (value, deserializeDefault) => {
+          if (value === 'auto') value = cookieThemeDarkDefault;
+          return deserializeDefault(value);
         },
       },
       defaultData: 'auto',
