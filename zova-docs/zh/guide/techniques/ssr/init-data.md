@@ -29,7 +29,7 @@ export class ControllerPageTodo {
 2. 通过`@Use`注入 ModelTodo
 3. 直接在`__init__`方法中调用 `suspense` 方法准备好数据
 
-## 原理分析：
+## 原理分析
 
 1. Model bean 底层基于 [TanStack Query](../model/introduction.md)，自动支持 SSR，服务端的数据会同步到客户端，自动完成水合
 2. `__init__`支持异步调用，在服务端初始化数据，在客户端再次执行时，会自动从水合后的缓存中取得服务端准备好的数据
