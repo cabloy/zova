@@ -147,6 +147,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: 'SSR',
+          base: '/guide/techniques/ssr/',
+          items: [
+            { text: 'Introduction', link: 'introduction' },
+            { text: 'Init Data', link: 'init-data' },
+            { text: 'ClientOnly', link: 'client-only' },
+            { text: 'SEO Meta', link: 'seo-meta' },
+            { text: 'env', link: 'env' },
+          ],
+        },
+        {
           text: 'Env',
           base: '/guide/techniques/env/',
           link: 'introduction',

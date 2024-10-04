@@ -147,6 +147,17 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
           ],
         },
         {
+          text: 'SSR',
+          base: '/zh/guide/techniques/ssr/',
+          items: [
+            { text: '简介', link: 'introduction' },
+            { text: '初始化数据', link: 'init-data' },
+            { text: 'ClientOnly', link: 'client-only' },
+            { text: 'SEO Meta', link: 'seo-meta' },
+            { text: 'env', link: 'env' },
+          ],
+        },
+        {
           text: 'Env环境变量',
           base: '/zh/guide/techniques/env/',
           link: 'introduction',
