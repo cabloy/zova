@@ -4,7 +4,7 @@
 
 Several global style beans can be created based on business needs, and several style variables are pre-generated in the global beans, so that they can be injected and used in any bean instance
 
-### Create global style Beans
+### Create global style beans
 
 ::: tip
 Context Menu - [Module Path]: `Zova Create/Bean: Style`

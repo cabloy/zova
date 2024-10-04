@@ -37,12 +37,12 @@ Every UI library provides a default theme bean. Theme beans provide the followin
 
 The following is the default theme bean used by Zova when developing/tests:
 
-`zova-dev/src/suite/a-home/modules/home-theme/src/bean/theme.default.ts`
+`zova-dev/src/suite/a-home/modules/home-base/src/bean/theme.default.ts`
 
 ```typescript
 @Theme()
-export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+export class ThemeDefault implements ThemeBase {
+  async apply({ name: _name, dark }: ThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#1976d2',
@@ -69,22 +69,20 @@ export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
 
 Then, next, you can create a new theme bean by referring to the default theme bean
 
-### Cli command
+### Create theme beans
 
-Theme beans can be created through Cli commands. For example, create a theme Bean `orange` in the `demo-basic` module
+::: tip
+Context Menu - [Module Path]: `Zova Create/Bean: Theme`
+:::
 
-```bash
-$ zova :create:theme orange --module=demo-basic
-```
-
-- This command will automatically create a Bean file: `demo-basic/src/bean/theme.orange.ts`, and the corresponding Bean identifier is: `demo-basic.theme.orange`
+Enter the name of theme bean according to the prompt, such as `orange`. The VSCode extension will automatically create the code skeleton of `theme bean`
 
 ### Custom apply method
 
 ```typescript
 @Theme()
-export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+export class ThemeOrange implements ThemeBase {
+  async apply({ name: _name, dark }: ThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#f28238',
@@ -104,7 +102,7 @@ export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
 }
 ```
 
-### Switch theme
+## Switch theme
 
 Next, you can dynamically switch the theme in the code
 
@@ -113,14 +111,14 @@ export class RenderTest extends BeanRenderBase {
   render() {
     return (
       <div>
-        <div>name: {this.$theme.name}</div>
-        <div>dark: {String(this.$theme.dark)}</div>
-        <div>dark mode: {String(this.$theme.darkMode)}</div>
+        <div>{this.$theme.name}</div>
+        <div>{String(this.$theme.dark)}</div>
+        <div>{String(this.$theme.darkMode)}</div>
         <button onClick={() => {
             this.$theme.name =
-              this.$theme.name === 'home-theme.theme.default'
+              this.$theme.name === 'home-base.theme.default'
                 ? 'demo-basic.theme.orange'
-                : 'home-theme.theme.default';
+                : 'home-base.theme.default';
           }}
         >
           Toggle Theme
