@@ -31,10 +31,10 @@ export interface ThemeToken {
 
 其他几个 UI 库的 token 接口类型定义文件如下：
 
-- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/a-antdv/src/themeToken.ts`
-- element: `zova-ui-element/src/suite-vendor/a-element/modules/a-element/src/themeToken.ts`
-- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/a-quasar/src/themeToken.ts`
-- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/a-vuetify/src/themeToken.ts`
+- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/antdv-adapter/src/themeToken.ts`
+- element: `zova-ui-element/src/suite-vendor/a-element/modules/element-adapter/src/themeToken.ts`
+- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/themeToken.ts`
+- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/vuetify-adapter/src/themeToken.ts`
 
 ## 提供token值
 
@@ -46,10 +46,10 @@ Zova 在 BeanBase 基类中注入了`$token`对象，从而可以在任何 bean 
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  buttonPrimary: string;
+  cButtonPrimary: string;
 
   protected async __init__() {
-    this.buttonPrimary = useComputed(() => {
+    this.cButtonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,
@@ -61,7 +61,7 @@ export class RenderTest extends BeanRenderBase {
     return (
       <div>
         <div>{this.$token.color.primary}</div>
-        <button class={this.buttonPrimary}>Button</button>
+        <button class={this.cButtonPrimary}>Button</button>
       </div>
     );
   }

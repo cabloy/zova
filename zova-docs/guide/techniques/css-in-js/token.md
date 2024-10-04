@@ -31,10 +31,10 @@ export interface ThemeToken {
 
 The token interface type definition files of several other UI libraries are as follows:
 
-- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/a-antdv/src/themeToken.ts`
-- element: `zova-ui-element/src/suite-vendor/a-element/modules/a-element/src/themeToken.ts`
-- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/a-quasar/src/themeToken.ts`
-- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/a-vuetify/src/themeToken.ts`
+- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/antdv-adapter/src/themeToken.ts`
+- element: `zova-ui-element/src/suite-vendor/a-element/modules/element-adapter/src/themeToken.ts`
+- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/themeToken.ts`
+- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/vuetify-adapter/src/themeToken.ts`
 
 ## Provide token value
 
@@ -46,10 +46,10 @@ Zova injects a `$token` object into the `BeanBase` base class so that token data
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  buttonPrimary: string;
+  cButtonPrimary: string;
 
   protected async __init__() {
-    this.buttonPrimary = useComputed(() => {
+    this.cButtonPrimary = useComputed(() => {
       return this.$style({
         color: this.$token.color.primary,
         borderColor: this.$token.var.borderColor,
@@ -61,7 +61,7 @@ export class RenderTest extends BeanRenderBase {
     return (
       <div>
         <div>{this.$token.color.primary}</div>
-        <button class={this.buttonPrimary}>Button</button>
+        <button class={this.cButtonPrimary}>Button</button>
       </div>
     );
   }
