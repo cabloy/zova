@@ -8,6 +8,9 @@ export async function getRegistry() {
     const npmConfig = new NPMConfig({ npmPath: '', definitions, shorthands, flatten });
     await npmConfig.load();
     __registry = npmConfig.get('registry') || 'https://registry.npmjs.org/';
+    if (__registry.charAt(__registry.length - 1) !== '/') {
+      __registry = __registry + '/';
+    }
   }
   return __registry;
 }
