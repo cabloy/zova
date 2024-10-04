@@ -152,3 +152,15 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 ### Mock
 
 See: [Mock](../mock/introduction.md)
+
+## Dynamic environmental parameters
+
+The following are the environmental parameters set according to the runtime environment:
+
+| Name   | Description    |
+| ------ | -------------- |
+| SSR    | If SSR mode    |
+| DEV    | If Development |
+| PROD   | If Production  |
+| CLIENT | If Client      |
+| SERVER | If Server      |

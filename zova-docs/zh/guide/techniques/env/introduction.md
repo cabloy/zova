@@ -145,3 +145,15 @@ $ npm run build:ssr:admin
 ### Mock
 
 参见：[Mock](../mock/introduction.md)
+
+## 动态环境参数
+
+以下是根据运行环境动态设定的环境参数：
+
+| 名称   | 说明           |
+| ------ | -------------- |
+| SSR    | 是否是SSR模式  |
+| DEV    | 是否是开发环境 |
+| PROD   | 是否是生产环境 |
+| CLIENT | 是否是客户端   |
+| SERVER | 是否是服务端   |
