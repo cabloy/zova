@@ -1,6 +1,6 @@
 # Composables
 
-Zova 推荐使用[local bean](../essentials/ioc/anonymous-bean.md)和[store bean](../essentials/ioc/store-bean.md)来封装和复用逻辑。Vue 生态存在大量好用的 composables，比如：[VueUse](https://vueuse.org/)，可以直接在 Zova 中使用
+Zova 推荐使用[匿名bean](../essentials/ioc/anonymous-bean.md)和[具名bean](../essentials/ioc/named-bean.md)来封装和复用逻辑。Vue 生态存在大量好用的 composables，比如：[VueUse](https://vueuse.org/)，可以直接在 Zova 中使用
 
 下面以`鼠标跟踪器`为例，演示如何使用 Composables
 
