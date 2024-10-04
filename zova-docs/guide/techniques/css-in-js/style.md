@@ -10,22 +10,22 @@ Zova has injected the `$style` method in the `BeanBase` base class so that css-i
 
 ```typescript
 export class RenderTest extends BeanRenderBase {
-  textCenter: string;
+  cTextCenter: string;
 
   protected async __init__() {
-    this.textCenter = this.$style({ textAlign: 'center' });
+    this.cTextCenter = this.$style({ textAlign: 'center' });
   }
 
   render() {
     return (
-      <div class={this.textCenter}>Hello Zova</div>
+      <div class={this.cTextCenter}>Hello Zova</div>
     );
   }
 }
 ```
 
-- Generate className through `this.$style` and assign it to `this.textCenter`
-- Use `this.textCenter` directly in rendering code
+- Generate className through `this.$style` and assign it to `this.cTextCenter`
+- Use `this.cTextCenter` directly in rendering code
 
 ## Dynamic style
 
