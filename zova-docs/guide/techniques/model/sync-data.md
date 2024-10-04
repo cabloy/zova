@@ -10,13 +10,13 @@ Below, we demonstrate how to manage user data in Model
 
 ## Create Model Bean
 
-First create a Model Bean `user` in the demo-basic module
+::: tip
+Context Menu - [Module Path]: `Zova Create/Bean: Model`
+:::
 
-```bash
-$ zova :create:model user --module=demo-basic
-```
+Enter the name of model bean according to the prompt, such as `user`. The VSCode extension will automatically create the code skeleton of `model bean`
 
-`src/bean/model.user.ts`
+`demo-basic/src/bean/model.user.ts`
 
 ```typescript
 import { Model } from 'zova';
@@ -36,7 +36,7 @@ The following demonstrates storing user information in localstorage, and the dat
 ### How to define
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   user?: ServiceUserEntity;
 
   protected async __init__() {
@@ -67,7 +67,7 @@ The following demonstrates storing the user Token in a cookie, and the data will
 ### How to define
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   token?: string;
 
   protected async __init__() {

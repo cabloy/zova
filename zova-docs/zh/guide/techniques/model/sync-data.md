@@ -10,13 +10,13 @@ Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的�
 
 ## 创建Model Bean
 
-首先在 demo-basic 模块中创建一个 Model Bean `user`
+::: tip
+右键菜单 - [模块路径]: `Zova Create/Bean: Model`
+:::
 
-```bash
-$ zova :create:model user --module=demo-basic
-```
+依据提示输入 model bean 的名称，比如`user`，VSCode 插件会自动添加 model bean 的代码骨架
 
-`src/bean/model.user.ts`
+`demo-basic/src/bean/model.user.ts`
 
 ```typescript
 import { Model } from 'zova';
@@ -36,7 +36,7 @@ export class ModelUser extends BeanModelBase {}
 ### 如何定义
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   user?: ServiceUserEntity;
 
   protected async __init__() {
@@ -67,7 +67,7 @@ this.user = newUser;
 ### 如何定义
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   token?: string;
 
   protected async __init__() {
