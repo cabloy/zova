@@ -74,3 +74,4 @@ export class StoreApi {
 | APP_VERSION     | env.appVersion    |
 | API_BASE_URL    | api.baseURL       |
 | API_PREFIX      | api.prefix        |
+| API_JWT         | api.jwt           |

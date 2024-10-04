@@ -74,3 +74,4 @@ Some variables exist in both `env` and `config`. The basic logic is as follows:
 | APP_VERSION      | env.appVersion      |
 | API_BASE_URL     | api.baseURL         |
 | API_PREFIX       | api.prefix          |
+| API_JWT          | api.jwt             |
