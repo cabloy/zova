@@ -140,22 +140,15 @@ To further achieve out-of-box functionality, Zova provides several built-in env 
 
 ### SSR
 
-| Name                         | Description                                          |
-| ---------------------------- | ---------------------------------------------------- |
-| SSR_COOKIE_THEMENAME         | Whether to enable cookie used to save ThemeName      |
-| SSR_COOKIE_THEMEDARK         | Whether to enable cookie used to save ThemeDark      |
-| SSR_COOKIE_THEMEDARK_DEFAULT | The default ThemeDark value for SSR_COOKIE_THEMEDARK |
-| SSR_BODYREADYOBSERVER        | Whether to observe the body dom loading process      |
-| SSR_API_BASE_URL             | The API BaseURL on ssr server                        |
-| SSR_PROD_PORT                | The port of ssr production server                    |
+See: [SSR](../ssr/env.md)
 
 ### Mock
 
 See: [Mock](../mock/introduction.md)
 
-## Dynamic environmental parameters
+## Dynamic environment variables
 
-The following are the environmental parameters set according to the runtime environment:
+The following are the environment variables set according to the runtime environment:
 
 | Name   | Description    |
 | ------ | -------------- |
