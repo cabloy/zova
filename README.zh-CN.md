@@ -2,7 +2,7 @@
 
 # Zova
 
-Zova 是一款支持 IOC 容器的 Vue3 框架。有了 IOC 容器的加持，定义响应式状态不再需要`ref/reactive`，也不再需要`ref.value`
+Zova 是一款支持 IOC 容器的 Vue3 框架，能够帮助开发者构建快速、可靠的应用
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
@@ -36,6 +36,7 @@ Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模�
 
 ## 特性
 
+- [SSR](https://zova.js.org/zh/guide/techniques/ssr/introduction.html)：内置开箱即用的 SSR 解决方案，同时支持 B 端和 C 端应用
 - [模块化体系](https://zova.js.org/zh/guide/essentials/modularization/module.html)：构建大型业务系统的基石
 - [IOC控制反转](https://zova.js.org/zh/guide/essentials/ioc/introduction.html)：业务抽象与建模的基石
 - [模块Scope](https://zova.js.org/zh/guide/essentials/scope/introduction.html)：基于依赖查找的访问策略

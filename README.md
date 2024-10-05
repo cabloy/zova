@@ -2,7 +2,7 @@ English | [简体中文](./README.zh-CN.md)
 
 # Zova
 
-Zova is a vue3 framework with ioc container. With the support of ioc container, defining reactive states no longer needs `ref/reactive`, nor `ref.value`
+Zova is a vue3 framework with ioc container, empowers developers to build fast, reliable applications
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
@@ -36,6 +36,7 @@ Zova can be used with any UI library and comes with built-in project templates f
 
 ## Features
 
+- [SSR](https://zova.js.org/zh/guide/techniques/ssr/introduction.html): Built-in out-of-the-box SSR solution, supporting both front-end applications and admin management systems
 - [Modularization](https://zova.js.org/guide/essentials/modularization/module.html): The basis for building large business systems
 - [IOC](https://zova.js.org/guide/essentials/ioc/introduction.html): The basis for business abstraction and modeling
 - [Module Scope](https://zova.js.org/guide/essentials/scope/introduction.html): Access strategy based on dependency lookup
