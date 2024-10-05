@@ -36,7 +36,7 @@ Zova can be used with any UI library and comes with built-in project templates f
 
 ## Features
 
-- [SSR](https://zova.js.org/zh/guide/techniques/ssr/introduction.html): Built-in out-of-the-box SSR solution, supporting both front-end applications and admin management systems
+- [SSR](https://zova.js.org/guide/techniques/ssr/introduction.html): Built-in out-of-the-box SSR solution, supporting both front-end applications and admin management systems
 - [Modularization](https://zova.js.org/guide/essentials/modularization/module.html): The basis for building large business systems
 - [IOC](https://zova.js.org/guide/essentials/ioc/introduction.html): The basis for business abstraction and modeling
 - [Module Scope](https://zova.js.org/guide/essentials/scope/introduction.html): Access strategy based on dependency lookup
