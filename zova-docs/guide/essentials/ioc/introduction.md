@@ -2,6 +2,16 @@
 
 We know that `IOC`(Inversion of Control) is an effective architectural design for system decoupling, and is also a supporting tool for the development of large-scale business systems
 
+## State sharing mechanism
+
+In actual development, the state sharing of three scenes will be encountered: `state sharing of component internal`, `state sharing between components` and `global state sharing`. In the traditional Vue3, different mechanisms are used to achieve these state sharing scenes, while only a unified IOC container mechanism is needed in Zova
+
+| Scene                               | Traditional Vue3 | Zova |
+| ----------------------------------- | ---------------- | ---- |
+| state sharing of component internal | Composable       | IOC  |
+| state sharing between components    | Provide/Inject   | IOC  |
+| global state sharing                | Pinia            | IOC  |
+
 ## IOC Containers
 
 There are two types of ioc containers in Zova:
