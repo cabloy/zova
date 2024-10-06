@@ -23,11 +23,7 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": [
-    "vue3",
-    "ioc",
-    "zova"
-  ],
+  "keywords": ["vue3", "ioc", "zova"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -41,6 +37,7 @@
     "compression": "^1.7.4",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
+    "csx": "^10.0.2",
     "express": "^4.19.2",
     "quasar": "^2.17.0",
     "typestyle": "^2.4.0",
