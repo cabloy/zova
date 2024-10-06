@@ -1,6 +1,6 @@
 # Sync Data
 
-Zova uses the data management mechanism of TanStack Query to realize the management of synchronized data, so that we can write and read data synchronously in cookies and localstorage
+Zova uses TanStack Query's data management mechanism to manage synchronous data, making it easier for us to write and read synchronous data in cookies and localstorage, and also to directly manage memory-based state data
 
 Below, we demonstrate how to manage user data in Model
 
@@ -62,7 +62,7 @@ this.user = newUser;
 
 ## cookie
 
-The following demonstrates storing the user Token in a cookie, and the data will be retained when the page is refreshed.
+The following demonstrates storing the user Token in a cookie, and the data will be retained when the page is refreshed
 
 ### How to define
 
@@ -89,4 +89,37 @@ Read and set data directly like regular variables
 ```typescript
 const token = this.token;
 this.token = newToken;
+```
+
+## memory
+
+The following demonstrates the memory-based global state data. In SSR mode, the global state data defined by the server will be synchronized to the client and automatically complete the hydration
+
+### How to define
+
+`zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/bean/model.theme.ts`
+
+```typescript
+export class ModelTheme extends BeanModelBase {
+  cBrand: string;
+
+  protected async __init__() {
+    this.cBrand = this.$useQueryMem({
+      queryKey: ['cBrand'],
+    });
+  }
+}
+```
+
+- Unlike `async data` definition, `sync data` is defined directly in the initialization method `__init__`
+- Invoke `$useQueryMem` to create a Query object
+- Pass in `queryKey` to ensure the uniqueness of the local cache
+
+### How to use
+
+Read and set data directly like regular variables
+
+```typescript
+const cBrand = this.cBrand;
+this.cBrand = newValue;
 ```

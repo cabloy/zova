@@ -1,6 +1,6 @@
 # 同步数据
 
-Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的管理，从而方面我们在 cookie 和 localstorage 中同步写入和读取数据
+Zova 利用 TanStack Query 的数据管理机制，实现了对同步数据的管理，从而方便我们在 cookie 和 localstorage 中同步写入和读取数据，也可以直接管理基于内存的数据
 
 下面，我们演示如何在 Model 中管理用户的数据
 
@@ -89,4 +89,37 @@ export class ModelUser extends BeanModelBase {
 ```typescript
 const token = this.token;
 this.token = newToken;
+```
+
+## 内存
+
+下面演示基于内存的全局状态数据。在 SSR 模式下，服务端定义的全局状态数据会同步到客户端，并自动完成水合
+
+### 如何定义
+
+`zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/bean/model.theme.ts`
+
+```typescript
+export class ModelTheme extends BeanModelBase {
+  cBrand: string;
+
+  protected async __init__() {
+    this.cBrand = this.$useQueryMem({
+      queryKey: ['cBrand'],
+    });
+  }
+}
+```
+
+- 与`异步数据`定义不同，同步数据直接在初始化方法`__init__`中定义
+- 调用$useQueryMem 创建 Query 对象
+- 传入 queryKey，确保本地缓存的唯一性
+
+### 如何使用
+
+直接像常规变量一样读取和设置数据
+
+```typescript
+const cBrand = this.cBrand;
+this.cBrand = newValue;
 ```
