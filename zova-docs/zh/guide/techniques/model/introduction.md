@@ -8,6 +8,19 @@ Zova Model 的基座是[TanStack Query](https://tanstack.com/query/latest/docs/f
 
 - [Todo: CRUD](https://zova.js.org/zova-demo/#/demo/todo/todo)
 
+## 四种全局状态数据
+
+在实际开发当中，会遇到四种全局状态数据：`异步数据（一般来自服务端）`、`同步数据`。同步数据又分为三种：`localstorage`、`cookie`、`内存`。在传统的 Vue3 当中，分别采用不同的机制来处理这些状态数据，而在 Zova 中只需要采用统一的`Model`机制
+
+| 状态数据     | 传统的Vue3           | Zova  |
+| ------------ | -------------------- | ----- |
+| 异步数据     | Pinia                | Model |
+| localstorage | Pinia + Localstorage | Model |
+| cookie       | Pinia + Cookie       | Model |
+| 内存         | Pinia                | Model |
+
+采用 Model 机制统一管理这些全局状态数据，就可以统一获得 TanStack Query 提供的能力，包括`内存优化`、`持久化`和`支持SSR`等等，从而规范数据使用方式，简化代码结构，提升代码的可维护性
+
 ## 特性：TanStack Query
 
 TanStack Query 的核心是对服务端数据进行管理，这里列举 TanStack Query 提供的能力：

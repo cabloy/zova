@@ -8,6 +8,19 @@ The base of Zova Model is [TanStack Query](https://tanstack.com/query/latest/doc
 
 - [Todo: CRUD](https://zova.js.org/zova-demo/#/demo/todo/todo)
 
+## Four types of global state data
+
+In actual development, you will encounter four types of global state data: `asynchronous data (usually from the server)` and `synchronous data`, while `synchronous data` is divided into three types: `localstorage`, `cookie`, and `memory`. In the traditional Vue3, different mechanisms are used to handle these state data, while only a unified `Model` mechanism is needed in Zova
+
+| Global State Data | Traditional Vue3     | Zova  |
+| ----------------- | -------------------- | ----- |
+| asynchronous data | Pinia                | Model |
+| localstorage      | Pinia + Localstorage | Model |
+| cookie            | Pinia + Cookie       | Model |
+| memory            | Pinia                | Model |
+
+By using the `Model` mechanism to uniformly manage these global state data, you can uniformly obtain the capabilities provided by TanStack Query, including `Memory Optimization`, `Persistence` and `SSR Support`, etc., thereby standardizing data usage, simplifying code structure, and improving code maintainability
+
 ## Features: TanStack Query
 
 The core of TanStack Query is to manage server-side data. Here are the capabilities provided by TanStack Query:
@@ -17,7 +30,7 @@ The core of TanStack Query is to manage server-side data. Here are the capabilit
 - `Reduce duplicate requests`: When accessing data in multiple places in the program at the same time, the server api will be called only once
 - `Memory Optimization`: If the page component using data has been unmounted, the cached data will be automatically recycled after the specified time, thereby saving memory
 - `Persistence`: The local cache can be persisted and can be automatically restored when the page is refreshed to avoid server calls
-- `Support SSR`: The initial data prepared on the server can be synchronized to the client and automatically complete the hydration
+- `SSR Support`: The initial data prepared on the server can be synchronized to the client and automatically complete the hydration
 
 ## Features: Zova extension
 
