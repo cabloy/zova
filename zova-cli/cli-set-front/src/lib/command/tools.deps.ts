@@ -3,8 +3,12 @@ export default {
   info: {
     version: '5.0.0',
     title: 'Cli: Tools: Deps',
-    usage: 'zova :tools:deps',
+    usage: 'zova :tools:deps [--force]',
   },
-  // options: null,
-  // groups: null,
+  options: {
+    force: {
+      description: 'force',
+      type: 'boolean',
+    },
+  },
 };

@@ -14,11 +14,12 @@ export class CliToolsDeps extends BeanCliBase {
     // super
     await super.execute();
     const projectPath = argv.projectPath;
+    const force = argv.force;
     // generate
-    await this._generate(projectPath);
+    await this._generate(projectPath, force);
   }
 
-  async _generate(projectPath: string) {
+  async _generate(projectPath: string, force: boolean) {
     const pkgFile = path.join(projectPath, 'package.json');
     const pkgOriginalFile = path.join(projectPath, 'package.original.json');
     // check original
@@ -35,10 +36,10 @@ export class CliToolsDeps extends BeanCliBase {
     // generate pkg from pkgOriginal
     await this._generatePkgFromPkgOriginal(pkgOriginal, pkgFile);
     // generate type file
-    await this._generateTypeFile(projectPath);
+    await this._generateTypeFile(projectPath, force);
   }
 
-  async _generateTypeFile(projectPath: string) {
+  async _generateTypeFile(projectPath: string, force: boolean) {
     const typeFile = path.join(projectPath, 'src/front/typing/modules.d.ts');
     let content = '';
     // all modules
@@ -50,7 +51,7 @@ export class CliToolsDeps extends BeanCliBase {
     for (const module of this.modulesMeta.modulesArray) {
       if (module.info.node_modules) continue;
       const moduleTypeFile = path.join(module.root, 'src/.metadata/modules.d.ts');
-      if (!fse.existsSync(moduleTypeFile)) {
+      if (force || !fse.existsSync(moduleTypeFile)) {
         await fse.ensureLink(typeFile, moduleTypeFile);
       }
     }
