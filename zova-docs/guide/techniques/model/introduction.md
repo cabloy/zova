@@ -21,23 +21,41 @@ In actual development, you will encounter four types of global state data: `asyn
 
 By using the `Model` mechanism to uniformly manage these global state data, you can uniformly obtain the capabilities provided by TanStack Query, including `Memory Optimization`, `Persistence` and `SSR Support`, etc., thereby standardizing data usage, simplifying code structure, and improving code maintainability
 
-## Features: TanStack Query
+## Feature 1. Support for async data and sync data
 
-The core of TanStack Query is to manage server-side data. Here are the capabilities provided by TanStack Query:
+Important things should be said three times. The core of TanStack Query is to manage `asynchronous data (usually from the server)`. Zova provides some extension capabilities based on TanStack Query, so as to support the management of `synchronous data`. In other words, all the features and capabilities described below apply to both `asynchronous data` and `synchronous data`
 
-- `Auto-caching`: Fetch and cache the server data to avoid repeated requests
-- `Automatic update`: Provides data stale policy and automatically updates at the right time
-- `Reduce duplicate requests`: When accessing data in multiple places in the program at the same time, the server api will be called only once
-- `Memory Optimization`: If the page component using data has been unmounted, the cached data will be automatically recycled after the specified time, thereby saving memory
-- `Persistence`: The local cache can be persisted and can be automatically restored when the page is refreshed to avoid server calls
-- `SSR Support`: The initial data prepared on the server can be synchronized to the client and automatically complete the hydration
+## Feature 2. Automatic caching
 
-## Features: Zova extension
+Locally cache the acquired asynchronous data to avoid repeated acquisition. For synchronous data, read and write operations will be automatically performed on localstorage or cookie
 
-Zova provides some extension capabilities based on TanStack Query:
+## Feature 3. Automatic update
 
-1. `Support synchronized data`: Zova uses the data management mechanism of TanStack Query to realize the management of synchronized data, such as cookies and localstorage
-2. `Automatic namespace isolation`: Zova manages data through Model Beans. The Bean instance itself has a unique identifier and can be used as a namespace for data to avoid data conflicts
+Provide data expiration strategy and automatically update at the right time
+
+## Feature 4. Reduce duplicate requests
+
+When accessing data in multiple places in the program at the same time, the server API will only be called once. If it is synchronous data, only one operation will be called for localstorage or cookie
+
+## Feature 5. Memory optimization
+
+Although the data managed by Zova Model is in a global state, it does not always occupy memory, but provides a mechanism for memory release and recycling. Specifically, it is to create cache data according to business needs when creating a Vue component instance, release the reference to the cache data when the Vue component instance is unmounted, and if no reference and expiration time reached, the garbage collection mechanism (GC) will be triggered to complete the release of memory, thereby saving memory usage. This has significant benefits for large projects and scenarios where users need to interact with the interface for a long time
+
+## Feature 6. Persistence
+
+Local cache can be persisted and can be automatically restored when the page is refreshed to avoid server requests. If it is asynchronous data, it will be automatically persisted to `IndexDB` to meet the storage needs of large amounts of data. If it is synchronous data, it will be automatically persisted to `localstorage` or `cookie`
+
+`Memory optimization` and `persistence` work together, and the effect is more obvious for large projects. For example, the data obtained from the server will generate a local cache and automatically persist. When no longer used and expires, the local cache will be automatically destroyed to release memory. When the data is accessed again, the local cache data will be automatically restored from persistence instead of requesting the data from the server again
+
+## Feature 7. SSR support
+
+Different types of state data will also have different implementation mechanisms in SSR mode. Zova Model smoothes out the differences in these state data and uses a unified mechanism to hydrate them, making the implementation of SSR more natural and intuitive, significantly reducing the mental burden
+
+## Feature 8. Automatic namespace isolation
+
+Zova manages data through Model Bean. The Bean itself has a unique identifier and can be used as a namespace for data, thereby automatically ensuring the uniqueness of the state data naming inside the Bean and avoiding data conflicts
+
+- See: [Bean Identifier](../../essentials/ioc/bean-identifier.md)
 
 ## Create Model Bean
 
