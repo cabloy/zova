@@ -1,6 +1,6 @@
 {
   "name": "zova-cli-set-front",
-  "version": "1.1.176",
+  "version": "1.1.177",
   "description": "zova cli-set-front",
   "publishConfig": {
     "access": "public"
