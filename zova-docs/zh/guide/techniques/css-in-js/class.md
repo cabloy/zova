@@ -20,7 +20,7 @@ Zova 在模块`home-base`中提供了一个全局样式 Bean，我们可以直�
 
 ```typescript
 @Style()
-export class StyleDefault extends BeanBase<ScopeModule> {
+export class StyleDefault extends BeanBase {
   textCenter: string;
   buttonPrimary: string;
 

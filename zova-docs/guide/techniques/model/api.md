@@ -97,7 +97,7 @@ this.$invalidateQueries({ queryKey: ['get', params.id] });
 Create a Query object based on localstorage
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   user?: ServiceUserEntity;
 
   protected async __init__() {
@@ -121,12 +121,36 @@ export class ModelUser extends BeanModelBase<ScopeModule> {
 Create a Query object based on cookie
 
 ```typescript
-export class ModelUser extends BeanModelBase<ScopeModule> {
+export class ModelUser extends BeanModelBase {
   token?: string;
 
   protected async __init__() {
     this.token = this.$useQueryCookie({
       queryKey: ['token'],
+    });
+  }
+}
+```
+
+### Options
+
+- queryKey
+  - Required
+- meta
+  - Optional
+  - Extended parameters
+
+## $useQueryMem
+
+Create a Query object based on memory
+
+```typescript
+export class ModelTheme extends BeanModelBase {
+  cBrand: string;
+
+  protected async __init__() {
+    this.cBrand = this.$useQueryMem({
+      queryKey: ['cBrand'],
     });
   }
 }

@@ -20,7 +20,7 @@ Zova provides a global style Bean in the module `home-base`. We can provide some
 
 ```typescript
 @Style()
-export class StyleDefault extends BeanBase<ScopeModule> {
+export class StyleDefault extends BeanBase {
   textCenter: string;
   buttonPrimary: string;
 
