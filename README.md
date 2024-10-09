@@ -34,6 +34,14 @@ Zova can be used with any UI library and comes with built-in project templates f
 - [Get Started](https://zova.js.org/guide/start/introduction.html)
 - [Why Vue3+IOC?](https://zova.js.org/guide/start/why.html)
 
+## Coding style: Vue+React+Angular
+
+Zova combines the advantages of `Vue/React/Angular` and avoid their shortcomings to make our development experience more elegant and reduce the mental burden
+
+1. `Vue`: Zova still uses Vue3's convenient responsive api system, but defining responsive variables is just like defining native variables, without the need to use `ref/reactive`, and naturally without `ref.value`
+2. `React`: Zova uses the `tsx` syntax to write rendering logic in a `Render Class`, which not only perfectly matches the TS type system, but also supports the splitting of rendering code, and can keep the code clean and elegant even in the face of complex business. In Zova, there are no many hook apis like React, which greatly reduces the mental burden
+3. `Angular`: In actual development, there are three scenarios of state sharing: `state sharing of component internal`, `state sharing between components` and `global state sharing`. In the traditional Vue3, different mechanisms are used to achieve these state sharing scenes, while only a unified IOC container mechanism is needed in Zova. The IOC container provided by Zova abandons the cumbersome design of Angular, with clearer concepts and more powerful functions
+
 ## Features
 
 - [SSR](https://zova.js.org/guide/techniques/ssr/introduction.html): Built-in out-of-the-box SSR solution, supporting both front-end applications and admin management systems
