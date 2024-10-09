@@ -27,7 +27,7 @@ features:
   - title: CSS-in-JS
     details: 内置CSS-in-JS的能力，让样式的开发更加灵活、便捷，同时提供了开箱即用的主题切换能力
   - title: 统一数据源
-    details: 采用统一的Model机制封装统一数据源，包括Cookie、Localstorage和Vue Query管理的服务端数据
+    details: 采用统一的Model机制封装统一数据源，包括Cookie、Localstorage和TanStack Query管理的服务端数据
   - title: IOC容器
     details: Zova提供的IOC容器概念更加清晰，功能更加强大，是应对大型业务系统开发的利器
   - title: 化类型于无形

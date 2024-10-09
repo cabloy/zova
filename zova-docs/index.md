@@ -27,7 +27,7 @@ features:
   - title: CSS-in-JS
     details: Built-in CSS-in-JS capability making style development more flexible and convenient, while providing out-of-the-box theme switching capabilities
   - title: Unified Data Source
-    details: Encapsulating unified data sources through model mechanism, including Cookie, Localstorage and server-side data managed by Vue Query
+    details: Encapsulating unified data sources through model mechanism, including Cookie, Localstorage and server-side data managed by TanStack Query
   - title: IOC Container
     details: The IOC container provided by Zova has a clearer concept and more powerful functions, which is a powerful tool for the development of large-scale business systems
   - title: Type programming without type
