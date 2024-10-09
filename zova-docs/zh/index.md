@@ -18,6 +18,8 @@ hero:
       link: https://github.com/cabloy/zova
 
 features:
+  - title: Vue+React+Angular
+    details: 结合Vue/React/Angular的优点，避免他们的缺点，让我们的开发体验更加优雅，减轻心智负担
   - title: UI库
     details: 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：antdv、element-plus、quasar和vuetify
   - title: SSR
@@ -30,8 +32,6 @@ features:
     details: 采用统一的Model机制封装统一数据源，包括Cookie、Localstorage和TanStack Query管理的服务端数据
   - title: IOC容器
     details: Zova提供的IOC容器概念更加清晰，功能更加强大，是应对大型业务系统开发的利器
-  - title: 化类型于无形
-    details: Zova 采用依赖注入与依赖查找相结合的策略，大量减少装饰器函数的使用。优先使用依赖查找可以达到“化类型于无形”的开发体验，也就是不需要标注类型就可以享受到类型编程的诸多好处，从而让我们的代码始终保持简洁和优雅，进而显著提升开发效率，保证代码质量
   - title: 模块化体系
     details: 在一个大型的 Web 业务系统当中，随着业务的增长和变更，为了避免代码失控，有必要将系统拆分为一个个相对独立的模块，这就是 Zova 采用模块化体系的缘由。在 Zova 中，一个模块就是一个天然的拆包边界，在 build 构建时，自动打包成一个独立的异步 Chunk，告别 Vite 配置的烦恼，同时可以有效避免构建产物的碎片化。特别是在大型业务系统中，这种优势尤其明显
 ---
