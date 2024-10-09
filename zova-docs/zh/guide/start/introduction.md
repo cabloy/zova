@@ -27,6 +27,14 @@ Zova 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模�
 
 - [vue3 + ts + tsx + tailwindcss + daisyui](https://zova.js.org/zova-demo/)
 
+## 代码风格：Vue+React+Angular
+
+Zova 结合`Vue/React/Angular`的优点，规避他们的缺点，让我们的开发体验更加优雅，减轻心智负担
+
+1. `Vue`：Zova 仍然使用 Vue3 便利的响应式系统，但是定义响应式变量就像原生变量一样，不需要使用`ref/reactive`，自然也不需要`ref.value`
+2. `React`：Zova 在一个`Render Class`中通过`tsx`语法来书写渲染逻辑，不仅可以与 TS 类型系统完美契合，也可以支持渲染代码的拆分，即便是面对复杂业务也可以保持代码的舒展与优雅。在 Zova 中没有类似 React 的众多 hook api，大量减轻心智负担
+3. `Angular`：在实际开发当中，会遇到三个场景的状态共享：`组件内部状态共享`、`组件之间状态共享`、`全局状态共享`。在传统的 Vue3 当中，分别采用不同的机制来实现，而在 Zova 中只需要采用统一的 IOC 容器机制即可。Zova 提供的 IOC 容器，摒弃了 Angular 繁琐的设计，概念更加清晰，功能更加强大
+
 ## 特性
 
 Zova 为 Vue3 引入了以下鲜明特征：

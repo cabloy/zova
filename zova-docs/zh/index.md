@@ -19,7 +19,7 @@ hero:
 
 features:
   - title: Vue+React+Angular
-    details: 结合Vue/React/Angular的优点，避免他们的缺点，让我们的开发体验更加优雅，减轻心智负担
+    details: 结合Vue/React/Angular的优点，规避他们的缺点，让我们的开发体验更加优雅，减轻心智负担
   - title: UI库
     details: 可以搭配任何 UI 库使用，并且内置了几款 UI 库的项目模版，便于开箱即用，包括：antdv、element-plus、quasar和vuetify
   - title: SSR
