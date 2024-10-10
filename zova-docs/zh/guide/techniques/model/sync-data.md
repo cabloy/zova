@@ -66,7 +66,7 @@ this.user = newUser;
 
 在服务端会自动使用`Request Header`中的 Cookies，在客户端会自动使用`document.cookie`，因此会自动保证 SSR 水合过程中 cookie 状态数据的一致性
 
-下面演示把用户 Token 存入 cookie，当页面刷新时也会保持状态。这样，在 SSR 模式下，客户端和服务端都可以使用相同的 jwt token 访问后端 API 服务
+下面演示把用户 Token 存入 cookie，当页面刷新时也会保持状态。这样，在 SSR 模式下，客户端和服务端都可以使用相同的`jwt token`访问后端 API 服务
 
 ### 如何定义
 
