@@ -11,6 +11,7 @@ export interface RenderTodo extends StyleTodo {}
 export class RenderTodo extends BeanRenderBase<ScopeModule> {
   render() {
     const todoCurrent = this.$$modelTodo.get(this.currentTodo);
+    const todos = this.$$modelTodo.select();
     return (
       <ZPage>
         {todoCurrent?.data && (
@@ -54,7 +55,7 @@ export class RenderTodo extends BeanRenderBase<ScopeModule> {
               </tr>
             </thead>
             <tbody>
-              {this.$$modelTodo.select().data?.map(item => {
+              {todos.data?.map(item => {
                 return (
                   <tr>
                     <td>
