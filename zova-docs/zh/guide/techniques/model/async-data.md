@@ -23,23 +23,37 @@ export class ModelTodo {
 ```
 
 - 调用$useQueryExisting 创建 Query 对象
+  - 为何不使用`$useQuery`方法？因为异步数据一般是在需要时才进行异步加载。因此我们需要确保在多次调用`select`方法时始终返回同一个 Query 对象，所以必须使用`$useQueryExisting`方法
 - 传入 queryKey，确保本地缓存的唯一性
 - 传入 queryFn，在合适的时机调用此函数获取服务端数据
   - service.todo.select：参见[Api服务](../../essentials/scope/service.md)
 
 ### 如何使用
 
+`demo-todo/src/page/todo/controller.ts`
+
 ```typescript
-export class RenderTodo {
+import { ModelTodo } from '../../bean/model.todo.js';
+
+export class ControllerPageTodo {
   @Use()
   $$modelTodo: ModelTodo;
+}
+```
 
+- 注入 Model Bean 实例：$$modelTodo
+
+`demo-todo/src/page/todo/render.tsx`
+
+```typescript
+export class RenderTodo {
   render() {
+    const todos = this.$$modelTodo.select();
     return (
       <div>
-        <div>isLoading: {this.$$modelTodo.select().isLoading}</div>
+        <div>isLoading: {todos.isLoading}</div>
         <div>
-          {this.$$modelTodo.select().data?.map(item => {
+          {todos.data?.map(item => {
             return <div>{item.title}</div>;
           })}
         </div>
@@ -49,10 +63,35 @@ export class RenderTodo {
 }
 ```
 
-- 注入 Model Bean 实例：$$modelTodo
-- 调用$$modelTodo.select()获取 Query 对象
-  - 重复调用此方法返回的是同一个 Query 对象
+- 调用 select 方法获取 Query 对象
+  - render 方法会多次执行，重复调用 select 方法返回的是同一个 Query 对象
 - 直接使用 Query 对象中的状态和数据
+  - 参见：[TanStack Query: Queries](https://tanstack.com/query/latest/docs/framework/vue/guides/queries)
+
+### 如何支持SSR
+
+在 SSR 模式下，我们需要这样使用异步数据：在服务端加载状态数据，然后通过 render 方法渲染成 html 字符串。状态数据和 html 字符串会同时发送到客户端，客户端在进行水合时仍然使用此相同的状态数据，从而保持状态的一致性
+
+要实现以上逻辑，在 Zova Model 中只需要执行一个步骤：
+
+`demo-todo/src/page/todo/controller.ts`
+
+```typescript{8-10}
+import { ModelTodo } from '../../bean/model.todo.js';
+
+export class ControllerPageTodo {
+  @Use()
+  $$modelTodo: ModelTodo;
+
+  protected async __init__() {
+    const queryTodos = this.$$modelTodo.select();
+    await queryTodos.suspense();
+    if (queryTodos.error) throw queryTodos.error;
+  }
+}
+```
+
+- 只需要在`__init__`方法中等待异步数据加载完成
 
 ## 数据获取：get
 
@@ -98,6 +137,10 @@ export class RenderTodo {
 - 调用$$modelTodo.get()获取 Query 对象
   - 重复调用此方法返回的是同一个 Query 对象
 - 直接使用 Query 对象中的状态和数据
+
+### 如何支持SSR
+
+同`select`
 
 ## 数据变更：insert
 

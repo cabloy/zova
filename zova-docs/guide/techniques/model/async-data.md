@@ -22,24 +22,38 @@ export class ModelTodo {
 }
 ```
 
-- Call `$useQueryExisting` to create a Query object
+- Invoke `$useQueryExisting` to create a Query object
+  - Why not use the `$useQuery` method? Because asynchronous data is generally loaded asynchronously when needed. Therefore, we need to ensure that the same Query object is always returned when the `select` method is invoked multiple times, so the `$useQueryExisting` method must be used
 - Pass in `queryKey` to ensure the uniqueness of the local cache
 - Pass in `queryFn` and call this function at the appropriate time to obtain server data
   - service.todo.select: see [Api service](../../essentials/scope/service.md)
 
 ### How to use
 
+`demo-todo/src/page/todo/controller.ts`
+
 ```typescript
-export class RenderTodo {
+import { ModelTodo } from '../../bean/model.todo.js';
+
+export class ControllerPageTodo {
   @Use()
   $$modelTodo: ModelTodo;
+}
+```
 
+- Inject Model Bean instance: `$$modelTodo`
+
+`demo-todo/src/page/todo/render.tsx`
+
+```typescript
+export class RenderTodo {
   render() {
+    const todos = this.$$modelTodo.select();
     return (
       <div>
-        <div>isLoading: {this.$$modelTodo.select().isLoading}</div>
+        <div>isLoading: {todos.isLoading}</div>
         <div>
-          {this.$$modelTodo.select().data?.map(item => {
+          {todos.data?.map(item => {
             return <div>{item.title}</div>;
           })}
         </div>
@@ -49,10 +63,35 @@ export class RenderTodo {
 }
 ```
 
-- Inject Model Bean instance: `$$modelTodo`
-- Invoke `$$modelTodo.select()` to obtain the Query object
-  - Repeated calls to this method return the same Query object
+- Invoke `select` method to obtain the Query object
+  - The render method will be executed multiple times, and repeated calls to the `select` method return the same Query object
 - Directly use the state and data of the Query object
+  - See: [TanStack Query: Queries](https://tanstack.com/query/latest/docs/framework/vue/guides/queries)
+
+### How to support SSR
+
+In SSR mode, we need to use asynchronous data like this: load the state data on the server, and then render it into an HTML string through the render method. The state data and HTML string will be sent to the client at the same time, and the client will still use the same state data when hydrating so as to maintain state consistency
+
+To implement the above logic, only one step is required in Zova Model:
+
+`demo-todo/src/page/todo/controller.ts`
+
+```typescript{8-10}
+import { ModelTodo } from '../../bean/model.todo.js';
+
+export class ControllerPageTodo {
+  @Use()
+  $$modelTodo: ModelTodo;
+
+  protected async __init__() {
+    const queryTodos = this.$$modelTodo.select();
+    await queryTodos.suspense();
+    if (queryTodos.error) throw queryTodos.error;
+  }
+}
+```
+
+- Just invoke `suspense` in the `__init__` method to wait for asynchronous data loading to complete
 
 ## Data Query: get
 
@@ -98,6 +137,10 @@ export class RenderTodo {
 - Invoke `$$modelTodo.get()` to get the Query object
   - Repeated calls to this method return the same Query object
 - Directly use the state and data of the Query object
+
+### How to support SSR
+
+Same as `select`
 
 ## Data Mutation: insert
 
