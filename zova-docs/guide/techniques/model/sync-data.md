@@ -31,7 +31,9 @@ export class ModelUser extends BeanModelBase {}
 
 ## localstorage
 
-The following demonstrates storing user information in localstorage, and the data will be retained when the page is refreshed
+Since the server does not support `window.localStorage`, the localstorage state data does not participate in the SSR hydration process
+
+The following demonstrates storing user information in localstorage, and the state will be retained when the page is refreshed
 
 ### How to define
 
@@ -62,7 +64,9 @@ this.user = newUser;
 
 ## cookie
 
-The following demonstrates storing the user Token in a cookie, and the data will be retained when the page is refreshed
+Cookies in `Request Header` are automatically used on the server side, and `document.cookie` is automatically used on the client side, thus automatically ensuring the consistency of cookie state data during SSR hydration
+
+The following demonstrates storing the user Token in a cookie, and the state will be retained when the page is refreshed. Thus, in SSR mode, both the client and the server can use the same `jwt token` to access the backend API services
 
 ### How to define
 
@@ -93,7 +97,9 @@ this.token = newToken;
 
 ## memory
 
-The following demonstrates the memory-based global state data. In SSR mode, the global state data defined by the server will be synchronized to the client and automatically complete the hydration
+In SSR mode, the global state data defined by the server will be synchronized to the client and automatically complete the hydration
+
+The following demonstrates the memory-based global state data
 
 ### How to define
 

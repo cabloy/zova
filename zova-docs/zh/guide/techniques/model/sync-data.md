@@ -31,7 +31,9 @@ export class ModelUser extends BeanModelBase {}
 
 ## localstorage
 
-下面演示把用户信息存入 localstorage，当页面刷新时也会保持数据
+由于服务端不支持`window.localStorage`，因此 localstorage 状态数据不参与 SSR 的水合过程
+
+下面演示把用户信息存入 localstorage，当页面刷新时也会保持状态
 
 ### 如何定义
 
@@ -62,7 +64,9 @@ this.user = newUser;
 
 ## cookie
 
-下面演示把用户 Token 存入 cookie，当页面刷新时也会保持数据
+在服务端会自动使用`Request Header`中的 Cookies，在客户端会自动使用`document.cookie`，因此会自动保证 SSR 水合过程中 cookie 状态数据的一致性
+
+下面演示把用户 Token 存入 cookie，当页面刷新时也会保持状态。这样，在 SSR 模式下，客户端和服务端都可以使用相同的 jwt token 访问后端 API 服务
 
 ### 如何定义
 
@@ -93,7 +97,9 @@ this.token = newToken;
 
 ## 内存
 
-下面演示基于内存的全局状态数据。在 SSR 模式下，服务端定义的全局状态数据会同步到客户端，并自动完成水合
+在 SSR 模式下，服务端定义的全局状态数据会同步到客户端，并自动完成水合
+
+下面演示基于内存的全局状态数据
 
 ### 如何定义
 
