@@ -91,7 +91,7 @@ export class ControllerPageTodo {
 }
 ```
 
-- 只需要在`__init__`方法中等待异步数据加载完成
+- 只需要在`__init__`方法中调用`suspense`等待异步数据加载完成
 
 ## 数据获取：get
 
