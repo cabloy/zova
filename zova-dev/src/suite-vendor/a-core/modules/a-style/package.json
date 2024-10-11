@@ -12,6 +12,22 @@
     "globalDependencies": {
       "csx": true,
       "typestyle": true
+    },
+    "bundle": {
+      "vendors": [
+        {
+          "match": [
+            "csx"
+          ],
+          "output": "typestyle"
+        },
+        {
+          "match": [
+            "typestyle"
+          ],
+          "output": "typestyle"
+        }
+      ]
     }
   },
   "type": "module",
