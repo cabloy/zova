@@ -8,6 +8,10 @@
     },
     "dependencies": {
       "a-model": "5.0.0"
+    },
+    "globalDependencies": {
+      "csx": true,
+      "typestyle": true
     }
   },
   "type": "module",
