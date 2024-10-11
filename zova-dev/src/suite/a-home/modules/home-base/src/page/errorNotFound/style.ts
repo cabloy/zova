@@ -2,7 +2,6 @@ import { BeanStyleBase, Local } from 'zova';
 import type { ControllerPageErrorNotFound } from './controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { classes } from 'typestyle';
-//import { classes } from 'typestyle';
 
 export interface StyleErrorNotFound extends ControllerPageErrorNotFound {}
 
