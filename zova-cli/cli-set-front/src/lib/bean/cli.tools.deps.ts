@@ -66,17 +66,20 @@ export class CliToolsDeps extends BeanCliBase {
         depsOriginal[module.package.name] = version;
       }
     });
-    // // all deps of modules
-    // this.modulesMeta.modulesArray.forEach(module => {
-    //   const deps = module.package.dependencies;
-    //   if (deps) {
-    //     for (const key in deps) {
-    //       if (!depsOriginal[key]) {
-    //         depsOriginal[key] = deps[key];
-    //       }
-    //     }
-    //   }
-    // });
+    // all globalDependencies of modules
+    this.modulesMeta.modulesArray.forEach(module => {
+      const deps = module.package.dependencies;
+      const globalDependencies = module.package.zovaModule?.globalDependencies;
+      if (globalDependencies) {
+        for (const key in globalDependencies) {
+          let version = globalDependencies[key];
+          if (version !== false && !depsOriginal[key]) {
+            if (version === true) version = deps[key];
+            depsOriginal[key] = version;
+          }
+        }
+      }
+    });
     await this.helper.saveJSONFile(pkgFile, pkgOriginal);
   }
 
