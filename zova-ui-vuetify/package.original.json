@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-vuetify",
-  "version": "5.0.309",
+  "version": "5.0.312",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,11 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": ["vue3", "ioc", "zova"],
+  "keywords": [
+    "vue3",
+    "ioc",
+    "zova"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -43,7 +47,7 @@
     "vuetify": "^3.7.1",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "^5.0.214"
+    "zova": "^5.0.215"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.11",
@@ -51,13 +55,13 @@
     "@types/node": "^20.14.9",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.175",
+    "quasar-app-extension-zova": "^1.1.176",
     "sass": "^1.77.6",
     "typescript": "^5.5.2",
     "vite": "^5.3.1",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.0.29",
-    "zova-vite": "^1.0.174"
+    "zova-vite": "^1.0.175"
   },
   "license": "MIT",
   "gitHead": "25e1a6a705edb2edbb362563a9f8d69b55e1c7e9"
