@@ -46,6 +46,7 @@ When a project is created, there will be some modules present in the project, pr
 | Name                                                    | Description                                        |
 | ------------------------------------------------------- | -------------------------------------------------- |
 | [$api](../../techniques/api/introduction.md)            | Api object provided by module `home-base`          |
+| [$scopeBase](../../essentials/scope/introduction.md)    | Scope object provided by module `home-base`        |
 | [$class](../../techniques/css-in-js/class.md)           | Global style object provided by module `home-base` |
 | [$pinia](../../vue/pinia.md)                            | Pinia object provided by module `a-pinia`          |
 | [$queryClient](../../techniques/model/introduction.md)  | QueryClient object provided by module `a-model`    |

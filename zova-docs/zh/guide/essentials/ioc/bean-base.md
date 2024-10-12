@@ -46,6 +46,7 @@
 | 名称                                                    | 说明                                 |
 | ------------------------------------------------------- | ------------------------------------ |
 | [$api](../../techniques/api/introduction.md)            | 由模块`home-base`提供的api对象       |
+| [$scopeBase](../../essentials/scope/introduction.md)    | 由模块`home-base`提供的scope对象     |
 | [$class](../../techniques/css-in-js/class.md)           | 由模块`home-base`提供的全局样式对象  |
 | [$pinia](../../vue/pinia.md)                            | 由模块`a-pinia`提供的pinia对象       |
 | [$queryClient](../../techniques/model/introduction.md)  | 由模块`a-model`提供的queryClient对象 |
