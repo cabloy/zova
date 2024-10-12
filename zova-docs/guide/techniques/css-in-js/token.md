@@ -8,7 +8,7 @@ First, you need to define a token interface type, which is the basis for all sub
 
 The following is the token interface type definition used by Zova when developing and testing:
 
-`zova-dev/src/suite-vendor/a-devui/modules/a-devui/src/themeToken.ts`
+`zova-dev/src/suite/a-home/modules/home-base/src/themeToken.ts`
 
 ```typescript
 export interface ThemeToken {
@@ -31,10 +31,10 @@ export interface ThemeToken {
 
 The token interface type definition files of several other UI libraries are as follows:
 
-- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/antdv-adapter/src/themeToken.ts`
-- element: `zova-ui-element/src/suite-vendor/a-element/modules/element-adapter/src/themeToken.ts`
-- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/themeToken.ts`
-- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/vuetify-adapter/src/themeToken.ts`
+- antdv: `zova-ui-antdv/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- element: `zova-ui-element/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- quasar: `zova-ui-quasar/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- vuetify: `zova-ui-vuetify/src/suite/a-home/modules/home-base/src/themeToken.ts`
 
 ## Provide token value
 

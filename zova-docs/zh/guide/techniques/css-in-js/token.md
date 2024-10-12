@@ -8,7 +8,7 @@
 
 下面是 Zova 开发测试时所使用的 token 接口类型定义：
 
-`zova-dev/src/suite-vendor/a-devui/modules/a-devui/src/themeToken.ts`
+`zova-dev/src/suite/a-home/modules/home-base/src/themeToken.ts`
 
 ```typescript
 export interface ThemeToken {
@@ -31,10 +31,10 @@ export interface ThemeToken {
 
 其他几个 UI 库的 token 接口类型定义文件如下：
 
-- antdv: `zova-ui-antdv/src/suite-vendor/a-antdv/modules/antdv-adapter/src/themeToken.ts`
-- element: `zova-ui-element/src/suite-vendor/a-element/modules/element-adapter/src/themeToken.ts`
-- quasar: `zova-ui-quasar/src/suite-vendor/a-quasar/modules/quasar-adapter/src/themeToken.ts`
-- vuetify: `zova-ui-vuetify/src/suite-vendor/a-vuetify/modules/vuetify-adapter/src/themeToken.ts`
+- antdv: `zova-ui-antdv/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- element: `zova-ui-element/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- quasar: `zova-ui-quasar/src/suite/a-home/modules/home-base/src/themeToken.ts`
+- vuetify: `zova-ui-vuetify/src/suite/a-home/modules/home-base/src/themeToken.ts`
 
 ## 提供token值
 
