@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-element",
-  "version": "5.0.314",
+  "version": "5.0.315",
   "description": "A vue3 element-plus framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -23,11 +23,7 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": [
-    "vue3",
-    "ioc",
-    "zova"
-  ],
+  "keywords": ["vue3", "ioc", "zova"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -40,7 +36,7 @@
     "compression": "^1.7.4",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
-    "element-plus": "^2.8.3",
+    "element-plus": "^2.8.5",
     "express": "^4.19.2",
     "quasar": "^2.17.0",
     "vue": "^3.5.6",

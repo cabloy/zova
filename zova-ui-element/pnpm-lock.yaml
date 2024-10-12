@@ -21,11 +21,14 @@ importers:
         specifier: ^10.0.2
         version: 10.0.2
       element-plus:
-        specifier: ^2.8.3
-        version: 2.8.3(vue@3.5.8(typescript@5.6.2))
+        specifier: ^2.8.5
+        version: 2.8.5(vue@3.5.8(typescript@5.6.2))
       express:
         specifier: ^4.19.2
         version: 4.21.0
+      mutate-on-copy:
+        specifier: ^1.0.1
+        version: 1.0.1
       quasar:
         specifier: ^2.17.0
         version: 2.17.0
@@ -2073,8 +2076,8 @@ packages:
   electron-to-chromium@1.5.27:
     resolution: {integrity: sha512-o37j1vZqCoEgBuWWXLHQgTN/KDKe7zwpiY5CPeq2RvUqOyJw9xnrULzZAEVQ5p4h+zjMk7hgtOoPdnLxr7m/jw==}
 
-  element-plus@2.8.3:
-    resolution: {integrity: sha512-BXQOyDf0s7JHyNEV8iaO+iaOzTZPsBXVKMzMI967vLCodUBDLrtiY5vglAn1YEebQcUOEUMhGcttTpIvEkcBjQ==}
+  element-plus@2.8.5:
+    resolution: {integrity: sha512-Px+kPbRTVvn5oa5+9saa7QEOnUweKXm0JVI7yJHzKF/doQGixwcFMsQEF2+3Fy62EA/7dRRKVuhsNGGZYNk3cw==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -5672,7 +5675,7 @@ snapshots:
 
   electron-to-chromium@1.5.27: {}
 
-  element-plus@2.8.3(vue@3.5.8(typescript@5.6.2)):
+  element-plus@2.8.5(vue@3.5.8(typescript@5.6.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.1(vue@3.5.8(typescript@5.6.2))
