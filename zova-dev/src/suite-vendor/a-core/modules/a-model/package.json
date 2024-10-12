@@ -6,6 +6,9 @@
     "capabilities": {
       "monkey": true
     },
+    "globalDependencies": {
+      "mutate-on-copy": true
+    },
     "bundle": {
       "vendors": [
         {
@@ -53,7 +56,8 @@
   "dependencies": {
     "@tanstack/query-persist-client-core": "^5.45.0",
     "@tanstack/vue-query": "^5.45.0",
-    "localforage": "^1.10.0"
+    "localforage": "^1.10.0",
+    "mutate-on-copy": "^1.0.0"
   },
   "gitHead": "05d23697b757afe62aff4ff5de98a9babdd326e2"
 }
