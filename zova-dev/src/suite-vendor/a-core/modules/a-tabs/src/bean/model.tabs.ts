@@ -2,6 +2,7 @@ import { Model, useComputed } from 'zova';
 import { BeanModelBase, UseQueryOptions } from 'zova-module-a-model';
 import { ScopeModule } from '../.metadata/this.js';
 import { watch } from 'vue';
+import { mutate } from 'mutate-on-copy';
 
 export interface RouteTabInfo {
   title?: string;
@@ -100,11 +101,13 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
     if (index === -1) {
       const tabNew = { ...tab, updatedAt: Date.now(), info: tabInfo };
       if (this.tabCurrentIndex === -1) {
-        this.tabs = [...this.tabs, tabNew];
+        this.tabs = mutate(this.tabs, copyState => {
+          copyState.push(tabNew);
+        });
       } else {
-        const tabsNew = this.tabs.slice();
-        tabsNew.splice(this.tabCurrentIndex + 1, 0, tabNew);
-        this.tabs = tabsNew;
+        this.tabs = mutate(this.tabs, copyState => {
+          copyState.splice(this.tabCurrentIndex + 1, 0, tabNew);
+        });
       }
       this.pruneTabs();
     } else {
@@ -136,11 +139,11 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       await this.deleteTab(tab);
     }
     // sort
-    const tabsNew = this.tabs.slice();
-    tabsNew.sort((a, b) => {
-      return Number(!!b.affix) - Number(!!a.affix);
+    this.tabs = mutate(this.tabs, copyState => {
+      copyState.sort((a, b) => {
+        return Number(!!b.affix) - Number(!!a.affix);
+      });
     });
-    this.tabs = tabsNew;
   }
 
   async deleteTab(tab: Pick<RouteTab, 'key'>) {
@@ -156,18 +159,18 @@ export class ModelTabs extends BeanModelBase<ScopeModule> {
       }
     }
     // tabs
-    const tabsNew = this.tabs.slice();
-    tabsNew.splice(index, 1);
-    this.tabs = tabsNew;
+    this.tabs = mutate(this.tabs, copyState => {
+      copyState.splice(index, 1);
+    });
   }
 
   updateTab(tab: RouteTab) {
     const [index, tabOld] = this.findTab(tab.key);
     if (index === -1) return;
     const tabNew = { ...tabOld, ...tab, updatedAt: Date.now() };
-    const tabsNew = this.tabs.slice();
-    tabsNew.splice(index, 1, tabNew);
-    this.tabs = tabsNew;
+    this.tabs = mutate(this.tabs, copyState => {
+      copyState.splice(index, 1, tabNew);
+    });
   }
 
   async activeTab(tab: RouteTab) {
