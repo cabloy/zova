@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BeanApi } from './bean/bean.api.js';
 import { LocalRouter } from './bean/local.router.js';
 import { LocalSSR } from './bean/local.ssr.js';
+import { __ThisModule__ } from './.metadata/this.js';
 
 export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyBeanInit {
   localRouter: LocalRouter;
@@ -20,11 +21,20 @@ export class Monkey extends BeanSimple implements IMonkeyAppInitialize, IMonkeyB
   }
   async beanInit(bean: BeanContainer, beanInstance: BeanBase) {
     const self = this;
+    // $api
     bean.defineProperty(beanInstance, '$api', {
       enumerable: false,
       configurable: true,
       get() {
         return self.app.meta.$api;
+      },
+    });
+    // $scopeBase
+    bean.defineProperty(beanInstance, '$scopeBase', {
+      enumerable: false,
+      configurable: true,
+      get() {
+        return self.app.bean.scope(__ThisModule__);
       },
     });
   }
