@@ -1,7 +1,7 @@
 import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
 import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
-import { ThemeToken } from 'zova-module-element-adapter';
+import { ThemeToken } from '../themeToken.js';
 import { themeDark } from './theme/themeDark.js';
 import { themeLight } from './theme/themeLight.js';
 
