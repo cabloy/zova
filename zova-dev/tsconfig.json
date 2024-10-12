@@ -24,6 +24,9 @@
       "path": "packages-utils/last-word"
     },
     {
+      "path": "packages-utils/mutate-on-copy"
+    },
+    {
       "path": "packages-utils/babel-plugin-zova-bean-module"
     },
     {

@@ -1,0 +1,32 @@
+{
+  "name": "mutate-on-copy",
+  "version": "1.0.0",
+  "description": "mutate on copy",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "tsc -b --clean",
+    "tsc:publish": "npm run clean && tsc -b",
+    "prepublishOnly": "npm run tsc:publish"
+  },
+  "keywords": [
+    "framework",
+    "zova"
+  ],
+  "author": "zhennann",
+  "license": "MIT"
+}
