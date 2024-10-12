@@ -3,6 +3,7 @@ import { BeanApi } from './bean/bean.api.js';
 import { StyleDefault } from './bean/style.default.js';
 import { createCache } from 'ant-design-vue';
 import { ScopeModule } from './.metadata/this.js';
+import { ThemeToken } from './themeToken.js';
 import 'zova';
 
 declare module 'zova' {
@@ -14,6 +15,18 @@ declare module 'zova' {
     $api: BeanApi;
     $scopeBase: ScopeModule;
     $class: StyleDefault;
+    $token: ThemeToken;
     $antdvStyleCache: ReturnType<typeof createCache>;
+  }
+}
+
+import 'zova-module-a-style';
+declare module 'zova-module-a-style' {
+  export interface ThemeApplyResult {
+    token: ThemeToken;
+  }
+
+  export interface ThemeHandlerApplyParams {
+    token: ThemeToken;
   }
 }

@@ -1,9 +1,9 @@
 import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
 import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
-import { ThemeToken } from 'zova-module-antdv-adapter';
 import { theme } from 'ant-design-vue';
 import { getAlphaColor, getSolidColor } from 'ant-design-vue/es/theme/themes/default/colorAlgorithm.js';
+import { ThemeToken } from '../themeToken.js';
 
 @Theme()
 export class ThemeDefault extends BeanBase<ScopeModule> implements ThemeBase {
