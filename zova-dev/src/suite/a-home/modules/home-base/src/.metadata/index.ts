@@ -44,21 +44,33 @@ declare module 'zova' {
 export const pagePathSchemas = {};
 export const pageNameSchemas = {};
 /** pages: end */
+/** locale: begin */
+import locale_en_us from '../config/locale/en-us.js';
+import locale_zh_cn from '../config/locale/zh-cn.js';
+export const locales = {
+  'en-us': locale_en_us,
+  'zh-cn': locale_zh_cn,
+};
+/** locale: end */
 /** monkey: begin */
 export * from '../monkey.js';
 /** monkey: end */
 /** scope: begin */
-import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
+import { BeanScopeBase, Scope, TypeLocaleBase, TypeModuleResource } from 'zova';
 
 @Scope()
 export class ScopeModuleHomeBase extends BeanScopeBase {}
 
-export interface ScopeModuleHomeBase extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleHomeBase extends TypeModuleResource<any, any, (typeof locales)[TypeLocaleBase], any, any> {}
 
 import 'zova';
 declare module 'zova' {
   export interface IBeanScopeRecord {
     'home-base': ScopeModuleHomeBase;
+  }
+
+  export interface IBeanScopeLocale {
+    'home-base': (typeof locales)[TypeLocaleBase];
   }
 }
 /** scope: end */
