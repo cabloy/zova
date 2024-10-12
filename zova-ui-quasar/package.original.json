@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-quasar",
-  "version": "5.0.324",
+  "version": "5.0.326",
   "description": "A vue3 quasar framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -46,7 +46,7 @@
     "vue": "^3.5.6",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "^5.0.215"
+    "zova": "^5.0.216"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.11",
