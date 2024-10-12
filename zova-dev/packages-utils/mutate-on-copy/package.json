@@ -1,6 +1,6 @@
 {
   "name": "mutate-on-copy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mutate on copy",
   "publishConfig": {
     "access": "public"
