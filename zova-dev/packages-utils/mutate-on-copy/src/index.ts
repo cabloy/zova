@@ -1,6 +1,6 @@
-export function mutate<T>(target: T, fn: (copy: T) => T | undefined): T {
+export function mutate<T>(target: T, fn: (copyState: T) => T | undefined | void): T {
   if (!target) return target;
-  const copy = (Array.isArray(target) ? target.slice() : Object.assign({}, target)) as T;
-  const res = fn(copy);
-  return res === undefined ? copy : res;
+  const copyState = (Array.isArray(target) ? target.slice() : Object.assign({}, target)) as T;
+  const res = fn(copyState);
+  return res === undefined ? copyState : res;
 }
