@@ -191,6 +191,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'FAQ', link: 'resources/faq' },
         { text: 'Videos', link: 'resources/videos' },
+        { text: 'Articles', link: 'resources/articles' },
       ],
     },
     { text: 'Thanks', link: 'others/thanks' },
