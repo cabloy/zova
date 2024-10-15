@@ -54,3 +54,9 @@ $ npm run dev
 ```bash
 $ npm run build
 ```
+
+### 6. Preview
+
+```bash
+$ npm run preview
+```
