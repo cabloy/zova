@@ -1,6 +1,6 @@
 # Module
 
-In Zova, `Modules` consolidate components, configurations, languages ​​and other resources into cohesive blocks of functionality, each focused on a feature area, application business domain, workflow, or common collection of utilities
+In Zova, `Modules` consolidate pages, components, configurations, languages ​​and other resources into cohesive blocks of functionality, each focused on a feature area, application business domain, workflow, or common collection of utilities
 
 ## Why need Modularization?
 
