@@ -2,6 +2,7 @@ import { BeanRenderBase, Local } from 'zova';
 import type { ControllerPageComponent } from './controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
 import { ZCard } from '../../index.js';
+import { ZPage } from 'zova-module-home-base';
 
 export interface RenderComponent extends ControllerPageComponent {}
 
@@ -9,7 +10,7 @@ export interface RenderComponent extends ControllerPageComponent {}
 export class RenderComponent extends BeanRenderBase<ScopeModule> {
   render() {
     return (
-      <div>
+      <ZPage>
         <ZCard
           controllerRef={ref => {
             this.cardRef = ref;
@@ -32,7 +33,7 @@ export class RenderComponent extends BeanRenderBase<ScopeModule> {
             },
           }}
         ></ZCard>
-      </div>
+      </ZPage>
     );
   }
 }
