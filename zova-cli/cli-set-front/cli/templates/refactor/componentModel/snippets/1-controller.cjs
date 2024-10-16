@@ -8,7 +8,7 @@ module.exports = {
     if (ast.includes(`e: '${eventName}'`)) throw new Error('Model exists');
     // Props
     ast = ast.replace(/export interface Props([^\{]*) \{/, $0 => {
-      return `${$0}\n  ${modelName}: number;`;
+      return `${$0}\n  ${modelName}?: number;`;
     });
     // Emits
     ast = ast.replace(/export type Emits([^\{]*) = \{/, $0 => {
@@ -23,7 +23,7 @@ module.exports = {
       return `${localName}: number;\n\n    ${$0}`;
     });
     ast = ast.replace(/protected async __init__([^\{]*) \{/, $0 => {
-      return `${$0}\n      this.${localName} = this.$useModel(${modelName === 'modelValue' ? '' : `'${modelName}'`});`;
+      return `${$0}\n      this.${localName} = this.$useModel(${modelName === 'modelValue' ? '' : `'${modelName}'`})!;`;
     });
     // ok
     return ast;
