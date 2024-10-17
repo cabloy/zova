@@ -10,17 +10,13 @@ module.exports = {
     const matchController = ast.match(/import \{ (Controller[^, ]*)/);
     const className = matchController[1];
     ast = ast
-      .replace(', useController', ', PartialSome, useController')
-      .replace('{ useController', '{ PartialSome, useController')
       .replace(', PropsBase', '')
       .replace(/import \{ ([^\}]*) \} from '.\/controller.js';/, (_, $1) => {
         return `import { ${$1}, Props } from './controller.js';`;
       })
       .replace(
         /const props = [^;]*;/,
-        `const props = withDefaults(
-          defineProps<PartialSome<Props${genericT}, keyof typeof ${className}.$propsDefault>>(),
-          ${className}.$propsDefault);`,
+        `const props = withDefaults(defineProps<Props${genericT}>(), ${className}.$propsDefault);`,
       );
     // ok
     return ast;
