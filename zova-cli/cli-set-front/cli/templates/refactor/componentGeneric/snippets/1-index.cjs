@@ -7,6 +7,7 @@ module.exports = {
     ast = ast
       .replace('<script setup lang="ts">', '<script setup lang="ts" generic="T">')
       .replace('defineProps<Props>', 'defineProps<Props<T>>')
+      .replace('PartialSome<Props', 'PartialSome<Props<T>')
       .replace('defineEmits<Emits>', 'defineEmits<Emits<T>>');
     // ok
     return ast;
