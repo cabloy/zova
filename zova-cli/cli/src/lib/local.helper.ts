@@ -176,4 +176,30 @@ export class LocalHelper {
   async saveJSONFile(fileName: string, json: object) {
     await fse.writeFile(fileName, JSON.stringify(json, null, 2) + '\n');
   }
+  safeSplit(str: string, sep: string = ',') {
+    let left = 0;
+    let start = 0;
+    const result: string[] = [];
+    while (start < str.length) {
+      let end = start;
+      while (end < str.length) {
+        if (str[end] === sep && left === 0) {
+          result.push(str.substring(start, end));
+          start = end + 1;
+          break;
+        }
+        if (str[end] === '<') left++;
+        if (str[end] === '>') left--;
+        end++;
+      }
+      if (start < end) {
+        result.push(str.substring(start, end));
+        start = end + 1;
+      }
+    }
+    if (start <= str.length) {
+      result.push(str.substring(start, str.length));
+    }
+    return result;
+  }
 }
