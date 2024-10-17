@@ -3,10 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import { useController } from 'zova';
+import { PartialSome, useController } from 'zova';
 import { ControllerEssentialLink, Props, Emits } from './controller.js';
 import { RenderEssentialLink } from './render.jsx';
-const props = withDefaults(defineProps<Props>(), ControllerEssentialLink.$propsDefault);
+const props = withDefaults(
+  defineProps<PartialSome<Props, keyof typeof ControllerEssentialLink.$propsDefault>>(),
+  ControllerEssentialLink.$propsDefault,
+);
 const emit = defineEmits<Emits>();
 useController(props, emit, ControllerEssentialLink, RenderEssentialLink);
 </script>
