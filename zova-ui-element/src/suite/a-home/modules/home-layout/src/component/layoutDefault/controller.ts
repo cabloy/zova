@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local, Use, PropsBase, useComputed } from 'zova';
+import { BeanControllerBase, Local, Use, PropsBase, useComputed, RequiredSome } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import * as TreeLodash from 'tree-lodash';
@@ -13,7 +13,12 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<
+  ScopeModule,
+  RequiredSome<Props, keyof typeof ControllerLayoutDefault.$propsDefault>,
+  Emits,
+  Slots
+> {
   static $propsDefault = {};
 
   @Use()

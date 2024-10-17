@@ -1,4 +1,4 @@
-import { BeanControllerBase, Cast, Local, PropsBase, Use } from 'zova';
+import { BeanControllerBase, Cast, Local, PropsBase, Use, RequiredSome } from 'zova';
 import { ScopeModule } from '../../.metadata/this.js';
 import { RouterViewSlotParams } from './render.jsx';
 import { RouteLocationNormalizedLoaded } from 'vue-router';
@@ -12,7 +12,12 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class ControllerRouterViewTabs extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
+export class ControllerRouterViewTabs extends BeanControllerBase<
+  ScopeModule,
+  RequiredSome<Props, keyof typeof ControllerRouterViewTabs.$propsDefault>,
+  Emits,
+  Slots
+> {
   static $propsDefault = {};
 
   @Use({ injectionScope: 'skipSelf' })

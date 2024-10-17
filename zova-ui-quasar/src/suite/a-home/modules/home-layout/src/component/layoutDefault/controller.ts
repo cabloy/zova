@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local, Use, PropsBase, useComputed, useCustomRef } from 'zova';
+import { BeanControllerBase, Local, Use, PropsBase, useComputed, useCustomRef, RequiredSome } from 'zova';
 import { ModelMenu } from '../../bean/model.menu.js';
 import { ModelLayout } from '../../bean/model.layout.js';
 import { ScopeModule } from '../../.metadata/this.js';
@@ -10,7 +10,12 @@ export type Emits = {};
 export interface Slots {}
 
 @Local()
-export class ControllerLayoutDefault extends BeanControllerBase<ScopeModule, Props, Emits, Slots> {
+export class ControllerLayoutDefault extends BeanControllerBase<
+  ScopeModule,
+  RequiredSome<Props, keyof typeof ControllerLayoutDefault.$propsDefault>,
+  Emits,
+  Slots
+> {
   static $propsDefault = {};
 
   @Use()

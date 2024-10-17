@@ -1,4 +1,4 @@
-import { BeanControllerBase, Local, PropsBase } from 'zova';
+import { BeanControllerBase, Local, PropsBase, RequiredSome } from 'zova';
 import { JSX } from 'vue/jsx-runtime';
 
 export interface Props extends PropsBase<ControllerCard, Slots> {
@@ -18,7 +18,12 @@ export interface Slots {
 }
 
 @Local()
-export class ControllerCard extends BeanControllerBase<unknown, Props, Emits, Slots> {
+export class ControllerCard extends BeanControllerBase<
+  unknown,
+  RequiredSome<Props, keyof typeof ControllerCard.$propsDefault>,
+  Emits,
+  Slots
+> {
   static $propsDefault = {
     header: 'default header',
   };
