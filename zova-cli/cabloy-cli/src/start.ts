@@ -10,8 +10,11 @@ const PARSE = Symbol.for('eb:Command#parse');
 export class CabloyCommand extends CommonBin {
   brandName: string;
 
-  constructor(rawArgv?) {
+  constructor(brandName: string, rawArgv?) {
     super(rawArgv);
+    this.usage = `Usage: ${brandName} [command] [options]`;
+    this.brandName = brandName;
+    process.env.CabloyCliBrandName = brandName;
   }
 
   async [DISPATCH]() {
@@ -35,10 +38,10 @@ export class CabloyCommand extends CommonBin {
     const argv = {
       projectPath: process.cwd(),
     } as ICommandArgv;
-    // indexZova
-    const indexZova = this.rawArgv.indexOf('zova');
+    // indexBrandName
+    const indexBrandName = this.rawArgv.indexOf(this.brandName);
     // cli
-    const indexCommand = indexZova > -1 ? indexZova + 1 : 0;
+    const indexCommand = indexBrandName > -1 ? indexBrandName + 1 : 0;
     Object.assign(argv, this._prepareCliFullName(parsed._[indexCommand]));
     // cli meta
     const context = { argv };
@@ -46,8 +49,8 @@ export class CabloyCommand extends CommonBin {
     const meta = await beanCli.meta({ context });
     // cli run
     const rawArgv = this.rawArgv.slice();
-    if (indexZova > -1) {
-      rawArgv.splice(0, indexZova + 2);
+    if (indexBrandName > -1) {
+      rawArgv.splice(0, indexBrandName + 2);
     } else {
       rawArgv.splice(0, 1);
     }

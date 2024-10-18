@@ -109,7 +109,7 @@ export class LocalHelper {
     };
   }
   parseModuleInfo(moduleName) {
-    const moduleInfo = ModuleInfo.parseInfoPro(moduleName, 'zova', 'module');
+    const moduleInfo = ModuleInfo.parseInfoPro(moduleName, process.env.CabloyCliBrandName as any, 'module');
     if (!moduleInfo) throw new Error(`module name is not valid: ${moduleName}`);
     return moduleInfo;
   }
@@ -118,7 +118,7 @@ export class LocalHelper {
     return this.cli.modulesMeta.modules[moduleInfo.relativeName];
   }
   parseSuiteInfo(suiteName) {
-    const suiteInfo = ModuleInfo.parseInfoPro(suiteName, 'zova', 'suite');
+    const suiteInfo = ModuleInfo.parseInfoPro(suiteName, process.env.CabloyCliBrandName as any, 'suite');
     if (!suiteInfo) throw new Error(`suite name is not valid: ${suiteName}`);
     return suiteInfo;
   }
@@ -162,10 +162,14 @@ export class LocalHelper {
   async getRegistry() {
     return await getRegistry();
   }
+  parseBrandPath() {
+    const modulePath = require.resolve(`${process.env.CabloyCliBrandName}-cli/package.json`);
+    return path.join(path.dirname(modulePath), `dist/bin/${process.env.CabloyCliBrandName}.js`);
+  }
   async invokeCli(args: string[], options) {
     await this.processHelper.spawnExe({
       cmd: 'node',
-      args: [path.join(__dirname, '../../dist/bin/zova.js')].concat(args),
+      args: [this.parseBrandPath()].concat(args),
       options,
     });
   }

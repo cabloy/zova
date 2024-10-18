@@ -3,7 +3,6 @@ import { LocalConsole } from './local.console.js';
 import { LocalHelper } from './local.helper.js';
 import { LocalTemplate } from './local.template.js';
 import { CmdOptions } from '../types/argv.js';
-import { TypeProjectMode } from '@cabloy/module-info';
 
 export class BeanCliBase {
   options: CmdOptions;
@@ -57,25 +56,16 @@ export class BeanCliBase {
     await this._loadModulesMeta();
   }
 
-  async _loadModulesMeta(projectMode?: TypeProjectMode) {
+  async _loadModulesMeta() {
     //
     if (this.modulesMeta) return;
-    //
-    if (!projectMode) {
-      if (this.cliFullName.indexOf('api:') === 0) {
-        projectMode = 'api';
-      } else if (this.cliFullName.indexOf('front:') === 0) {
-        projectMode = 'zova';
-      }
-    }
-    if (!projectMode) return;
     // all modules
     this.modulesMeta = await glob({
       projectPath: this.context.argv.projectPath,
       disabledModules: undefined,
       disabledSuites: undefined,
       log: false,
-      projectMode,
+      projectMode: process.env.CabloyCliBrandName as any,
     });
   }
 
@@ -139,7 +129,7 @@ export class BeanCliBase {
     };
     // usage
     if (!metaInfo.usage) {
-      metaInfo.usage = `${'Usage'}: zova ${argv.cliFullName} [options] [-h] [-v]`;
+      metaInfo.usage = `${'Usage'}: ${process.env.CabloyCliBrandName} ${argv.cliFullName} [options] [-h] [-v]`;
     }
     // welcomes
     metaInfo.welcomes = this._commandMeta_info_welcomes({ info });
