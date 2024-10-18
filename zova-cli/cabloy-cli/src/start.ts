@@ -7,7 +7,7 @@ import { checkForUpdates } from './utils.js';
 const DISPATCH = Symbol.for('eb:Command#dispatch');
 const PARSE = Symbol.for('eb:Command#parse');
 
-export class ZovaCommand extends CommonBin {
+export class CabloyCommand extends CommonBin {
   constructor(rawArgv?) {
     super(rawArgv);
     this.usage = 'Usage: zova [command] [options]';
