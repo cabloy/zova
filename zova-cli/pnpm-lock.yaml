@@ -92,6 +92,9 @@ importers:
 
   cli-set-front:
     dependencies:
+      '@cabloy/cli':
+        specifier: workspace:^
+        version: link:../cabloy-cli
       compressing:
         specifier: ^1.10.0
         version: 1.10.0

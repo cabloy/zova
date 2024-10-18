@@ -7,7 +7,14 @@ export declare class LocalTemplate {
     get console(): import("./local.console.js").LocalConsole;
     get helper(): import("./local.helper.js").LocalHelper;
     get moduleConfig(): {
-        sets: {};
+        sets: {
+            zova: {
+                front: string;
+            };
+            vona: {
+                api: string;
+            };
+        };
         helper: {
             chalk: {
                 options: {

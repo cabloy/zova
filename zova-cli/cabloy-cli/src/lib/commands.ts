@@ -19,7 +19,7 @@ async function _collectCommands() {
   if (__commandsMeta) return;
   const _commandsMap: any = {};
   const _commandsAll: any = {};
-  const sets = commandsConfig.sets;
+  const sets = commandsConfig.sets[process.env.CabloyCliBrandName as any];
   for (const setName in sets) {
     const setModuleName = sets[setName];
     const setModule = await import(setModuleName);

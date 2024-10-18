@@ -1,4 +1,4 @@
-import { BeanCliBase, NameMeta } from 'zova-cli';
+import { BeanCliBase, NameMeta } from '@cabloy/cli';
 import path from 'path';
 import fse from 'fs-extra';
 import { IModuleInfo } from '@cabloy/module-info';
@@ -6,7 +6,7 @@ import eggBornUtils from 'egg-born-utils';
 import gogocode from 'gogocode';
 import { __ThisSetName__ } from '../this.js';
 
-declare module 'zova-cli' {
+declare module '@cabloy/cli' {
   interface ICommandArgv {
     module: string;
     moduleInfo: IModuleInfo;

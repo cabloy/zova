@@ -1,12 +1,11 @@
-import { BeanCliBase, getCommandsMeta } from 'zova-cli';
+import { BeanCliBase, getCommandsMeta } from '@cabloy/cli';
 
-declare module 'zova-cli' {
+declare module '@cabloy/cli' {
   export interface ICommandArgv {
     set?: string;
     group?: string;
   }
 }
-
 
 export class CliDefaultList extends BeanCliBase {
   async execute() {

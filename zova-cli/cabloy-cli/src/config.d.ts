@@ -1,5 +1,12 @@
 export declare const commandsConfig: {
-    sets: {};
+    sets: {
+        zova: {
+            front: string;
+        };
+        vona: {
+            api: string;
+        };
+    };
     helper: {
         chalk: {
             options: {

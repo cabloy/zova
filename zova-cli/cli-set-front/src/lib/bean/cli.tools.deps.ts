@@ -1,8 +1,8 @@
 import path from 'node:path';
-import { BeanCliBase } from 'zova-cli';
+import { BeanCliBase } from '@cabloy/cli';
 import fse from 'fs-extra';
 
-declare module 'zova-cli' {
+declare module '@cabloy/cli' {
   interface ICommandArgv {
     force: boolean;
   }

@@ -1,4 +1,4 @@
-import { CmdOptions } from 'zova-cli';
+import { CmdOptions } from '@cabloy/cli';
 import { CliCreateBeanBase } from '../common/cliCreateBean.js';
 
 export class CliCreateTool extends CliCreateBeanBase {

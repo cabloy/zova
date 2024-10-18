@@ -37,6 +37,7 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
+    "@cabloy/cli": "workspace:^",
     "compressing": "^1.10.0",
     "egg-born-utils": "^1.2.0",
     "fs-extra": "^11.2.0",

@@ -1,4 +1,4 @@
-import { BeanCliBase } from 'zova-cli';
+import { BeanCliBase } from '@cabloy/cli';
 import fse from 'fs-extra';
 import path from 'path';
 import { generateBeans } from './toolsMetadata/generateBeans.js';
@@ -10,7 +10,7 @@ import { generateServices } from './toolsMetadata/generateServices.js';
 import { generateScope } from './toolsMetadata/generateScope.js';
 import { generateMonkey } from './toolsMetadata/generateMonkey.js';
 
-declare module 'zova-cli' {
+declare module '@cabloy/cli' {
   interface ICommandArgv {
     force: boolean;
   }

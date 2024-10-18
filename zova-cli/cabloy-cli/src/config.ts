@@ -1,5 +1,12 @@
 export const commandsConfig = {
-  sets: {},
+  sets: {
+    zova: {
+      front: 'zova-cli-set-front',
+    },
+    vona: {
+      api: 'zova-cli-set-api',
+    },
+  },
   helper: {
     chalk: {
       options: { level: 2 },

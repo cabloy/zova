@@ -12,7 +12,14 @@ export declare class LocalHelper {
     get console(): import("./local.console.js").LocalConsole;
     get template(): import("./local.template.js").LocalTemplate;
     get moduleConfig(): {
-        sets: {};
+        sets: {
+            zova: {
+                front: string;
+            };
+            vona: {
+                api: string;
+            };
+        };
         helper: {
             chalk: {
                 options: {

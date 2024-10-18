@@ -1,4 +1,4 @@
-import { BeanCliBase, CmdOptions } from 'zova-cli';
+import { BeanCliBase, CmdOptions } from '@cabloy/cli';
 import os from 'node:os';
 import fs from 'node:fs';
 import fse from 'fs-extra';
@@ -8,7 +8,7 @@ import { rimraf } from 'rimraf';
 import compressing from 'compressing';
 //import { __ThisSetName__ } from '../this.js';
 
-declare module 'zova-cli' {
+declare module '@cabloy/cli' {
   interface ICommandArgv {
     force: boolean;
     template: string;
