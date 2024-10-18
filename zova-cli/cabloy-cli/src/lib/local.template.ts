@@ -46,7 +46,7 @@ export class LocalTemplate {
 
   resolveTemplatePath({ setName, path: _path }: any) {
     const sets = this.moduleConfig.sets;
-    const modulePath = require.resolve(`${sets[setName]}/package.json`);
+    const modulePath = require.resolve(`${sets[process.env.CabloyCliBrandName as any][setName]}/package.json`);
     return path.join(path.dirname(modulePath), 'cli/templates', _path);
   }
 

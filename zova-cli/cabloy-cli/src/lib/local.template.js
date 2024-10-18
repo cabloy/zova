@@ -45,7 +45,7 @@ class LocalTemplate {
     }
     resolveTemplatePath({ setName, path: _path }) {
         const sets = this.moduleConfig.sets;
-        const modulePath = require.resolve(`${sets[setName]}/package.json`);
+        const modulePath = require.resolve(`${sets[process.env.CabloyCliBrandName][setName]}/package.json`);
         return path_1.default.join(path_1.default.dirname(modulePath), 'cli/templates', _path);
     }
     async renderBoilerplateAndSnippets({ targetDir, setName, snippetsPath, boilerplatePath }) {
