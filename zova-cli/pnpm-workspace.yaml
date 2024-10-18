@@ -1,3 +1,4 @@
 packages:
+  - 'cabloy-cli'
   - 'cli'
   - 'cli-set-front'

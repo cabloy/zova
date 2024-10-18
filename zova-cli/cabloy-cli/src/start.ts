@@ -8,9 +8,10 @@ const DISPATCH = Symbol.for('eb:Command#dispatch');
 const PARSE = Symbol.for('eb:Command#parse');
 
 export class CabloyCommand extends CommonBin {
+  brandName: string;
+
   constructor(rawArgv?) {
     super(rawArgv);
-    this.usage = 'Usage: zova [command] [options]';
   }
 
   async [DISPATCH]() {
@@ -20,7 +21,7 @@ export class CabloyCommand extends CommonBin {
       return;
     }
     // checkForUpdates
-    checkForUpdates('zova-cli');
+    checkForUpdates(`${this.brandName}-cli`);
     // collectCommands
     await collectCommands();
     // cli
