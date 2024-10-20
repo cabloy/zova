@@ -1,1 +1,0 @@
-{"version":3,"file":"console.d.ts","sourceRoot":"","sources":["console.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,eAAe;IAC9B,IAAI,EAAE,MAAM,CAAC;IACb,KAAK,CAAC,EAAE,MAAM,CAAC;IACf,QAAQ,CAAC,EAAE,MAAM,CAAC;CACnB;AAED,MAAM,WAAW,kBAAkB;IACjC,SAAS,CAAC,EAAE,OAAO,CAAC;CACrB"}
