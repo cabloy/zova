@@ -37,7 +37,7 @@
   "author": "zhennann",
   "license": "MIT",
   "dependencies": {
-    "@cabloy/cli": "workspace:^",
+    "@cabloy/cli": "^2.0.0",
     "zova-cli-set-front": "^1.1.182"
   },
   "gitHead": "544f25da60609ebc63c14f92057dedb289ba5946"

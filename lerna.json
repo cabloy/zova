@@ -4,8 +4,6 @@
   "npmClient": "pnpm",
   "packages": [
     "zova-cli/cli",
-    "zova-cli/cli-set-api",
-    "zova-cli/cli-set-core",
     "zova-cli/cli-set-front",
     "zova-dev/packages-zova/*",
     "zova-dev/packages-utils/*",
