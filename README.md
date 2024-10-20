@@ -2,7 +2,7 @@ English | [简体中文](./README.zh-CN.md)
 
 # Zova
 
-Zova is a vue3 framework with ioc container, empowers developers to build fast, reliable applications
+Zova is a more intuitive framework with pros of Vue3, React and Angular, empowers developers to build elegant, fast and reliable applications
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]

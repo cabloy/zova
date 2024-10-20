@@ -2,7 +2,7 @@
 
 # Zova
 
-Zova 是一款支持 IOC 容器的 Vue3 框架，能够帮助开发者构建快速、可靠的应用
+Zova 是一款更直观的前端框架，汲取 Vue3、React 和 Angular 的精华，用于开发优雅、快速、可靠的系统
 
 [![LICENSE MIT][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
