@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Zova'
   text: 'A more intuitive framework'
-  tagline: With pros of Vue3, React and Angular, empowers developers to build elegant, fast and reliable applications
+  tagline: With the pros of Vue3, React and Angular, empowers developers to build elegant, fast and reliable applications
   actions:
     - theme: brand
       text: Get Started
@@ -19,7 +19,7 @@ hero:
 
 features:
   - title: Vue+React+Angular
-    details: Combine the advantages of Vue/React/Angular and avoid their shortcomings to make our development experience more elegant and reduce the mental burden
+    details: Refines the pros of Vue/React/Angular and avoid their cons to make our development experience more elegant and reduce the mental burden
   - title: UI libraries
     details: Zova can be used with any UI library and comes with built-in project templates for several UI libraries, making it easy to use out of the box, including antdv, element-plus, quasar and vuetify
   - title: SSR
