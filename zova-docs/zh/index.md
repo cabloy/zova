@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: 'Zova'
-  text: '一款支持IOC容器的Vue3框架'
-  tagline: 能够帮助开发者构建快速、可靠的应用
+  text: '一款更直观的前端框架'
+  tagline: 汲取Vue3、React和Angular的精华，用于开发优雅、快速、可靠的系统
   actions:
     - theme: brand
       text: 快速开始

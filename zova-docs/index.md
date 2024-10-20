@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: 'Zova'
-  text: 'A vue3 framework with ioc'
-  tagline: Empowers developers to build fast, reliable applications
+  text: 'A more intuitive framework'
+  tagline: With pros of Vue3, React and Angular, empowers developers to build elegant, fast and reliable applications
   actions:
     - theme: brand
       text: Get Started
