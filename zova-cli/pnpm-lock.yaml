@@ -30,17 +30,17 @@ importers:
   cli:
     dependencies:
       '@cabloy/cli':
-        specifier: ^2.0.0
-        version: 2.0.0(vue@3.4.27(typescript@5.4.5))
+        specifier: ^2.0.2
+        version: 2.0.2(vue@3.4.27(typescript@5.4.5))
       zova-cli-set-front:
-        specifier: ^1.1.182
+        specifier: ^1.1.184
         version: link:../cli-set-front
 
   cli-set-front:
     dependencies:
       '@cabloy/cli':
-        specifier: ^2.0.0
-        version: 2.0.0(vue@3.4.27(typescript@5.4.5))
+        specifier: ^2.0.2
+        version: 2.0.2(vue@3.4.27(typescript@5.4.5))
       compressing:
         specifier: ^1.10.0
         version: 1.10.0
@@ -254,8 +254,8 @@ packages:
     resolution: {integrity: sha512-WaMsgi6Q8zMgMth93GvWPXkhAIEobfsIkLTacoVZoK1J0CevIPGYY2Vo5YvJGqyHqXM6P4ppOYGsIRU8MM9pFQ==}
     engines: {node: '>=6.9.0'}
 
-  '@cabloy/cli@2.0.0':
-    resolution: {integrity: sha512-KfM/ysqv48/539Hywho8XJ89TonFudeg87VkFi6QZ8bRGn0qXWbCJuSQowQr4KN+OqF0idqONiFibvl34W1QGw==}
+  '@cabloy/cli@2.0.2':
+    resolution: {integrity: sha512-vlAgn/0Iqoe5eQsEV3amBdrvg/pnSqUdK9/HeSZEMwGBFgvXeIqb7HnjbdgKpp7991SCczDh3UC5Oo0Vbz34lA==}
 
   '@cabloy/dotenv@1.0.2':
     resolution: {integrity: sha512-1NBshzNa1/NPRHKEu2aqwlumIAH/YbnS+JtuCybRiOE6ECWbvwWRO7EjPl9dJXvYRuPCC1PJs1RVuaqWETvU2Q==}
@@ -3752,7 +3752,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
 
-  '@cabloy/cli@2.0.0(vue@3.4.27(typescript@5.4.5))':
+  '@cabloy/cli@2.0.2(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@cabloy/module-glob': 5.0.15
       '@cabloy/module-info': 1.0.23

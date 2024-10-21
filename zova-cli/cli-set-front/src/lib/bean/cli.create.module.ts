@@ -61,6 +61,7 @@ export class CliCreateModule extends BeanCliBase {
         snippetsPath: 'create/module/snippets',
         boilerplatePath: null,
       });
+      await this.helper.removeGitkeep(path.join(argv._suite.root, 'modules'));
     }
     // render module boilerplate
     targetDir = await this.helper.ensureDir(targetDir);
