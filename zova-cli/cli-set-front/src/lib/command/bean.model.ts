@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.local',
+  bean: 'bean.model',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Local Bean',
-    usage: 'zova :create:local localName [--module=]',
+    title: 'Cli: Create Model Bean',
+    usage: 'zova :bean:Model modelName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        localName: {
+        modelName: {
           type: 'input',
-          message: 'localName',
+          message: 'modelName',
           initial: {
             expression: 'context.argv._[0]',
           },

@@ -1,13 +1,13 @@
 import { CliDefaultList } from './bean/cli.default.list.js';
 import { CliCreateProject } from './bean/cli.create.project.js';
 import { CliCreateComponent } from './bean/cli.create.component.js';
-import { CliCreateBean } from './bean/cli.create.bean.js';
-import { CliCreateStore } from './bean/cli.create.store.js';
-import { CliCreateModel } from './bean/cli.create.model.js';
-import { CliCreateStyle } from './bean/cli.create.style.js';
-import { CliCreateTheme } from './bean/cli.create.theme.js';
-import { CliCreateTool } from './bean/cli.create.tool.js';
-import { CliCreateLocal } from './bean/cli.create.local.js';
+import { CliBeanGeneral } from './bean/cli.bean.general.js';
+import { CliBeanStore } from './bean/cli.bean.store.js';
+import { CliBeanModel } from './bean/cli.bean.model.js';
+import { CliBeanStyle } from './bean/cli.bean.style.js';
+import { CliBeanTheme } from './bean/cli.bean.theme.js';
+import { CliBeanTool } from './bean/cli.bean.tool.js';
+import { CliBeanLocal } from './bean/cli.bean.local.js';
 import { CliCreateService } from './bean/cli.create.service.js';
 import { CliCreateMock } from './bean/cli.create.mock.js';
 import { CliCreateModule } from './bean/cli.create.module.js';
@@ -41,15 +41,15 @@ export const beans = {
   'create.module': CliCreateModule,
   'create.page': CliCreatePage,
   'create.component': CliCreateComponent,
-  'create.bean': CliCreateBean,
-  'create.store': CliCreateStore,
-  'create.model': CliCreateModel,
-  'create.style': CliCreateStyle,
-  'create.theme': CliCreateTheme,
-  'create.tool': CliCreateTool,
-  'create.local': CliCreateLocal,
   'create.service': CliCreateService,
   'create.mock': CliCreateMock,
+  'bean.general': CliBeanGeneral,
+  'bean.store': CliBeanStore,
+  'bean.model': CliBeanModel,
+  'bean.style': CliBeanStyle,
+  'bean.theme': CliBeanTheme,
+  'bean.tool': CliBeanTool,
+  'bean.local': CliBeanLocal,
   'init.icon': CliInitIcon,
   'init.config': CliInitConfig,
   'init.constant': CliInitConstant,

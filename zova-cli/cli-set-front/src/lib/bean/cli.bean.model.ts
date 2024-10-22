@@ -1,8 +1,8 @@
 import { CmdOptions } from '@cabloy/cli';
 import { CliCreateBeanBase } from '../common/cliCreateBean.js';
 
-export class CliCreateTool extends CliCreateBeanBase {
+export class CliBeanModel extends CliCreateBeanBase {
   constructor(options: CmdOptions) {
-    super(options, 'tool');
+    super(options, 'model');
   }
 }

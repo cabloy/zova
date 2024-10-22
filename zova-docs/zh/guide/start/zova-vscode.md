@@ -13,13 +13,15 @@ An extension offering commands and tools to make your experience with Zova more 
 - Service
 - Mock
 
-- Bean: Local
-- Bean: Model
-- Bean: Store
-- Bean: Style
-- Bean: Theme
-- Bean: Tool
-- Bean: General
+### Zova Bean
+
+- Local
+- Model
+- Store
+- Style
+- Theme
+- Tool
+- General
 
 ### Zova Init
 

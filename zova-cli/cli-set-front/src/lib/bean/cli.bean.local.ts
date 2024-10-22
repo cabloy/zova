@@ -13,7 +13,7 @@ declare module '@cabloy/cli' {
   }
 }
 
-export class CliCreateLocal extends BeanCliBase {
+export class CliBeanLocal extends BeanCliBase {
   async execute() {
     const { argv } = this.context;
     // super

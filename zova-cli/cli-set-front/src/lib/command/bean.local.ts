@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.store',
+  bean: 'bean.local',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Store Bean',
-    usage: 'zova :create:store storeName [--module=]',
+    title: 'Cli: Create Local Bean',
+    usage: 'zova :bean:local localName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        storeName: {
+        localName: {
           type: 'input',
-          message: 'storeName',
+          message: 'localName',
           initial: {
             expression: 'context.argv._[0]',
           },

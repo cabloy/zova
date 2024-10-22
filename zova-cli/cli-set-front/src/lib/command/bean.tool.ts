@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.style',
+  bean: 'bean.tool',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Style Bean',
-    usage: 'zova :create:style styleName [--module=]',
+    title: 'Cli: Create Tool Bean',
+    usage: 'zova :bean:tool toolName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        styleName: {
+        toolName: {
           type: 'input',
-          message: 'styleName',
+          message: 'toolName',
           initial: {
             expression: 'context.argv._[0]',
           },

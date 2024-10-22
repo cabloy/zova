@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.bean',
+  bean: 'bean.theme',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create General Bean',
-    usage: 'zova :create:bean beanName [--module=]',
+    title: 'Cli: Create Theme Bean',
+    usage: 'zova :bean:theme themeName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        beanName: {
+        themeName: {
           type: 'input',
-          message: 'beanName',
+          message: 'themeName',
           initial: {
             expression: 'context.argv._[0]',
           },

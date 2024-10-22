@@ -1,13 +1,13 @@
 import defaultList from './command/default.list.js';
 import createProject from './command/create.project.js';
 import createComponent from './command/create.component.js';
-import createBean from './command/create.bean.js';
-import createStore from './command/create.store.js';
-import createModel from './command/create.model.js';
-import createStyle from './command/create.style.js';
-import createTheme from './command/create.theme.js';
-import createTool from './command/create.tool.js';
-import createLocal from './command/create.local.js';
+import beanGeneral from './command/bean.general.js';
+import beanStore from './command/bean.store.js';
+import beanModel from './command/bean.model.js';
+import beanStyle from './command/bean.style.js';
+import beanTheme from './command/bean.theme.js';
+import beanTool from './command/bean.tool.js';
+import beanLocal from './command/bean.local.js';
 import createService from './command/create.service.js';
 import createMock from './command/create.mock.js';
 import createModule from './command/create.module.js';
@@ -44,15 +44,17 @@ export const commands = {
     module: createModule,
     page: createPage,
     component: createComponent,
-    bean: createBean,
-    store: createStore,
-    model: createModel,
-    style: createStyle,
-    theme: createTheme,
-    tool: createTool,
-    local: createLocal,
     service: createService,
     mock: createMock,
+  },
+  bean: {
+    general: beanGeneral,
+    store: beanStore,
+    model: beanModel,
+    style: beanStyle,
+    theme: beanTheme,
+    tool: beanTool,
+    local: beanLocal,
   },
   init: {
     icon: initIcon,

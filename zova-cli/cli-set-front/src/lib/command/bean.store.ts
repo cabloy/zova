@@ -1,9 +1,9 @@
 export default {
-  bean: 'create.theme',
+  bean: 'bean.store',
   info: {
     version: '5.0.0',
-    title: 'Cli: Create Theme Bean',
-    usage: 'zova :create:theme themeName [--module=]',
+    title: 'Cli: Create Store Bean',
+    usage: 'zova :bean:store storeName [--module=]',
   },
   options: {
     module: {
@@ -14,9 +14,9 @@ export default {
   groups: {
     default: {
       questions: {
-        themeName: {
+        storeName: {
           type: 'input',
-          message: 'themeName',
+          message: 'storeName',
           initial: {
             expression: 'context.argv._[0]',
           },
