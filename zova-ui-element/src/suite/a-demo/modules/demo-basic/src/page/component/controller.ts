@@ -1,5 +1,5 @@
 import { BeanControllerPageBase, Local } from 'zova';
-import { ControllerCard } from '../../component/card/controller.js';
+import { ControllerCard } from '../../.metadata/index.js';
 import { ScopeModule } from '../../.metadata/this.js';
 
 @Local()

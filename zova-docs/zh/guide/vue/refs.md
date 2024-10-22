@@ -89,7 +89,7 @@ export class RenderComponent {
 先在父组件的`controller.ts`中声明变量：
 
 ```typescript
-import { ControllerCard } from '../../component/card/controller.js';
+import { ControllerCard } from '../../.metadata/index.js';
 
 export class ControllerPageComponent {
   cardRef: ControllerCard;

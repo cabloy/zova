@@ -89,7 +89,7 @@ For Vue components that use the ioc container, you cannot use `Template Ref`, bu
 First declare a variable in `controller.ts` of the parent component:
 
 ```typescript
-import { ControllerCard } from '../../component/card/controller.js';
+import { ControllerCard } from '../../.metadata/index.js';
 
 export class ControllerPageComponent {
   cardRef: ControllerCard;
