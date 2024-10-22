@@ -1,4 +1,5 @@
 /** components: begin */
+export { ControllerCard } from '../component/card/controller.js';
 export * as NSControllerCard from '../component/card/controller.js';
 import * as NSControllerCard from '../component/card/controller.js';
 export { default as ZCard } from '../component/card/index.vue';

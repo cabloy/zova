@@ -9,8 +9,11 @@ declare module 'zova' {
 }
 /** beans: end */
 /** components: begin */
+export { ControllerEssentialLink } from '../component/essentialLink/controller.js';
 export * as NSControllerEssentialLink from '../component/essentialLink/controller.js';
+export { ControllerLayoutDefault } from '../component/layoutDefault/controller.js';
 export * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
+export { ControllerLayoutEmpty } from '../component/layoutEmpty/controller.js';
 export * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';
 import * as NSControllerEssentialLink from '../component/essentialLink/controller.js';
 import * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';

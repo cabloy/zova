@@ -9,7 +9,9 @@ declare module 'zova' {
 }
 /** beans: end */
 /** components: begin */
+export { ControllerLayoutDefault } from '../component/layoutDefault/controller.js';
 export * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
+export { ControllerLayoutEmpty } from '../component/layoutEmpty/controller.js';
 export * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';
 import * as NSControllerLayoutDefault from '../component/layoutDefault/controller.js';
 import * as NSControllerLayoutEmpty from '../component/layoutEmpty/controller.js';

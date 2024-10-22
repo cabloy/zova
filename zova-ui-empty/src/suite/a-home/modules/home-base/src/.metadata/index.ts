@@ -15,6 +15,7 @@ declare module 'zova' {
 }
 /** beans: end */
 /** components: begin */
+export { ControllerPage } from '../component/page/controller.js';
 export * as NSControllerPage from '../component/page/controller.js';
 import * as NSControllerPage from '../component/page/controller.js';
 export { default as ZPage } from '../component/page/index.vue';
