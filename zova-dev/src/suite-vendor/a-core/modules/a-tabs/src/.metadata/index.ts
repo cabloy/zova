@@ -9,6 +9,7 @@ declare module 'zova' {
 }
 /** beans: end */
 /** components: begin */
+export { ControllerRouterViewTabs } from '../component/routerViewTabs/controller.js';
 export * as NSControllerRouterViewTabs from '../component/routerViewTabs/controller.js';
 import * as NSControllerRouterViewTabs from '../component/routerViewTabs/controller.js';
 export { default as ZRouterViewTabs } from '../component/routerViewTabs/index.vue';
