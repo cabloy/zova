@@ -16,6 +16,7 @@ export async function generateComponents(moduleName: string, modulePath: string)
     const className = componentName.charAt(0).toUpperCase() + componentName.substring(1);
     const componentFullName = `${moduleName}:${componentName}`;
     const componentName2 = 'Z' + firstCharToUpperCase(componentName);
+    contentExports.push(`export { Controller${className} } from '../component/${componentName}/controller.js';`);
     contentExports.push(`export * as NSController${className} from '../component/${componentName}/controller.js';`);
     contentImports.push(`import * as NSController${className} from '../component/${componentName}/controller.js';`);
     contentImports2.push(`export { default as ${componentName2} } from '../component/${componentName}/index.vue';`);

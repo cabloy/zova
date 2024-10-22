@@ -1,4 +1,5 @@
-const __snippet_export = `export * as NSController<%=argv.nameMeta.fullCapitalize%> from '../component/<%=argv.componentName%>/controller.js';
+const __snippet_export = `export { Controller<%=argv.nameMeta.fullCapitalize%> } from '../component/<%=argv.componentName%>/controller.js';
+export * as NSController<%=argv.nameMeta.fullCapitalize%> from '../component/<%=argv.componentName%>/controller.js';
 import * as NSController<%=argv.nameMeta.fullCapitalize%> from '../component/<%=argv.componentName%>/controller.js';\n`;
 const __snippet_import = "import <%=argv.nameMeta.full%> from '../component/<%=argv.componentName%>/index.vue';\n";
 const __snippet_interface = '<%=argv.nameMeta.full%>,\n';

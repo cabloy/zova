@@ -1,6 +1,6 @@
 import { BeanControllerPageBase, Local, onControllerMounted } from 'zova';
-import { ControllerCard } from '../../component/card/controller.js';
 import { ScopeModule } from '../../.metadata/this.js';
+import { ControllerCard } from '../../.metadata/index.js';
 
 @Local()
 export class ControllerPageComponent extends BeanControllerPageBase<ScopeModule> {
