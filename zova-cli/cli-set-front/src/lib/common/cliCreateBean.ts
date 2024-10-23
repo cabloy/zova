@@ -64,13 +64,6 @@ export class CliCreateBeanBase extends BeanCliBase {
       throw new Error(`${argv.sceneName} bean exists: ${argv.beanName}`);
     }
     await this.helper.ensureDir(beanDir);
-    // // render snippets
-    // await this.template.renderBoilerplateAndSnippets({
-    //   targetDir,
-    //   setName: __ThisSetName__,
-    //   snippetsPath: 'create/bean/snippets',
-    //   boilerplatePath: null,
-    // });
     // render boilerplate
     await this.template.renderBoilerplateAndSnippets({
       targetDir: beanDir,
