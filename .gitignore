@@ -34,5 +34,3 @@ sftp-config-.json
 /.assets
 zova-docs/.vitepress/cache
 vite.config.ts.timestamp-*
-
-!zova-dev/packages-utils/last-word/dist
