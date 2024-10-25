@@ -10,4 +10,13 @@ export default [
       }),
     ],
   },
+  {
+    input: 'src/index.ts',
+    output: [{ file: 'dist/esm/index.mjs', format: 'es' }],
+    plugins: [
+      typescript({
+        tsconfig: './tsconfig.json',
+      }),
+    ],
+  },
 ];
