@@ -735,7 +735,7 @@ export class BeanContainer {
         // get prop
         if (!methodType) {
           const methodName = `__get_${prop}__`;
-          const methodNameMagic = '__get__';
+          const methodNameMagic = '__magic_get__';
           const _aopChainsProp = self._getAopChainsProp(beanFullName, methodName, methodNameMagic);
           if (_aopChainsProp.length === 0) return target[prop];
           // context
@@ -778,7 +778,7 @@ export class BeanContainer {
           return true;
         }
         const methodName = `__set_${prop}__`;
-        const methodNameMagic = '__set__';
+        const methodNameMagic = '__magic_set__';
         const _aopChainsProp = self._getAopChainsProp(beanFullName, methodName, methodNameMagic);
         if (_aopChainsProp.length === 0) {
           target[prop] = value;
