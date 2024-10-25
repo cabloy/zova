@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toLowerCaseFirstChar = toLowerCaseFirstChar;
+exports.toUpperCaseFirstChar = toUpperCaseFirstChar;
 exports.parseLastWord = parseLastWord;
 exports.parseFirstWord = parseFirstWord;
 exports.skipPrefix = skipPrefix;
@@ -29,6 +30,9 @@ function _parseFirstWord(str) {
 }
 function toLowerCaseFirstChar(str) {
     return str.charAt(0).toLowerCase() + str.substring(1);
+}
+function toUpperCaseFirstChar(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
 }
 function parseLastWord(str, toLowerCase) {
     const word = _parseLastWord(str);

@@ -72,4 +72,4 @@ env/.env*.mine
 /src/module-vendor/*
 !/src/module-vendor/.gitkeep
 
-!/packages-utils/last-word/dist
+!/packages-utils/word-utils/dist

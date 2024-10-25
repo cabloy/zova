@@ -20,6 +20,10 @@ export function toLowerCaseFirstChar(str: string) {
   return str.charAt(0).toLowerCase() + str.substring(1);
 }
 
+export function toUpperCaseFirstChar(str: string) {
+  return str.charAt(0).toUpperCase() + str.substring(1);
+}
+
 export function parseLastWord(str?: string, toLowerCase?: boolean): string | undefined {
   const word = _parseLastWord(str);
   if (!word) return word;

@@ -21,6 +21,9 @@ function _parseFirstWord(str) {
 function toLowerCaseFirstChar(str) {
     return str.charAt(0).toLowerCase() + str.substring(1);
 }
+function toUpperCaseFirstChar(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+}
 function parseLastWord(str, toLowerCase) {
     const word = _parseLastWord(str);
     if (!word)
@@ -88,4 +91,4 @@ function splitWords(str, toLowerCase, separator = ' ') {
     return parts.join(separator);
 }
 
-export { parseFirstWord, parseLastWord, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar };
+export { parseFirstWord, parseLastWord, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar, toUpperCaseFirstChar };

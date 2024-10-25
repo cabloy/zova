@@ -8,7 +8,7 @@ import {
 import { MetadataKey, appMetadata } from './metadata.js';
 import { IBeanRecord } from '../bean/type.js';
 import { BeanSimple } from '../bean/beanSimple.js';
-import { parseLastWord, skipLastWord, skipPrefix, splitWords } from '@cabloy/last-word';
+import { parseLastWord, skipLastWord, skipPrefix, splitWords } from '@cabloy/word-utils';
 import { uuid } from '../utils/uuid.js';
 
 export const DecoratorBeanFullName = Symbol.for('Decorator#BeanFullName');
