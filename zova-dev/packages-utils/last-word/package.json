@@ -8,20 +8,22 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
     },
     "./*": "./*"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts"
+    "dist"
   ],
   "scripts": {
     "lint": "eslint .",
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
-    "prepublishOnly": "npm run tsc:publish"
+    "build:cjs": "rollup -c",
+    "prepublishOnly": "npm run tsc:publish && npm run build:cjs"
   },
   "keywords": [
     "framework",
@@ -29,5 +31,9 @@
   ],
   "author": "zhennann",
   "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.1",
+    "rollup": "^4.24.0"
+  },
   "gitHead": "7d6fd5a9b37581c22da794dc229ba1ab1bffc930"
 }
