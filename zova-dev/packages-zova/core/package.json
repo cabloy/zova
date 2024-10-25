@@ -1,6 +1,6 @@
 {
   "name": "zova-core",
-  "version": "5.0.170",
+  "version": "5.0.171",
   "description": "A vue3 framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -41,7 +41,7 @@
   "dependencies": {
     "@cabloy/compose": "^1.0.2",
     "@cabloy/extend": "^3.0.5",
-    "@cabloy/last-word": "^1.0.17",
+    "@cabloy/last-word": "^1.0.18",
     "@cabloy/localeutil": "^1.0.4",
     "@cabloy/module-info": "^1.0.23",
     "@cabloy/vue-reactivity": "^3.5.11",
