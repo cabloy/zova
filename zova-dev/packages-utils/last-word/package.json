@@ -21,8 +21,8 @@
     "lint": "eslint .",
     "clean": "tsc -b --clean",
     "tsc:publish": "npm run clean && tsc -b",
-    "build:cjs": "rollup -c",
-    "prepublishOnly": "npm run tsc:publish && npm run build:cjs"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "framework",
