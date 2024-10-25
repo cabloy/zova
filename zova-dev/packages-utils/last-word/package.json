@@ -1,6 +1,6 @@
 {
   "name": "@cabloy/last-word",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "get the last word",
   "publishConfig": {
     "access": "public"
