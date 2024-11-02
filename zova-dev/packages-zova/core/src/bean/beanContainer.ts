@@ -996,6 +996,8 @@ function __hasMagicMothod(instance) {
 
 function __isInnerMethod(prop) {
   return [
+    '__magic_get__',
+    '__magic_set__',
     '__get__',
     '__set__',
     '__init__',
