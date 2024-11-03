@@ -101,7 +101,7 @@ export function createConfigUtils(
       projectPath: configOptions.appDir,
       disabledModules: __getDisabledModules(),
       disabledSuites: process.env.PROJECT_DISABLED_SUITES,
-      log: true,
+      log: false,
     });
     return __modulesMeta;
   }
