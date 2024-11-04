@@ -2,7 +2,7 @@ import { appResource } from '../../core/resource.js';
 import { Cast } from '../../types/utils/cast.js';
 import { Constructable, IDecoratorThemeOptions } from '../index.js';
 
-export function Theme<T>(options?: IDecoratorThemeOptions): ClassDecorator {
+export function Theme(options?: IDecoratorThemeOptions): ClassDecorator {
   return function (target) {
     if (!options) options = {};
     // add
@@ -12,7 +12,7 @@ export function Theme<T>(options?: IDecoratorThemeOptions): ClassDecorator {
       name: options.name,
       containerScope: 'app',
       markReactive: options.markReactive,
-      beanClass: target as unknown as Constructable<T>,
+      beanClass: target as unknown as Constructable,
     });
   };
 }

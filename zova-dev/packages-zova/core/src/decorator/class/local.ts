@@ -3,7 +3,7 @@ import { Cast } from '../../types/utils/cast.js';
 import { IDecoratorLocalOptions } from '../interface/beanOptions.js';
 import { Constructable } from '../type/constructable.js';
 
-export function Local<T>(options?: IDecoratorLocalOptions): ClassDecorator {
+export function Local(options?: IDecoratorLocalOptions): ClassDecorator {
   return function (target) {
     if (!options) options = {};
     // add
@@ -12,7 +12,7 @@ export function Local<T>(options?: IDecoratorLocalOptions): ClassDecorator {
       scene: 'local',
       containerScope: options.containerScope,
       markReactive: options.markReactive,
-      beanClass: target as unknown as Constructable<T>,
+      beanClass: target as unknown as Constructable,
     });
   };
 }

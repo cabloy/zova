@@ -3,7 +3,7 @@ import { Cast } from '../../types/utils/cast.js';
 import { IDecoratorBeanOptions } from '../interface/beanOptions.js';
 import { Constructable } from '../type/constructable.js';
 
-export function Bean<T>(options?: IDecoratorBeanOptions): ClassDecorator {
+export function Bean(options?: IDecoratorBeanOptions): ClassDecorator {
   return function (target) {
     if (!options) options = {};
     // add
@@ -13,7 +13,7 @@ export function Bean<T>(options?: IDecoratorBeanOptions): ClassDecorator {
       name: options.name,
       containerScope: options.containerScope,
       markReactive: options.markReactive,
-      beanClass: target as unknown as Constructable<T>,
+      beanClass: target as unknown as Constructable,
     });
   };
 }

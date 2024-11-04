@@ -2,7 +2,7 @@ import { appResource } from '../../core/resource.js';
 import { Cast } from '../../types/utils/cast.js';
 import { Constructable, IDecoratorModelOptions } from '../index.js';
 
-export function Model<T>(options?: IDecoratorModelOptions): ClassDecorator {
+export function Model(options?: IDecoratorModelOptions): ClassDecorator {
   return function (target) {
     if (!options) options = {};
     // add
@@ -12,7 +12,7 @@ export function Model<T>(options?: IDecoratorModelOptions): ClassDecorator {
       name: options.name,
       containerScope: 'ctx',
       markReactive: options.markReactive,
-      beanClass: target as unknown as Constructable<T>,
+      beanClass: target as unknown as Constructable,
     });
   };
 }
