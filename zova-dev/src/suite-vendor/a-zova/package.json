@@ -1,6 +1,6 @@
 {
   "name": "zova-suite-a-zova",
-  "version": "5.0.124",
+  "version": "5.0.125",
   "title": "a-zova",
   "type": "module",
   "description": "zova",
@@ -8,12 +8,12 @@
   "license": "MIT",
   "files": [],
   "dependencies": {
-    "zova-module-a-zova": "workspace:^",
     "zova-module-a-model": "workspace:^",
     "zova-module-a-pinia": "workspace:^",
     "zova-module-a-router": "workspace:^",
     "zova-module-a-style": "workspace:^",
-    "zova-module-a-tabs": "workspace:^"
+    "zova-module-a-tabs": "workspace:^",
+    "zova-module-a-zova": "workspace:^"
   },
   "gitHead": "05d23697b757afe62aff4ff5de98a9babdd326e2"
 }
