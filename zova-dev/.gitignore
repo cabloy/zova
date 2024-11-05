@@ -55,7 +55,7 @@ env/.env*.mine
 !/src/suite/.gitkeep
 !/src/suite/a-base
 !/src/suite/a-cms
-!/src/suite/a-core
+!/src/suite/a-zova
 !/src/suite/a-demo
 !/src/suite/a-flow
 !/src/suite/a-home
@@ -63,7 +63,7 @@ env/.env*.mine
 
 /src/suite-vendor/*
 !/src/suite-vendor/.gitkeep
-!/src/suite-vendor/a-core
+!/src/suite-vendor/a-zova
 !/src/suite-vendor/a-devui
 
 /src/module/*

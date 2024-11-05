@@ -1,7 +1,7 @@
 {
-  "name": "zova-module-a-core",
+  "name": "zova-module-a-zova",
   "version": "5.0.46",
-  "title": "a-core",
+  "title": "a-zova",
   "zovaModule": {
     "dependencies": {
       "a-router": "5.0.0",
@@ -21,7 +21,7 @@
     },
     "./*": "./*"
   },
-  "description": "core",
+  "description": "zova",
   "keywords": [
     "Zova Module"
   ],

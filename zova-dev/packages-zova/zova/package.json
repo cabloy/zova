@@ -41,7 +41,7 @@
   "dependencies": {
     "zova-core": "^5.0.174",
     "zova-shared": "^1.0.4",
-    "zova-suite-a-core": "^5.0.124"
+    "zova-suite-a-zova": "^5.0.124"
   },
   "gitHead": "78fe325e2b08956a9b65c2e0b04b811cb3d54e90"
 }

@@ -53,8 +53,8 @@ export class CliInitMonkey extends BeanCliBase {
     }
     // dependencies
     if (!pkg.zovaModule.dependencies) pkg.zovaModule.dependencies = {};
-    if (!pkg.zovaModule.dependencies['a-core']) {
-      pkg.zovaModule.dependencies['a-core'] = '5.0.0';
+    if (!pkg.zovaModule.dependencies['a-zova']) {
+      pkg.zovaModule.dependencies['a-zova'] = '5.0.0';
       changed = true;
     }
     // save
