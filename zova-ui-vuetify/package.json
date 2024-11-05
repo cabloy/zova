@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-vuetify",
-  "version": "5.0.332",
+  "version": "5.0.333",
   "description": "A vue3 vuetify framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -50,13 +50,13 @@
     "vue-router": "^4.4.5",
     "vuetify": "^3.7.1",
     "zod": "^3.23.8",
-    "zova": "^5.0.228",
-    "zova-module-a-model": "^5.0.35",
-    "zova-module-a-pinia": "^5.0.34",
-    "zova-module-a-router": "^5.0.69",
-    "zova-module-a-style": "^5.0.46",
-    "zova-module-a-tabs": "^5.0.28",
-    "zova-module-a-zova": "^5.0.48",
+    "zova": "^5.0.229",
+    "zova-module-a-model": "^5.0.36",
+    "zova-module-a-pinia": "^5.0.35",
+    "zova-module-a-router": "^5.0.70",
+    "zova-module-a-style": "^5.0.47",
+    "zova-module-a-tabs": "^5.0.29",
+    "zova-module-a-zova": "^5.0.49",
     "zova-module-demo-basic": "workspace:^",
     "zova-module-home-base": "workspace:^",
     "zova-module-home-icon": "workspace:^",
@@ -70,13 +70,13 @@
     "@types/node": "^20.14.9",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.179",
+    "quasar-app-extension-zova": "^1.1.180",
     "sass": "^1.77.6",
     "typescript": "^5.5.2",
     "vite": "^5.3.1",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.0.29",
-    "zova-vite": "^1.0.178"
+    "zova-vite": "^1.0.179"
   },
   "license": "MIT",
   "gitHead": "73721393c1ea9a95539948d57ad692f2c004d7c7"
