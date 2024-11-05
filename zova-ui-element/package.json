@@ -50,7 +50,7 @@
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
     "zova": "^5.0.226",
-    "zova-module-a-core": "^5.0.46",
+    "zova-module-a-zova": "^5.0.46",
     "zova-module-a-model": "^5.0.33",
     "zova-module-a-pinia": "^5.0.32",
     "zova-module-a-router": "^5.0.67",
