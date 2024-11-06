@@ -84,3 +84,11 @@ export function splitWords(str?: string, toLowerCase?: boolean, separator: strin
   // join
   return parts.join(separator);
 }
+
+export function combineWordsDeduplicate(str1: string, str2: string) {
+  if (!str1 || !str2) return str1 + str2;
+  const lastWord = parseLastWord(str1);
+  if (!lastWord || !str2.startsWith(lastWord)) return str1 + str2;
+  const leftWord = str1.substring(0, str1.length - lastWord.length);
+  return leftWord + str2;
+}

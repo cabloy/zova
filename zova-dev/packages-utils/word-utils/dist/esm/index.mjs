@@ -90,5 +90,14 @@ function splitWords(str, toLowerCase, separator = ' ') {
     // join
     return parts.join(separator);
 }
+function combineWordsDeduplicate(str1, str2) {
+    if (!str1 || !str2)
+        return str1 + str2;
+    const lastWord = parseLastWord(str1);
+    if (!lastWord || !str2.startsWith(lastWord))
+        return str1 + str2;
+    const leftWord = str1.substring(0, str1.length - lastWord.length);
+    return leftWord + str2;
+}
 
-export { parseFirstWord, parseLastWord, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar, toUpperCaseFirstChar };
+export { combineWordsDeduplicate, parseFirstWord, parseLastWord, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar, toUpperCaseFirstChar };

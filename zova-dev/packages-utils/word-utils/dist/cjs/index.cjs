@@ -8,6 +8,7 @@ exports.parseFirstWord = parseFirstWord;
 exports.skipPrefix = skipPrefix;
 exports.skipLastWord = skipLastWord;
 exports.splitWords = splitWords;
+exports.combineWordsDeduplicate = combineWordsDeduplicate;
 function _parseLastWord(str) {
     if (!str)
         return str;
@@ -99,4 +100,13 @@ function splitWords(str, toLowerCase, separator = ' ') {
     }
     // join
     return parts.join(separator);
+}
+function combineWordsDeduplicate(str1, str2) {
+    if (!str1 || !str2)
+        return str1 + str2;
+    const lastWord = parseLastWord(str1);
+    if (!lastWord || !str2.startsWith(lastWord))
+        return str1 + str2;
+    const leftWord = str1.substring(0, str1.length - lastWord.length);
+    return leftWord + str2;
 }
