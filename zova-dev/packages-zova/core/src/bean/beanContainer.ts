@@ -735,7 +735,7 @@ export class BeanContainer {
         // get prop
         if (!methodType) {
           const methodName = `__get_${prop}__`;
-          const methodNameMagic = '__magic_get__';
+          const methodNameMagic = '__get__';
           const _aopChainsProp = self._getAopChainsProp(beanFullName, methodName, methodNameMagic);
           if (_aopChainsProp.length === 0) return target[prop];
           // context
@@ -778,7 +778,7 @@ export class BeanContainer {
           return true;
         }
         const methodName = `__set_${prop}__`;
-        const methodNameMagic = '__magic_set__';
+        const methodNameMagic = '__set__';
         const _aopChainsProp = self._getAopChainsProp(beanFullName, methodName, methodNameMagic);
         if (_aopChainsProp.length === 0) {
           target[prop] = value;
@@ -996,8 +996,6 @@ function __hasMagicMothod(instance) {
 
 function __isInnerMethod(prop) {
   return [
-    '__magic_get__',
-    '__magic_set__',
     '__get__',
     '__set__',
     '__init__',
