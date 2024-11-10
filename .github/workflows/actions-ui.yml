@@ -19,7 +19,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-      - run: pnpm install
+      - run: pnpm install --force --no-frozen-lockfile
       - run: pnpm add -g zova-cli
       - run: zova :create:project ${{ matrix.project-template }}-${{ matrix.node-version }} --template=${{ matrix.project-template }}
       - name: pnpm install
