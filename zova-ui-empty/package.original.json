@@ -23,11 +23,7 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": [
-    "vue3",
-    "ioc",
-    "zova"
-  ],
+  "keywords": ["vue3", "ioc", "zova"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -48,7 +44,7 @@
     "zova": "^5.0.217"
   },
   "devDependencies": {
-    "@cabloy/lint": "^4.0.11",
+    "@cabloy/lint": "^4.0.19",
     "@quasar/app-vite": "2.0.0-beta.18",
     "@types/node": "^20.14.2",
     "@vitejs/plugin-vue": "^5.0.5",
