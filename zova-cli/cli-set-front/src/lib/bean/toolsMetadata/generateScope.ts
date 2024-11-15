@@ -16,11 +16,11 @@ export class ScopeModule${relativeNameCapitalize} extends BeanScopeBase {}
 
 export interface ScopeModule${relativeNameCapitalize}
   extends TypeModuleResource<
-    ${options.config ? 'typeof config' : 'any'},
-    ${options.errors ? 'typeof Errors' : 'any'},
-    ${options.locales ? '(typeof locales)[TypeLocaleBase]' : 'any'},
-    ${options.constants ? 'typeof constants' : 'any'},
-    ${options.services ? 'typeof services' : 'any'},
+    ${options.config ? 'typeof config' : 'never'},
+    ${options.errors ? 'typeof Errors' : 'never'},
+    ${options.locales ? '(typeof locales)[TypeLocaleBase]' : 'never'},
+    ${options.constants ? 'typeof constants' : 'never'},
+    ${options.services ? 'typeof services' : 'never'},
   > {}
 
 import 'zova';
