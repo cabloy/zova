@@ -9,7 +9,7 @@ export interface IModuleLocaleText {
 }
 
 export type TypeModuleLocales<T> = {
-  [prop in string & keyof T]: IModuleLocale;
+  [prop in keyof T]: IModuleLocale;
 };
 
 export type TypeLocaleBase = 'en-us';
