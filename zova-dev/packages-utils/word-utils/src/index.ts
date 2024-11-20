@@ -92,3 +92,36 @@ export function combineWordsDeduplicate(str1: string, str2: string) {
   const leftWord = str1.substring(0, str1.length - lastWord.length);
   return leftWord + str2;
 }
+
+export function replaceTemplate(content: string | undefined, scope: object | undefined): string | undefined {
+  if (!content) return;
+  return content.toString().replace(/(\\)?{{ *([\w\.]+) *}}/g, (block, skip, key) => {
+    if (skip) {
+      return block.substring(skip.length);
+    }
+    const value = getProperty(scope, key);
+    return value !== undefined ? value : '';
+  });
+}
+
+function getProperty(obj, name, sep?) {
+  return _getProperty(obj, name, sep, false);
+}
+
+function _getProperty(obj, name, sep, forceObject) {
+  if (!obj) return undefined;
+  const names = name.split(sep || '.');
+  // loop
+  for (const name of names) {
+    if (obj[name] === undefined || obj[name] === null) {
+      if (forceObject) {
+        obj[name] = {};
+      } else {
+        obj = obj[name];
+        break;
+      }
+    }
+    obj = obj[name];
+  }
+  return obj;
+}

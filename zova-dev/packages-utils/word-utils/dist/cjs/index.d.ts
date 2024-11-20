@@ -6,4 +6,5 @@ export declare function skipPrefix(str?: string, prefix?: string, toLowerCase?: 
 export declare function skipLastWord(str?: string, lastWord?: string, toLowerCase?: boolean): string | undefined;
 export declare function splitWords(str?: string, toLowerCase?: boolean, separator?: string): string | undefined;
 export declare function combineWordsDeduplicate(str1: string, str2: string): string;
+export declare function replaceTemplate(content: string | undefined, scope: object | undefined): string | undefined;
 //# sourceMappingURL=index.d.ts.map

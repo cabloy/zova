@@ -9,6 +9,7 @@ exports.skipPrefix = skipPrefix;
 exports.skipLastWord = skipLastWord;
 exports.splitWords = splitWords;
 exports.combineWordsDeduplicate = combineWordsDeduplicate;
+exports.replaceTemplate = replaceTemplate;
 function _parseLastWord(str) {
     if (!str)
         return str;
@@ -109,4 +110,34 @@ function combineWordsDeduplicate(str1, str2) {
         return str1 + str2;
     const leftWord = str1.substring(0, str1.length - lastWord.length);
     return leftWord + str2;
+}
+function replaceTemplate(content, scope) {
+    if (!content)
+        return;
+    return content.toString().replace(/(\\)?{{ *([\w\.]+) *}}/g, (block, skip, key) => {
+        if (skip) {
+            return block.substring(skip.length);
+        }
+        const value = getProperty(scope, key);
+        return value !== undefined ? value : '';
+    });
+}
+function getProperty(obj, name, sep) {
+    return _getProperty(obj, name);
+}
+function _getProperty(obj, name, sep, forceObject) {
+    if (!obj)
+        return undefined;
+    const names = name.split('.');
+    // loop
+    for (const name of names) {
+        if (obj[name] === undefined || obj[name] === null) {
+            {
+                obj = obj[name];
+                break;
+            }
+        }
+        obj = obj[name];
+    }
+    return obj;
 }
