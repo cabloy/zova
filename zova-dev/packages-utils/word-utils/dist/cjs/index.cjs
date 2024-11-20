@@ -113,7 +113,9 @@ function combineWordsDeduplicate(str1, str2) {
 }
 function replaceTemplate(content, scope) {
     if (!content)
-        return;
+        return content;
+    if (!scope)
+        return content;
     return content.toString().replace(/(\\)?{{ *([\w\.]+) *}}/g, (block, skip, key) => {
         if (skip) {
             return block.substring(skip.length);
