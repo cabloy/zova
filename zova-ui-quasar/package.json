@@ -70,7 +70,7 @@
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "quasar-app-extension-zova": "^1.1.180",
-    "typescript": "^5.5.4",
+    "typescript": "5.5.4",
     "vue-tsc": "^2.0.29",
     "zova-vite": "^1.0.179"
   },

@@ -53,7 +53,7 @@
     "concurrently": "^8.2.2",
     "quasar-app-extension-zova": "^1.1.177",
     "sass": "^1.77.6",
-    "typescript": "^5.5.2",
+    "typescript": "5.5.4",
     "vite": "^5.3.1",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.0.29",
