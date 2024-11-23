@@ -86,6 +86,11 @@ export class AppLocale extends BeanSimple {
     key: string,
     ...args: any[]
   ): string {
+    const pos = key.indexOf(':');
+    if (pos > -1) {
+      moduleScope = key.substring(0, pos);
+      key = key.substring(pos + 1);
+    }
     return localeutil.getLocaleText(
       moduleScope ? this.localeModules[moduleScope] : undefined,
       this.locales,
