@@ -1,6 +1,6 @@
 {
   "name": "zova-ui-antdv",
-  "version": "5.0.333",
+  "version": "5.0.351",
   "description": "A vue3 antdv framework with ioc",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,11 @@
     "tsc": "vue-tsc --noEmit --project tsconfig.vue-tsc.json",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
-  "keywords": ["vue3", "ioc", "zova"],
+  "keywords": [
+    "vue3",
+    "ioc",
+    "zova"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cabloy/zova.git"
@@ -42,7 +46,7 @@
     "vue": "^3.5.10",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "^5.0.217"
+    "zova": "^5.0.234"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.19",
@@ -50,13 +54,13 @@
     "@types/node": "^20.16.10",
     "@vitejs/plugin-vue": "^5.1.4",
     "concurrently": "^8.2.2",
-    "quasar-app-extension-zova": "^1.1.177",
+    "quasar-app-extension-zova": "^1.1.181",
     "sass": "^1.79.4",
     "typescript": "5.6.2",
     "vite": "^5.4.8",
     "vue-tsc": "^2.1.6",
-    "zova-vite": "^1.0.176"
+    "zova-vite": "^1.0.179"
   },
   "license": "MIT",
-  "gitHead": "7bc4154c42126f847720d6c19422e55d1236b7e6"
+  "gitHead": "3593cf2fb2b10715a74062ac226fafdeced889eb"
 }
