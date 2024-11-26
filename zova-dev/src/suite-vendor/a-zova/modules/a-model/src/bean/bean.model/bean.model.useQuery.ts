@@ -10,7 +10,7 @@ import {
   hashKey,
 } from '@tanstack/vue-query';
 import { UnwrapNestedRefs } from 'vue';
-import { useCustomRef } from 'zova';
+import { deepExtend, useCustomRef } from 'zova';
 import { DefinedInitialQueryOptions, UndefinedInitialQueryOptions } from '../../common/types.js';
 import { BeanModelQuery } from './bean.model.query.js';
 import { resolveStaleTime } from '../../types.js';
@@ -73,7 +73,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryLocal(options, queryClient) {
-    options = this.app.meta.util.extend(
+    options = deepExtend(
       {
         meta: {
           persister: {
@@ -135,7 +135,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryCookie(options, queryClient) {
-    options = this.app.meta.util.extend(
+    options = deepExtend(
       {
         meta: {
           persister: {
@@ -198,7 +198,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
     TQueryKey extends QueryKey = QueryKey,
   >(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>, queryClient?: QueryClient): TData;
   $useQueryMem(options, queryClient) {
-    options = this.app.meta.util.extend({}, options, {
+    options = deepExtend({}, options, {
       enabled: false,
       staleTime: Infinity,
       meta: {

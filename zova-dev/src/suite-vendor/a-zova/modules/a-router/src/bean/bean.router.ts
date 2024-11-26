@@ -1,4 +1,4 @@
-import { Bean, BeanBase, Cast, IModule, IPageNameRecord, IPagePathRecord } from 'zova';
+import { Bean, BeanBase, Cast, deepExtend, IModule, IPageNameRecord, IPagePathRecord } from 'zova';
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, Router } from 'vue-router';
 import * as ModuleInfo from '@cabloy/module-info';
 import { IModuleRoute, IModuleRouteComponent } from '../types.js';
@@ -140,7 +140,7 @@ export class BeanRouter extends BeanBase {
     // config route
     const configRoute = name ? this.app.config.routes.name[name] : this.app.config.routes.path[path!];
     if (configRoute) {
-      route = this.app.meta.util.extend({}, route, configRoute);
+      route = deepExtend({}, route, configRoute);
     }
     // name alias
     if (name && configRoute?.alias) {

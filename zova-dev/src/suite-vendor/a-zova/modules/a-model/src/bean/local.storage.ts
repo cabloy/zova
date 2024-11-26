@@ -1,4 +1,4 @@
-import { BeanBase, Local } from 'zova';
+import { BeanBase, deepExtend, Local } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
 import { dehydrate, hydrate, QueryClient, VueQueryPlugin, VueQueryPluginOptions } from '@tanstack/vue-query';
 
@@ -8,7 +8,7 @@ export class LocalStorage extends BeanBase<ScopeModule> {
     // options
     let options = this.scope.config.queryClientConfig.defaultOptions;
     if (process.env.SERVER) {
-      options = this.app.meta.util.extend({}, options, {
+      options = deepExtend({}, options, {
         queries: { gcTime: Infinity },
       });
     }
