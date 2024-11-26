@@ -1,34 +1,8 @@
 import { extend } from '@cabloy/extend';
 import { BeanSimple } from '../../bean/beanSimple.js';
-import { uuid } from '../../utils/uuid.js';
+import { uuid as _uuid } from '../../utils/uuid.js';
 
 export class AppUtil extends BeanSimple {
-  uuid(): string {
-    return uuid();
-  }
-
-  isUuid(str: string): boolean {
-    if (!str) return false;
-    const length = str.length;
-    return length === 36 || length === 32;
-  }
-
-  isNullOrEmptyString(str?: string | undefined | null): boolean {
-    return str === undefined || str === null || str === '';
-  }
-
-  async sleep(ms: number) {
-    return new Promise(reslove => {
-      window.setTimeout(() => {
-        reslove(null);
-      }, ms);
-    });
-  }
-
-  extend(...args) {
-    return extend(true, ...args);
-  }
-
   getApiBaseURL() {
     let baseURL;
     if (process.env.SERVER) {
@@ -39,4 +13,30 @@ export class AppUtil extends BeanSimple {
     baseURL = `${baseURL}${this.app.config.api.prefix || ''}`;
     return baseURL;
   }
+}
+
+export function uuid(): string {
+  return _uuid();
+}
+
+export function isUuid(str: string): boolean {
+  if (!str) return false;
+  const length = str.length;
+  return length === 36 || length === 32;
+}
+
+export function isNilOrEmptyString(str?: string | undefined | null): str is null | undefined | '' {
+  return str === undefined || str === null || str === '';
+}
+
+export async function sleep(ms: number) {
+  return new Promise(reslove => {
+    window.setTimeout(() => {
+      reslove(null);
+    }, ms);
+  });
+}
+
+export function deepExtend<T = any>(...args): T {
+  return extend(true, ...args);
 }
