@@ -7,6 +7,7 @@ import { ZovaConstant, constantDefault } from './constant.js';
 import { Cast } from '../../types/utils/cast.js';
 import { ZovaContext } from '../context/context.js';
 import { TypeModuleResourceConfig } from '../../types/interface/module.js';
+import { deepExtend } from './util.js';
 
 export class ZovaApplication {
   private _reloadDelayTimer: number = 0;
@@ -56,9 +57,9 @@ export class ZovaApplication {
   }
 
   private async _combineConfig(config: TypeModuleResourceConfig[]): Promise<ZovaConfig> {
-    const _config = this.meta.util.extend({}, configDefault());
+    const _config = deepExtend({}, configDefault());
     for (const configFn of config) {
-      this.meta.util.extend(_config, await configFn(this, _config.meta));
+      deepExtend(_config, await configFn(this, _config.meta));
     }
     return _config;
   }

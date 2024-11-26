@@ -5,6 +5,7 @@ import { shallowReactive } from 'vue';
 import { IModuleResource, PluginZovaModulesMeta, SymbolInstalled, TypeMonkeyName } from '../../types/index.js';
 import { StateLock } from '../../utils/stateLock.js';
 import { TypeBeanScopeRecordKeys } from '../../bean/type.js';
+import { deepExtend } from '../app/util.js';
 
 export class AppModule extends BeanSimple {
   private modulesMeta: PluginZovaModulesMeta;
@@ -183,7 +184,7 @@ export class AppModule extends BeanSimple {
   private _registerConstants(module: IModule) {
     if (!module.resource.constants) return;
     const relativeName = module.info.relativeName;
-    this.app.constant.modules[relativeName] = this.app.meta.util.extend(
+    this.app.constant.modules[relativeName] = deepExtend(
       {},
       module.resource.constants,
       this.app.constant.modules[relativeName],
@@ -198,11 +199,7 @@ export class AppModule extends BeanSimple {
     await this._monkeyModule('configLoaded', module, config);
     // extend
     const relativeName = module.info.relativeName;
-    this.app.config.modules[relativeName] = this.app.meta.util.extend(
-      {},
-      config,
-      this.app.config.modules[relativeName],
-    );
+    this.app.config.modules[relativeName] = deepExtend({}, config, this.app.config.modules[relativeName]);
   }
 
   /** @internal */

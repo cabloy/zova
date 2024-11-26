@@ -1,5 +1,5 @@
 import { isClass } from '../utils/isClass.js';
-import { AppUtil, ZovaApplication, ZovaContext } from '../core/index.js';
+import { isNilOrEmptyString, isUuid, ZovaApplication, ZovaContext } from '../core/index.js';
 import {
   Constructable,
   Functionable,
@@ -27,7 +27,6 @@ export interface BeanContainer extends IBeanRecord {}
 export class BeanContainer {
   private app: ZovaApplication;
   private ctx: ZovaContext;
-  private appUtil: AppUtil;
 
   // fullName / uuid / propName
   private [BeanContainerInstances]: Record<MetadataKey, unknown> = shallowReactive({});
@@ -47,7 +46,6 @@ export class BeanContainer {
   protected constructor(app: ZovaApplication, ctx: ZovaContext | null) {
     this.app = app;
     this.ctx = ctx as any;
-    this.appUtil = new AppUtil();
   }
 
   /** @internal */
@@ -214,7 +212,7 @@ export class BeanContainer {
     }
     // same as _getBean if selector is undefined/null/'', as as to get the same bean instance
     //   not use !selector which maybe is 0
-    const isSelectorValid = !this.app.meta.util.isNullOrEmptyString(selector);
+    const isSelectorValid = !isNilOrEmptyString(selector);
     const key = !isSelectorValid ? fullName : `${fullName}#${selector}`;
     return this[BeanContainerInstances][key] as T;
   }
@@ -235,7 +233,7 @@ export class BeanContainer {
     }
     // same as _getBean if selector is undefined/null/'', as as to get the same bean instance
     //   not use !selector which maybe is 0
-    const isSelectorValid = !this.app.meta.util.isNullOrEmptyString(selector);
+    const isSelectorValid = !isNilOrEmptyString(selector);
     const key = !isSelectorValid ? fullName : `${fullName}#${selector}`;
     if (this[BeanContainerInstances][key] === undefined && newBeanForce) {
       if (isSelectorValid) {
@@ -383,7 +381,7 @@ export class BeanContainer {
       return appResource.getBean(beanFullName);
     }
     // check if uuid
-    if (!this.appUtil.isUuid(beanFullName)) {
+    if (!isUuid(beanFullName)) {
       // module: name
       const moduleName = beanFullName.split('.')[0];
       // module: load
