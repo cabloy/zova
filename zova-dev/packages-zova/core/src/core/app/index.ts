@@ -4,3 +4,4 @@ export * from './constant.js';
 export * from './locale.js';
 export * from './meta.js';
 export * from './util.js';
+export * from './utilsShared.js';
