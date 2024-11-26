@@ -1,4 +1,4 @@
-import { BeanControllerPageBase, Local, Use, zz } from 'zova';
+import { BeanControllerPageBase, Local, Use, uuid, zz } from 'zova';
 import { ScopeModule } from '../../.metadata/this.js';
 import { ModelTodo } from '../../bean/model.todo.js';
 import { ServiceTodoEntity, ServiceTodoGetParams } from '../../service/todo.js';
@@ -27,7 +27,7 @@ export class ControllerPageTodo extends BeanControllerPageBase<ScopeModule, Quer
 
   async addTodo() {
     const todo = {
-      id: this.app.meta.util.uuid(),
+      id: uuid(),
       title: this.newTitle,
       done: false,
     };
