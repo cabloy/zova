@@ -1,17 +1,17 @@
 import parseArgs from 'minimist';
 import path from 'node:path';
-import { ZovaConfigMeta } from 'zova-shared';
+import { ZovaConfigMeta, ZovaMetaAppMode, ZovaMetaFlavor } from 'zova-shared';
 import { createRequire } from 'node:module';
 import moduleAlias from 'module-alias';
 import fse from 'fs-extra';
 import compileTemplate from 'lodash/template.js';
 
-export function getFlavor(offset: number = 2): string {
-  return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset);
+export function getFlavor(offset: number = 2): ZovaMetaFlavor {
+  return getEnvFromCli('FLAVOR', 'flavor', 'admin', offset) as ZovaMetaFlavor;
 }
 
-export function getAppMode(offset: number = 2): string {
-  return getEnvFromCli('APPMODE', 'appMode', 'ssr', offset);
+export function getAppMode(offset: number = 2): ZovaMetaAppMode {
+  return getEnvFromCli('APPMODE', 'appMode', 'ssr', offset) as ZovaMetaAppMode;
 }
 
 export function getEnvMeta(configMeta: ZovaConfigMeta) {

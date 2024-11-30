@@ -1,11 +1,11 @@
 import { generateZovaViteMeta } from 'zova-vite';
-import { ZovaConfigMeta } from 'zova-shared';
+import { ZovaConfigMeta, ZovaMetaFlavor } from 'zova-shared';
 import { mergeConfig } from 'vite';
 import { ConfigContext } from './types.js';
 import { QuasarConf } from '@quasar/app-vite/types/configuration/conf.js';
 import { IndexAPI } from '@quasar/app-vite';
 
-export function extendQuasarConf(context: ConfigContext, flavor: string) {
+export function extendQuasarConf(context: ConfigContext, flavor: ZovaMetaFlavor) {
   return async function extendQuasarConf(conf: QuasarConf, api: IndexAPI) {
     const appPaths = api.ctx.appPaths;
     const mode = api.ctx.prod ? 'production' : 'development';
