@@ -1,3 +1,5 @@
+import { ZovaMetaAppMode, ZovaMetaFlavor, ZovaMetaMode } from 'zova-shared';
+
 export interface ZovaConfigEnv {
   appRouterMode: 'hash' | 'history' | 'abstract' | undefined;
   appRouterBase: string | undefined;
@@ -15,10 +17,10 @@ export interface ZovaConfigEnv {
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NODE_ENV: 'development' | 'production';
-      META_FLAVOR: 'front' | 'admin' | string;
-      META_MODE: 'development' | 'production';
-      META_APP_MODE: 'spa' | 'ssr' | 'pwa' | 'cordova' | 'capacitor' | 'electron' | 'bex' | string | undefined;
+      NODE_ENV: ZovaMetaMode;
+      META_FLAVOR: ZovaMetaFlavor;
+      META_MODE: ZovaMetaMode;
+      META_APP_MODE: ZovaMetaAppMode;
       APP_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;
       APP_ROUTER_BASE: string | undefined;
       APP_PUBLIC_PATH: string | undefined;
