@@ -1,6 +1,6 @@
 {
   "name": "zova-cli",
-  "version": "1.1.208",
+  "version": "1.1.209",
   "description": "zova cli",
   "publishConfig": {
     "access": "public"
@@ -38,7 +38,7 @@
   "license": "MIT",
   "dependencies": {
     "@cabloy/cli": "^2.0.2",
-    "zova-cli-set-front": "^1.1.195"
+    "zova-cli-set-front": "^1.1.196"
   },
   "gitHead": "2dd37648ad2844e3d54367801e3bc1841ab0d93f"
 }
