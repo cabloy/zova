@@ -79,7 +79,7 @@ export class CliCreatePageBase extends BeanCliBase {
 
   async loadEnvs() {
     const configMeta: ZovaConfigMeta = {
-      flavor: 'app',
+      flavor: 'admin',
       mode: 'development',
       appMode: 'spa',
     };
