@@ -8,7 +8,7 @@ import {
 import { MetadataKey, appMetadata } from './metadata.js';
 import { IBeanRecord } from '../bean/type.js';
 import { BeanSimple } from '../bean/beanSimple.js';
-import { parseLastWord, skipLastWord, skipPrefix, splitWords } from '@cabloy/word-utils';
+import { parseLastWord, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar } from '@cabloy/word-utils';
 import { uuid } from '../utils/uuid.js';
 
 export const DecoratorBeanFullName = Symbol.for('Decorator#BeanFullName');
@@ -119,7 +119,7 @@ export class AppResource extends BeanSimple {
     // bean class name
     let beanClassName = this._fixClassName(beanClass.name);
     // skip prefix: Bean
-    if (beanClassName.toLowerCase().startsWith('bean')) {
+    if (toLowerCaseFirstChar(beanClassName).startsWith('bean')) {
       beanClassName = beanClassName.substring('bean'.length);
     } else {
       beanClassName = beanClassName;
