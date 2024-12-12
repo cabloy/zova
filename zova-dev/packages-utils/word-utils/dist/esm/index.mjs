@@ -99,6 +99,11 @@ function combineWordsDeduplicate(str1, str2) {
     const leftWord = str1.substring(0, str1.length - lastWord.length);
     return leftWord + str2;
 }
+function stringToCapitalize(str, separator) {
+    if (typeof str === 'string')
+        str = str.split(separator ?? ',');
+    return str.map(name => toUpperCaseFirstChar(name)).join('');
+}
 function replaceTemplate(content, scope) {
     if (!content)
         return content;
@@ -132,4 +137,4 @@ function _getProperty(obj, name, sep, forceObject) {
     return obj;
 }
 
-export { combineWordsDeduplicate, parseFirstWord, parseLastWord, replaceTemplate, skipLastWord, skipPrefix, splitWords, toLowerCaseFirstChar, toUpperCaseFirstChar };
+export { combineWordsDeduplicate, parseFirstWord, parseLastWord, replaceTemplate, skipLastWord, skipPrefix, splitWords, stringToCapitalize, toLowerCaseFirstChar, toUpperCaseFirstChar };

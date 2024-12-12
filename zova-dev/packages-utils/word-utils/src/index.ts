@@ -93,6 +93,11 @@ export function combineWordsDeduplicate(str1: string, str2: string) {
   return leftWord + str2;
 }
 
+export function stringToCapitalize(str: string[] | string, separator?: string): string {
+  if (typeof str === 'string') str = str.split(separator ?? ',');
+  return str.map(name => toUpperCaseFirstChar(name)).join('');
+}
+
 export function replaceTemplate(content: string | undefined, scope?: object | undefined): string | undefined {
   if (!content) return content;
   if (!scope) return content;

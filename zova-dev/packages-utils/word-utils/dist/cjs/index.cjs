@@ -9,6 +9,7 @@ exports.skipPrefix = skipPrefix;
 exports.skipLastWord = skipLastWord;
 exports.splitWords = splitWords;
 exports.combineWordsDeduplicate = combineWordsDeduplicate;
+exports.stringToCapitalize = stringToCapitalize;
 exports.replaceTemplate = replaceTemplate;
 function _parseLastWord(str) {
     if (!str)
@@ -110,6 +111,11 @@ function combineWordsDeduplicate(str1, str2) {
         return str1 + str2;
     const leftWord = str1.substring(0, str1.length - lastWord.length);
     return leftWord + str2;
+}
+function stringToCapitalize(str, separator) {
+    if (typeof str === 'string')
+        str = str.split(separator ?? ',');
+    return str.map(name => toUpperCaseFirstChar(name)).join('');
 }
 function replaceTemplate(content, scope) {
     if (!content)
