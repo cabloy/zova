@@ -33,17 +33,9 @@ export class BeanBase<TScopeModule = unknown> extends BeanBaseSimple {
   }
 
   protected $useMeta(options: SSRMetaOptions | (() => SSRMetaOptions)) {
-    this.ctx.meta.util.instanceScope(() => {
+    this.ctx.util.instanceScope(() => {
       useMeta(this.ctx, options);
     });
-  }
-
-  protected get $appUtil() {
-    return this.app.meta.util;
-  }
-
-  protected get $ctxUtil() {
-    return this.ctx.meta.util;
   }
 
   // need not

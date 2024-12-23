@@ -1,12 +1,10 @@
 import { RendererNode } from 'vue';
 import { BeanSimple } from '../../bean/beanSimple.js';
 import { CtxState } from './state.js';
-import { CtxUtil } from './util.js';
 import { CtxComponent } from './component.js';
 import { CtxSSR } from './ssr.js';
 
 export class CtxMeta extends BeanSimple {
-  util: CtxUtil;
   state: CtxState;
   component: CtxComponent;
   ssr: CtxSSR;
@@ -17,7 +15,6 @@ export class CtxMeta extends BeanSimple {
 
   /** @internal */
   public initialize() {
-    this.util = this.bean._newBeanSimple(CtxUtil, false);
     this.state = this.bean._newBeanSimple(CtxState, true);
     this.component = this.bean._newBeanSimple(CtxComponent, false);
     if (!this.app) {

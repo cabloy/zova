@@ -8,13 +8,11 @@ import { AppEvent } from '../component/event.js';
 import { AppComponent } from '../component/component.js';
 import { AppLocale } from '../component/locale.js';
 import { AppModule } from '../component/module.js';
-import { AppUtil } from './util.js';
 import { AppCookie } from '../component/cookie.js';
 import { RouteRecordRaw } from 'vue-router';
 
 export class AppMeta extends BeanSimple {
   module: AppModule;
-  util: AppUtil;
   component: AppComponent;
   locale: AppLocale;
   error: AppError;
@@ -30,7 +28,6 @@ export class AppMeta extends BeanSimple {
 
   protected __init__() {
     this.module = this.app.bean._newBeanSimple(AppModule, false);
-    this.util = this.app.bean._newBeanSimple(AppUtil, false);
     this.component = this.app.bean._newBeanSimple(AppComponent, false);
     this.locale = this.app.bean._newBeanSimple(AppLocale, false);
     this.error = this.app.bean._newBeanSimple(AppError, false);

@@ -20,8 +20,6 @@
 | $event   | 全局事件对象                                |
 | $ssr     | SSR对象                                     |
 | $useMeta | 用于SEO的Meta data                          |
-| $appUtil | = app.meta.util                             |
-| $ctxUtil | = ctx.meta.util                             |
 
 ## 页面组件
 

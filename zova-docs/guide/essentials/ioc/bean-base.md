@@ -20,8 +20,6 @@ The reason is to prioritize the use of the `dependency lookup` strategy, resulti
 | $event   | Global event object                                                             |
 | $ssr     | SSR object                                                                      |
 | $useMeta | Meta data for SEO                                                               |
-| $appUtil | = app.meta.util                                                                 |
-| $ctxUtil | = ctx.meta.util                                                                 |
 
 ## Page Component
 
