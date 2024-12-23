@@ -21,7 +21,7 @@ export class BeanModelUseMutation<TScopeModule = unknown> extends BeanModelUseQu
     mutationOptions: MaybeRefDeep<MutationObserverOptions<TData, DefaultError, TVariables, TContext>>,
     queryClient?: QueryClient,
   ): UnwrapNestedRefs<UseMutationReturnType<TData, DefaultError, TVariables, TContext>> {
-    return this.ctx.meta.util.instanceScope(() => {
+    return this.ctx.util.instanceScope(() => {
       return useMutation(mutationOptions, queryClient) as any;
     });
   }

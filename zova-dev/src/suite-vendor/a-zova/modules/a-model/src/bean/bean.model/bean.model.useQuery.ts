@@ -49,7 +49,7 @@ export class BeanModelUseQuery<TScopeModule = unknown> extends BeanModelQuery<TS
         return resolveStaleTime(staleTime, query);
       };
     }
-    return this.ctx.meta.util.instanceScope(() => {
+    return this.ctx.util.instanceScope(() => {
       return useQuery(options, queryClient);
     });
   }

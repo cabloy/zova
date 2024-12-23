@@ -126,7 +126,7 @@ async function _useController(
     // must touch inited on server/client, force router.use effect
     ctx.meta.state.inited.touch();
     if (process.env.CLIENT) {
-      ctx.meta.util.instanceScope(() => {
+      ctx.util.instanceScope(() => {
         queuePostFlushCb(() => {
           ctx.meta.state.mounted.touch();
           setControllerRef(ctx, true);

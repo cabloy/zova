@@ -7,6 +7,6 @@ export async function onControllerMounted(fn) {
   }
   await ctx.meta.state.mounted.wait();
   if (fn) {
-    return await ctx.meta.util.instanceScope(fn);
+    return await ctx.util.instanceScope(fn);
   }
 }

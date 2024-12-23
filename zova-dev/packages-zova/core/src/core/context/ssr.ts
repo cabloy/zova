@@ -88,7 +88,7 @@ export class CtxSSR extends BeanSimple {
   get context() {
     if (process.env.CLIENT) throw new Error('cannot called in client');
     if (!this[SymbolSSRContext]) {
-      this.ctx.meta.util.instanceScope(() => {
+      this.ctx.util.instanceScope(() => {
         this[SymbolSSRContext] = useSSRContext()!;
         this._initContext();
       });
