@@ -173,7 +173,7 @@ export class ModelTodo {
 ```typescript
 async addTodo() {
   const todo = {
-    id: this.app.meta.util.uuid(),
+    id: this.app.util.uuid(),
     title: this.newTitle,
     done: false,
   };

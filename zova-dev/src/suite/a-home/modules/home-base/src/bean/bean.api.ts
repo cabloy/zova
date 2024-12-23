@@ -15,7 +15,7 @@ export class BeanApi extends BeanBase {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = this.app.meta.util.getApiBaseURL();
+    const baseURL = this.app.util.getApiBaseURL();
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     this._addInterceptors(this[SymbolApi]);
   }

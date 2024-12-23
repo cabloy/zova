@@ -30,7 +30,7 @@ export class BeanApi {
   private [SymbolApi]: AxiosInstance;
 
   protected async __init__() {
-    const baseURL = this.app.meta.util.getApiBaseURL();
+    const baseURL = this.app.util.getApiBaseURL();
     this[SymbolApi] = markRaw(axios.create({ baseURL }));
     // your custom logic maybe here
   }
