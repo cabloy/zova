@@ -41,7 +41,7 @@
     "@cabloy/vue-router": "^4.4.8",
     "@cabloy/vue-runtime-core": "^3.5.11",
     "@faker-js/faker": "^8.4.1",
-    "@types/node": "^20.12.12",
+    "@types/node": "^22.10.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "babel-plugin-zova-bean-module": "^1.0.32",

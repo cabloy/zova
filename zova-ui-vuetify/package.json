@@ -67,7 +67,7 @@
   "devDependencies": {
     "@cabloy/lint": "^4.0.19",
     "@quasar/app-vite": "2.0.0-beta.18",
-    "@types/node": "^20.14.9",
+    "@types/node": "^22.10.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "concurrently": "^8.2.2",
     "quasar-app-extension-zova": "^1.1.184",
