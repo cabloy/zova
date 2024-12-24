@@ -1,6 +1,6 @@
 import { Bean, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { ThemeBase, IThemeHandler } from '../types.js';
+import { IThemeBase, IThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
 import { watch } from 'vue';
 
@@ -102,7 +102,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     }
   }
 
-  async _loadThemeBean(name: string): Promise<ThemeBase | undefined> {
+  async _loadThemeBean(name: string): Promise<IThemeBase | undefined> {
     const moduleName = name.split('.')[0];
     if (!this.app.meta.module.exists(moduleName)) return;
     return await this.bean._getBean(name as any, true);

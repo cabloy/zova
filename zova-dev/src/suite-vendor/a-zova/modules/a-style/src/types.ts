@@ -18,7 +18,7 @@ export interface ThemeApplyResult {
   handler?: keyof IBeanRecord;
 }
 
-export interface ThemeBase {
+export interface IThemeBase {
   apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult>;
 }
 
