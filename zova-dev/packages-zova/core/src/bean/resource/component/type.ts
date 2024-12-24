@@ -7,4 +7,4 @@ export type IComponentRecordSelector<PREFIX extends string> = {
 };
 export type TypeComponentRecordSelectorKeys<PREFIX extends string> = keyof IComponentRecordSelector<PREFIX>;
 
-export interface IComponentLayoutRecord {}
+export type IComponentLayoutRecord = IComponentRecordSelector<'layout'>;
