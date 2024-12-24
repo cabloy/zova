@@ -22,7 +22,7 @@ declare module 'zova' {
 
 import 'zova-module-a-style';
 declare module 'zova-module-a-style' {
-  export interface ThemeApplyResult {
+  export interface IThemeApplyResult {
     token: ThemeToken;
   }
 

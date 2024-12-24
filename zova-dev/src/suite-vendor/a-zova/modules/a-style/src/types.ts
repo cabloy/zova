@@ -14,12 +14,12 @@ export interface ThemeApplyParams {
   dark: boolean;
 }
 
-export interface ThemeApplyResult {
+export interface IThemeApplyResult {
   handler?: keyof IBeanRecord;
 }
 
 export interface IThemeBase {
-  apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult>;
+  apply({ name, dark }: ThemeApplyParams): Promise<IThemeApplyResult>;
 }
 
 export interface IThemeHandler {

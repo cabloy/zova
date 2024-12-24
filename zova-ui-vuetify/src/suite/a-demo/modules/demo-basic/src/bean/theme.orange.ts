@@ -1,6 +1,6 @@
 import { BeanBase, Theme } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { ThemeApplyParams, ThemeApplyResult, ThemeBase } from 'zova-module-a-style';
+import { ThemeApplyParams, IThemeApplyResult, IThemeBase } from 'zova-module-a-style';
 import { ThemeToken } from 'zova-module-home-base';
 
 const themeLight = {
@@ -80,8 +80,8 @@ const themeDark = {
 };
 
 @Theme()
-export class ThemeOrange extends BeanBase<ScopeModule> implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams): Promise<ThemeApplyResult> {
+export class ThemeOrange extends BeanBase<ScopeModule> implements IThemeBase {
+  async apply({ name: _name, dark }: ThemeApplyParams): Promise<IThemeApplyResult> {
     // token
     const token: ThemeToken = dark ? themeDark : themeLight;
     return { token };
