@@ -1,5 +1,5 @@
 // @ts-ignore ignore
-import { IComponentLayoutRecord, IPageNameRecord, IPagePathRecord, TypePageSchemas } from 'zova';
+import { TypeComponentLayoutRecord, IPageNameRecord, IPagePathRecord, TypePageSchemas } from 'zova';
 import { RouteComponent, RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
 import { BeanRouter } from './bean/bean.router.js';
 
@@ -11,7 +11,7 @@ import 'vue-router';
 declare module 'vue-router' {
   interface RouteMeta {
     absolute?: boolean;
-    layout?: keyof IComponentLayoutRecord | 'empty' | 'default' | false | IModuleRouteComponent;
+    layout?: keyof TypeComponentLayoutRecord | 'empty' | 'default' | false | IModuleRouteComponent;
     requiresAuth?: boolean;
     name?: string;
     componentKey?: ((route: RouteLocationNormalizedLoaded) => string) | string;

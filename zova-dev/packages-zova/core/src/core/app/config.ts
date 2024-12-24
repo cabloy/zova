@@ -4,7 +4,7 @@ import {
   IBeanScopeConfig,
   ILocalInfos,
   PowerPartial,
-  IComponentLayoutRecord,
+  TypeComponentLayoutRecord,
   IBeanScopeRecord,
   ZovaConfigRoutes,
 } from '../../index.js';
@@ -97,8 +97,8 @@ export type ZovaConfig = {
   };
   layout: {
     component: {
-      default: keyof IComponentLayoutRecord;
-      empty: keyof IComponentLayoutRecord;
+      default: keyof TypeComponentLayoutRecord;
+      empty: keyof TypeComponentLayoutRecord;
     };
     sidebar: {
       leftOpenPC: boolean;

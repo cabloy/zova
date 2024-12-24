@@ -2,10 +2,10 @@
 export interface IBeanRecord {}
 export type TypeBeanRecordKeys = keyof IBeanRecord;
 
-export type IBeanRecordSelector<SCENE extends string> = {
+export type TypeBeanRecordSelector<SCENE extends string> = {
   [K in keyof IBeanRecord as K extends `${string}.${SCENE}.${string}` ? K : never]: IBeanRecord[K];
 };
-export type TypeBeanRecordSelectorKeys<SCENE extends string> = keyof IBeanRecordSelector<SCENE>;
+export type TypeBeanRecordSelectorKeys<SCENE extends string> = keyof TypeBeanRecordSelector<SCENE>;
 
 export interface IBeanScopeRecord {}
 export type TypeBeanScopeRecordKeys = keyof IBeanScopeRecord;
