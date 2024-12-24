@@ -1,5 +1,6 @@
 import daisyui from 'daisyui';
 import typography from '@tailwindcss/typography';
+import { light, dark } from 'daisyui/src/theming/themes';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,14 +15,14 @@ export default {
       'dark',
       {
         'orange-light': {
-          ...require('daisyui/src/theming/themes')['light'],
+          ...light,
           primary: '#f28238',
           'base-100': '#ffffff',
         },
       },
       {
         'orange-dark': {
-          ...require('daisyui/src/theming/themes')['dark'],
+          ...dark,
           primary: '#f28238',
           'base-100': '#121212',
         },

@@ -44,7 +44,9 @@
     "vue": "^3.5.13",
     "vue-router": "^4.4.5",
     "zod": "^3.23.8",
-    "zova": "workspace:^"
+    "zova": "workspace:^",
+    "@hey-api/client-fetch": "^0.5.7",
+    "@hey-api/openapi-ts": "^0.60.1"
   },
   "devDependencies": {
     "@cabloy/lint": "^4.0.19",
