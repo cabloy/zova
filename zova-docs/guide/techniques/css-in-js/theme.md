@@ -41,8 +41,8 @@ The following is the default theme bean used by Zova when developing/tests:
 
 ```typescript
 @Theme()
-export class ThemeDefault implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams) {
+export class ThemeDefault implements IThemeBase {
+  async apply({ name: _name, dark }: IThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#1976d2',
@@ -62,7 +62,7 @@ export class ThemeDefault implements ThemeBase {
 }
 ```
 
-- Theme Bean implements the `ThemeBase` interface
+- Theme Bean implements the `IThemeBase` interface
 - Just provide the `apply` method. When switching themes, the `apply` method will be automatically invoked
 
 ## Custom theme
@@ -81,8 +81,8 @@ Enter the name of theme bean according to the prompt, such as `orange`. The VSCo
 
 ```typescript
 @Theme()
-export class ThemeOrange implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams) {
+export class ThemeOrange implements IThemeBase {
+  async apply({ name: _name, dark }: IThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#f28238',

@@ -41,8 +41,8 @@ Zova 在 BeanBase 基类中注入了`$theme`对象，从而可以在任何 bean 
 
 ```typescript
 @Theme()
-export class ThemeDefault implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams) {
+export class ThemeDefault implements IThemeBase {
+  async apply({ name: _name, dark }: IThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#1976d2',
@@ -62,7 +62,7 @@ export class ThemeDefault implements ThemeBase {
 }
 ```
 
-- 主题 Bean 实现了 ThemeBase 接口
+- 主题 Bean 实现了 IThemeBase 接口
 - 只需提供 apply 方法。在进行主题切换时，会自动调用 apply 方法
 
 ## 自定义主题
@@ -81,8 +81,8 @@ export class ThemeDefault implements ThemeBase {
 
 ```typescript
 @Theme()
-export class ThemeOrange implements ThemeBase {
-  async apply({ name: _name, dark }: ThemeApplyParams) {
+export class ThemeOrange implements IThemeBase {
+  async apply({ name: _name, dark }: IThemeApplyParams) {
     const token: ThemeToken = {
       color: {
         primary: '#f28238',

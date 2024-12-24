@@ -9,7 +9,7 @@ declare module 'zova' {
   }
 }
 
-export interface ThemeApplyParams {
+export interface IThemeApplyParams {
   name: string;
   dark: boolean;
 }
@@ -19,7 +19,7 @@ export interface IThemeApplyResult {
 }
 
 export interface IThemeBase {
-  apply({ name, dark }: ThemeApplyParams): Promise<IThemeApplyResult>;
+  apply({ name, dark }: IThemeApplyParams): Promise<IThemeApplyResult>;
 }
 
 export interface IThemeHandler {
