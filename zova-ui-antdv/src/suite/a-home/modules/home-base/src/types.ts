@@ -26,7 +26,7 @@ declare module 'zova-module-a-style' {
     token: ThemeToken;
   }
 
-  export interface ThemeHandlerApplyParams {
+  export interface IThemeHandlerApplyParams {
     token: ThemeToken;
   }
 }

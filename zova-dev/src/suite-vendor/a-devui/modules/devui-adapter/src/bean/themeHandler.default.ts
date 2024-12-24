@@ -1,12 +1,12 @@
 import { BeanBase, ThemeHandler } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { IThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
+import { IThemeHandler, IThemeHandlerApplyParams } from 'zova-module-a-style';
 
 const __Themes = { 'demo-basic.theme.orange': 'orange', 'home-base.theme.default': '' };
 
 @ThemeHandler()
 export class ThemeHandlerDefault extends BeanBase<ScopeModule> implements IThemeHandler {
-  async apply({ name, dark, token: _token }: ThemeHandlerApplyParams): Promise<void> {
+  async apply({ name, dark, token: _token }: IThemeHandlerApplyParams): Promise<void> {
     // themeName
     const _names: string[] = [];
     const _name = __Themes[name];

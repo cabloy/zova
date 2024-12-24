@@ -1,6 +1,6 @@
 import { BeanBase, Tool, Use } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { IThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
+import { IThemeHandler, IThemeHandlerApplyParams } from 'zova-module-a-style';
 import { ModelTheme } from './model.theme.js';
 
 @Tool()
@@ -8,7 +8,7 @@ export class ToolThemeHandler extends BeanBase<ScopeModule> implements IThemeHan
   @Use()
   $$modelTheme: ModelTheme;
 
-  async apply({ dark, token }: ThemeHandlerApplyParams): Promise<void> {
+  async apply({ dark, token }: IThemeHandlerApplyParams): Promise<void> {
     // data
     const brand = {};
     for (const key in token) {
