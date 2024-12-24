@@ -1,6 +1,6 @@
 import { Bean, Cast, IBeanRecord } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { ThemeBase, ThemeHandler } from '../types.js';
+import { ThemeBase, IThemeHandler } from '../types.js';
 import { BeanModelBase } from 'zova-module-a-model';
 import { watch } from 'vue';
 
@@ -97,7 +97,7 @@ export class BeanTheme extends BeanModelBase<ScopeModule> {
     this.token = Cast(res).token;
     const handler = res.handler ?? this.scope.config.defaultThemeHandler;
     if (handler) {
-      const themeHandler = (await this.bean._getBean(handler, true)) as unknown as ThemeHandler;
+      const themeHandler = (await this.bean._getBean(handler, true)) as unknown as IThemeHandler;
       await themeHandler.apply({ name, dark, token: this.token } as any);
     }
   }

@@ -1,9 +1,9 @@
 import { BeanBase, Cast, Tool } from 'zova';
 import { ScopeModule } from '../.metadata/this.js';
-import { ThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
+import { IThemeHandler, ThemeHandlerApplyParams } from 'zova-module-a-style';
 
 @Tool()
-export class ToolThemeHandler extends BeanBase<ScopeModule> implements ThemeHandler {
+export class ToolThemeHandler extends BeanBase<ScopeModule> implements IThemeHandler {
   async apply({ name, dark, token }: ThemeHandlerApplyParams): Promise<void> {
     // theme
     Cast(this.$vuetify.theme.global).name = name;

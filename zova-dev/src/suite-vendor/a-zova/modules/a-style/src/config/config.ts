@@ -1,10 +1,10 @@
-import { IBeanRecord, ZovaApplication } from 'zova';
+import { TypeBeanRecordSelectorKeys, ZovaApplication } from 'zova';
 
 export const config = (_app: ZovaApplication) => {
   return {
-    defaultStyle: 'home-base.style.default' as keyof IBeanRecord,
-    defaultTheme: 'home-base.theme.default' as keyof IBeanRecord,
-    defaultThemeHandler: '' as keyof IBeanRecord,
+    defaultStyle: 'home-base.style.default' as TypeBeanRecordSelectorKeys<'style'>,
+    defaultTheme: 'home-base.theme.default' as TypeBeanRecordSelectorKeys<'theme'>,
+    defaultThemeHandler: '' as TypeBeanRecordSelectorKeys<'themeHandler'>,
     model: {
       themename: {
         persister: {

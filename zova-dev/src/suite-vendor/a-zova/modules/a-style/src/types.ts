@@ -22,7 +22,7 @@ export interface ThemeBase {
   apply({ name, dark }: ThemeApplyParams): Promise<ThemeApplyResult>;
 }
 
-export interface ThemeHandler {
+export interface IThemeHandler {
   apply(result: ThemeHandlerApplyParams): Promise<void>;
 }
 
