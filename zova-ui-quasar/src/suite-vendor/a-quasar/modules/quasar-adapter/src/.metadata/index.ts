@@ -1,13 +1,13 @@
 /** beans: begin */
 export * from '../bean/model.theme.js';
-export * from '../bean/tool.themeHandler.js';
+export * from '../bean/themeHandler.default.js';
 import { ModelTheme } from '../bean/model.theme.js';
-import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
+import { ThemeHandlerDefault } from '../bean/themeHandler.default.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
     'quasar-adapter.model.theme': ModelTheme;
-    'quasar-adapter.tool.themeHandler': ToolThemeHandler;
+    'quasar-adapter.themeHandler.default': ThemeHandlerDefault;
   }
 }
 /** beans: end */
@@ -20,7 +20,7 @@ import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 @Scope()
 export class ScopeModuleQuasarAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleQuasarAdapter extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleQuasarAdapter extends TypeModuleResource<never, never, never, never, never> {}
 
 import 'zova';
 declare module 'zova' {

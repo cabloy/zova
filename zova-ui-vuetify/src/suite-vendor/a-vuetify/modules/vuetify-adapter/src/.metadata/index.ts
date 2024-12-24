@@ -1,10 +1,10 @@
 /** beans: begin */
-export * from '../bean/tool.themeHandler.js';
-import { ToolThemeHandler } from '../bean/tool.themeHandler.js';
+export * from '../bean/themeHandler.default.js';
+import { ThemeHandlerDefault } from '../bean/themeHandler.default.js';
 import 'zova';
 declare module 'zova' {
   export interface IBeanRecord {
-    'vuetify-adapter.tool.themeHandler': ToolThemeHandler;
+    'vuetify-adapter.themeHandler.default': ThemeHandlerDefault;
   }
 }
 /** beans: end */
@@ -17,7 +17,7 @@ import { BeanScopeBase, Scope, TypeModuleResource } from 'zova';
 @Scope()
 export class ScopeModuleVuetifyAdapter extends BeanScopeBase {}
 
-export interface ScopeModuleVuetifyAdapter extends TypeModuleResource<any, any, any, any, any> {}
+export interface ScopeModuleVuetifyAdapter extends TypeModuleResource<never, never, never, never, never> {}
 
 import 'zova';
 declare module 'zova' {
